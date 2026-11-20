@@ -1,0 +1,245 @@
+{
+  "ack": {
+    "ack_valid": true,
+    "args": [
+      "apply"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl apply"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407116062776797,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "delete",
+        "generation": "1795084046177041180",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {},
+        "root": {
+          "allow_channels": {},
+          "archive": "delete",
+          "policies": {},
+          "programs": {},
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084046177041180",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407115789984896,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "4cadb6eff47b2f1077b19f997d22f28f08d907bc810d8b51cb6719323764667e",
+    "utc": "2026-11-19T10:27:26.088184+00:00"
+  },
+  "after_label": "after-boot",
+  "cut": "reboot",
+  "end_utc": "2026-11-19T10:27:32.572197+00:00",
+  "g1": "1795084043450623638",
+  "g2": "1795084044944759933",
+  "g3": null,
+  "id": "R-delete-reboot",
+  "key": "R-delete-reboot",
+  "measured_args": [
+    "apply"
+  ],
+  "op": "R",
+  "owning_before": [
+    "1795084043450623638",
+    "1795084044944759933"
+  ],
+  "policy": "delete",
+  "primary": false,
+  "recovery": {
+    "ack_valid": true,
+    "args": [
+      "apply"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl apply"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407121988056582,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "delete",
+        "generation": "1795084051603621529",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {},
+        "root": {
+          "allow_channels": {},
+          "archive": "delete",
+          "policies": {},
+          "programs": {},
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084051603621529",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407121727303724,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "45d89a3c92106bddf6cb2385cbfe678ea7ff1700c83591d38d4dccf488749a05",
+    "utc": "2026-11-19T10:27:32.013506+00:00"
+  },
+  "reset": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-011.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 11,
+    "ok": true,
+    "qemu_pid": 234828,
+    "qemu_status": null,
+    "request": {
+      "action": "reset",
+      "id": "1795084038284238542"
+    },
+    "utc": "2026-11-19T10:27:18.287484+00:00"
+  },
+  "restart": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-012.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 12,
+    "ok": true,
+    "qemu_pid": 234897,
+    "qemu_status": null,
+    "request": {
+      "action": "boot",
+      "id": "1795084046815332298"
+    },
+    "utc": "2026-11-19T10:27:26.822815+00:00"
+  },
+  "start_utc": "2026-11-19T10:27:18.272134+00:00",
+  "status": "complete",
+  "stop": {
+    "boot": 11,
+    "ok": true,
+    "qemu_pid": 234828,
+    "qemu_status": 0,
+    "request": {
+      "action": "wait-stopped",
+      "id": "1795084046475954008"
+    },
+    "utc": "2026-11-19T10:27:26.477521+00:00"
+  }
+}

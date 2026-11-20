@@ -1,0 +1,172 @@
+accounts: IDENTICAL
+active_units: IDENTICAL
+collection_errors: IDENTICAL
+kernel: IDENTICAL
+modules: IDENTICAL
+packages: IDENTICAL
+pci: IDENTICAL
+process_program_set: DIFFERENT
+--- B/raw/q/repro/a.evidence/census/inventory.json:process_program_set
++++ B/raw/q/repro/b.evidence/census/inventory.json:process_program_set
+@@ -38,25 +38,26 @@
+   "[kernel] kswapd0",
+   "[kernel] kthreadd",
+   "[kernel] kthrotld",
+-  "[kernel] kworker/0:0-cgroup_free",
++  "[kernel] kworker/0:0-rcu_gp",
+   "[kernel] kworker/0:0H-kblockd",
+-  "[kernel] kworker/0:1-events",
++  "[kernel] kworker/0:1-cgroup_free",
+   "[kernel] kworker/0:1H-kblockd",
+-  "[kernel] kworker/0:2-cgroup_release",
++  "[kernel] kworker/0:2-rcu_gp",
+   "[kernel] kworker/0:2H-kblockd",
+   "[kernel] kworker/0:3-mm_percpu_wq",
+-  "[kernel] kworker/1:0-cgroup_free",
++  "[kernel] kworker/0:4-cgroup_release",
++  "[kernel] kworker/1:0-cgroup_release",
+   "[kernel] kworker/1:0H-events_highpri",
+-  "[kernel] kworker/1:1-events",
++  "[kernel] kworker/1:1-mm_percpu_wq",
+   "[kernel] kworker/1:1H-kblockd",
+   "[kernel] kworker/1:2-cgroup_free",
+-  "[kernel] kworker/1:3-events_power_efficient",
+-  "[kernel] kworker/1:4",
+-  "[kernel] kworker/u4:0-events_unbound",
+-  "[kernel] kworker/u4:1-writeback",
+-  "[kernel] kworker/u4:2-flush-254:0",
++  "[kernel] kworker/1:3-cgroup_offline",
++  "[kernel] kworker/1:4-cgroup_free",
++  "[kernel] kworker/u4:0-ext4-rsv-conversion",
++  "[kernel] kworker/u4:1-events_unbound",
++  "[kernel] kworker/u4:2-ext4-rsv-conversion",
+   "[kernel] kworker/u4:3-flush-254:0",
+-  "[kernel] kworker/u4:4-flush-254:0",
++  "[kernel] kworker/u4:4-events_unbound",
+   "[kernel] kworker/u4:5-events_unbound",
+   "[kernel] kworker/u5:0",
+   "[kernel] migration/0",
+
+processes: DIFFERENT
+--- B/raw/q/repro/a.evidence/census/inventory.json:processes
++++ B/raw/q/repro/b.evidence/census/inventory.json:processes
+@@ -336,7 +336,7 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/0:0-cgroup_free",
++    "comm": "kworker/0:0-rcu_gp",
+     "exe": null,
+     "uid": 0
+   },
+@@ -348,7 +348,7 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/0:1-events",
++    "comm": "kworker/0:1-cgroup_free",
+     "exe": null,
+     "uid": 0
+   },
+@@ -360,7 +360,7 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/0:2-cgroup_release",
++    "comm": "kworker/0:2-rcu_gp",
+     "exe": null,
+     "uid": 0
+   },
+@@ -378,7 +378,13 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/1:0-cgroup_free",
++    "comm": "kworker/0:4-cgroup_release",
++    "exe": null,
++    "uid": 0
++  },
++  {
++    "args": [],
++    "comm": "kworker/1:0-cgroup_release",
+     "exe": null,
+     "uid": 0
+   },
+@@ -390,7 +396,7 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/1:1-events",
++    "comm": "kworker/1:1-mm_percpu_wq",
+     "exe": null,
+     "uid": 0
+   },
+@@ -408,31 +414,31 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/1:3-events_power_efficient",
+-    "exe": null,
+-    "uid": 0
+-  },
+-  {
+-    "args": [],
+-    "comm": "kworker/1:4",
+-    "exe": null,
+-    "uid": 0
+-  },
+-  {
+-    "args": [],
+-    "comm": "kworker/u4:0-events_unbound",
+-    "exe": null,
+-    "uid": 0
+-  },
+-  {
+-    "args": [],
+-    "comm": "kworker/u4:1-writeback",
+-    "exe": null,
+-    "uid": 0
+-  },
+-  {
+-    "args": [],
+-    "comm": "kworker/u4:2-flush-254:0",
++    "comm": "kworker/1:3-cgroup_offline",
++    "exe": null,
++    "uid": 0
++  },
++  {
++    "args": [],
++    "comm": "kworker/1:4-cgroup_free",
++    "exe": null,
++    "uid": 0
++  },
++  {
++    "args": [],
++    "comm": "kworker/u4:0-ext4-rsv-conversion",
++    "exe": null,
++    "uid": 0
++  },
++  {
++    "args": [],
++    "comm": "kworker/u4:1-events_unbound",
++    "exe": null,
++    "uid": 0
++  },
++  {
++    "args": [],
++    "comm": "kworker/u4:2-ext4-rsv-conversion",
+     "exe": null,
+     "uid": 0
+   },
+@@ -444,7 +450,7 @@
+   },
+   {
+     "args": [],
+-    "comm": "kworker/u4:4-flush-254:0",
++    "comm": "kworker/u4:4-events_unbound",
+     "exe": null,
+     "uid": 0
+   },
+
+unit_file_states: IDENTICAL
+Raw inventories preserved in each input directory. Differences require review; no outcome assigned.

@@ -1,0 +1,432 @@
+{
+  "complete": true,
+  "control": "/var/lib/p43-control",
+  "daemon_pid": 2510,
+  "end_ns": 1795084234119510018,
+  "events": [
+    {
+      "argv": [
+        "umount",
+        "/var/lib/cal"
+      ],
+      "end_ns": 1795084232570654246,
+      "label": "reset-unmount",
+      "rc": 0,
+      "start_ns": 1795084232563271032,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "mkfs.ext4",
+        "-F",
+        "-m",
+        "0",
+        "-N",
+        "2048",
+        "-L",
+        "P43DATA",
+        "/dev/vdb"
+      ],
+      "end_ns": 1795084232581272436,
+      "label": "reset-format",
+      "rc": 0,
+      "start_ns": 1795084232570811369,
+      "stderr": "mke2fs 1.47.0 (5-Feb-2023)\n",
+      "stdout": "Discarding device blocks:      0/131072\b\b\b\b\b\b\b\b\b\b\b\b\b             \b\b\b\b\b\b\b\b\b\b\b\b\bdone                            \nCreating filesystem with 131072 1k blocks and 2048 inodes\nFilesystem UUID: df481c5f-f9a6-436a-9b25-b68c030e762b\nSuperblock backups stored on blocks: \n\t8193, 24577, 40961, 57345, 73729\n\nAllocating group tables:  0/16\b\b\b\b\b     \b\b\b\b\bdone                            \nWriting inode tables:  0/16\b\b\b\b\b     \b\b\b\b\bdone                            \nCreating journal (4096 blocks): done\nWriting superblocks and filesystem accounting information:  0/16\b\b\b\b\b     \b\b\b\b\bdone\n\n"
+    },
+    {
+      "argv": [
+        "mount",
+        "/dev/vdb",
+        "/var/lib/cal"
+      ],
+      "end_ns": 1795084232591741557,
+      "label": "reset-mount",
+      "rc": 0,
+      "start_ns": 1795084232581433416,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "apply"
+      ],
+      "end_ns": 1795084232869017413,
+      "label": "initial-apply",
+      "rc": 0,
+      "response": {
+        "effective": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795084232867491656",
+          "personal": {
+            "alice": {
+              "programs": {
+                "local-alice-cache": {
+                  "executable": "/home/alice/p43/cache",
+                  "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+                  "version": "p43-v1"
+                }
+              }
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {
+            "local-alice-cache": {
+              "executable": "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+              "owners": [
+                "alice"
+              ],
+              "scope": "user",
+              "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+              "version": "p43-v1"
+            }
+          },
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generation": "1795084232867491656",
+        "hook_stderr": "",
+        "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+        "ok": true
+      },
+      "start_ns": 1795084232643981415,
+      "stderr": "",
+      "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795084232867491656\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-cache\": {\"executable\": \"/home/alice/p43/cache\", \"sha256\": \"78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"version\": \"p43-v1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-cache\": {\"executable\": \"/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"version\": \"p43-v1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795084232867491656\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "trace_range": [
+        92571,
+        517665
+      ]
+    },
+    {
+      "argv": [
+        "runuser",
+        "-u",
+        "alice",
+        "--",
+        "/usr/local/bin/cal-login",
+        "-c",
+        "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4 create"
+      ],
+      "end_ns": 1795084232961841445,
+      "label": "create-native",
+      "rc": 0,
+      "start_ns": 1795084232949901209,
+      "stderr": "",
+      "stdout": "{\"program\":\"primary\",\"operation\":\"create\",\"pid\":2528,\"uid\":34301,\"executable\":\"/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\",\"path\":\"/var/lib/cal/active/local-alice-cache/operational.bin\",\"dev\":65040,\"ino\":15,\"nlink\":1,\"size\":1024,\"lookup\":\"70026084bd91c822\"}\n"
+    },
+    {
+      "argv": [
+        "runuser",
+        "-u",
+        "alice",
+        "--",
+        "/usr/local/bin/cal-login",
+        "-c",
+        "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4 read"
+      ],
+      "end_ns": 1795084232966989830,
+      "label": "initial-read",
+      "rc": 0,
+      "start_ns": 1795084232962642199,
+      "stderr": "",
+      "stdout": "{\"program\":\"primary\",\"operation\":\"read\",\"pid\":2530,\"uid\":34301,\"executable\":\"/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\",\"path\":\"/var/lib/cal/active/local-alice-cache/operational.bin\",\"dev\":65040,\"ino\":15,\"nlink\":1,\"size\":1024,\"lookup\":\"70026084bd91c822\"}\n"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "apply"
+      ],
+      "end_ns": 1795084233176049863,
+      "label": "prepare-remove",
+      "rc": 0,
+      "response": {
+        "effective": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795084233174207976",
+          "personal": {
+            "alice": {
+              "programs": {}
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {},
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generation": "1795084233174207976",
+        "hook_stderr": "",
+        "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+        "ok": true
+      },
+      "start_ns": 1795084232972959246,
+      "stderr": "",
+      "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795084233174207976\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795084233174207976\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "trace_range": [
+        517665,
+        887993
+      ]
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "rollback",
+        "1795084232867491656"
+      ],
+      "end_ns": 1795084233503137837,
+      "label": "prepare-rollback",
+      "rc": 0,
+      "response": {
+        "effective": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795084233501183511",
+          "personal": {
+            "alice": {
+              "programs": {
+                "local-alice-cache": {
+                  "executable": "/home/alice/p43/cache",
+                  "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+                  "version": "p43-v1"
+                }
+              }
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {
+            "local-alice-cache": {
+              "executable": "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+              "owners": [
+                "alice"
+              ],
+              "scope": "user",
+              "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+              "version": "p43-v1"
+            }
+          },
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generation": "1795084233501183511",
+        "hook_stderr": "",
+        "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+        "ok": true
+      },
+      "start_ns": 1795084233262728761,
+      "stderr": "",
+      "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795084233501183511\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-cache\": {\"executable\": \"/home/alice/p43/cache\", \"sha256\": \"78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"version\": \"p43-v1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-cache\": {\"executable\": \"/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\", \"version\": \"p43-v1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795084233501183511\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "trace_range": [
+        887993,
+        1316540
+      ]
+    },
+    {
+      "argv": [
+        "runuser",
+        "-u",
+        "alice",
+        "--",
+        "/usr/local/bin/cal-login",
+        "-c",
+        "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4 read"
+      ],
+      "end_ns": 1795084233589552853,
+      "label": "prepare-rollback-read",
+      "rc": 0,
+      "start_ns": 1795084233584430727,
+      "stderr": "",
+      "stdout": "{\"program\":\"primary\",\"operation\":\"read\",\"pid\":2561,\"uid\":34301,\"executable\":\"/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4\",\"path\":\"/var/lib/cal/active/local-alice-cache/operational.bin\",\"dev\":65040,\"ino\":15,\"nlink\":1,\"size\":1024,\"lookup\":\"70026084bd91c822\"}\n"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "apply"
+      ],
+      "end_ns": 1795084233811928824,
+      "label": "prepare-remove-again",
+      "rc": 0,
+      "response": {
+        "effective": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795084233809199592",
+          "personal": {
+            "alice": {
+              "programs": {}
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {},
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generation": "1795084233809199592",
+        "hook_stderr": "",
+        "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+        "ok": true
+      },
+      "start_ns": 1795084233596198512,
+      "stderr": "",
+      "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795084233809199592\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795084233809199592\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "trace_range": [
+        1316540,
+        1688425
+      ]
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "gc",
+        "1795084232867491656",
+        "1795084233501183511"
+      ],
+      "end_ns": 1795084233916475218,
+      "label": "transition",
+      "rc": 1,
+      "response": {
+        "error": "[Errno 30] Read-only file system: 'version'",
+        "ok": false
+      },
+      "start_ns": 1795084233913716672,
+      "stderr": "",
+      "stdout": "{\"error\": \"[Errno 30] Read-only file system: 'version'\", \"ok\": false}\n",
+      "trace_range": [
+        1688425,
+        1692454
+      ]
+    },
+    {
+      "argv": [
+        "runuser",
+        "-u",
+        "alice",
+        "--",
+        "/usr/local/bin/cal-login",
+        "-c",
+        "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4 read"
+      ],
+      "end_ns": 1795084234010867790,
+      "label": "after-transition-read",
+      "rc": 126,
+      "start_ns": 1795084234005741425,
+      "stderr": "/bin/bash: line 1: /var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4: Permission denied\n",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/calctl",
+        "gc",
+        "1795084232867491656",
+        "1795084233501183511"
+      ],
+      "end_ns": 1795084234025579519,
+      "label": "retry",
+      "rc": 0,
+      "response": {
+        "active": [],
+        "archive": [],
+        "current": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795084233809199592",
+          "personal": {
+            "alice": {
+              "programs": {}
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {},
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generations": [
+          "1795084233174207976",
+          "1795084233809199592"
+        ],
+        "ok": true
+      },
+      "start_ns": 1795084234022225861,
+      "stderr": "",
+      "stdout": "{\"active\": [], \"archive\": [], \"current\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795084233809199592\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generations\": [\"1795084233174207976\", \"1795084233809199592\"], \"ok\": true}\n",
+      "trace_range": [
+        1692454,
+        1698530
+      ]
+    },
+    {
+      "argv": [
+        "runuser",
+        "-u",
+        "alice",
+        "--",
+        "/usr/local/bin/cal-login",
+        "-c",
+        "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4 read"
+      ],
+      "end_ns": 1795084234119066109,
+      "label": "after-retry-read",
+      "rc": 126,
+      "start_ns": 1795084234114347626,
+      "stderr": "/bin/bash: line 1: /var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4: Permission denied\n",
+      "stdout": ""
+    }
+  ],
+  "exe": "/var/lib/p43-control/executables/alice/78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+  "fault": "ro",
+  "gc_ids": [
+    "1795084232867491656",
+    "1795084233501183511"
+  ],
+  "gown": "1795084232867491656",
+  "key": "local-alice-cache",
+  "limb": "saved",
+  "name": "ro-saved-delete",
+  "original": false,
+  "policy": "delete",
+  "rollback_after_gc": "unavailable: actual owning generation was deleted; pre-GC supported rollback/read retained as evidence, no synthetic recreation",
+  "rollback_target_retained": false,
+  "start_ns": 1795084232563266012
+}

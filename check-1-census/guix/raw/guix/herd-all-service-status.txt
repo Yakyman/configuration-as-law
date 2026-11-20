@@ -1,0 +1,655 @@
+
+### avahi-daemon
+Status of avahi-daemon:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 192
+  Command: /gnu/store/5qmb8hpblv5pdfv0zxk7bs841vx3wv5f-avahi-0.8/sbin/avahi-daemon -f /gnu/store/xbkyhng4fnn0sq45a04a4qq0kfswd4wz-avahi-daemon.conf
+  It is enabled.
+  Provides: avahi-daemon
+  Requires: user-processes dbus-system networking
+  Custom action: configuration
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+  Log file: /var/log/avahi-daemon.log
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:49:16 Service "gnu" (/services/ssh.service) successfully established.
+  2026-11-19 08:49:16 Service "gnu" (/services/sftp-ssh.service) successfully established.
+  2026-11-19 08:49:20 Joining mDNS multicast group on interface eth0.IPv4 with address 10.0.2.15.
+  2026-11-19 08:49:20 New relevant interface eth0.IPv4 for mDNS.
+  2026-11-19 08:49:20 Registering new address record for 10.0.2.15 on eth0.IPv4.
+
+### console-font-tty1
+Status of console-font-tty1:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty1
+  Requires: term-tty1
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### console-font-tty2
+Status of console-font-tty2:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty2
+  Requires: term-tty2
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### console-font-tty3
+Status of console-font-tty3:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty3
+  Requires: term-tty3
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### console-font-tty4
+Status of console-font-tty4:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty4
+  Requires: term-tty4
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### console-font-tty5
+Status of console-font-tty5:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty5
+  Requires: term-tty5
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### console-font-tty6
+Status of console-font-tty6:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: console-font-tty6
+  Requires: term-tty6
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### dbus-system
+Status of dbus-system:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 138
+  Command: /gnu/store/19i4zdly8mwq4dfrii1nl4y6j7wh3pnq-dbus-1.15.8/bin/dbus-daemon --nofork --system
+  It is enabled.
+  Provides: dbus-system
+  Requires: user-processes syslogd
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+  Log file: /var/log/dbus-daemon.log
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:49:16 dbus-daemon[138]: [system] Activating service name='org.freedesktop.PolicyKit1' requested by ':1.0' (uid=0 pid=189 comm="/gnu/store/4adgaban53wpsp25x1scgdij4igy8v9k-elogin" label="unconfined") (using servicehelper)
+  2026-11-19 08:49:16 dbus-daemon[138]: [system] Successfully activated service 'org.freedesktop.PolicyKit1'
+  2026-11-19 08:49:23 dbus-daemon[138]: [system] Activating service name='org.freedesktop.Accounts' requested by ':1.10' (uid=1000 pid=342 comm="xfdesktop" label="unconfined") (using servicehelper)
+  2026-11-19 08:49:23 dbus-daemon[138]: [system] Successfully activated service 'org.freedesktop.Accounts'
+
+### elogind
+Status of elogind:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 189
+  Command: /gnu/store/4adgaban53wpsp25x1scgdij4igy8v9k-elogind-255.17/libexec/elogind/elogind
+  It is enabled.
+  Provides: elogind
+  Requires: user-processes dbus-system
+  Custom action: configuration
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/dev/pts
+Status of file-system-/dev/pts:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/dev/pts
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/dev/shm
+Status of file-system-/dev/shm:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/dev/shm
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/gnu/store
+Status of file-system-/gnu/store:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/gnu/store
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/run/systemd
+Status of file-system-/run/systemd:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/run/systemd
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/run/user
+Status of file-system-/run/user:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/run/user
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/sys/firmware/efi/efivars
+Status of file-system-/sys/firmware/efi/efivars:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/sys/firmware/efi/efivars
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/sys/fs/cgroup
+Status of file-system-/sys/fs/cgroup:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/sys/fs/cgroup
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/sys/fs/cgroup/elogind
+Status of file-system-/sys/fs/cgroup/elogind:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/sys/fs/cgroup/elogind
+  Requires: root-file-system udev file-system-/sys/fs/cgroup
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/sys/kernel/debug
+Status of file-system-/sys/kernel/debug:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/sys/kernel/debug
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/var/cache/fontconfig
+Status of file-system-/var/cache/fontconfig:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/var/cache/fontconfig
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-system-/var/lib/gdm
+Status of file-system-/var/lib/gdm:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-system-/var/lib/gdm
+  Requires: root-file-system udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### file-systems
+Status of file-systems:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: file-systems
+  Requires: root-file-system file-system-/dev/pts file-system-/sys/kernel/debug file-system-/dev/shm file-system-/sys/firmware/efi/efivars file-system-/gnu/store file-system-/run/systemd file-system-/run/user file-system-/sys/fs/cgroup/elogind file-system-/sys/fs/cgroup file-system-/var/cache/fontconfig file-system-/var/lib/gdm
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### guix-daemon
+Status of guix-daemon:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 465
+  Command: /gnu/store/zzjwsl5wcc12sppv0ms9jpjs6gf85rh0-guix-1.5.0.d58da8a/bin/guix-daemon --build-users-group guixbuild --max-silent-time 3600 --timeout 86400 --log-compression gzip --discover=no --substitute-urls "https://bordeaux.guix.gnu.org https://ci.guix.gnu.org"
+  It is enabled.
+  Provides: guix-daemon
+  Requires: user-processes guix-ownership
+  Custom actions: set-http-proxy discover
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+  Log file: /var/log/guix-daemon.log
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 09:08:21 accepted connection from pid 2234, user root
+  2026-11-19 09:08:21 unexpected build daemon error: path `/.guix-profile' is not in the store
+  2026-11-19 09:09:36 accepted connection from pid 3384, user root
+  2026-11-19 09:09:37 accepted connection from pid 3414, user root
+  2026-11-19 09:09:37 accepted connection from pid 3503, user root
+
+### loopback
+Status of loopback:
+  It is running since 08:49:12 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: loopback
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:49:12 Waiting for network device 'lo'...
+
+### networking
+Status of networking:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 139
+  Command: /gnu/store/nj3vllkj1gvb4yy38i0921a2jirndggm-dhcpcd-10.3.0/sbin/dhcpcd -q -q -B -f /gnu/store/c2sysc3a1d3x9kp8kpxxr73hb83h89bb-dhcpcd.conf
+  It is enabled.
+  Provides: networking
+  Requires: user-processes udev
+  Custom action: configuration
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### nscd
+Status of nscd:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 137
+  Command: /gnu/store/yj053cys0724p7vs9kir808x7fivz17m-glibc-2.41/sbin/nscd -f /gnu/store/mam32iva1j0kfrnd1dncj0l4f3bx55l0-nscd.conf --foreground
+  It is enabled.
+  Provides: nscd
+  Requires: user-processes syslogd
+  Custom actions: configuration statistics invalidate
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### ntpd
+Status of ntpd:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 159
+  Command: /gnu/store/vyjzw741pbvq1swsah307fydsv7afr3b-ntp-4.2.8p18/bin/ntpd -n -c /gnu/store/7ac2i2c6dp2f9006llg3m5vkrna7pjbf-ntpd.conf -u ntpd -g
+  It is enabled.
+  Provides: ntpd
+  Requires: user-processes networking
+  Custom action: configuration
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+  Log file: /var/log/ntpd.log
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:52:41 19 Nov 08:52:41 ntpd[159]: Soliciting pool server <IP>
+  2026-11-19 08:52:42 19 Nov 08:52:42 ntpd[159]: <IP> local addr <null> -> 10.0.2.15
+  2026-11-19 08:54:57 19 Nov 08:54:57 ntpd[159]: Soliciting pool server <IP>
+  2026-11-19 08:54:58 19 Nov 08:54:58 ntpd[159]: <IP> local addr <null> -> 10.0.2.15
+  2026-11-19 08:56:04 19 Nov 08:56:04 ntpd[159]: kernel reports TIME_ERROR: 0x41: Clock Unsynchronized
+
+### pam
+Status of pam:
+  It is running since 08:49:14 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: pam
+  Requires: elogind
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### root
+Status of root:
+  It is running since 08:49:12 (20 minutes ago).
+  Main PID: 1
+  Command: /gnu/store/zkq8h96kjpgv0lkmwdn5s5lrnrryp0pv-guile-3.0.9/bin/guile --no-auto-compile /gnu/store/v9pallcp70h5yxrq5fqxrllm832yb3gf-shepherd-1.0.9/bin/shepherd --config /gnu/store/1niaijd7gr1g393kc9gy7ndxwkpmxfhv-shepherd.conf
+  It is enabled.
+  Provides: root shepherd
+  Custom actions: help status halt power-off kexec load eval unload reload daemonize restart
+  Will not be respawned.
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 09:09:35 Service user-homes has been started.
+  2026-11-19 09:09:35 Starting service sshd-9...
+  2026-11-19 09:09:35 Service sshd-9 started.
+  2026-11-19 09:09:35 Service sshd-9 running with value #<<process> id: 2605 command: ("/gnu/store/jh249h1qj27z9wbd29ff8r1dcpxgshvg-openssh-10.2p1/sbin/sshd" "-D" "-f" "/gnu/store/39x11r6m3fka772fwa7vg7prqxh10sa6-sshd_config" "-i")>.
+  2026-11-19 09:09:35 Service sshd-9 has been started.
+
+### root-file-system
+Status of root-file-system:
+  It is running since 08:49:12 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: root-file-system
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### spice-vdagentd
+Status of spice-vdagentd:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 190
+  Command: /gnu/store/d12b6j7qqck5lmf48cw3ylpd9sls6m75-spice-vdagent-0.22.1/sbin/spice-vdagentd -x
+  It is enabled.
+  Provides: spice-vdagentd
+  Requires: user-processes dbus-system
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:49:14 spice-vdagentd: GetSeats failed: The name org.freedesktop.ConsoleKit was not provided by any .service files
+  2026-11-19 08:49:14 spice-vdagentd: (console-kit) seat: (null)
+  2026-11-19 08:49:14 spice-vdagentd: no session info, max 1 session agent allowed
+
+### ssh-daemon
+Status of ssh-daemon:
+  It is running since 09:06:14 (3 minutes ago).
+  Inetd-style service listening on 2 endpoints:
+    - 0.0.0.0:22
+    - [::]:22
+  Command: /gnu/store/jh249h1qj27z9wbd29ff8r1dcpxgshvg-openssh-10.2p1/sbin/sshd -D -f /gnu/store/39x11r6m3fka772fwa7vg7prqxh10sa6-sshd_config -i
+  It is enabled.
+  Provides: ssh-daemon ssh sshd
+  Requires: user-processes pam syslogd loopback networking
+  Custom action: configuration
+  Will be respawned.
+
+### sshd-9
+Status of sshd-9:
+  It is transient, running since 09:09:35 (4 seconds ago).
+  Main PID: 2605
+  Command: /gnu/store/jh249h1qj27z9wbd29ff8r1dcpxgshvg-openssh-10.2p1/sbin/sshd -D -f /gnu/store/39x11r6m3fka772fwa7vg7prqxh10sa6-sshd_config -i
+  It is enabled.
+  Provides: sshd-9
+  Requires: user-processes pam syslogd loopback networking
+  Will not be respawned.
+
+### system-log
+Status of system-log:
+  It is running since 08:49:12 (20 minutes ago).
+  System log listening on 1 endpoint:
+    - /dev/log ("Unix-domain system log endpoint")
+  Kernel log file: /proc/kmsg
+  It is enabled.
+  Provides: system-log syslogd
+  Requires: root-file-system
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+  Log files: /var/log/messages /dev/tty12 /var/log/debug /dev/console /var/log/secure
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 09:09:37 localhost su[3512]: pam_unix(su:session): session opened for user guest(uid=1000) by (uid=0)
+  2026-11-19 09:09:38 localhost su[3512]: pam_unix(su:session): session closed for user guest
+  2026-11-19 09:09:38 localhost su[3524]: Successful su for guest by root
+  2026-11-19 09:09:38 localhost su[3524]: pam_unix(su:session): session opened for user guest(uid=1000) by (uid=0)
+  2026-11-19 09:09:38 localhost su[3524]: pam_unix(su:session): session closed for user guest
+
+### term-console
+Status of term-console:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is idle.
+  It is enabled.
+  Provides: term-console
+  Requires: user-processes host-name udev syslogd
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty1
+Status of term-tty1:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 158
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty1
+  It is enabled.
+  Provides: term-tty1
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty2
+Status of term-tty2:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 148
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty2
+  It is enabled.
+  Provides: term-tty2
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty3
+Status of term-tty3:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 143
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty3
+  It is enabled.
+  Provides: term-tty3
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty4
+Status of term-tty4:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 142
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty4
+  It is enabled.
+  Provides: term-tty4
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty5
+Status of term-tty5:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 141
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty5
+  It is enabled.
+  Provides: term-tty5
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### term-tty6
+Status of term-tty6:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 140
+  Command: /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty6
+  It is enabled.
+  Provides: term-tty6
+  Requires: user-processes host-name udev virtual-terminal
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### timer
+Status of timer:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: timer
+  Requires: user-processes
+  Custom action: schedule
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### transient
+Status of transient:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: transient
+  Requires: user-processes
+  Custom action: spawn
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### udev
+Status of udev:
+  It is running since 08:49:13 (20 minutes ago).
+  Main PID: 108
+  Command: /gnu/store/siszgfp09jf6v9p2p83yb3la3fg4qxsz-eudev-3.2.14/sbin/udevd
+  It is enabled.
+  Provides: udev
+  Requires: root-file-system
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### upower-daemon
+Status of upower-daemon:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 191
+  Command: /gnu/store/ky6zq2gsizjr9niqp6p0j3zpfa1gbi65-upower-1.90.2/libexec/upowerd
+  It is enabled.
+  Provides: upower-daemon
+  Requires: user-processes dbus-system udev
+  Custom action: configuration
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### urandom-seed
+Status of urandom-seed:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: urandom-seed
+  Requires: file-systems udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### user-file-systems
+Status of user-file-systems:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: user-file-systems
+  Requires: file-systems
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### user-processes
+Status of user-processes:
+  It is running since 08:49:13 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: user-processes
+  Requires: file-systems user-file-systems user-homes urandom-seed
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+### virtual-terminal
+Status of virtual-terminal:
+  It is running since 08:49:12 (20 minutes ago).
+  Running value is #t.
+  It is enabled.
+  Provides: virtual-terminal
+  Requires: root-file-system
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+### xorg-server
+Status of xorg-server:
+  It is running since 08:49:14 (20 minutes ago).
+  Main PID: 193
+  Command: /gnu/store/pzp1vdmpdziw3vgvmmmw8kd0nbq9flzp-slim-1.4.1/bin/slim -nodaemon
+  It is enabled.
+  Provides: xorg-server xorg-server-vt7
+  Requires: pam user-processes host-name udev
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+Recent messages (use '-n' to view more or less):
+  2026-11-19 08:49:31 (polkit-mate-authentication-agent-1:370): polkit-mate-1-WARNING **: 08:49:31.457: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+  2026-11-19 08:49:31 2026-11-19 08:49:31 (main) INFO: x-resize started; logging to /home/guest/.local/state/x-resize.log
+  2026-11-19 08:49:31 Another notification daemon is running, exiting
+  2026-11-19 08:49:31 
+  2026-11-19 08:49:31 (xfce4-power-manager:377): libnotify-WARNING **: 08:49:31.505: Failed to connect to proxy
+
+### log-cleanup
+Status of log-cleanup:
+  Timed service.
+  Awaiting next timer alarm; service active since 08:49:13 (20 minutes ago).
+  Periodically running: /gnu/store/4cs7df2fvn5qadmkncncnbiz6m9lgzkk-delete-old-logs
+  It is enabled.
+  Provides: log-cleanup
+  Requires: user-processes
+  Custom action: trigger
+  Replacement pending (restart to upgrade).
+  Will be respawned.
+
+Upcoming timer alarms:
+  Sun Nov 22 12:30:00 2026 (in 3 days)
+  Tue Dec  1 12:30:00 2026 (in 12 days)
+  Tue Dec  8 12:30:00 2026 (in 19 days)
+  Tue Dec 15 12:30:00 2026 (in 26 days)
+  Tue Dec 22 12:30:00 2026 (in 33 days)
+
+### log-rotation
+Status of log-rotation:
+  Timed service.
+  Awaiting next timer alarm; service active since 08:49:12 (20 minutes ago).
+  Periodically running Scheme code.
+  It is enabled.
+  Provides: log-rotation
+  Custom actions: trigger files
+  Replacement pending (restart to upgrade).
+  Will not be respawned.
+
+Upcoming timer alarms:
+  Sun Nov 22 22:00:00 2026 (in 4 days)
+  Sun Nov 29 22:00:00 2026 (in 11 days)
+  Sun Dec  6 22:00:00 2026 (in 18 days)
+  Sun Dec 13 22:00:00 2026 (in 25 days)
+  Sun Dec 20 22:00:00 2026 (in 32 days)
+
+### guix-ownership
+Status of guix-ownership:
+  It is stopped (one-shot).
+  It is enabled.
+  Provides: guix-ownership
+  Requires: user-processes user-homes
+  Will be respawned.
+
+### host-name
+Status of host-name:
+  It is stopped (one-shot).
+  It is enabled.
+  Provides: host-name
+  Will be respawned.
+
+### sysctl
+Status of sysctl:
+  It is stopped (one-shot).
+  It is enabled.
+  Provides: sysctl
+  Will be respawned.
+
+### user-homes
+Status of user-homes:
+  It is stopped (one-shot).
+  It is enabled.
+  Provides: user-homes
+  Requires: file-systems
+  Will be respawned.
+
+### x11-socket-directory
+Status of x11-socket-directory:
+  It is stopped (one-shot).
+  It is enabled.
+  Provides: x11-socket-directory
+  Requires: file-systems
+  Will be respawned.

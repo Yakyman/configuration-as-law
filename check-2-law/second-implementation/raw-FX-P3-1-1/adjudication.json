@@ -1,0 +1,129 @@
+{
+  "absent_evidence": {
+    "F": {
+      "audit_file": "../raw-P3-1/evidence/x3-absent/audit.log",
+      "audit_line": 574,
+      "before": "../raw-P3-1/evidence/x3-absent/F-before/snapshot.json",
+      "launch_file": "../raw-P3-1/evidence/x3-absent/F.launch.bin",
+      "marker": null,
+      "syscall_errno": 13
+    },
+    "R": {
+      "audit_file": "../raw-P3-1/evidence/x3-absent/audit.log",
+      "audit_line": 682,
+      "before": "../raw-P3-1/evidence/x3-absent/R-before/snapshot.json",
+      "launch_file": "../raw-P3-1/evidence/x3-absent/R.launch.bin",
+      "marker": "A",
+      "syscall_errno": 0
+    },
+    "U": {
+      "audit_file": "../raw-P3-1/evidence/x3-absent/audit.log",
+      "audit_line": 621,
+      "before": "../raw-P3-1/evidence/x3-absent/U-before/snapshot.json",
+      "launch_file": "../raw-P3-1/evidence/x3-absent/U.launch.bin",
+      "marker": "A",
+      "syscall_errno": 0
+    }
+  },
+  "acceptance": "Executor consistency check only.",
+  "all_assertions_passed": true,
+  "generated_utc": "2026-11-19T10:18:00.529357+00:00",
+  "holes": [
+    {
+      "evidence": "../raw-P3-1/evidence/x3-recreate/events.jsonl:8",
+      "ordinary_action_clause": "? \u2014 untested",
+      "reason": "Root setup mutation failed EBUSY; no ordinary-person installation/update procedure measured.",
+      "run": "x3-recreate",
+      "transition_outcome": "?"
+    },
+    {
+      "evidence": "../raw-P3-1/evidence/x3-atomic/events.jsonl:8",
+      "ordinary_action_clause": "? \u2014 untested",
+      "reason": "Root setup mutation failed EBUSY; no ordinary-person installation/update procedure measured.",
+      "run": "x3-atomic",
+      "transition_outcome": "?"
+    },
+    {
+      "evidence": "../raw-P3-1/evidence/x3-rename/events.jsonl:8",
+      "ordinary_action_clause": "? \u2014 untested",
+      "reason": "Root setup mutation failed EBUSY; no ordinary-person installation/update procedure measured.",
+      "run": "x3-rename",
+      "transition_outcome": "?"
+    }
+  ],
+  "hypothesis_outcome": "?",
+  "kind": "analysis rerun over original observations, no new launches",
+  "original_analysis_equal_except_paths_and_generation_time": true,
+  "protected_files_unchanged": 3388,
+  "quotations_unchanged": [
+    "P4",
+    "\u00a79.1",
+    "\u00a79.3"
+  ],
+  "rows": [
+    {
+      "outcome": "1",
+      "run": "bq-absent",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "1",
+      "run": "bq-atomic",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "1",
+      "run": "bq-directory",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "1",
+      "run": "bq-existing-r1",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "1",
+      "run": "bq-recreate",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "1",
+      "run": "bq-rename",
+      "scope": "supported completed confined cells"
+    },
+    {
+      "outcome": "0",
+      "run": "x3-absent",
+      "scope": "explicit grant before creation fails for fresh F; reapply restores execution"
+    },
+    {
+      "outcome": "?",
+      "run": "x3-atomic",
+      "scope": "replacement premise absent: EBUSY; ordinary-action clause untested"
+    },
+    {
+      "outcome": "0",
+      "run": "x3-directory",
+      "scope": "existing-object reapply fails; immediate transition identity ambiguity retained"
+    },
+    {
+      "outcome": "1",
+      "run": "x3-existing",
+      "scope": "supported fresh-session controls"
+    },
+    {
+      "outcome": "?",
+      "run": "x3-recreate",
+      "scope": "replacement premise absent: EBUSY; ordinary-action clause untested"
+    },
+    {
+      "outcome": "?",
+      "run": "x3-rename",
+      "scope": "replacement premise absent: EBUSY; ordinary-action clause untested"
+    }
+  ],
+  "stand_outcomes": {
+    "bq": "1",
+    "x3": "0"
+  }
+}

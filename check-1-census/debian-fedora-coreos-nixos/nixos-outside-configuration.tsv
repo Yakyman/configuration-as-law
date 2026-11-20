@@ -1,0 +1,16 @@
+object	outside_literal_configuration_nix	outside_transitive_system_declaration	observation	evidence
+/etc/nixos/hardware-configuration.nix	yes	no	Explicit import; not an undeclared object merely because it is in another file.	raw/nixos/nixos-configuration/configuration.nix; hardware-configuration.nix
+Current system store closure	yes	no	618 store output paths, including defaults and dependencies; these are not 618 conventional packages.	raw/nixos/system-closure.txt
+hello-2.12.3 and user profile environment/manifest	yes	yes	Normal-user nix-env installed hello; 3 of the 7 user-closure paths are outside the current system closure; hello ran successfully.	raw/nixos/day.log; user-profile.txt; user-closure-outside-system.txt
+/home/census/.local/state/nix/profiles	yes	yes	profile -> profile-1-link -> user-environment; persistent user package selection.	raw/nixos/unowned-groups.json; nix-profiles.tsv
+/home/census/.nix-profile	yes	yes	Symlink to the preceding user profile; same logical selection, not a second independent counterexample.	raw/nixos/unowned-groups.json
+/home/census/.vimrc	yes	yes	User-authored editor setting: set number.	raw/nixos/day.log; files.tsv
+/home/census/Documents/day-note.md	yes	yes	User-authored document, allowed data in §5; outside configuration is not itself a defect.	raw/nixos/day.log; files.tsv
+/etc/static and generated /etc links	yes	no for links into the current closure	Generated settings from evaluated modules; literal-file absence does not imply semantic absence.	raw/nixos/files.tsv; system-closure.txt; activation-script.txt
+Generated accounts including nixbld1..32	yes	no	users-groups.json is in the system closure and lists all observed accounts; census is also explicit in configuration.nix.	raw/nixos/account-definitions.txt; accounts.txt; system-closure.txt
+/etc/machine-id and SSH host keys	yes	yes for runtime values	Runtime identities/credentials; daemon configuration is indirectly declared, generated values are not enumerated in configuration.nix.	raw/nixos/files.tsv; unowned-groups.json
+/var/lib/dhcpcd and /var/lib/systemd	yes	yes for runtime values	Leases, timer/linger state and other runtime files.	raw/nixos/unowned-groups.json
+/var/log/journal and login records	yes	yes for contents	Runtime logs, consistent with the derivative example in §5.	raw/nixos/unowned-groups.json; journal-tail.txt
+/nix/var/nix/db, gcroots, daemon-socket, userpool	yes	yes for mutable contents	Nix operational database, references, IPC and allocation state.	raw/nixos/unowned-groups.json
+/nix/var/nix/profiles and root channel state	yes	mixed	System profile points at the declared generation; channel/profile bookkeeping is separate mutable state.	raw/nixos/nix-profiles.tsv; unowned-groups.json
+/nix/store outside system and user closures	yes	unknown / build inputs are not runtime outputs	4347 retained paths include build descriptions and inputs; do not count them as 4347 hidden programs.	raw/nixos/store-outside-system-closure.txt

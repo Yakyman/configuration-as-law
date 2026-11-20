@@ -1,0 +1,10 @@
+{
+  "instrument": "E4 transfer probe; not a full P1-P7 implementation",
+  "packages": ["network-manager", "openssh-server", "chromium", "chromium-driver", "python3-websocket", "redis-server", "postgresql-15", "sqlite3", "curl"],
+  "services": ["NetworkManager", "ssh", "redis-server", "postgresql@15-main", "e4-web"],
+  "network_probe_interface": "ens4",
+  "browser_profile": "/srv/e4/browser",
+  "browser_url": "http://127.0.0.1:8084/",
+  "ssh_probe_port": 2224,
+  "scope": "Program/service recipe only; saved profiles, keys, browser state and databases are not enumerated in this declaration."
+}

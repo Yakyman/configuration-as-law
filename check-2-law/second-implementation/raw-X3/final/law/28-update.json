@@ -1,0 +1,84 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "18",
+    "personal": {
+      "alice": {
+        "programs": {
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "19",
+    "personal": {
+      "alice": {
+        "programs": {
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "id": "28-update",
+  "channel": "declaration apply",
+  "command": "calctl apply",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"19\", \"personal\": {\"alice\": {\"programs\": {\"hello\": {\"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"hello\": {\"owners\": [\"alice\"], \"scope\": \"user\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}, \"system_update\": \"apt-upgrade-request-1\"}, \"shared\": {}}, \"generation\": \"19\", \"hook_stderr\": \"\", \"hook_stdout\": \"Get:1 file:/etc/apt/mirrors/debian.list Mirrorlist [30 B]\\nGet:4 file:/etc/apt/mirrors/debian-security.list Mirrorlist [39 B]\\nHit:2 https://deb.debian.org/debian bookworm InRelease\\nHit:3 https://deb.debian.org/debian bookworm-updates InRelease\\nGet:5 https://deb.debian.org/debian bookworm-backports InRelease [59.4 kB]\\nHit:6 https://deb.debian.org/debian-security bookworm-security InRelease\\nFetched 59.4 kB in 0s (122 kB/s)\\nReading package lists...\\nReading package lists...\\nBuilding dependency tree...\\nReading state information...\\nCalculating upgrade...\\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\nX3 Landlock rules emitted; apply to NEW login sessions; build allows executable output in user home\\n\", \"ok\": true}\n",
+  "stderr": "",
+  "declaration_before": "111d316de720c1d9b361d4229ae08cdb4ed7bb1f320b00d83d6fea4b319582b9",
+  "declaration_after": "8f3a37bc237a55259b48bc40c4b4da0d5e7486fb5fb0b1082287413d5802e4e7",
+  "utc": "2026-11-19T09:02:48Z"
+}

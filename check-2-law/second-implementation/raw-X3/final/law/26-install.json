@@ -1,0 +1,71 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "17",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "18",
+    "personal": {
+      "alice": {
+        "programs": {
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "id": "26-install",
+  "channel": "ordinary declaration install",
+  "command": "printf '%s\\n' '{\"programs\":{\"hello\":{\"version\":\"1\"}}}' >\"$HOME/declaration.json\" && calctl apply && /usr/bin/hello",
+  "user": "alice",
+  "expected": "works",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": false,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"18\", \"personal\": {\"alice\": {\"programs\": {\"hello\": {\"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"hello\": {\"owners\": [\"alice\"], \"scope\": \"user\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"18\", \"hook_stderr\": \"\", \"hook_stdout\": \"Selecting previously unselected package hello.\\n(Reading database ... 73957 files and directories currently installed.)\\nPreparing to unpack .../hello_2.10-3_amd64.deb ...\\nUnpacking hello (2.10-3) ...\\nSetting up hello (2.10-3) ...\\nProcessing triggers for man-db (2.11.2-2) ...\\nX3 Landlock rules emitted; apply to NEW login sessions; build allows executable output in user home\\n\", \"ok\": true}\n",
+  "stderr": "X3_LANDLOCK_ENFORCED abi=2 uid=1000 role=user\n/bin/bash: line 1: /usr/bin/hello: Permission denied\n",
+  "declaration_before": "e8bbb032eca1f887a013a2296b44c18ddaa2c474bb614fd6c7fbe7ba0c2fca85",
+  "declaration_after": "111d316de720c1d9b361d4229ae08cdb4ed7bb1f320b00d83d6fea4b319582b9",
+  "utc": "2026-11-19T09:02:47Z"
+}

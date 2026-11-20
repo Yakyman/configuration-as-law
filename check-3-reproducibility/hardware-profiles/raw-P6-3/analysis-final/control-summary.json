@@ -1,0 +1,2463 @@
+{
+  "branches": [
+    {
+      "branch": "A1",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "5a162c163a25b940a1cbb7e5769296d5b9a7d1982428424337c35676ee8ee354",
+        "branch": "A1",
+        "disposable_disk_not_exported": true,
+        "family": "debian",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "f564b23de5a1a1039eb3b4fbef46f34bff22478fc83f2d834b7667078bf16272"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "073c50271bd6f3272b11cf2a8252e2c6a8771d992a26f23fcf28e4a81d3b6f8c"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "d25a8759ac069a7de84f8473d1b6470eb2c81120f9c288618901d58466295fad"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "9841a1a12e58b8ed1673605e79763fa7d72794d4fd9f61d39e2066237d66e800"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "dc9c7b8e2ded10621aab0a554e14079c57f205bb97ea5cae2f0036804e92ba9c"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "a8436b044e7b7ff2150e58cb845b779d24716cb193056d800324207d5c4d69ae"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "f4bbe80e7c19e5d1e672a5c7b9f54de618b4edf1cec6ef214139b737002b2d29"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "5467049436013ade5558f9dc6ae512c5b1026130880ee7f056b1283782347b2f"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "d47eac699f72f223d8faacc776600911b7c350e8081c09ff9ad56c6534e7a4a5"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "26fc130525dde02519fbe7066a0e280780111947869367b32643ed96b17dd7a3"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "828dd5186c70599bc373d84ff490e1a7df2d8cd6084889090b9f656929f3d57d"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "b953e49325f8aa895891f7a68202281dc684b642480c480460b314651b5fdb49"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "1b05575629995a8734b615d391f0bb02b8289fd4007e6aedd60b72182fae5fb2"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "c3baa2f4a09c8b6fae811f4d33befeb4ea39d98cea09540703ca6e251cd27746"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "6fd65f502104d898a72ac47561e00fbdbbb3d0b6a2b7e427b7bb02e7dd3eadbf"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "079e5ccd8f4f5693cd86dfff1fd63b88262aaf2d9669bfb63829eb889d8e4a69"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "e8332eee13723022f36d2011fb43a4f7447bc930aeb791d7f08cced530509bb5"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "6dc610ab35499a36ff8604d63417b8582c545a826b981707cc929fc61063c513"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "ddfda48700ed246e2cecf4f70b49789d82663afb4de79f459899b78522465716"
+          }
+        ],
+        "utc": "2026-11-19T11:34:05.308480+00:00"
+      },
+      "family": "debian",
+      "launch_utc": "2026-11-19T11:22:29.375270+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-blk-pci,drive=data,addr=0x5,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+        "etc/ssh/ssh_host_ed25519_key.pub": "27716bf4ce313df058268e07a3b3de54061120804d17f38c9ae38a5001bc3359",
+        "var/lib/p63/provisioned": "7eaa6cd72730410b13f08ca8c04e60b4f4508db2d77bab59541bbd522e3953cd",
+        "var/log/cloud-init-output.log": "82d5bd55706c89fdc0ce40763efbe522d0749a5254effcaf3a3d415979d0b4a0",
+        "var/log/cloud-init.log": "ce8725c84ec8d793f87375495326c969694bc323de410e31266cdf7cd3483750"
+      },
+      "source": "primary/debian/A1/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/debian.qcow2"
+    },
+    {
+      "branch": "B1",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "44571ab509556a0cb27e551acdc561d5b5327d6232083c9a492bc2403feb0d15",
+        "branch": "B1",
+        "disposable_disk_not_exported": true,
+        "family": "debian",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "24e7c56b232ef5407bf1554bd14aa832f3193f4aaf474ddec6e3aa11881f4d17"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "8516d246d2b32461989fff79dd96be491e82dbd605a217716cc048d800cab1d2"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "8a37f548cbb5870bf15871c241fda3a6d2375151194e03383ee81ef6d5d7dceb"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "6f1314d44f29cd91eabe93f236d19c5696dd67c65f4c2b75776be6c8f124e45c"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "3ca14cf2574d29e5dd5512bbac35d534b13db91648370aa7d43658b7ebcc2d23"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "e44db276822ff44414342bd1f7f4863247294c4d4ec1abc68ca0055beb81794b"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "7447a4e5469c92a7d06631f71b8d23a0752afb2c55f213f7f80430fa37c4d65f"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "967cf98562ed0258a4ba11cb5d5b6844d16299c3d0c39cb96eb5c4eddd6836d2"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "a5b03e7267b742c2fec94d879e07ec7876f3dda5d9ffdbca974970b116a4c51c"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "75e498a83e6be309d0b4f65009fd824bd6c5a8ddeae947d59e2f2af69b1271cd"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "3c2033559f7d5627edeca8e6ee8d570a1f08dd95152e2d4bfba2de6cc775d1f0"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "ca4f27b59b0b4e88da3618b64b5d115a7201debe3bfd36dc002727fb3d06acd6"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "5943128502c893d8dfc6307577816486e6d959760acca443a8f6c1f39905b458"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "94d95d92a6901d6e85c69cd62bab0d004458fea0a222d70e56cf38ecfeb4876e"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "35bac896f83f962ccf63a5e1afe709b8d292f8225bafa5cebbdaf26c5c6e1a03"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "1b7c19b104884198fb9b52b7c43ee0599ac46708426a1afbe3018dd4a9ec1790"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "7e1c9c926dd21fb1296efe0de4fca34c83d287468b6482e3de30d038c358713f"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "863aed0ba349ae37f6f120a6b2d35f2c73515544b93990c90c61f47acc3113e3"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "bee0ae89d68ec5d0a4114ffef5a56f5cffa17b91cd6f663432b4e73f023efc16"
+          }
+        ],
+        "utc": "2026-11-19T11:45:01.512230+00:00"
+      },
+      "family": "debian",
+      "launch_utc": "2026-11-19T11:34:06.307303+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-scsi-pci,id=datactrl,addr=0x5",
+        "-device",
+        "scsi-hd,drive=data,bus=datactrl.0,channel=0,scsi-id=0,lun=0,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+        "etc/ssh/ssh_host_ed25519_key.pub": "551067c7dcbb68de5e1a3f6c030d052566fa24270b3b459994153d3f3dd81fa4",
+        "var/lib/p63/provisioned": "3bac4187e103247b2392eb5bb27a8fafedb54ff953db65c59d5801dd7518fbb7",
+        "var/log/cloud-init-output.log": "35e65a20d5c1695c9d9deae635f17cd2f5b7ea61c70773f2834a76b037ffd777",
+        "var/log/cloud-init.log": "f07ac63127dd00edb250942ba43a09ca28d2534ae279db250a2a495eaa571f81"
+      },
+      "source": "primary/debian/B1/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/debian.qcow2"
+    },
+    {
+      "branch": "B2",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "9a7a40d4165a6726bafa00cd1d339ee7e0fdd982de077b26e9fb3331ce98e837",
+        "branch": "B2",
+        "disposable_disk_not_exported": true,
+        "family": "debian",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "b37a1bd738f2779e3785d1b0209912e6fd77841c7cc66013e7d4977cce4dcb63"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "ed423f2ee48ec6b96e1c7f7adfd98813beda9c68b4867ebec7b1a810effc58e5"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "4c20e497b09b78b3f2d59edd0de2ae0f0ef527852e3617e79609d7f941bec020"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "f90a4f7d1dfc1bd3e77d1e2643c93668407590c02fe887a50a102d4a6ee6e773"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "adc66967346373f2c3cf356d6c8bb2037a11d5b2bce3a9779dafc48577f4e23c"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "f7f2d6f1997972e90b17a65d574e2bc0b710ebac7f1faa5dc603c850eb46b6aa"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "269316b7ca59e75bfa957a6760dd3356c797296dcae1d99ef958dc81570bbc0c"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "dccfbcc6db816fba686716622254d4e96a34bea94adac8f3f5449b610a87e139"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "e61ae159c88d0d6ccc329dbe4101d91012ce3900a6d267e15f44fe142f2af12c"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "59c3ae70687ec3354a0b08ea68c27d654204eaf37900cae66a5c1436227134b8"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "dcac49e040bb02aa57d98d1464263e1f28fdcf4975d84a5e14a6f8006be00ee8"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "1c6fbf5c83f6b696996db1713df633dd91d2a4424b49d937186fb475f12f3552"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "b593a0887295cd6613bbf8d7f0970ac0e7b284fadf3f75ea26f92bb6ee165b96"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "0ff84d6373e5b4504d63919dd24b66aedfc583e4a81a7673702c49d0e12ead65"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "a02454eaeaef9d3d1909177b5938e170d9ca0d454f58f45426583273fb2aab8b"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "1267e9a1e47a4fb3ad2738ec5a8fb6f30c55f49825528723b273d69e30115779"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "8af101b5ca790272460c66fa49370aee33d22666d9073265dd0e34e354700750"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "c9eaf28abbfa6bb83b1c7a4c9ddbfc7e32916c4fdc28a348bad8324a6181b17a"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "8626e11a844b86bc6fba28c0922cff740cd349d330662da7bcca4f5b912b1d45"
+          }
+        ],
+        "utc": "2026-11-19T11:56:11.267947+00:00"
+      },
+      "family": "debian",
+      "launch_utc": "2026-11-19T11:45:02.319236+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-scsi-pci,id=datactrl,addr=0x5",
+        "-device",
+        "scsi-hd,drive=data,bus=datactrl.0,channel=0,scsi-id=0,lun=0,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+        "etc/ssh/ssh_host_ed25519_key.pub": "cae03be977cd9105a832c37a240628ae396d0b382ae0e971397373a5ba11c2fc",
+        "var/lib/p63/provisioned": "d56dd9fd7863014daadf49ba91f94050f6bdccdfb0cf64c3b163e94c417a8f01",
+        "var/log/cloud-init-output.log": "cb7f5a1b9579d5640fde646daf2e0fe411adba0bfa2a8b84239ef98ea74235cd",
+        "var/log/cloud-init.log": "fbeb7ee6ccdee34586cc78352a9e4861a0d00ae616f50b416fbaa13e42a616d5"
+      },
+      "source": "primary/debian/B2/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/debian.qcow2"
+    },
+    {
+      "branch": "A2",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "b28e5ed3df6f2d39d12a2dba233126c10101b0171d9161fe2ef73d8661cbe205",
+        "branch": "A2",
+        "disposable_disk_not_exported": true,
+        "family": "debian",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "fac5013188e8679b8dd1db4bff972cce4649de99e3bf54a5ba0ca873d39e0b7b"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "a889cce104e9cc36dde69a88f10976037fcc98fe6d09aef29ce6df9ebbfe2e4e"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "782abdfeae9fd803553009008be4790a09d240401ed75d1d9d43204c1cb91b95"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "a2dc44eae031de8b2ec876dcffd885173ce637d15c521548e327d75310b27e44"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "2ba3e9ccae9f79bdb7f8aa8556c4beb59d8096b7d0c44f0f499dd42ae014d4ca"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "15e2e44873f72264cc5a5df7be4aed2e91ee84c646f1fc8b4941b847731d1098"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "536f8b139d6732c8dc8cdab9114d22d6a92f28b7bee28e4390325550e33a9b1c"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "4339cb466a80090f52e5ed50b977bf439e5440fe8b62716407a930ecf800e217"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "c9c2e40de2197dfda7e9e7957ff17ccae28fbc6f7c605e2d5b79b6c33f09ccc2"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "9a3db3515da4b4195a2e8ef17824eebd56b6e5f740ea4d8747039e0b6ad24e6d"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "cbeebf89f6c48dd17ad678758272da98aa0455f7015f8f366b821a19e496920c"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "a9b1731d893324aff32f3d4982a4a1434f189f684701ee4df30449a552e872cb"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "a6c1f80f212b8f23dd8d80a0123a6b725911ec3511729b03a96093c3cf03a529"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "7fd096c67889e98f362d987d8e2a42c03e941bab15bd9a5d4b7a19a6014a9c56"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "65f36bcd353323395e337d5df4a546b9922c04a5b11331dfe28fe3b80d46e35e"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "32ff82d9bc4167bf6c1a983bc2bc93c2115656d3a165d5810f2d3eed655eb53f"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "604b4dc3cffad23aaa852fd1809fbd6a673fa8271421e4e97c5b7b4b6a751507"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "c202420517b57890fdf7e892369a1aa110ebb6d4661f3687454c4206d7b6d5c7"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "c1b6a86f50ead9f2c9770ef553df4e96896ae4b7e716d66711202edbbc6aa5c4"
+          }
+        ],
+        "utc": "2026-11-19T12:06:58.834452+00:00"
+      },
+      "family": "debian",
+      "launch_utc": "2026-11-19T11:56:12.590959+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "e21b97a8-8061-57b4-a488-e407e78809a7",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/debian/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/debian/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26331-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-6>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-blk-pci,drive=data,addr=0x5,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+        "etc/ssh/ssh_host_ed25519_key.pub": "5183d0a68266a8a7660566613be548e1412a1c7befa36369940f83c521de4df5",
+        "var/lib/p63/provisioned": "a2bd8c09b041dafaba4b584c2abc7a80f1b7a02a1f80683d4738a04559fbb59a",
+        "var/log/cloud-init-output.log": "10b2234f3fee510db5a19e37f6e049a9767678598a39e5a687dc41ea5589dffa",
+        "var/log/cloud-init.log": "be784d85e5ea99473da31c82ebe2ae488e858ca76c71e88f975a1eff25d5aaf3"
+      },
+      "source": "primary/debian/A2/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/debian.qcow2"
+    },
+    {
+      "branch": "A1",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "1f3a973b46a5173d7ab83e609265bcad263233c5fccc3807750e9a4cfad0d482",
+        "branch": "A1",
+        "disposable_disk_not_exported": true,
+        "family": "alpine",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "72fc382ab7cbd37172e6606ed2a1c77a233d7dcd0bc67f4ff9fe05eb10ab8eaf"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "1fc71a08c1299d4b1beecc1bf01b81e5c00ec5b0a90a74c2b487e93d94a0b81e"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "52023a0cb2cbb7bc70de603e5056c0eeb0be46ed38d5579931bf0f6ae6242481"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "062f999b2be2576d668f64d40a9e2b9f0ea412bdcbb04b1df0f9d6e2905b8889"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "c74997fd585db6859329907601f0f49a765075925f955bc853ec66812f26ed8d"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "67805dc9efc7f89500e3ca2706ae4ba6b943b910ee4aa6f2867193ba89940ef4"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "e41127aab67f71f26d03843791682531769fc67addd7d71a2b67979ec455b316"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "a950e5970de8c40725e762e5f398237e9f1749e07065b6e3017c8eddffe5b123"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "13aa2dd430998cf8c1303cdae5188a58226e3336d1377b70cb701ba475cb5b8c"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "211dc9be42138fb91057e23dd086568066f604793a77b5a4558e6dd35a22069a"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "14e2701b0a399e262ac116172a8fbb3496e6e286771a19bea0965a3de82cd070"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "d640d459c4a132c022be3f0056c27c2e2c38185fdc7b732b38e31465b2a743e0"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "a69b7ee3607967405ffb83e6b2ff3813677a5e2121d27346a55a08321ef45600"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "ebe1954143060979b2cbf6b831d93256f9140f94597f09d79a2de0a62f911f02"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "705aed7fbe6d1f5dd2fcb9999e9193b7443bc67a1dc7805e857d8f793c31ad8d"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "c7a130a7f6dd1a57e47e0948b90ded5c49495abcad0b93d5599d766c95b09c2c"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "ee939b77d072c9ac41229d424560371dbaece84c0da9481c243c5a6e44351981"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "c66f672f32f6f62bea3959abf093cc07101fcf5df42c5b1f227cac48e71f63e6"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "521c1762dca2885c40694f92cf2bc0a333b407cef8329fda88a055ff91fea78e"
+          }
+        ],
+        "utc": "2026-11-19T12:18:25.758543+00:00"
+      },
+      "family": "alpine",
+      "launch_utc": "2026-11-19T12:06:59.700353+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-blk-pci,drive=data,addr=0x5,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": {
+          "error": "\"filename 'etc/machine-id' not found\""
+        },
+        "etc/ssh/ssh_host_ed25519_key.pub": "ad4c27a61cc9ca7d90de73b30fc4658edba8380129b8aac1210fc47cb84aa7c9",
+        "var/lib/p63/provisioned": "e66c8170a257c9c3c466a1024d576ec353a88051e76aca725a95fa84eff59f05",
+        "var/log/cloud-init-output.log": "2c30da135b4d2ef166db28ac78cdb089e46e7973946988a4277daeed24c21ff3",
+        "var/log/cloud-init.log": "3c4549621baadd63ec973ba6e3f5acdc3928f2114eedc583d8d8fa10bd44e223"
+      },
+      "source": "primary/alpine/A1/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/alpine.qcow2"
+    },
+    {
+      "branch": "B1",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "ae1af3a9d794aec1869406f845e09a6626ed50d7b06aee713c911903074268be",
+        "branch": "B1",
+        "disposable_disk_not_exported": true,
+        "family": "alpine",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "7d55c92377a8f8fe6d083155f795e4ec21ae7594a56aa1e8c67f9b416342841b"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "6efa1d87420cf0a7aa86982fc8de893f849205e4ff99f990d3067b72b8412f3e"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "97ea3010c4590f5bec4b9660ed4027c00b26de4ba6224e59218cfd60306ce09a"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "d18b5ced525ecc0602b62b0b11c658cfe97c81b13b4d2c971cdfbf3f43c2c60d"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "710c5dd14cc2994056ffd70090b159d2060a576b53d3c6a7dfd15cbb6f6b0e08"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "7de90395d31e6043ae8a401cb71e15fcd7c5bbd6ba76f8c8fd338a92240c8b31"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "ff983e2c56c4f9bffa5460d57aec10636b5c234df8131f205228c817541d6ba2"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "295a41f906e7eb50e364c1a0099ac48319d459fc611cc9552449cf1f76caaf17"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "0c05f43938a0256e7943c14331a1a437b8040a572cbbaf34e9b737759baec922"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "a52fcefc76b97bc1ee083ae7f13486addcffc17b7f2202e23c354eb264157e0a"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "fb1e7ec093215ffa709a034a222f55020c95da9f2159fa0307ca1f894a4da693"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "c1402e30eef9056c4068a433d7ecfbf07e6348496301e44599e028c14a84d25f"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "cd883ad2a5441f02637c72f5397c7ed966f3a1abd06f58471b2bdd56fcbfe019"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "5ec4f6ef3ec12795efb7e1163af027316f6f392427e0af7ba92e605ec1e506f9"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "be4414c3e83254c65a2c5aaa644d2ba42d52b0cdfa55f6101fe507fb7ca94435"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "210cbf6a836a3906d91b00cef0a5386250ee4661d25d8bb3318069fc7f1b5f73"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "99e5438f7f4c94160943f67cf0a42c91704987d616e3129432ba4e5507d231a7"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "0e37e6fac357e5a67c225c5413b589e428680567c0e06e70c9f1dfda89358635"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "ba78edd49e85f057cb52f3e48a7ed5937f0f5a39f8fa6e423a771bf2cbb4e9b9"
+          }
+        ],
+        "utc": "2026-11-19T12:29:46.632833+00:00"
+      },
+      "family": "alpine",
+      "launch_utc": "2026-11-19T12:18:26.508225+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-scsi-pci,id=datactrl,addr=0x5",
+        "-device",
+        "scsi-hd,drive=data,bus=datactrl.0,channel=0,scsi-id=0,lun=0,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": {
+          "error": "\"filename 'etc/machine-id' not found\""
+        },
+        "etc/ssh/ssh_host_ed25519_key.pub": "f690696d592183992b1c5dae552945dcee741eeef4118e6b39631f13efc12f73",
+        "var/lib/p63/provisioned": "e60a6ae9cc036fb6603aaf3d2dbad4a0e7cb3cd35e04529a609f904f560b6a18",
+        "var/log/cloud-init-output.log": "cfd3ac06ca912b591dc83b47e78202175428f9932e1fc934d852683ec2f42520",
+        "var/log/cloud-init.log": "fd3a1055a3e5123dd5399aa0fd767ae1f6865cbe1553b2e9012a85c0909c15af"
+      },
+      "source": "primary/alpine/B1/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/alpine.qcow2"
+    },
+    {
+      "branch": "B2",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "f3001d4887a2ace8c675378834206572a804a69805f06a3c4f23b73bd3475c7f",
+        "branch": "B2",
+        "disposable_disk_not_exported": true,
+        "family": "alpine",
+        "files": [
+          {
+            "matches": true,
+            "path": "ERROR.json",
+            "sha256": "b7f146f27a3e3c16dc898873953aa78f611300e43c74e842c758497f3035ce87"
+          },
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "e61e056418806912dc7feb4c8f020b6e478961811871238f49ce4845015cb7b6"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "30075a429815372a981d7164525b731724ff6a94b65041a6be770ff01c0f3f71"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "d214231959b67406cd180f3f94bf68094e0309456d0e094c3a71cb35c186a55f"
+          },
+          {
+            "matches": true,
+            "path": "partial-guest.tar",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "de052c26d34aab6335d97c83b1277473185d84f8737bf121e6dca72bee4f2f1e"
+          }
+        ],
+        "utc": "2026-11-19T12:31:10.324206+00:00"
+      },
+      "family": "alpine",
+      "launch_utc": "2026-11-19T12:29:47.475489+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-scsi-pci,id=datactrl,addr=0x5",
+        "-device",
+        "scsi-hd,drive=data,bus=datactrl.0,channel=0,scsi-id=0,lun=0,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {},
+      "source": "primary/alpine/B2/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/alpine.qcow2"
+    },
+    {
+      "branch": "A2",
+      "clean_writable_overlay": true,
+      "controller_tail_matches_profile": true,
+      "export": {
+        "all_match": true,
+        "archive_sha256": "80984298c5c350b2884ea99c5a73d6198a98ec59c9bcb987c4a53aa63f93b5e8",
+        "branch": "A2",
+        "disposable_disk_not_exported": true,
+        "family": "alpine",
+        "files": [
+          {
+            "matches": true,
+            "path": "controller.log",
+            "sha256": "402065d45d23c03dc5bb28660d8838796b1582c377b6a3b9e6699087c7ad10bc"
+          },
+          {
+            "matches": true,
+            "path": "first/anchor.json",
+            "sha256": "920ddf4ef01cce894d540b7fb9bf670960eb0d39231352f8dcec52b4f7d80f80"
+          },
+          {
+            "matches": true,
+            "path": "first/end.json",
+            "sha256": "6e3022758918e73661147bc53be0857a55cd2aa6668c2cb5d741861a09a4732d"
+          },
+          {
+            "matches": true,
+            "path": "first/guest-inputs.log",
+            "sha256": "cc2812662dec1eb4c051d74bcc1a59ec96be45744e745db486dcdb44e785f3c4"
+          },
+          {
+            "matches": true,
+            "path": "first/initial-readiness.json",
+            "sha256": "128b7b9a58255d029e88ef92410606d4b495c7f3c7575a5dbd5cc7f20d416bac"
+          },
+          {
+            "matches": true,
+            "path": "first/inventory.jsonl",
+            "sha256": "c4e1ec728bc7240a5bc8792c67a2eb9b6f761e53b2a54a748f2e7cb2ed42b3f6"
+          },
+          {
+            "matches": true,
+            "path": "first/readiness.json",
+            "sha256": "9e7e6db3c2cc92ccadeab8c6927b184d4720eda63083f30b81914cecfe33b3a0"
+          },
+          {
+            "matches": true,
+            "path": "first/static.json",
+            "sha256": "41a29de0210be8adb423e275571a6d8075f66e84308e44324498ca7066439193"
+          },
+          {
+            "matches": true,
+            "path": "known_hosts",
+            "sha256": "61e27272b5c7344bf817666bf9afa705266aa897baf307315be3d0db8b081753"
+          },
+          {
+            "matches": true,
+            "path": "launch.json",
+            "sha256": "0193de496f0323767f3f5ee2731148788cafd15154ffd19f9234e79694728994"
+          },
+          {
+            "matches": true,
+            "path": "provisioning.tar",
+            "sha256": "746207b2c82fa28b8eaf41ee2fca5fb1b5819442489c4e97759b4363ee9baf08"
+          },
+          {
+            "matches": true,
+            "path": "reboot/anchor.json",
+            "sha256": "2703af9aee395e21aa8d1fc804930b40053f48772c8879901bb0c91777a09bbc"
+          },
+          {
+            "matches": true,
+            "path": "reboot/end.json",
+            "sha256": "800c32c9bf1446a6af6b207c0608040ed7ee82898399cad0f28567a200e3c66d"
+          },
+          {
+            "matches": true,
+            "path": "reboot/guest-inputs.log",
+            "sha256": "2fe281f981d6594b7bb63f50564892f63f15499e78219c5c191949cf79c4b3d7"
+          },
+          {
+            "matches": true,
+            "path": "reboot/initial-readiness.json",
+            "sha256": "c868e1bd381d74e2c13a45047142bfae1f538788c0bddfec6bb0b5448a2480d4"
+          },
+          {
+            "matches": true,
+            "path": "reboot/inventory.jsonl",
+            "sha256": "d14033872b6900c097185c58fcdcd92335ceb0e62f18798083d2dad540dbc2db"
+          },
+          {
+            "matches": true,
+            "path": "reboot/readiness.json",
+            "sha256": "25eb6d6d9dfd90c2b313a65685d6e2d99d2ce3abb669b6c3237bd4a6104b8681"
+          },
+          {
+            "matches": true,
+            "path": "reboot/static.json",
+            "sha256": "f2a2fb435d94c7c2ea7f97e4c4e84f6ac351cd50b9823577a8244a8220a46ce6"
+          },
+          {
+            "matches": true,
+            "path": "serial.log",
+            "sha256": "78f16ee77fef0431f2a406cb628d130b57e514f44a5a7f4aaf636b269d40d4b3"
+          }
+        ],
+        "utc": "2026-11-19T12:42:20.472058+00:00"
+      },
+      "family": "alpine",
+      "launch_utc": "2026-11-19T12:31:11.122161+00:00",
+      "missing_expected_hash_checks": [],
+      "normalized_command_ignoring_controller_and_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "<DATA_CONTROLLER_INTERVENTION>"
+      ],
+      "normalized_command_ignoring_evidence_paths": [
+        "qemu-system-x86_64",
+        "-enable-kvm",
+        "-machine",
+        "pc-i440fx-10.0",
+        "-cpu",
+        "qemu64",
+        "-smp",
+        "2",
+        "-m",
+        "2048",
+        "-uuid",
+        "3e750025-715a-501f-8b79-873f4fba4929",
+        "-display",
+        "none",
+        "-monitor",
+        "none",
+        "-drive",
+        "file=<WORKDIR>/P6-3/primary/alpine/BRANCH/root.qcow2,if=none,id=boot,format=qcow2",
+        "-device",
+        "virtio-blk-pci,drive=boot,addr=0x3,bootindex=1",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/alpine/seed.img,if=ide,index=2,media=cdrom,format=raw,readonly=on",
+        "-netdev",
+        "user,id=mgmt,restrict=on,hostfwd=tcp:127.0.0.1:26332-:22",
+        "-device",
+        "virtio-net-pci,netdev=mgmt,mac=<MAC-7>,addr=0x4",
+        "-drive",
+        "file=<WORKDIR>/P6-3/inputs/blank.raw,if=none,id=data,format=raw,readonly=on",
+        "-device",
+        "virtio-blk-pci,drive=data,addr=0x5,serial=P63BLANK"
+      ],
+      "provisioning_member_sha256": {
+        "etc/machine-id": {
+          "error": "\"filename 'etc/machine-id' not found\""
+        },
+        "etc/ssh/ssh_host_ed25519_key.pub": "00c4d06131220afb968b0127daf6de2752a599f6a6f51c222c2085502e3d00f0",
+        "var/lib/p63/provisioned": "beb24fb00ff301fed49360cc5e9c85f6e92bd23d046496af52e11d45c2a2e1a5",
+        "var/log/cloud-init-output.log": "077e44a4ad0dd6eba13ceedf12a8625a22090e8fd1e765cb7e9cd57b82bc7894",
+        "var/log/cloud-init.log": "cc732328f654f9e3f16ecae4b7479f07c689ca3b7e711873ba673936675a4128"
+      },
+      "source": "primary/alpine/A2/launch.json",
+      "source_image": "<WORKDIR>/P6-3/inputs/alpine.qcow2"
+    }
+  ],
+  "endpoints": [
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00010123000000028526,
+      "anchor_uptime": "13.12 14.67\n",
+      "anchor_utc": "2026-11-19T11:22:43.815388+00:00",
+      "boot_ids": [
+        "db2a9b2a-0e64-400a-bd7a-0535257927d0\n"
+      ],
+      "branch": "A1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=254\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "254:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.3817415959999835,
+      "max_start_lag_seconds": 0.00023167399999124427,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:22:43.815286+00:00",
+      "source": "primary/debian/A1/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.07079834600000012,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0006543570000001608
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 9.078000000073416e-05,
+      "anchor_uptime": "11.13 11.68\n",
+      "anchor_utc": "2026-11-19T11:27:57.827450+00:00",
+      "boot_ids": [
+        "3cb3e729-fcae-43c0-940e-d342005f9c3f\n"
+      ],
+      "branch": "A1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=254\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "254:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.360642593999998,
+      "max_start_lag_seconds": 0.00033515900000224974,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:27:57.827359+00:00",
+      "source": "primary/debian/A1/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.058943928999999784,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0007886189999997129
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.0001055979999993184,
+      "anchor_uptime": "12.98 13.35\n",
+      "anchor_utc": "2026-11-19T11:34:20.654600+00:00",
+      "boot_ids": [
+        "281cf56a-4913-451d-8f93-038f3efea263\n"
+      ],
+      "branch": "B1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../2:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host2/target2:0:0/2:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.357580022999997,
+      "max_start_lag_seconds": 0.00017725199998608332,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:34:20.654493+00:00",
+      "source": "primary/debian/B1/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.06114204100000009,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0008248070000007601
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 9.126099999967607e-05,
+      "anchor_uptime": "12.13 14.16\n",
+      "anchor_utc": "2026-11-19T11:39:37.828865+00:00",
+      "boot_ids": [
+        "723bbd06-71d3-41d3-a95d-83ded2eebe9b\n"
+      ],
+      "branch": "B1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../0:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host0/target0:0:0/0:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.35032432799999924,
+      "max_start_lag_seconds": 0.0013222999999982221,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:39:37.828773+00:00",
+      "source": "primary/debian/B1/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.07137778300000086,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.00044384199999925045
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 9.276399999968987e-05,
+      "anchor_uptime": "13.16 15.00\n",
+      "anchor_utc": "2026-11-19T11:45:16.836429+00:00",
+      "boot_ids": [
+        "4218b606-8eef-46e4-a0b9-d44bbca92a3f\n"
+      ],
+      "branch": "B2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../2:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host2/target2:0:0/2:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.3654995809999946,
+      "max_start_lag_seconds": 0.001184471000016174,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:45:16.836336+00:00",
+      "source": "primary/debian/B2/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.06161327400000083,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0005181209999989278
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00014197600000009913,
+      "anchor_uptime": "11.33 12.37\n",
+      "anchor_utc": "2026-11-19T11:50:31.996325+00:00",
+      "boot_ids": [
+        "cc29fefc-4b4a-4d81-85bc-0e1e04434170\n"
+      ],
+      "branch": "B2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../0:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host0/target0:0:0/0:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.36650573800000075,
+      "max_start_lag_seconds": 0.0004522179999923992,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:50:31.996182+00:00",
+      "source": "primary/debian/B2/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.09316715799999997,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0005876609999990734
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 9.426599999962093e-05,
+      "anchor_uptime": "13.14 14.34\n",
+      "anchor_utc": "2026-11-19T11:56:26.832429+00:00",
+      "boot_ids": [
+        "9bb010db-7323-4941-9840-cc9b84f540d6\n"
+      ],
+      "branch": "A2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=254\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "254:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.35365459200000515,
+      "max_start_lag_seconds": 0.002190506999994568,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T11:56:26.832334+00:00",
+      "source": "primary/debian/A2/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.08761053899999993,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0004462460000009827
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00010166100000041922,
+      "anchor_uptime": "12.52 14.31\n",
+      "anchor_utc": "2026-11-19T12:01:43.200860+00:00",
+      "boot_ids": [
+        "9a8683d2-0edf-4b51-9e5f-3a2f430f4c49\n"
+      ],
+      "branch": "A2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=254\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "254:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "debian",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.36403187900000944,
+      "max_start_lag_seconds": 0.0003410590000214597,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:01:43.200758+00:00",
+      "source": "primary/debian/A2/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "rc": 0,
+          "seconds": 0.06577377500000026,
+          "stderr": "",
+          "stdout": ""
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.000731010999999171
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00010225099999949805,
+      "anchor_uptime": "15.04 23.18\n",
+      "anchor_utc": "2026-11-19T12:07:24.452626+00:00",
+      "boot_ids": [
+        "1129a8b7-3dec-4b85-b7ff-852d7bac1017\n"
+      ],
+      "branch": "A1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=253\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "253:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.1276648119999919,
+      "max_start_lag_seconds": 0.0007399079999999003,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:07:24.452523+00:00",
+      "source": "primary/alpine/A1/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.0003075670000001196
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0003763659999993507
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00010927499999979773,
+      "anchor_uptime": "16.81 26.61\n",
+      "anchor_utc": "2026-11-19T12:12:54.482850+00:00",
+      "boot_ids": [
+        "4dfef945-9d8d-4125-b9a6-5d9fec1b1759\n"
+      ],
+      "branch": "A1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=253\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "253:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.12040352699997925,
+      "max_start_lag_seconds": 0.0008646919999932834,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:12:54.482740+00:00",
+      "source": "primary/alpine/A1/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.00019087800000150423
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0002825999999984674
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00011502599999957397,
+      "anchor_uptime": "17.15 26.57\n",
+      "anchor_utc": "2026-11-19T12:18:53.437040+00:00",
+      "boot_ids": [
+        "a7b26fee-e64b-4c3d-9296-f9ddd12c5fdf\n"
+      ],
+      "branch": "B1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../2:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host2/target2:0:0/2:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.13600229400000075,
+      "max_start_lag_seconds": 0.00014779699998257456,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:18:53.436925+00:00",
+      "source": "primary/alpine/B1/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.00022214700000233734
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0003468700000013314
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.0001144450000012398,
+      "anchor_uptime": "16.84 26.69\n",
+      "anchor_utc": "2026-11-19T12:24:23.509655+00:00",
+      "boot_ids": [
+        "c4af122b-f7b8-439f-9c9f-44e09e517fd8\n"
+      ],
+      "branch": "B1",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../2:0:0:0",
+          "path": "/sys/class/block/sda",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/host2/target2:0:0/2:0:0:0/block/sda",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=8\nMINOR=0\nDEVNAME=sda\nDEVTYPE=disk\nDISKSEQ=11\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "8:0"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.12832716300000868,
+      "max_start_lag_seconds": 0.00014952999999451322,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:24:23.509541+00:00",
+      "source": "primary/alpine/B1/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.00020581600000113554
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0004184840000007739
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00011673899999919968,
+      "anchor_uptime": "19.24 30.56\n",
+      "anchor_utc": "2026-11-19T12:31:40.611436+00:00",
+      "boot_ids": [
+        "0426ce50-0a47-4119-8ea3-e1fe0a55a79f\n"
+      ],
+      "branch": "A2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "first",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=253\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "253:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.133588268000004,
+      "max_start_lag_seconds": 0.0002713879999873825,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:31:40.611319+00:00",
+      "source": "primary/alpine/A2/first",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.0002242310000006853
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0002827799999991498
+        }
+      }
+    },
+    {
+      "all_within_windows": true,
+      "anchor_after_readiness_seconds": 0.00011164900000082412,
+      "anchor_uptime": "16.72 26.53\n",
+      "anchor_utc": "2026-11-19T12:37:10.396401+00:00",
+      "boot_ids": [
+        "a5659c1c-14e2-49bd-8420-44b3f4aff583\n"
+      ],
+      "branch": "A2",
+      "candidate_hash_matches_guest": true,
+      "driver_modinfo_rc": {
+        "sd_mod": 0,
+        "virtio_blk": 0,
+        "virtio_scsi": 0
+      },
+      "endpoint": "reboot",
+      "extra_block": [
+        {
+          "device": "../../../virtio2",
+          "path": "/sys/class/block/vdb",
+          "realpath": "/sys/devices/pci0000:00/0000:00:05.0/virtio2/block/vdb",
+          "ro": "1\n",
+          "size": "131072\n",
+          "uevent": "MAJOR=253\nMINOR=16\nDEVNAME=vdb\nDEVTYPE=disk\nDISKSEQ=12\n"
+        }
+      ],
+      "extra_block_major_minor": [
+        "253:16"
+      ],
+      "extra_mount_records": [],
+      "extra_unmounted_in_record": true,
+      "family": "alpine",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "inventories": 10,
+      "max_probe_seconds": 0.13086949099999856,
+      "max_start_lag_seconds": 0.00015908800000374868,
+      "observer_hash_matches_guest": true,
+      "ready": true,
+      "ready_utc": "2026-11-19T12:37:10.396289+00:00",
+      "source": "primary/alpine/A2/reboot",
+      "static_firewall": {
+        "iptables": {
+          "argv": [
+            "iptables-save"
+          ],
+          "error": "[Errno 2] No such file or directory: 'iptables-save'",
+          "seconds": 0.0002785819999999717
+        },
+        "nft": {
+          "argv": [
+            "nft",
+            "list",
+            "ruleset"
+          ],
+          "error": "[Errno 2] No such file or directory: 'nft'",
+          "seconds": 0.0003428230000004362
+        }
+      }
+    }
+  ],
+  "families": {
+    "alpine": {
+      "branches": 4,
+      "hardware_neutral_commands_equal": true,
+      "launch_order": [
+        "A1",
+        "B1",
+        "B2",
+        "A2"
+      ],
+      "observations": 60,
+      "reboot_boot_ids_changed": {
+        "A1": true,
+        "A2": true,
+        "B1": true,
+        "B2": null
+      }
+    },
+    "debian": {
+      "branches": 4,
+      "hardware_neutral_commands_equal": true,
+      "launch_order": [
+        "A1",
+        "B1",
+        "B2",
+        "A2"
+      ],
+      "observations": 80,
+      "reboot_boot_ids_changed": {
+        "A1": true,
+        "A2": true,
+        "B1": true,
+        "B2": true
+      }
+    }
+  },
+  "firmware_input_gap": "AMENDMENT-20261119T121142Z.md; preflight/late-rom-attestation.json. Complete firmware closure not established.",
+  "utc": "2026-11-19T12:44:35.407214+00:00"
+}

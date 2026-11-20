@@ -1,0 +1,9 @@
+{
+  "utc_start": "2026-11-19T10:34:06.030697+00:00",
+  "utc_end": "2026-11-19T10:34:06.204985+00:00",
+  "user": "root",
+  "command": "stat -c \"%n %u:%g %a %s %i\" /srv /srv/p48-baseline /srv/p48-baseline/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4; sha256sum -- /srv/p48-baseline/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4; findmnt -T /srv/p48-baseline -o TARGET,SOURCE,FSTYPE,OPTIONS",
+  "rc": 0,
+  "stdout": "/srv 0:0 755 4096 616\n/srv/p48-baseline 0:48101 750 4096 264622\n/srv/p48-baseline/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4 0:0 644 28672 264623\n197408ed3a6b77cd8a46b21720657b8a493d23febf301806f88bd8835d976905  /srv/p48-baseline/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\nTARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda1 ext4   rw,relatime,discard,errors=remount-ro\n",
+  "stderr": ""
+}

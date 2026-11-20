@@ -1,0 +1,716 @@
+{
+  "arch": {
+    "n": 84,
+    "matches": 20,
+    "disagreements": 64,
+    "agreement": {
+      "exact": "5/21",
+      "decimal": 0.23809523809523808
+    },
+    "expected_agreement": {
+      "exact": "1579/7056",
+      "decimal": 0.223781179138322
+    },
+    "kappa": {
+      "exact": "101/5477",
+      "decimal": 0.01844075223662589
+    },
+    "c1_counts": {
+      "data": 1,
+      "hole-none": 83
+    },
+    "c2_counts": {
+      "data": 2,
+      "derivative of glibc": 2,
+      "derivative of grub": 1,
+      "derivative of mkinitcpio": 1,
+      "derivative of openssh": 1,
+      "derivative of pacman": 4,
+      "derivative of shadow": 7,
+      "derivative of systemd": 18,
+      "derivative of util-linux": 1,
+      "hole-none": 19,
+      "hole-two": 3,
+      "recorded (works)": 25
+    },
+    "confusion": [
+      {
+        "c1": "data",
+        "c2": "data",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "data",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of glibc",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of grub",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of mkinitcpio",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of openssh",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pacman",
+        "n": 4
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of shadow",
+        "n": 7
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of systemd",
+        "n": 18
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of util-linux",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-none",
+        "n": 19
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-two",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "recorded (works)",
+        "n": 25
+      }
+    ],
+    "hole_union": 83,
+    "hole_both": 22,
+    "section5_resolutions": {
+      "resolved: unsupported assertion rejected; evidence hole retained": 62,
+      "not resolved": 2
+    },
+    "review_families": {
+      "agreed-hole-creator-consumer": 4,
+      "agreed-hole-inherited-settings": 6,
+      "agreed-hole-mixed-group": 3,
+      "agreed-hole-provenance": 6,
+      "agreed-personal-data": 1,
+      "derivative-claim-vs-evidence-hole": 35,
+      "executed-personal-setting": 1,
+      "mixed-group": 1,
+      "person-rule-and-running-component": 2,
+      "recorded-proxy-vs-evidence-hole": 25
+    }
+  },
+  "silverblue": {
+    "n": 133,
+    "matches": 13,
+    "disagreements": 120,
+    "agreement": {
+      "exact": "13/133",
+      "decimal": 0.09774436090225563
+    },
+    "expected_agreement": {
+      "exact": "13/133",
+      "decimal": 0.09774436090225563
+    },
+    "kappa": {
+      "exact": "0",
+      "decimal": 0.0
+    },
+    "c1_counts": {
+      "hole-none": 133
+    },
+    "c2_counts": {
+      "data": 1,
+      "derivative of NetworkManager": 1,
+      "derivative of alternatives": 1,
+      "derivative of audit": 1,
+      "derivative of authselect": 1,
+      "derivative of bootupd": 1,
+      "derivative of firewalld": 2,
+      "derivative of flatpak": 1,
+      "derivative of kernel": 1,
+      "derivative of libsemanage": 1,
+      "derivative of nvme-cli": 1,
+      "derivative of openssh": 1,
+      "derivative of ostree": 5,
+      "derivative of plymouth": 1,
+      "derivative of rpm-ostree": 3,
+      "derivative of shadow-utils": 7,
+      "derivative of systemd": 20,
+      "derivative of toolbox": 1,
+      "derivative of tuned": 1,
+      "derivative of util-linux": 1,
+      "derivative of zram-generator": 2,
+      "hole-none": 13,
+      "hole-two": 6,
+      "recorded (works)": 60
+    },
+    "confusion": [
+      {
+        "c1": "hole-none",
+        "c2": "data",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of NetworkManager",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of alternatives",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of audit",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of authselect",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of bootupd",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of firewalld",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of flatpak",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of kernel",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of libsemanage",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of nvme-cli",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of openssh",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of ostree",
+        "n": 5
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of plymouth",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rpm-ostree",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of shadow-utils",
+        "n": 7
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of systemd",
+        "n": 20
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of toolbox",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of tuned",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of util-linux",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of zram-generator",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-none",
+        "n": 13
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-two",
+        "n": 6
+      },
+      {
+        "c1": "hole-none",
+        "c2": "recorded (works)",
+        "n": 60
+      }
+    ],
+    "hole_union": 133,
+    "hole_both": 19,
+    "section5_resolutions": {
+      "resolved: unsupported assertion rejected; evidence hole retained": 117,
+      "not resolved": 3
+    },
+    "review_families": {
+      "agreed-hole-creator-consumer": 4,
+      "agreed-hole-inherited-settings": 2,
+      "agreed-hole-mixed-group": 3,
+      "agreed-hole-provenance": 4,
+      "derivative-claim-vs-evidence-hole": 53,
+      "executed-personal-setting": 1,
+      "installed-programs-and-derivatives": 1,
+      "mixed-group": 2,
+      "person-rule-and-running-component": 3,
+      "recorded-proxy-vs-evidence-hole": 60
+    }
+  },
+  "freebsd": {
+    "n": 293,
+    "matches": 33,
+    "disagreements": 260,
+    "agreement": {
+      "exact": "33/293",
+      "decimal": 0.11262798634812286
+    },
+    "expected_agreement": {
+      "exact": "33/293",
+      "decimal": 0.11262798634812286
+    },
+    "kappa": {
+      "exact": "0",
+      "decimal": 0.0
+    },
+    "c1_counts": {
+      "hole-none": 293
+    },
+    "c2_counts": {
+      "data": 1,
+      "derivative of dhclient": 1,
+      "derivative of freebsd-update": 2,
+      "derivative of msgs": 1,
+      "derivative of nuageinit": 2,
+      "derivative of pkg": 3,
+      "derivative of pw": 1,
+      "derivative of rc.d/cleanvar": 1,
+      "derivative of rc.d/hostid": 1,
+      "derivative of syslogd": 11,
+      "derivative of utx": 2,
+      "hole-none": 33,
+      "hole-two": 6,
+      "recorded (works)": 228
+    },
+    "confusion": [
+      {
+        "c1": "hole-none",
+        "c2": "data",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of dhclient",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of freebsd-update",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of msgs",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of nuageinit",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pkg",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pw",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rc.d/cleanvar",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rc.d/hostid",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of syslogd",
+        "n": 11
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of utx",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-none",
+        "n": 33
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-two",
+        "n": 6
+      },
+      {
+        "c1": "hole-none",
+        "c2": "recorded (works)",
+        "n": 228
+      }
+    ],
+    "hole_union": 293,
+    "hole_both": 39,
+    "section5_resolutions": {
+      "resolved: unsupported assertion rejected; evidence hole retained": 257,
+      "not resolved": 3
+    },
+    "review_families": {
+      "agreed-hole-creator-consumer": 9,
+      "agreed-hole-inherited-settings": 7,
+      "agreed-hole-mixed-group": 3,
+      "agreed-hole-provenance": 14,
+      "derivative-claim-vs-evidence-hole": 25,
+      "executed-personal-setting": 1,
+      "mixed-group": 2,
+      "person-rule-and-running-component": 4,
+      "recorded-proxy-vs-evidence-hole": 228
+    }
+  },
+  "overall": {
+    "n": 510,
+    "matches": 66,
+    "disagreements": 444,
+    "agreement": {
+      "exact": "11/85",
+      "decimal": 0.12941176470588237
+    },
+    "expected_agreement": {
+      "exact": "33089/260100",
+      "decimal": 0.12721645520953478
+    },
+    "kappa": {
+      "exact": "571/227011",
+      "decimal": 0.002515296615582505
+    },
+    "c1_counts": {
+      "data": 1,
+      "hole-none": 509
+    },
+    "c2_counts": {
+      "data": 4,
+      "derivative of NetworkManager": 1,
+      "derivative of alternatives": 1,
+      "derivative of audit": 1,
+      "derivative of authselect": 1,
+      "derivative of bootupd": 1,
+      "derivative of dhclient": 1,
+      "derivative of firewalld": 2,
+      "derivative of flatpak": 1,
+      "derivative of freebsd-update": 2,
+      "derivative of glibc": 2,
+      "derivative of grub": 1,
+      "derivative of kernel": 1,
+      "derivative of libsemanage": 1,
+      "derivative of mkinitcpio": 1,
+      "derivative of msgs": 1,
+      "derivative of nuageinit": 2,
+      "derivative of nvme-cli": 1,
+      "derivative of openssh": 2,
+      "derivative of ostree": 5,
+      "derivative of pacman": 4,
+      "derivative of pkg": 3,
+      "derivative of plymouth": 1,
+      "derivative of pw": 1,
+      "derivative of rc.d/cleanvar": 1,
+      "derivative of rc.d/hostid": 1,
+      "derivative of rpm-ostree": 3,
+      "derivative of shadow": 7,
+      "derivative of shadow-utils": 7,
+      "derivative of syslogd": 11,
+      "derivative of systemd": 38,
+      "derivative of toolbox": 1,
+      "derivative of tuned": 1,
+      "derivative of util-linux": 2,
+      "derivative of utx": 2,
+      "derivative of zram-generator": 2,
+      "hole-none": 65,
+      "hole-two": 15,
+      "recorded (works)": 313
+    },
+    "confusion": [
+      {
+        "c1": "data",
+        "c2": "data",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "data",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of NetworkManager",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of alternatives",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of audit",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of authselect",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of bootupd",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of dhclient",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of firewalld",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of flatpak",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of freebsd-update",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of glibc",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of grub",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of kernel",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of libsemanage",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of mkinitcpio",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of msgs",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of nuageinit",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of nvme-cli",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of openssh",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of ostree",
+        "n": 5
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pacman",
+        "n": 4
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pkg",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of plymouth",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of pw",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rc.d/cleanvar",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rc.d/hostid",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of rpm-ostree",
+        "n": 3
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of shadow",
+        "n": 7
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of shadow-utils",
+        "n": 7
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of syslogd",
+        "n": 11
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of systemd",
+        "n": 38
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of toolbox",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of tuned",
+        "n": 1
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of util-linux",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of utx",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "derivative of zram-generator",
+        "n": 2
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-none",
+        "n": 65
+      },
+      {
+        "c1": "hole-none",
+        "c2": "hole-two",
+        "n": 15
+      },
+      {
+        "c1": "hole-none",
+        "c2": "recorded (works)",
+        "n": 313
+      }
+    ],
+    "hole_union": 509,
+    "hole_both": 80,
+    "section5_resolutions": {
+      "resolved: unsupported assertion rejected; evidence hole retained": 436,
+      "not resolved": 8
+    },
+    "review_families": {
+      "agreed-hole-creator-consumer": 17,
+      "agreed-hole-inherited-settings": 15,
+      "agreed-hole-mixed-group": 9,
+      "agreed-hole-provenance": 24,
+      "agreed-personal-data": 1,
+      "derivative-claim-vs-evidence-hole": 113,
+      "executed-personal-setting": 3,
+      "installed-programs-and-derivatives": 1,
+      "mixed-group": 5,
+      "person-rule-and-running-component": 9,
+      "recorded-proxy-vs-evidence-hole": 313
+    }
+  }
+}

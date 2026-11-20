@@ -1,0 +1,117 @@
+
+### /usr/share/base-passwd/passwd.master
+root:*:0:0:root:/root:/bin/bash
+daemon:*:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:*:2:2:bin:/bin:/usr/sbin/nologin
+sys:*:3:3:sys:/dev:/usr/sbin/nologin
+sync:*:4:65534:sync:/bin:/bin/sync
+games:*:5:60:games:/usr/games:/usr/sbin/nologin
+man:*:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:*:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:*:8:8:mail:/var/mail:/usr/sbin/nologin
+news:*:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:*:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:*:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:*:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:*:34:34:backup:/var/backups:/usr/sbin/nologin
+list:*:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:*:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:*:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:*:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+
+### /usr/lib/sysusers.d/basic.conf
+# generated from /usr/share/base-passwd/{passwd,group}.master
+g adm        4     -
+g tty        5     -
+g disk       6     -
+g man        12    -
+g kmem       15    -
+g dialout    20    -
+g fax        21    -
+g voice      22    -
+g cdrom      24    -
+g floppy     25    -
+g tape       26    -
+g sudo       27    -
+g audio      29    -
+g dip        30    -
+g operator   37    -
+g src        40    -
+g shadow     42    -
+g utmp       43    -
+g video      44    -
+g sasl       45    -
+g plugdev    46    -
+g staff      50    -
+g games      60    -
+g users      100   -
+g nogroup    65534 -
+
+u root       0       - /root                /bin/bash
+u daemon     1       - /usr/sbin            /usr/sbin/nologin
+u bin        2       - /bin                 /usr/sbin/nologin
+u sys        3       - /dev                 /usr/sbin/nologin
+u sync       4:65534 - /bin                 /bin/sync
+u games      5:60    - /usr/games           /usr/sbin/nologin
+u man        6:12    - /var/cache/man       /usr/sbin/nologin
+u lp         7       - /var/spool/lpd       /usr/sbin/nologin
+u mail       8       - /var/mail            /usr/sbin/nologin
+u news       9       - /var/spool/news      /usr/sbin/nologin
+u uucp       10      - /var/spool/uucp      /usr/sbin/nologin
+u proxy      13      - /bin                 /usr/sbin/nologin
+u www-data   33      - /var/www             /usr/sbin/nologin
+u backup     34      - /var/backups         /usr/sbin/nologin
+u list       38      - /var/list            /usr/sbin/nologin
+u irc        39      - /run/ircd            /usr/sbin/nologin
+u _apt       42:65534 - /nonexistent         /usr/sbin/nologin
+u nobody     65534:65534 - /nonexistent         /usr/sbin/nologin
+
+### /usr/lib/sysusers.d/dbus.conf
+# sysusers.d snippet for creating the D-Bus system user automatically
+# at boot on systemd-based systems that ship with an unpopulated
+# /etc. See sysusers.d(5) for details.
+
+u messagebus - "System Message Bus"
+
+### /usr/lib/sysusers.d/polkitd.conf
+u polkitd - "polkit" /nonexistent
+
+### /usr/lib/sysusers.d/systemd-journal.conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+g systemd-journal - -
+
+### /usr/lib/sysusers.d/systemd-network.conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+u systemd-network - "systemd Network Management"
+
+### /usr/lib/sysusers.d/systemd-resolve.conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+u systemd-resolve - "systemd Resolver"
+
+### /usr/lib/sysusers.d/systemd-timesync.conf
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+u systemd-timesync - "systemd Time Synchronization"

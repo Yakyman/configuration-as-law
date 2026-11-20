@@ -1,0 +1,113 @@
+{
+  "inventory_source": "X/raw-X2/debian-desktop/unowned-groups.json",
+  "individual_script_members": {
+    "debian-desktop-fb87e8bdd4": [
+      {
+        "type": "f",
+        "path": "/home/census/X2-complete-workload.sh",
+        "target": "",
+        "size": 1661
+      }
+    ],
+    "debian-desktop-09fa2e5ce3": [
+      {
+        "type": "f",
+        "path": "/home/census/X2-day.sh",
+        "target": "",
+        "size": 6240
+      }
+    ],
+    "debian-desktop-f5e686458b": [
+      {
+        "type": "f",
+        "path": "/home/census/X2-desktop-env.sh",
+        "target": "",
+        "size": 471
+      }
+    ],
+    "debian-desktop-2438267eef": [
+      {
+        "type": "f",
+        "path": "/home/census/X2-final-apps.sh",
+        "target": "",
+        "size": 1668
+      }
+    ],
+    "debian-desktop-d54b59c426": [
+      {
+        "type": "f",
+        "path": "/home/census/X2-repair-desktop.sh",
+        "target": "",
+        "size": 1678
+      }
+    ]
+  },
+  "excerpts": [
+    {
+      "path": "X/X2-complete-workload.sh",
+      "line": 3,
+      "text": "source /home/census/X2-desktop-env.sh"
+    },
+    {
+      "path": "X/X2-final-apps.sh",
+      "line": 3,
+      "text": "source /home/census/X2-desktop-env.sh"
+    },
+    {
+      "path": "X/X2-repair-desktop.sh",
+      "line": 3,
+      "text": "source /home/census/X2-desktop-env.sh"
+    },
+    {
+      "path": "X/raw-X2/support/guest-logs/x2-start-day.log",
+      "line": 17,
+      "text": "+ runuser -u census -- env XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus systemd-run --user --unit=x2-day --property=RemainAfterExit=yes --property=TimeoutStartSec=7200 /bin/bash /home/census/X2-day.sh"
+    },
+    {
+      "path": "X/raw-X2/support/workload/processes.txt",
+      "line": 60,
+      "text": "   2169     550 bash            /bin/bash /home/census/X2-day.sh"
+    },
+    {
+      "path": "X/raw-X2/support/workload/processes.txt",
+      "line": 82,
+      "text": "   4573     550 bash            /usr/bin/bash /home/census/X2-final-apps.sh"
+    },
+    {
+      "path": "X/raw-X2/support/workload/processes.txt",
+      "line": 84,
+      "text": "   4858     550 bash            /usr/bin/bash /home/census/X2-complete-workload.sh"
+    },
+    {
+      "path": "X/raw-X2/support/workload/processes-at-census.txt",
+      "line": 81,
+      "text": "   4858     550 bash            /usr/bin/bash /home/census/X2-complete-workload.sh"
+    },
+    {
+      "path": "log/X2-c1-1795077723.log",
+      "line": 20348,
+      "text": "/usr/bin/bash -lc \"python X/X2-remote.py bash -c 'cat > /home/census/X2-desktop-env.sh' < X/X2-desktop-env.sh; python X/X2-remote.py bash -c 'cat > /home/census/X2-repair-desktop.sh' < X/X2-repair-desktop.sh; python X/X2-remote.py env XDG_RUNTIME_DIR=/run/user/1000 systemd-run --user --unit=x2-repair-desktop --property=RemainAfterExit=yes bash /home/census/X2-repair-desktop.sh; python X/X2-remote.py tail -n 12 /home/census/x2-evidence/day.log\" in <WORKDIR>"
+    },
+    {
+      "path": "log/X2-c1-1795077723.log",
+      "line": 20857,
+      "text": "Running as unit: x2-repair-desktop.service"
+    },
+    {
+      "path": "X/raw-X2/support/workload/desktop-retry.log",
+      "line": 8,
+      "text": "+ gsettings set org.gnome.desktop.interface color-scheme prefer-dark"
+    }
+  ],
+  "source_sha256": {
+    "X/X2-complete-workload.sh": "01e83f625facabe00a681e2c05e4cbd34288841a43e1cee8ee46e37a7373a873",
+    "X/X2-final-apps.sh": "ebdd627d9c3283018273204e8b60ac66b966edae9170a919c70c88579e01ad2d",
+    "X/X2-repair-desktop.sh": "27823a30966ab6979c5ca45cabb5d806e9c69b13ff3a5680a86edc8b5c3d7059",
+    "X/raw-X2/debian-desktop/unowned-groups.json": "8dc014737b2a6eca13b69eb95e0742f5230097488066f8f5e86783774f26ea23",
+    "X/raw-X2/support/guest-logs/x2-start-day.log": "17560580733c577445779669ccfedbba8530bf9197b1d46e9874060f54dda079",
+    "X/raw-X2/support/workload/desktop-retry.log": "79b09ffa495e2aebd4bc6f5aaaac42b5fcf1ebde8045fa0d27dac5f3a7636883",
+    "X/raw-X2/support/workload/processes-at-census.txt": "854c97ed6705ac6f3d23aff22bd4e5398a7f3959abfd059c41345c5eb1c9a122",
+    "X/raw-X2/support/workload/processes.txt": "ee1670ad8a15b941a8f1b3dc043382e6a67475d22131737b95f87d31bad9d14d",
+    "log/X2-c1-1795077723.log": "6cf5ffdc61aab38b7e410a5fce6201fdf4b631977fdf399ac857ba074937f064"
+  }
+}

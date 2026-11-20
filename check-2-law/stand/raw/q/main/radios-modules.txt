@@ -1,0 +1,49 @@
+6.1.0-56-amd64
+/dev/vhci
+
+/sys/class/ieee80211:
+phy0
+phy1
+btvirt - Bluetooth emulator
+Usage:
+	btvirt [options]
+options:
+	-d                    Enable debug
+	-S                    Create local serial port
+	-s                    Create local server sockets
+	-l[num]               Number of local controllers
+	-L                    Create LE only controller
+	-U[num]               Number of test LE controllers
+	-B                    Create BR/EDR only controller
+	-A                    Create AMP controller
+	-T[num]               Number of test AMP controllers
+	-h, --help            Show help options
+btmgmt ver 5.66
+Usage:
+	btmgmt [--options] [commands]
+Options:
+	--index 	Specify adapter index
+
+	--monitor 	Enable monitor output
+	--timeout 	Timeout in seconds for non-interactive mode
+	--version 	Display version
+	--help 		Display help
+Commands:
+	select		Select a different index
+	revision	Get the MGMT Revision
+	commands	List supported commands
+	config		Show configuration info
+phy#1
+	Interface wlan1
+		ifindex 4
+		wdev 0x100000001
+		addr <MAC-4>
+		type managed
+		txpower 0.00 dBm
+phy#0
+	Interface wlan0
+		ifindex 3
+		wdev 0x1
+		addr <MAC-3>
+		type managed
+		txpower 0.00 dBm

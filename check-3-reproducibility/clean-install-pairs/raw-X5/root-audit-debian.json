@@ -1,0 +1,346 @@
+{
+  "audited_utc": "2026-11-19T09:02:48.187364+00:00",
+  "independent_acceptance": false,
+  "exact_files": {
+    "packages.stdout": {
+      "equal": true,
+      "sha256_a": "e96bffb008b1910200711acf9b348aaf78fdeeb045da869861a7faff2948e46c",
+      "sha256_b": "e96bffb008b1910200711acf9b348aaf78fdeeb045da869861a7faff2948e46c",
+      "lines_a": 168,
+      "lines_b": 168
+    },
+    "dependencies.tsv": {
+      "equal": true,
+      "sha256_a": "5ea2dc806cfe4dab4b3706f33e24196f4ab6f07a72d4e6fe1bdd36e1bfcdab30",
+      "sha256_b": "5ea2dc806cfe4dab4b3706f33e24196f4ab6f07a72d4e6fe1bdd36e1bfcdab30",
+      "lines_a": 168,
+      "lines_b": 168
+    },
+    "downloaded-debs.sha256": {
+      "equal": true,
+      "sha256_a": "bb8ededec80bda0c9c5e63ed2b8c41ac288ff0948ebc89d1860bdc5f1996b476",
+      "sha256_b": "bb8ededec80bda0c9c5e63ed2b8c41ac288ff0948ebc89d1860bdc5f1996b476",
+      "lines_a": 168,
+      "lines_b": 168
+    },
+    "passwd.stdout": {
+      "equal": true,
+      "sha256_a": "6f860b16f8579ce438c32dcc131b6b9cf1b84b0c0e6816b4fec6a5e5012a96ca",
+      "sha256_b": "6f860b16f8579ce438c32dcc131b6b9cf1b84b0c0e6816b4fec6a5e5012a96ca",
+      "lines_a": 21,
+      "lines_b": 21
+    },
+    "group.stdout": {
+      "equal": true,
+      "sha256_a": "9a259ac9b8cd123cec2599e134b65a39046dcaf8c84aa8973b6d4c8ddc45e050",
+      "sha256_b": "9a259ac9b8cd123cec2599e134b65a39046dcaf8c84aa8973b6d4c8ddc45e050",
+      "lines_a": 46,
+      "lines_b": 46
+    },
+    "unit-files.stdout": {
+      "equal": true,
+      "sha256_a": "2d302916f07bbc615bbcba36ac8529a58a3a46d8fba681a144da0783bd73bc4b",
+      "sha256_b": "2d302916f07bbc615bbcba36ac8529a58a3a46d8fba681a144da0783bd73bc4b",
+      "lines_a": 212,
+      "lines_b": 212
+    },
+    "pci.stdout": {
+      "equal": true,
+      "sha256_a": "e3e4f2b183ffaf999fa8189ef0e0059c6d0329996299f4bd3c093bed3ad31a51",
+      "sha256_b": "e3e4f2b183ffaf999fa8189ef0e0059c6d0329996299f4bd3c093bed3ad31a51",
+      "lines_a": 24,
+      "lines_b": 24
+    },
+    "hardware-sysfs.json": {
+      "equal": true,
+      "sha256_a": "318739b78ac953a9f44433804e9f79a0aa3e9a46a65487e9357b7f3ec32f8e3e",
+      "sha256_b": "318739b78ac953a9f44433804e9f79a0aa3e9a46a65487e9357b7f3ec32f8e3e",
+      "lines_a": 102,
+      "lines_b": 102
+    },
+    "dpkg-verify.stdout": {
+      "equal": true,
+      "sha256_a": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_b": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lines_a": 0,
+      "lines_b": 0
+    }
+  },
+  "manifests": {
+    "etc": {
+      "a": {
+        "records": 622,
+        "read_errors": 0,
+        "read_races": 0
+      },
+      "b": {
+        "records": 622,
+        "read_errors": 0,
+        "read_races": 0
+      },
+      "projected_differences": [
+        {
+          "path": "/etc/machine-id",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ecdsa_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ecdsa_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ed25519_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ed25519_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_rsa_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_rsa_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssl/certs",
+          "fields": [
+            "size"
+          ]
+        }
+      ]
+    },
+    "outside-store": {
+      "a": {
+        "records": 16634,
+        "read_errors": 0,
+        "read_races": 0
+      },
+      "b": {
+        "records": 16634,
+        "read_errors": 0,
+        "read_races": 0
+      },
+      "projected_differences": [
+        {
+          "path": "/boot/initrd.img-6.1.0-27-amd64",
+          "fields": [
+            "sha256",
+            "size"
+          ]
+        },
+        {
+          "path": "/etc/machine-id",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ecdsa_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ecdsa_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ed25519_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_ed25519_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_rsa_key",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssh/ssh_host_rsa_key.pub",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/etc/ssl/certs",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/usr/bin",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/usr/lib/systemd/system",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/usr/share/ca-certificates/mozilla",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/usr/share/man/man7",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/usr/share/man/man8",
+          "fields": [
+            "size"
+          ]
+        },
+        {
+          "path": "/var/cache/apt/pkgcache.bin",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/cache/ldconfig/aux-cache",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/lib/systemd/random-seed",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/alternatives.log",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/apt/history.log",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/apt/term.log",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/bootstrap.log",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/dpkg.log",
+          "fields": [
+            "sha256"
+          ]
+        },
+        {
+          "path": "/var/log/journal/<REDACTED-41>",
+          "fields": [
+            "gid",
+            "mode",
+            "nlink",
+            "path",
+            "size",
+            "type",
+            "uid"
+          ]
+        },
+        {
+          "path": "/var/log/journal/<REDACTED-41>/system.journal",
+          "fields": [
+            "changed_while_reading",
+            "gid",
+            "mode",
+            "nlink",
+            "path",
+            "sha256",
+            "size",
+            "type",
+            "uid"
+          ]
+        },
+        {
+          "path": "/var/log/journal/<REDACTED-42>",
+          "fields": [
+            "gid",
+            "mode",
+            "nlink",
+            "path",
+            "size",
+            "type",
+            "uid"
+          ]
+        },
+        {
+          "path": "/var/log/journal/<REDACTED-42>/system.journal",
+          "fields": [
+            "changed_while_reading",
+            "gid",
+            "mode",
+            "nlink",
+            "path",
+            "sha256",
+            "size",
+            "type",
+            "uid"
+          ]
+        },
+        {
+          "path": "/var/log/wtmp",
+          "fields": [
+            "sha256"
+          ]
+        }
+      ]
+    }
+  },
+  "dpkg_db_repair_a": {
+    "verified_files": 831,
+    "all_equal": true
+  },
+  "dpkg_db_repair_b": {
+    "verified_files": 831,
+    "all_equal": true
+  }
+}

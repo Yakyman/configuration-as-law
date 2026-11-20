@@ -1,0 +1,25 @@
+row,fault,limb,policy,condition_verified,transition_ack,transition_error,current_needers,saved_needing_generations,active,archive,retry_ack,rollback_read,pre_gc_rollback_read,archive_error_count
+a2-blocks-current-keep,blocks,current,keep,True,True,,False,1,False,True,True,0,,0
+a2-blocks-current-delete,blocks,current,delete,True,True,,False,1,False,True,True,0,,0
+a2-blocks-saved-keep,blocks,saved,keep,True,True,,False,0,False,True,True,,0,0
+a2-blocks-saved-delete,blocks,saved,delete,True,True,,False,0,False,False,True,,0,0
+inodes-current-keep,inodes,current,keep,True,True,,False,1,False,True,True,0,,0
+inodes-current-delete,inodes,current,delete,True,True,,False,1,False,True,True,0,,0
+inodes-saved-keep,inodes,saved,keep,True,True,,False,0,False,True,True,,0,0
+inodes-saved-delete,inodes,saved,delete,True,True,,False,0,False,False,True,,0,0
+ro-current-keep,ro,current,keep,True,False,[Errno 30] Read-only file system: '/var/lib/cal/active/local-alice-cache' -> '/var/lib/cal/archive/local-alice-cache',True,1,True,False,True,0,,1
+ro-current-delete,ro,current,delete,True,False,[Errno 30] Read-only file system: '/var/lib/cal/active/local-alice-cache' -> '/var/lib/cal/archive/local-alice-cache',True,1,True,False,True,0,,1
+ro-saved-keep,ro,saved,keep,True,True,,False,0,False,True,True,,0,0
+ro-saved-delete,ro,saved,delete,True,False,[Errno 30] Read-only file system: 'version',False,0,False,True,True,,0,1
+a2-shared-healthy-keep,healthy,shared,keep,True,True,,True,2,True,False,True,0,,0
+a2-shared-healthy-delete,healthy,shared,delete,True,True,,True,2,True,False,True,0,,0
+a2-shared-blocks-keep,blocks,shared,keep,True,False,[Errno 28] No space left on device,True,1,True,False,True,0,,0
+a2-shared-blocks-delete,blocks,shared,delete,True,False,[Errno 28] No space left on device,True,1,True,False,True,0,,0
+a2-shared-inodes-keep,inodes,shared,keep,True,False,[Errno 28] No space left on device: '/var/lib/cal/active/beta/.cal-i6zutz86',True,1,True,False,True,0,,0
+a2-shared-inodes-delete,inodes,shared,delete,True,False,[Errno 28] No space left on device: '/var/lib/cal/active/shared-p43/.cal-f2lo1ewu',True,1,True,False,True,0,,0
+a2-shared-ro-keep,ro,shared,keep,True,False,[Errno 30] Read-only file system: '/var/lib/cal/active/alpha' -> '/var/lib/cal/archive/alpha',True,1,True,False,True,0,,1
+a2-shared-ro-delete,ro,shared,delete,True,False,[Errno 30] Read-only file system: '/var/lib/cal/active/alpha' -> '/var/lib/cal/archive/alpha',True,1,True,False,True,0,,1
+control-current-keep,healthy,current,keep,True,True,,False,1,False,True,True,0,,0
+control-current-delete,healthy,current,delete,True,True,,False,1,False,True,True,0,,0
+control-saved-keep,healthy,saved,keep,True,True,,False,0,False,True,True,,0,0
+control-saved-delete,healthy,saved,delete,True,True,,False,0,False,False,True,,0,0

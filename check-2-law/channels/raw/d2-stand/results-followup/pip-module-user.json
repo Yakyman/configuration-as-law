@@ -1,0 +1,72 @@
+{
+  "id": "pip-module-user",
+  "system": "stand",
+  "utc": "2026-11-19T08:45:20.435368+00:00",
+  "kind": "install",
+  "prerequisites": "python3",
+  "marker": "/home/alice/d2/markers/pip-module-user",
+  "declaration_before": {
+    "command": "sha256sum /etc/cal/root.json /etc/cal/base-* /home/alice/declaration.json /var/lib/cal/current.json /etc/apparmor.d/cal-stand",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "e2de2505c2de4e84b86ad9d3a6fd3660b7135e06b13753f0aa1d302463068278  /etc/cal/root.json\n0ff409b016cf69e4211e4bf68a7309162930cfcb1ba056749751eccc0e8aa2fa  /etc/cal/base-accounts.txt\n9d2902f22b73338f567959a2261aa8186fb3ef14e041b18592e74920d678db6f  /etc/cal/base-artifacts.sha256\n40c209cea15aa127ea8a5c40a5b2057abb11a86392b7f264c016f4ea2dbb4a81  /etc/cal/base-groups.txt\n0c656c014ef521abc02cc6da5be5bf3a8236425c1c87e999ca2a22984fc14755  /etc/cal/base-kernel.txt\n16047c6e19b5d0900a184d5710f38524cc4c15f5cdf1a897a1badf449a7eba9a  /etc/cal/base-packages.sha256\n0d860cd2d1980ec623857bfa36884999e077fe48b9be4a71d88dac56f456904e  /etc/cal/base-packages.tsv\n3f218a2abfc51bc0c4a3f6f1c414769c41999dc7f9eb1c920b198769e0bd401a  /etc/cal/base-units.txt\n7b0a3ce1ba5adf0a3b6ed8e617692f1d2f9a5c7ed1b52177f536f17f2801a5fd  /home/alice/declaration.json\n30bf4d3410e9c87a43da1eb727ada43ddd3084a543751029b1df051a9814b17a  /var/lib/cal/current.json\nfffe2c10bc9b90e58229094fac030b61909be1b3ae1b85f6adf48ae7d969f49f  /etc/apparmor.d/cal-stand\n",
+    "stderr": "",
+    "seconds": 0.17
+  },
+  "marker_reset": {
+    "command": "rm -f /home/alice/d2/markers/pip-module-user; test ! -e /home/alice/d2/markers/pip-module-user",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.17
+  },
+  "identity": {
+    "command": "id; cat /proc/self/attr/current 2>/dev/null; printf \"HOME=%s\\nPATH=%s\\n\" \"$HOME\" \"$PATH\"",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "uid=1000(alice) gid=1000(alice) groups=1000(alice),1002(calusers)\ncal-alice (enforce)\nHOME=/home/alice\nPATH=/usr/local/bin:/usr/bin:/bin:/usr/games\n",
+    "stderr": "",
+    "seconds": 0.16
+  },
+  "prepare": {
+    "command": "python3 -m pip uninstall -y --break-system-packages d2-python-probe; python3 -m pip show d2-python-probe; test ! -e ~/.local/bin/d2-python-probe && echo D2_PACKAGE_ABSENT_BEFORE",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "Found existing installation: d2-python-probe 0.0.1\nUninstalling d2-python-probe-0.0.1:\n  Successfully uninstalled d2-python-probe-0.0.1\nD2_PACKAGE_ABSENT_BEFORE\n",
+    "stderr": "WARNING: Package(s) not found: d2-python-probe\n",
+    "seconds": 0.67
+  },
+  "availability": {
+    "command": "for x in python3; do command -v \"$x\" || true; done",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "/usr/bin/python3\n",
+    "stderr": "",
+    "seconds": 0.16
+  },
+  "attempt": {
+    "command": "export D2_MARK=/home/alice/d2/markers/pip-module-user; python3 -m pip install --user --force-reinstall --no-index --no-build-isolation --break-system-packages /home/alice/d2/python-package && \"$HOME/.local/bin/d2-python-probe\"; python3 -m d2_python_probe; python3 -m pip show d2-python-probe",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "Processing ./d2/python-package\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nBuilding wheels for collected packages: d2-python-probe\n  Building wheel for d2-python-probe (setup.py): started\n  Building wheel for d2-python-probe (setup.py): finished with status 'done'\n  Created wheel for d2-python-probe: filename=d2_python_probe-0.0.1-py3-none-any.whl size=1625 sha256=b57d9d17daba191dd5fc09c6dce3cfc02682f3bf93b52d95c6cffb15a7cebdbd\n  Stored in directory: /home/alice/.cache/pip/wheels/cb/64/99/6f8064c3ea26fcc381f5aa1d6b8972e6c9fa268929b373f85c\nSuccessfully built d2-python-probe\nInstalling collected packages: d2-python-probe\nSuccessfully installed d2-python-probe-0.0.1\nD2_PYTHON_EXECUTED uid=1000 euid=1000\nName: d2-python-probe\nVersion: 0.0.1\nSummary: \nHome-page: \nAuthor: \nAuthor-email: \nLicense: \nLocation: /home/alice/.local/lib/python3.11/site-packages\nRequires: \nRequired-by: \n",
+    "stderr": "  WARNING: The script d2-python-probe is installed in '/home/alice/.local/bin' which is not on PATH.\n  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.\n/bin/bash: /home/alice/.local/bin/d2-python-probe: /usr/bin/python3: bad interpreter: Permission denied\n",
+    "seconds": 1.17
+  },
+  "observation": {
+    "command": "if test -f /home/alice/d2/markers/pip-module-user; then cat /home/alice/d2/markers/pip-module-user; else echo D2_NO_MARKER; fi; ls -l /home/alice/.local/bin/d2-python-probe 2>/dev/null; find /home/alice/.local/lib -iname \"*d2*\" 2>/dev/null",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "D2_PYTHON_EXECUTED\n-rwxr-xr-x 1 alice alice 214 Nov 19 08:45 /home/alice/.local/bin/d2-python-probe\n/home/alice/.local/lib/python3.11/site-packages/d2_python_probe.py\n/home/alice/.local/lib/python3.11/site-packages/__pycache__/d2_python_probe.cpython-311.pyc\n/home/alice/.local/lib/python3.11/site-packages/d2_python_probe-0.0.1.dist-info\n",
+    "stderr": "",
+    "seconds": 0.18
+  },
+  "declaration_after": {
+    "command": "sha256sum /etc/cal/root.json /etc/cal/base-* /home/alice/declaration.json /var/lib/cal/current.json /etc/apparmor.d/cal-stand",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "e2de2505c2de4e84b86ad9d3a6fd3660b7135e06b13753f0aa1d302463068278  /etc/cal/root.json\n0ff409b016cf69e4211e4bf68a7309162930cfcb1ba056749751eccc0e8aa2fa  /etc/cal/base-accounts.txt\n9d2902f22b73338f567959a2261aa8186fb3ef14e041b18592e74920d678db6f  /etc/cal/base-artifacts.sha256\n40c209cea15aa127ea8a5c40a5b2057abb11a86392b7f264c016f4ea2dbb4a81  /etc/cal/base-groups.txt\n0c656c014ef521abc02cc6da5be5bf3a8236425c1c87e999ca2a22984fc14755  /etc/cal/base-kernel.txt\n16047c6e19b5d0900a184d5710f38524cc4c15f5cdf1a897a1badf449a7eba9a  /etc/cal/base-packages.sha256\n0d860cd2d1980ec623857bfa36884999e077fe48b9be4a71d88dac56f456904e  /etc/cal/base-packages.tsv\n3f218a2abfc51bc0c4a3f6f1c414769c41999dc7f9eb1c920b198769e0bd401a  /etc/cal/base-units.txt\n7b0a3ce1ba5adf0a3b6ed8e617692f1d2f9a5c7ed1b52177f536f17f2801a5fd  /home/alice/declaration.json\n30bf4d3410e9c87a43da1eb727ada43ddd3084a543751029b1df051a9814b17a  /var/lib/cal/current.json\nfffe2c10bc9b90e58229094fac030b61909be1b3ae1b85f6adf48ae7d969f49f  /etc/apparmor.d/cal-stand\n",
+    "stderr": "",
+    "seconds": 0.17
+  }
+}

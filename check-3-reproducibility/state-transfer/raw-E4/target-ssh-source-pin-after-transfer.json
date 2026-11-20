@@ -1,0 +1,11 @@
+{
+  "machine": "server",
+  "label": "target-ssh-source-pin-after-transfer",
+  "started_utc": "2026-11-19T08:37:22.003092+00:00",
+  "command": "bash -s",
+  "script": "cd <WORKDIR>/E4\nssh -n -o BatchMode=yes -o StrictHostKeyChecking=yes -o HostKeyAlias=e4-service -o UserKnownHostsFile=\"$PWD/service_known_hosts\" -o HostKeyAlgorithms=ssh-ed25519 -i id_ed25519 -p 22147 root@127.0.0.1 'hostname; cat /etc/machine-id; ssh-keygen -lf /srv/e4/ssh/ssh_host_ed25519_key.pub'\necho SSH_RC=$?\n",
+  "rc": 0,
+  "stdout": "e4-target\n<REDACTED-24>\n256 <REDACTED-22> root@e4-source (ED25519)\nSSH_RC=0\n",
+  "stderr": "",
+  "finished_utc": "2026-11-19T08:37:22.303330+00:00"
+}

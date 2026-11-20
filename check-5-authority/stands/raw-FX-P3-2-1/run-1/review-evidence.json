@@ -1,0 +1,294 @@
+{
+  "analysis_identical_except_timestamp": true,
+  "matrix_changes": [
+    {
+      "row": "I-IP",
+      "column": "superseded",
+      "before": "local-alice-a1;local-alice-a1",
+      "after": "local-alice-a1"
+    }
+  ],
+  "designated_file_conflict_rows": [
+    "D-IP",
+    "D-Qxy",
+    "D-Qyx",
+    "D-Sxy",
+    "D-Syx",
+    "N-IP",
+    "N-Qxy",
+    "N-Qyx",
+    "N-Sxy",
+    "N-Syx"
+  ],
+  "designated_list_still_runs_rows": [
+    "D-Qyx",
+    "D-Syx",
+    "N-Qyx",
+    "N-Syx"
+  ],
+  "root_refusals": [
+    {
+      "row": "D-IP",
+      "family": "D",
+      "label": "X-resubmit",
+      "rc": 1,
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/D-IP/meta.json"
+    },
+    {
+      "row": "D-Qxy",
+      "family": "D",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/D-Qxy/meta.json"
+    },
+    {
+      "row": "D-Qyx",
+      "family": "D",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/D-Qyx/meta.json"
+    },
+    {
+      "row": "D-Syx",
+      "family": "D",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/D-Syx/meta.json"
+    },
+    {
+      "row": "F-IP",
+      "family": "F",
+      "label": "X-resubmit",
+      "rc": 1,
+      "ack": {
+        "error": "personal declaration cannot override root fields",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/F-IP/meta.json"
+    },
+    {
+      "row": "F-Qxy",
+      "family": "F",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "personal declaration cannot override root fields",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/F-Qxy/meta.json"
+    },
+    {
+      "row": "F-Qyx",
+      "family": "F",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "personal declaration cannot override root fields",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/F-Qyx/meta.json"
+    },
+    {
+      "row": "F-Syx",
+      "family": "F",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "personal declaration cannot override root fields",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/F-Syx/meta.json"
+    },
+    {
+      "row": "N-IP",
+      "family": "N",
+      "label": "X-resubmit",
+      "rc": 1,
+      "ack": {
+        "error": "root allowlist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/N-IP/meta.json"
+    },
+    {
+      "row": "N-Qxy",
+      "family": "N",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root allowlist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/N-Qxy/meta.json"
+    },
+    {
+      "row": "N-Qyx",
+      "family": "N",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root allowlist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/N-Qyx/meta.json"
+    },
+    {
+      "row": "N-Syx",
+      "family": "N",
+      "label": "X",
+      "rc": 1,
+      "ack": {
+        "error": "root allowlist forbids local-alice-a1",
+        "ok": false
+      },
+      "evidence": "P/raw-P3-2/server/results/N-Syx/meta.json"
+    }
+  ],
+  "clause3_observations": [
+    {
+      "row": "D-Qxy",
+      "designated_root_policies": {
+        "alice": {
+          "denylist": [
+            "local-alice-a1"
+          ]
+        }
+      },
+      "current_root_policies": {},
+      "alice_ack": {
+        "error": "root declaration changed: root must apply first",
+        "ok": false
+      },
+      "rc": 1,
+      "evidence": "P/raw-P3-2/server/results/D-Qxy"
+    },
+    {
+      "row": "D-IP",
+      "designated_root_policies": {
+        "alice": {
+          "denylist": [
+            "local-alice-a1"
+          ]
+        }
+      },
+      "current_root_policies": {},
+      "alice_ack": {
+        "error": "root declaration changed: root must apply first",
+        "ok": false
+      },
+      "rc": 1,
+      "evidence": "P/raw-P3-2/server/results/D-IP"
+    }
+  ],
+  "reviewer_serial_example_correction": {
+    "D-Sxy": {
+      "rc": 1,
+      "ack_ok": false,
+      "error": "root denylist forbids local-alice-a1"
+    },
+    "D-Syx": {
+      "rc": 0,
+      "ack_ok": true,
+      "error": null
+    }
+  },
+  "superseded_request_provenance": [
+    {
+      "id": "local-alice-a1",
+      "request": "X-initial"
+    },
+    {
+      "id": "local-alice-a1",
+      "request": "Y"
+    }
+  ],
+  "recomputed_control_replay_parity": [
+    {
+      "row": "control-D-Sxy",
+      "original": "D-Sxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-D-Syx",
+      "original": "D-Syx",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-F-Sxy",
+      "original": "F-Sxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-F-Syx",
+      "original": "F-Syx",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-I-Sxy",
+      "original": "I-Sxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-I-Syx",
+      "original": "I-Syx",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-N-Sxy",
+      "original": "N-Sxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "control-N-Syx",
+      "original": "N-Syx",
+      "normalized_equal": true
+    },
+    {
+      "row": "replay-D-Qxy",
+      "original": "D-Qxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "replay-D-Qyx",
+      "original": "D-Qyx",
+      "normalized_equal": true
+    },
+    {
+      "row": "replay-F-Qxy",
+      "original": "F-Qxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "replay-N-Qxy",
+      "original": "N-Qxy",
+      "normalized_equal": true
+    },
+    {
+      "row": "replay-N-Qyx",
+      "original": "N-Qyx",
+      "normalized_equal": true
+    }
+  ],
+  "preservation": {
+    "hashed_inputs": 1277,
+    "changed": [],
+    "original_result_verified_at": "inputs/P/P3-2.md"
+  },
+  "hypothesis_classification_added_by_script": false
+}

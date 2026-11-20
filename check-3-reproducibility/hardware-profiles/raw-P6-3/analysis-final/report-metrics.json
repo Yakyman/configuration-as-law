@@ -1,0 +1,511 @@
+{
+  "debian": {
+    "matrix": [
+      {
+        "branch": "A1",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              58
+            ],
+            "kernel_task_counts": [
+              66
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              58
+            ],
+            "kernel_task_counts": [
+              67
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          }
+        }
+      },
+      {
+        "branch": "B1",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              66
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              66
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          }
+        }
+      },
+      {
+        "branch": "B2",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              66
+            ],
+            "kernel_task_counts": [
+              70
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              66
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          }
+        }
+      },
+      {
+        "branch": "A2",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              58
+            ],
+            "kernel_task_counts": [
+              68
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              58
+            ],
+            "kernel_task_counts": [
+              67
+            ],
+            "userspace_task_counts": [
+              16,
+              18
+            ]
+          }
+        }
+      }
+    ],
+    "inventories": 80,
+    "comparison_counts": {
+      "all": {
+        "available": 120,
+        "expected": 120
+      },
+      "cross": {
+        "available": 80,
+        "expected": 80
+      },
+      "same": {
+        "available": 40,
+        "expected": 40
+      }
+    },
+    "candidate_package_records": 324,
+    "candidate_program_path_records": 1651,
+    "candidate_kernel_payload_path_records": 4660,
+    "ledger_rows": 105,
+    "ledger_domains": {
+      "kernel_tasks": 85,
+      "loaded_modules": 8,
+      "hardware_bindings": 12
+    },
+    "kernel_ledger_rows_with_same_profile_occurrences": 82,
+    "domain_pair_counts": {
+      "same": {
+        "accounts_rules": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "enabled_services": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "hardware_bindings": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "kernel_tasks": {
+          "available": 40,
+          "equal": 0,
+          "different": 40,
+          "expected": 40
+        },
+        "loaded_modules": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "packages": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "service_states": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        },
+        "userspace": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 40
+        }
+      },
+      "cross": {
+        "accounts_rules": {
+          "available": 80,
+          "equal": 80,
+          "different": 0,
+          "expected": 80
+        },
+        "enabled_services": {
+          "available": 80,
+          "equal": 80,
+          "different": 0,
+          "expected": 80
+        },
+        "hardware_bindings": {
+          "available": 80,
+          "equal": 0,
+          "different": 80,
+          "expected": 80
+        },
+        "kernel_tasks": {
+          "available": 80,
+          "equal": 0,
+          "different": 80,
+          "expected": 80
+        },
+        "loaded_modules": {
+          "available": 80,
+          "equal": 0,
+          "different": 80,
+          "expected": 80
+        },
+        "packages": {
+          "available": 80,
+          "equal": 80,
+          "different": 0,
+          "expected": 80
+        },
+        "service_states": {
+          "available": 80,
+          "equal": 80,
+          "different": 0,
+          "expected": 80
+        },
+        "userspace": {
+          "available": 80,
+          "equal": 80,
+          "different": 0,
+          "expected": 80
+        }
+      }
+    }
+  },
+  "alpine": {
+    "matrix": [
+      {
+        "branch": "A1",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              46
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              46
+            ],
+            "kernel_task_counts": [
+              67
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          }
+        }
+      },
+      {
+        "branch": "B1",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              47
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              47
+            ],
+            "kernel_task_counts": [
+              72
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          }
+        }
+      },
+      {
+        "branch": "B2",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": false,
+            "count": 0
+          },
+          "reboot": {
+            "available": false,
+            "count": 0
+          }
+        }
+      },
+      {
+        "branch": "A2",
+        "attempted": true,
+        "endpoints": {
+          "first": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              46
+            ],
+            "kernel_task_counts": [
+              69
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          },
+          "reboot": {
+            "available": true,
+            "count": 10,
+            "module_counts": [
+              46
+            ],
+            "kernel_task_counts": [
+              70
+            ],
+            "userspace_task_counts": [
+              19
+            ]
+          }
+        }
+      }
+    ],
+    "inventories": 60,
+    "comparison_counts": {
+      "all": {
+        "available": 60,
+        "expected": 120
+      },
+      "cross": {
+        "available": 40,
+        "expected": 80
+      },
+      "same": {
+        "available": 20,
+        "expected": 40
+      }
+    },
+    "candidate_package_records": 147,
+    "candidate_program_path_records": 581,
+    "candidate_kernel_payload_path_records": 948,
+    "ledger_rows": 57,
+    "ledger_domains": {
+      "userspace": 3,
+      "kernel_tasks": 46,
+      "loaded_modules": 1,
+      "hardware_bindings": 7
+    },
+    "kernel_ledger_rows_with_same_profile_occurrences": 35,
+    "domain_pair_counts": {
+      "same": {
+        "accounts_rules": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "enabled_services": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "hardware_bindings": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "kernel_tasks": {
+          "available": 20,
+          "equal": 0,
+          "different": 20,
+          "expected": 40
+        },
+        "loaded_modules": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "packages": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "service_states": {
+          "available": 20,
+          "equal": 20,
+          "different": 0,
+          "expected": 40
+        },
+        "userspace": {
+          "available": 20,
+          "equal": 0,
+          "different": 20,
+          "expected": 40
+        }
+      },
+      "cross": {
+        "accounts_rules": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 80
+        },
+        "enabled_services": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 80
+        },
+        "hardware_bindings": {
+          "available": 40,
+          "equal": 0,
+          "different": 40,
+          "expected": 80
+        },
+        "kernel_tasks": {
+          "available": 40,
+          "equal": 0,
+          "different": 40,
+          "expected": 80
+        },
+        "loaded_modules": {
+          "available": 40,
+          "equal": 0,
+          "different": 40,
+          "expected": 80
+        },
+        "packages": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 80
+        },
+        "service_states": {
+          "available": 40,
+          "equal": 40,
+          "different": 0,
+          "expected": 80
+        },
+        "userspace": {
+          "available": 40,
+          "equal": 0,
+          "different": 40,
+          "expected": 80
+        }
+      }
+    }
+  }
+}

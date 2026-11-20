@@ -1,0 +1,105 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "id": "35-root-unconfined",
+  "channel": "unmanaged root program write",
+  "command": "/bin/sh -c 'printf ROOT_PROGRAM_UNCONFINED >/usr/local/root-program-probe'; cat /usr/local/root-program-probe",
+  "user": "root",
+  "expected": "coverage defect",
+  "observed": "executed",
+  "returncode": 0,
+  "met": null,
+  "stdout": "ROOT_PROGRAM_UNCONFINED",
+  "stderr": "",
+  "declaration_before": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "declaration_after": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "utc": "2026-11-19T09:02:49Z"
+}

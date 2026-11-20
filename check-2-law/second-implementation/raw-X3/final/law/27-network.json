@@ -1,0 +1,83 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "18",
+    "personal": {
+      "alice": {
+        "programs": {
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "18",
+    "personal": {
+      "alice": {
+        "programs": {
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "id": "27-network",
+  "channel": "ordinary network",
+  "command": "curl -fsS http://127.0.0.1:8080/; curl -I -sS --max-time 20 https://www.debian.org/",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "<html><body><h1>CAL browser fixture</h1></body></html>\nHTTP/2 200 \ncontent-location: index.en.html\nvary: negotiate,accept-language,Accept-Encoding,cookie\ntcn: choice\nx-content-type-options: nosniff\nx-frame-options: sameorigin\nreferrer-policy: no-referrer\nx-xss-protection: 1\npermissions-policy: interest-cohort=()\nstrict-transport-security: max-age=15552000\nlast-modified: Mon, 02 Nov 2026 23:29:24 GMT\netag: \"3df7-65f53842b8d35\"\naccept-ranges: bytes\ncontent-length: 15863\ncache-control: max-age=86400\nexpires: Fri, 20 Nov 2026 09:02:48 GMT\nx-clacks-overhead: GNU Terry Pratchett\ncontent-type: text/html\ncontent-language: en\ndate: Thu, 19 Nov 2026 09:02:48 GMT\nserver: Apache\n\n",
+  "stderr": "X3_LANDLOCK_ENFORCED abi=2 uid=1000 role=user\n",
+  "declaration_before": "111d316de720c1d9b361d4229ae08cdb4ed7bb1f320b00d83d6fea4b319582b9",
+  "declaration_after": "111d316de720c1d9b361d4229ae08cdb4ed7bb1f320b00d83d6fea4b319582b9",
+  "utc": "2026-11-19T09:02:47Z"
+}

@@ -1,0 +1,66 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+<REDACTED-1>.
+Please contact your system administrator.
+Add correct host key in <WORKDIR>/v1/known_hosts to get rid of this message.
+Offending ED25519 key in <WORKDIR>/v1/known_hosts:2
+  remove with:
+  ssh-keygen -f '<WORKDIR>/v1/known_hosts' -R '[127.0.0.1]:22132'
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
++ id
+uid=1001(census) gid=1001(census) groups=1001(census),10(wheel) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
++ date -u --iso-8601=seconds
+2026-11-19T06:24:40+00:00
++ mkdir -p /var/home/census/Documents
++ printf 'export EDITOR=vi\n'
++ printf '# Work note\n\nReview system logs and check available storage with tree.\n'
++ sudo rpm-ostree install tree
+Checking out tree 1d4d4be...done
+Enabled rpm-md repositories: fedora-cisco-openh264 updates fedora updates-archive
+Updating metadata for 'fedora-cisco-openh264'...done
+Updating metadata for 'updates'...done
+Updating metadata for 'fedora'...done
+Updating metadata for 'updates-archive'...done
+Importing rpm-md...done
+rpm-md repo 'fedora-cisco-openh264'; generated: 2026-03-24T10:37:04Z solvables: 3
+rpm-md repo 'updates'; generated: 2026-11-19T01:26:06Z solvables: 32398
+rpm-md repo 'fedora'; generated: 2026-04-22T13:34:32Z solvables: 76354
+rpm-md repo 'updates-archive'; generated: 2026-11-18T05:06:57Z solvables: 56138
+Resolving dependencies...done
+Will download: 1 package (64.2 kB)
+Downloading from 'fedora'...done
+Importing packages...done
+Checking out packages...done
+Running systemd-sysusers...done
+Running pre scripts...done
+Running post scripts...done
+Running posttrans scripts...done
+Writing rpmdb...done
+Writing OSTree commit...done
+Staging deployment...done
+Added:
+  tree-2.2.1-4.fc44.x86_64
+Changes queued for next boot. Run "systemctl reboot" to start a reboot
++ rpm-ostree status
+State: idle
+AutomaticUpdatesDriver: Zincati
+  DriverState: active; periodically polling for updates (last checked Thu 2026-11-19 06:24:39 UTC)
+Deployments:
+  ostree-image-signed:docker://quay.io/fedora/fedora-coreos:stable
+                   Digest: sha256:db77301c03237586dd4e147ac722a5d046f2c4096e3a6340851200915ad28ed8
+                  Version: 44.20261023.3.1 (2026-10-31T13:19:54Z)
+                     Diff: 1 added
+          LayeredPackages: tree
+
+● ostree-image-signed:docker://quay.io/fedora/fedora-coreos:stable
+                   Digest: sha256:db77301c03237586dd4e147ac722a5d046f2c4096e3a6340851200915ad28ed8
+                  Version: 44.20261023.3.1 (2026-10-31T13:19:54Z)
++ date -u --iso-8601=seconds
+2026-11-19T06:25:08+00:00
++ sudo systemctl reboot

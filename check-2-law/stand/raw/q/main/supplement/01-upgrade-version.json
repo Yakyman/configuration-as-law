@@ -1,0 +1,15 @@
+{
+  "id": "01-upgrade-version",
+  "channel": "upgraded package",
+  "command": "dpkg-query -W hello; /usr/bin/hello",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "hello\t2.10-3\nHello, world!\n",
+  "stderr": "",
+  "declaration_before": "b544fc273ef115ac6ad820047add04e6c1704f1c84df806bed1bef4d5bf8cb84",
+  "declaration_after": "b544fc273ef115ac6ad820047add04e6c1704f1c84df806bed1bef4d5bf8cb84",
+  "utc": "2026-11-19T08:42:11Z"
+}

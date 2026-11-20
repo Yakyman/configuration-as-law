@@ -1,0 +1,56 @@
+{
+  "id": "native-home",
+  "system": "nixos",
+  "utc": "2026-11-19T08:36:49.383438+00:00",
+  "kind": "native",
+  "prerequisites": "",
+  "marker": "/home/alice/d2/markers/native-home",
+  "declaration_before": {
+    "command": "sha256sum /etc/nixos/*.nix; readlink -f /run/current-system",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "2786eaebcd0b55bbec58434a9567a548aaa5668b9a5254a1fceaac9ecf50ba85  /etc/nixos/configuration.nix\n3bed0265cf4258c40910521be2a4159f9c2331e906d3098d8d1ac649d8bef03d  /etc/nixos/hardware-configuration.nix\n/nix/store/cwq4a6z0yf9za550ydhxyw346iyaq6ni-nixos-system-d2-nixos-26.05.14630.f68407657ad2\n",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.3
+  },
+  "marker_reset": {
+    "command": "rm -f /home/alice/d2/markers/native-home; test ! -e /home/alice/d2/markers/native-home",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.14
+  },
+  "identity": {
+    "command": "id; cat /proc/self/attr/current 2>/dev/null; printf \"HOME=%s\\nPATH=%s\\n\" \"$HOME\" \"$PATH\"",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "uid=1000(alice) gid=100(users) groups=100(users)\nHOME=/home/alice\nPATH=/run/wrappers/bin:/home/alice/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/home/alice/.nix-profile/bin:/nix/profile/bin:/home/alice/.local/state/nix/profile/bin:/etc/profiles/per-user/alice/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin\n",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.15
+  },
+  "attempt": {
+    "command": "export D2_MARK=/home/alice/d2/markers/native-home; /home/alice/d2/native \"$D2_MARK\"",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\n",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.13
+  },
+  "observation": {
+    "command": "if test -f /home/alice/d2/markers/native-home; then cat /home/alice/d2/markers/native-home; else echo D2_NO_MARKER; fi; ",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\n",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.14
+  },
+  "declaration_after": {
+    "command": "sha256sum /etc/nixos/*.nix; readlink -f /run/current-system",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "2786eaebcd0b55bbec58434a9567a548aaa5668b9a5254a1fceaac9ecf50ba85  /etc/nixos/configuration.nix\n3bed0265cf4258c40910521be2a4159f9c2331e906d3098d8d1ac649d8bef03d  /etc/nixos/hardware-configuration.nix\n/nix/store/cwq4a6z0yf9za550ydhxyw346iyaq6ni-nixos-system-d2-nixos-26.05.14630.f68407657ad2\n",
+    "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-10>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/D/nixos/known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/D/nixos/known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/D/nixos/known_hosts' -R '[127.0.0.1]:22202'\nPassword authentication is disabled to avoid man-in-the-middle attacks.\nKeyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.\n",
+    "seconds": 0.14
+  }
+}

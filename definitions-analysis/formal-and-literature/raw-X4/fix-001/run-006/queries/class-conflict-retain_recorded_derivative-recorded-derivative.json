@@ -1,0 +1,159 @@
+{
+  "name": "class-conflict-retain_recorded_derivative-recorded-derivative",
+  "status": "sat",
+  "note": "Class obligations; overlap does not imply an opposite data preservation duty",
+  "smt2": "X/raw-X4/fix-001/run-006/queries/class-conflict-retain_recorded_derivative-recorded-derivative.smt2",
+  "rule_sources": {
+    "search.conflicting_obligations": []
+  },
+  "formulae": {
+    "search.conflicting_obligations": "And(And(Or(root_records_x, personal_records_x),\n        Or(Or(And(p0_described_at_creation,\n                  p0_created_x_itself,\n                  p0_needs_x),\n              p0_executes_x_internally),\n           Or(And(p1_described_at_creation,\n                  p1_created_x_itself,\n                  p1_needs_x),\n              p1_executes_x_internally))),\n    Exists([present,\n            active,\n            accessible,\n            deleted,\n            archive_step,\n            change_allowed,\n            personal_entry_admitted,\n            inclusion_possible,\n            recorded_after_inclusion,\n            present_after_inclusion,\n            launch_effective,\n            derivative_is_independent_authority],\n           And(And(Implies(active, present),\n                   Implies(accessible, present),\n                   Implies(deleted, Not(present)),\n                   Implies(x_runs, present),\n                   Implies(bypass_launch_attempt,\n                           And(changes_running_component,\n                               Not(writes_declaration))),\n                   Implies(launch_effective,\n                           bypass_launch_attempt),\n                   Implies(launch_effective, present),\n                   Not(And(archive_keep, archive_delete)),\n                   Not(And(allowlist_enabled,\n                           denylist_enabled))),\n               And(Implies(Or(root_records_x,\n                              personal_records_x),\n                           present),\n                   Implies(recorded_after_inclusion,\n                           present_after_inclusion)))),\n    Exists([present,\n            active,\n            accessible,\n            deleted,\n            archive_step,\n            change_allowed,\n            personal_entry_admitted,\n            inclusion_possible,\n            recorded_after_inclusion,\n            present_after_inclusion,\n            launch_effective,\n            derivative_is_independent_authority],\n           And(And(Implies(active, present),\n                   Implies(accessible, present),\n                   Implies(deleted, Not(present)),\n                   Implies(x_runs, present),\n                   Implies(bypass_launch_attempt,\n                           And(changes_running_component,\n                               Not(writes_declaration))),\n                   Implies(launch_effective,\n                           bypass_launch_attempt),\n                   Implies(launch_effective, present),\n                   Not(And(archive_keep, archive_delete)),\n                   Not(And(allowlist_enabled,\n                           denylist_enabled))),\n               And(Implies(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                     p0_executes_x_internally),\n                                  Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                     p1_executes_x_internally)),\n                               Or(Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_current),\n                                     And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_current)),\n                                  Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_saved),\n                                     And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_saved)))),\n                           And(present, Not(deleted))),\n                   Implies(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                     p0_executes_x_internally),\n                                  Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                     p1_executes_x_internally)),\n                               Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                      p0_in_current),\n                                  And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                      p1_in_current))),\n                           And(Not(archive_step),\n                               accessible)),\n                   Implies(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                     p0_executes_x_internally),\n                                  Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                     p1_executes_x_internally)),\n                               Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_current),\n                                      And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_current)))),\n                           And(archive_step, Not(active))),\n                   Implies(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                     p0_executes_x_internally),\n                                  Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                     p1_executes_x_internally)),\n                               Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_current),\n                                      And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_current))),\n                               archive_keep),\n                           And(present, Not(deleted))),\n                   Implies(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                     p0_executes_x_internally),\n                                  Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                     p1_executes_x_internally)),\n                               Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_current),\n                                      And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_current))),\n                               Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                        p0_created_x_itself,\n                                        p0_needs_x),\n                                        p0_executes_x_internally),\n                                        p0_needs_x),\n                                        p0_in_saved),\n                                      And(Or(Or(And(p1_described_at_creation,\n                                        p1_created_x_itself,\n                                        p1_needs_x),\n                                        p1_executes_x_internally),\n                                        p1_needs_x),\n                                        p1_in_saved))),\n                               archive_delete,\n                               disposition_completed),\n                           deleted)))),\n    Not(Exists([present,\n                active,\n                accessible,\n..."
+  },
+  "source_ids": [
+    "P2",
+    "P6",
+    "C-declaration",
+    "C-derivative",
+    "C-data",
+    "C-generation",
+    "C-bypass",
+    "bypass-nonenumeration",
+    "P5",
+    "O2",
+    "O3"
+  ],
+  "source_lines": {
+    "P2": [
+      141
+    ],
+    "P6": [
+      145,
+      238
+    ],
+    "C-declaration": [
+      131
+    ],
+    "C-derivative": [
+      133
+    ],
+    "C-data": [
+      134
+    ],
+    "C-generation": [
+      135
+    ],
+    "C-bypass": [
+      136
+    ],
+    "bypass-nonenumeration": [
+      150
+    ],
+    "P5": [
+      144
+    ],
+    "O2": [
+      201
+    ],
+    "O3": [
+      202
+    ]
+  },
+  "named_obligations": {
+    "P2.present": {
+      "formula": "Implies(Or(root_records_x, personal_records_x), present)",
+      "source_id": "P2"
+    },
+    "P2.present_after_inclusion": {
+      "formula": "Implies(recorded_after_inclusion, present_after_inclusion)",
+      "source_id": "P2"
+    },
+    "P6.surviving_owner": {
+      "formula": "Implies(And(Or(Or(And(p0_described_at_creation,\n                      p0_created_x_itself,\n                      p0_needs_x),\n                  p0_executes_x_internally),\n               Or(And(p1_described_at_creation,\n                      p1_created_x_itself,\n                      p1_needs_x),\n                  p1_executes_x_internally)),\n            Or(Or(And(Or(Or(And(p0_described_at_creation,\n                                p0_created_x_itself,\n                                p0_needs_x),\n                            p0_executes_x_internally),\n                         p0_needs_x),\n                      p0_in_current),\n                  And(Or(Or(And(p1_described_at_creation,\n                                p1_created_x_itself,\n                                p1_needs_x),\n                            p1_executes_x_internally),\n                         p1_needs_x),\n                      p1_in_current)),\n               Or(And(Or(Or(And(p0_described_at_creation,\n                                p0_created_x_itself,\n                                p0_needs_x),\n                            p0_executes_x_internally),\n                         p0_needs_x),\n                      p0_in_saved),\n                  And(Or(Or(And(p1_described_at_creation,\n                                p1_created_x_itself,\n                                p1_needs_x),\n                            p1_executes_x_internally),\n                         p1_needs_x),\n                      p1_in_saved)))),\n        And(present, Not(deleted)))",
+      "source_id": "P6"
+    },
+    "P6.current_owner": {
+      "formula": "Implies(And(Or(Or(And(p0_described_at_creation,\n                      p0_created_x_itself,\n                      p0_needs_x),\n                  p0_executes_x_internally),\n               Or(And(p1_described_at_creation,\n                      p1_created_x_itself,\n                      p1_needs_x),\n                  p1_executes_x_internally)),\n            Or(And(Or(Or(And(p0_described_at_creation,\n                             p0_created_x_itself,\n                             p0_needs_x),\n                         p0_executes_x_internally),\n                      p0_needs_x),\n                   p0_in_current),\n               And(Or(Or(And(p1_described_at_creation,\n                             p1_created_x_itself,\n                             p1_needs_x),\n                         p1_executes_x_internally),\n                      p1_needs_x),\n                   p1_in_current))),\n        And(Not(archive_step), accessible))",
+      "source_id": "P6"
+    },
+    "P6.no_current_archive": {
+      "formula": "Implies(And(Or(Or(And(p0_described_at_creation,\n                      p0_created_x_itself,\n                      p0_needs_x),\n                  p0_executes_x_internally),\n               Or(And(p1_described_at_creation,\n                      p1_created_x_itself,\n                      p1_needs_x),\n                  p1_executes_x_internally)),\n            Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                 p0_created_x_itself,\n                                 p0_needs_x),\n                             p0_executes_x_internally),\n                          p0_needs_x),\n                       p0_in_current),\n                   And(Or(Or(And(p1_described_at_creation,\n                                 p1_created_x_itself,\n                                 p1_needs_x),\n                             p1_executes_x_internally),\n                          p1_needs_x),\n                       p1_in_current)))),\n        And(archive_step, Not(active)))",
+      "source_id": "P6"
+    },
+    "P6.keep_archive": {
+      "formula": "Implies(And(Or(Or(And(p0_described_at_creation,\n                      p0_created_x_itself,\n                      p0_needs_x),\n                  p0_executes_x_internally),\n               Or(And(p1_described_at_creation,\n                      p1_created_x_itself,\n                      p1_needs_x),\n                  p1_executes_x_internally)),\n            Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                 p0_created_x_itself,\n                                 p0_needs_x),\n                             p0_executes_x_internally),\n                          p0_needs_x),\n                       p0_in_current),\n                   And(Or(Or(And(p1_described_at_creation,\n                                 p1_created_x_itself,\n                                 p1_needs_x),\n                             p1_executes_x_internally),\n                          p1_needs_x),\n                       p1_in_current))),\n            archive_keep),\n        And(present, Not(deleted)))",
+      "source_id": "P6"
+    },
+    "P6.completed_delete_setting": {
+      "formula": "Implies(And(Or(Or(And(p0_described_at_creation,\n                      p0_created_x_itself,\n                      p0_needs_x),\n                  p0_executes_x_internally),\n               Or(And(p1_described_at_creation,\n                      p1_created_x_itself,\n                      p1_needs_x),\n                  p1_executes_x_internally)),\n            Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                 p0_created_x_itself,\n                                 p0_needs_x),\n                             p0_executes_x_internally),\n                          p0_needs_x),\n                       p0_in_current),\n                   And(Or(Or(And(p1_described_at_creation,\n                                 p1_created_x_itself,\n                                 p1_needs_x),\n                             p1_executes_x_internally),\n                          p1_needs_x),\n                       p1_in_current))),\n            Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                 p0_created_x_itself,\n                                 p0_needs_x),\n                             p0_executes_x_internally),\n                          p0_needs_x),\n                       p0_in_saved),\n                   And(Or(Or(And(p1_described_at_creation,\n                                 p1_created_x_itself,\n                                 p1_needs_x),\n                             p1_executes_x_internally),\n                          p1_needs_x),\n                       p1_in_saved))),\n            archive_delete,\n            disposition_completed),\n        deleted)",
+      "source_id": "P6"
+    },
+    "left": {
+      "formula": "And(Implies(Or(root_records_x, personal_records_x), present),\n    Implies(recorded_after_inclusion,\n            present_after_inclusion))",
+      "source_id": "instrument/grouping"
+    },
+    "right": {
+      "formula": "And(Implies(And(Or(Or(And(p0_described_at_creation,\n                          p0_created_x_itself,\n                          p0_needs_x),\n                      p0_executes_x_internally),\n                   Or(And(p1_described_at_creation,\n                          p1_created_x_itself,\n                          p1_needs_x),\n                      p1_executes_x_internally)),\n                Or(Or(And(Or(Or(And(p0_described_at_creation,\n                                    p0_created_x_itself,\n                                    p0_needs_x),\n                                p0_executes_x_internally),\n                             p0_needs_x),\n                          p0_in_current),\n                      And(Or(Or(And(p1_described_at_creation,\n                                    p1_created_x_itself,\n                                    p1_needs_x),\n                                p1_executes_x_internally),\n                             p1_needs_x),\n                          p1_in_current)),\n                   Or(And(Or(Or(And(p0_described_at_creation,\n                                    p0_created_x_itself,\n                                    p0_needs_x),\n                                p0_executes_x_internally),\n                             p0_needs_x),\n                          p0_in_saved),\n                      And(Or(Or(And(p1_described_at_creation,\n                                    p1_created_x_itself,\n                                    p1_needs_x),\n                                p1_executes_x_internally),\n                             p1_needs_x),\n                          p1_in_saved)))),\n            And(present, Not(deleted))),\n    Implies(And(Or(Or(And(p0_described_at_creation,\n                          p0_created_x_itself,\n                          p0_needs_x),\n                      p0_executes_x_internally),\n                   Or(And(p1_described_at_creation,\n                          p1_created_x_itself,\n                          p1_needs_x),\n                      p1_executes_x_internally)),\n                Or(And(Or(Or(And(p0_described_at_creation,\n                                 p0_created_x_itself,\n                                 p0_needs_x),\n                             p0_executes_x_internally),\n                          p0_needs_x),\n                       p0_in_current),\n                   And(Or(Or(And(p1_described_at_creation,\n                                 p1_created_x_itself,\n                                 p1_needs_x),\n                             p1_executes_x_internally),\n                          p1_needs_x),\n                       p1_in_current))),\n            And(Not(archive_step), accessible)),\n    Implies(And(Or(Or(And(p0_described_at_creation,\n                          p0_created_x_itself,\n                          p0_needs_x),\n                      p0_executes_x_internally),\n                   Or(And(p1_described_at_creation,\n                          p1_created_x_itself,\n                          p1_needs_x),\n                      p1_executes_x_internally)),\n                Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                     p0_created_x_itself,\n                                     p0_needs_x),\n                                 p0_executes_x_internally),\n                              p0_needs_x),\n                           p0_in_current),\n                       And(Or(Or(And(p1_described_at_creation,\n                                     p1_created_x_itself,\n                                     p1_needs_x),\n                                 p1_executes_x_internally),\n                              p1_needs_x),\n                           p1_in_current)))),\n            And(archive_step, Not(active))),\n    Implies(And(Or(Or(And(p0_described_at_creation,\n                          p0_created_x_itself,\n                          p0_needs_x),\n                      p0_executes_x_internally),\n                   Or(And(p1_described_at_creation,\n                          p1_created_x_itself,\n                          p1_needs_x),\n                      p1_executes_x_internally)),\n                Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                     p0_created_x_itself,\n                                     p0_needs_x),\n                                 p0_executes_x_internally),\n                              p0_needs_x),\n                           p0_in_current),\n                       And(Or(Or(And(p1_described_at_creation,\n                                     p1_created_x_itself,\n                                     p1_needs_x),\n                                 p1_executes_x_internally),\n                              p1_needs_x),\n                           p1_in_current))),\n                archive_keep),\n            And(present, Not(deleted))),\n    Implies(And(Or(Or(And(p0_described_at_creation,\n                          p0_created_x_itself,\n                          p0_needs_x),\n                      p0_executes_x_internally),\n                   Or(And(p1_described_at_creation,\n                          p1_created_x_itself,\n                          p1_needs_x),\n                      p1_executes_x_internally)),\n                Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                     p0_created_x_itself,\n                                     p0_needs_x),\n                                 p0_executes_x_internally),\n                              p0_needs_x),\n                           p0_in_current),\n                       And(Or(Or(And(p1_described_at_creation,\n                                     p1_created_x_itself,\n                                     p1_needs_x),\n                                 p1_executes_x_internally),\n                              p1_needs_x),\n                           p1_in_current))),\n                Not(Or(And(Or(Or(And(p0_described_at_creation,\n                                     p0_created_x_itself,\n                                     p0_needs_x),\n                                 p0_executes_x_internally),\n                              p0_needs_x),\n                           p0_in_saved),\n                       And(Or(Or(And(p1_described_at_creation,\n                                     p1_created_x_itself,\n                                     p1_needs_x),\n                                 p1_executes_x_internally),\n                              p1_needs_x),\n                           p1_in_saved))),\n                archive_delete,\n                disposition_completed),\n            deleted))",
+      "source_id": "instrument/grouping"
+    }
+  },
+  "semantic_profile": {
+    "recorded_lifecycle": true,
+    "broad_unix": false,
+    "root_program_privileges": false,
+    "immediate_saved_delete": false,
+    "universal_personal_inclusion": false,
+    "historical_owner_eligibility": false,
+    "shared_needer_eligibility": false
+  },
+  "inputs": {
+    "root_records_x": true,
+    "personal_records_x": true,
+    "person_created_x": false,
+    "x_runs": false,
+    "bypass_line_applies": false,
+    "manual_person_action": false,
+    "actor_has_root": false,
+    "executor_is_program": false,
+    "changes_running_component": true,
+    "writes_declaration": false,
+    "unix_allows_execution": false,
+    "unix_allows_personal_entry": false,
+    "allowlist_enabled": true,
+    "denylist_enabled": false,
+    "entry_on_allowlist": false,
+    "entry_on_denylist": false,
+    "entry_contradicts_root": false,
+    "personal_entry_attempt": false,
+    "inclusion_taken": false,
+    "archive_keep": false,
+    "archive_delete": true,
+    "disposition_completed": true,
+    "bypass_launch_attempt": false,
+    "p0_described_at_creation": true,
+    "p0_created_x_itself": true,
+    "p0_needs_x": true,
+    "p0_executes_x_internally": false,
+    "p0_recorded_now": false,
+    "p0_in_current": false,
+    "p0_in_saved": false,
+    "p1_described_at_creation": false,
+    "p1_created_x_itself": true,
+    "p1_needs_x": false,
+    "p1_executes_x_internally": true,
+    "p1_recorded_now": false,
+    "p1_in_current": false,
+    "p1_in_saved": false
+  },
+  "outputs_projected": "Outcomes are quantified. Use fixed-context left/right witnesses, never outer model-completion defaults.",
+  "derived": {
+    "recorded": true,
+    "data_provenance": false,
+    "derivative": true,
+    "P3_eligible_derivative": false,
+    "current_owner": false,
+    "saved_owner": false,
+    "explicit_bypass": false,
+    "bypass_change": true,
+    "P6_in_translated_domain": true
+  }
+}

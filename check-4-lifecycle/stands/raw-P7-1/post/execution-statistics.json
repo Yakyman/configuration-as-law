@@ -1,0 +1,92 @@
+{
+  "groups": {
+    "control": {
+      "cases": 8,
+      "completed": 8,
+      "usable": 8,
+      "initial_active_seconds": 240.78388584800012,
+      "initial_range": [
+        30.00646203799988,
+        30.21196593999997
+      ],
+      "rollback_active_seconds": 41.427607022999894,
+      "rollback_range": [
+        5.067269732,
+        5.2513938219999545
+      ],
+      "trajectory_wall_seconds": 388.35029174
+    },
+    "primary": {
+      "cases": 48,
+      "completed": 48,
+      "usable": 48,
+      "initial_active_seconds": 1446.5566758200005,
+      "initial_range": [
+        30.00611261699987,
+        30.468149334999964
+      ],
+      "rollback_active_seconds": 249.33760536899905,
+      "rollback_range": [
+        5.046637274999966,
+        5.271355437000011
+      ],
+      "trajectory_wall_seconds": 2343.770548158
+    }
+  },
+  "stand_windows": {
+    "BQ": {
+      "start": "2026-11-19T12:15:27Z",
+      "end": "2026-11-19T12:40:28Z",
+      "minutes": 25.016666666666666
+    },
+    "X3": {
+      "start": "2026-11-19T12:41:55Z",
+      "end": "2026-11-19T13:06:55Z",
+      "minutes": 25.0
+    }
+  },
+  "absence_checkpoints": 168,
+  "shutdown_timeouts": [],
+  "inventory_snapshots": 392,
+  "inventory_entry_observations": 16574672,
+  "inventory_entry_range": [
+    41505,
+    43730
+  ],
+  "shared": {
+    "BQ": {
+      "assertions": 102,
+      "failed_assertions": [],
+      "case_results": [
+        {
+          "archive": "keep",
+          "event": "case-result",
+          "outcome": "1"
+        },
+        {
+          "archive": "delete",
+          "event": "case-result",
+          "outcome": "1"
+        }
+      ],
+      "unparsed": []
+    },
+    "X3": {
+      "assertions": 102,
+      "failed_assertions": [],
+      "case_results": [
+        {
+          "archive": "keep",
+          "event": "case-result",
+          "outcome": "1"
+        },
+        {
+          "archive": "delete",
+          "event": "case-result",
+          "outcome": "1"
+        }
+      ],
+      "unparsed": []
+    }
+  }
+}

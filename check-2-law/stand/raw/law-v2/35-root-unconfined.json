@@ -1,0 +1,15 @@
+{
+  "id": "35-root-unconfined",
+  "channel": "unmanaged root program write",
+  "command": "/bin/sh -c 'printf ROOT_PROGRAM_UNCONFINED >/usr/local/root-program-probe'; cat /usr/local/root-program-probe",
+  "user": "root",
+  "expected": "coverage defect",
+  "observed": "executed",
+  "returncode": 0,
+  "met": null,
+  "stdout": "ROOT_PROGRAM_UNCONFINED",
+  "stderr": "",
+  "declaration_before": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "declaration_after": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "utc": "2026-11-19T06:38:06Z"
+}

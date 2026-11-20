@@ -1,0 +1,15 @@
+{
+  "id": "22-pip-permitted",
+  "channel": "pip allowed",
+  "command": "pip3 install --user --break-system-packages /srv/cal-web/python-package",
+  "user": "alice",
+  "expected": "works",
+  "observed": "blocked",
+  "returncode": 1,
+  "met": false,
+  "stdout": "Processing /srv/cal-web/python-package\n  Preparing metadata (setup.py): started\n  Preparing metadata (setup.py): finished with status 'done'\nBuilding wheels for collected packages: cal-probe\n  Building wheel for cal-probe (setup.py): started\n  Building wheel for cal-probe (setup.py): finished with status 'error'\n  Running setup.py clean for cal-probe\nFailed to build cal-probe\nInstalling collected packages: cal-probe\n  Running setup.py install for cal-probe: started\n  Running setup.py install for cal-probe: finished with status 'error'\n",
+  "stderr": "  error: subprocess-exited-with-error\n  \n  \u00d7 python setup.py bdist_wheel did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [5 lines of output]\n      running bdist_wheel\n      running build\n      running build_py\n      creating build\n      error: could not create 'build': Permission denied\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\n  ERROR: Failed building wheel for cal-probe\n  error: subprocess-exited-with-error\n  \n  \u00d7 Running setup.py install for cal-probe did not run successfully.\n  \u2502 exit code: 1\n  \u2570\u2500> [7 lines of output]\n      running install\n      /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.\n        warnings.warn(\n      running build\n      running build_py\n      creating build\n      error: could not create 'build': Permission denied\n      [end of output]\n  \n  note: This error originates from a subprocess, and is likely not a problem with pip.\nerror: legacy-install-failure\n\n\u00d7 Encountered error while trying to install package.\n\u2570\u2500> cal-probe\n\nnote: This is an issue with the package mentioned above, not pip.\nhint: See above for output from the failure.\n",
+  "declaration_before": "8c59e4f81cbaf450ef59a769c5db65a7f6bba97e6bd161919c8653941f88c420",
+  "declaration_after": "8c59e4f81cbaf450ef59a769c5db65a7f6bba97e6bd161919c8653941f88c420",
+  "utc": "2026-11-19T08:40:59Z"
+}

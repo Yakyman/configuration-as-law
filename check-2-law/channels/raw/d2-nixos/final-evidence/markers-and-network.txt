@@ -1,0 +1,180 @@
+Serving HTTP on 127.0.0.1 port 8081 (http://127.0.0.1:8081/) ...
+127.0.0.1 - - [19/Nov/2026 08:36:51] "GET /program.tar.gz HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:39:07] "GET /browser-network?d2=browser-extension HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:39:49] code 404, message File not found
+127.0.0.1 - - [19/Nov/2026 08:39:49] "GET /native HTTP/1.0" 404 -
+127.0.0.1 - - [19/Nov/2026 08:39:49] "GET /browser-network?d2=native-host HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:39:50] code 404, message File not found
+127.0.0.1 - - [19/Nov/2026 08:39:50] "GET /shell-network HTTP/1.0" 404 -
+127.0.0.1 - - [19/Nov/2026 08:39:51] "GET /browser-network HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:40:31] "GET /browser-network?d2=network-browser HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:40:54] "HEAD /browser-network HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:40:54] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:41:28] "GET /?d2=browser-extension HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:41:28] code 404, message File not found
+127.0.0.1 - - [19/Nov/2026 08:41:28] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [19/Nov/2026 08:41:32] "GET /?d2=native-host HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2026 08:41:32] code 404, message File not found
+127.0.0.1 - - [19/Nov/2026 08:41:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [19/Nov/2026 08:41:33] "GET /browser-network?d2=network-browser HTTP/1.1" 304 -
+total 188
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 archive
+-rw-r--r-- 1 alice users   58 Nov 19 08:38 at
+-rw------- 1 alice users   18 Nov 19 08:39 audit
+-rw-r--r-- 1 alice users   11 Nov 19 08:41 bash-env
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 build
+-rw-r--r-- 1 alice users   17 Nov 19 08:37 cargo-home
+-rw-r--r-- 1 alice users   58 Nov 19 08:42 continuation-fresh
+-rw-r--r-- 1 alice users  406 Nov 19 08:42 continuation-revoke
+-rw-r--r-- 1 alice users  406 Nov 19 08:46 cron
+-rw-r--r-- 1 alice users   58 Nov 19 08:37 dbus-activation
+-rw-r--r-- 1 alice users   58 Nov 19 08:37 desktop-entry
+-rw-r--r-- 1 alice users   15 Nov 19 08:36 inline
+-rw------- 1 alice users   20 Nov 19 08:39 ld-preload
+-rw-r--r-- 1 alice users   19 Nov 19 08:43 library-path
+-rw-r--r-- 1 alice users   58 Nov 19 08:39 loader
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 native-home
+-rw-r--r-- 1 alice users   63 Nov 19 08:41 native-host
+-rw-r--r-- 1 alice users   12 Nov 19 08:37 node-file
+-rw-r--r-- 1 alice users   15 Nov 19 08:37 node-options
+-rw-r--r-- 1 alice users 1740 Nov 19 08:39 nohup
+-rw-r--r-- 1 alice users   17 Nov 19 08:37 npm-prefix
+-rw-r--r-- 1 alice users   17 Nov 19 08:45 npm-runtime-prefix
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 path-home
+-rw-r--r-- 1 alice users   19 Nov 19 08:45 pip-target
+-rw-r--r-- 1 alice users   14 Nov 19 08:37 python-file
+-rw-r--r-- 1 alice users   16 Nov 19 08:37 python-inline
+-rw-r--r-- 1 alice users   13 Nov 19 08:37 pythonpath
+-rw-r--r-- 1 alice users    9 Nov 19 08:46 rc
+-rw-r--r-- 1 alice users   58 Nov 19 08:39 setuid-own
+-rw-r--r-- 1 alice users   60 Nov 19 08:39 shell-disown
+-rw-r--r-- 1 alice users   14 Nov 19 08:36 shell-file
+-rw-r--r-- 1 alice users   15 Nov 19 08:36 shell-login
+-rw-r--r-- 1 alice users   10 Nov 19 08:36 shell-profile
+-rw-r--r-- 1 alice users   16 Nov 19 08:37 sitecustomize
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 ssh-command
+-rw-r--r-- 1 alice users    9 Nov 19 08:37 ssh-rc
+-rw-r--r-- 1 alice users 1740 Nov 19 08:42 systemd-linger
+-rw-r--r-- 1 alice users  290 Nov 19 08:38 systemd-path
+-rw-r--r-- 1 alice users   58 Nov 19 08:38 systemd-service
+-rw-r--r-- 1 alice users  290 Nov 19 08:38 systemd-socket
+-rw-r--r-- 1 alice users   58 Nov 19 08:38 systemd-timer
+-rw-r--r-- 1 alice users   58 Nov 19 08:38 systemd-transient
+-rw-r--r-- 1 alice users   58 Nov 19 08:36 tmp
+-rw-r--r-- 1 alice users 1740 Nov 19 08:40 tmux
+-rw-r--r-- 1 alice users   52 Nov 19 08:39 userns
+-rw-r--r-- 1 alice users   19 Nov 19 08:41 venv
+-rw-r--r-- 1 alice users   58 Nov 19 08:37 xdg-autostart
+/home/alice/d2/markers/archive
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/at
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/audit
+D2_AUDIT_EXECUTED
+/home/alice/d2/markers/bash-env
+D2_BASH_ENV/home/alice/d2/markers/build
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/cargo-home
+D2_RUST_EXECUTED
+/home/alice/d2/markers/continuation-fresh
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/continuation-revoke
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/cron
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/dbus-activation
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/desktop-entry
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/inline
+D2_SHELL_INLINE/home/alice/d2/markers/ld-preload
+D2_PRELOAD_EXECUTED
+/home/alice/d2/markers/library-path
+D2_LIBRARY_EXECUTED/home/alice/d2/markers/loader
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/native-home
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/native-host
+D2_NATIVE_HOST_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/node-file
+D2_NODE_FILE/home/alice/d2/markers/node-options
+D2_NODE_OPTIONS/home/alice/d2/markers/nohup
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/npm-prefix
+D2_NODE_EXECUTED
+/home/alice/d2/markers/npm-runtime-prefix
+D2_NODE_EXECUTED
+/home/alice/d2/markers/path-home
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/pip-target
+D2_PYTHON_EXECUTED
+/home/alice/d2/markers/python-file
+D2_PYTHON_FILE/home/alice/d2/markers/python-inline
+D2_PYTHON_INLINE/home/alice/d2/markers/pythonpath
+D2_PYTHONPATH/home/alice/d2/markers/rc
+D2_BASHRC/home/alice/d2/markers/setuid-own
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/shell-disown
+D2_DISOWN
+D2_DISOWN
+D2_DISOWN
+D2_DISOWN
+D2_DISOWN
+/home/alice/d2/markers/shell-file
+D2_SHELL_FILE
+/home/alice/d2/markers/shell-login
+D2_BASH_PROFILE/home/alice/d2/markers/shell-profile
+D2_PROFILE/home/alice/d2/markers/sitecustomize
+D2_SITECUSTOMIZE/home/alice/d2/markers/ssh-command
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/ssh-rc
+D2_SSH_RC/home/alice/d2/markers/systemd-linger
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/systemd-path
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/systemd-service
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/systemd-socket
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/systemd-timer
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/systemd-transient
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/tmp
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/tmux
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable
+/home/alice/d2/markers/userns
+D2_NATIVE_EXECUTED uid=0 euid=0 profile=unavailable
+/home/alice/d2/markers/venv
+D2_PYTHON_EXECUTED
+/home/alice/d2/markers/xdg-autostart
+D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable

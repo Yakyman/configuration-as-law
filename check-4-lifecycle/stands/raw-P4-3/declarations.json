@@ -1,0 +1,138 @@
+{
+  "delete": {
+    "empty": {
+      "programs": {}
+    },
+    "personal": {
+      "programs": {
+        "local-alice-cache": {
+          "executable": "/home/alice/p43/cache",
+          "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+          "version": "p43-v1"
+        }
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "delete",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared-beta": {
+      "allow_channels": {},
+      "archive": "delete",
+      "policies": {},
+      "programs": {
+        "beta": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        }
+      },
+      "shared": {
+        "p43": [
+          "alpha",
+          "beta"
+        ]
+      }
+    },
+    "shared-own": {
+      "allow_channels": {},
+      "archive": "delete",
+      "policies": {},
+      "programs": {
+        "alpha": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        },
+        "beta": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        }
+      },
+      "shared": {
+        "p43": [
+          "alpha",
+          "beta"
+        ]
+      }
+    }
+  },
+  "keep": {
+    "empty": {
+      "programs": {}
+    },
+    "personal": {
+      "programs": {
+        "local-alice-cache": {
+          "executable": "/home/alice/p43/cache",
+          "sha256": "78916fd1bfa17b63e5b6395302153cc5383144a862b9db9c7d8c03f0fb147dc4",
+          "version": "p43-v1"
+        }
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared-beta": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {
+        "beta": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        }
+      },
+      "shared": {
+        "p43": [
+          "alpha",
+          "beta"
+        ]
+      }
+    },
+    "shared-own": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {
+        "alpha": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        },
+        "beta": {
+          "owners": [
+            "alice"
+          ],
+          "scope": "user",
+          "version": "p43-v1"
+        }
+      },
+      "shared": {
+        "p43": [
+          "alpha",
+          "beta"
+        ]
+      }
+    }
+  }
+}

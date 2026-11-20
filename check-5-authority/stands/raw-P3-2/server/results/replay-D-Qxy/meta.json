@@ -1,0 +1,85 @@
+{
+  "completed": true,
+  "family": "D",
+  "finished_ns": 1795082873904317069,
+  "hashes": {
+    "a1": "e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357",
+    "a2": "401117a09a08047546b0bf3e4511ee8a6361db028a3a25e3908c42a0a4009323",
+    "b1": "ed15358fbbe09267926220793d1c354be7393ea70b2b9d6c28b68f5cc2c145ef",
+    "safe": "5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa"
+  },
+  "instrumented": true,
+  "name": "replay-D-Qxy",
+  "requests": [
+    {
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "ack_valid": true,
+      "argv": [
+        "ssh",
+        "-F",
+        "/dev/null",
+        "-i",
+        "<WORKDIR>/P3-2/key-root",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=3",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=<WORKDIR>/P3-2/known_hosts",
+        "-p",
+        "23332",
+        "root@127.0.0.1",
+        "printf \"P32_CLIENT_PID=%s\\n\" \"$$\" >&2; id >&2; cat /proc/$$/attr/current >&2; exec /usr/local/bin/calctl apply"
+      ],
+      "client_pid": 913,
+      "finished_ns": 1795082871378143913,
+      "label": "X",
+      "rc": 1,
+      "started_ns": 1795082870292164457,
+      "stderr": "P32_CLIENT_PID=913\nuid=0(root) gid=0(root) groups=0(root)\nunconfined\n",
+      "stdout": "{\"error\": \"root denylist forbids local-alice-a1\", \"ok\": false}\n",
+      "user": "root"
+    },
+    {
+      "ack": {
+        "error": "root declaration changed: root must apply first",
+        "ok": false
+      },
+      "ack_valid": true,
+      "argv": [
+        "ssh",
+        "-F",
+        "/dev/null",
+        "-i",
+        "<WORKDIR>/P3-2/key-alice",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=3",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=<WORKDIR>/P3-2/known_hosts",
+        "-p",
+        "23332",
+        "alice@127.0.0.1",
+        "/usr/local/bin/cal-login -c 'printf \"P32_CLIENT_PID=%s\\n\" \"$$\" >&2; id >&2; cat /proc/$$/attr/current >&2; exec /usr/local/bin/calctl apply'"
+      ],
+      "client_pid": 943,
+      "finished_ns": 1795082871378408954,
+      "label": "Y",
+      "rc": 1,
+      "started_ns": 1795082870673862149,
+      "stderr": "P32_CLIENT_PID=943\nuid=32101(alice) gid=32101(alice) groups=32101(alice),1002(calusers)\ncal-alice (enforce)\n",
+      "stdout": "{\"error\": \"root declaration changed: root must apply first\", \"ok\": false}\n",
+      "user": "alice"
+    }
+  ],
+  "schedule": "Qxy",
+  "started_ns": 1795082861593017428
+}

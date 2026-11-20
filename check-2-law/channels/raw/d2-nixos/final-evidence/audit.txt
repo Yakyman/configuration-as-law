@@ -1,0 +1,19 @@
+-- No entries --
+Nov 19 08:34:12 d2-nixos systemd[1]: Starting Job Execution Daemon (atd)...
+Nov 19 08:34:12 d2-nixos systemd[1]: Starting Cron Daemon...
+Nov 19 08:34:12 d2-nixos systemd[1]: Started Cron Daemon.
+Nov 19 08:34:12 d2-nixos cron[560]: tabs: No such file or directory
+Nov 19 08:34:12 d2-nixos cron[560]: tabs: created
+Nov 19 08:34:12 d2-nixos systemd[1]: Started Job Execution Daemon (atd).
+Nov 19 08:38:19 d2-nixos atd[3570]: pam_unix(atd:session): session opened for user alice(uid=1000) by (uid=12)
+Nov 19 08:38:19 d2-nixos atd[3570]: pam_unix(atd:session): session closed for user alice
+Nov 19 08:38:19 d2-nixos atd[3570]: Exec failed for mail command: No such file or directory
+Nov 19 08:40:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[5154]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:41:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[5446]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:41:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[5445]: (alice) MAIL (mailed 58 bytes of output but got status 0x0001
+                                                                                              )
+Nov 19 08:42:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[6593]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:43:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[6948]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:44:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[7046]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:45:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[7051]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)
+Nov 19 08:46:01 d2-nixos /nix/store/6sfnai4z7rh3k9qs3xkd8jyg00x0hg91-cron-4.1/bin/cron[7304]: (alice) CMD (/home/alice/d2/native /home/alice/d2/markers/cron)

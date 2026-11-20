@@ -1,0 +1,18 @@
+{
+  "probe_count": 21,
+  "euid0_count": 21,
+  "marker_success_count": 21,
+  "audited_exec_count": 21,
+  "audited_marker_count": 21,
+  "joint_label": "interactive-sudo-fresh",
+  "joint_criteria": {
+    "euid_root": true,
+    "audit_login_user_set": true,
+    "controlling_tty": true,
+    "fresh_successful_sudo_auth": true,
+    "sshd_bash_sudo_ancestry": true,
+    "logind_session_scope": true
+  },
+  "joint_satisfied": true,
+  "interpretation": "All samples automated. This only refutes sufficiency of the listed predicates as proof of a human; not a hypothesis verdict."
+}

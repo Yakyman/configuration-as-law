@@ -1,0 +1,10 @@
+spawn pkexec /usr/bin/python3 /usr/local/lib/e2/probe.py expect-polkit-success
+[1;31m==== AUTHENTICATING FOR org.freedesktop.policykit.exec ====
+[0mAuthentication is needed to run `/usr/bin/python3' as the super user
+Authenticating as: e2op
+Password: 
+polkit-agent-helper-1: error response to PolicyKit daemon: GDBus.Error:org.freedesktop.PolicyKit1.Error.Failed: No session for cookie
+[1;31m==== AUTHENTICATION FAILED ====
+[0mError executing command as another user: Not authorized
+
+This incident has been reported.

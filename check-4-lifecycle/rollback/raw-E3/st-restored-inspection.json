@@ -1,0 +1,74 @@
+{
+  "config.xml": {
+    "text": "<?xml version='1.0' encoding='utf-8'?>\n<configuration version=\"35\">\n    <folder id=\"default\" label=\"Default Folder\" path=\"/root/E3/work/sync-files\" type=\"sendreceive\" rescanIntervalS=\"3600\" fsWatcherEnabled=\"true\" fsWatcherDelayS=\"10\" ignorePerms=\"false\" autoNormalize=\"true\">\n        <filesystemType>basic</filesystemType>\n        <device id=\"RYG5QZZ-XQUICQ5-H7TISCP-HSIVL34-TLQLNTQ-AOVJPBM-7A63KFF-5VF7HAM\" introducedBy=\"\">\n            <encryptionPassword />\n        </device>\n        <minDiskFree unit=\"%\">1</minDiskFree>\n        <versioning>\n            <cleanupIntervalS>3600</cleanupIntervalS>\n            <fsPath />\n            <fsType>basic</fsType>\n        </versioning>\n        <copiers>0</copiers>\n        <pullerMaxPendingKiB>0</pullerMaxPendingKiB>\n        <hashers>0</hashers>\n        <order>random</order>\n        <ignoreDelete>false</ignoreDelete>\n        <scanProgressIntervalS>0</scanProgressIntervalS>\n        <pullerPauseS>0</pullerPauseS>\n        <maxConflicts>10</maxConflicts>\n        <disableSparseFiles>false</disableSparseFiles>\n        <disableTempIndexes>false</disableTempIndexes>\n        <paused>false</paused>\n        <weakHashThresholdPct>25</weakHashThresholdPct>\n        <markerName>.stfolder</markerName>\n        <copyOwnershipFromParent>false</copyOwnershipFromParent>\n        <modTimeWindowS>0</modTimeWindowS>\n        <maxConcurrentWrites>2</maxConcurrentWrites>\n        <disableFsync>false</disableFsync>\n        <blockPullOrder>standard</blockPullOrder>\n        <copyRangeMethod>standard</copyRangeMethod>\n        <caseSensitiveFS>false</caseSensitiveFS>\n        <junctionsAsDirs>false</junctionsAsDirs>\n    </folder>\n    <device id=\"RYG5QZZ-XQUICQ5-H7TISCP-HSIVL34-TLQLNTQ-AOVJPBM-7A63KFF-5VF7HAM\" name=\"cal-stand\" compression=\"metadata\" introducer=\"false\" skipIntroductionRemovals=\"false\" introducedBy=\"\">\n        <address>dynamic</address>\n        <paused>false</paused>\n        <autoAcceptFolders>false</autoAcceptFolders>\n        <maxSendKbps>0</maxSendKbps>\n        <maxRecvKbps>0</maxRecvKbps>\n        <maxRequestKiB>0</maxRequestKiB>\n        <untrusted>false</untrusted>\n        <remoteGUIPort>0</remoteGUIPort>\n    </device>\n    <gui enabled=\"true\" tls=\"false\" debugging=\"false\">\n        <address>127.0.0.1:8384</address>\n        <apikey>TfX3H7icLyaxm2PbtnSYZSAevNSuQEvk</apikey>\n        <theme>default</theme>\n    </gui>\n    <ldap />\n    <options>\n        <listenAddress>tcp://127.0.0.1:22001</listenAddress>\n        <globalAnnounceServer>default</globalAnnounceServer>\n        <globalAnnounceEnabled>false</globalAnnounceEnabled>\n        <localAnnounceEnabled>false</localAnnounceEnabled>\n        <localAnnouncePort>21027</localAnnouncePort>\n        <localAnnounceMCAddr>[ff12::8384]:21027</localAnnounceMCAddr>\n        <maxSendKbps>0</maxSendKbps>\n        <maxRecvKbps>0</maxRecvKbps>\n        <reconnectionIntervalS>60</reconnectionIntervalS>\n        <relaysEnabled>false</relaysEnabled>\n        <relayReconnectIntervalM>10</relayReconnectIntervalM>\n        <startBrowser>true</startBrowser>\n        <natEnabled>false</natEnabled>\n        <natLeaseMinutes>60</natLeaseMinutes>\n        <natRenewalMinutes>30</natRenewalMinutes>\n        <natTimeoutSeconds>10</natTimeoutSeconds>\n        <urAccepted>-1</urAccepted>\n        <urSeen>0</urSeen>\n        <urUniqueID />\n        <urURL>https://data.syncthing.net/newdata</urURL>\n        <urPostInsecurely>false</urPostInsecurely>\n        <urInitialDelayS>1800</urInitialDelayS>\n        <restartOnWakeup>true</restartOnWakeup>\n        <autoUpgradeIntervalH>0</autoUpgradeIntervalH>\n        <upgradeToPreReleases>false</upgradeToPreReleases>\n        <keepTemporariesH>24</keepTemporariesH>\n        <cacheIgnoredFiles>false</cacheIgnoredFiles>\n        <progressUpdateIntervalS>5</progressUpdateIntervalS>\n        <limitBandwidthInLan>false</limitBandwidthInLan>\n        <minHomeDiskFree unit=\"%\">1</minHomeDiskFree>\n        <releasesURL>https://upgrades.syncthing.net/meta.json</releasesURL>\n        <overwriteRemoteDeviceNamesOnConnect>false</overwriteRemoteDeviceNamesOnConnect>\n        <tempIndexMinBlocks>10</tempIndexMinBlocks>\n        <unackedNotificationID>authenticationUserAndPassword</unackedNotificationID>\n        <trafficClass>0</trafficClass>\n        <setLowPriority>true</setLowPriority>\n        <maxFolderConcurrency>0</maxFolderConcurrency>\n        <crashReportingURL>https://crash.syncthing.net/newcrash</crashReportingURL>\n        <crashReportingEnabled>false</crashReportingEnabled>\n        <stunKeepaliveStartS>180</stunKeepaliveStartS>\n        <stunKeepaliveMinS>20</stunKeepaliveMinS>\n        <stunServer>default</stunServer>\n        <databaseTuning>auto</databaseTuning>\n        <maxConcurrentIncomingRequestKiB>0</maxConcurrentIncomingRequestKiB>\n        <announceLANAddresses>true</announceLANAddresses>\n        <sendFullIndexOnUpgrade>false</sendFullIndexOnUpgrade>\n        <connectionLimitEnough>0</connectionLimitEnough>\n        <connectionLimitMax>0</connectionLimitMax>\n        <insecureAllowOldTLSVersions>false</insecureAllowOldTLSVersions>\n    </options>\n    <defaults>\n        <folder id=\"\" label=\"\" path=\"~\" type=\"sendreceive\" rescanIntervalS=\"3600\" fsWatcherEnabled=\"true\" fsWatcherDelayS=\"10\" ignorePerms=\"false\" autoNormalize=\"true\">\n            <filesystemType>basic</filesystemType>\n            <device id=\"RYG5QZZ-XQUICQ5-H7TISCP-HSIVL34-TLQLNTQ-AOVJPBM-7A63KFF-5VF7HAM\" introducedBy=\"\">\n                <encryptionPassword />\n            </device>\n            <minDiskFree unit=\"%\">1</minDiskFree>\n            <versioning>\n                <cleanupIntervalS>3600</cleanupIntervalS>\n                <fsPath />\n                <fsType>basic</fsType>\n            </versioning>\n            <copiers>0</copiers>\n            <pullerMaxPendingKiB>0</pullerMaxPendingKiB>\n            <hashers>0</hashers>\n            <order>random</order>\n            <ignoreDelete>false</ignoreDelete>\n            <scanProgressIntervalS>0</scanProgressIntervalS>\n            <pullerPauseS>0</pullerPauseS>\n            <maxConflicts>10</maxConflicts>\n            <disableSparseFiles>false</disableSparseFiles>\n            <disableTempIndexes>false</disableTempIndexes>\n            <paused>false</paused>\n            <weakHashThresholdPct>25</weakHashThresholdPct>\n            <markerName>.stfolder</markerName>\n            <copyOwnershipFromParent>false</copyOwnershipFromParent>\n            <modTimeWindowS>0</modTimeWindowS>\n            <maxConcurrentWrites>2</maxConcurrentWrites>\n            <disableFsync>false</disableFsync>\n            <blockPullOrder>standard</blockPullOrder>\n            <copyRangeMethod>standard</copyRangeMethod>\n            <caseSensitiveFS>false</caseSensitiveFS>\n            <junctionsAsDirs>false</junctionsAsDirs>\n        </folder>\n        <device id=\"\" compression=\"metadata\" introducer=\"false\" skipIntroductionRemovals=\"false\" introducedBy=\"\">\n            <address>dynamic</address>\n            <paused>false</paused>\n            <autoAcceptFolders>false</autoAcceptFolders>\n            <maxSendKbps>0</maxSendKbps>\n            <maxRecvKbps>0</maxRecvKbps>\n            <maxRequestKiB>0</maxRequestKiB>\n            <untrusted>false</untrusted>\n            <remoteGUIPort>0</remoteGUIPort>\n        </device>\n    </defaults>\n</configuration>",
+    "version": "35"
+  },
+  "files": [
+    {
+      "path": "cert.pem",
+      "sha256": "3cde29ae7118a7be1acc3ecd7fe11cbc67eda22b02bc2ad2f3e30f3d251b8853",
+      "size": 794
+    },
+    {
+      "path": "config.xml",
+      "sha256": "96bfc0a4fcb5dc31f53e569751b84c143ca7f8cbba34eebee310a476cb579169",
+      "size": 7281
+    },
+    {
+      "path": "https-cert.pem",
+      "sha256": "279db4d4161a73b879ba38ef7241c306822bf0c8a53004cf06faa55d95c484c8",
+      "size": 794
+    },
+    {
+      "path": "https-key.pem",
+      "sha256": "e713ae610e2e0af6320921e60899aa18b2814be2af3fe30e5d42a4ea86655638",
+      "size": 288
+    },
+    {
+      "path": "index-v0.14.0.db/000004.ldb",
+      "sha256": "464a87f1101136eb3a76969c8a8ae852623483cce977c1522e813add4fec5d79",
+      "size": 207
+    },
+    {
+      "path": "index-v0.14.0.db/000005.ldb",
+      "sha256": "6938d7769c2b73dc445a0ddf7db0c152d357b5afd1ab98061678d225c117a369",
+      "size": 573
+    },
+    {
+      "path": "index-v0.14.0.db/000006.log",
+      "sha256": "7721b3a144e1f4e89253f627e17f53549ec21f34f5a3781a59d83789e97daf67",
+      "size": 694
+    },
+    {
+      "path": "index-v0.14.0.db/CURRENT",
+      "sha256": "8af72f43857550b01eab1019335772b367a17a9884a7a759fdf4fe6f272b90aa",
+      "size": 16
+    },
+    {
+      "path": "index-v0.14.0.db/CURRENT.bak",
+      "sha256": "179aee986b08dd1c9b42165766a9f86be710e30d130c79ff234c4f8fbfb85f76",
+      "size": 16
+    },
+    {
+      "path": "index-v0.14.0.db/LOCK",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "index-v0.14.0.db/LOG",
+      "sha256": "7a6bfab5047dd698afc690470941bcbff4b2b991bfe93276132e3fd7501c449e",
+      "size": 1830
+    },
+    {
+      "path": "index-v0.14.0.db/MANIFEST-000007",
+      "sha256": "abba6e6cf314c379cbcd878fa8d839c219682aa4b174244305cf7fc00771a218",
+      "size": 310
+    },
+    {
+      "path": "key.pem",
+      "sha256": "7a71c8ed7d6ba199167a8d9f14f49641a86d9223d4f22965d2eb7ecce2d8c343",
+      "size": 288
+    }
+  ],
+  "path": "/root/E3/work/st-rollback-snapshot"
+}

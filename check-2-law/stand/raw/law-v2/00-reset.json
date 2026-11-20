@@ -1,0 +1,15 @@
+{
+  "id": "00-reset",
+  "channel": "declaration apply",
+  "command": "calctl apply",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"1795070283188156489\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795070283188156489\", \"hook_stderr\": \"\", \"hook_stdout\": \"Loaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+  "stderr": "",
+  "declaration_before": "5b94295688b90b2732aac26f35640ddd9e851a13de471a9085634d38f1a96230",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

@@ -1,0 +1,1102 @@
+[
+  {
+    "apply_rc": 0,
+    "evidence_after": "evidence/r1-owned-after-apply.json",
+    "evidence_before": "evidence/r1-owned-baseline.json",
+    "evidence_events": "evidence/r1-owned-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081413066417559",
+    "generation_before": "1795081411915893225",
+    "payload_alice": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": {
+      "generation": "1795081413066417559",
+      "ok": true
+    },
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": false
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-owned"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-foreign-after-apply.json",
+    "evidence_before": "evidence/r1-foreign-baseline.json",
+    "evidence_events": "evidence/r1-foreign-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081417381566131",
+    "generation_before": "1795081417381566131",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "tag": "r1-foreign"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-group-after-apply.json",
+    "evidence_before": "evidence/r1-group-baseline.json",
+    "evidence_events": "evidence/r1-group-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081420596258410",
+    "generation_before": "1795081420596258410",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-group"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-acl-after-apply.json",
+    "evidence_before": "evidence/r1-acl-baseline.json",
+    "evidence_events": "evidence/r1-acl-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081423820552838",
+    "generation_before": "1795081423820552838",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-acl"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-mask-after-apply.json",
+    "evidence_before": "evidence/r1-mask-baseline.json",
+    "evidence_events": "evidence/r1-mask-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081427046531976",
+    "generation_before": "1795081427046531976",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-mask"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-parent-after-apply.json",
+    "evidence_before": "evidence/r1-parent-baseline.json",
+    "evidence_events": "evidence/r1-parent-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081430261253887",
+    "generation_before": "1795081430261253887",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-parent"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-xonly-after-apply.json",
+    "evidence_before": "evidence/r1-xonly-baseline.json",
+    "evidence_events": "evidence/r1-xonly-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081433452293558",
+    "generation_before": "1795081433452293558",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 1
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-xonly"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r1-noexec-after-apply.json",
+    "evidence_before": "evidence/r1-noexec-baseline.json",
+    "evidence_events": "evidence/r1-noexec-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081436690405513",
+    "generation_before": "1795081436690405513",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r1-noexec"
+  },
+  {
+    "apply_rc": 0,
+    "evidence_after": "evidence/r2-owned-after-apply.json",
+    "evidence_before": "evidence/r2-owned-baseline.json",
+    "evidence_events": "evidence/r2-owned-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081441058809885",
+    "generation_before": "1795081439891744286",
+    "payload_alice": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": {
+      "generation": "1795081441058809885",
+      "ok": true
+    },
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-owned"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-foreign-after-apply.json",
+    "evidence_before": "evidence/r2-foreign-baseline.json",
+    "evidence_events": "evidence/r2-foreign-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081445375329281",
+    "generation_before": "1795081445375329281",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "tag": "r2-foreign"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-group-after-apply.json",
+    "evidence_before": "evidence/r2-group-baseline.json",
+    "evidence_events": "evidence/r2-group-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081448632413523",
+    "generation_before": "1795081448632413523",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-group"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-acl-after-apply.json",
+    "evidence_before": "evidence/r2-acl-baseline.json",
+    "evidence_events": "evidence/r2-acl-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081451802865793",
+    "generation_before": "1795081451802865793",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-acl"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-mask-after-apply.json",
+    "evidence_before": "evidence/r2-mask-baseline.json",
+    "evidence_events": "evidence/r2-mask-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081455067443958",
+    "generation_before": "1795081455067443958",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-mask"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-parent-after-apply.json",
+    "evidence_before": "evidence/r2-parent-baseline.json",
+    "evidence_events": "evidence/r2-parent-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081458302625436",
+    "generation_before": "1795081458302625436",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-parent"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-xonly-after-apply.json",
+    "evidence_before": "evidence/r2-xonly-baseline.json",
+    "evidence_events": "evidence/r2-xonly-events.json",
+    "fixed_limb": "9.6 third limb; stand defect => hypothesis ?",
+    "generation_after": "1795081461533755867",
+    "generation_before": "1795081461533755867",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 1
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-xonly"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/r2-noexec-after-apply.json",
+    "evidence_before": "evidence/r2-noexec-baseline.json",
+    "evidence_events": "evidence/r2-noexec-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081464756046231",
+    "generation_before": "1795081464756046231",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "payload_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "response": "personal executable ownership/DAC failed",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "source_negative": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 1
+    },
+    "tag": "r2-noexec"
+  },
+  {
+    "apply_rc": 0,
+    "evidence_after": "evidence/allow-match-after-apply.json",
+    "evidence_before": "evidence/allow-match-baseline.json",
+    "evidence_events": "evidence/allow-match-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081468504873636",
+    "generation_before": "1795081468014185872",
+    "payload_alice": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "payload_bob": null,
+    "payload_negative": null,
+    "response": {
+      "generation": "1795081468504873636",
+      "ok": true
+    },
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": null,
+    "source_negative": null,
+    "tag": "allow-match"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/allow-empty-after-apply.json",
+    "evidence_before": "evidence/allow-empty-baseline.json",
+    "evidence_events": "evidence/allow-empty-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081469968871002",
+    "generation_before": "1795081469968871002",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": null,
+    "payload_negative": null,
+    "response": "root allowlist forbids local-alice-p24-owned",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": null,
+    "source_negative": null,
+    "tag": "allow-empty"
+  },
+  {
+    "apply_rc": 1,
+    "evidence_after": "evidence/deny-match-after-apply.json",
+    "evidence_before": "evidence/deny-match-baseline.json",
+    "evidence_events": "evidence/deny-match-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081471799139822",
+    "generation_before": "1795081471799139822",
+    "payload_alice": {
+      "exec_marker": false,
+      "exec_rc": 126,
+      "read_rc": 0
+    },
+    "payload_bob": null,
+    "payload_negative": null,
+    "response": "root denylist forbids local-alice-p24-owned",
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": null,
+    "source_negative": null,
+    "tag": "deny-match"
+  },
+  {
+    "apply_rc": 0,
+    "evidence_after": "evidence/deny-unrelated-after-apply.json",
+    "evidence_before": "evidence/deny-unrelated-baseline.json",
+    "evidence_events": "evidence/deny-unrelated-events.json",
+    "fixed_limb": null,
+    "generation_after": "1795081474170606458",
+    "generation_before": "1795081473670088048",
+    "payload_alice": {
+      "exec_marker": true,
+      "exec_rc": 0,
+      "read_rc": 0
+    },
+    "payload_bob": null,
+    "payload_negative": null,
+    "response": {
+      "generation": "1795081474170606458",
+      "ok": true
+    },
+    "snapshot_after": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "snapshot_before": {
+      "exists": true,
+      "gid": 24101,
+      "inode": 264618,
+      "mode": "0o550",
+      "path": "/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "sha256": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+      "size": 16168,
+      "symlink": false,
+      "uid": 0
+    },
+    "source": null,
+    "source_negative": null,
+    "tag": "deny-unrelated"
+  }
+]

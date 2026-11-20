@@ -1,0 +1,11 @@
+{
+  "machine": "target",
+  "label": "target-network-repair",
+  "started_utc": "2026-11-19T08:38:08.874682+00:00",
+  "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=<WORKDIR>/E4/known_hosts -o GlobalKnownHostsFile=/dev/null -i <WORKDIR>/E4/id_ed25519 -p 22145 root@127.0.0.1 bash -s",
+  "script": "set -euxo pipefail\nnmcli con mod e4-bound 802-3-ethernet.mac-address <MAC-9>\nnmcli -w 10 con up e4-bound ifname ens4\nip -br address show dev ens4\nping -I ens4 -c 2 -W 2 10.44.0.2\nnmcli -f connection.uuid,connection.interface-name,802-3-ethernet.mac-address con show e4-bound\nnmcli con down e4-bound\n",
+  "rc": 0,
+  "stdout": "Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)\nens4             UP             10.44.0.11/24 \nPING 10.44.0.2 (10.44.0.2) from 10.44.0.11 ens4: 56(84) bytes of data.\n64 bytes from 10.44.0.2: icmp_seq=1 ttl=255 time=0.066 ms\n64 bytes from 10.44.0.2: icmp_seq=2 ttl=255 time=0.117 ms\n\n--- 10.44.0.2 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1024ms\nrtt min/avg/max/mdev = 0.066/0.091/0.117/0.025 ms\nconnection.uuid:                        80da25f5-d255-42cf-a723-2ee9bcbe24aa\nconnection.interface-name:              ens4\n802-3-ethernet.mac-address:             <MAC-9>\nConnection 'e4-bound' successfully deactivated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/5)\n",
+  "stderr": "+ nmcli con mod e4-bound 802-3-ethernet.mac-address <MAC-9>\n+ nmcli -w 10 con up e4-bound ifname ens4\n+ ip -br address show dev ens4\n+ ping -I ens4 -c 2 -W 2 10.44.0.2\n+ nmcli -f connection.uuid,connection.interface-name,802-3-ethernet.mac-address con show e4-bound\n+ nmcli con down e4-bound\n",
+  "finished_utc": "2026-11-19T08:38:10.413212+00:00"
+}

@@ -1,0 +1,716 @@
+[
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082512032000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082512032000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "errno": 2,
+      "error": "[Errno 2] No such file or directory: '/srv/p31-home-view/alice/downloaded'",
+      "path": "/srv/p31-home-view/alice/downloaded"
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082512032000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082512032000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-absent",
+    "source_identity_changed": true,
+    "trajectory": "absent"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082535168000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082535168000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082533576000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082533576000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082535168000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082535168000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-atomic",
+    "source_identity_changed": true,
+    "trajectory": "atomic"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082560108000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 264600,
+      "mode": "0o100755",
+      "mtime_ns": 1795082560108000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082558540000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082558540000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082560108000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 264600,
+      "mode": "0o100755",
+      "mtime_ns": 1795082560108000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-directory",
+    "source_identity_changed": true,
+    "trajectory": "directory"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082498476000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082498476000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082498476000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082498476000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082498476000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082498476000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-existing-r1",
+    "source_identity_changed": false,
+    "trajectory": "existing"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082523960000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082523960000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082522396000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082522396000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082523960000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082523960000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-recreate",
+    "source_identity_changed": true,
+    "trajectory": "recreate"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f",
+      "/usr/local/sbin/cald": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    "launch_cells": 8,
+    "mechanism": "bq",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082547928000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082547928000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082546392000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082546392000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082547928000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131087,
+      "mode": "0o100755",
+      "mtime_ns": 1795082547928000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "bq-rename",
+    "source_identity_changed": true,
+    "trajectory": "rename"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082583408000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082583408000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "errno": 2,
+      "error": "[Errno 2] No such file or directory: '/srv/p31-home-view/alice/downloaded'",
+      "path": "/srv/p31-home-view/alice/downloaded"
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082583408000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082583408000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-absent",
+    "source_identity_changed": true,
+    "trajectory": "absent"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 16,
+    "mutation_source_after": {
+      "ctime_ns": 1795082604220000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082604220000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082604220000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082604220000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082604220000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082604220000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-atomic",
+    "source_identity_changed": false,
+    "trajectory": "atomic"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": false,
+      "revoke": false
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082624400000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 300701,
+      "mode": "0o100755",
+      "mtime_ns": 1795082624400000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082624248000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082624248000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082624400000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 300701,
+      "mode": "0o100755",
+      "mtime_ns": 1795082624400000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-directory",
+    "source_identity_changed": true,
+    "trajectory": "directory"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": false,
+      "revoke": false
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082666548000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 300701,
+      "mode": "0o100755",
+      "mtime_ns": 1795082666548000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082666392000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082666392000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082666548000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 300701,
+      "mode": "0o100755",
+      "mtime_ns": 1795082666548000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "954ad27d7102712f0cec5755f990ef69b0c56793e75ce150b50059a1344111be",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": true,
+    "run": "x3-directory-replay",
+    "source_identity_changed": true,
+    "trajectory": "directory"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 0,
+    "mutation_source_after": {
+      "ctime_ns": 1795082573212000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082573212000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082573212000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082573212000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082573212000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082573212000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-existing",
+    "source_identity_changed": false,
+    "trajectory": "existing"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 16,
+    "mutation_source_after": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-recreate",
+    "source_identity_changed": false,
+    "trajectory": "recreate"
+  },
+  {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 16,
+    "mutation_source_after": {
+      "ctime_ns": 1795082614360000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082614360000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082614360000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082614360000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082614360000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082614360000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-rename",
+    "source_identity_changed": false,
+    "trajectory": "rename"
+  }
+]

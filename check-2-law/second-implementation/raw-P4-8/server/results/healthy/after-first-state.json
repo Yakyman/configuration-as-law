@@ -1,0 +1,353 @@
+{
+  "utc": "2026-11-19T10:33:38.595953+00:00",
+  "declarations": [
+    {
+      "path": "/etc/cal/root.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 81,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 32809,
+      "sha256": "1c6a04614fcf67d7ef2605cffb8e48d38bedc68ce7fa24c972e1e409c2f603a5",
+      "text": "{\"archive\":\"delete\",\"programs\":{},\"policies\":{},\"allow_channels\":{},\"shared\":{}}\n"
+    },
+    {
+      "path": "/home/alice/declaration.json",
+      "uid": 48101,
+      "gid": 48101,
+      "mode": "0o600",
+      "size": 170,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 132041,
+      "sha256": "01d502c63ee9d94bba403936c65bf4ba946b1453038765427b81542a63979a93",
+      "text": "{\"programs\": {\"local-alice-p48\": {\"executable\": \"/home/alice/p48/padded\", \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\", \"version\": \"1\"}}}\n"
+    },
+    {
+      "path": "/home/bob/declaration.json",
+      "uid": 48102,
+      "gid": 48102,
+      "mode": "0o600",
+      "size": 16,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 132042,
+      "sha256": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+      "text": "{\"programs\":{}}\n"
+    }
+  ],
+  "state": [
+    {
+      "path": "/var/lib/cal/current.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 884,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 264626,
+      "sha256": "f9ba1bbf04cf11f24ec91be76e371608be4294d521ac33667b0e6a9d82a66352",
+      "text": "{\n  \"allow_channels\": {},\n  \"archive\": \"delete\",\n  \"generation\": \"1795084418414703106\",\n  \"personal\": {\n    \"alice\": {\n      \"programs\": {\n        \"local-alice-p48\": {\n          \"executable\": \"/home/alice/p48/padded\",\n          \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n          \"version\": \"1\"\n        }\n      }\n    },\n    \"bob\": {\n      \"programs\": {}\n    }\n  },\n  \"programs\": {\n    \"local-alice-p48\": {\n      \"executable\": \"/var/lib/cal/executables/alice/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"owners\": [\n        \"alice\"\n      ],\n      \"scope\": \"user\",\n      \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"version\": \"1\"\n    }\n  },\n  \"root\": {\n    \"allow_channels\": {},\n    \"archive\": \"delete\",\n    \"policies\": {},\n    \"programs\": {},\n    \"shared\": {}\n  },\n  \"shared\": {}\n}"
+    },
+    {
+      "path": "/var/lib/cal/pending.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 845,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 264621,
+      "sha256": "54780a988b6c072d04a775043e29cbbbf5283921d4cb0bda1ad1a03f560a9727",
+      "text": "{\n  \"allow_channels\": {},\n  \"archive\": \"delete\",\n  \"personal\": {\n    \"alice\": {\n      \"programs\": {\n        \"local-alice-p48\": {\n          \"executable\": \"/home/alice/p48/padded\",\n          \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n          \"version\": \"1\"\n        }\n      }\n    },\n    \"bob\": {\n      \"programs\": {}\n    }\n  },\n  \"programs\": {\n    \"local-alice-p48\": {\n      \"executable\": \"/var/lib/cal/executables/alice/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"owners\": [\n        \"alice\"\n      ],\n      \"scope\": \"user\",\n      \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"version\": \"1\"\n    }\n  },\n  \"root\": {\n    \"allow_channels\": {},\n    \"archive\": \"delete\",\n    \"policies\": {},\n    \"programs\": {},\n    \"shared\": {}\n  },\n  \"shared\": {}\n}"
+    },
+    {
+      "path": "/var/lib/cal/generations/1795084136295214952.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 351,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 264569,
+      "sha256": "ff2b42d73013fe57ad57099649b06e35599218d1e6a860ddb3c9a553a9a8a209",
+      "text": "{\n  \"allow_channels\": {},\n  \"archive\": \"delete\",\n  \"generation\": \"1795084136295214952\",\n  \"personal\": {\n    \"alice\": {\n      \"programs\": {}\n    },\n    \"bob\": {\n      \"programs\": {}\n    }\n  },\n  \"programs\": {},\n  \"root\": {\n    \"allow_channels\": {},\n    \"archive\": \"delete\",\n    \"policies\": {},\n    \"programs\": {},\n    \"shared\": {}\n  },\n  \"shared\": {}\n}"
+    },
+    {
+      "path": "/var/lib/cal/generations/1795084418414703106.json",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o644",
+      "size": 884,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 264625,
+      "sha256": "f9ba1bbf04cf11f24ec91be76e371608be4294d521ac33667b0e6a9d82a66352",
+      "text": "{\n  \"allow_channels\": {},\n  \"archive\": \"delete\",\n  \"generation\": \"1795084418414703106\",\n  \"personal\": {\n    \"alice\": {\n      \"programs\": {\n        \"local-alice-p48\": {\n          \"executable\": \"/home/alice/p48/padded\",\n          \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n          \"version\": \"1\"\n        }\n      }\n    },\n    \"bob\": {\n      \"programs\": {}\n    }\n  },\n  \"programs\": {\n    \"local-alice-p48\": {\n      \"executable\": \"/var/lib/cal/executables/alice/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"owners\": [\n        \"alice\"\n      ],\n      \"scope\": \"user\",\n      \"sha256\": \"a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4\",\n      \"version\": \"1\"\n    }\n  },\n  \"root\": {\n    \"allow_channels\": {},\n    \"archive\": \"delete\",\n    \"policies\": {},\n    \"programs\": {},\n    \"shared\": {}\n  },\n  \"shared\": {}\n}"
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/alice/p48/small",
+      "uid": 48101,
+      "gid": 48101,
+      "mode": "0o500",
+      "size": 9136,
+      "blocks": 24,
+      "dev": 65025,
+      "ino": 269809,
+      "sha256": "4289eb6aa18c0b6b070db706339d24a130f763f0e15b6d18027719733a5e1d5a"
+    },
+    {
+      "path": "/home/alice/p48/padded",
+      "uid": 48101,
+      "gid": 48101,
+      "mode": "0o500",
+      "size": 1057712,
+      "blocks": 2072,
+      "dev": 65025,
+      "ino": 269810,
+      "sha256": "a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4"
+    }
+  ],
+  "snapshots": [
+    {
+      "path": "/var/lib/cal/executables/alice/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4",
+      "uid": 0,
+      "gid": 48101,
+      "mode": "0o550",
+      "size": 1057712,
+      "blocks": 2080,
+      "dev": 65040,
+      "ino": 13,
+      "sha256": "a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4"
+    }
+  ],
+  "parents": [
+    {
+      "path": "/",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 2
+    },
+    {
+      "path": "/var",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 16
+    },
+    {
+      "path": "/var/lib",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 17
+    },
+    {
+      "path": "/var/lib/cal",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 269811
+    },
+    {
+      "path": "/var/lib/cal/executables",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 269815
+    },
+    {
+      "path": "/var/lib/cal/executables/alice",
+      "uid": 0,
+      "gid": 48101,
+      "mode": "0o750",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65040,
+      "ino": 2
+    },
+    {
+      "path": "/home",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 590
+    },
+    {
+      "path": "/home/alice",
+      "uid": 48101,
+      "gid": 48101,
+      "mode": "0o755",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 131156
+    },
+    {
+      "path": "/home/alice/p48",
+      "uid": 48101,
+      "gid": 48101,
+      "mode": "0o700",
+      "size": 4096,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 269808
+    }
+  ],
+  "policy": {
+    "path": "/etc/apparmor.d/cal-stand",
+    "uid": 0,
+    "gid": 0,
+    "mode": "0o644",
+    "size": 3094,
+    "blocks": 8,
+    "dev": 65025,
+    "ino": 32930,
+    "sha256": "7a2a3ac615f30577eedb1a20e154a2809386f8e4c69716be67152d60ca1c4742",
+    "text": "profile cal-alice flags=(attach_disconnected) {\n  / r,\n  /** r,\n  /usr/lib/** mr,\n  /lib/** mr,\n  owner /home/alice/** rwkl,\n  owner /tmp/** rwkl,\n  owner /var/tmp/** rwkl,\n  owner /dev/shm/** rwkl,\n  /dev/null rw,\n  /dev/zero rw,\n  /dev/urandom r,\n  /dev/random r,\n  /dev/tty rw,\n  /dev/pts/** rw,\n  /run/cal.sock rw,\n  network inet stream,\n  network inet6 stream,\n  network inet dgram,\n  network inet6 dgram,\n  network unix,\n  signal (receive),\n  signal (send) peer=cal-alice,\n  ptrace (read,trace) peer=cal-alice,\n  owner /var/lib/cal/active/local-alice-p48/** rwkl,\n  /var/lib/cal/active/local-alice-p48/ rw,\n  /usr/bin/bash mrix,\n  /usr/bin/cat mrix,\n  /usr/bin/chmod mrix,\n  /usr/bin/cp mrix,\n  /usr/bin/curl mrix,\n  /usr/bin/dash mrix,\n  /usr/bin/date mrix,\n  /usr/bin/dd mrix,\n  /usr/bin/env mrix,\n  /usr/bin/false mrix,\n  /usr/bin/gzip mrix,\n  /usr/bin/head mrix,\n  /usr/bin/id mrix,\n  /usr/bin/jq mrix,\n  /usr/bin/ls mrix,\n  /usr/bin/mkdir mrix,\n  /usr/bin/mv mrix,\n  /usr/bin/printf mrix,\n  /usr/bin/pwd mrix,\n  /usr/bin/readlink mrix,\n  /usr/bin/rm mrix,\n  /usr/bin/rmdir mrix,\n  /usr/bin/sha256sum mrix,\n  /usr/bin/sleep mrix,\n  /usr/bin/sort mrix,\n  /usr/bin/stat mrix,\n  /usr/bin/tail mrix,\n  /usr/bin/tar mrix,\n  /usr/bin/tee mrix,\n  /usr/bin/timeout mrix,\n  /usr/bin/touch mrix,\n  /usr/bin/tr mrix,\n  /usr/bin/true mrix,\n  /usr/bin/uniq mrix,\n  /usr/bin/unzip mrix,\n  /usr/bin/wc mrix,\n  /usr/local/bin/calctl mrix,\n  /var/lib/cal/executables/alice/a2d6029882bf7a399c7fbb15a73aabcb3c8f40e2fe34efa8894b9904165c7fe4 mrix,\n}\n\nprofile cal-bob flags=(attach_disconnected) {\n  / r,\n  /** r,\n  /usr/lib/** mr,\n  /lib/** mr,\n  owner /home/bob/** rwkl,\n  owner /tmp/** rwkl,\n  owner /var/tmp/** rwkl,\n  owner /dev/shm/** rwkl,\n  /dev/null rw,\n  /dev/zero rw,\n  /dev/urandom r,\n  /dev/random r,\n  /dev/tty rw,\n  /dev/pts/** rw,\n  /run/cal.sock rw,\n  network inet stream,\n  network inet6 stream,\n  network inet dgram,\n  network inet6 dgram,\n  network unix,\n  signal (receive),\n  signal (send) peer=cal-bob,\n  ptrace (read,trace) peer=cal-bob,\n  /usr/bin/bash mrix,\n  /usr/bin/cat mrix,\n  /usr/bin/chmod mrix,\n  /usr/bin/cp mrix,\n  /usr/bin/curl mrix,\n  /usr/bin/dash mrix,\n  /usr/bin/date mrix,\n  /usr/bin/dd mrix,\n  /usr/bin/env mrix,\n  /usr/bin/false mrix,\n  /usr/bin/gzip mrix,\n  /usr/bin/head mrix,\n  /usr/bin/id mrix,\n  /usr/bin/jq mrix,\n  /usr/bin/ls mrix,\n  /usr/bin/mkdir mrix,\n  /usr/bin/mv mrix,\n  /usr/bin/printf mrix,\n  /usr/bin/pwd mrix,\n  /usr/bin/readlink mrix,\n  /usr/bin/rm mrix,\n  /usr/bin/rmdir mrix,\n  /usr/bin/sha256sum mrix,\n  /usr/bin/sleep mrix,\n  /usr/bin/sort mrix,\n  /usr/bin/stat mrix,\n  /usr/bin/tail mrix,\n  /usr/bin/tar mrix,\n  /usr/bin/tee mrix,\n  /usr/bin/timeout mrix,\n  /usr/bin/touch mrix,\n  /usr/bin/tr mrix,\n  /usr/bin/true mrix,\n  /usr/bin/uniq mrix,\n  /usr/bin/unzip mrix,\n  /usr/bin/wc mrix,\n  /usr/local/bin/calctl mrix,\n}\n\nprofile cal-root-program /usr/local/lib/cal/worker flags=(attach_disconnected) {\n  /** r,\n  /usr/lib/** mr,\n  /lib/** mr,\n  /var/lib/cal/active/** rwk,\n  /dev/null rw,\n  /dev/pts/** rw,\n  /usr/local/lib/cal/worker mrix,\n}\n"
+  },
+  "snapshot_fs": {
+    "f_bsize": 4096,
+    "f_frsize": 4096,
+    "f_blocks": 8171,
+    "f_bfree": 7904,
+    "f_bavail": 7904,
+    "f_files": 256,
+    "f_ffree": 243,
+    "f_favail": 243,
+    "f_flag": 4102
+  },
+  "root_fs": {
+    "f_bsize": 4096,
+    "f_frsize": 4096,
+    "f_blocks": 4075810,
+    "f_bfree": 3462533,
+    "f_bavail": 3284456,
+    "f_files": 1040384,
+    "f_ffree": 958019,
+    "f_favail": 958019,
+    "f_flag": 4096
+  },
+  "mounts": {
+    "argv": [
+      "findmnt",
+      "-T",
+      "/var/lib/cal/executables/alice",
+      "-o",
+      "TARGET,SOURCE,FSTYPE,OPTIONS"
+    ],
+    "rc": 0,
+    "stdout": "TARGET                         SOURCE   FSTYPE OPTIONS\n/var/lib/cal/executables/alice /dev/vdb ext2   rw,nosuid,nodev,relatime\n",
+    "stderr": ""
+  },
+  "reserved": {
+    "argv": [
+      "tune2fs",
+      "-l",
+      "/dev/vdb"
+    ],
+    "rc": 0,
+    "stdout": "tune2fs 1.47.0 (5-Feb-2023)\nFilesystem volume name:   <none>\nLast mounted on:          /var/lib/cal/executables/alice\nFilesystem UUID:          6857e6f5-fa28-4962-9edf-19bdd7c53e2a\nFilesystem magic number:  0xEF53\nFilesystem revision #:    1 (dynamic)\nFilesystem features:      ext_attr resize_inode dir_index filetype sparse_super large_file\nFilesystem flags:         signed_directory_hash \nDefault mount options:    user_xattr acl\nFilesystem state:         not clean\nErrors behavior:          Continue\nFilesystem OS type:       Linux\nInode count:              256\nBlock count:              8192\nReserved block count:     0\nOverhead clusters:        21\nFree blocks:              8165\nFree inodes:              245\nFirst block:              0\nBlock size:               4096\nFragment size:            4096\nReserved GDT blocks:      1\nBlocks per group:         32768\nFragments per group:      32768\nInodes per group:         256\nInode blocks per group:   16\nFilesystem created:       Thu Nov 19 10:33:35 2026\nLast mount time:          Thu Nov 19 10:33:36 2026\nLast write time:          Thu Nov 19 10:33:36 2026\nMount count:              1\nMaximum mount count:      -1\nLast checked:             Thu Nov 19 10:33:35 2026\nCheck interval:           0 (<none>)\nReserved blocks uid:      0 (user root)\nReserved blocks gid:      0 (group root)\nFirst inode:              11\nInode size:\t          256\nRequired extra isize:     32\nDesired extra isize:      32\nDefault directory hash:   half_md4\nDirectory Hash Seed:      fb02b52f-f7c4-4711-a7d2-1792c0f136c6\n",
+    "stderr": ""
+  },
+  "identities": [
+    {
+      "argv": [
+        "id",
+        "alice"
+      ],
+      "rc": 0,
+      "stdout": "uid=48101(alice) gid=48101(alice) groups=48101(alice),1002(calusers)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "id",
+        "bob"
+      ],
+      "rc": 0,
+      "stdout": "uid=48102(bob) gid=48102(bob) groups=48102(bob),1002(calusers)\n",
+      "stderr": ""
+    }
+  ],
+  "runtime": [
+    {
+      "path": "/usr/local/sbin/cald",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 15790,
+      "blocks": 32,
+      "dev": 65025,
+      "ino": 97,
+      "sha256": "88ce1bad0162275c798f3794633d9623a357cd222076fc9730107150960961ae"
+    },
+    {
+      "path": "/usr/local/lib/cal/apply-policy",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 5024,
+      "blocks": 16,
+      "dev": 65025,
+      "ino": 105,
+      "sha256": "0778eb046f74b6c5d2276e826415f20e2acbf4590ce6761e8f1feaaab1d3367f"
+    },
+    {
+      "path": "/usr/local/bin/calctl",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 16656,
+      "blocks": 40,
+      "dev": 65025,
+      "ino": 32837,
+      "sha256": "f3c92d5de2c09e86fd1a852a14d6ec1fc927e2e1955b932a31cf3abde5915a94"
+    },
+    {
+      "path": "/usr/local/bin/cal-login",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 16328,
+      "blocks": 32,
+      "dev": 65025,
+      "ino": 32811,
+      "sha256": "ebdaf130203532b681a1fb52041161ad505b5298d4ac89e59b7dbded04f6d300"
+    },
+    {
+      "path": "/root/q-main/radio-apply.py",
+      "uid": 0,
+      "gid": 0,
+      "mode": "0o755",
+      "size": 1164,
+      "blocks": 8,
+      "dev": 65025,
+      "ino": 269789,
+      "sha256": "6c4f9f7f332db49f05a1b74fea0e4b25c82327a663333f8f67eb9a5ec3054093"
+    }
+  ]
+}

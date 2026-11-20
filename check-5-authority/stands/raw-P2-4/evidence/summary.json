@@ -1,0 +1,562 @@
+{
+  "digest": "fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65",
+  "ended": "2026-11-19T09:44:36.079256+00:00",
+  "events": 337,
+  "results": [
+    {
+      "apply_rc": 0,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795081413066417559\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/home/alice/p24-shared/owned\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795081413066417559\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "case": "owned",
+      "payload_alice": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-owned"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "foreign",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "tag": "r1-foreign"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "group",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-group"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "acl",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-acl"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "mask",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-mask"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "parent",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-parent"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "xonly",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 1
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-xonly"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "noexec",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r1-noexec"
+    },
+    {
+      "apply_rc": 0,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795081441058809885\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/home/alice/p24-shared/owned\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795081441058809885\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "case": "owned",
+      "payload_alice": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-owned"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "foreign",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "tag": "r2-foreign"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "group",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-group"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "acl",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-acl"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "mask",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-mask"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "parent",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-parent"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "xonly",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 1
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-xonly"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"personal executable ownership/DAC failed\", \"ok\": false}\n",
+      "case": "noexec",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "payload_bob": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "payload_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "source": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "source_negative": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 1
+      },
+      "tag": "r2-noexec"
+    },
+    {
+      "apply_rc": 0,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795081468504873636\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/home/alice/p24-shared/owned\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {\"alice\": {\"allowlist\": [\"local-alice-p24-owned\"]}}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795081468504873636\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "payload_alice": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "policy": {
+        "allowlist": [
+          "local-alice-p24-owned"
+        ]
+      },
+      "tag": "allow-match"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"root allowlist forbids local-alice-p24-owned\", \"ok\": false}\n",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "policy": {
+        "allowlist": []
+      },
+      "tag": "allow-empty"
+    },
+    {
+      "apply_rc": 1,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"error\": \"root denylist forbids local-alice-p24-owned\", \"ok\": false}\n",
+      "payload_alice": {
+        "exec_marker": false,
+        "exec_rc": 126,
+        "read_rc": 0
+      },
+      "policy": {
+        "denylist": [
+          "local-alice-p24-owned"
+        ]
+      },
+      "tag": "deny-match"
+    },
+    {
+      "apply_rc": 0,
+      "apply_stdout": "IDENTITY_BEGIN\nuid=24101(alice) gid=24101(alice) groups=24101(alice),1002(calusers),24104(p24grant)\ncal-alice (enforce)\nUid:\t24101\t24101\t24101\t24101\nGid:\t24101\t24101\t24101\t24101\nGroups:\t1002 24101 24104 \nCapEff:\t0000000000000000\nNoNewPrivs:\t0\nIDENTITY_END\n{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795081474170606458\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/home/alice/p24-shared/owned\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-p24-owned\": {\"executable\": \"/var/lib/cal/executables/alice/fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"fcf916768d0931ea7ef26fec91bc5e0111266dc8f055e354bcd7760c6496ef65\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {\"alice\": {\"denylist\": [\"local-alice-p24-other\"]}}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795081474170606458\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "payload_alice": {
+        "exec_marker": true,
+        "exec_rc": 0,
+        "read_rc": 0
+      },
+      "policy": {
+        "denylist": [
+          "local-alice-p24-other"
+        ]
+      },
+      "tag": "deny-unrelated"
+    }
+  ],
+  "started": "2026-11-19T09:43:31.184904+00:00"
+}

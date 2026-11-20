@@ -1,0 +1,303 @@
+{
+  "ack": {
+    "ack_valid": true,
+    "args": [
+      "rollback",
+      "1795084272000113050"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl rollback 1795084272000113050"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407343749640919,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "keep",
+        "generation": "1795084273496423471",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {
+          "beta": {
+            "owners": [],
+            "scope": "system",
+            "version": "1"
+          }
+        },
+        "root": {
+          "allow_channels": {},
+          "archive": "keep",
+          "policies": {},
+          "programs": {
+            "beta": {
+              "owners": [],
+              "scope": "system",
+              "version": "1"
+            }
+          },
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084273496423471",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407343479190836,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "77ec477c41489594e25f9eb84ee71bfbce70285f96186f5c6dfa06008bbf5e8f",
+    "utc": "2026-11-19T10:31:13.775057+00:00"
+  },
+  "ack_to_cut_ms": 395.804527,
+  "after_label": "after-boot",
+  "cut": "sync",
+  "cut_receipt": {
+    "boot": 41,
+    "cmdline": "qemu-system-x86_64 -name cal-p42 -uuid e9d11119-0042-4042-8042-000000000042 -enable-kvm -cpu host -m 2048 -smp 2 -display none -serial file:serial-041.log -monitor unix:monitor.sock,server,nowait -drive file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads -netdev user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22 -device virtio-net-pci,netdev=n0,mac=<MAC-12> ",
+    "ok": true,
+    "qemu_pid": 238646,
+    "qemu_status": -9,
+    "reaped_monotonic_ns": 407344261883974,
+    "request": {
+      "action": "cut",
+      "id": "1795084274166656682"
+    },
+    "signal_monotonic_ns": 407344145445446,
+    "utc": "2026-11-19T10:31:14.170601+00:00"
+  },
+  "end_utc": "2026-11-19T10:31:20.474299+00:00",
+  "g1": "1795084270501229023",
+  "g2": "1795084272000113050",
+  "g3": "1795084272839452471",
+  "id": "B-keep-sync",
+  "key": "B-keep-sync",
+  "measured_args": [
+    "rollback",
+    "1795084272000113050"
+  ],
+  "op": "B",
+  "owning_before": [
+    "1795084270501229023",
+    "1795084272000113050"
+  ],
+  "policy": "keep",
+  "primary": true,
+  "recovery": {
+    "ack_valid": true,
+    "args": [
+      "rollback",
+      "1795084272000113050"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl rollback 1795084272000113050"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407349721847176,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "keep",
+        "generation": "1795084279829593696",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {
+          "beta": {
+            "owners": [],
+            "scope": "system",
+            "version": "1"
+          }
+        },
+        "root": {
+          "allow_channels": {},
+          "archive": "keep",
+          "policies": {},
+          "programs": {
+            "beta": {
+              "owners": [],
+              "scope": "system",
+              "version": "1"
+            }
+          },
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084279829593696",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407349449224440,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "0a8f04b1a6c0a36daeb18cfe9a43b754c3af1edd7c3432279fd9ffe423e4426f",
+    "utc": "2026-11-19T10:31:19.747368+00:00"
+  },
+  "reset": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-041.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 41,
+    "ok": true,
+    "qemu_pid": 238646,
+    "qemu_status": null,
+    "request": {
+      "action": "reset",
+      "id": "1795084265667122357"
+    },
+    "utc": "2026-11-19T10:31:05.674618+00:00"
+  },
+  "restart": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-042.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 42,
+    "ok": true,
+    "qemu_pid": 238734,
+    "qemu_status": null,
+    "request": {
+      "action": "boot",
+      "id": "1795084274309815290"
+    },
+    "utc": "2026-11-19T10:31:14.313705+00:00"
+  },
+  "start_utc": "2026-11-19T10:31:05.654658+00:00",
+  "status": "complete",
+  "sync": {
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "sync"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407344129107011,
+    "rc": 0,
+    "start_monotonic_ns": 407343956326750,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utc": "2026-11-19T10:31:14.154493+00:00"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "09-appimage",
+  "channel": "AppImage",
+  "command": "curl -fsS http://127.0.0.1:8080/probe.AppImage -o \"$HOME/probe.AppImage\" && chmod +x \"$HOME/probe.AppImage\" && \"$HOME/probe.AppImage\" --appimage-extract-and-run",
+  "user": "alice",
+  "expected": "blocked",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": true,
+  "stdout": "",
+  "stderr": "/bin/bash: line 1: /home/alice/probe.AppImage: Permission denied\n",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

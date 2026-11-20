@@ -1,0 +1,241 @@
+[
+  {
+    "family": "alpine",
+    "branch": "A1",
+    "source": "primary/alpine/A1/provisioning.tar",
+    "etc/machine-id": {
+      "unavailable": "\"filename 'etc/machine-id' not found\""
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "ad4c27a61cc9ca7d90de73b30fc4658edba8380129b8aac1210fc47cb84aa7c9",
+      "bytes": 97,
+      "first_line": "<REDACTED-15>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "3c4549621baadd63ec973ba6e3f5acdc3928f2114eedc583d8d8fa10bd44e223",
+      "bytes": 138210,
+      "first_line": "2026-11-19 12:07:11,311 - util.py[DEBUG]: Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:07:11 +0000. Up 1.89 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "2c30da135b4d2ef166db28ac78cdb089e46e7973946988a4277daeed24c21ff3",
+      "bytes": 7023,
+      "first_line": "Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:07:11 +0000. Up 1.89 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "e66c8170a257c9c3c466a1024d576ec353a88051e76aca725a95fa84eff59f05",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 12:07:22 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-alpine-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "alpine",
+    "branch": "A2",
+    "source": "primary/alpine/A2/provisioning.tar",
+    "etc/machine-id": {
+      "unavailable": "\"filename 'etc/machine-id' not found\""
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "00c4d06131220afb968b0127daf6de2752a599f6a6f51c222c2085502e3d00f0",
+      "bytes": 97,
+      "first_line": "<REDACTED-16>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "cc732328f654f9e3f16ecae4b7479f07c689ca3b7e711873ba673936675a4128",
+      "bytes": 138342,
+      "first_line": "2026-11-19 12:31:23,356 - util.py[DEBUG]: Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:31:23 +0000. Up 1.98 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "077e44a4ad0dd6eba13ceedf12a8625a22090e8fd1e765cb7e9cd57b82bc7894",
+      "bytes": 7003,
+      "first_line": "Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:31:23 +0000. Up 1.98 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "beb24fb00ff301fed49360cc5e9c85f6e92bd23d046496af52e11d45c2a2e1a5",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 12:31:37 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-alpine-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "alpine",
+    "branch": "B1",
+    "source": "primary/alpine/B1/provisioning.tar",
+    "etc/machine-id": {
+      "unavailable": "\"filename 'etc/machine-id' not found\""
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "f690696d592183992b1c5dae552945dcee741eeef4118e6b39631f13efc12f73",
+      "bytes": 97,
+      "first_line": "<REDACTED-17>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "fd3a1055a3e5123dd5399aa0fd767ae1f6865cbe1553b2e9012a85c0909c15af",
+      "bytes": 138342,
+      "first_line": "2026-11-19 12:18:38,336 - util.py[DEBUG]: Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:18:38 +0000. Up 2.04 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "cfd3ac06ca912b591dc83b47e78202175428f9932e1fc934d852683ec2f42520",
+      "bytes": 7023,
+      "first_line": "Cloud-init v. 24.3.1 running 'init-local' at Thu, 19 Nov 2026 12:18:38 +0000. Up 2.04 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "e60a6ae9cc036fb6603aaf3d2dbad4a0e7cb3cd35e04529a609f904f560b6a18",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 12:18:50 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-alpine-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "debian",
+    "branch": "A1",
+    "source": "primary/debian/A1/provisioning.tar",
+    "etc/machine-id": {
+      "sha256": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+      "bytes": 33,
+      "first_line": "<REDACTED-33>"
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "27716bf4ce313df058268e07a3b3de54061120804d17f38c9ae38a5001bc3359",
+      "bytes": 97,
+      "first_line": "<REDACTED-18>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "ce8725c84ec8d793f87375495326c969694bc323de410e31266cdf7cd3483750",
+      "bytes": 178449,
+      "first_line": "2026-11-19 11:22:33,700 - util.py[DEBUG]: Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:22:33 +0000. Up 3.00 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "82d5bd55706c89fdc0ce40763efbe522d0749a5254effcaf3a3d415979d0b4a0",
+      "bytes": 6854,
+      "first_line": "Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:22:33 +0000. Up 3.00 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "7eaa6cd72730410b13f08ca8c04e60b4f4508db2d77bab59541bbd522e3953cd",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 11:22:37 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-debian-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "debian",
+    "branch": "A2",
+    "source": "primary/debian/A2/provisioning.tar",
+    "etc/machine-id": {
+      "sha256": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+      "bytes": 33,
+      "first_line": "<REDACTED-33>"
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "5183d0a68266a8a7660566613be548e1412a1c7befa36369940f83c521de4df5",
+      "bytes": 97,
+      "first_line": "<REDACTED-19>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "be784d85e5ea99473da31c82ebe2ae488e858ca76c71e88f975a1eff25d5aaf3",
+      "bytes": 178447,
+      "first_line": "2026-11-19 11:56:16,735 - util.py[DEBUG]: Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:56:16 +0000. Up 3.03 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "10b2234f3fee510db5a19e37f6e049a9767678598a39e5a687dc41ea5589dffa",
+      "bytes": 6854,
+      "first_line": "Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:56:16 +0000. Up 3.03 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "a2bd8c09b041dafaba4b584c2abc7a80f1b7a02a1f80683d4738a04559fbb59a",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 11:56:20 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-debian-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "debian",
+    "branch": "B1",
+    "source": "primary/debian/B1/provisioning.tar",
+    "etc/machine-id": {
+      "sha256": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+      "bytes": 33,
+      "first_line": "<REDACTED-33>"
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "551067c7dcbb68de5e1a3f6c030d052566fa24270b3b459994153d3f3dd81fa4",
+      "bytes": 97,
+      "first_line": "<REDACTED-20>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "f07ac63127dd00edb250942ba43a09ca28d2534ae279db250a2a495eaa571f81",
+      "bytes": 178449,
+      "first_line": "2026-11-19 11:34:10,707 - util.py[DEBUG]: Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:34:10 +0000. Up 3.02 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "35e65a20d5c1695c9d9deae635f17cd2f5b7ea61c70773f2834a76b037ffd777",
+      "bytes": 6854,
+      "first_line": "Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:34:10 +0000. Up 3.02 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "3bac4187e103247b2392eb5bb27a8fafedb54ff953db65c59d5801dd7518fbb7",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 11:34:15 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-debian-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  },
+  {
+    "family": "debian",
+    "branch": "B2",
+    "source": "primary/debian/B2/provisioning.tar",
+    "etc/machine-id": {
+      "sha256": "d7900929dda8c2eecdf2d93adc31c5f85e977347951efe0d5602e05fc1591f66",
+      "bytes": 33,
+      "first_line": "<REDACTED-33>"
+    },
+    "etc/ssh/ssh_host_ed25519_key.pub": {
+      "sha256": "cae03be977cd9105a832c37a240628ae396d0b382ae0e971397373a5ba11c2fc",
+      "bytes": 97,
+      "first_line": "<REDACTED-21>"
+    },
+    "var/log/cloud-init.log": {
+      "sha256": "fbeb7ee6ccdee34586cc78352a9e4861a0d00ae616f50b416fbaa13e42a616d5",
+      "bytes": 178448,
+      "first_line": "2026-11-19 11:45:06,657 - util.py[DEBUG]: Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:45:06 +0000. Up 2.97 seconds."
+    },
+    "var/log/cloud-init-output.log": {
+      "sha256": "cb7f5a1b9579d5640fde646daf2e0fe411adba0bfa2a8b84239ef98ea74235cd",
+      "bytes": 6854,
+      "first_line": "Cloud-init v. 22.4.2 running 'init-local' at Thu, 19 Nov 2026 11:45:06 +0000. Up 2.97 seconds."
+    },
+    "var/lib/p63/provisioned": {
+      "sha256": "d56dd9fd7863014daadf49ba91f94050f6bdccdfb0cf64c3b163e94c417a8f01",
+      "bytes": 29,
+      "first_line": "Thu Nov 19 11:45:10 UTC 2026"
+    },
+    "instance_archive_member": {
+      "type": "b'2'",
+      "link": "/var/lib/cloud/instances/p63-debian-frozen",
+      "limitation": "Archive keeps the instance symlink, not a recursive copy of its target. Cloud-init logs, provisioned marker and endpoint boot-finished text are separate evidence."
+    }
+  }
+]

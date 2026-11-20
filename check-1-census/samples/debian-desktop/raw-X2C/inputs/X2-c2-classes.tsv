@@ -1,0 +1,236 @@
+id	class	program_if_derivative	reason
+debian-desktop-54a0a0356a	hole-two	gdm3	user account = running component (P1) AND created by gdm3 for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-205e945769	hole-two	apt	user account = running component (P1) AND created by apt for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-2b866190eb	hole-two	flatpak	user account = running component (P1) AND created by flatpak for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-ebda0cbba2	hole-two	avahi-daemon	user account = running component (P1) AND created by avahi-daemon for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-3fa3a857d8	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-8d1e409524	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-96a19ba1e6	recorded (works)		the person's user account, created by cloud-init from the person's user-data; user = running component (P1)
+debian-desktop-c23681be3a	hole-two	colord	user account = running component (P1) AND created by colord for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-4900fca16b	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-8e4a0f0c6a	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-707e10c2e4	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-3413994e24	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-55e4967557	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-ecfab3dd45	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-0e2a281927	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-9911292f99	hole-two	dbus	user account = running component (P1) AND created by dbus for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-625113a2f2	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-af2a58bec6	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-1f9ebd3eec	hole-two	polkitd	user account = running component (P1) AND created by polkitd for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-b54337a503	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-cbaf0b4232	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-dbea3590f8	hole-two	openssh-server	user account = running component (P1) AND created by openssh-server for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-ab8c35e257	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-ead54fe7c7	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-ee17e5a4df	hole-two	systemd	user account = running component (P1) AND created by systemd for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-54ef0687f4	hole-two	systemd-resolved	user account = running component (P1) AND created by systemd-resolved for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-1525133242	hole-two	systemd-timesyncd	user account = running component (P1) AND created by systemd-timesyncd for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-0b2fc8af1f	hole-two	tcpdump	user account = running component (P1) AND created by tcpdump for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-736d2abbd6	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-a0ea4d1be3	hole-two	uuid-runtime	user account = running component (P1) AND created by uuid-runtime for its own operation = derivative (P3/P6); consequences differ
+debian-desktop-8c8f9ffd14	recorded (works)		user account = running component (P1); static base-passwd entry, not created by a program for its own operation
+debian-desktop-015af60fe8	hole-two	flatpak	running program (P1; P4: an installer adds the program to the declaration) vs app installed and run by flatpak like a browser extension (derivative); O5
+debian-desktop-377e7f2465	hole-two	podman	running container program (P1) vs code run inside a podman container from a podman-pulled image (derivative); O5
+debian-desktop-89ce5c5668	recorded (works)		running kernel (program/drivers) = running component; no file of its own
+debian-desktop-d8ee8908a9	recorded (works)		running program (procps) launched by the person's census script, not by a described program for its own operation
+debian-desktop-5bf2e2415a	hole-two	grub-efi/shim (grub-install)	bootloader code that runs at boot = running component (P1) vs files grub-install created for GRUB (derivative); O9
+debian-desktop-76634f69cd	derivative of grub	grub	GRUB modules = code executed within GRUB (§5); fonts/locale/grub.cfg made by grub-install/update-grub
+debian-desktop-f6a8059485	hole-two	initramfs-tools	boot-time programs/drivers that run (P1) vs image generated by update-initramfs for its operation (derivative)
+debian-desktop-71ff0a38c1	hole-two	initramfs-tools	boot-time programs/drivers that run (P1) vs image generated by update-initramfs for its operation (derivative)
+debian-desktop-fefd90f542	derivative of passwd (shadow)	passwd (shadow)	lock file created by shadow tools for their own operation
+debian-desktop-917d8d1269	derivative of systemd-resolved	systemd-resolved	backup made by the systemd-resolved package script when it took over resolv.conf
+debian-desktop-96435c4006	derivative of gdm3	gdm3	written by the gdm3 package script (debconf); selects the display manager (P3: acts as source of truth)
+debian-desktop-809cb439ce	derivative of dpkg (update-alternatives)	dpkg (update-alternatives)	symlinks created by update-alternatives for registered alternatives
+debian-desktop-384e8d981f	derivative of apparmor	apparmor	empty local override stubs/tunables created by AppArmor profile package scripts
+debian-desktop-ce45570012	hole-none		sources.list/mirrors written at image build or by cloud-init, creator not evidenced; neither a described program's own object nor the person's (O1); 20auto-upgrades etc. are derivatives
+debian-desktop-9cf6463675	derivative of ca-certificates	ca-certificates	generated by the ca-certificates package script
+debian-desktop-0326839754	derivative of ca-certificates	ca-certificates	old copy kept by the ca-certificates package script/dpkg
+debian-desktop-34803cf70a	hole-none		"vendor cloud-init config written by the image builder: not a described program on this machine, not the person (P3 ""the person's data""); O1"
+debian-desktop-72dead8488	hole-none		image-builder stamp: creator neither a described program nor the person; O1
+debian-desktop-4e3009df00	derivative of podman	podman	CNI lock created by podman networking
+debian-desktop-688808b26c	hole-two	cups	mixed: cupsd.conf/raw.* are cups derivatives; printers.conf holds the person's queue (lpadmin) written by cupsd for its operation = data vs derivative (O2)
+debian-desktop-228a030233	derivative of grub; locales; keyboard-configuration	grub; locales; keyboard-configuration	grub.d/*.cfg are shell sourced by grub-mkconfig = code executed within a program (§5); locale/keyboard written by package scripts
+debian-desktop-26e6af00e3	derivative of dictionaries-common	dictionaries-common	generated by update-default-ispell
+debian-desktop-7740cdd4af	derivative of base-files	base-files	symlink created by the base-files package script (server: base-files.postinst)
+debian-desktop-5deb3892cc	derivative of libpam-modules	libpam-modules	created by the libpam-modules package script (server: libpam-modules.postinst)
+debian-desktop-41632fad0a	derivative of fontconfig-config	fontconfig-config	conf.d symlinks set by the fontconfig-config package script (debconf)
+debian-desktop-4cce813fe8	hole-none		written at image build: creator neither a described program on this machine nor the person; O1
+debian-desktop-422fdef268	derivative of gdm3	gdm3	greeter defaults placed by gdm3 package script
+debian-desktop-a763d184b3	hole-two	adduser/systemd-sysusers via packages	account database = users/rules = running components (P1); many entries created by packages for their own operation (derivative)
+debian-desktop-d3bb1c2fce	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-211f893687	derivative of grub	grub	script run by grub-mkconfig = code executed within a program (§5), although placed by the image builder
+debian-desktop-2adfd50853	hole-two	adduser/systemd-sysusers via packages	account database = users/rules = running components (P1); many entries created by packages for their own operation (derivative)
+debian-desktop-42b0af3cd4	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-ea2b617ba5	data		hostname chosen by the person in user-data; cloud-init only wrote it and does not need it for its own operation
+debian-desktop-5cad41b508	hole-none		creator not evidenced (no package script creates it; image builder or cloud-init template); neither class shown (O1)
+debian-desktop-d47133480a	derivative of libwrap0	libwrap0	created by libwrap0 package script (server: libwrap0.postinst)
+debian-desktop-b8a8c42f35	derivative of libwrap0	libwrap0	created by libwrap0 package script (server: libwrap0.postinst)
+debian-desktop-f3f8b50a94	derivative of initramfs-tools	initramfs-tools	created by initramfs-tools-core package script
+debian-desktop-413e0b552f	derivative of readline-common	readline-common	created by readline-common package script
+debian-desktop-a349a8354f	derivative of grub-efi-amd64	grub-efi-amd64	created by grub-efi-amd64 package script (server evidence)
+debian-desktop-f2368b74f2	derivative of libc-bin (ldconfig)	libc-bin (ldconfig)	cache generated by ldconfig
+debian-desktop-075c4a2c6c	derivative of libreoffice-common	libreoffice-common	registry files generated/linked by LibreOffice package scripts
+debian-desktop-cf102b2bab	derivative of locales	locales	written by locales package script (debconf)
+debian-desktop-966442e2a8	derivative of tzdata	tzdata	symlink set by tzdata package script
+debian-desktop-1809ee6527	derivative of systemd	systemd	generated by systemd-machine-id-setup at first boot
+debian-desktop-a170c0e44e	derivative of mailcap	mailcap	generated by update-mime (mailcap package script)
+debian-desktop-1af8deec0e	hole-none		creator not evidenced (no package script creates it); neither a described program's object nor the person's shown (O1)
+debian-desktop-9e65e302c3	derivative of kmod	kmod	created by kmod package script
+debian-desktop-fb657bdf06	derivative of base-files	base-files	created by base-files package script
+debian-desktop-6b4026dd02	derivative of systemd (tmpfiles)	systemd (tmpfiles)	"symlink from tmpfiles.d/debian.conf ""L+ /etc/mtab"""
+debian-desktop-bbe4c8f871	derivative of cloud-init	cloud-init	network config rendered by cloud-init from the datasource for its own network setup
+debian-desktop-6f021dad80	derivative of netbase	netbase	created by netbase package script
+debian-desktop-5f65179c45	derivative of libc-bin; libnss-systemd	libc-bin; libnss-systemd	created/edited by libc-bin and libnss-systemd package scripts
+debian-desktop-4d882498fa	hole-two	libpam-runtime (pam-auth-update)	PAM stacks = rules under which users operate (P1) vs generated by pam-auth-update for PAM (derivative)
+debian-desktop-868a743843	derivative of libpaper	libpaper	created by the paper-size package script (debconf)
+debian-desktop-493d4cfdb1	hole-two	adduser/systemd-sysusers via packages	account database = users/rules = running components (P1); many entries created by packages for their own operation (derivative)
+debian-desktop-c169edc1ca	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-3543b3a205	derivative of base-files	base-files	created by base-files package script
+debian-desktop-2dfb100dfa	derivative of python3	python3	created by python3 package script
+debian-desktop-5ecd8ad6ee	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-2e520cea02	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-31b4602da2	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-78bcc39697	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-8e766b28b8	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-f032939066	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-b1fb6e4c19	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-4311df43fb	derivative of init-system-helpers (update-rc.d)	init-system-helpers (update-rc.d)	SysV start/stop links created by update-rc.d from package scripts (P3: enablement as source of truth)
+debian-desktop-cee61291d2	derivative of systemd-resolved	systemd-resolved	symlink set by systemd-resolved package script
+debian-desktop-e2573a99e5	derivative of openssh-server	openssh-server	runit link created by openssh-server package script
+debian-desktop-84b24ebf2a	derivative of libpam-modules	libpam-modules	password-history store created by libpam-modules package script
+debian-desktop-20302e112e	derivative of sgml-base	sgml-base	catalog link maintained by update-catalog
+debian-desktop-cfe66bc678	hole-two	adduser/systemd-sysusers via packages	account database = users/rules = running components (P1); many entries created by packages for their own operation (derivative)
+debian-desktop-9ed4eb3a99	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-5b5a9c277e	derivative of debianutils	debianutils	maintained by add-shell from package scripts
+debian-desktop-0075a76d48	derivative of openssh-server; cloud-init	openssh-server; cloud-init	host keys/sshd_config generated by package script / cloud-init ssh module
+debian-desktop-0306bdd9a9	derivative of ca-certificates; ssl-cert	ca-certificates; ssl-cert	cert links from update-ca-certificates; snakeoil key from ssl-cert
+debian-desktop-f18cbc897b	recorded (works)		subordinate-ID rule for user census = rule under which a user operates; added by the person (usermod as root)
+debian-desktop-c1ef82d842	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-f17149d114	recorded (works)		subordinate-ID rule for user census = rule under which a user operates; added by the person (usermod as root)
+debian-desktop-a2bc9043e2	derivative of passwd (shadow)	passwd (shadow)	backup copy written by shadow tools for their own operation
+debian-desktop-09d09204d8	recorded (works)		sudo rule for user census = rule under which a user operates; content from the person's user-data
+debian-desktop-b86fee9a16	hole-two	init-system-helpers; systemd	mixed: enablement links from package scripts (derivative) and links made by the person as root (systemctl enable/set-default) selecting what runs
+debian-desktop-8c833da179	derivative of tzdata	tzdata	written by tzdata package script
+debian-desktop-f4c9cf7ef7	derivative of screen	screen	created by screen package script
+debian-desktop-66fa11f56b	derivative of xml-core	xml-core	catalogs maintained by update-xmlcatalog
+debian-desktop-3787beb4db	derivative of bash	bash	copied from skel by useradd, not written by the person; executed by bash = code executed within a program (§5)
+debian-desktop-2d36998dd6	derivative of bash	bash	copied from skel by useradd, not written by the person; executed by bash = code executed within a program (§5)
+debian-desktop-2411908510	derivative of babl (GIMP)	babl (GIMP)	cache
+debian-desktop-f9d73be5c8	derivative of libcanberra	libcanberra	cache
+debian-desktop-07086313b7	derivative of fontconfig	fontconfig	cache
+debian-desktop-320eaf03f3	derivative of gnome-software	gnome-software	cache
+debian-desktop-1f891ecdc5	derivative of gstreamer	gstreamer	plugin registry cache
+debian-desktop-32e4e6f22d	derivative of mesa	mesa	shader cache
+debian-desktop-56f3219102	derivative of firefox-esr	firefox-esr	cache
+debian-desktop-df65631681	derivative of pip	pip	cache
+debian-desktop-c8b4d957fe	derivative of thunderbird	thunderbird	cache
+debian-desktop-7c5794d4eb	derivative of tracker3	tracker3	index cache
+debian-desktop-dc6e1125db	derivative of gnome-settings-daemon	gnome-settings-daemon	migration stamp
+debian-desktop-d4763b05fa	derivative of gimp	gimp	rc files/plug-in dirs generated by GIMP; no setting written by the person evidenced
+debian-desktop-933e0d113e	derivative of gnome-terminal	gnome-terminal	terminal list written by the desktop terminal handler (creator by name only; O1)
+debian-desktop-faec541795	derivative of podman	podman	CNI lock created by rootless podman
+debian-desktop-96d642d273	hole-two	dconf	dconf database holds the person's gsettings changes (own settings = data) and is dconf's own store also written by GNOME programs (derivative); O2
+debian-desktop-a364ced830	derivative of evolution-data-server	evolution-data-server	default source created by evolution-data-server
+debian-desktop-de9a685076	hole-two	geany	mixed: geany.conf written by the person (editor config = data, §5 example); README/templates/keybindings created by geany (derivative)
+debian-desktop-313610ff72	derivative of libreoffice	libreoffice	profile generated by LibreOffice; no setting written by the person evidenced
+debian-desktop-bf374a250d	hole-two	firefox-esr	profile: person's bookmarks (data) and an extension (derivative by §5 example) in one store written by Firefox; O2
+debian-desktop-11d19baf6b	derivative of pulseaudio/pipewire-pulse	pulseaudio/pipewire-pulse	auth cookie
+debian-desktop-cec7884e3a	derivative of gnome-terminal	gnome-terminal	terminal list written by the desktop terminal handler (creator by name only; O1)
+debian-desktop-7a6e20a2b1	hole-two	podman	image/container store: installed programs (P4: installer adds to declaration -> recorded) vs podman-managed store like extensions (derivative)
+debian-desktop-5c91a2ba57	derivative of evolution-data-server	evolution-data-server	default address book/tasks created by evolution-data-server; not used by the person
+debian-desktop-90c74ccf60	hole-two	flatpak	installed app+runtime: programs (P4: installer adds to declaration -> recorded) vs flatpak-managed store like extensions (derivative)
+debian-desktop-bf48fd7407	derivative of folks	folks	state
+debian-desktop-aa855ac909	derivative of gnome-settings-daemon	gnome-settings-daemon	migration stamp
+debian-desktop-016daafacd	derivative of gnome-shell	gnome-shell	state
+debian-desktop-e8c5ff34c6	derivative of gvfs	gvfs	metadata store
+debian-desktop-67fad5e258	derivative of gnome-settings-daemon (color)	gnome-settings-daemon (color)	ICC profile generated from monitor EDID
+debian-desktop-df9645d1f2	derivative of nautilus	nautilus	tags database
+debian-desktop-509f333fd6	derivative of gtk	gtk	recent-files list written by GTK
+debian-desktop-8492577a0c	derivative of xorg	xorg	X server logs
+debian-desktop-c15063bcfe	derivative of bash	bash	copied from skel by useradd, not written by the person; executed by bash = code executed within a program (§5)
+debian-desktop-c3a3dd6c9b	data		the person's public key from user-data; cloud-init wrote it and does not need it for its own operation
+debian-desktop-c63f1a59b6	derivative of sudo	sudo	stamp written by sudo
+debian-desktop-2a6c5aa500	derivative of thunderbird	thunderbird	profile created by Thunderbird when opening the .eml; content state, the mail itself is in Documents
+debian-desktop-933fed22db	derivative of org.gnome.Calculator (flatpak)	org.gnome.Calculator (flatpak)	per-app config/cache/state created by the app and flatpak
+debian-desktop-fb87e8bdd4	hole-two	bash	script written by the person (data) and executed by bash via user units = code executed within a program (derivative, §5); O2
+debian-desktop-09fa2e5ce3	hole-two	bash	script written by the person (data) and executed by bash via user units = code executed within a program (derivative, §5); O2
+debian-desktop-f5e686458b	hole-two	bash	script written by the person (data) and executed by bash via user units = code executed within a program (derivative, §5); O2
+debian-desktop-2438267eef	hole-two	bash	script written by the person (data) and executed by bash via user units = code executed within a program (derivative, §5); O2
+debian-desktop-d54b59c426	hole-two	bash	script written by the person (data) and executed by bash via user units = code executed within a program (derivative, §5); O2
+debian-desktop-a8b44f743e	data		screenshots/logs produced by the person's own workload scripts
+debian-desktop-90017bfd94	derivative of bash	bash	created by base-files script, not by the person; executed by bash = code executed within a program (§5)
+debian-desktop-0fbf442b3c	derivative of bash	bash	created by base-files script, not by the person; executed by bash = code executed within a program (§5)
+debian-desktop-351644c1fd	hole-two	cloud-init	root key file written by cloud-init (disable_root policy) from the person's key: data vs derivative (O2)
+debian-desktop-97fc2dd36c	derivative of base-files	base-files	symlink created by base-files package script
+debian-desktop-f447463411	derivative of apparmor	apparmor	compiled profile cache
+debian-desktop-869a3e13d4	derivative of apt	apt	package cache
+debian-desktop-8fc23c1f2b	derivative of cups	cups	cache
+debian-desktop-68207b149d	derivative of debconf	debconf	debconf database
+debian-desktop-9ad7cd5ef0	derivative of dictionaries-common	dictionaries-common	cache
+debian-desktop-6b14c64a5b	derivative of fontconfig	fontconfig	cache
+debian-desktop-2b7dd179b7	derivative of libc-bin (ldconfig)	libc-bin (ldconfig)	cache
+debian-desktop-54ff9bafac	derivative of man-db	man-db	index cache
+debian-desktop-9102b10f3d	derivative of appstream	appstream	catalog cache
+debian-desktop-11311dcdf3	derivative of packagekit	packagekit	transaction db
+debian-desktop-b5a8d76ff6	derivative of appstream	appstream	compat symlink
+debian-desktop-b20e807939	derivative of apt	apt	package lists
+debian-desktop-995a8560ba	derivative of cloud-init	cloud-init	cloud-init instance state (incl. its copy of user-data, needed for its operation)
+debian-desktop-2cf4c49d77	derivative of colord	colord	database
+debian-desktop-843a17d30c	derivative of podman	podman	rootful storage skeleton
+debian-desktop-7c99ede366	derivative of dbus	dbus	machine-id link
+debian-desktop-3cce15cf49	derivative of dpkg	dpkg	package database and maintainer scripts (P3: acts as record of what is installed)
+debian-desktop-40a7713899	derivative of emacsen-common	emacsen-common	state
+debian-desktop-e0b055c77d	derivative of flatpak	flatpak	empty system repo
+debian-desktop-085f73f459	derivative of gdm3	gdm3	greeter defaults
+debian-desktop-fdb3295e3e	derivative of ghostscript	ghostscript	font maps generated by update-gsfontmap
+debian-desktop-6ead5eb670	derivative of man-db	man-db	stamp
+debian-desktop-b56df50fe2	derivative of libpam-runtime	libpam-runtime	pam-auth-update state
+debian-desktop-769028f968	derivative of python3	python3	stamp
+debian-desktop-68ad82b745	derivative of sgml-base	sgml-base	catalog
+debian-desktop-1108460cc8	derivative of debianutils	debianutils	state
+debian-desktop-8f8e5e285e	derivative of appstream	appstream	catalog data
+debian-desktop-57da4d32dc	hole-two	systemd; init-system-helpers	mixed: systemd/deb-systemd-helper state (derivative) and linger/census made by the person (loginctl enable-linger) = rule making user services run
+debian-desktop-eaf0301642	derivative of ucf	ucf	ucf registry
+debian-desktop-70df2a0c16	derivative of xfonts-utils	xfonts-utils	state
+debian-desktop-b26e35ff37	derivative of xml-core	xml-core	catalog state
+debian-desktop-d01c2fc3c7	derivative of systemd	systemd	symlink to systemd README.logs
+debian-desktop-5ce874f910	derivative of dpkg	dpkg	log
+debian-desktop-83df02e6eb	derivative of apt	apt	logs
+debian-desktop-9c96b64591	derivative of systemd/login	systemd/login	login failure log
+debian-desktop-93b020b2d3	derivative of cloud-init	cloud-init	log
+debian-desktop-2954505d9d	derivative of cloud-init	cloud-init	log
+debian-desktop-81374794e5	derivative of cups	cups	log
+debian-desktop-6f5cf081f0	derivative of dpkg	dpkg	log
+debian-desktop-8dc29397cf	derivative of login (shadow)	login (shadow)	log
+debian-desktop-1e4870c945	derivative of fontconfig	fontconfig	log
+debian-desktop-e6b33c3854	derivative of systemd-journald	systemd-journald	journal
+debian-desktop-698c23461f	derivative of login (shadow)	login (shadow)	log
+debian-desktop-dea214b7e3	derivative of unattended-upgrades	unattended-upgrades	log
+debian-desktop-d6ce9987c3	derivative of systemd/login	systemd/login	log
+debian-desktop-f6695dff55	data		log written by the person's own provisioning scripts (not a described program)
+debian-desktop-efc18859d4	data		retained copy of a person-written setup script; nothing executes this copy (attempt-1 failed, trace in support/guest-logs)
+debian-desktop-b5d145dee2	data		marker touched by the person's provisioning script
+debian-desktop-6feef228c0	data		log written by the person's own provisioning scripts (not a described program)
+debian-desktop-e24194c06e	data		log written by the person's own provisioning scripts (not a described program)
+debian-desktop-329043eb33	data		log written by the person's own provisioning scripts (not a described program)
+debian-desktop-620e0a4f01	data		log written by the person's own provisioning scripts (not a described program)
+debian-desktop-f05cbeb21e	derivative of cups	cups	spool copy/control files cupsd made for its operation (content from the person's job; O2)
+debian-desktop-98e3025b9e	derivative of base-files	base-files	symlink created by base-files package script
+debian-desktop-64f62c6553	hole-none		mixed family: FHS skeleton dirs (/opt,/srv,/usr/local/*) made at image build fit no class; other members derivative/data
+debian-desktop-96787848d5	hole-two	netplan.io	service = running component (P1) vs unit generated by the netplan generator for its operation (derivative)
+debian-desktop-0758efc3b0	hole-two	systemd	service = running component (P1) vs unit generated by systemd-fstab-generator (derivative)
+debian-desktop-a3f2270221	derivative of systemd	systemd	device units systemd creates from udev for its own operation
+debian-desktop-18fb2985ed	derivative of systemd	systemd	mount units systemd creates from mounts/fstab; mounts are not listed as running components (O9)
+debian-desktop-9994d7ebc4	derivative of systemd	systemd	placeholders systemd keeps for referenced but absent units
+debian-desktop-0ff15b2741	derivative of systemd/logind	systemd/logind	scopes systemd/logind create to group processes
+debian-desktop-253d752b01	derivative of systemd	systemd	slices systemd creates for resource control
+debian-desktop-53d095e912	recorded (works)		service = running component; transient unit started by the person via systemd-run (unrecorded on this stand = bypass)
+debian-desktop-fdb6cb41a8	recorded (works)		service = running component; transient unit started by the person via systemd-run (unrecorded on this stand = bypass)
+debian-desktop-ba3d3e02a2	recorded (works)		service = running component; transient unit started by the person via systemd-run (unrecorded on this stand = bypass)
+debian-desktop-7218a536a4	recorded (works)		service = running component; transient unit started by the person via systemd-run (unrecorded on this stand = bypass)
+debian-desktop-88335c6c87	derivative of systemd (user manager)	systemd (user manager)	device units
+debian-desktop-565df89b5f	derivative of systemd (user manager)	systemd (user manager)	mount units (O9)
+debian-desktop-97fdaec6aa	derivative of systemd (user manager)	systemd (user manager)	placeholders for referenced but absent units
+debian-desktop-3bc8c8458c	derivative of systemd (user manager); flatpak	systemd (user manager); flatpak	scopes (app-flatpak scope created by flatpak)
+debian-desktop-b855166ba5	derivative of systemd (user manager)	systemd (user manager)	root slice

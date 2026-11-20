@@ -1,0 +1,224 @@
+{
+  "ack": {
+    "ack_valid": true,
+    "args": [
+      "rollback",
+      "1795084007975405964"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl rollback 1795084007975405964"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407079730648036,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "keep",
+        "generation": "1795084009436199752",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {
+          "beta": {
+            "owners": [],
+            "scope": "system",
+            "version": "1"
+          }
+        },
+        "root": {
+          "allow_channels": {},
+          "archive": "keep",
+          "policies": {},
+          "programs": {
+            "beta": {
+              "owners": [],
+              "scope": "system",
+              "version": "1"
+            }
+          },
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084009436199752",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407079469121334,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "18b319a7adb879e38c51f6814a3672288b2ddf755357c03ffb19f80a6a47f48e",
+    "utc": "2026-11-19T10:26:49.756152+00:00"
+  },
+  "after_label": "after-no-cut",
+  "cut": "nocut",
+  "end_utc": "2026-11-19T10:26:51.869386+00:00",
+  "g1": "1795084006499635545",
+  "g2": "1795084007975405964",
+  "g3": "1795084008791695717",
+  "id": "B-keep-nocut",
+  "key": "B-keep-nocut",
+  "measured_args": [
+    "rollback",
+    "1795084007975405964"
+  ],
+  "op": "B",
+  "owning_before": [
+    "1795084006499635545",
+    "1795084007975405964"
+  ],
+  "policy": "keep",
+  "primary": false,
+  "recovery": {
+    "ack_valid": true,
+    "args": [
+      "rollback",
+      "1795084007975405964"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl rollback 1795084007975405964"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407081117103457,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "keep",
+        "generation": "1795084010822852275",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {
+          "beta": {
+            "owners": [],
+            "scope": "system",
+            "version": "1"
+          }
+        },
+        "root": {
+          "allow_channels": {},
+          "archive": "keep",
+          "policies": {},
+          "programs": {
+            "beta": {
+              "owners": [],
+              "scope": "system",
+              "version": "1"
+            }
+          },
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084010822852275",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407080854375829,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "6cdc4243dc1ae5f3d1a2a0b71617d7e5199671a1b5c8b0b49747e817875438d7",
+    "utc": "2026-11-19T10:26:51.142518+00:00"
+  },
+  "reset": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-007.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 7,
+    "ok": true,
+    "qemu_pid": 234303,
+    "qemu_status": null,
+    "request": {
+      "action": "reset",
+      "id": "1795084001721185961"
+    },
+    "utc": "2026-11-19T10:26:41.728887+00:00"
+  },
+  "start_utc": "2026-11-19T10:26:41.708458+00:00",
+  "status": "complete"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "26-install",
+  "channel": "ordinary declaration install",
+  "command": "printf '%s\\n' '{\"programs\":{\"hello\":{\"version\":\"1\"}}}' >\"$HOME/declaration.json\" && calctl apply && /usr/bin/hello",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"1795070283801911851\", \"personal\": {\"alice\": {\"programs\": {\"hello\": {\"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"hello\": {\"owners\": [\"alice\"], \"scope\": \"user\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795070283801911851\", \"hook_stderr\": \"\", \"hook_stdout\": \"Selecting previously unselected package hello.\\n(Reading database ... 73957 files and directories currently installed.)\\nPreparing to unpack .../hello_2.10-3_amd64.deb ...\\nUnpacking hello (2.10-3) ...\\nSetting up hello (2.10-3) ...\\nProcessing triggers for man-db (2.11.2-2) ...\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\nHello, world!\n",
+  "stderr": "",
+  "declaration_before": "0f168bd5d50c18d3a3fb6939f5f0583d20ff52c2d4f075406671d83f90c32fdb",
+  "declaration_after": "f92b7627a190ee26c11fe7fa21f86c5731fb3b79aa08ef335ecfdba00b3f0ade",
+  "utc": "2026-11-19T06:38:03Z"
+}

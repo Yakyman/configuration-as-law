@@ -1,0 +1,15 @@
+{
+  "id": "28-update",
+  "channel": "declaration apply",
+  "command": "calctl apply",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"1795070285511928617\", \"personal\": {\"alice\": {\"programs\": {\"hello\": {\"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"hello\": {\"owners\": [\"alice\"], \"scope\": \"user\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}, \"system_update\": \"apt-upgrade-request-1\"}, \"shared\": {}}, \"generation\": \"1795070285511928617\", \"hook_stderr\": \"\", \"hook_stdout\": \"Get:1 file:/etc/apt/mirrors/debian.list Mirrorlist [30 B]\\nGet:5 file:/etc/apt/mirrors/debian-security.list Mirrorlist [39 B]\\nHit:2 https://deb.debian.org/debian bookworm InRelease\\nHit:3 https://deb.debian.org/debian bookworm-updates InRelease\\nHit:4 https://deb.debian.org/debian bookworm-backports InRelease\\nHit:6 https://deb.debian.org/debian-security bookworm-security InRelease\\nReading package lists...\\nReading package lists...\\nBuilding dependency tree...\\nReading state information...\\nCalculating upgrade...\\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+  "stderr": "",
+  "declaration_before": "f92b7627a190ee26c11fe7fa21f86c5731fb3b79aa08ef335ecfdba00b3f0ade",
+  "declaration_after": "19899d43fd9b05afde575d87b25c53c92678ffaf4b27d61a2e1009f65326018b",
+  "utc": "2026-11-19T06:38:05Z"
+}

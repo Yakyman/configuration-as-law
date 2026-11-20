@@ -1,0 +1,105 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "id": "32-extension-prepare",
+  "channel": "browser extension derivative",
+  "command": "mkdir -p \"$HOME/extension\"; printf '%s' '{\"manifest_version\":3,\"name\":\"CAL extension fixture\",\"version\":\"1.0\",\"content_scripts\":[{\"matches\":[\"http://127.0.0.1/*\"],\"js\":[\"content.js\"]}]}' >\"$HOME/extension/manifest.json\"; printf '%s' 'document.body.append(\"EXTENSION_EXECUTED\");' >\"$HOME/extension/content.js\"",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "",
+  "stderr": "X3_LANDLOCK_ENFORCED abi=2 uid=1000 role=user\n",
+  "declaration_before": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "declaration_after": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "utc": "2026-11-19T09:02:49Z"
+}

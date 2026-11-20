@@ -1,0 +1,64 @@
+{
+  "id": "system-package",
+  "system": "stand",
+  "utc": "2026-11-19T08:41:54.118198+00:00",
+  "kind": "install",
+  "prerequisites": "apt-get",
+  "marker": "/home/alice/d2/markers/system-package",
+  "declaration_before": {
+    "command": "sha256sum /etc/cal/root.json /etc/cal/base-* /home/alice/declaration.json /var/lib/cal/current.json /etc/apparmor.d/cal-stand",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "e2de2505c2de4e84b86ad9d3a6fd3660b7135e06b13753f0aa1d302463068278  /etc/cal/root.json\n0ff409b016cf69e4211e4bf68a7309162930cfcb1ba056749751eccc0e8aa2fa  /etc/cal/base-accounts.txt\n9d2902f22b73338f567959a2261aa8186fb3ef14e041b18592e74920d678db6f  /etc/cal/base-artifacts.sha256\n40c209cea15aa127ea8a5c40a5b2057abb11a86392b7f264c016f4ea2dbb4a81  /etc/cal/base-groups.txt\n0c656c014ef521abc02cc6da5be5bf3a8236425c1c87e999ca2a22984fc14755  /etc/cal/base-kernel.txt\n16047c6e19b5d0900a184d5710f38524cc4c15f5cdf1a897a1badf449a7eba9a  /etc/cal/base-packages.sha256\n0d860cd2d1980ec623857bfa36884999e077fe48b9be4a71d88dac56f456904e  /etc/cal/base-packages.tsv\n3f218a2abfc51bc0c4a3f6f1c414769c41999dc7f9eb1c920b198769e0bd401a  /etc/cal/base-units.txt\n7b0a3ce1ba5adf0a3b6ed8e617692f1d2f9a5c7ed1b52177f536f17f2801a5fd  /home/alice/declaration.json\n30bf4d3410e9c87a43da1eb727ada43ddd3084a543751029b1df051a9814b17a  /var/lib/cal/current.json\nfffe2c10bc9b90e58229094fac030b61909be1b3ae1b85f6adf48ae7d969f49f  /etc/apparmor.d/cal-stand\n",
+    "stderr": "",
+    "seconds": 0.16
+  },
+  "marker_reset": {
+    "command": "rm -f /home/alice/d2/markers/system-package; test ! -e /home/alice/d2/markers/system-package",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.16
+  },
+  "identity": {
+    "command": "id; cat /proc/self/attr/current 2>/dev/null; printf \"HOME=%s\\nPATH=%s\\n\" \"$HOME\" \"$PATH\"",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "uid=1000(alice) gid=1000(alice) groups=1000(alice),1002(calusers)\ncal-alice (enforce)\nHOME=/home/alice\nPATH=/usr/local/bin:/usr/bin:/bin:/usr/games\n",
+    "stderr": "",
+    "seconds": 0.17
+  },
+  "availability": {
+    "command": "for x in apt-get; do command -v \"$x\" || true; done",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "/usr/bin/apt-get\n",
+    "stderr": "",
+    "seconds": 0.16
+  },
+  "attempt": {
+    "command": "export D2_MARK=/home/alice/d2/markers/system-package; apt-get install -y figlet",
+    "user": "alice",
+    "returncode": 126,
+    "stdout": "",
+    "stderr": "/bin/bash: line 1: /usr/bin/apt-get: Permission denied\n",
+    "seconds": 0.17
+  },
+  "observation": {
+    "command": "if test -f /home/alice/d2/markers/system-package; then cat /home/alice/d2/markers/system-package; else echo D2_NO_MARKER; fi; ",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "D2_NO_MARKER\n",
+    "stderr": "",
+    "seconds": 0.17
+  },
+  "declaration_after": {
+    "command": "sha256sum /etc/cal/root.json /etc/cal/base-* /home/alice/declaration.json /var/lib/cal/current.json /etc/apparmor.d/cal-stand",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "e2de2505c2de4e84b86ad9d3a6fd3660b7135e06b13753f0aa1d302463068278  /etc/cal/root.json\n0ff409b016cf69e4211e4bf68a7309162930cfcb1ba056749751eccc0e8aa2fa  /etc/cal/base-accounts.txt\n9d2902f22b73338f567959a2261aa8186fb3ef14e041b18592e74920d678db6f  /etc/cal/base-artifacts.sha256\n40c209cea15aa127ea8a5c40a5b2057abb11a86392b7f264c016f4ea2dbb4a81  /etc/cal/base-groups.txt\n0c656c014ef521abc02cc6da5be5bf3a8236425c1c87e999ca2a22984fc14755  /etc/cal/base-kernel.txt\n16047c6e19b5d0900a184d5710f38524cc4c15f5cdf1a897a1badf449a7eba9a  /etc/cal/base-packages.sha256\n0d860cd2d1980ec623857bfa36884999e077fe48b9be4a71d88dac56f456904e  /etc/cal/base-packages.tsv\n3f218a2abfc51bc0c4a3f6f1c414769c41999dc7f9eb1c920b198769e0bd401a  /etc/cal/base-units.txt\n7b0a3ce1ba5adf0a3b6ed8e617692f1d2f9a5c7ed1b52177f536f17f2801a5fd  /home/alice/declaration.json\n30bf4d3410e9c87a43da1eb727ada43ddd3084a543751029b1df051a9814b17a  /var/lib/cal/current.json\nfffe2c10bc9b90e58229094fac030b61909be1b3ae1b85f6adf48ae7d969f49f  /etc/apparmor.d/cal-stand\n",
+    "stderr": "",
+    "seconds": 0.16
+  }
+}

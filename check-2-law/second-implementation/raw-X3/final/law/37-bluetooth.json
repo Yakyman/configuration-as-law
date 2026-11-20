@@ -1,0 +1,105 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "id": "37-bluetooth",
+  "channel": "Bluetooth",
+  "command": "ls -l /sys/class/ieee80211 /sys/class/bluetooth",
+  "user": "root",
+  "expected": "hardware absent",
+  "observed": "blocked",
+  "returncode": 2,
+  "met": null,
+  "stdout": "",
+  "stderr": "ls: cannot access '/sys/class/ieee80211': No such file or directory\nls: cannot access '/sys/class/bluetooth': No such file or directory\n",
+  "declaration_before": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "declaration_after": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "utc": "2026-11-19T09:02:49Z"
+}

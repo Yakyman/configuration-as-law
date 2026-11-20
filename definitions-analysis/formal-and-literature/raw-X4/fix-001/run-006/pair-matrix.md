@@ -1,0 +1,23 @@
+| Pair | partial | retain_recorded_derivative | broad_unix_execution | root_executor_privileges | universal_personal_inclusion |
+|---|---|---|---|---|---|
+| P1/P2 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P1/P3 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P1/P4 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P1/P5 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P1/P6 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P1/P7 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P2/P3 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P2/P4 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P2/P5 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P2/P6 | UNSAT | SAT | UNSAT | UNSAT | UNSAT |
+| P2/P7 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P3/P4 | SAT | SAT | SAT | SAT | SAT |
+| P3/P5 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P3/P6 | SAT | SAT | SAT | SAT | SAT |
+| P3/P7 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P4/P5 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P4/P6 | SAT | SAT | SAT | SAT | SAT |
+| P4/P7 | UNSAT | UNSAT | SAT | SAT | UNSAT |
+| P5/P6 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |
+| P5/P7 | UNSAT | UNSAT | UNSAT | UNSAT | SAT |
+| P6/P7 | UNSAT | UNSAT | UNSAT | UNSAT | UNSAT |

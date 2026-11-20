@@ -1,0 +1,360 @@
+{
+  "utc": "2026-11-19T12:55:10.513049+00:00",
+  "scope": "Reporting correction from unchanged frozen predicates; executor verification, not acceptance",
+  "protocol_sha256": "976ae03c3320ba1dcbcee8912047244276f31dd8e6710789baa96f55f5363e06",
+  "frozen_contracts_verbatim": "Auxiliary **attribution contract**: `0` only for a demonstrably incorrect asserted hardware attribution contradicted by matched controls; `1` only if every difference in the fixed denominator is explained with complete evidence; otherwise `?`. No attribution is preassigned. Auxiliary **collection contract**: `1` only with all 160 inventories, correct matrix/readiness/window and input controls; `0` for a demonstrated wrong instrument claim/join; `?` for unavailable/incomplete evidence. The narrower **input reproduction contract** checks exact package/program/kernel identity at all sixteen endpoints; `1` if all available and equal, `0` for a witnessed unequal claimed invariant, `?` for a gap. These are stand contracts, separate from PAPER.",
+  "input_reproduction": {
+    "scope": "All sixteen endpoints",
+    "outcome": "?",
+    "expected": 16,
+    "available": 14,
+    "equal": 14,
+    "missing": [
+      {
+        "family": "alpine",
+        "branch": "B2",
+        "endpoint": "first",
+        "source": "primary/alpine/B2/first/static.json"
+      },
+      {
+        "family": "alpine",
+        "branch": "B2",
+        "endpoint": "reboot",
+        "source": "primary/alpine/B2/reboot/static.json"
+      }
+    ],
+    "basis": "14 available endpoints equal; two unavailable endpoints constitute the frozen gap case.",
+    "descriptive_counts_only": {
+      "debian": {
+        "expected": 8,
+        "available_equal": 8
+      },
+      "alpine": {
+        "expected": 8,
+        "available_equal": 6
+      }
+    }
+  },
+  "maximum_start_lag_seconds": 0.002190506999994568,
+  "reported_lag_seconds": "0.00219",
+  "endpoint_counts": [
+    {
+      "family": "debian",
+      "branch": "A1",
+      "endpoint": "first",
+      "module_counts": [
+        58
+      ],
+      "kernel_task_counts": [
+        66
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A1",
+      "endpoint": "reboot",
+      "module_counts": [
+        58
+      ],
+      "kernel_task_counts": [
+        67
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B1",
+      "endpoint": "first",
+      "module_counts": [
+        66
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B1",
+      "endpoint": "reboot",
+      "module_counts": [
+        66
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B2",
+      "endpoint": "first",
+      "module_counts": [
+        66
+      ],
+      "kernel_task_counts": [
+        70
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B2",
+      "endpoint": "reboot",
+      "module_counts": [
+        66
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A2",
+      "endpoint": "first",
+      "module_counts": [
+        58
+      ],
+      "kernel_task_counts": [
+        68
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A2",
+      "endpoint": "reboot",
+      "module_counts": [
+        58
+      ],
+      "kernel_task_counts": [
+        67
+      ],
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "A1",
+      "endpoint": "first",
+      "module_counts": [
+        46
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "A1",
+      "endpoint": "reboot",
+      "module_counts": [
+        46
+      ],
+      "kernel_task_counts": [
+        67
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "B1",
+      "endpoint": "first",
+      "module_counts": [
+        47
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "B1",
+      "endpoint": "reboot",
+      "module_counts": [
+        47
+      ],
+      "kernel_task_counts": [
+        72
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "A2",
+      "endpoint": "first",
+      "module_counts": [
+        46
+      ],
+      "kernel_task_counts": [
+        69
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    },
+    {
+      "family": "alpine",
+      "branch": "A2",
+      "endpoint": "reboot",
+      "module_counts": [
+        46
+      ],
+      "kernel_task_counts": [
+        70
+      ],
+      "userspace_task_counts": [
+        19
+      ]
+    }
+  ],
+  "module_and_kernel_task_counts_constant_within_each_endpoint": true,
+  "endpoints_with_variable_userspace_task_count": [
+    {
+      "family": "debian",
+      "branch": "A1",
+      "endpoint": "first",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A1",
+      "endpoint": "reboot",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B1",
+      "endpoint": "first",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B1",
+      "endpoint": "reboot",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B2",
+      "endpoint": "first",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "B2",
+      "endpoint": "reboot",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A2",
+      "endpoint": "first",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    },
+    {
+      "family": "debian",
+      "branch": "A2",
+      "endpoint": "reboot",
+      "userspace_task_counts": [
+        16,
+        18
+      ]
+    }
+  ],
+  "comparison_with_original": [
+    {
+      "file": "summary.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    },
+    {
+      "file": "pairs.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    },
+    {
+      "file": "difference-ledger-unadjudicated.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    },
+    {
+      "file": "observation-errors.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    },
+    {
+      "file": "static-equivalence.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    },
+    {
+      "file": "control-summary.json",
+      "equal_to_original": true,
+      "ignored_fields": [
+        "utc"
+      ]
+    },
+    {
+      "file": "report-metrics.json",
+      "equal_to_original": true,
+      "ignored_fields": []
+    }
+  ]
+}

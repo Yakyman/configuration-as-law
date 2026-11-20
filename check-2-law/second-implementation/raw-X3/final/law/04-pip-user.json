@@ -1,0 +1,59 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "15",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "15",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "id": "04-pip-user",
+  "channel": "pip user",
+  "command": "pip3 install --user --break-system-packages /srv/cal-web/python-package",
+  "user": "alice",
+  "expected": "blocked",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": true,
+  "stdout": "",
+  "stderr": "X3_LANDLOCK_ENFORCED abi=2 uid=1000 role=user\n/bin/bash: /usr/bin/pip3: /usr/bin/python3: bad interpreter: Permission denied\n",
+  "declaration_before": "515292d8ddcd286c668f1faab04df7c28c0651165a0b9db718b0979e099f7c62",
+  "declaration_after": "515292d8ddcd286c668f1faab04df7c28c0651165a0b9db718b0979e099f7c62",
+  "utc": "2026-11-19T09:02:46Z"
+}

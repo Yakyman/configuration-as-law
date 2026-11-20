@@ -1,0 +1,29 @@
+2510  1795084233.914731 openat(AT_FDCWD</root>, "/var/lib/p43-control/current.json", O_RDONLY|O_CLOEXEC) = 5</var/lib/p43-control/current.json> <0.000017>
+2510  1795084233.914839 newfstatat(5</var/lib/p43-control/current.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000010>
+2510  1795084233.914973 newfstatat(5</var/lib/p43-control/current.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.915043 close(5</var/lib/p43-control/current.json>) = 0 <0.000007>
+2510  1795084233.915080 unlink("/var/lib/p43-control/generations/1795084232867491656.json") = 0 <0.000042>
+2510  1795084233.915149 unlink("/var/lib/p43-control/generations/1795084233501183511.json") = 0 <0.000017>
+2510  1795084233.915196 newfstatat(AT_FDCWD</root>, "/var/lib/p43-control/generations", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0 <0.000008>
+2510  1795084233.915230 openat(AT_FDCWD</root>, "/var/lib/p43-control/generations", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 5</var/lib/p43-control/generations> <0.000009>
+2510  1795084233.915260 newfstatat(5</var/lib/p43-control/generations>, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.915324 close(5</var/lib/p43-control/generations>) = 0 <0.000008>
+2510  1795084233.915364 openat(AT_FDCWD</root>, "/var/lib/p43-control/generations/1795084233809199592.json", O_RDONLY|O_CLOEXEC) = 5</var/lib/p43-control/generations/1795084233809199592.json> <0.000010>
+2510  1795084233.915397 newfstatat(5</var/lib/p43-control/generations/1795084233809199592.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.915479 newfstatat(5</var/lib/p43-control/generations/1795084233809199592.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000009>
+2510  1795084233.915549 close(5</var/lib/p43-control/generations/1795084233809199592.json>) = 0 <0.000007>
+2510  1795084233.915581 openat(AT_FDCWD</root>, "/var/lib/p43-control/generations/1795084233174207976.json", O_RDONLY|O_CLOEXEC) = 5</var/lib/p43-control/generations/1795084233174207976.json> <0.000010>
+2510  1795084233.915612 newfstatat(5</var/lib/p43-control/generations/1795084233174207976.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.915688 newfstatat(5</var/lib/p43-control/generations/1795084233174207976.json>, "", {st_mode=S_IFREG|0644, st_size=351, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.915751 close(5</var/lib/p43-control/generations/1795084233174207976.json>) = 0 <0.000007>
+2510  1795084233.915784 openat(AT_FDCWD</root>, "/var/lib/cal/archive", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 5</var/lib/cal/archive> <0.000009>
+2510  1795084233.915815 newfstatat(5</var/lib/cal/archive>, "", {st_mode=S_IFDIR|0755, st_size=1024, ...}, AT_EMPTY_PATH) = 0 <0.000008>
+2510  1795084233.915875 close(5</var/lib/cal/archive>) = 0 <0.000007>
+2510  1795084233.915914 newfstatat(AT_FDCWD</root>, "/var/lib/cal/archive/local-alice-cache", {st_mode=S_IFDIR|0770, st_size=1024, ...}, AT_SYMLINK_NOFOLLOW) = 0 <0.000008>
+2510  1795084233.915945 openat(AT_FDCWD</root>, "/var/lib/cal/archive/local-alice-cache", O_RDONLY|O_CLOEXEC) = 5</var/lib/cal/archive/local-alice-cache> <0.000011>
+2510  1795084233.915983 newfstatat(5</var/lib/cal/archive/local-alice-cache>, "", {st_mode=S_IFDIR|0770, st_size=1024, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.916032 newfstatat(6</var/lib/cal/archive/local-alice-cache>, "", {st_mode=S_IFDIR|0770, st_size=1024, ...}, AT_EMPTY_PATH) = 0 <0.000007>
+2510  1795084233.916135 close(6</var/lib/cal/archive/local-alice-cache>) = 0 <0.000007>
+2510  1795084233.916173 unlinkat(5</var/lib/cal/archive/local-alice-cache>, "version", 0) = -1 EROFS (Read-only file system) <0.000009>
+2510  1795084233.916217 close(5</var/lib/cal/archive/local-alice-cache>) = 0 <0.000008>
+2510  1795084233.916311 close(4<UNIX-STREAM:[34663->35192,"/run/cal.sock"]>) = 0 <0.000012>

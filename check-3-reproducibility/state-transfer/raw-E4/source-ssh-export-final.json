@@ -1,0 +1,11 @@
+{
+  "machine": "server",
+  "label": "source-ssh-export-final",
+  "started_utc": "2026-11-19T08:34:47.579358+00:00",
+  "command": "bash -s",
+  "script": "set -euo pipefail\ncd <WORKDIR>/E4\nssh -n -o BatchMode=yes -o StrictHostKeyChecking=yes -o HostKeyAlias=e4-service -o UserKnownHostsFile=\"$PWD/service_known_hosts\" -o HostKeyAlgorithms=ssh-ed25519 -i id_ed25519 -p 22146 root@127.0.0.1 'hostname; cat /etc/machine-id'\nmkdir -p transfer source-logs\nfor file in derivatives.tar supplements.tar declaration.json; do\n ssh -n -o BatchMode=yes -o UserKnownHostsFile=\"$PWD/known_hosts\" -i id_ed25519 -p 22144 root@127.0.0.1 \"cat /root/e4/$file\" >\"transfer/$file\"\ndone\nssh -n -o BatchMode=yes -o UserKnownHostsFile=\"$PWD/known_hosts\" -i id_ed25519 -p 22144 root@127.0.0.1 'tar -C /root/e4 -cf - apply.log seed.log browser-driver-baseline.log browser-driver-seed.log' | tar -xf - -C source-logs\nsha256sum transfer/*\nls -lh transfer\nssh -n -o BatchMode=yes -o UserKnownHostsFile=\"$PWD/known_hosts\" -i id_ed25519 -p 22144 root@127.0.0.1 'systemctl poweroff'\n",
+  "rc": 0,
+  "stdout": "e4-source\n<REDACTED-23>\n257920861d4296e2574173bb2911515de35aab62e942ef43e572f42d5d9457e2  transfer/declaration.json\n193f55c6d4f1e90236dae8ea49173a1d227f97c04c8e57d014f2e03f32f43a0d  transfer/derivatives.tar\nb40a40b4340a44028c80e02722e206d7cf651235f6be74f9a88a3915dfe01167  transfer/supplements.tar\ntotal 50M\n-rw-rw-r-- 1 <USER> <USER> 598 Nov 19 08:34 declaration.json\n-rw-rw-r-- 1 <USER> <USER> 50M Nov 19 08:34 derivatives.tar\n-rw-rw-r-- 1 <USER> <USER> 30K Nov 19 08:34 supplements.tar\n",
+  "stderr": "",
+  "finished_utc": "2026-11-19T08:34:48.963154+00:00"
+}

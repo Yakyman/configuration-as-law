@@ -1,0 +1,11 @@
+{
+  "machine": "target",
+  "label": "target-final-inventory",
+  "started_utc": "2026-11-19T08:38:49.085361+00:00",
+  "command": "ssh -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=<WORKDIR>/E4/known_hosts -o GlobalKnownHostsFile=/dev/null -i <WORKDIR>/E4/id_ed25519 -p 22145 root@127.0.0.1 bash -s",
+  "script": "set -ux\nhostname\ncat /etc/machine-id\ncat /sys/class/dmi/id/product_uuid\nip -br link\nsha256sum /root/e4/declaration.json\nsqlite3 '/srv/e4/browser/Default/Cookies' 'SELECT host_key,name,length(value),length(encrypted_value),hex(substr(encrypted_value,1,3)) FROM cookies;'\nfind /root/.config/chromium -maxdepth 4 -type f -printf '%p %s bytes\\n'\npgrep -a chromium || true\nls -l /dev/tpm* 2>/dev/null || true\njournalctl -u NetworkManager -u postgresql@15-main -u e4-sshd -u e4-secret-consumer --no-pager > /root/e4/services.log\nsystemctl is-active postgresql@15-main redis-server\n",
+  "rc": 0,
+  "stdout": "e4-target\n<REDACTED-24>\n22222222-2222-4222-8222-222222222224\nlo               UNKNOWN        <MAC-10> <LOOPBACK,UP,LOWER_UP> \nens3             UP             <MAC-11> <BROADCAST,MULTICAST,UP,LOWER_UP> \nens4             UP             <MAC-9> <BROADCAST,MULTICAST,UP,LOWER_UP> \n257920861d4296e2574173bb2911515de35aab62e942ef43e572f42d5d9457e2  /root/e4/declaration.json\n127.0.0.1|e4|0|51|763130\n/root/.config/chromium/Crash Reports/settings.dat 40 bytes\nactive\nactive\n",
+  "stderr": "+ hostname\n+ cat /etc/machine-id\n+ cat /sys/class/dmi/id/product_uuid\n+ ip -br link\n+ sha256sum /root/e4/declaration.json\n+ sqlite3 /srv/e4/browser/Default/Cookies 'SELECT host_key,name,length(value),length(encrypted_value),hex(substr(encrypted_value,1,3)) FROM cookies;'\n+ find /root/.config/chromium -maxdepth 4 -type f -printf '%p %s bytes\\n'\n+ pgrep -a chromium\n+ true\n+ ls -l '/dev/tpm*'\n+ true\n+ journalctl -u NetworkManager -u postgresql@15-main -u e4-sshd -u e4-secret-consumer --no-pager\n+ systemctl is-active postgresql@15-main redis-server\n",
+  "finished_utc": "2026-11-19T08:38:49.489909+00:00"
+}

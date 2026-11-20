@@ -1,0 +1,179 @@
+id	class	program_if_derivative	reason
+guix-ebda0cbba2	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-c23681be3a	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-27d89cb149	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-e9ecf34b23	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-6a022e8f54	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-9911292f99	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-af2a58bec6	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-829a5eaf21	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-1f9ebd3eec	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-cbaf0b4232	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-dbea3590f8	recorded		account declared in config.scm (explicit or via %base/%desktop services); present in generated activate-service.scm
+guix-258ca137f0	recorded		guixbuilder accounts declared by guix-service-type (in %desktop-services) in config.scm
+guix-56e557ef38	recorded		guix-daemon of guix-service-type, (guix (current-guix)) in config.scm
+guix-89ce5c5668	recorded		running kernel itself; kernel is the operating-system default (linux-libre) in config.scm
+guix-d8ee8908a9	recorded		instance of ps (procps in %base-packages) run by collector
+guix-da5f01a3ef	hole-two		mixed store remainder: derivative of guix-daemon (build/substitute products) vs saved generation 1 and imperative hello profile; consequences differ
+guix-25ad6943ae	recorded		realization of personal declaration home.scm (P7)
+guix-451d25b3c7	hole-two		guix-made object of imperative `guix install` profile: derivative of guix vs person's package selection (data); also a 2nd source of truth (P3)
+guix-76634f69cd	recorded		grub-bootloader declared in config.scm; grub.cfg/modules installed by reconfigure
+guix-84d10d5518	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-69b4850472	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-5076d5b4dd	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-1ed80370a6	recorded		the root declaration itself (=/run/current-system/configuration.scm)
+guix-df290cde86	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-bff4e92c8d	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-5deb3892cc	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-4cce813fe8	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-a763d184b3	recorded		generated at activation from declared accounts
+guix-c7553146ab	hole-two		group mixes acl->store (recorded authorized-keys) and signing-key.* (derivative of guix-daemon, made by activation `guix archive --generate-key`)
+guix-ea2b617ba5	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-5cad41b508	recorded		regular copy of /gnu/store/...-hosts in system closure (42 B)
+guix-132a96a8d6	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-966442e2a8	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-cafee5136d	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-1809ee6527	derivative	dbus	created by dbus activation `dbus-uuidgen --ensure=/etc/machine-id`
+guix-6b4026dd02	recorded		symlink to /proc/self/mounts from system activation (exact Guix source line not in evidence)
+guix-5f65179c45	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-6a38277ef0	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-4d882498fa	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-493d4cfdb1	recorded		generated at activation from declared accounts
+guix-d80ad67f85	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-3543b3a205	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-6c0aa5e2c0	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-5c951bf035	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-cee61291d2	derivative	dhcpcd (+nscd)	empty file made by nscd activation if absent; content written by dhcpcd resolv.conf hook
+guix-9b10886117	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-0f267cfacf	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-cfe66bc678	hole-two		entries from declared accounts (recorded) but holds passwords set with passwd, preserved across reconfigure (person's data)
+guix-5b5a9c277e	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-9a671be062	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-0075a76d48	derivative	openssh (ssh-daemon)	host keys made by openssh activation `ssh-keygen -A`
+guix-0306bdd9a9	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-09d9e916a6	recorded		content = plain-file sudoers written in config.scm (44 B)
+guix-8c833da179	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-561d6a5935	recorded		symlink into /gnu/store generated from config.scm (explicit field or base/desktop services)
+guix-be124b1a83	derivative	xfce4-session	ICE auth file written by the X session manager
+guix-9d9653678b	derivative	slim	X auth cookie of the SLiM-started session
+guix-9052456462	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-d68b8b54b5	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-9dbbe46297	derivative	fontconfig	font cache
+guix-084d6fb332	derivative	guix	guile compile cache of home.scm made by guix home
+guix-364f7352cb	derivative	xfce4-notifyd	notifyd log database
+guix-bd5c3d6b7a	derivative	thunar	default custom-actions file written by Thunar; no person edit in day log
+guix-694c8b6762	recorded		symlink into store made by guix home default services (home.scm)
+guix-a9e486a84b	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-7f3f786b88	derivative	GLib GSettings client in Xfce session	keyfile backend written by a program; exact writer not in evidence; no person edit in day log
+guix-6e81e82021	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-f3795bdd86	recorded		home-files entry explicitly in home.scm
+guix-7bc12ec287	derivative	xfce4 (xfconfd/xfdesktop)	session-generated settings; no person GUI action in day log
+guix-b0a815366f	derivative	dbus	session bus address files
+guix-570c2a56ed	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-1fc1506027	recorded		link to Home generation of home.scm
+guix-4e7a5a4664	hole-two		guix-made object of imperative `guix install` profile: derivative of guix vs person's package selection (data); also a 2nd source of truth (P3)
+guix-cd878659f0	derivative	x-resize	rotated log of x-resize (declared package)
+guix-f2103c80af	recorded		store symlink from guix home shell-profile service
+guix-a5b845fd5c	data		person wrote it: user-day.log `printf 'set number'` (own editor settings)
+guix-dea3c6354f	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-8bcc29aa90	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-9690fd0a05	recorded		the personal declaration itself, applied by `guix home reconfigure`
+guix-a008390f8b	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-0253fce5e2	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-033f2e4eef	derivative	guix	guile compile cache of config.scm made during reconfigure
+guix-56d65ad800	derivative	guix	channel checkout cache
+guix-b1ffaedde8	derivative	mesa	GL shader cache of a root GL client; exact client not in evidence
+guix-9969ba0797	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-3bc83b10e8	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-d62cf2da81	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-351644c1fd	hole-two		person-created file (data) vs manual root change of who may log in as root = unrecorded rule of a running component (bypass, P1/P4)
+guix-14d33b9392	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-88a33ee425	hole-two		copied from recorded /etc/skel by user-homes: derivative of activation vs person's own settings file (data); P6 vs data differ
+guix-006de2c726	derivative	dhcpcd	duid/lease/secret
+guix-6336b9bd7f	derivative	nscd	nscd cache
+guix-ab6f354e5f	derivative	guix-daemon	daemon socket
+guix-db686654db	derivative	guix-daemon	store database
+guix-a1b981c4d1	derivative	guix-daemon	gc lock
+guix-b88e111ba5	derivative	guix	gc roots made by guix system/boot
+guix-76e4372b50	derivative	guix	system generation links (generation mechanism), made by guix system
+guix-d1c1f98b6f	derivative	guix	Home generation links made by guix home
+guix-e495746cb2	hole-two		guix-made object of imperative `guix install` profile: derivative of guix vs person's package selection (data); also a 2nd source of truth (P3)
+guix-bbce7dc4de	derivative	guix	substitute cache
+guix-9d9876779f	derivative	guix-daemon	build-user pool locks
+guix-31edaf98e6	derivative	urandom-seed	seed written by urandom-seed shepherd service
+guix-a4963ec3b5	derivative	xorg-server	Xorg log
+guix-2cd84ac792	hole-two		opened by shepherd via #:log-file in shepherd-avahi-daemon.scm, content is avahi-daemon output: derivative of shepherd vs of avahi-daemon; P6 owner differs
+guix-b6a2c8e4dd	hole-two		opened by shepherd via #:log-file in shepherd-dbus-system.scm, content is dbus-system output: derivative of shepherd vs of dbus-system; P6 owner differs
+guix-5ba0b35443	derivative	shepherd (system-log)	written by shepherd built-in syslogd (shepherd-system-log-syslogd.scm)
+guix-985ad63959	derivative	guix-daemon	build logs
+guix-43c963f378	hole-two		opened by shepherd via #:log-file in shepherd-guix-daemon.scm, content is guix-daemon output: derivative of shepherd vs of guix-daemon; P6 owner differs
+guix-698c23461f	derivative	login programs (login, sshd, slim)	login accounting; shared derivative (P6)
+guix-91a21a61f1	derivative	shepherd (system-log)	written by shepherd built-in syslogd
+guix-e684d315eb	hole-two		opened by shepherd via #:log-file in shepherd-ntpd.scm, content is ntpd output: derivative of shepherd vs of ntpd; P6 owner differs
+guix-4ac29aa55a	derivative	shepherd (system-log)	written by shepherd built-in syslogd
+guix-e7eb2f0db9	derivative	slim	SLiM vt7 log; slim shepherd file not captured: if opened via shepherd #:log-file it is the same hole as 104
+guix-d6ce9987c3	derivative	login programs (login, sshd, slim)	login accounting; shared derivative (P6)
+guix-c2cf70a5ff	derivative	slim + login programs	slim-vt7.auth/.lock and utmpx
+guix-77aeb7b4fa	derivative	dbus	"symlink made by dbus activation (symlink ""/run/dbus"" ""/var/run/dbus"")"
+guix-a2b4d23600	derivative	dhcpcd	pid/sockets/hook state
+guix-d084f3423e	derivative	nscd	pid/socket
+guix-d0ad40aadd	derivative	shepherd	control socket
+guix-64f62c6553	hole-none		structural dirs (/etc,/var,/var/tmp,/var/log...) are not declared, not made by a program for its operation, not made by a person; group also mixes service dirs
+guix-c7e5f38d94	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-a5fb612d86	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-99b95ecba6	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-d968cf24a8	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-9eb7d7527b	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-8199876f9a	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-d5354a6cef	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-a6ab41631c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-028034d635	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-881cf8472f	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-2b8e6e91a7	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-aa622aebb7	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-b417cc0a7c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-a544272c39	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-bb8d0dad20	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-313caacf9c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-321fc633e1	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-6dc9e58a0c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-f903faade7	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-4b7f9f361c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-b7f9627d60	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-51be824677	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-40519a92df	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-68183f4ff8	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-740c3f90da	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-f1b5a4f066	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-64fe271593	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-a3daedd7b4	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-fe29f76fc3	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-7f8906160b	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-a635e3fc98	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-2e44ba87f7	recorded		shepherd itself (PID 1), init of the declared operating-system
+guix-1fc32d2442	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-bfe021ac3b	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-c95ce26e32	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-1cbe377909	derivative	openssh (ssh-daemon)	per-connection instance spawned by ssh-daemon (herd log: sshd -i)
+guix-489355eb5e	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-7708cb8d12	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-1d44655820	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-f95f61712c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-4c9067227d	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-4cc633f039	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-b7772afed4	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-22f09175a8	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-b58bc646b6	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-661fca9ee1	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-fda8569c68	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-9c5c6faa7d	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-74854a5e5d	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-179387a422	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-c08572916c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-d476c003c0	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-be6fe53610	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-deef01515a	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-ba35efde8c	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-b6e7f450b1	recorded		shepherd-<name>.scm in current system closure built from config.scm
+guix-0fbdac78d4	hole-none		running program installed by ordinary user via `guix install`: not recorded, not derivative (not needed by guix), not person-created; a bypass by non-root, which P4 forbids
+guix-6633666c2c	hole-two		guix-made object of imperative `guix install` profile: derivative of guix vs person's package selection (data); also a 2nd source of truth (P3)

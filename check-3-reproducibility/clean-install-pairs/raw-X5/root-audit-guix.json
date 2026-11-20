@@ -1,0 +1,228 @@
+{
+  "audited_utc": "2026-11-19T09:28:19.854996+00:00",
+  "independent_acceptance": false,
+  "members": {
+    "a": {
+      "complete": true,
+      "closure_paths": 353,
+      "registered_objects": 353,
+      "computed_objects": 353,
+      "path_sets_equal": true,
+      "nar_hash_mismatches": [],
+      "manifests": {
+        "etc": {
+          "records": 43,
+          "read_errors": [],
+          "read_races": []
+        },
+        "outside-store": {
+          "records": 449,
+          "read_errors": [],
+          "read_races": []
+        },
+        "guix-native/run-separate": {
+          "records": 335,
+          "read_errors": [],
+          "read_races": []
+        }
+      },
+      "accounts": {
+        "passwd": {
+          "lines": 13,
+          "sha256": "e6c82b2b933fdba4ba8845039d953832033c8974323e3f61434efb119767206b"
+        },
+        "group": {
+          "lines": 20,
+          "sha256": "9fbff9c0893f42b7068df07e92ac1513a36527019cbdcde669864ae29d038f00"
+        },
+        "shadow": {
+          "lines": 13,
+          "sha256": "9b65385ac637201f3f39e514646c05f3f2c2889c4524644695d564b71d594728"
+        },
+        "gshadow": null
+      },
+      "collector": {
+        "argv": [
+          "/run/x5-observer/X5-collect.py",
+          "/run/x5-observer/evidence"
+        ],
+        "settle_seconds": 30,
+        "source_sha256": "59c041d08b578a6cc379b3d5b2487e0bcc1eea56d91846bc9ccb8b1fe62f1470",
+        "start_utc": "2026-11-19T09:20:34.761267+00:00",
+        "uid": 0
+      },
+      "generic_command_errors": {
+        "group.command.json": {
+          "argv": [
+            "getent",
+            "group"
+          ],
+          "elapsed_seconds": 0.00023984909057617188,
+          "error": "FileNotFoundError(2, 'No such file or directory')",
+          "start_epoch": 1795080064.7927692
+        },
+        "passwd.command.json": {
+          "argv": [
+            "getent",
+            "passwd"
+          ],
+          "elapsed_seconds": 0.00042629241943359375,
+          "error": "FileNotFoundError(2, 'No such file or directory')",
+          "start_epoch": 1795080064.7922215
+        }
+      },
+      "native_command_errors": {}
+    },
+    "b": {
+      "complete": true,
+      "closure_paths": 353,
+      "registered_objects": 353,
+      "computed_objects": 353,
+      "path_sets_equal": true,
+      "nar_hash_mismatches": [],
+      "manifests": {
+        "etc": {
+          "records": 43,
+          "read_errors": [],
+          "read_races": []
+        },
+        "outside-store": {
+          "records": 449,
+          "read_errors": [],
+          "read_races": []
+        },
+        "guix-native/run-separate": {
+          "records": 335,
+          "read_errors": [],
+          "read_races": []
+        }
+      },
+      "accounts": {
+        "passwd": {
+          "lines": 13,
+          "sha256": "e6c82b2b933fdba4ba8845039d953832033c8974323e3f61434efb119767206b"
+        },
+        "group": {
+          "lines": 20,
+          "sha256": "9fbff9c0893f42b7068df07e92ac1513a36527019cbdcde669864ae29d038f00"
+        },
+        "shadow": {
+          "lines": 13,
+          "sha256": "9b65385ac637201f3f39e514646c05f3f2c2889c4524644695d564b71d594728"
+        },
+        "gshadow": null
+      },
+      "collector": {
+        "argv": [
+          "/run/x5-observer/X5-collect.py",
+          "/run/x5-observer/evidence"
+        ],
+        "settle_seconds": 30,
+        "source_sha256": "59c041d08b578a6cc379b3d5b2487e0bcc1eea56d91846bc9ccb8b1fe62f1470",
+        "start_utc": "2026-11-19T09:26:24.147797+00:00",
+        "uid": 0
+      },
+      "generic_command_errors": {
+        "group.command.json": {
+          "argv": [
+            "getent",
+            "group"
+          ],
+          "elapsed_seconds": 0.00016069412231445312,
+          "error": "FileNotFoundError(2, 'No such file or directory')",
+          "start_epoch": 1795080414.1716092
+        },
+        "passwd.command.json": {
+          "argv": [
+            "getent",
+            "passwd"
+          ],
+          "elapsed_seconds": 0.00032520294189453125,
+          "error": "FileNotFoundError(2, 'No such file or directory')",
+          "start_epoch": 1795080414.1712327
+        }
+      },
+      "native_command_errors": {}
+    }
+  },
+  "pair": {
+    "computed_hash_maps_equal": true,
+    "exact_files": {
+      "guix-native/system-packages.stdout": {
+        "equal": true,
+        "lines_a": 46,
+        "lines_b": 46
+      },
+      "guix-native/modules.stdout": {
+        "equal": false,
+        "lines_a": 6573,
+        "lines_b": 6573
+      },
+      "guix-native/shepherd-graph.stdout": {
+        "equal": true,
+        "lines_a": 167,
+        "lines_b": 167
+      },
+      "system-path.stdout": {
+        "equal": true,
+        "lines_a": 1,
+        "lines_b": 1
+      },
+      "shepherd.stdout": {
+        "equal": true,
+        "lines_a": 45,
+        "lines_b": 45
+      },
+      "pci.stdout": {
+        "equal": true,
+        "lines_a": 24,
+        "lines_b": 24
+      },
+      "hardware-sysfs.json": {
+        "equal": true,
+        "lines_a": 246,
+        "lines_b": 246
+      }
+    },
+    "manifests": {
+      "etc": {
+        "records_a": 43,
+        "records_b": 43,
+        "raw_different_paths": 43,
+        "projected_different_paths": 8
+      },
+      "outside-store": {
+        "records_a": 449,
+        "records_b": 449,
+        "raw_different_paths": 450,
+        "projected_different_paths": 21
+      },
+      "guix-native/run-separate": {
+        "records_a": 335,
+        "records_b": 335,
+        "raw_different_paths": 339,
+        "projected_different_paths": 72
+      }
+    },
+    "module_hash_lines_sorted_equal": true,
+    "loaded_modules": {
+      "counts": [
+        60,
+        60
+      ],
+      "names_equal": true
+    },
+    "processes": {
+      "total_counts": [
+        98,
+        98
+      ],
+      "userspace_counts": [
+        16,
+        16
+      ],
+      "userspace_projection_equal": true,
+      "full_projection_equal": false
+    }
+  }
+}

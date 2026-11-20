@@ -1,0 +1,52 @@
+{
+  "debian": {
+    "package_manager": "dpkg",
+    "file_entries": 3746,
+    "file_types": {
+      "d": 392,
+      "f": 2842,
+      "l": 512
+    },
+    "package_owned_entries": 569,
+    "unowned_entries": 3177,
+    "unowned_groups": 131,
+    "accounts": 27,
+    "processes": 86,
+    "loaded_modules": 52,
+    "driver_bindings": 20
+  },
+  "coreos": {
+    "package_manager": "rpm-ostree",
+    "file_entries": 4030,
+    "file_types": {
+      "d": 851,
+      "f": 2291,
+      "l": 887,
+      "p": 1
+    },
+    "package_owned_entries": 1629,
+    "unowned_entries": 2401,
+    "unowned_groups": 71,
+    "accounts": 40,
+    "processes": 139,
+    "loaded_modules": 59,
+    "driver_bindings": 58
+  },
+  "nixos": {
+    "package_manager": "nix",
+    "file_entries": 1117,
+    "file_types": {
+      "d": 325,
+      "f": 656,
+      "l": 135,
+      "s": 1
+    },
+    "package_owned_entries": 0,
+    "unowned_entries": 1117,
+    "unowned_groups": 120,
+    "accounts": 44,
+    "processes": 103,
+    "loaded_modules": 92,
+    "driver_bindings": 31
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "21-allow-apply",
+  "channel": "declaration apply",
+  "command": "calctl apply",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {\"alice\": [\"download\"]}, \"archive\": \"keep\", \"generation\": \"1795070283339506141\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {\"alice\": [\"download\"]}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795070283339506141\", \"hook_stderr\": \"\", \"hook_stdout\": \"Loaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+  "stderr": "",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "465a719f9c2356069affda3480e11b756f81a09dfc309835426c04c80a5805a4",
+  "utc": "2026-11-19T06:38:03Z"
+}

@@ -1,0 +1,64 @@
+{
+  "id": "systemd-linger",
+  "system": "nixos",
+  "utc": "2026-11-19T08:47:39.062739+00:00",
+  "kind": "native",
+  "prerequisites": "loginctl systemd-run",
+  "marker": "/home/alice/d2/markers/systemd-linger",
+  "declaration_before": {
+    "command": "sha256sum /etc/nixos/*.nix; readlink -f /run/current-system",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "2786eaebcd0b55bbec58434a9567a548aaa5668b9a5254a1fceaac9ecf50ba85  /etc/nixos/configuration.nix\n3bed0265cf4258c40910521be2a4159f9c2331e906d3098d8d1ac649d8bef03d  /etc/nixos/hardware-configuration.nix\n/nix/store/cwq4a6z0yf9za550ydhxyw346iyaq6ni-nixos-system-d2-nixos-26.05.14630.f68407657ad2\n",
+    "stderr": "",
+    "seconds": 0.29
+  },
+  "marker_reset": {
+    "command": "rm -f /home/alice/d2/markers/systemd-linger; test ! -e /home/alice/d2/markers/systemd-linger",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.14
+  },
+  "identity": {
+    "command": "id; cat /proc/self/attr/current 2>/dev/null; printf \"HOME=%s\\nPATH=%s\\n\" \"$HOME\" \"$PATH\"",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "uid=1000(alice) gid=100(users) groups=100(users)\nHOME=/home/alice\nPATH=/run/wrappers/bin:/home/alice/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/home/alice/.nix-profile/bin:/nix/profile/bin:/home/alice/.local/state/nix/profile/bin:/etc/profiles/per-user/alice/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin\n",
+    "stderr": "",
+    "seconds": 0.14
+  },
+  "availability": {
+    "command": "for x in loginctl systemd-run; do command -v \"$x\" || true; done",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "/run/current-system/sw/bin/loginctl\n/run/current-system/sw/bin/systemd-run\n",
+    "stderr": "",
+    "seconds": 0.15
+  },
+  "attempt": {
+    "command": "export D2_MARK=/home/alice/d2/markers/systemd-linger; loginctl enable-linger && systemd-run --user --unit=d2-linger-final /home/alice/d2/native --loop /home/alice/d2/markers/systemd-linger; loginctl show-user alice -p Linger",
+    "user": "alice",
+    "returncode": 0,
+    "stdout": "Linger=yes\n",
+    "stderr": "Running as unit: d2-linger-final.service; invocation ID: 280949e153ea47d392f41d055a52d247\n",
+    "seconds": 0.15
+  },
+  "observation": {
+    "command": "if test -f /home/alice/d2/markers/systemd-linger; then cat /home/alice/d2/markers/systemd-linger; else echo D2_NO_MARKER; fi; loginctl show-user alice -p Sessions -p Linger; loginctl list-sessions; ps -u alice -o pid,ppid,etimes,args",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "D2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nD2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nD2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nD2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nD2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nD2_NATIVE_EXECUTED uid=1000 euid=1000 profile=unavailable\nSessions=18\nLinger=yes\nSESSION  UID USER  SEAT LEADER CLASS         TTY IDLE SINCE\n     18 1000 alice -    1157   manager       -   no   -\n    657    0 root  -    7591   manager-early -   no   -\n    662    0 root  -    7643   user          -   no   -\n\n3 sessions listed.\n    PID    PPID ELAPSED COMMAND\n   1157       1     655 /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd --user\n   1159    1157     655 (sd-pam)\n   3416    1157     568 /nix/store/2pc66jgygz9gs9c8ymkz619qyrrqm1an-dbus-broker-37/bin/dbus-broker-launch --scope user\n   3417    3416     568 dbus-broker --log 11 --controller 10 --machine-id <REDACTED-9> --max-bytes 100000000000000 --max-fds 25000000000000 --max-matches 5000000000\n   3705    1157     518 /nix/store/hq1c8l5fl0xbr1ak1pac5i2ax6914121-xdg-desktop-portal-1.20.4/libexec/xdg-desktop-portal\n   3720    1157     518 /nix/store/hq1c8l5fl0xbr1ak1pac5i2ax6914121-xdg-desktop-portal-1.20.4/libexec/xdg-permission-store\n   3736    1157     518 /nix/store/hq1c8l5fl0xbr1ak1pac5i2ax6914121-xdg-desktop-portal-1.20.4/libexec/xdg-document-portal\n   4463       1     480 podman\n   6793    1157     326 /nix/store/n1k2mb1hjy14vijcrr60bj7w0fm1a43j-flatpak-1.18.4/libexec/flatpak-session-helper\n   6798    1157     326 server --sh -n /run/user/1000/.flatpak-helper/pkcs11-flatpak-6793 --provider p11-kit-trust.so pkcs11:model=p11-kit-trust?write-protected=yes\n   7641    1157       5 /home/alice/d2/native --loop /home/alice/d2/markers/systemd-linger\n",
+    "stderr": "",
+    "seconds": 0.15
+  },
+  "declaration_after": {
+    "command": "sha256sum /etc/nixos/*.nix; readlink -f /run/current-system",
+    "user": "root",
+    "returncode": 0,
+    "stdout": "2786eaebcd0b55bbec58434a9567a548aaa5668b9a5254a1fceaac9ecf50ba85  /etc/nixos/configuration.nix\n3bed0265cf4258c40910521be2a4159f9c2331e906d3098d8d1ac649d8bef03d  /etc/nixos/hardware-configuration.nix\n/nix/store/cwq4a6z0yf9za550ydhxyw346iyaq6ni-nixos-system-d2-nixos-26.05.14630.f68407657ad2\n",
+    "stderr": "",
+    "seconds": 0.14
+  }
+}

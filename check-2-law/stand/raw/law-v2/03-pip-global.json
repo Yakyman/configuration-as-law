@@ -1,0 +1,15 @@
+{
+  "id": "03-pip-global",
+  "channel": "pip global",
+  "command": "pip3 install --break-system-packages /srv/cal-web/python-package",
+  "user": "alice",
+  "expected": "blocked",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": true,
+  "stdout": "",
+  "stderr": "/bin/bash: /usr/bin/pip3: /usr/bin/python3: bad interpreter: Permission denied\n",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

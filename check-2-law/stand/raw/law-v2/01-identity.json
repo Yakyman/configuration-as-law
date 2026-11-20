@@ -1,0 +1,15 @@
+{
+  "id": "01-identity",
+  "channel": "identity",
+  "command": "id; cat /proc/self/attr/current",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "uid=1000(alice) gid=1000(alice) groups=1000(alice),1002(calusers)\ncal-alice (enforce)\n",
+  "stderr": "",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

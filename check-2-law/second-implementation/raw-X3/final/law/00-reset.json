@@ -1,0 +1,81 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "14",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "beta": {
+        "owners": [],
+        "scope": "system",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {
+        "beta": {
+          "owners": [],
+          "scope": "system",
+          "version": "1"
+        }
+      },
+      "shared": {
+        "cache": [
+          "alpha",
+          "beta"
+        ]
+      }
+    },
+    "shared": {
+      "cache": [
+        "alpha",
+        "beta"
+      ]
+    }
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "15",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "id": "00-reset",
+  "channel": "declaration apply",
+  "command": "calctl apply",
+  "user": "root",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"keep\", \"generation\": \"15\", \"personal\": {\"alice\": {\"programs\": {}}, \"bob\": {\"programs\": {}}}, \"programs\": {}, \"root\": {\"allow_channels\": {}, \"archive\": \"keep\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"15\", \"hook_stderr\": \"\", \"hook_stdout\": \"X3 Landlock rules emitted; apply to NEW login sessions; build allows executable output in user home\\n\", \"ok\": true}\n",
+  "stderr": "",
+  "declaration_before": "419005cdd31d9ba13178303f8eeada4d33935abe9578ecd7054806e4dd916592",
+  "declaration_after": "515292d8ddcd286c668f1faab04df7c28c0651165a0b9db718b0979e099f7c62",
+  "utc": "2026-11-19T09:02:46Z"
+}

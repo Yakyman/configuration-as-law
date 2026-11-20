@@ -1,0 +1,92 @@
+{
+  "seeds": {
+    "1119": {
+      "checkpoints_including_reset": 195,
+      "mutations": 194,
+      "outcome": "1",
+      "random_gc": 57,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 26,
+        "remove": 32,
+        "rollback": 15,
+        "toggle": 33,
+        "upgrade": 22
+      }
+    },
+    "20261119": {
+      "checkpoints_including_reset": 197,
+      "mutations": 196,
+      "outcome": "1",
+      "random_gc": 59,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 22,
+        "remove": 20,
+        "rollback": 33,
+        "toggle": 32,
+        "upgrade": 21
+      }
+    },
+    "42": {
+      "checkpoints_including_reset": 207,
+      "mutations": 206,
+      "outcome": "1",
+      "random_gc": 69,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 25,
+        "remove": 24,
+        "rollback": 12,
+        "toggle": 40,
+        "upgrade": 27
+      }
+    },
+    "6": {
+      "checkpoints_including_reset": 206,
+      "mutations": 205,
+      "outcome": "1",
+      "random_gc": 68,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 20,
+        "remove": 20,
+        "rollback": 16,
+        "toggle": 37,
+        "upgrade": 35
+      }
+    }
+  },
+  "totals": {
+    "assertions": {
+      "P6": 9278,
+      "instrument": 8572
+    },
+    "checkpoints_including_reset": 805,
+    "counts": {
+      "authorized_deletions": 80,
+      "mutations": 801,
+      "own_reads": 993,
+      "ownerless_unreferenced_delete": 35,
+      "ownerless_unreferenced_keep": 29,
+      "random-gc:gc": 253,
+      "random:add": 93,
+      "random:remove": 96,
+      "random:rollback": 76,
+      "random:toggle": 142,
+      "random:upgrade": 105,
+      "rollback_checkpoints": 76,
+      "rollback_downgraded_programs": 18,
+      "rollback_policy_changed": 32,
+      "rollback_reactivated_programs": 19,
+      "setup:set": 4,
+      "shared_reads": 993,
+      "single_owner_checkpoints": 309,
+      "tail:gc": 8,
+      "tail:remove": 16,
+      "tail:set": 8
+    },
+    "failed_sequences": 0,
+    "random_generation_steps": 512
+  }
+}

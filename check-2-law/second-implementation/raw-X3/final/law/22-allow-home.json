@@ -1,0 +1,75 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {
+      "alice": [
+        "download"
+      ]
+    },
+    "archive": "keep",
+    "generation": "16",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {
+        "alice": [
+          "download"
+        ]
+      },
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {
+      "alice": [
+        "download"
+      ]
+    },
+    "archive": "keep",
+    "generation": "16",
+    "personal": {
+      "alice": {
+        "programs": {}
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {},
+    "root": {
+      "allow_channels": {
+        "alice": [
+          "download"
+        ]
+      },
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {}
+    },
+    "shared": {}
+  },
+  "id": "22-allow-home",
+  "channel": "explicit allow line home",
+  "command": "\"$HOME/downloaded\"",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "Hello, world!\n",
+  "stderr": "X3_LANDLOCK_ENFORCED abi=2 uid=1000 role=user\n",
+  "declaration_before": "212230f459cd4f4add045991211a5a8fa4d4b3db73e3cb47438ca37b1c18d7b9",
+  "declaration_after": "212230f459cd4f4add045991211a5a8fa4d4b3db73e3cb47438ca37b1c18d7b9",
+  "utc": "2026-11-19T09:02:46Z"
+}

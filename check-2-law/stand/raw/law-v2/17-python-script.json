@@ -1,0 +1,15 @@
+{
+  "id": "17-python-script",
+  "channel": "interpreter Python",
+  "command": "printf 'print(\"USER_SCRIPT\")\\n' >\"$HOME/probe.py\"; python3 \"$HOME/probe.py\"",
+  "user": "alice",
+  "expected": "O5 unresolved",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": null,
+  "stdout": "",
+  "stderr": "/bin/bash: line 1: /usr/bin/python3: Permission denied\n",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

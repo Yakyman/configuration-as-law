@@ -1,0 +1,105 @@
+{
+  "declaration_before_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "declaration_after_document": {
+    "allow_channels": {},
+    "archive": "keep",
+    "generation": "20",
+    "personal": {
+      "alice": {
+        "programs": {
+          "browser": {
+            "version": "1"
+          },
+          "hello": {
+            "version": "1"
+          }
+        }
+      },
+      "bob": {
+        "programs": {}
+      }
+    },
+    "programs": {
+      "browser": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      },
+      "hello": {
+        "owners": [
+          "alice"
+        ],
+        "scope": "user",
+        "version": "1"
+      }
+    },
+    "root": {
+      "allow_channels": {},
+      "archive": "keep",
+      "policies": {},
+      "programs": {},
+      "shared": {},
+      "system_update": "apt-upgrade-request-1"
+    },
+    "shared": {}
+  },
+  "id": "38-audit",
+  "channel": "Landlock policy evidence",
+  "command": "cat /sys/kernel/security/lsm; cat /sys/kernel/security/apparmor/profiles; cat /etc/cal/x3-*.rules; /usr/local/bin/cal-login --abi",
+  "user": "root",
+  "expected": "evidence",
+  "observed": "executed",
+  "returncode": 0,
+  "met": null,
+  "stdout": "lockdown,capability,landlock,yama,apparmor,tomoyo,bpftcpdump (enforce)\n/{,usr/}sbin/dhclient (enforce)\n/usr/lib/connman/scripts/dhclient-script (enforce)\n/usr/lib/NetworkManager/nm-dhcp-helper (enforce)\n/usr/lib/NetworkManager/nm-dhcp-client.action (enforce)\nman_groff (enforce)\nman_filter (enforce)\n/usr/bin/man (enforce)\nlsb_release (enforce)\nnvidia_modprobe (enforce)\nnvidia_modprobe//kmod (enforce)\nx /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nx /usr/bin/basename\nx /usr/bin/bash\nx /usr/bin/cat\nx /usr/bin/chmod\nx /usr/bin/chromium\nx /usr/bin/cp\nx /usr/bin/curl\nx /usr/bin/cut\nx /usr/bin/dash\nx /usr/bin/date\nx /usr/bin/dd\nx /usr/bin/dirname\nx /usr/bin/env\nx /usr/bin/expr\nx /usr/bin/false\nx /usr/bin/find\nx /usr/bin/getent\nx /usr/bin/grep\nx /usr/bin/gzip\nx /usr/bin/head\nx /usr/bin/hello\nx /usr/bin/id\nx /usr/bin/jq\nx /usr/bin/ls\nx /usr/bin/mkdir\nx /usr/bin/mv\nx /usr/bin/printf\nx /usr/bin/pwd\nx /usr/bin/readlink\nx /usr/bin/rm\nx /usr/bin/rmdir\nx /usr/bin/sed\nx /usr/bin/sha256sum\nx /usr/bin/sleep\nx /usr/bin/sort\nx /usr/bin/stat\nx /usr/bin/tail\nx /usr/bin/tar\nx /usr/bin/tee\nx /usr/bin/timeout\nx /usr/bin/touch\nx /usr/bin/tr\nx /usr/bin/true\nx /usr/bin/uname\nx /usr/bin/uniq\nx /usr/bin/unzip\nx /usr/bin/wc\nx /usr/bin/xargs\nx /usr/lib/chromium/chrome_crashpad_handler\nx /usr/lib/chromium/chromium\nx /usr/local/bin/calctl\nw /home/alice\nw /tmp\nw /var/tmp\nw /dev/shm\nw /dev/null\nw /dev/zero\nw /dev/tty\nw /dev/pts\nw /var/lib/cal/active\nw /proc\nx /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nx /usr/bin/bash\nx /usr/bin/cat\nx /usr/bin/chmod\nx /usr/bin/cp\nx /usr/bin/curl\nx /usr/bin/dash\nx /usr/bin/date\nx /usr/bin/dd\nx /usr/bin/env\nx /usr/bin/false\nx /usr/bin/gzip\nx /usr/bin/head\nx /usr/bin/id\nx /usr/bin/jq\nx /usr/bin/ls\nx /usr/bin/mkdir\nx /usr/bin/mv\nx /usr/bin/printf\nx /usr/bin/pwd\nx /usr/bin/readlink\nx /usr/bin/rm\nx /usr/bin/rmdir\nx /usr/bin/sha256sum\nx /usr/bin/sleep\nx /usr/bin/sort\nx /usr/bin/stat\nx /usr/bin/tail\nx /usr/bin/tar\nx /usr/bin/tee\nx /usr/bin/timeout\nx /usr/bin/touch\nx /usr/bin/tr\nx /usr/bin/true\nx /usr/bin/uniq\nx /usr/bin/unzip\nx /usr/bin/wc\nx /usr/local/bin/calctl\nw /home/bob\nw /tmp\nw /var/tmp\nw /dev/shm\nw /dev/null\nw /dev/zero\nw /dev/tty\nw /dev/pts\nw /var/lib/cal/active\nw /proc\nx /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nx /usr/local/lib/cal/worker-body\nw /var/lib/cal/active\nw /dev/null\nw /dev/pts\nLandlock ABI=2\n",
+  "stderr": "",
+  "declaration_before": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "declaration_after": "76e5b9261ccd4b1841754f2c6a09b481f92bbfa650c65c89c1cf000734e5fa94",
+  "utc": "2026-11-19T09:02:49Z"
+}

@@ -1,0 +1,123 @@
+{
+  "audited_utc": "2026-11-19T09:09:30.099617+00:00",
+  "independent_acceptance": false,
+  "a": {
+    "recorded_objects": 580,
+    "computed_objects": 580,
+    "path_sets_equal": true,
+    "nar_hashes_all_match": true,
+    "collector_source_sha256": "59c041d08b578a6cc379b3d5b2487e0bcc1eea56d91846bc9ccb8b1fe62f1470"
+  },
+  "b": {
+    "recorded_objects": 580,
+    "computed_objects": 580,
+    "path_sets_equal": true,
+    "nar_hashes_all_match": true,
+    "collector_source_sha256": "59c041d08b578a6cc379b3d5b2487e0bcc1eea56d91846bc9ccb8b1fe62f1470"
+  },
+  "exact_files": {
+    "closure-computed.tsv": {
+      "equal": true,
+      "lines_a": 580,
+      "lines_b": 580
+    },
+    "closure-sorted.txt": {
+      "equal": true,
+      "lines_a": 580,
+      "lines_b": 580
+    },
+    "system-profile-references.txt": {
+      "equal": true,
+      "lines_a": 129,
+      "lines_b": 129
+    },
+    "module-files.sha256": {
+      "equal": true,
+      "lines_a": 7046,
+      "lines_b": 7046
+    },
+    "boot.sha256": {
+      "equal": true,
+      "lines_a": 2,
+      "lines_b": 2
+    },
+    "passwd.stdout": {
+      "equal": true,
+      "lines_a": 44,
+      "lines_b": 44
+    },
+    "group.stdout": {
+      "equal": true,
+      "lines_a": 35,
+      "lines_b": 35
+    },
+    "unit-files.stdout": {
+      "equal": true,
+      "lines_a": 209,
+      "lines_b": 209
+    },
+    "pci.stdout": {
+      "equal": true,
+      "lines_a": 25,
+      "lines_b": 25
+    },
+    "hardware-sysfs.json": {
+      "equal": true,
+      "lines_a": 122,
+      "lines_b": 122
+    }
+  },
+  "summary": {
+    "a": "X/raw-X5/nixos/a",
+    "adjudication": "none; all raw differences retained",
+    "b": "X/raw-X5/nixos/b",
+    "manifests": {
+      "etc": {
+        "changed_while_reading_a": [],
+        "changed_while_reading_b": [],
+        "errors_a": [],
+        "errors_b": [],
+        "projected_different_paths": 7,
+        "projected_field_counts": {
+          "sha256": 7
+        },
+        "raw_different_paths": 150,
+        "records_a": 150,
+        "records_b": 150
+      },
+      "outside-store": {
+        "changed_while_reading_a": [],
+        "changed_while_reading_b": [],
+        "errors_a": [],
+        "errors_b": [],
+        "projected_different_paths": 46,
+        "projected_field_counts": {
+          "changed_while_reading": 4,
+          "gid": 32,
+          "mode": 32,
+          "nlink": 32,
+          "path": 32,
+          "sha256": 18,
+          "size": 33,
+          "target": 2,
+          "type": 32,
+          "uid": 32
+        },
+        "raw_different_paths": 1063,
+        "records_a": 1047,
+        "records_b": 1047
+      }
+    },
+    "process_counts": [
+      88,
+      89
+    ],
+    "process_projection_equal": false,
+    "representation_fields_omitted_in_projection_only": [
+      "ctime_ns",
+      "device",
+      "inode",
+      "mtime_ns"
+    ]
+  }
+}

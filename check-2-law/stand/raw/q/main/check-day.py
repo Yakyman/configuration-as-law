@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+"""Scripted ordinary-user workday plus declared-interpreter coverage."""
+import sys,json,pathlib
+sys.argv=['check-day.py','/root/q-main/day']
+src=pathlib.Path('/root/q-main/check-law.py').read_text()
+exec(src.split('base=dict(')[0])
+base=dict(archive='keep',programs={},policies={},allow_channels={},shared={})
+for u in ('alice','bob'):pathlib.Path('/home',u,'declaration.json').write_text('{"programs":{}}')
+rootdoc(base,'00-baseline')
+run('01-user','identity','id; cat /proc/self/attr/current','works',contains='cal-alice (enforce)')
+run('02-declare-tools','ordinary install',"printf '%s' '{\"programs\":{\"browser\":{},\"editor\":{},\"python\":{},\"node\":{},\"hello\":{}}}' >\"$HOME/declaration.json\" && calctl apply && hello",'works',timeout=180,contains='Hello, world!')
+run('03-update-user','system update authority','apt-get update','blocked')
+rootdoc({**base,'system_update':'bq1-day-update'},'04-update-declared')
+run('05-network','HTTPS','curl -I -fsS --max-time 20 https://www.debian.org/','works')
+run('06-download-document','ordinary download','curl -fsS http://127.0.0.1:8080/day.txt -o "$HOME/day.txt" && cat "$HOME/day.txt"','works',contains='Workday document')
+editor="mkdir -p /var/lib/cal/active/editor/home; HOME=/var/lib/cal/active/editor/home /usr/bin/vim.basic -N -n -es -i /var/lib/cal/active/editor/home/.viminfo /home/alice/day.txt -c 'normal GoUser notes' -c 'w' -c 'wviminfo!' -c 'qa!'; cat /home/alice/day.txt"
+run('07-edit-save','editor',editor,'works',contains='User notes')
+browser='mkdir -p /var/lib/cal/active/browser/home; HOME=/var/lib/cal/active/browser/home XDG_CONFIG_HOME=/var/lib/cal/active/browser/home/.config XDG_CACHE_HOME=/var/lib/cal/active/browser/home/.cache /usr/lib/chromium/chromium --headless --no-sandbox --disable-dev-shm-usage --disable-gpu --no-first-run --no-default-browser-check --user-data-dir=/var/lib/cal/active/browser/home/profile --virtual-time-budget=2000 --dump-dom '
+run('08-browser-form','browser form and local storage',browser+'http://127.0.0.1:8080/day.html','works',timeout=60,contains='SAVED:day-note')
+run('09-browser-reopen','browser persistent state',browser+'http://127.0.0.1:8080/reopen.html','works',timeout=60,contains='RESTORED:day-note')
+run('10-browser-external','browser external HTTPS',browser+'https://www.debian.org/','works',timeout=60,contains='Debian')
+run('11-undeclared-download','downloaded executable','cp /srv/cal-web/downloaded "$HOME/downloaded" && chmod +x "$HOME/downloaded" && "$HOME/downloaded"','blocked')
+run('12-pip-global-declared-python','pip global','pip3 install --break-system-packages /srv/cal-web/python-package','blocked')
+run('13-pip-user-declared-python','pip user','pip3 install --user --break-system-packages /srv/cal-web/python-package','blocked')
+run('14-npm-global-declared-node','npm global','npm install --global /srv/cal-web/node-package','blocked')
+run('15-npm-user-declared-node','npm user','npm install --prefix "$HOME/local-node" /srv/cal-web/node-package','blocked')
+run('16-python-module-pip','pip via declared interpreter','python3 -m pip install --user --break-system-packages /srv/cal-web/python-package','classification pending O5',timeout=90)
+run('17-node-script-npm','npm via declared interpreter','node /usr/share/nodejs/npm/bin/npm-cli.js install --prefix "$HOME/local-node" /srv/cal-web/node-package','classification pending O5',timeout=90)
+run('18-install-effects','entrypoints and installed files','ls -l "$HOME/.local/bin" "$HOME/.local/lib/python3.11/site-packages" "$HOME/local-node/node_modules"; cat /srv/cal-web/python-package/setup.py /srv/cal-web/node-package/package.json','evidence')
+run('19-user-shell','user shell script',"printf 'echo SHELL_USER_SCRIPT\n' >\"$HOME/day.sh\"; bash \"$HOME/day.sh\"",'O5 unresolved')
+run('20-user-python','user Python script',"printf 'print(\"PYTHON_USER_SCRIPT\")\n' >\"$HOME/day.py\"; python3 \"$HOME/day.py\"",'O5 unresolved')
+rootdoc({**base,'allow_channels':{'alice':['pip','npm']}},'21-explicit-language-permission')
+run('22-pip-permitted','pip allowed','pip3 install --user --break-system-packages /srv/cal-web/python-package','works',timeout=90)
+run('23-npm-permitted','npm allowed','npm install --prefix "$HOME/local-node" /srv/cal-web/node-package','works',timeout=90)
+run('24-end-of-day','save/reopen user work','cat "$HOME/day.txt"; ls -l /var/lib/cal/active/editor/home/.viminfo','works',contains='User notes')
+(OUT/'rows.json').write_text(json.dumps(rows,indent=2)+'\n')
+print(json.dumps({'summary':len(rows),'unexpected':[r['id'] for r in rows if r['met'] is False]}))

@@ -1,0 +1,955 @@
+{
+  "after-retry": {
+    "L1_protected_deletion": [],
+    "L2_current_reading_ownerless_active_unarchived": [],
+    "L2_designated_reading_ownerless_active_unarchived": [],
+    "L3_shared_loss": [],
+    "L4_policy_mismatch_after_all_owners_absent": []
+  },
+  "after-transition": {
+    "L1_protected_deletion": [],
+    "L2_current_reading_ownerless_active_unarchived": [],
+    "L2_designated_reading_ownerless_active_unarchived": [
+      "ro-current-keep",
+      "ro-current-delete",
+      "replay-v1-ro-current-delete",
+      "replay-v1-ro-current-keep"
+    ],
+    "L3_shared_loss": [],
+    "L4_policy_mismatch_after_all_owners_absent": [
+      "ro-saved-delete",
+      "replay-v1-ro-saved-delete"
+    ]
+  },
+  "all_source_payload_joins": true,
+  "amended_rows": 12,
+  "complete": 57,
+  "corrected_shared": [
+    "a2-shared-healthy-keep",
+    "a2-shared-healthy-delete",
+    "a2-shared-blocks-keep",
+    "a2-shared-blocks-delete",
+    "a2-shared-inodes-keep",
+    "a2-shared-inodes-delete",
+    "a2-shared-ro-keep",
+    "a2-shared-ro-delete"
+  ],
+  "first_row_utc": "2026-11-19T10:30:00.347718+00:00",
+  "initial_planned_rows": 28,
+  "initial_primary_fault_verified": 8,
+  "last_row_utc": "2026-11-19T10:34:41.537431+00:00",
+  "native_reads": [
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-blocks-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-blocks-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-blocks-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-blocks-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-blocks-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "a2-blocks-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-blocks-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "a2-blocks-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "inodes-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "inodes-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "inodes-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "inodes-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "inodes-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "inodes-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "inodes-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "inodes-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "ro-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "ro-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "ro-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "ro-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "ro-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "ro-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "ro-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "ro-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-healthy-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-healthy-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-healthy-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-healthy-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-healthy-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-healthy-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-healthy-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-healthy-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-healthy-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-healthy-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-blocks-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-blocks-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-blocks-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-blocks-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-blocks-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-blocks-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-blocks-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-blocks-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-blocks-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-blocks-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-inodes-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-inodes-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-inodes-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-inodes-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-inodes-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-inodes-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-inodes-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-inodes-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-inodes-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-inodes-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-ro-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-ro-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-ro-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-ro-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-ro-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "a2-shared-ro-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "a2-shared-ro-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-second-read",
+      "row": "a2-shared-ro-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-transition-read",
+      "row": "a2-shared-ro-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "after-retry-read",
+      "row": "a2-shared-ro-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "control-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "control-current-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "control-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "rollback-read",
+      "row": "control-current-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "control-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "control-saved-keep",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "initial-read",
+      "row": "control-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    },
+    {
+      "rc": 0,
+      "read": "prepare-rollback-read",
+      "row": "control-saved-delete",
+      "same_lookup": true,
+      "size": 1024
+    }
+  ],
+  "primary_denominator": 12,
+  "primary_observation_selection": [
+    "a2-blocks-current-keep",
+    "a2-blocks-current-delete",
+    "a2-blocks-saved-keep",
+    "a2-blocks-saved-delete",
+    "inodes-current-keep",
+    "inodes-current-delete",
+    "inodes-saved-keep",
+    "inodes-saved-delete",
+    "ro-current-keep",
+    "ro-current-delete",
+    "ro-saved-keep",
+    "ro-saved-delete"
+  ],
+  "primary_selected_fault_verified": 12,
+  "quiescent": 57,
+  "replay_rows": 17,
+  "replays": [
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2271  1795084228.882209 rename(\"/var/lib/cal/active/local-alice-cache\", \"/var/lib/cal/archive/local-alice-cache\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "ro-current-keep",
+      "replay": "replay-v1-ro-current-keep",
+      "replay_errors": [
+        "4254  1795084457.683063 rename(\"/var/lib/cal/active/local-alice-cache\", \"/var/lib/cal/archive/local-alice-cache\") = -1 EROFS (Read-only file system) <0.000011>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2350  1795084230.277267 rename(\"/var/lib/cal/active/local-alice-cache\", \"/var/lib/cal/archive/local-alice-cache\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "ro-current-delete",
+      "replay": "replay-v1-ro-current-delete",
+      "replay_errors": [
+        "4334  1795084459.075624 rename(\"/var/lib/cal/active/local-alice-cache\", \"/var/lib/cal/archive/local-alice-cache\") = -1 EROFS (Read-only file system) <0.000014>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2510  1795084233.916173 unlinkat(5</var/lib/cal/archive/local-alice-cache>, \"version\", 0) = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "ro-saved-delete",
+      "replay": "replay-v1-ro-saved-delete",
+      "replay_errors": [
+        "4414  1795084461.184443 unlinkat(5</var/lib/cal/archive/local-alice-cache>, \"operational.bin\", 0) = -1 EROFS (Read-only file system) <0.000008>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": false
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2624  1795084234.749564 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.001636>"
+      ],
+      "parent": "shared-healthy-keep",
+      "replay": "replay-v1-shared-healthy-keep",
+      "replay_errors": [
+        "4530  1795084462.038544 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2702  1795084236.098532 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000010>"
+      ],
+      "parent": "shared-healthy-delete",
+      "replay": "replay-v1-shared-healthy-delete",
+      "replay_errors": [
+        "4609  1795084463.402527 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2780  1795084237.574760 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000010>"
+      ],
+      "parent": "shared-blocks-keep",
+      "replay": "replay-v1-shared-blocks-keep",
+      "replay_errors": [
+        "4689  1795084464.924404 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000011>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2858  1795084239.111559 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000012>"
+      ],
+      "parent": "shared-blocks-delete",
+      "replay": "replay-v1-shared-blocks-delete",
+      "replay_errors": [
+        "4768  1795084466.457378 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2936  1795084240.556869 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000010>"
+      ],
+      "parent": "shared-inodes-keep",
+      "replay": "replay-v1-shared-inodes-keep",
+      "replay_errors": [
+        "4814  1795084467.856084 openat(AT_FDCWD</root>, \"/var/lib/cal/active/shared-p43/.cal-9pot5nnk\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000028>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": false
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "2981  1795084241.973770 openat(AT_FDCWD</root>, \"/var/lib/cal/active/shared-p43/.cal-rqyv46yu\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000029>"
+      ],
+      "parent": "shared-inodes-delete",
+      "replay": "replay-v1-shared-inodes-delete",
+      "replay_errors": [
+        "4926  1795084469.269832 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/cache\", O_WRONLY|O_CREAT|O_APPEND, 0666) = -1 EACCES (Permission denied) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": false
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3058  1795084243.332481 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "shared-ro-keep",
+      "replay": "replay-v1-shared-ro-keep",
+      "replay_errors": [
+        "4973  1795084470.644561 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3137  1795084244.689468 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "shared-ro-delete",
+      "replay": "replay-v1-shared-ro-delete",
+      "replay_errors": [
+        "5053  1795084472.008329 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3812  1795084389.544607 write(5</var/lib/cal/active/beta/.cal-awkutpe0>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000021>",
+        "3812  1795084389.544654 write(5</var/lib/cal/active/beta/.cal-awkutpe0>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000014>"
+      ],
+      "parent": "a2-shared-blocks-delete",
+      "replay": "replay-v2-a2-shared-blocks-delete",
+      "replay_errors": [
+        "5133  1795084473.546254 write(5</var/lib/cal/active/shared-p43/.cal-jk_37wjj>, \"\\\"shared\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000025>",
+        "5133  1795084473.546306 write(5</var/lib/cal/active/shared-p43/.cal-jk_37wjj>, \"\\\"shared\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000014>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3732  1795084388.005330 write(5</var/lib/cal/active/beta/.cal-awsiuoxx>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000021>",
+        "3732  1795084388.005377 write(5</var/lib/cal/active/beta/.cal-awsiuoxx>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000014>"
+      ],
+      "parent": "a2-shared-blocks-keep",
+      "replay": "replay-v2-a2-shared-blocks-keep",
+      "replay_errors": [
+        "5212  1795084475.117978 write(5</var/lib/cal/active/beta/.cal-oyh_9mue>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000022>",
+        "5212  1795084475.118027 write(5</var/lib/cal/active/beta/.cal-oyh_9mue>, \"\\\"p43-v1\\\"\", 8) = -1 ENOSPC (No space left on device) <0.000014>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3971  1795084392.368097 openat(AT_FDCWD</root>, \"/var/lib/cal/active/shared-p43/.cal-f2lo1ewu\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000027>"
+      ],
+      "parent": "a2-shared-inodes-delete",
+      "replay": "replay-v2-a2-shared-inodes-delete",
+      "replay_errors": [
+        "5292  1795084476.559874 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/.cal-55btgwvi\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000035>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": false
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "3891  1795084390.990209 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/.cal-i6zutz86\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000028>"
+      ],
+      "parent": "a2-shared-inodes-keep",
+      "replay": "replay-v2-a2-shared-inodes-keep",
+      "replay_errors": [
+        "5372  1795084477.994836 openat(AT_FDCWD</root>, \"/var/lib/cal/active/beta/.cal-b2z81vro\", O_RDWR|O_CREAT|O_EXCL|O_NOFOLLOW|O_CLOEXEC, 0600) = -1 ENOSPC (No space left on device) <0.000029>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "4130  1795084395.068123 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "a2-shared-ro-delete",
+      "replay": "replay-v2-a2-shared-ro-delete",
+      "replay_errors": [
+        "5452  1795084479.401962 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    },
+    {
+      "both_reject": true,
+      "initial_errors": [
+        "4050  1795084393.716277 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000009>"
+      ],
+      "parent": "a2-shared-ro-keep",
+      "replay": "replay-v2-a2-shared-ro-keep",
+      "replay_errors": [
+        "5533  1795084480.799099 rename(\"/var/lib/cal/active/alpha\", \"/var/lib/cal/archive/alpha\") = -1 EROFS (Read-only file system) <0.000011>"
+      ],
+      "same_endpoint": true,
+      "same_normalized_error": true
+    }
+  ],
+  "retry_ack_true": 41,
+  "same_daemon_identity": 57,
+  "selected": [
+    "a2-blocks-current-keep",
+    "a2-blocks-current-delete",
+    "a2-blocks-saved-keep",
+    "a2-blocks-saved-delete",
+    "inodes-current-keep",
+    "inodes-current-delete",
+    "inodes-saved-keep",
+    "inodes-saved-delete",
+    "ro-current-keep",
+    "ro-current-delete",
+    "ro-saved-keep",
+    "ro-saved-delete",
+    "a2-shared-healthy-keep",
+    "a2-shared-healthy-delete",
+    "a2-shared-blocks-keep",
+    "a2-shared-blocks-delete",
+    "a2-shared-inodes-keep",
+    "a2-shared-inodes-delete",
+    "a2-shared-ro-keep",
+    "a2-shared-ro-delete",
+    "control-current-keep",
+    "control-current-delete",
+    "control-saved-keep",
+    "control-saved-delete"
+  ],
+  "selected_retry_all_ack": true,
+  "source_healthy_parity": [
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "after-retry"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "after-rollback"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "after-transition"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "baseline"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "before-attempt"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "before-recovery"
+    },
+    {
+      "equal": true,
+      "pair": "current-keep",
+      "phase": "prepared"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "after-retry"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "after-rollback"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "after-transition"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "baseline"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "before-attempt"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "before-recovery"
+    },
+    {
+      "equal": true,
+      "pair": "current-delete",
+      "phase": "prepared"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "after-retry"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "after-transition"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "baseline"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "before-attempt"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "before-recovery"
+    },
+    {
+      "equal": true,
+      "pair": "saved-keep",
+      "phase": "prepared"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "after-retry"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "after-transition"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "baseline"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "before-attempt"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "before-recovery"
+    },
+    {
+      "equal": true,
+      "pair": "saved-delete",
+      "phase": "prepared"
+    }
+  ],
+  "total_rows": 57,
+  "transition_ack_true": 23
+}

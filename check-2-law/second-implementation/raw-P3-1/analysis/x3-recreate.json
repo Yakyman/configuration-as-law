@@ -1,0 +1,804 @@
+{
+  "cells": [
+    {
+      "after": "evidence/x3-recreate/D-after/snapshot.json",
+      "audit_event": "1795082593.372:82",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 448,
+      "audit_syscall": {
+        "a0": "563ca05df250",
+        "a1": "563ca05e1e50",
+        "a2": "563ca05e16a0",
+        "a3": "f23664a156ce4524",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"bash\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/usr/bin/bash\"",
+        "exit": "-13",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "1",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.372:82):",
+        "pid": "761",
+        "ppid": "754",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "no",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/D-before/snapshot.json",
+      "cell": "D",
+      "errno_name": "EACCES",
+      "launch_file": "evidence/x3-recreate/D.launch.bin",
+      "marker": null,
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "2f162c4075af85f6e8b60e411beeeb1adeb774e86f41c12ccf5aabdaa0d74509",
+        "/etc/cal/x3-alice.rules": "523b4bfe05b4691e9df930e4fe9589715793207ed745a562eef9a59c9a5419e0",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "f3e9248e54a27d1c67993082702d168d334ca5f8eb2f9a8468295fec2bb93029",
+        "/var/lib/cal/pending.json": "51b551273891383b8079456bc1bd7148d2cff670ff721b5278f535e966b55beb"
+      },
+      "raw_audit_records": [
+        {
+          "line": 448,
+          "text": "type=SYSCALL msg=audit(1795082593.372:82): arch=c000003e syscall=59 success=no exit=-13 a0=563ca05df250 a1=563ca05e1e50 a2=563ca05e16a0 a3=f23664a156ce4524 items=1 ppid=754 pid=761 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"bash\" exe=\"/usr/bin/bash\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 450,
+          "text": "type=CWD msg=audit(1795082593.372:82): cwd=\"/\""
+        },
+        {
+          "line": 451,
+          "text": "type=PATH msg=audit(1795082593.372:82): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 453,
+          "text": "type=PROCTITLE msg=audit(1795082593.372:82): proctitle=2F62696E2F62617368002D2D6E6F70726F66696C65002D2D6E6F7263"
+        }
+      ],
+      "rc": 126,
+      "run": "x3-recreate",
+      "session_pid": 754,
+      "syscall_errno": 13,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/G-after/snapshot.json",
+      "audit_event": "1795082593.440:89",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 502,
+      "audit_syscall": {
+        "a0": "55d62825e250",
+        "a1": "55d628260e50",
+        "a2": "55d6282606a0",
+        "a3": "4e5a15f056a1b4d6",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"downloaded\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/home/alice/downloaded\"",
+        "exit": "0",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "2",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.440:89):",
+        "pid": "789",
+        "ppid": "782",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "yes",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/G-before/snapshot.json",
+      "cell": "G",
+      "errno_name": null,
+      "launch_file": "evidence/x3-recreate/G.launch.bin",
+      "marker": "A",
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "55e13dc328982b2c476c513acc12bb3c872c2ebd76311b79a5e0b20399a81fd6",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 502,
+          "text": "type=SYSCALL msg=audit(1795082593.440:89): arch=c000003e syscall=59 success=yes exit=0 a0=55d62825e250 a1=55d628260e50 a2=55d6282606a0 a3=4e5a15f056a1b4d6 items=2 ppid=782 pid=789 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"downloaded\" exe=\"/home/alice/downloaded\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 504,
+          "text": "type=EXECVE msg=audit(1795082593.440:89): argc=2 a0=\"/home/alice/downloaded\" a1=\"x3-recreate-G\""
+        },
+        {
+          "line": 505,
+          "text": "type=CWD msg=audit(1795082593.440:89): cwd=\"/\""
+        },
+        {
+          "line": 506,
+          "text": "type=PATH msg=audit(1795082593.440:89): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 508,
+          "text": "type=PATH msg=audit(1795082593.440:89): item=1 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 510,
+          "text": "type=PROCTITLE msg=audit(1795082593.440:89): proctitle=2F686F6D652F616C6963652F646F776E6C6F616465640078332D72656372656174652D47"
+        }
+      ],
+      "rc": 0,
+      "run": "x3-recreate",
+      "session_pid": 782,
+      "syscall_errno": 0,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/O0-after/snapshot.json",
+      "audit_event": "1795082593.456:90",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 511,
+      "audit_syscall": {
+        "a0": "563ca05dec30",
+        "a1": "563ca05df410",
+        "a2": "563ca05e16a0",
+        "a3": "f23664a156ce4524",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"bash\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/usr/bin/bash\"",
+        "exit": "-13",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "1",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.456:90):",
+        "pid": "802",
+        "ppid": "754",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "no",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/O0-before/snapshot.json",
+      "cell": "O0",
+      "errno_name": "EACCES",
+      "launch_file": "evidence/x3-recreate/O0.launch.bin",
+      "marker": null,
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "55e13dc328982b2c476c513acc12bb3c872c2ebd76311b79a5e0b20399a81fd6",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 511,
+          "text": "type=SYSCALL msg=audit(1795082593.456:90): arch=c000003e syscall=59 success=no exit=-13 a0=563ca05dec30 a1=563ca05df410 a2=563ca05e16a0 a3=f23664a156ce4524 items=1 ppid=754 pid=802 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"bash\" exe=\"/usr/bin/bash\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 513,
+          "text": "type=CWD msg=audit(1795082593.456:90): cwd=\"/\""
+        },
+        {
+          "line": 514,
+          "text": "type=PATH msg=audit(1795082593.456:90): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 516,
+          "text": "type=PROCTITLE msg=audit(1795082593.456:90): proctitle=2F62696E2F62617368002D2D6E6F70726F66696C65002D2D6E6F7263"
+        }
+      ],
+      "rc": 126,
+      "run": "x3-recreate",
+      "session_pid": 754,
+      "syscall_errno": 13,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/O1-after/snapshot.json",
+      "audit_event": "1795082593.464:91",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 517,
+      "audit_syscall": {
+        "a0": "55d62825dc30",
+        "a1": "55d62825e410",
+        "a2": "55d6282606a0",
+        "a3": "4e5a15f056a1b4d6",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"downloaded\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/home/alice/downloaded\"",
+        "exit": "0",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "2",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.464:91):",
+        "pid": "811",
+        "ppid": "782",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "yes",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/O1-before/snapshot.json",
+      "cell": "O1",
+      "errno_name": null,
+      "launch_file": "evidence/x3-recreate/O1.launch.bin",
+      "marker": "A",
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "55e13dc328982b2c476c513acc12bb3c872c2ebd76311b79a5e0b20399a81fd6",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 517,
+          "text": "type=SYSCALL msg=audit(1795082593.464:91): arch=c000003e syscall=59 success=yes exit=0 a0=55d62825dc30 a1=55d62825e410 a2=55d6282606a0 a3=4e5a15f056a1b4d6 items=2 ppid=782 pid=811 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"downloaded\" exe=\"/home/alice/downloaded\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 519,
+          "text": "type=EXECVE msg=audit(1795082593.464:91): argc=2 a0=\"/home/alice/downloaded\" a1=\"x3-recreate-O1\""
+        },
+        {
+          "line": 520,
+          "text": "type=CWD msg=audit(1795082593.464:91): cwd=\"/\""
+        },
+        {
+          "line": 521,
+          "text": "type=PATH msg=audit(1795082593.464:91): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 523,
+          "text": "type=PATH msg=audit(1795082593.464:91): item=1 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 525,
+          "text": "type=PROCTITLE msg=audit(1795082593.464:91): proctitle=2F686F6D652F616C6963652F646F776E6C6F616465640078332D72656372656174652D4F31"
+        }
+      ],
+      "rc": 0,
+      "run": "x3-recreate",
+      "session_pid": 782,
+      "syscall_errno": 0,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/F-after/snapshot.json",
+      "audit_event": "1795082593.484:98",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 574,
+      "audit_syscall": {
+        "a0": "55ebafb5f250",
+        "a1": "55ebafb61e50",
+        "a2": "55ebafb616a0",
+        "a3": "d0e07af4ef9cd074",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"downloaded\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/home/alice/downloaded\"",
+        "exit": "0",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "2",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.484:98):",
+        "pid": "824",
+        "ppid": "817",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "yes",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/F-before/snapshot.json",
+      "cell": "F",
+      "errno_name": null,
+      "launch_file": "evidence/x3-recreate/F.launch.bin",
+      "marker": "A",
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "55e13dc328982b2c476c513acc12bb3c872c2ebd76311b79a5e0b20399a81fd6",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 574,
+          "text": "type=SYSCALL msg=audit(1795082593.484:98): arch=c000003e syscall=59 success=yes exit=0 a0=55ebafb5f250 a1=55ebafb61e50 a2=55ebafb616a0 a3=d0e07af4ef9cd074 items=2 ppid=817 pid=824 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"downloaded\" exe=\"/home/alice/downloaded\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 576,
+          "text": "type=EXECVE msg=audit(1795082593.484:98): argc=2 a0=\"/home/alice/downloaded\" a1=\"x3-recreate-F\""
+        },
+        {
+          "line": 577,
+          "text": "type=CWD msg=audit(1795082593.484:98): cwd=\"/\""
+        },
+        {
+          "line": 578,
+          "text": "type=PATH msg=audit(1795082593.484:98): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 580,
+          "text": "type=PATH msg=audit(1795082593.484:98): item=1 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 582,
+          "text": "type=PROCTITLE msg=audit(1795082593.484:98): proctitle=2F686F6D652F616C6963652F646F776E6C6F616465640078332D72656372656174652D46"
+        }
+      ],
+      "rc": 0,
+      "run": "x3-recreate",
+      "session_pid": 817,
+      "syscall_errno": 0,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/U-after/snapshot.json",
+      "audit_event": "1795082593.504:106",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 624,
+      "audit_syscall": {
+        "a0": "557a2d416130",
+        "a1": "557a2d415e50",
+        "a2": "557a2d4156a0",
+        "a3": "fe3542fdc1763b5b",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"downloaded\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/srv/p31-home-view/alice/downloaded\"",
+        "exit": "0",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "2",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.504:106):",
+        "pid": "837",
+        "ppid": "830",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "yes",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/U-before/snapshot.json",
+      "cell": "U",
+      "errno_name": null,
+      "launch_file": "evidence/x3-recreate/U.launch.bin",
+      "marker": "A",
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/srv/p31-home-view/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "55e13dc328982b2c476c513acc12bb3c872c2ebd76311b79a5e0b20399a81fd6",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 624,
+          "text": "type=SYSCALL msg=audit(1795082593.504:106): arch=c000003e syscall=59 success=yes exit=0 a0=557a2d416130 a1=557a2d415e50 a2=557a2d4156a0 a3=fe3542fdc1763b5b items=2 ppid=830 pid=837 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"downloaded\" exe=\"/srv/p31-home-view/alice/downloaded\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 626,
+          "text": "type=EXECVE msg=audit(1795082593.504:106): argc=2 a0=\"/srv/p31-home-view/alice/downloaded\" a1=\"x3-recreate-U\""
+        },
+        {
+          "line": 627,
+          "text": "type=CWD msg=audit(1795082593.504:106): cwd=\"/\""
+        },
+        {
+          "line": 628,
+          "text": "type=PATH msg=audit(1795082593.504:106): item=0 name=\"/srv/p31-home-view/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 630,
+          "text": "type=PATH msg=audit(1795082593.504:106): item=1 name=\"/srv/p31-home-view/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 632,
+          "text": "type=PROCTITLE msg=audit(1795082593.504:106): proctitle=2F7372762F7033312D686F6D652D766965772F616C6963652F646F776E6C6F616465640078332D72656372656174652D55"
+        }
+      ],
+      "rc": 0,
+      "run": "x3-recreate",
+      "session_pid": 830,
+      "syscall_errno": 0,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/R-after/snapshot.json",
+      "audit_event": "1795082593.576:115",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 685,
+      "audit_syscall": {
+        "a0": "56234c8cd250",
+        "a1": "56234c8cfe50",
+        "a2": "56234c8cf6a0",
+        "a3": "3a54a72e160d57f1",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"downloaded\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/home/alice/downloaded\"",
+        "exit": "0",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "2",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.576:115):",
+        "pid": "866",
+        "ppid": "859",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "yes",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/R-before/snapshot.json",
+      "cell": "R",
+      "errno_name": null,
+      "launch_file": "evidence/x3-recreate/R.launch.bin",
+      "marker": "A",
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "ab9f5b1b2b999579f00040f09ee2cf4e89d95ae63be0be09cbab0f990130d77f",
+        "/etc/cal/x3-alice.rules": "fe3ea580f9d46f83ff89e636e61ff316511b6cfff3f7f8d98bd3d9ce0f55b940",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "94b250b18c1b011ad5a8d94d817b3b527b702e51ab78e36fd9e08ce92f5f9fd1",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "2c43b5c1d53606fcc99d9e244f2c0f140a711422d0a497e5c539fd3e5703f648",
+        "/var/lib/cal/pending.json": "cfec3418bb1468836381a4efdef7b2cf9fe2431d252189320b532c799f51da23"
+      },
+      "raw_audit_records": [
+        {
+          "line": 685,
+          "text": "type=SYSCALL msg=audit(1795082593.576:115): arch=c000003e syscall=59 success=yes exit=0 a0=56234c8cd250 a1=56234c8cfe50 a2=56234c8cf6a0 a3=3a54a72e160d57f1 items=2 ppid=859 pid=866 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"downloaded\" exe=\"/home/alice/downloaded\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 687,
+          "text": "type=EXECVE msg=audit(1795082593.576:115): argc=2 a0=\"/home/alice/downloaded\" a1=\"x3-recreate-R\""
+        },
+        {
+          "line": 688,
+          "text": "type=CWD msg=audit(1795082593.576:115): cwd=\"/\""
+        },
+        {
+          "line": 689,
+          "text": "type=PATH msg=audit(1795082593.576:115): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 691,
+          "text": "type=PATH msg=audit(1795082593.576:115): item=1 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 693,
+          "text": "type=PROCTITLE msg=audit(1795082593.576:115): proctitle=2F686F6D652F616C6963652F646F776E6C6F616465640078332D72656372656174652D52"
+        }
+      ],
+      "rc": 0,
+      "run": "x3-recreate",
+      "session_pid": 859,
+      "syscall_errno": 0,
+      "trajectory": "recreate"
+    },
+    {
+      "after": "evidence/x3-recreate/V-after/snapshot.json",
+      "audit_event": "1795082593.644:124",
+      "audit_file": "evidence/x3-recreate/audit.log",
+      "audit_line": 746,
+      "audit_syscall": {
+        "a0": "5654b1cf9250",
+        "a1": "5654b1cfbe50",
+        "a2": "5654b1cfb6a0",
+        "a3": "8529c3a32a9450a0",
+        "arch": "c000003e",
+        "auid": "0",
+        "comm": "\"bash\"",
+        "egid": "1000",
+        "euid": "1000",
+        "exe": "\"/usr/bin/bash\"",
+        "exit": "-13",
+        "fsgid": "1000",
+        "fsuid": "1000",
+        "gid": "1000",
+        "items": "1",
+        "key": "\"p31exec\"",
+        "msg": "audit(1795082593.644:124):",
+        "pid": "893",
+        "ppid": "886",
+        "ses": "4",
+        "sgid": "1000",
+        "subj": "unconfined",
+        "success": "no",
+        "suid": "1000",
+        "syscall": "59",
+        "tty": "(none)",
+        "type": "SYSCALL",
+        "uid": "1000"
+      },
+      "before": "evidence/x3-recreate/V-before/snapshot.json",
+      "cell": "V",
+      "errno_name": "EACCES",
+      "launch_file": "evidence/x3-recreate/V.launch.bin",
+      "marker": null,
+      "mechanism": "x3",
+      "object": {
+        "ctime_ns": 1795082593296000000,
+        "dev": 65025,
+        "gid": 1000,
+        "ino": 131074,
+        "mode": "0o100755",
+        "mtime_ns": 1795082593296000000,
+        "path": "/home/alice/downloaded",
+        "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+        "size": 762624,
+        "uid": 1000
+      },
+      "policy_hashes": {
+        "/etc/apparmor.d/cal-stand": null,
+        "/etc/cal/root.json": "2f162c4075af85f6e8b60e411beeeb1adeb774e86f41c12ccf5aabdaa0d74509",
+        "/etc/cal/x3-alice.rules": "523b4bfe05b4691e9df930e4fe9589715793207ed745a562eef9a59c9a5419e0",
+        "/etc/cal/x3-bob.rules": "a67c4cd861686259dcb938db0d34870b82b633d4a4b54338402b217a79171da0",
+        "/etc/cal/x3-exec-mounts.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "/home/alice/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/home/bob/declaration.json": "4cea28d81c202eb8c64bc39458f8836d4f52e08465c450dd97ea9be6a281c3d9",
+        "/var/lib/cal/current.json": "e842af390ea7a4a905f28fd3c39e6c45623ef79e34df38ec932fe4468b894616",
+        "/var/lib/cal/pending.json": "51b551273891383b8079456bc1bd7148d2cff670ff721b5278f535e966b55beb"
+      },
+      "raw_audit_records": [
+        {
+          "line": 746,
+          "text": "type=SYSCALL msg=audit(1795082593.644:124): arch=c000003e syscall=59 success=no exit=-13 a0=5654b1cf9250 a1=5654b1cfbe50 a2=5654b1cfb6a0 a3=8529c3a32a9450a0 items=1 ppid=886 pid=893 auid=0 uid=1000 gid=1000 euid=1000 suid=1000 fsuid=1000 egid=1000 sgid=1000 fsgid=1000 tty=(none) ses=4 comm=\"bash\" exe=\"/usr/bin/bash\" subj=unconfined key=\"p31exec\""
+        },
+        {
+          "line": 748,
+          "text": "type=CWD msg=audit(1795082593.644:124): cwd=\"/\""
+        },
+        {
+          "line": 749,
+          "text": "type=PATH msg=audit(1795082593.644:124): item=0 name=\"/home/alice/downloaded\" inode=131074 dev=fe:01 mode=0100755 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0"
+        },
+        {
+          "line": 751,
+          "text": "type=PROCTITLE msg=audit(1795082593.644:124): proctitle=2F62696E2F62617368002D2D6E6F70726F66696C65002D2D6E6F7263"
+        }
+      ],
+      "rc": 126,
+      "run": "x3-recreate",
+      "session_pid": 886,
+      "syscall_errno": 13,
+      "trajectory": "recreate"
+    }
+  ],
+  "summary": {
+    "apply_ok": {
+      "deny": true,
+      "grant": true,
+      "reapply": true,
+      "revoke": true
+    },
+    "audit_lost": 0,
+    "installed_source_hashes": {
+      "/usr/local/lib/cal/apply-policy": "54346baddeb5afaecaa5b4c9dfb9a024529817a8974d84cfea35224c30808c2f",
+      "/usr/local/sbin/cald": "0a8ab3e30fac16cfc318ab14ce828bfeb22f64d522ca4c4eb16b60ae015f9c46"
+    },
+    "launch_cells": 8,
+    "mechanism": "x3",
+    "mutation_errno": 16,
+    "mutation_source_after": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_source_before": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/srv/p31-home-view/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "mutation_visible_after": {
+      "ctime_ns": 1795082593296000000,
+      "dev": 65025,
+      "gid": 1000,
+      "ino": 131074,
+      "mode": "0o100755",
+      "mtime_ns": 1795082593296000000,
+      "path": "/home/alice/downloaded",
+      "sha256": "23b71ab865273e53087dedcdc74430830e76c911a99b5a5cfda8e46304df4120",
+      "size": 762624,
+      "uid": 1000
+    },
+    "replay": false,
+    "run": "x3-recreate",
+    "source_identity_changed": false,
+    "trajectory": "recreate"
+  }
+}

@@ -1,0 +1,120 @@
+Supplementary read-only provenance capture: 2026-11-19T09:11:36+00:00
+
+Stock skeleton comparisons
+724138dda292d1b7956c261f54e23f3db868706c50138c94a5fc2b5f3931ebe7  /home/guest/.Xdefaults
+724138dda292d1b7956c261f54e23f3db868706c50138c94a5fc2b5f3931ebe7  /etc/skel/.Xdefaults
+MATCH /home/guest/.Xdefaults
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /home/guest/.bash_profile
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /etc/skel/.bash_profile
+MATCH /home/guest/.bash_profile
+ea92c12bb1d48f8f0e183361493b0aac7509e6e3598c337818a890afffb1a85e  /home/guest/.guile
+ea92c12bb1d48f8f0e183361493b0aac7509e6e3598c337818a890afffb1a85e  /etc/skel/.guile
+MATCH /home/guest/.guile
+2463ae208c212de5b59f8ac71af89e6b2e26626c3b1f3ddc0699a16366f3532b  /home/guest/.zprofile
+2463ae208c212de5b59f8ac71af89e6b2e26626c3b1f3ddc0699a16366f3532b  /etc/skel/.zprofile
+MATCH /home/guest/.zprofile
+f207664b844b265cf50daf5d0e96399ff05810a9c4905fa6afc43e652f88b9ce  /home/guest/guix-home-config.scm
+f207664b844b265cf50daf5d0e96399ff05810a9c4905fa6afc43e652f88b9ce  /etc/skel/guix-home-config.scm
+MATCH /home/guest/guix-home-config.scm
+eab40dd626d52ad1e1ff54431dcc7f75be4afe24070cffbda90aefbf3e96feaf  /home/guest/.config/gdb/gdbinit
+eab40dd626d52ad1e1ff54431dcc7f75be4afe24070cffbda90aefbf3e96feaf  /etc/skel/.config/gdb/gdbinit
+MATCH /home/guest/.config/gdb/gdbinit
+91f5421476f72d2c3290b4fa04d66300a70081897689328d4a049c25c486ab47  /home/guest/.config/nano/nanorc
+91f5421476f72d2c3290b4fa04d66300a70081897689328d4a049c25c486ab47  /etc/skel/.config/nano/nanorc
+MATCH /home/guest/.config/nano/nanorc
+724138dda292d1b7956c261f54e23f3db868706c50138c94a5fc2b5f3931ebe7  /root/.Xdefaults
+724138dda292d1b7956c261f54e23f3db868706c50138c94a5fc2b5f3931ebe7  /etc/skel/.Xdefaults
+MATCH /root/.Xdefaults
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /root/.bash_profile
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /etc/skel/.bash_profile
+MATCH /root/.bash_profile
+ea92c12bb1d48f8f0e183361493b0aac7509e6e3598c337818a890afffb1a85e  /root/.guile
+ea92c12bb1d48f8f0e183361493b0aac7509e6e3598c337818a890afffb1a85e  /etc/skel/.guile
+MATCH /root/.guile
+2463ae208c212de5b59f8ac71af89e6b2e26626c3b1f3ddc0699a16366f3532b  /root/.zprofile
+2463ae208c212de5b59f8ac71af89e6b2e26626c3b1f3ddc0699a16366f3532b  /etc/skel/.zprofile
+MATCH /root/.zprofile
+f207664b844b265cf50daf5d0e96399ff05810a9c4905fa6afc43e652f88b9ce  /root/guix-home-config.scm
+f207664b844b265cf50daf5d0e96399ff05810a9c4905fa6afc43e652f88b9ce  /etc/skel/guix-home-config.scm
+MATCH /root/guix-home-config.scm
+eab40dd626d52ad1e1ff54431dcc7f75be4afe24070cffbda90aefbf3e96feaf  /root/.config/gdb/gdbinit
+eab40dd626d52ad1e1ff54431dcc7f75be4afe24070cffbda90aefbf3e96feaf  /etc/skel/.config/gdb/gdbinit
+MATCH /root/.config/gdb/gdbinit
+91f5421476f72d2c3290b4fa04d66300a70081897689328d4a049c25c486ab47  /root/.config/nano/nanorc
+91f5421476f72d2c3290b4fa04d66300a70081897689328d4a049c25c486ab47  /etc/skel/.config/nano/nanorc
+MATCH /root/.config/nano/nanorc
+
+System etc source comparisons
+-r--r--r-- 1 root root 42 Nov 19 09:05 /etc/hosts
+lrwxrwxrwx 1 root root 49 Jan  1  1970 /run/current-system/etc/hosts -> /gnu/store/pxpifzy4h4ca2707f9f1d9zfj2jyy962-hosts
+127.0.0.1	localhost	gnu
+::1	localhost	gnu
+f4e189a3cc18fb744e4ec6d642ee46fd012739f65218f5e84b755c69c9486999  /etc/hosts
+f4e189a3cc18fb744e4ec6d642ee46fd012739f65218f5e84b755c69c9486999  /run/current-system/etc/hosts
+-r--r----- 1 root root 44 Nov 19 09:05 /etc/sudoers
+lrwxrwxrwx 1 root root 51 Jan  1  1970 /run/current-system/etc/sudoers -> /gnu/store/16dqsksxq0vf1wi5asqv3j5vvfa4iky3-sudoers
+root ALL=(ALL) ALL
+%wheel ALL=NOPASSWD: ALL
+4fcea08aad30216d17282e90cddf1114deb540f890f66c4dbaced6a8b45fc1f9  /etc/sudoers
+4fcea08aad30216d17282e90cddf1114deb540f890f66c4dbaced6a8b45fc1f9  /run/current-system/etc/sudoers
+ls: cannot access '/run/current-system/etc/mtab': No such file or directory
+lrwxrwxrwx 1 root root 17 Nov 19 08:49 /etc/mtab -> /proc/self/mounts
+none /proc proc rw,relatime 0 0
+none /dev devtmpfs rw,relatime,size=1997416k,nr_inodes=499354,mode=755 0 0
+none /sys sysfs rw,relatime 0 0
+/dev/vda2 / ext4 rw,relatime 0 0
+none /dev/pts devpts rw,relatime,gid=996,mode=620,ptmxmode=000 0 0
+none /sys/kernel/debug debugfs rw,relatime 0 0
+tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime,size=2007244k 0 0
+/dev/vda2 /gnu/store ext4 ro,noatime 0 0
+none /run/systemd tmpfs rw,nosuid,nodev,noexec,relatime,mode=755 0 0
+none /run/user tmpfs rw,nosuid,nodev,noexec,relatime,mode=755 0 0
+none /sys/fs/cgroup cgroup2 rw,relatime 0 0
+none /var/cache/fontconfig tmpfs ro,relatime 0 0
+none /var/lib/gdm tmpfs rw,relatime 0 0
+cgroup /sys/fs/cgroup/elogind cgroup rw,relatime,name=elogind 0 0
+tmpfs /run/user/1000 tmpfs rw,nosuid,nodev,relatime,size=401448k,nr_inodes=100362,mode=700,uid=1000,gid=998 0 0
+taskshare /mnt/taskshare 9p rw,relatime,access=client,trans=virtio 0 0
+tmpfs /run/user/0 tmpfs rw,nosuid,nodev,relatime,size=401448k,nr_inodes=100362,mode=700 0 0
+ls: cannot access '/run/current-system/etc/ssl': No such file or directory
+lrwxrwxrwx 1 root root 35 Nov 19 09:05 /etc/ssl -> /run/current-system/profile/etc/ssl
+
+Profile manifests
+;; This file was automatically generated and is for internal use only.
+;; It cannot be passed to the '--manifest' option.
+;; Run 'guix package --export-manifest' if you want to export a file
+;; suitable for '--manifest'.
+
+(manifest
+  (version 4)
+  (packages
+    (("hello"
+      "2.12.2"
+      "out"
+      "/gnu/store/cs56i9digj9qg1bd383cmxc6xrfpdn9n-hello-2.12.2"))))
+;; This file was automatically generated and is for internal use only.
+;; It cannot be passed to the '--manifest' option.
+;; Run 'guix package --export-manifest' if you want to export a file
+;; suitable for '--manifest'.
+
+(manifest (version 4) (packages ()))
+
+Home declaration snapshot
+(use-modules (gnu home) (gnu services) (gnu home services) (guix gexp))
+(home-environment
+ (services
+  (list
+   (simple-service 'w1-declared-note home-files-service-type
+                   (list `( ".config/w1/declared-note"
+                            ,(plain-file "w1-declared-note" "This file belongs to the user's Home declaration.\n")))))))
+
+Boot/current system
+/gnu/store/3clkkwp48fi3i6iybh4sgylqf7yhkg77-system
+/gnu/store/xkkp150wwakraqdxlq7cpyn75ysqpk15-system
+
+NSS
+group:	files
+hosts:	files mdns_minimal [NOTFOUND=return] dns mdns
+networks:	files dns [!UNAVAIL=return]
+passwd:	files
+shadow:	files

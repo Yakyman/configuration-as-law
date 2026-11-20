@@ -1,0 +1,15 @@
+{
+  "id": "27-network",
+  "channel": "ordinary network",
+  "command": "curl -fsS http://127.0.0.1:8080/; curl -I -sS --max-time 20 https://www.debian.org/",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "<html><body><h1>CAL browser fixture</h1></body></html>\nHTTP/2 200 \ncontent-location: index.en.html\nvary: negotiate,accept-language,Accept-Encoding,cookie\ntcn: choice\nx-content-type-options: nosniff\nx-frame-options: sameorigin\nreferrer-policy: no-referrer\nx-xss-protection: 1\npermissions-policy: interest-cohort=()\nstrict-transport-security: max-age=15552000\nlast-modified: Mon, 02 Nov 2026 23:29:24 GMT\netag: \"3df7-65f53842b8d35\"\naccept-ranges: bytes\ncontent-length: 15863\ncache-control: max-age=86400\nexpires: Fri, 20 Nov 2026 06:38:04 GMT\nx-clacks-overhead: GNU Terry Pratchett\ncontent-type: text/html\ncontent-language: en\ndate: Thu, 19 Nov 2026 06:38:04 GMT\nserver: Apache\n\n",
+  "stderr": "",
+  "declaration_before": "f92b7627a190ee26c11fe7fa21f86c5731fb3b79aa08ef335ecfdba00b3f0ade",
+  "declaration_after": "f92b7627a190ee26c11fe7fa21f86c5731fb3b79aa08ef335ecfdba00b3f0ade",
+  "utc": "2026-11-19T06:38:04Z"
+}

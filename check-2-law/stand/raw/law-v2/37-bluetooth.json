@@ -1,0 +1,15 @@
+{
+  "id": "37-bluetooth",
+  "channel": "Bluetooth",
+  "command": "ls -l /sys/class/ieee80211 /sys/class/bluetooth",
+  "user": "root",
+  "expected": "hardware absent",
+  "observed": "blocked",
+  "returncode": 2,
+  "met": null,
+  "stdout": "",
+  "stderr": "ls: cannot access '/sys/class/ieee80211': No such file or directory\nls: cannot access '/sys/class/bluetooth': No such file or directory\n",
+  "declaration_before": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "declaration_after": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "utc": "2026-11-19T06:38:06Z"
+}

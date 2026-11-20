@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-19T10:36:24.874795+00:00",
+  "attempts": 15,
+  "acks": 9,
+  "rejections": 6,
+  "contract_failures": [
+    {
+      "run": "blocks",
+      "attempt": "retry",
+      "digest_equal": false,
+      "promised_launch_works": false
+    },
+    {
+      "run": "replay-blocks",
+      "attempt": "retry",
+      "digest_equal": false,
+      "promised_launch_works": false
+    }
+  ],
+  "checks": 818,
+  "failed_checks": []
+}

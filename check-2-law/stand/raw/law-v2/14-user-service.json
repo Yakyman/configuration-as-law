@@ -1,0 +1,15 @@
+{
+  "id": "14-user-service",
+  "channel": "systemd user unit",
+  "command": "mkdir -p \"$HOME/.config/systemd/user\"; printf '[Service]\\nExecStart=/home/alice/downloaded\\n' >\"$HOME/.config/systemd/user/probe.service\"; systemctl --user daemon-reload && systemctl --user start probe.service",
+  "user": "alice",
+  "expected": "blocked",
+  "observed": "blocked",
+  "returncode": 126,
+  "met": true,
+  "stdout": "",
+  "stderr": "/bin/bash: line 1: /usr/bin/systemctl: Permission denied\n",
+  "declaration_before": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "declaration_after": "a02fb76bea7e158a7438787651e5ac3f90de36c49ab3d8eea0cba4548dc395f5",
+  "utc": "2026-11-19T06:38:03Z"
+}

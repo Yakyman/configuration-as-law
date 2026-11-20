@@ -1,0 +1,15 @@
+{
+  "id": "32-extension-prepare",
+  "channel": "browser extension derivative",
+  "command": "mkdir -p \"$HOME/extension\"; printf '%s' '{\"manifest_version\":3,\"name\":\"CAL extension fixture\",\"version\":\"1.0\",\"content_scripts\":[{\"matches\":[\"http://127.0.0.1/*\"],\"js\":[\"content.js\"]}]}' >\"$HOME/extension/manifest.json\"; printf '%s' 'document.body.append(\"EXTENSION_EXECUTED\");' >\"$HOME/extension/content.js\"",
+  "user": "alice",
+  "expected": "works",
+  "observed": "executed",
+  "returncode": 0,
+  "met": true,
+  "stdout": "",
+  "stderr": "",
+  "declaration_before": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "declaration_after": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "utc": "2026-11-19T06:38:06Z"
+}

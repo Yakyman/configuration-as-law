@@ -1,0 +1,11 @@
+{
+  "machine": "server",
+  "label": "target-ssh-source-pin-before-transfer",
+  "started_utc": "2026-11-19T08:36:41.959039+00:00",
+  "command": "bash -s",
+  "script": "cd <WORKDIR>/E4\nssh -n -o BatchMode=yes -o StrictHostKeyChecking=yes -o HostKeyAlias=e4-service -o UserKnownHostsFile=\"$PWD/service_known_hosts\" -o HostKeyAlgorithms=ssh-ed25519 -i id_ed25519 -p 22147 root@127.0.0.1 'hostname; cat /etc/machine-id'\necho SSH_RC=$?\n",
+  "rc": 0,
+  "stdout": "SSH_RC=255\n",
+  "stderr": "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\nIt is also possible that a host key has just been changed.\nThe fingerprint for the ED25519 key sent by the remote host is\n<REDACTED-27>.\nPlease contact your system administrator.\nAdd correct host key in <WORKDIR>/E4/service_known_hosts to get rid of this message.\nOffending ED25519 key in <WORKDIR>/E4/service_known_hosts:1\n  remove with:\n  ssh-keygen -f '<WORKDIR>/E4/service_known_hosts' -R 'e4-service'\nHost key for e4-service has changed and you have requested strict checking.\nHost key verification failed.\n",
+  "finished_utc": "2026-11-19T08:36:42.143578+00:00"
+}

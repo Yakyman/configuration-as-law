@@ -1,0 +1,59 @@
+{
+  "ack_counts": {
+    "False": 324,
+    "True": 36
+  },
+  "active_queries": 10800,
+  "active_seconds": 1081.5125699450018,
+  "complete": 36,
+  "composition": {
+    "isolation": {
+      "accepted": 0,
+      "denominator": 12,
+      "observed": 12,
+      "representable": 12,
+      "usable": 6
+    },
+    "mixed": {
+      "accepted": 0,
+      "denominator": 12,
+      "observed": 12,
+      "representable": 0,
+      "usable": 0
+    },
+    "same": {
+      "accepted": 0,
+      "denominator": 12,
+      "observed": 12,
+      "representable": 12,
+      "usable": 0
+    }
+  },
+  "event_contract_counts": {
+    "0": 18,
+    "1": 342
+  },
+  "event_count": 360,
+  "expected_primary_trajectories": 36,
+  "signatures": [
+    {
+      "locator": "primary/mixed-AB-r1/03-root-fixed/event.json",
+      "priority": 1,
+      "signature": "REJECT_PEER_RIGHTS:alpha:False:True",
+      "step": "03-root-fixed",
+      "trajectory": "mixed-AB-r1"
+    },
+    {
+      "locator": "primary/same-AB-r1/02-second/event.json",
+      "priority": 2,
+      "signature": "REJECT_WORKER_PARTIAL_POLICY",
+      "step": "02-second",
+      "trajectory": "same-AB-r1"
+    }
+  ],
+  "source": "independent observer/source predicate; no controller imports",
+  "trajectory_contract_counts": {
+    "0": 18,
+    "1": 18
+  }
+}

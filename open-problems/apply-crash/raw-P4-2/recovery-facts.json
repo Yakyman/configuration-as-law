@@ -1,0 +1,332 @@
+[
+  {
+    "id": "B-delete-immediate",
+    "input_semantics_equal_pre_after": false,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 3,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "B-delete-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "B-delete-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "B-delete-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "B-keep-immediate",
+    "input_semantics_equal_pre_after": false,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 3,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "B-keep-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "B-keep-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "B-keep-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 3,
+    "owning_saved_after_recovery": 4,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "G-delete-immediate",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "G-delete-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "G-delete-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "G-delete-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "G-keep-immediate",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "G-keep-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "G-keep-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "G-keep-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 0,
+    "owning_saved_after_recovery": 0,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "R-delete-immediate",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "R-delete-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "R-delete-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "R-delete-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "R-keep-immediate",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "R-keep-nocut",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "R-keep-reboot",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": null
+  },
+  {
+    "id": "R-keep-sync",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": 0,
+    "signal_exit": -9
+  },
+  {
+    "id": "replay-B-keep",
+    "input_semantics_equal_pre_after": false,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 3,
+    "lookup_after_recovery": [
+      "/var/lib/cal/active/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "replay-G-delete",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "replay-G-keep",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  },
+  {
+    "id": "replay-R-keep",
+    "input_semantics_equal_pre_after": true,
+    "owning_saved_before_repair": 2,
+    "owning_saved_after_recovery": 2,
+    "lookup_after_recovery": [
+      "/var/lib/cal/archive/shared-lookup/lookup"
+    ],
+    "measured_rc": 0,
+    "sync_rc": null,
+    "signal_exit": -9
+  }
+]

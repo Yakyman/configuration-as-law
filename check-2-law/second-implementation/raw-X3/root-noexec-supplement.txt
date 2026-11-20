@@ -1,0 +1,74 @@
+Root identity and capabilities
+uid=0(root) gid=0(root) groups=0(root)
+Name:	cat
+Umask:	0022
+State:	R (running)
+Tgid:	2281
+Ngid:	0
+Pid:	2281
+PPid:	2278
+TracerPid:	0
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+FDSize:	64
+Groups:	0 
+NStgid:	2281
+NSpid:	2281
+NSpgid:	2278
+NSsid:	2278
+VmPeak:	    3052 kB
+VmSize:	    3052 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     876 kB
+VmRSS:	     876 kB
+RssAnon:	      88 kB
+RssFile:	     788 kB
+RssShmem:	       0 kB
+VmData:	     360 kB
+VmStk:	     132 kB
+VmExe:	      20 kB
+VmLib:	    1528 kB
+VmPTE:	      48 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	1
+SigQ:	1/15619
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	000001ffffffffff
+CapEff:	000001ffffffffff
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	3
+Cpus_allowed_list:	0-1
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	0
+755 0 0 131179 31448
+1aab5d66fba9313733ca534dc9693f262532ab696eb9d29cc70978c5e1c7078c  /home/alice/x3-root-control
+TARGET VFS-OPTIONS        FS-OPTIONS
+/home  rw,noexec,relatime rw,discard,errors=remount-ro
+BASELINE_ROOT_EXEC_RC=126
+bash: line 12: /home/alice/x3-root-control: Permission denied
+ROOT_MANUAL_EXEC_MOUNT_RC=0
+TARGET                      VFS-OPTIONS FS-OPTIONS
+/home/alice/x3-root-control rw,relatime rw,discard,errors=remount-ro
+755 0 0 131179 31448
+1aab5d66fba9313733ca534dc9693f262532ab696eb9d29cc70978c5e1c7078c  /home/alice/x3-root-control
+Hello, world!
+AFTER_MANUAL_ROOT_EXEC_RC=0
+Mount count after suite and supplement
+30 /proc/self/mountinfo

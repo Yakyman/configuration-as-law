@@ -1,0 +1,252 @@
+{
+  "ack": {
+    "ack_valid": true,
+    "args": [
+      "gc",
+      "1795084073493730714",
+      "1795084075018607878"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl gc 1795084073493730714 1795084075018607878"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407146109070158,
+    "rc": 0,
+    "response": {
+      "active": [],
+      "archive": [],
+      "current": {
+        "allow_channels": {},
+        "archive": "delete",
+        "generation": "1795084075850274052",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {},
+        "root": {
+          "allow_channels": {},
+          "archive": "delete",
+          "policies": {},
+          "programs": {},
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generations": [
+        "1795083794252190280",
+        "1795084075850274052"
+      ],
+      "ok": true
+    },
+    "start_monotonic_ns": 407145935204440,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "f3b9befdb3f324663f2273887fd2e72cb0a992f4b984ce638e76743429ce454d",
+    "utc": "2026-11-19T10:27:56.134579+00:00"
+  },
+  "after_label": "after-boot",
+  "cut": "reboot",
+  "end_utc": "2026-11-19T10:28:02.652048+00:00",
+  "g1": "1795084073493730714",
+  "g2": "1795084075018607878",
+  "g3": "1795084075850274052",
+  "id": "G-delete-reboot",
+  "key": "G-delete-reboot",
+  "measured_args": [
+    "gc",
+    "1795084073493730714",
+    "1795084075018607878"
+  ],
+  "op": "G",
+  "owning_before": [
+    "1795084073493730714",
+    "1795084075018607878"
+  ],
+  "policy": "delete",
+  "primary": false,
+  "recovery": {
+    "ack_valid": true,
+    "args": [
+      "apply"
+    ],
+    "command": [
+      "ssh",
+      "-F",
+      "/dev/null",
+      "-i",
+      "<WORKDIR>/P4-2/key-root",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=3",
+      "-o",
+      "StrictHostKeyChecking=no",
+      "-o",
+      "UserKnownHostsFile=<WORKDIR>/P4-2/known_hosts",
+      "-p",
+      "23442",
+      "root@127.0.0.1",
+      "/usr/local/bin/calctl apply"
+    ],
+    "complete_response_and_exit_monotonic_ns": 407152094193446,
+    "rc": 0,
+    "response": {
+      "effective": {
+        "allow_channels": {},
+        "archive": "delete",
+        "generation": "1795084081616154118",
+        "personal": {
+          "alice": {
+            "programs": {}
+          },
+          "bob": {
+            "programs": {}
+          }
+        },
+        "programs": {},
+        "root": {
+          "allow_channels": {},
+          "archive": "delete",
+          "policies": {},
+          "programs": {},
+          "shared": {
+            "lookup": [
+              "alpha",
+              "beta"
+            ]
+          }
+        },
+        "shared": {
+          "lookup": [
+            "alpha",
+            "beta"
+          ]
+        }
+      },
+      "generation": "1795084081616154118",
+      "hook_stderr": "",
+      "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+      "ok": true
+    },
+    "start_monotonic_ns": 407151835993610,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "53e9c036c73fefb7d559b0e7c946f2cea9b8de083c224b1f1b1e614c9ab3c764",
+    "utc": "2026-11-19T10:28:02.119717+00:00"
+  },
+  "reset": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-015.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 15,
+    "ok": true,
+    "qemu_pid": 235209,
+    "qemu_status": null,
+    "request": {
+      "action": "reset",
+      "id": "1795084068149475614"
+    },
+    "utc": "2026-11-19T10:27:48.153331+00:00"
+  },
+  "restart": {
+    "argv": [
+      "qemu-system-x86_64",
+      "-name",
+      "cal-p42",
+      "-uuid",
+      "e9d11119-0042-4042-8042-000000000042",
+      "-enable-kvm",
+      "-cpu",
+      "host",
+      "-m",
+      "2048",
+      "-smp",
+      "2",
+      "-display",
+      "none",
+      "-serial",
+      "file:serial-016.log",
+      "-monitor",
+      "unix:monitor.sock,server,nowait",
+      "-drive",
+      "file=disk.qcow2,if=virtio,format=qcow2,cache=none,aio=threads",
+      "-netdev",
+      "user,id=n0,hostfwd=tcp:127.0.0.1:23442-:22",
+      "-device",
+      "virtio-net-pci,netdev=n0,mac=<MAC-12>"
+    ],
+    "boot": 16,
+    "ok": true,
+    "qemu_pid": 235320,
+    "qemu_status": null,
+    "request": {
+      "action": "boot",
+      "id": "1795084076916093305"
+    },
+    "utc": "2026-11-19T10:27:56.923514+00:00"
+  },
+  "start_utc": "2026-11-19T10:27:48.137155+00:00",
+  "status": "complete",
+  "stop": {
+    "boot": 15,
+    "ok": true,
+    "qemu_pid": 235209,
+    "qemu_status": 0,
+    "request": {
+      "action": "wait-stopped",
+      "id": "1795084076532817231"
+    },
+    "utc": "2026-11-19T10:27:56.534457+00:00"
+  }
+}

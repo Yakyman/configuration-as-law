@@ -1,0 +1,15 @@
+{
+  "id": "34-root-managed",
+  "channel": "managed root program write",
+  "command": "/usr/local/lib/cal/worker --probe",
+  "user": "root",
+  "expected": "blocked",
+  "observed": "blocked",
+  "returncode": 13,
+  "met": true,
+  "stdout": "",
+  "stderr": "managed root write: Permission denied\n",
+  "declaration_before": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "declaration_after": "006c63826143a90dff6468fced5f52a1ddbf0ca6094b1fe9fffdd13a661acd62",
+  "utc": "2026-11-19T06:38:06Z"
+}

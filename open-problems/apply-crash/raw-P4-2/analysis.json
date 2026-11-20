@@ -1,0 +1,1722 @@
+{
+  "summary": {
+    "rows": 28,
+    "primary_complete": 12,
+    "primary_ack_contract_survived": 6,
+    "controls_complete": 12,
+    "replays_complete": 4,
+    "stand_current_limb_failures": 0,
+    "payload_absences": 0,
+    "all_source_joins": true,
+    "all_preconditions": true
+  },
+  "rows": [
+    {
+      "id": "B-delete-immediate",
+      "op": "B",
+      "policy": "delete",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 224.782157,
+      "start_utc": "2026-11-19T10:29:51.753475+00:00",
+      "end_utc": "2026-11-19T10:30:05.999418+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084196429033076": [
+          "alpha",
+          "beta"
+        ],
+        "1795084197895394693": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084198720378137",
+      "ack_generation": "1795084199375159411",
+      "cache": {
+        "active": null,
+        "archive": "2f71aa3599b2450d9b7270a46ab2b2a7b10ed6e31a2e79cda4c74556c1d5f803"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "2f71aa3599b2450d9b7270a46ab2b2a7b10ed6e31a2e79cda4c74556c1d5f803"
+      },
+      "cache_precut": {
+        "active": "2f71aa3599b2450d9b7270a46ab2b2a7b10ed6e31a2e79cda4c74556c1d5f803",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "designated:/etc/cal/root.json",
+        "designated:/home/alice/declaration.json",
+        "designated:/home/bob/declaration.json",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084199375159411"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-delete-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-delete-nocut",
+      "op": "B",
+      "policy": "delete",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:52.481569+00:00",
+      "end_utc": "2026-11-19T10:27:02.610800+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084017487282413": [
+          "alpha",
+          "beta"
+        ],
+        "1795084018964287006": [
+          "beta"
+        ],
+        "1795084020443850387": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084020443850387",
+      "ack_generation": "1795084020443850387",
+      "cache": {
+        "active": "6c3241c0a142a8a8aa598e1465bc7ca11bfb8f2d0dfac121fced635fb74ffe96",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "6c3241c0a142a8a8aa598e1465bc7ca11bfb8f2d0dfac121fced635fb74ffe96"
+      },
+      "cache_precut": {
+        "active": "6c3241c0a142a8a8aa598e1465bc7ca11bfb8f2d0dfac121fced635fb74ffe96",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-delete-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-delete-reboot",
+      "op": "B",
+      "policy": "delete",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:28:18.876046+00:00",
+      "end_utc": "2026-11-19T10:28:35.200989+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084103525504790": [
+          "alpha",
+          "beta"
+        ],
+        "1795084105031556176": [
+          "beta"
+        ],
+        "1795084106547543722": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084106547543722",
+      "ack_generation": "1795084106547543722",
+      "cache": {
+        "active": "ee93067b35b05bad5164b43771a7a28e2faed56a968022d82c26e9c9a3f795a0",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "ee93067b35b05bad5164b43771a7a28e2faed56a968022d82c26e9c9a3f795a0"
+      },
+      "cache_precut": {
+        "active": "ee93067b35b05bad5164b43771a7a28e2faed56a968022d82c26e9c9a3f795a0",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-delete-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-delete-sync",
+      "op": "B",
+      "policy": "delete",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 412.598722,
+      "start_utc": "2026-11-19T10:31:21.092531+00:00",
+      "end_utc": "2026-11-19T10:31:35.852134+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084286457589479": [
+          "alpha",
+          "beta"
+        ],
+        "1795084287932162233": [
+          "beta"
+        ],
+        "1795084289432768699": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084289432768699",
+      "ack_generation": "1795084289432768699",
+      "cache": {
+        "active": "0381cfe84f62d8c3292c83861d93f1a16005dad8a64b659a200278f8b951e387",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "0381cfe84f62d8c3292c83861d93f1a16005dad8a64b659a200278f8b951e387"
+      },
+      "cache_precut": {
+        "active": "0381cfe84f62d8c3292c83861d93f1a16005dad8a64b659a200278f8b951e387",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-delete-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-keep-immediate",
+      "op": "B",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 219.216739,
+      "start_utc": "2026-11-19T10:29:36.952330+00:00",
+      "end_utc": "2026-11-19T10:29:51.191289+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084182445577897": [
+          "alpha",
+          "beta"
+        ],
+        "1795084183906237323": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084184725475665",
+      "ack_generation": "1795084185398649726",
+      "cache": {
+        "active": null,
+        "archive": "c4de397cdd5dbaa63054ee543f0b41f8b965e855c908deb49dd7fd68b54bb0f4"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "c4de397cdd5dbaa63054ee543f0b41f8b965e855c908deb49dd7fd68b54bb0f4"
+      },
+      "cache_precut": {
+        "active": "c4de397cdd5dbaa63054ee543f0b41f8b965e855c908deb49dd7fd68b54bb0f4",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "designated:/etc/cal/root.json",
+        "designated:/home/alice/declaration.json",
+        "designated:/home/bob/declaration.json",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084185398649726"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-keep-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-keep-nocut",
+      "op": "B",
+      "policy": "keep",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:41.708458+00:00",
+      "end_utc": "2026-11-19T10:26:51.869386+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084006499635545": [
+          "alpha",
+          "beta"
+        ],
+        "1795084007975405964": [
+          "beta"
+        ],
+        "1795084009436199752": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084009436199752",
+      "ack_generation": "1795084009436199752",
+      "cache": {
+        "active": "c1099bf13980dad1c8a805d9ea99a9e43de59c3d0d446170c5ff93fab8112b0c",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "c1099bf13980dad1c8a805d9ea99a9e43de59c3d0d446170c5ff93fab8112b0c"
+      },
+      "cache_precut": {
+        "active": "c1099bf13980dad1c8a805d9ea99a9e43de59c3d0d446170c5ff93fab8112b0c",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-keep-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-keep-reboot",
+      "op": "B",
+      "policy": "keep",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:28:03.277462+00:00",
+      "end_utc": "2026-11-19T10:28:18.269509+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084088470613068": [
+          "alpha",
+          "beta"
+        ],
+        "1795084089951296049": [
+          "beta"
+        ],
+        "1795084091439309463": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084091439309463",
+      "ack_generation": "1795084091439309463",
+      "cache": {
+        "active": "408092e8ae318dcb3675863c879c995c17e2bb73f0c24eb70caeae2f24f09ad8",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "408092e8ae318dcb3675863c879c995c17e2bb73f0c24eb70caeae2f24f09ad8"
+      },
+      "cache_precut": {
+        "active": "408092e8ae318dcb3675863c879c995c17e2bb73f0c24eb70caeae2f24f09ad8",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-keep-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "B-keep-sync",
+      "op": "B",
+      "policy": "keep",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 395.804527,
+      "start_utc": "2026-11-19T10:31:05.654658+00:00",
+      "end_utc": "2026-11-19T10:31:20.474299+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084270501229023": [
+          "alpha",
+          "beta"
+        ],
+        "1795084272000113050": [
+          "beta"
+        ],
+        "1795084273496423471": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084273496423471",
+      "ack_generation": "1795084273496423471",
+      "cache": {
+        "active": "dca1fe7c1006c69d1ed4ef39db64b2180e402a58bc36b5866d161207dbe59841",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "dca1fe7c1006c69d1ed4ef39db64b2180e402a58bc36b5866d161207dbe59841"
+      },
+      "cache_precut": {
+        "active": "dca1fe7c1006c69d1ed4ef39db64b2180e402a58bc36b5866d161207dbe59841",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/B-keep-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-delete-immediate",
+      "op": "G",
+      "policy": "delete",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 224.662732,
+      "start_utc": "2026-11-19T10:29:22.244516+00:00",
+      "end_utc": "2026-11-19T10:29:36.279043+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084167472438632": [
+          "alpha",
+          "beta"
+        ],
+        "1795084168932838351": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084169764677018",
+      "ack_generation": "1795084169764677018",
+      "cache": {
+        "active": null,
+        "archive": "be8f492191b8592bcede3209d7ab47d0289e15b85cf4ef78437cf40084e0c537"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "be8f492191b8592bcede3209d7ab47d0289e15b85cf4ef78437cf40084e0c537"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": null
+      },
+      "expected_after_location": null,
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "saved-membership",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [],
+      "resurrected_saved": [
+        "1795084167472438632",
+        "1795084168932838351"
+      ],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-delete-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-delete-nocut",
+      "op": "G",
+      "policy": "delete",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:31.390114+00:00",
+      "end_utc": "2026-11-19T10:26:41.084279+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795083998768310731",
+      "ack_generation": "1795083998768310731",
+      "cache": {
+        "active": null,
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "261d99463ce5821f6b71b10c38e9aa7a45fa1ff50ee102951a7db5ae514710d2"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": null
+      },
+      "expected_after_location": null,
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-delete-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-delete-reboot",
+      "op": "G",
+      "policy": "delete",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:27:48.137155+00:00",
+      "end_utc": "2026-11-19T10:28:02.652048+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795084075850274052",
+      "ack_generation": "1795084075850274052",
+      "cache": {
+        "active": null,
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "58cbc0c1dbbf369155fa979b8b31aa4ff66c3c17b3a6f5606d841afc0f3106b6"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": null
+      },
+      "expected_after_location": null,
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-delete-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-delete-sync",
+      "op": "G",
+      "policy": "delete",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 388.73797,
+      "start_utc": "2026-11-19T10:30:50.814314+00:00",
+      "end_utc": "2026-11-19T10:31:05.034349+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795084257738123068",
+      "ack_generation": "1795084257738123068",
+      "cache": {
+        "active": null,
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "512ea2d1fdee6ec15b94ca84a706b4b127d379cbee6c61cd453eb8dc743928b5"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": null
+      },
+      "expected_after_location": null,
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-delete-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-keep-immediate",
+      "op": "G",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 217.47867,
+      "start_utc": "2026-11-19T10:29:07.523523+00:00",
+      "end_utc": "2026-11-19T10:29:21.626789+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084152450908262": [
+          "alpha",
+          "beta"
+        ],
+        "1795084153952928810": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084154787558751",
+      "ack_generation": "1795084154787558751",
+      "cache": {
+        "active": null,
+        "archive": "962e1c477cd8b1fc1f6a0a3a972adb26807e22b8c026e79c44d761c7900740bc"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "962e1c477cd8b1fc1f6a0a3a972adb26807e22b8c026e79c44d761c7900740bc"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "962e1c477cd8b1fc1f6a0a3a972adb26807e22b8c026e79c44d761c7900740bc"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "saved-membership"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [],
+      "resurrected_saved": [
+        "1795084152450908262",
+        "1795084153952928810"
+      ],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-keep-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-keep-nocut",
+      "op": "G",
+      "policy": "keep",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:20.649665+00:00",
+      "end_utc": "2026-11-19T10:26:30.827482+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795083988125701028",
+      "ack_generation": "1795083988125701028",
+      "cache": {
+        "active": null,
+        "archive": "513fe1ad6880bd88b71a3f65a9277f82fbe11e622a9ad302342f8c16c27ace93"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "513fe1ad6880bd88b71a3f65a9277f82fbe11e622a9ad302342f8c16c27ace93"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "513fe1ad6880bd88b71a3f65a9277f82fbe11e622a9ad302342f8c16c27ace93"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-keep-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-keep-reboot",
+      "op": "G",
+      "policy": "keep",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:27:33.134088+00:00",
+      "end_utc": "2026-11-19T10:27:47.571545+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795084060731585210",
+      "ack_generation": "1795084060731585210",
+      "cache": {
+        "active": null,
+        "archive": "b588445688884478d66ded85452d889a0459842bc9d6648e4e3e9ba42b0a7ac7"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "b588445688884478d66ded85452d889a0459842bc9d6648e4e3e9ba42b0a7ac7"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "b588445688884478d66ded85452d889a0459842bc9d6648e4e3e9ba42b0a7ac7"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-keep-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "G-keep-sync",
+      "op": "G",
+      "policy": "keep",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 386.044318,
+      "start_utc": "2026-11-19T10:30:36.029132+00:00",
+      "end_utc": "2026-11-19T10:30:50.200192+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {},
+      "current_generation": "1795084243767576193",
+      "ack_generation": "1795084243767576193",
+      "cache": {
+        "active": null,
+        "archive": "03b9dbe0cb8d0e146b8f94071e6e3bffe0986e68a6df0d67d544bce25e74050d"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "03b9dbe0cb8d0e146b8f94071e6e3bffe0986e68a6df0d67d544bce25e74050d"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "03b9dbe0cb8d0e146b8f94071e6e3bffe0986e68a6df0d67d544bce25e74050d"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/G-keep-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-delete-immediate",
+      "op": "R",
+      "policy": "delete",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 229.841514,
+      "start_utc": "2026-11-19T10:28:52.272846+00:00",
+      "end_utc": "2026-11-19T10:29:06.883599+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084137856454651": [
+          "alpha",
+          "beta"
+        ],
+        "1795084139324508281": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084139324508281",
+      "ack_generation": "1795084140534923038",
+      "cache": {
+        "active": "7769941a3c812eb6d12665feb436ae292fd8f050c486df3e761a173ae8d3a4d0",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "7769941a3c812eb6d12665feb436ae292fd8f050c486df3e761a173ae8d3a4d0",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "7769941a3c812eb6d12665feb436ae292fd8f050c486df3e761a173ae8d3a4d0"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": false,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084140534923038"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-delete-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-delete-nocut",
+      "op": "R",
+      "policy": "delete",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:10.507913+00:00",
+      "end_utc": "2026-11-19T10:26:20.028134+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795083975443040860": [
+          "alpha",
+          "beta"
+        ],
+        "1795083976952388286": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795083978158881761",
+      "ack_generation": "1795083978158881761",
+      "cache": {
+        "active": null,
+        "archive": "c1ad33c0e8a67fda61cfbc1cece989ea93559f165c88aba184a5ca58d6dade76"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "c1ad33c0e8a67fda61cfbc1cece989ea93559f165c88aba184a5ca58d6dade76",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "c1ad33c0e8a67fda61cfbc1cece989ea93559f165c88aba184a5ca58d6dade76"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-delete-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-delete-reboot",
+      "op": "R",
+      "policy": "delete",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:27:18.272134+00:00",
+      "end_utc": "2026-11-19T10:27:32.572197+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084043450623638": [
+          "alpha",
+          "beta"
+        ],
+        "1795084044944759933": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084046177041180",
+      "ack_generation": "1795084046177041180",
+      "cache": {
+        "active": null,
+        "archive": "9c48816de3a160613f1a3eed82f5c87c4da6c3c30173b3ed79d5ef4cdf52cb40"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "9c48816de3a160613f1a3eed82f5c87c4da6c3c30173b3ed79d5ef4cdf52cb40",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "9c48816de3a160613f1a3eed82f5c87c4da6c3c30173b3ed79d5ef4cdf52cb40"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-delete-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-delete-sync",
+      "op": "R",
+      "policy": "delete",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 392.582879,
+      "start_utc": "2026-11-19T10:30:21.288987+00:00",
+      "end_utc": "2026-11-19T10:30:35.421584+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084226469461469": [
+          "alpha",
+          "beta"
+        ],
+        "1795084227961368624": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084229172212897",
+      "ack_generation": "1795084229172212897",
+      "cache": {
+        "active": null,
+        "archive": "1d436fd4da3cf984e5dddd0a6f431a29e0ee9a7a92453a09df9cdc157222c6c7"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "1d436fd4da3cf984e5dddd0a6f431a29e0ee9a7a92453a09df9cdc157222c6c7",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "1d436fd4da3cf984e5dddd0a6f431a29e0ee9a7a92453a09df9cdc157222c6c7"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-delete-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-keep-immediate",
+      "op": "R",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 223.579203,
+      "start_utc": "2026-11-19T10:28:36.019704+00:00",
+      "end_utc": "2026-11-19T10:28:51.612165+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084121535010944": [
+          "alpha",
+          "beta"
+        ],
+        "1795084123016529180": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084123016529180",
+      "ack_generation": "1795084124647996140",
+      "cache": {
+        "active": "65b619eeda2efc92f4dcd228bdf149a5e2ff6c026ec2e62941d0b3ae1e8d6530",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "65b619eeda2efc92f4dcd228bdf149a5e2ff6c026ec2e62941d0b3ae1e8d6530",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "65b619eeda2efc92f4dcd228bdf149a5e2ff6c026ec2e62941d0b3ae1e8d6530"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": false,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084124647996140"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-keep-immediate",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-keep-nocut",
+      "op": "R",
+      "policy": "keep",
+      "cut": "nocut",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:26:00.409638+00:00",
+      "end_utc": "2026-11-19T10:26:09.886715+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795083965456293148": [
+          "alpha",
+          "beta"
+        ],
+        "1795083966933198776": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795083968112247021",
+      "ack_generation": "1795083968112247021",
+      "cache": {
+        "active": null,
+        "archive": "b9a94fd9280b755980691e6ff8fa5485b95b5b97a2df95682b2b07bbe55db4ca"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "b9a94fd9280b755980691e6ff8fa5485b95b5b97a2df95682b2b07bbe55db4ca",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "b9a94fd9280b755980691e6ff8fa5485b95b5b97a2df95682b2b07bbe55db4ca"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": false,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-keep-nocut",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-keep-reboot",
+      "op": "R",
+      "policy": "keep",
+      "cut": "reboot",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": null,
+      "start_utc": "2026-11-19T10:27:03.216817+00:00",
+      "end_utc": "2026-11-19T10:27:17.658957+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084028500783976": [
+          "alpha",
+          "beta"
+        ],
+        "1795084029982935475": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084031176366842",
+      "ack_generation": "1795084031176366842",
+      "cache": {
+        "active": null,
+        "archive": "e5a977bd2055d8ed9ccf54d87007972db6ccc14d8ff5227b81ef3492ed8cffe6"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "e5a977bd2055d8ed9ccf54d87007972db6ccc14d8ff5227b81ef3492ed8cffe6",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "e5a977bd2055d8ed9ccf54d87007972db6ccc14d8ff5227b81ef3492ed8cffe6"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-keep-reboot",
+      "hypothesis": "?"
+    },
+    {
+      "id": "R-keep-sync",
+      "op": "R",
+      "policy": "keep",
+      "cut": "sync",
+      "primary": true,
+      "status": "complete",
+      "ack_to_cut_ms": 402.942375,
+      "start_utc": "2026-11-19T10:30:06.614124+00:00",
+      "end_utc": "2026-11-19T10:30:20.663661+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084211392937056": [
+          "alpha",
+          "beta"
+        ],
+        "1795084212878242142": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084214055004471",
+      "ack_generation": "1795084214055004471",
+      "cache": {
+        "active": null,
+        "archive": "eae872632ed59783f8242377b3179a70218d8e9acf37bfb2c8d63123606d6445"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "eae872632ed59783f8242377b3179a70218d8e9acf37bfb2c8d63123606d6445",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "eae872632ed59783f8242377b3179a70218d8e9acf37bfb2c8d63123606d6445"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [],
+      "ack_contract_survived": true,
+      "missing_ack_saved": [],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/R-keep-sync",
+      "hypothesis": "?"
+    },
+    {
+      "id": "replay-B-keep",
+      "op": "B",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": 223.282617,
+      "start_utc": "2026-11-19T10:32:35.765018+00:00",
+      "end_utc": "2026-11-19T10:32:50.298276+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084360472031829": [
+          "alpha",
+          "beta"
+        ],
+        "1795084361961761101": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084362797877619",
+      "ack_generation": "1795084363456489366",
+      "cache": {
+        "active": null,
+        "archive": "6d20c3b88f8316f8b871d378af71c4bc499c903a2883953fc2ab92b843861fb9"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "6d20c3b88f8316f8b871d378af71c4bc499c903a2883953fc2ab92b843861fb9"
+      },
+      "cache_precut": {
+        "active": "6d20c3b88f8316f8b871d378af71c4bc499c903a2883953fc2ab92b843861fb9",
+        "archive": null
+      },
+      "expected_after_location": "active",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "designated:/etc/cal/root.json",
+        "designated:/home/alice/declaration.json",
+        "designated:/home/bob/declaration.json",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084363456489366"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/replay-B-keep",
+      "hypothesis": "?"
+    },
+    {
+      "id": "replay-G-delete",
+      "op": "G",
+      "policy": "delete",
+      "cut": "immediate",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": 215.501398,
+      "start_utc": "2026-11-19T10:32:21.134991+00:00",
+      "end_utc": "2026-11-19T10:32:35.179249+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084346423227921": [
+          "alpha",
+          "beta"
+        ],
+        "1795084347889046421": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084348708158485",
+      "ack_generation": "1795084348708158485",
+      "cache": {
+        "active": null,
+        "archive": "c9ab1f9fc34e2bbb3b4c6bbc9650d3197115d745195def5ccacb6527a1aaff08"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "c9ab1f9fc34e2bbb3b4c6bbc9650d3197115d745195def5ccacb6527a1aaff08"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": null
+      },
+      "expected_after_location": null,
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "saved-membership",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [],
+      "resurrected_saved": [
+        "1795084346423227921",
+        "1795084347889046421"
+      ],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/replay-G-delete",
+      "hypothesis": "?"
+    },
+    {
+      "id": "replay-G-keep",
+      "op": "G",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": 220.971346,
+      "start_utc": "2026-11-19T10:32:06.480552+00:00",
+      "end_utc": "2026-11-19T10:32:20.540986+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [],
+      "saved_owning": {
+        "1795084331495612792": [
+          "alpha",
+          "beta"
+        ],
+        "1795084332978876030": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084333811987093",
+      "ack_generation": "1795084333811987093",
+      "cache": {
+        "active": null,
+        "archive": "d2f37923541636d02ad881e0379cf7adff3c3b74bf32100e7c849c76f974cd91"
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": null,
+        "archive": "d2f37923541636d02ad881e0379cf7adff3c3b74bf32100e7c849c76f974cd91"
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "d2f37923541636d02ad881e0379cf7adff3c3b74bf32100e7c849c76f974cd91"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": true,
+      "ack_contract_differences": [
+        "saved-membership"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [],
+      "resurrected_saved": [
+        "1795084331495612792",
+        "1795084332978876030"
+      ],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/replay-G-keep",
+      "hypothesis": "?"
+    },
+    {
+      "id": "replay-R-keep",
+      "op": "R",
+      "policy": "keep",
+      "cut": "immediate",
+      "primary": false,
+      "status": "complete",
+      "ack_to_cut_ms": 230.787347,
+      "start_utc": "2026-11-19T10:31:51.723292+00:00",
+      "end_utc": "2026-11-19T10:32:05.835388+00:00",
+      "ack_valid": true,
+      "ack_join": true,
+      "precut_expected": true,
+      "source_unchanged": true,
+      "current_owners": [
+        "beta"
+      ],
+      "saved_owning": {
+        "1795084316479052692": [
+          "alpha",
+          "beta"
+        ],
+        "1795084317973670450": [
+          "beta"
+        ]
+      },
+      "current_generation": "1795084317973670450",
+      "ack_generation": "1795084319215006004",
+      "cache": {
+        "active": "d0a4e0e63d188202898ab24873aecc8bb643a9faf043eea3d6bbf77ef6122fc3",
+        "archive": null
+      },
+      "cache_exact": true,
+      "cache_before": {
+        "active": "d0a4e0e63d188202898ab24873aecc8bb643a9faf043eea3d6bbf77ef6122fc3",
+        "archive": null
+      },
+      "cache_precut": {
+        "active": null,
+        "archive": "d0a4e0e63d188202898ab24873aecc8bb643a9faf043eea3d6bbf77ef6122fc3"
+      },
+      "expected_after_location": "archive",
+      "stand_current_limbs": {
+        "a_deleted_while_current_or_saved_owner": false,
+        "b_active_without_current_owner": false,
+        "c_shared_archived_deleted_inaccessible_with_current_owner": false,
+        "d_archive_fate_differs_from_setting": false
+      },
+      "stand_current_limb_failure": false,
+      "payloads_usable": true,
+      "literal_p2_object_absence": false,
+      "designated_equals_current_root": false,
+      "ack_contract_differences": [
+        "current-bytes",
+        "saved-membership",
+        "lookup-location-or-bytes"
+      ],
+      "ack_contract_survived": false,
+      "missing_ack_saved": [
+        "1795084319215006004"
+      ],
+      "resurrected_saved": [],
+      "reboot_observed": true,
+      "recovery_ack_valid": true,
+      "evidence": "P/raw-P4-2/server/results/replay-R-keep",
+      "hypothesis": "?"
+    }
+  ]
+}

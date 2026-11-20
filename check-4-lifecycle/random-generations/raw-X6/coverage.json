@@ -1,0 +1,938 @@
+{
+  "evidence": [
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache",
+        "archive/beta/cache"
+      ],
+      "category": "first_single_owner",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "r004",
+      "line": 72,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "first_archived_with_saved_owner",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "r007",
+      "line": 115,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "first_rollback",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "r023",
+      "line": 294,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-keep-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-keep-both",
+      "line": 1478,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "tail-keep-one",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-keep-one",
+      "line": 1487,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-keep-zero",
+      "line": 1494,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-keep-gc",
+      "line": 1498,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 6
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-delete-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-delete-both",
+      "line": 1503,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache",
+        "archive/beta/cache"
+      ],
+      "category": "tail-delete-one",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-delete-one",
+      "line": 1512,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-delete-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-delete-zero",
+      "line": 1519,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 6
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [],
+      "category": "tail-delete-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-6/events.jsonl",
+      "label": "tail-delete-gc",
+      "line": 1523,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 6
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "first_single_owner",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "r008",
+      "line": 156,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "first_archived_with_saved_owner",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "r011",
+      "line": 183,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "first_rollback",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "r014",
+      "line": 205,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-keep-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-keep-both",
+      "line": 1460,
+      "retained_generation_count": 5,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "tail-keep-one",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-keep-one",
+      "line": 1469,
+      "retained_generation_count": 6,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-keep-zero",
+      "line": 1476,
+      "retained_generation_count": 7,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-keep-gc",
+      "line": 1480,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 42
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-delete-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-delete-both",
+      "line": 1485,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache",
+        "archive/beta/cache"
+      ],
+      "category": "tail-delete-one",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-delete-one",
+      "line": 1494,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-delete-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-delete-zero",
+      "line": 1501,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 42
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [],
+      "category": "tail-delete-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-42/events.jsonl",
+      "label": "tail-delete-gc",
+      "line": 1505,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 42
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "first_single_owner",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "r001",
+      "line": 37,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "first_rollback",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "r005",
+      "line": 78,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "first_archived_with_saved_owner",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "r014",
+      "line": 209,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-keep-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-keep-both",
+      "line": 1243,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache",
+        "archive/beta/cache"
+      ],
+      "category": "tail-keep-one",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-keep-one",
+      "line": 1252,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-keep-zero",
+      "line": 1259,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-keep-gc",
+      "line": 1263,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-delete-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-delete-both",
+      "line": 1268,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "tail-delete-one",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-delete-one",
+      "line": 1277,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-delete-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-delete-zero",
+      "line": 1284,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [],
+      "category": "tail-delete-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-1119/events.jsonl",
+      "label": "tail-delete-gc",
+      "line": 1288,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 1119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "first_rollback",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "r000",
+      "line": 19,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "first_archived_with_saved_owner",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "r000",
+      "line": 19,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "first_single_owner",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "r001",
+      "line": 28,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-keep-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-keep-both",
+      "line": 1317,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/shared-cache/cache",
+        "archive/beta/cache"
+      ],
+      "category": "tail-keep-one",
+      "current_programs": [
+        "alpha"
+      ],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-keep-one",
+      "line": 1326,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-keep-zero",
+      "line": 1333,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "keep",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-keep-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-keep-gc",
+      "line": 1337,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/alpha/cache",
+        "active/beta/cache",
+        "active/shared-cache/cache"
+      ],
+      "category": "tail-delete-both",
+      "current_programs": [
+        "alpha",
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-delete-both",
+      "line": 1342,
+      "retained_generation_count": 2,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "active/beta/cache",
+        "active/shared-cache/cache",
+        "archive/alpha/cache"
+      ],
+      "category": "tail-delete-one",
+      "current_programs": [
+        "beta"
+      ],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-delete-one",
+      "line": 1351,
+      "retained_generation_count": 3,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [
+        "archive/alpha/cache",
+        "archive/beta/cache",
+        "archive/shared-cache/cache"
+      ],
+      "category": "tail-delete-zero",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-delete-zero",
+      "line": 1358,
+      "retained_generation_count": 4,
+      "saved_owner_programs": [
+        "alpha",
+        "beta"
+      ],
+      "seed": 20261119
+    },
+    {
+      "archive": "delete",
+      "cache_locations": [],
+      "category": "tail-delete-gc",
+      "current_programs": [],
+      "file": "raw-X6/results/seed-20261119/events.jsonl",
+      "label": "tail-delete-gc",
+      "line": 1362,
+      "retained_generation_count": 1,
+      "saved_owner_programs": [],
+      "seed": 20261119
+    }
+  ],
+  "failures": [],
+  "seeds": {
+    "1119": {
+      "checkpoints_including_reset": 195,
+      "mutations": 194,
+      "outcome": "1",
+      "random_gc": 57,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 26,
+        "remove": 32,
+        "rollback": 15,
+        "toggle": 33,
+        "upgrade": 22
+      }
+    },
+    "20261119": {
+      "checkpoints_including_reset": 197,
+      "mutations": 196,
+      "outcome": "1",
+      "random_gc": 59,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 22,
+        "remove": 20,
+        "rollback": 33,
+        "toggle": 32,
+        "upgrade": 21
+      }
+    },
+    "42": {
+      "checkpoints_including_reset": 207,
+      "mutations": 206,
+      "outcome": "1",
+      "random_gc": 69,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 25,
+        "remove": 24,
+        "rollback": 12,
+        "toggle": 40,
+        "upgrade": 27
+      }
+    },
+    "6": {
+      "checkpoints_including_reset": 206,
+      "mutations": 205,
+      "outcome": "1",
+      "random_gc": 68,
+      "random_generations": 128,
+      "random_kinds": {
+        "add": 20,
+        "remove": 20,
+        "rollback": 16,
+        "toggle": 37,
+        "upgrade": 35
+      }
+    }
+  },
+  "totals": {
+    "assertions": {
+      "P6": 9278,
+      "instrument": 8572
+    },
+    "checkpoints_including_reset": 805,
+    "counts": {
+      "authorized_deletions": 80,
+      "mutations": 801,
+      "own_reads": 993,
+      "ownerless_unreferenced_delete": 35,
+      "ownerless_unreferenced_keep": 29,
+      "random-gc:gc": 253,
+      "random:add": 93,
+      "random:remove": 96,
+      "random:rollback": 76,
+      "random:toggle": 142,
+      "random:upgrade": 105,
+      "rollback_checkpoints": 76,
+      "rollback_downgraded_programs": 18,
+      "rollback_policy_changed": 32,
+      "rollback_reactivated_programs": 19,
+      "setup:set": 4,
+      "shared_reads": 993,
+      "single_owner_checkpoints": 309,
+      "tail:gc": 8,
+      "tail:remove": 16,
+      "tail:set": 8
+    },
+    "failed_sequences": 0,
+    "random_generation_steps": 512
+  }
+}

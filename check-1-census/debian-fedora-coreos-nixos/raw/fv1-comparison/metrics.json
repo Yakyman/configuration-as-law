@@ -1,0 +1,1702 @@
+{
+  "created_utc": "20261119T083658.864268Z",
+  "inputs_sha256": {
+    "c1-classes.tsv": "3320402d92cd41a85b042fe456a515c7af78cae31d21df63830b2775f75a29c1",
+    "c2-classes.tsv": "6f14012b4c0e0dd3a663980f45f050ee81e97f33cf1d38a8fb1ede7f119e383e",
+    "residual.tsv": "8f31e4e6e664683ba03286958d0ddb4dd5631ba5da7b5ffedf2c8d8acc9826bc",
+    "preclassified.tsv": "88982b4de0ed18cdf087047d88ae39093dfe5104a2f0167abde47a853fb114db",
+    "compare-adjudications.tsv": "80f094ad58e54f708f406d05d3a71a1ee7701d05f6efe5c3232a944b9d394629",
+    "PAPER.html": "e69787144830c2706952b1c29bd2a4297b0d03d8e302402826513d10865d93a1",
+    "COMMON.md": "3447404ce89048965e295b0b28cce9c013a48161efa4744eaa78a434a165516d",
+    "compare.py": "07d327e7d3778cd77cb276d14e437b569830aaca4d73080faf43f9c2a681e29d",
+    "render-result.py": "d6adbb0427007d842283cd9c7f9df575cf11e5e1059175db02a9b9b81574cf69",
+    "METHOD.md": "d6a33062ebcccb575dc2b14a509f56e0dc1acc080cb2cdb6381b9ffb9ddce8e8"
+  },
+  "normalization": {
+    "recorded (works)": "recorded",
+    "derivative of <program>": "derivative"
+  },
+  "scope": "398 residual paired rows only; common preclassification excluded from agreement/kappa",
+  "groups": {
+    "coreos": {
+      "class": {
+        "n": 125,
+        "identical": 45,
+        "different": 80,
+        "agreement": 0.36,
+        "chance_agreement": 0.17568,
+        "kappa": 0.2236024844720497,
+        "kappa_exact": "36/161",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative": 47,
+          "hole-none": 75,
+          "recorded": 2
+        },
+        "c2_counts": {
+          "derivative": 49,
+          "hole-none": 4,
+          "hole-two": 1,
+          "recorded": 71
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative": {
+            "derivative": 40,
+            "hole-none": 1,
+            "recorded": 6
+          },
+          "hole-none": {
+            "derivative": 9,
+            "hole-none": 3,
+            "recorded": 63
+          },
+          "recorded": {
+            "recorded": 2
+          }
+        }
+      },
+      "literal": {
+        "n": 125,
+        "identical": 3,
+        "different": 122,
+        "agreement": 0.024,
+        "chance_agreement": 0.0192,
+        "kappa": 0.004893964110929853,
+        "kappa_exact": "3/613",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative of Ignition": 1,
+          "derivative of Linux kernel": 1,
+          "derivative of NetworkManager": 1,
+          "derivative of alternatives": 2,
+          "derivative of auditd": 1,
+          "derivative of authselect": 3,
+          "derivative of bootupd": 1,
+          "derivative of coreos console-login-helper": 1,
+          "derivative of coreos-populate-lvmdevices": 1,
+          "derivative of lastlog2": 1,
+          "derivative of libsemanage": 1,
+          "derivative of lvm2": 1,
+          "derivative of nfs-utils": 1,
+          "derivative of ostree": 4,
+          "derivative of rpm-ostree": 4,
+          "derivative of shadow account tools": 7,
+          "derivative of systemd": 12,
+          "derivative of systemd-journald": 1,
+          "derivative of systemd-resolved": 1,
+          "derivative of systemd-update-done": 2,
+          "hole-none": 75,
+          "recorded (works)": 2
+        },
+        "c2_counts": {
+          "derivative": 49,
+          "hole-none": 4,
+          "hole-two": 1,
+          "recorded": 71
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative of Ignition": {
+            "derivative": 1
+          },
+          "derivative of Linux kernel": {
+            "recorded": 1
+          },
+          "derivative of NetworkManager": {
+            "derivative": 1
+          },
+          "derivative of alternatives": {
+            "recorded": 2
+          },
+          "derivative of auditd": {
+            "derivative": 1
+          },
+          "derivative of authselect": {
+            "derivative": 1,
+            "recorded": 2
+          },
+          "derivative of bootupd": {
+            "derivative": 1
+          },
+          "derivative of coreos console-login-helper": {
+            "derivative": 1
+          },
+          "derivative of coreos-populate-lvmdevices": {
+            "derivative": 1
+          },
+          "derivative of lastlog2": {
+            "derivative": 1
+          },
+          "derivative of libsemanage": {
+            "recorded": 1
+          },
+          "derivative of lvm2": {
+            "hole-none": 1
+          },
+          "derivative of nfs-utils": {
+            "derivative": 1
+          },
+          "derivative of ostree": {
+            "derivative": 4
+          },
+          "derivative of rpm-ostree": {
+            "derivative": 4
+          },
+          "derivative of shadow account tools": {
+            "derivative": 7
+          },
+          "derivative of systemd": {
+            "derivative": 12
+          },
+          "derivative of systemd-journald": {
+            "derivative": 1
+          },
+          "derivative of systemd-resolved": {
+            "derivative": 1
+          },
+          "derivative of systemd-update-done": {
+            "derivative": 2
+          },
+          "hole-none": {
+            "derivative": 9,
+            "hole-none": 3,
+            "recorded": 63
+          },
+          "recorded (works)": {
+            "recorded": 2
+          }
+        }
+      },
+      "class_and_owner": {
+        "n": 125,
+        "identical": 30,
+        "different": 95,
+        "agreement": 0.24,
+        "chance_agreement": 0.04384,
+        "kappa": 0.20515394912985274,
+        "kappa_exact": "613/2988",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative: Ignition": 1,
+          "derivative: Linux kernel": 1,
+          "derivative: NetworkManager": 1,
+          "derivative: alternatives": 2,
+          "derivative: auditd": 1,
+          "derivative: authselect": 3,
+          "derivative: bootupd": 1,
+          "derivative: coreos console-login-helper": 1,
+          "derivative: coreos-populate-lvmdevices": 1,
+          "derivative: lastlog2": 1,
+          "derivative: libsemanage": 1,
+          "derivative: lvm2": 1,
+          "derivative: nfs-utils": 1,
+          "derivative: ostree": 4,
+          "derivative: rpm-ostree": 4,
+          "derivative: shadow account tools": 7,
+          "derivative: systemd": 12,
+          "derivative: systemd-journald": 1,
+          "derivative: systemd-resolved": 1,
+          "derivative: systemd-update-done": 2,
+          "hole-none": 75,
+          "recorded": 2
+        },
+        "c2_counts": {
+          "derivative: NetworkManager": 1,
+          "derivative: audit": 1,
+          "derivative: authselect": 1,
+          "derivative: bash": 5,
+          "derivative: bootupd": 1,
+          "derivative: console-login-helper-messages": 1,
+          "derivative: coreos-populate-lvmdevices.service": 1,
+          "derivative: grub2 (bootupd)": 1,
+          "derivative: ignition": 1,
+          "derivative: nfs-utils": 1,
+          "derivative: openssh-server": 1,
+          "derivative: ostree": 4,
+          "derivative: rpm-ostree": 4,
+          "derivative: shadow-utils": 7,
+          "derivative: systemd": 17,
+          "derivative: systemd-resolved": 1,
+          "derivative: util-linux (lastlog2)": 1,
+          "hole-none": 4,
+          "hole-two": 1,
+          "recorded": 71
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative: Ignition": {
+            "derivative: ignition": 1
+          },
+          "derivative: Linux kernel": {
+            "recorded": 1
+          },
+          "derivative: NetworkManager": {
+            "derivative: NetworkManager": 1
+          },
+          "derivative: alternatives": {
+            "recorded": 2
+          },
+          "derivative: auditd": {
+            "derivative: audit": 1
+          },
+          "derivative: authselect": {
+            "derivative: authselect": 1,
+            "recorded": 2
+          },
+          "derivative: bootupd": {
+            "derivative: bootupd": 1
+          },
+          "derivative: coreos console-login-helper": {
+            "derivative: console-login-helper-messages": 1
+          },
+          "derivative: coreos-populate-lvmdevices": {
+            "derivative: coreos-populate-lvmdevices.service": 1
+          },
+          "derivative: lastlog2": {
+            "derivative: util-linux (lastlog2)": 1
+          },
+          "derivative: libsemanage": {
+            "recorded": 1
+          },
+          "derivative: lvm2": {
+            "hole-none": 1
+          },
+          "derivative: nfs-utils": {
+            "derivative: nfs-utils": 1
+          },
+          "derivative: ostree": {
+            "derivative: ostree": 4
+          },
+          "derivative: rpm-ostree": {
+            "derivative: rpm-ostree": 4
+          },
+          "derivative: shadow account tools": {
+            "derivative: shadow-utils": 7
+          },
+          "derivative: systemd": {
+            "derivative: systemd": 12
+          },
+          "derivative: systemd-journald": {
+            "derivative: systemd": 1
+          },
+          "derivative: systemd-resolved": {
+            "derivative: systemd-resolved": 1
+          },
+          "derivative: systemd-update-done": {
+            "derivative: systemd": 2
+          },
+          "hole-none": {
+            "derivative: bash": 5,
+            "derivative: grub2 (bootupd)": 1,
+            "derivative: openssh-server": 1,
+            "derivative: systemd": 2,
+            "hole-none": 3,
+            "recorded": 63
+          },
+          "recorded": {
+            "recorded": 2
+          }
+        }
+      },
+      "either_hole": 77,
+      "owner_disagreements": 15,
+      "resolutions": {
+        "not resolved": 80
+      },
+      "disagreement_issue_types": {
+        "creator-consumer+evidence-gap": 1,
+        "definition-boundary": 2,
+        "designation+evidence-gap": 66,
+        "evidence-gap": 1,
+        "execution+evidence-gap": 5,
+        "grouping-gap": 3,
+        "representation+evidence-gap": 2
+      },
+      "preclassified_counts": {
+        "recorded": 1096,
+        "data": 1
+      },
+      "census_counts_c1": {
+        "recorded": 1098,
+        "data": 2,
+        "hole-none": 75,
+        "derivative": 47
+      },
+      "census_counts_c2": {
+        "recorded": 1167,
+        "data": 1,
+        "derivative": 49,
+        "hole-none": 4,
+        "hole-two": 1
+      }
+    },
+    "debian": {
+      "class": {
+        "n": 151,
+        "identical": 102,
+        "different": 49,
+        "agreement": 0.6754966887417219,
+        "chance_agreement": 0.3905091881935003,
+        "kappa": 0.4675829315679643,
+        "kappa_exact": "6498/13897",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative": 73,
+          "hole-none": 52,
+          "recorded": 25
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative": 101,
+          "hole-none": 15,
+          "hole-two": 4,
+          "recorded": 30
+        },
+        "confusion": {
+          "data": {
+            "data": 1
+          },
+          "derivative": {
+            "derivative": 64,
+            "hole-none": 3,
+            "hole-two": 4,
+            "recorded": 2
+          },
+          "hole-none": {
+            "derivative": 37,
+            "hole-none": 12,
+            "recorded": 3
+          },
+          "recorded": {
+            "recorded": 25
+          }
+        }
+      },
+      "literal": {
+        "n": 151,
+        "identical": 13,
+        "different": 138,
+        "agreement": 0.08609271523178808,
+        "chance_agreement": 0.034252883645454146,
+        "kappa": 0.05367847411444142,
+        "kappa_exact": "197/3670",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative of Linux kernel": 1,
+          "derivative of apparmor": 1,
+          "derivative of apt": 3,
+          "derivative of cloud-init": 7,
+          "derivative of dbus": 1,
+          "derivative of debconf": 1,
+          "derivative of dpkg": 2,
+          "derivative of initramfs-tools": 1,
+          "derivative of ldconfig": 2,
+          "derivative of login": 4,
+          "derivative of man-db": 2,
+          "derivative of netplan": 1,
+          "derivative of pam": 1,
+          "derivative of python3": 1,
+          "derivative of sgml-base": 1,
+          "derivative of shadow account tools": 13,
+          "derivative of sudo": 1,
+          "derivative of systemd": 14,
+          "derivative of systemd-journald": 1,
+          "derivative of systemd-resolved": 2,
+          "derivative of ucf": 1,
+          "derivative of unattended-upgrades": 1,
+          "derivative of update-alternatives": 1,
+          "derivative of update-rc.d": 8,
+          "derivative of update-shells": 1,
+          "derivative of xml-core": 1,
+          "hole-none": 52,
+          "recorded (works)": 25
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative": 101,
+          "hole-none": 15,
+          "hole-two": 4,
+          "recorded": 30
+        },
+        "confusion": {
+          "data": {
+            "data": 1
+          },
+          "derivative of Linux kernel": {
+            "recorded": 1
+          },
+          "derivative of apparmor": {
+            "derivative": 1
+          },
+          "derivative of apt": {
+            "derivative": 3
+          },
+          "derivative of cloud-init": {
+            "derivative": 3,
+            "hole-none": 3,
+            "recorded": 1
+          },
+          "derivative of dbus": {
+            "derivative": 1
+          },
+          "derivative of debconf": {
+            "derivative": 1
+          },
+          "derivative of dpkg": {
+            "derivative": 2
+          },
+          "derivative of initramfs-tools": {
+            "derivative": 1
+          },
+          "derivative of ldconfig": {
+            "derivative": 2
+          },
+          "derivative of login": {
+            "derivative": 4
+          },
+          "derivative of man-db": {
+            "derivative": 2
+          },
+          "derivative of netplan": {
+            "derivative": 1
+          },
+          "derivative of pam": {
+            "derivative": 1
+          },
+          "derivative of python3": {
+            "derivative": 1
+          },
+          "derivative of sgml-base": {
+            "derivative": 1
+          },
+          "derivative of shadow account tools": {
+            "derivative": 9,
+            "hole-two": 4
+          },
+          "derivative of sudo": {
+            "derivative": 1
+          },
+          "derivative of systemd": {
+            "derivative": 14
+          },
+          "derivative of systemd-journald": {
+            "derivative": 1
+          },
+          "derivative of systemd-resolved": {
+            "derivative": 2
+          },
+          "derivative of ucf": {
+            "derivative": 1
+          },
+          "derivative of unattended-upgrades": {
+            "derivative": 1
+          },
+          "derivative of update-alternatives": {
+            "derivative": 1
+          },
+          "derivative of update-rc.d": {
+            "derivative": 8
+          },
+          "derivative of update-shells": {
+            "derivative": 1
+          },
+          "derivative of xml-core": {
+            "derivative": 1
+          },
+          "hole-none": {
+            "derivative": 37,
+            "hole-none": 12,
+            "recorded": 3
+          },
+          "recorded (works)": {
+            "recorded": 25
+          }
+        }
+      },
+      "class_and_owner": {
+        "n": 151,
+        "identical": 72,
+        "different": 79,
+        "agreement": 0.4768211920529801,
+        "chance_agreement": 0.08061049953949388,
+        "kappa": 0.43094976863998474,
+        "kappa_exact": "9034/20963",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative: Linux kernel": 1,
+          "derivative: apparmor": 1,
+          "derivative: apt": 3,
+          "derivative: cloud-init": 7,
+          "derivative: dbus": 1,
+          "derivative: debconf": 1,
+          "derivative: dpkg": 2,
+          "derivative: initramfs-tools": 1,
+          "derivative: ldconfig": 2,
+          "derivative: login": 4,
+          "derivative: man-db": 2,
+          "derivative: netplan": 1,
+          "derivative: pam": 1,
+          "derivative: python3": 1,
+          "derivative: sgml-base": 1,
+          "derivative: shadow account tools": 13,
+          "derivative: sudo": 1,
+          "derivative: systemd": 14,
+          "derivative: systemd-journald": 1,
+          "derivative: systemd-resolved": 2,
+          "derivative: ucf": 1,
+          "derivative: unattended-upgrades": 1,
+          "derivative: update-alternatives": 1,
+          "derivative: update-rc.d": 8,
+          "derivative: update-shells": 1,
+          "derivative: xml-core": 1,
+          "hole-none": 52,
+          "recorded": 25
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative: apparmor": 2,
+          "derivative: apt": 3,
+          "derivative: base-files": 2,
+          "derivative: bash": 5,
+          "derivative: bash, dash": 1,
+          "derivative: ca-certificates": 3,
+          "derivative: cloud-init": 3,
+          "derivative: dbus": 1,
+          "derivative: debconf": 1,
+          "derivative: debianutils": 1,
+          "derivative: debianutils (add-shell for bash/dash/screen)": 1,
+          "derivative: dpkg": 2,
+          "derivative: grub": 3,
+          "derivative: grub (grub-efi/shim)": 1,
+          "derivative: initramfs-tools": 1,
+          "derivative: kmod": 1,
+          "derivative: libc-bin": 3,
+          "derivative: libpam-modules": 2,
+          "derivative: libpam-runtime": 2,
+          "derivative: linux-image-6.1.0-56-cloud-amd64": 1,
+          "derivative: locales": 1,
+          "derivative: login/libpam-modules": 1,
+          "derivative: man-db": 2,
+          "derivative: netplan.io": 1,
+          "derivative: openssh-server": 2,
+          "derivative: packages owning the enabled units (deb-systemd-helper)": 1,
+          "derivative: packages owning the init scripts (update-rc.d)": 8,
+          "derivative: passwd (shadow)": 10,
+          "derivative: python3": 1,
+          "derivative: python3.11": 1,
+          "derivative: readline-common": 1,
+          "derivative: registering packages (update-alternatives)": 1,
+          "derivative: screen": 1,
+          "derivative: sgml-base": 2,
+          "derivative: sudo": 1,
+          "derivative: systemd": 18,
+          "derivative: systemd-resolved": 2,
+          "derivative: tcpdump": 1,
+          "derivative: tzdata": 2,
+          "derivative: ucf": 1,
+          "derivative: unattended-upgrades": 1,
+          "derivative: uuid-runtime": 1,
+          "derivative: xml-core": 2,
+          "hole-none": 15,
+          "hole-two": 4,
+          "recorded": 30
+        },
+        "confusion": {
+          "data": {
+            "data": 1
+          },
+          "derivative: Linux kernel": {
+            "recorded": 1
+          },
+          "derivative: apparmor": {
+            "derivative: apparmor": 1
+          },
+          "derivative: apt": {
+            "derivative: apt": 3
+          },
+          "derivative: cloud-init": {
+            "derivative: cloud-init": 3,
+            "hole-none": 3,
+            "recorded": 1
+          },
+          "derivative: dbus": {
+            "derivative: dbus": 1
+          },
+          "derivative: debconf": {
+            "derivative: debconf": 1
+          },
+          "derivative: dpkg": {
+            "derivative: dpkg": 2
+          },
+          "derivative: initramfs-tools": {
+            "derivative: linux-image-6.1.0-56-cloud-amd64": 1
+          },
+          "derivative: ldconfig": {
+            "derivative: libc-bin": 2
+          },
+          "derivative: login": {
+            "derivative: login/libpam-modules": 1,
+            "derivative: passwd (shadow)": 1,
+            "derivative: systemd": 2
+          },
+          "derivative: man-db": {
+            "derivative: man-db": 2
+          },
+          "derivative: netplan": {
+            "derivative: netplan.io": 1
+          },
+          "derivative: pam": {
+            "derivative: libpam-runtime": 1
+          },
+          "derivative: python3": {
+            "derivative: python3.11": 1
+          },
+          "derivative: sgml-base": {
+            "derivative: sgml-base": 1
+          },
+          "derivative: shadow account tools": {
+            "derivative: passwd (shadow)": 9,
+            "hole-two": 4
+          },
+          "derivative: sudo": {
+            "derivative: sudo": 1
+          },
+          "derivative: systemd": {
+            "derivative: systemd": 14
+          },
+          "derivative: systemd-journald": {
+            "derivative: systemd": 1
+          },
+          "derivative: systemd-resolved": {
+            "derivative: systemd-resolved": 2
+          },
+          "derivative: ucf": {
+            "derivative: ucf": 1
+          },
+          "derivative: unattended-upgrades": {
+            "derivative: unattended-upgrades": 1
+          },
+          "derivative: update-alternatives": {
+            "derivative: registering packages (update-alternatives)": 1
+          },
+          "derivative: update-rc.d": {
+            "derivative: packages owning the init scripts (update-rc.d)": 8
+          },
+          "derivative: update-shells": {
+            "derivative: debianutils": 1
+          },
+          "derivative: xml-core": {
+            "derivative: xml-core": 1
+          },
+          "hole-none": {
+            "derivative: apparmor": 1,
+            "derivative: base-files": 2,
+            "derivative: bash": 5,
+            "derivative: bash, dash": 1,
+            "derivative: ca-certificates": 3,
+            "derivative: debianutils (add-shell for bash/dash/screen)": 1,
+            "derivative: grub": 3,
+            "derivative: grub (grub-efi/shim)": 1,
+            "derivative: initramfs-tools": 1,
+            "derivative: kmod": 1,
+            "derivative: libc-bin": 1,
+            "derivative: libpam-modules": 2,
+            "derivative: libpam-runtime": 1,
+            "derivative: locales": 1,
+            "derivative: openssh-server": 2,
+            "derivative: packages owning the enabled units (deb-systemd-helper)": 1,
+            "derivative: python3": 1,
+            "derivative: readline-common": 1,
+            "derivative: screen": 1,
+            "derivative: sgml-base": 1,
+            "derivative: systemd": 1,
+            "derivative: tcpdump": 1,
+            "derivative: tzdata": 2,
+            "derivative: uuid-runtime": 1,
+            "derivative: xml-core": 1,
+            "hole-none": 12,
+            "recorded": 3
+          },
+          "recorded": {
+            "recorded": 25
+          }
+        }
+      },
+      "either_hole": 59,
+      "owner_disagreements": 30,
+      "resolutions": {
+        "not resolved": 49
+      },
+      "disagreement_issue_types": {
+        "creator-consumer+evidence-gap": 2,
+        "definition-boundary": 2,
+        "designation+evidence-gap": 4,
+        "evidence-gap": 25,
+        "execution+evidence-gap": 8,
+        "representation+evidence-gap": 3,
+        "representation-boundary": 5
+      },
+      "preclassified_counts": {
+        "recorded": 687,
+        "data": 1
+      },
+      "census_counts_c1": {
+        "recorded": 712,
+        "data": 2,
+        "hole-none": 52,
+        "derivative": 73
+      },
+      "census_counts_c2": {
+        "recorded": 717,
+        "data": 2,
+        "hole-none": 15,
+        "derivative": 101,
+        "hole-two": 4
+      }
+    },
+    "nixos": {
+      "class": {
+        "n": 122,
+        "identical": 105,
+        "different": 17,
+        "agreement": 0.860655737704918,
+        "chance_agreement": 0.46009137328675087,
+        "kappa": 0.7419113987058238,
+        "kappa_exact": "2981/4018",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative": 48,
+          "hole-none": 7,
+          "hole-two": 2,
+          "recorded": 64
+        },
+        "c2_counts": {
+          "derivative": 49,
+          "hole-none": 2,
+          "hole-two": 1,
+          "recorded": 70
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative": {
+            "derivative": 42,
+            "recorded": 6
+          },
+          "hole-none": {
+            "derivative": 4,
+            "hole-none": 1,
+            "recorded": 2
+          },
+          "hole-two": {
+            "derivative": 2
+          },
+          "recorded": {
+            "derivative": 1,
+            "hole-none": 1,
+            "recorded": 62
+          }
+        }
+      },
+      "literal": {
+        "n": 122,
+        "identical": 1,
+        "different": 121,
+        "agreement": 0.00819672131147541,
+        "chance_agreement": 0.0010749798441279225,
+        "kappa": 0.00712940543449018,
+        "kappa_exact": "53/7434",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative of Linux kernel": 1,
+          "derivative of Nix": 11,
+          "derivative of NixOS activation": 7,
+          "derivative of NixOS bootloader generation": 3,
+          "derivative of dhcpcd": 1,
+          "derivative of lastlog2": 2,
+          "derivative of login": 2,
+          "derivative of nix-daemon": 1,
+          "derivative of openresolv": 2,
+          "derivative of systemd": 15,
+          "derivative of systemd-journald": 1,
+          "derivative of systemd-update-done": 2,
+          "hole-none": 7,
+          "hole-two": 2,
+          "recorded (works)": 64
+        },
+        "c2_counts": {
+          "derivative": 49,
+          "hole-none": 2,
+          "hole-two": 1,
+          "recorded": 70
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative of Linux kernel": {
+            "recorded": 1
+          },
+          "derivative of Nix": {
+            "derivative": 11
+          },
+          "derivative of NixOS activation": {
+            "derivative": 2,
+            "recorded": 5
+          },
+          "derivative of NixOS bootloader generation": {
+            "derivative": 3
+          },
+          "derivative of dhcpcd": {
+            "derivative": 1
+          },
+          "derivative of lastlog2": {
+            "derivative": 2
+          },
+          "derivative of login": {
+            "derivative": 2
+          },
+          "derivative of nix-daemon": {
+            "derivative": 1
+          },
+          "derivative of openresolv": {
+            "derivative": 2
+          },
+          "derivative of systemd": {
+            "derivative": 15
+          },
+          "derivative of systemd-journald": {
+            "derivative": 1
+          },
+          "derivative of systemd-update-done": {
+            "derivative": 2
+          },
+          "hole-none": {
+            "derivative": 4,
+            "hole-none": 1,
+            "recorded": 2
+          },
+          "hole-two": {
+            "derivative": 2
+          },
+          "recorded (works)": {
+            "derivative": 1,
+            "hole-none": 1,
+            "recorded": 62
+          }
+        }
+      },
+      "class_and_owner": {
+        "n": 122,
+        "identical": 80,
+        "different": 42,
+        "agreement": 0.6557377049180327,
+        "chance_agreement": 0.3225611394786348,
+        "kappa": 0.4918179113359119,
+        "kappa_exact": "1653/3361",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 1,
+          "derivative: Linux kernel": 1,
+          "derivative: Nix": 11,
+          "derivative: NixOS activation": 7,
+          "derivative: NixOS bootloader generation": 3,
+          "derivative: dhcpcd": 1,
+          "derivative: lastlog2": 2,
+          "derivative: login": 2,
+          "derivative: nix-daemon": 1,
+          "derivative: openresolv": 2,
+          "derivative: systemd": 15,
+          "derivative: systemd-journald": 1,
+          "derivative: systemd-update-done": 2,
+          "hole-none": 7,
+          "hole-two": 2,
+          "recorded": 64
+        },
+        "c2_counts": {
+          "derivative: NixOS setup-etc": 2,
+          "derivative: NixOS stage-2": 1,
+          "derivative: NixOS stage-2/switch-to-configuration": 1,
+          "derivative: NixOS update-users-groups": 1,
+          "derivative: dhcpcd": 1,
+          "derivative: grub (NixOS install-grub)": 3,
+          "derivative: nix": 15,
+          "derivative: nix/systemd": 1,
+          "derivative: openresolv": 2,
+          "derivative: systemd": 20,
+          "derivative: util-linux (lastlog2)": 2,
+          "hole-none": 2,
+          "hole-two": 1,
+          "recorded": 70
+        },
+        "confusion": {
+          "data": {
+            "hole-two": 1
+          },
+          "derivative: Linux kernel": {
+            "recorded": 1
+          },
+          "derivative: Nix": {
+            "derivative: nix": 11
+          },
+          "derivative: NixOS activation": {
+            "derivative: NixOS setup-etc": 1,
+            "derivative: NixOS update-users-groups": 1,
+            "recorded": 5
+          },
+          "derivative: NixOS bootloader generation": {
+            "derivative: grub (NixOS install-grub)": 3
+          },
+          "derivative: dhcpcd": {
+            "derivative: dhcpcd": 1
+          },
+          "derivative: lastlog2": {
+            "derivative: util-linux (lastlog2)": 2
+          },
+          "derivative: login": {
+            "derivative: systemd": 2
+          },
+          "derivative: nix-daemon": {
+            "derivative: nix": 1
+          },
+          "derivative: openresolv": {
+            "derivative: openresolv": 2
+          },
+          "derivative: systemd": {
+            "derivative: NixOS stage-2": 1,
+            "derivative: systemd": 14
+          },
+          "derivative: systemd-journald": {
+            "derivative: systemd": 1
+          },
+          "derivative: systemd-update-done": {
+            "derivative: systemd": 2
+          },
+          "hole-none": {
+            "derivative: NixOS stage-2/switch-to-configuration": 1,
+            "derivative: nix": 1,
+            "derivative: nix/systemd": 1,
+            "derivative: systemd": 1,
+            "hole-none": 1,
+            "recorded": 2
+          },
+          "hole-two": {
+            "derivative: nix": 2
+          },
+          "recorded": {
+            "derivative: NixOS setup-etc": 1,
+            "hole-none": 1,
+            "recorded": 62
+          }
+        }
+      },
+      "either_hole": 11,
+      "owner_disagreements": 25,
+      "resolutions": {
+        "not resolved": 17
+      },
+      "disagreement_issue_types": {
+        "definition-boundary": 5,
+        "designation+evidence-gap": 1,
+        "evidence-gap": 1,
+        "grouping+evidence-gap": 1,
+        "grouping-gap": 2,
+        "representation-boundary": 7
+      },
+      "preclassified_counts": {
+        "recorded": 866,
+        "data": 1
+      },
+      "census_counts_c1": {
+        "recorded": 930,
+        "data": 2,
+        "hole-none": 7,
+        "derivative": 48,
+        "hole-two": 2
+      },
+      "census_counts_c2": {
+        "recorded": 936,
+        "data": 1,
+        "derivative": 49,
+        "hole-none": 2,
+        "hole-two": 1
+      }
+    },
+    "overall": {
+      "class": {
+        "n": 398,
+        "identical": 252,
+        "different": 146,
+        "agreement": 0.6331658291457286,
+        "chance_agreement": 0.32715082952450697,
+        "kappa": 0.45480475127132164,
+        "kappa_exact": "24237/53291",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 3,
+          "derivative": 168,
+          "hole-none": 134,
+          "hole-two": 2,
+          "recorded": 91
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative": 199,
+          "hole-none": 21,
+          "hole-two": 6,
+          "recorded": 171
+        },
+        "confusion": {
+          "data": {
+            "data": 1,
+            "hole-two": 2
+          },
+          "derivative": {
+            "derivative": 146,
+            "hole-none": 4,
+            "hole-two": 4,
+            "recorded": 14
+          },
+          "hole-none": {
+            "derivative": 50,
+            "hole-none": 16,
+            "recorded": 68
+          },
+          "hole-two": {
+            "derivative": 2
+          },
+          "recorded": {
+            "derivative": 1,
+            "hole-none": 1,
+            "recorded": 89
+          }
+        }
+      },
+      "literal": {
+        "n": 398,
+        "identical": 17,
+        "different": 381,
+        "agreement": 0.04271356783919598,
+        "chance_agreement": 0.017859397489962375,
+        "kappa": 0.025306122448979593,
+        "kappa_exact": "31/1225",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 3,
+          "derivative of Ignition": 1,
+          "derivative of Linux kernel": 3,
+          "derivative of NetworkManager": 1,
+          "derivative of Nix": 11,
+          "derivative of NixOS activation": 7,
+          "derivative of NixOS bootloader generation": 3,
+          "derivative of alternatives": 2,
+          "derivative of apparmor": 1,
+          "derivative of apt": 3,
+          "derivative of auditd": 1,
+          "derivative of authselect": 3,
+          "derivative of bootupd": 1,
+          "derivative of cloud-init": 7,
+          "derivative of coreos console-login-helper": 1,
+          "derivative of coreos-populate-lvmdevices": 1,
+          "derivative of dbus": 1,
+          "derivative of debconf": 1,
+          "derivative of dhcpcd": 1,
+          "derivative of dpkg": 2,
+          "derivative of initramfs-tools": 1,
+          "derivative of lastlog2": 3,
+          "derivative of ldconfig": 2,
+          "derivative of libsemanage": 1,
+          "derivative of login": 6,
+          "derivative of lvm2": 1,
+          "derivative of man-db": 2,
+          "derivative of netplan": 1,
+          "derivative of nfs-utils": 1,
+          "derivative of nix-daemon": 1,
+          "derivative of openresolv": 2,
+          "derivative of ostree": 4,
+          "derivative of pam": 1,
+          "derivative of python3": 1,
+          "derivative of rpm-ostree": 4,
+          "derivative of sgml-base": 1,
+          "derivative of shadow account tools": 20,
+          "derivative of sudo": 1,
+          "derivative of systemd": 41,
+          "derivative of systemd-journald": 3,
+          "derivative of systemd-resolved": 3,
+          "derivative of systemd-update-done": 4,
+          "derivative of ucf": 1,
+          "derivative of unattended-upgrades": 1,
+          "derivative of update-alternatives": 1,
+          "derivative of update-rc.d": 8,
+          "derivative of update-shells": 1,
+          "derivative of xml-core": 1,
+          "hole-none": 134,
+          "hole-two": 2,
+          "recorded (works)": 91
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative": 199,
+          "hole-none": 21,
+          "hole-two": 6,
+          "recorded": 171
+        },
+        "confusion": {
+          "data": {
+            "data": 1,
+            "hole-two": 2
+          },
+          "derivative of Ignition": {
+            "derivative": 1
+          },
+          "derivative of Linux kernel": {
+            "recorded": 3
+          },
+          "derivative of NetworkManager": {
+            "derivative": 1
+          },
+          "derivative of Nix": {
+            "derivative": 11
+          },
+          "derivative of NixOS activation": {
+            "derivative": 2,
+            "recorded": 5
+          },
+          "derivative of NixOS bootloader generation": {
+            "derivative": 3
+          },
+          "derivative of alternatives": {
+            "recorded": 2
+          },
+          "derivative of apparmor": {
+            "derivative": 1
+          },
+          "derivative of apt": {
+            "derivative": 3
+          },
+          "derivative of auditd": {
+            "derivative": 1
+          },
+          "derivative of authselect": {
+            "derivative": 1,
+            "recorded": 2
+          },
+          "derivative of bootupd": {
+            "derivative": 1
+          },
+          "derivative of cloud-init": {
+            "derivative": 3,
+            "hole-none": 3,
+            "recorded": 1
+          },
+          "derivative of coreos console-login-helper": {
+            "derivative": 1
+          },
+          "derivative of coreos-populate-lvmdevices": {
+            "derivative": 1
+          },
+          "derivative of dbus": {
+            "derivative": 1
+          },
+          "derivative of debconf": {
+            "derivative": 1
+          },
+          "derivative of dhcpcd": {
+            "derivative": 1
+          },
+          "derivative of dpkg": {
+            "derivative": 2
+          },
+          "derivative of initramfs-tools": {
+            "derivative": 1
+          },
+          "derivative of lastlog2": {
+            "derivative": 3
+          },
+          "derivative of ldconfig": {
+            "derivative": 2
+          },
+          "derivative of libsemanage": {
+            "recorded": 1
+          },
+          "derivative of login": {
+            "derivative": 6
+          },
+          "derivative of lvm2": {
+            "hole-none": 1
+          },
+          "derivative of man-db": {
+            "derivative": 2
+          },
+          "derivative of netplan": {
+            "derivative": 1
+          },
+          "derivative of nfs-utils": {
+            "derivative": 1
+          },
+          "derivative of nix-daemon": {
+            "derivative": 1
+          },
+          "derivative of openresolv": {
+            "derivative": 2
+          },
+          "derivative of ostree": {
+            "derivative": 4
+          },
+          "derivative of pam": {
+            "derivative": 1
+          },
+          "derivative of python3": {
+            "derivative": 1
+          },
+          "derivative of rpm-ostree": {
+            "derivative": 4
+          },
+          "derivative of sgml-base": {
+            "derivative": 1
+          },
+          "derivative of shadow account tools": {
+            "derivative": 16,
+            "hole-two": 4
+          },
+          "derivative of sudo": {
+            "derivative": 1
+          },
+          "derivative of systemd": {
+            "derivative": 41
+          },
+          "derivative of systemd-journald": {
+            "derivative": 3
+          },
+          "derivative of systemd-resolved": {
+            "derivative": 3
+          },
+          "derivative of systemd-update-done": {
+            "derivative": 4
+          },
+          "derivative of ucf": {
+            "derivative": 1
+          },
+          "derivative of unattended-upgrades": {
+            "derivative": 1
+          },
+          "derivative of update-alternatives": {
+            "derivative": 1
+          },
+          "derivative of update-rc.d": {
+            "derivative": 8
+          },
+          "derivative of update-shells": {
+            "derivative": 1
+          },
+          "derivative of xml-core": {
+            "derivative": 1
+          },
+          "hole-none": {
+            "derivative": 50,
+            "hole-none": 16,
+            "recorded": 68
+          },
+          "hole-two": {
+            "derivative": 2
+          },
+          "recorded (works)": {
+            "derivative": 1,
+            "hole-none": 1,
+            "recorded": 89
+          }
+        }
+      },
+      "class_and_owner": {
+        "n": 398,
+        "identical": 182,
+        "different": 216,
+        "agreement": 0.457286432160804,
+        "chance_agreement": 0.13098154087018005,
+        "kappa": 0.3754867205207183,
+        "kappa_exact": "6461/17207",
+        "undefined_reason": null,
+        "c1_counts": {
+          "data": 3,
+          "derivative: Ignition": 1,
+          "derivative: Linux kernel": 3,
+          "derivative: NetworkManager": 1,
+          "derivative: Nix": 11,
+          "derivative: NixOS activation": 7,
+          "derivative: NixOS bootloader generation": 3,
+          "derivative: alternatives": 2,
+          "derivative: apparmor": 1,
+          "derivative: apt": 3,
+          "derivative: auditd": 1,
+          "derivative: authselect": 3,
+          "derivative: bootupd": 1,
+          "derivative: cloud-init": 7,
+          "derivative: coreos console-login-helper": 1,
+          "derivative: coreos-populate-lvmdevices": 1,
+          "derivative: dbus": 1,
+          "derivative: debconf": 1,
+          "derivative: dhcpcd": 1,
+          "derivative: dpkg": 2,
+          "derivative: initramfs-tools": 1,
+          "derivative: lastlog2": 3,
+          "derivative: ldconfig": 2,
+          "derivative: libsemanage": 1,
+          "derivative: login": 6,
+          "derivative: lvm2": 1,
+          "derivative: man-db": 2,
+          "derivative: netplan": 1,
+          "derivative: nfs-utils": 1,
+          "derivative: nix-daemon": 1,
+          "derivative: openresolv": 2,
+          "derivative: ostree": 4,
+          "derivative: pam": 1,
+          "derivative: python3": 1,
+          "derivative: rpm-ostree": 4,
+          "derivative: sgml-base": 1,
+          "derivative: shadow account tools": 20,
+          "derivative: sudo": 1,
+          "derivative: systemd": 41,
+          "derivative: systemd-journald": 3,
+          "derivative: systemd-resolved": 3,
+          "derivative: systemd-update-done": 4,
+          "derivative: ucf": 1,
+          "derivative: unattended-upgrades": 1,
+          "derivative: update-alternatives": 1,
+          "derivative: update-rc.d": 8,
+          "derivative: update-shells": 1,
+          "derivative: xml-core": 1,
+          "hole-none": 134,
+          "hole-two": 2,
+          "recorded": 91
+        },
+        "c2_counts": {
+          "data": 1,
+          "derivative: NetworkManager": 1,
+          "derivative: NixOS setup-etc": 2,
+          "derivative: NixOS stage-2": 1,
+          "derivative: NixOS stage-2/switch-to-configuration": 1,
+          "derivative: NixOS update-users-groups": 1,
+          "derivative: apparmor": 2,
+          "derivative: apt": 3,
+          "derivative: audit": 1,
+          "derivative: authselect": 1,
+          "derivative: base-files": 2,
+          "derivative: bash": 10,
+          "derivative: bash, dash": 1,
+          "derivative: bootupd": 1,
+          "derivative: ca-certificates": 3,
+          "derivative: cloud-init": 3,
+          "derivative: console-login-helper-messages": 1,
+          "derivative: coreos-populate-lvmdevices.service": 1,
+          "derivative: dbus": 1,
+          "derivative: debconf": 1,
+          "derivative: debianutils": 1,
+          "derivative: debianutils (add-shell for bash/dash/screen)": 1,
+          "derivative: dhcpcd": 1,
+          "derivative: dpkg": 2,
+          "derivative: grub": 3,
+          "derivative: grub (NixOS install-grub)": 3,
+          "derivative: grub (grub-efi/shim)": 1,
+          "derivative: grub2 (bootupd)": 1,
+          "derivative: ignition": 1,
+          "derivative: initramfs-tools": 1,
+          "derivative: kmod": 1,
+          "derivative: libc-bin": 3,
+          "derivative: libpam-modules": 2,
+          "derivative: libpam-runtime": 2,
+          "derivative: linux-image-6.1.0-56-cloud-amd64": 1,
+          "derivative: locales": 1,
+          "derivative: login/libpam-modules": 1,
+          "derivative: man-db": 2,
+          "derivative: netplan.io": 1,
+          "derivative: nfs-utils": 1,
+          "derivative: nix": 15,
+          "derivative: nix/systemd": 1,
+          "derivative: openresolv": 2,
+          "derivative: openssh-server": 3,
+          "derivative: ostree": 4,
+          "derivative: packages owning the enabled units (deb-systemd-helper)": 1,
+          "derivative: packages owning the init scripts (update-rc.d)": 8,
+          "derivative: passwd (shadow)": 10,
+          "derivative: python3": 1,
+          "derivative: python3.11": 1,
+          "derivative: readline-common": 1,
+          "derivative: registering packages (update-alternatives)": 1,
+          "derivative: rpm-ostree": 4,
+          "derivative: screen": 1,
+          "derivative: sgml-base": 2,
+          "derivative: shadow-utils": 7,
+          "derivative: sudo": 1,
+          "derivative: systemd": 55,
+          "derivative: systemd-resolved": 3,
+          "derivative: tcpdump": 1,
+          "derivative: tzdata": 2,
+          "derivative: ucf": 1,
+          "derivative: unattended-upgrades": 1,
+          "derivative: util-linux (lastlog2)": 3,
+          "derivative: uuid-runtime": 1,
+          "derivative: xml-core": 2,
+          "hole-none": 21,
+          "hole-two": 6,
+          "recorded": 171
+        },
+        "confusion": {
+          "data": {
+            "data": 1,
+            "hole-two": 2
+          },
+          "derivative: Ignition": {
+            "derivative: ignition": 1
+          },
+          "derivative: Linux kernel": {
+            "recorded": 3
+          },
+          "derivative: NetworkManager": {
+            "derivative: NetworkManager": 1
+          },
+          "derivative: Nix": {
+            "derivative: nix": 11
+          },
+          "derivative: NixOS activation": {
+            "derivative: NixOS setup-etc": 1,
+            "derivative: NixOS update-users-groups": 1,
+            "recorded": 5
+          },
+          "derivative: NixOS bootloader generation": {
+            "derivative: grub (NixOS install-grub)": 3
+          },
+          "derivative: alternatives": {
+            "recorded": 2
+          },
+          "derivative: apparmor": {
+            "derivative: apparmor": 1
+          },
+          "derivative: apt": {
+            "derivative: apt": 3
+          },
+          "derivative: auditd": {
+            "derivative: audit": 1
+          },
+          "derivative: authselect": {
+            "derivative: authselect": 1,
+            "recorded": 2
+          },
+          "derivative: bootupd": {
+            "derivative: bootupd": 1
+          },
+          "derivative: cloud-init": {
+            "derivative: cloud-init": 3,
+            "hole-none": 3,
+            "recorded": 1
+          },
+          "derivative: coreos console-login-helper": {
+            "derivative: console-login-helper-messages": 1
+          },
+          "derivative: coreos-populate-lvmdevices": {
+            "derivative: coreos-populate-lvmdevices.service": 1
+          },
+          "derivative: dbus": {
+            "derivative: dbus": 1
+          },
+          "derivative: debconf": {
+            "derivative: debconf": 1
+          },
+          "derivative: dhcpcd": {
+            "derivative: dhcpcd": 1
+          },
+          "derivative: dpkg": {
+            "derivative: dpkg": 2
+          },
+          "derivative: initramfs-tools": {
+            "derivative: linux-image-6.1.0-56-cloud-amd64": 1
+          },
+          "derivative: lastlog2": {
+            "derivative: util-linux (lastlog2)": 3
+          },
+          "derivative: ldconfig": {
+            "derivative: libc-bin": 2
+          },
+          "derivative: libsemanage": {
+            "recorded": 1
+          },
+          "derivative: login": {
+            "derivative: login/libpam-modules": 1,
+            "derivative: passwd (shadow)": 1,
+            "derivative: systemd": 4
+          },
+          "derivative: lvm2": {
+            "hole-none": 1
+          },
+          "derivative: man-db": {
+            "derivative: man-db": 2
+          },
+          "derivative: netplan": {
+            "derivative: netplan.io": 1
+          },
+          "derivative: nfs-utils": {
+            "derivative: nfs-utils": 1
+          },
+          "derivative: nix-daemon": {
+            "derivative: nix": 1
+          },
+          "derivative: openresolv": {
+            "derivative: openresolv": 2
+          },
+          "derivative: ostree": {
+            "derivative: ostree": 4
+          },
+          "derivative: pam": {
+            "derivative: libpam-runtime": 1
+          },
+          "derivative: python3": {
+            "derivative: python3.11": 1
+          },
+          "derivative: rpm-ostree": {
+            "derivative: rpm-ostree": 4
+          },
+          "derivative: sgml-base": {
+            "derivative: sgml-base": 1
+          },
+          "derivative: shadow account tools": {
+            "derivative: passwd (shadow)": 9,
+            "derivative: shadow-utils": 7,
+            "hole-two": 4
+          },
+          "derivative: sudo": {
+            "derivative: sudo": 1
+          },
+          "derivative: systemd": {
+            "derivative: NixOS stage-2": 1,
+            "derivative: systemd": 40
+          },
+          "derivative: systemd-journald": {
+            "derivative: systemd": 3
+          },
+          "derivative: systemd-resolved": {
+            "derivative: systemd-resolved": 3
+          },
+          "derivative: systemd-update-done": {
+            "derivative: systemd": 4
+          },
+          "derivative: ucf": {
+            "derivative: ucf": 1
+          },
+          "derivative: unattended-upgrades": {
+            "derivative: unattended-upgrades": 1
+          },
+          "derivative: update-alternatives": {
+            "derivative: registering packages (update-alternatives)": 1
+          },
+          "derivative: update-rc.d": {
+            "derivative: packages owning the init scripts (update-rc.d)": 8
+          },
+          "derivative: update-shells": {
+            "derivative: debianutils": 1
+          },
+          "derivative: xml-core": {
+            "derivative: xml-core": 1
+          },
+          "hole-none": {
+            "derivative: NixOS stage-2/switch-to-configuration": 1,
+            "derivative: apparmor": 1,
+            "derivative: base-files": 2,
+            "derivative: bash": 10,
+            "derivative: bash, dash": 1,
+            "derivative: ca-certificates": 3,
+            "derivative: debianutils (add-shell for bash/dash/screen)": 1,
+            "derivative: grub": 3,
+            "derivative: grub (grub-efi/shim)": 1,
+            "derivative: grub2 (bootupd)": 1,
+            "derivative: initramfs-tools": 1,
+            "derivative: kmod": 1,
+            "derivative: libc-bin": 1,
+            "derivative: libpam-modules": 2,
+            "derivative: libpam-runtime": 1,
+            "derivative: locales": 1,
+            "derivative: nix": 1,
+            "derivative: nix/systemd": 1,
+            "derivative: openssh-server": 3,
+            "derivative: packages owning the enabled units (deb-systemd-helper)": 1,
+            "derivative: python3": 1,
+            "derivative: readline-common": 1,
+            "derivative: screen": 1,
+            "derivative: sgml-base": 1,
+            "derivative: systemd": 4,
+            "derivative: tcpdump": 1,
+            "derivative: tzdata": 2,
+            "derivative: uuid-runtime": 1,
+            "derivative: xml-core": 1,
+            "hole-none": 16,
+            "recorded": 68
+          },
+          "hole-two": {
+            "derivative: nix": 2
+          },
+          "recorded": {
+            "derivative: NixOS setup-etc": 1,
+            "hole-none": 1,
+            "recorded": 89
+          }
+        }
+      },
+      "either_hole": 147,
+      "owner_disagreements": 70,
+      "resolutions": {
+        "not resolved": 146
+      },
+      "disagreement_issue_types": {
+        "creator-consumer+evidence-gap": 3,
+        "definition-boundary": 9,
+        "designation+evidence-gap": 71,
+        "evidence-gap": 27,
+        "execution+evidence-gap": 13,
+        "grouping+evidence-gap": 1,
+        "grouping-gap": 5,
+        "representation+evidence-gap": 5,
+        "representation-boundary": 12
+      },
+      "preclassified_counts": {
+        "recorded": 2649,
+        "data": 3
+      },
+      "census_counts_c1": {
+        "recorded": 2740,
+        "data": 6,
+        "hole-none": 134,
+        "derivative": 168,
+        "hole-two": 2
+      },
+      "census_counts_c2": {
+        "recorded": 2820,
+        "data": 4,
+        "derivative": 199,
+        "hole-none": 21,
+        "hole-two": 6
+      }
+    }
+  },
+  "output_rows": {
+    "joined.tsv": 398,
+    "disagreements.tsv": 146,
+    "literal-disagreements.tsv": 381,
+    "owner-disagreements.tsv": 70,
+    "holes.tsv": 147,
+    "agreed-holes.tsv": 16
+  }
+}

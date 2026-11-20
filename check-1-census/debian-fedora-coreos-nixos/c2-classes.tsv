@@ -1,0 +1,399 @@
+id	class	program_if_derivative	reason
+coreos-688f82dd27	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-016dfe226d	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-8d1e409524	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-96a19ba1e6	recorded		named in Ignition config.ign passwd.users
+coreos-a2044ac6f8	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-f3d59b813f	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-83bc7a060a	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-bee4a827f4	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-14dc4e5831	recorded		created by Ignition (console.log op(1)); not in config.ign, so from the image's built-in base config
+coreos-4900fca16b	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-4c29fefef0	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-28c046fc91	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-5ab2e196c7	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-245a92fd3e	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-70c3717c60	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-8e4a0f0c6a	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-3d437d2b28	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-1bebb37879	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-55e4967557	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-ecfab3dd45	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-64c4ab9fc8	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-af2a58bec6	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-be7c5e2840	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-1f9ebd3eec	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-cbaf0b4232	recorded		in /etc/passwd shipped by setup package (140 B = root,core,census)
+coreos-788a40727c	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-03b6505825	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-a464712e08	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-dbea3590f8	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-37c52140e1	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-ab8c35e257	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-839c0c17a5	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-e7927b082e	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-ee17e5a4df	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-195a1b489c	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-54ef0687f4	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-1525133242	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-0b2fc8af1f	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-cff9eec648	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-832595bcce	recorded		not in /etc/passwd (140 B, 3 entries); served via nss-altfiles from deployed image account file
+coreos-89ce5c5668	recorded		threads of the recorded kernel
+coreos-d8ee8908a9	recorded		collector run of recorded procps
+coreos-cc3f68da69	hole-none		EVID: unowned, creator not evidenced in raw (image build / first-boot tooling)
+coreos-3620611c7e	hole-none		EVID: self-link, creator not evidenced in raw
+coreos-e51a3be8af	derivative	bootupd	bootupd own state
+coreos-7b9cb61b42	hole-none		EVID: platforms.json, creator not evidenced in raw (image build)
+coreos-23a9706caf	derivative	grub2 (bootupd)	bootloader files installed for grub
+coreos-91fe7de139	derivative	ostree	boot-entry swap link managed by ostree
+coreos-87a4a24017	derivative	ostree	BLS entries for ostree deployments
+coreos-93d75707e8	derivative	ostree	kernel/initramfs copies per deployment
+coreos-5ddc7863e0	derivative	ignition	Ignition's record of its own run
+coreos-fefd90f542	derivative	shadow-utils	lock file of shadow tools
+coreos-3f676c29ae	derivative	rpm-ostree	rpm-ostree stamp
+coreos-5932b79e41	derivative	systemd	stamp for ConditionNeedsUpdate
+coreos-809cb439ce	recorded		EVID: compose-time /etc of the deployed ostree commit (/usr/etc not walked)
+coreos-4232784ce3	recorded		EVID: compose-time /etc of the deployed ostree commit
+coreos-671ff5c246	recorded		EVID: compose-time /etc of the deployed commit (authselect at compose)
+coreos-ba123e6f1b	recorded		EVID: fedora-coreos.yaml from the deployed commit /usr/etc
+coreos-f85fa52854	recorded		EVID: authselect links from the deployed commit
+coreos-d3bb1c2fce	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-42b0af3cd4	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-d3e3da8568	derivative	console-login-helper-messages	its generated login snippets
+coreos-1ba388a08e	hole-none		DEF: system.devices written by coreos-populate-lvmdevices.service but needed by lvm2; creator != user
+coreos-1af8deec0e	recorded		EVID: blacklist-nouveau.conf from the deployed commit
+coreos-4d882498fa	recorded		EVID: switchable-auth link from the deployed commit (authselect)
+coreos-c169edc1ca	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-cee61291d2	derivative	systemd-resolved	link to resolved stub file
+coreos-84b24ebf2a	recorded		EVID: pwquality drop-in from the deployed commit
+coreos-f12cddbc22	recorded		EVID: policy store built at compose, part of deployed commit
+coreos-9ed4eb3a99	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-0075a76d48	derivative	openssh-server	mixed: host keys by sshd-keygen@ units; 40-disable-passwords.conf from commit (recorded)
+coreos-c1ef82d842	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-a2bc9043e2	derivative	shadow-utils	backup written by shadow tools when adding core/census
+coreos-09d09204d8	recorded		90-census from config.ign storage.files; coreos-sudo-group from commit
+coreos-bf56b0bc9b	recorded		EVID: README from the deployed commit
+coreos-b86fee9a16	recorded		mixed: compose-time preset links (commit); 20-ignition.preset and afterburn link by Ignition (derivative)
+coreos-5a0b991b97	derivative	ostree	ostree stamp
+coreos-1711d3c8c4	derivative	systemd	stamp for ConditionNeedsUpdate
+coreos-418d5e5b2b	derivative	rpm-ostree	repo metadata cache
+coreos-0ef3eb01b3	derivative	bash	skel copy (not person-made); shell code executed by bash
+coreos-be57689b36	derivative	bash	skel copy (not person-made); shell code executed by bash
+coreos-661587021d	hole-two		DEF: person's own setting (export EDITOR=vi, day.log) = data, and shell code executed by bash = derivative
+coreos-b2b64aaca8	recorded		authorized_keys.d/ignition from config.ign sshAuthorizedKeys
+coreos-95ac45c046	derivative	bash	skel copy; shell code executed by bash
+coreos-9b7b30cbba	derivative	bash	skel copy; shell code executed by bash
+coreos-cc70cd5e32	derivative	bash	skel copy; shell code executed by bash
+coreos-23f2259103	derivative	NetworkManager	NM state, leases, secret key
+coreos-9f4d264e14	derivative	authselect	authselect checksum
+coreos-99d362e5d4	derivative	coreos-populate-lvmdevices.service	its run-once stamp
+coreos-23338df933	derivative	util-linux (lastlog2)	last-login database
+coreos-0eecaaf2d8	derivative	nfs-utils	rpc_pipefs mount tree used by gssd
+coreos-eacfba77ec	derivative	rpm-ostree	EVID: link to /usr/share/rpm for rpmdb location
+coreos-5e5913285f	derivative	rpm-ostree	transaction history
+coreos-57da4d32dc	derivative	systemd	timer stamps, linger/census by logind
+coreos-d01c2fc3c7	derivative	systemd	EVID: link to systemd README.logs
+coreos-134469a114	derivative	audit	auditd log
+coreos-e6b33c3854	derivative	systemd	journald store
+coreos-2d7adb8ef6	recorded		EVID: skel files + buildinfo shipped in the container image /var of the deployed commit
+coreos-64f62c6553	recorded		mixed: /etc dirs from commit, home dirs of recorded accounts; /var/lib/* and lost+found derivative
+coreos-9b11573e98	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-86d74136ea	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-c1cb4d2cb3	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-9a8b0774fb	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-842ef8c3bd	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-7b28a710b2	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-0ac5a10e67	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-167f3063ff	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-9ac48a93f2	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-75de6dcfcb	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-4c9f8adea6	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-9faaf00905	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-79d1cbcc95	recorded		fragment/drop-ins under /usr/lib/systemd in the deployed ostree commit (unowned by rpm)
+coreos-9b47a2a2ff	derivative	systemd	instance generated from mount table by systemd generator
+coreos-ca040c10df	recorded		EVID: mask link in /etc/systemd from the deployed commit
+coreos-a3f2270221	derivative	systemd	device units synthesized from udev (system manager)
+coreos-18fb2985ed	derivative	systemd	mount units synthesized from mount table (system manager)
+coreos-9994d7ebc4	derivative	systemd	in-memory placeholders for referenced absent units (no file) (system manager)
+coreos-0ff15b2741	derivative	systemd	scopes made by systemd/logind (system manager)
+coreos-253d752b01	derivative	systemd	slices made by systemd/logind (system manager)
+coreos-eb57ff0e5c	derivative	systemd	sshd sockets made by systemd-ssh-generator (system manager)
+coreos-88335c6c87	derivative	systemd	device units synthesized from udev (user manager)
+coreos-565df89b5f	derivative	systemd	mount units synthesized from mount table (user manager)
+coreos-97fdaec6aa	derivative	systemd	in-memory placeholders for referenced absent units (no file) (user manager)
+coreos-3bc8c8458c	derivative	systemd	scopes made by systemd/logind (user manager)
+coreos-b855166ba5	derivative	systemd	slices made by systemd/logind (user manager)
+debian-205e945769	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-3fa3a857d8	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-8d1e409524	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-96a19ba1e6	recorded		named in cloud-init user-data users: census
+debian-4900fca16b	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-8e4a0f0c6a	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-707e10c2e4	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-3413994e24	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-55e4967557	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-ecfab3dd45	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-0e2a281927	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-9911292f99	recorded		listed in sysusers.d/dbus.conf (recorded package file)
+debian-625113a2f2	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-af2a58bec6	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-1f9ebd3eec	recorded		listed in sysusers.d/polkitd.conf
+debian-b54337a503	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-cbaf0b4232	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-dbea3590f8	derivative	openssh-server	no declarative listing; created by openssh-server postinst for privilege separation
+debian-ab8c35e257	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-ead54fe7c7	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-ee17e5a4df	recorded		listed in sysusers.d/systemd-network.conf
+debian-54ef0687f4	recorded		listed in sysusers.d/systemd-resolve.conf
+debian-1525133242	recorded		listed in sysusers.d/systemd-timesync.conf
+debian-0b2fc8af1f	derivative	tcpdump	no declarative listing; created by tcpdump postinst for privilege drop
+debian-736d2abbd6	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-a0ea4d1be3	derivative	uuid-runtime	no declarative listing; created by uuid-runtime postinst for uuidd
+debian-8c8f9ffd14	recorded		listed in base-passwd passwd.master + sysusers.d/basic.conf (recorded package files)
+debian-89ce5c5668	recorded		threads of the recorded kernel
+debian-d8ee8908a9	recorded		collector run of recorded procps
+debian-5bf2e2415a	derivative	grub (grub-efi/shim)	EFI binaries placed by grub-install for grub boot
+debian-76634f69cd	derivative	grub	modules/grub.cfg/grubenv written by grub-install/update-grub for grub
+debian-71ff0a38c1	derivative	linux-image-6.1.0-56-cloud-amd64	built by the kernel package postinst hook (initramfs-tools) for that kernel
+debian-fefd90f542	derivative	passwd (shadow)	lock file of shadow tools
+debian-917d8d1269	derivative	systemd-resolved	backup made by systemd-resolved on install
+debian-809cb439ce	derivative	registering packages (update-alternatives)	links made by each package postinst for its own alternative
+debian-384e8d981f	derivative	apparmor	local override stubs/tunables created by postinsts, read by apparmor parser
+debian-ce45570012	hole-none		DEF+EVID: sources.list/mirrors written at image build (no package, not cloud-init need, not person); u-u files are derivative
+debian-9cf6463675	derivative	ca-certificates	created by ca-certificates postinst, read by update-ca-certificates
+debian-0326839754	derivative	ca-certificates	backup from ca-certificates maintainer scripts
+debian-34803cf70a	hole-none		DEF+EVID: 01_debian_cloud.cfg authored at image build; not created by cloud-init, not person, unowned
+debian-72dead8488	hole-none		DEF+EVID: image-build stamp; no on-machine creator, not person, needed by no program
+debian-228a030233	derivative	grub	mixed: grub.d/*.cfg are shell code sourced by grub-mkconfig (code rule); locale from locales
+debian-7740cdd4af	derivative	base-files	origins/default link made by base-files postinst for vendor lookup
+debian-5deb3892cc	derivative	libpam-modules	EVID: created by libpam-modules postinst, read by pam_env
+debian-4cce813fe8	hole-none		DEF+EVID: written at image build; states mounts but is not recorded, not person-made, no on-machine creator
+debian-a763d184b3	hole-two		one file holds recorded entries (base-passwd/sysusers/user-data) and derivative ones (sshd,tcpdump,uuidd): P2 vs P6
+debian-d3bb1c2fce	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-211f893687	derivative	grub	enable_cloud is a script executed by grub-mkconfig (code rule)
+debian-2adfd50853	hole-two		one file holds recorded entries (base-passwd/sysusers/user-data) and derivative ones (sshd,tcpdump,uuidd): P2 vs P6
+debian-42b0af3cd4	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-ea2b617ba5	recorded		hostname v1-debian named in user-data/meta-data, written by cloud-init
+debian-5cad41b508	hole-none		DEF+EVID: written at image build or by cloud-init; needed by glibc resolver, not by its creator
+debian-d47133480a	hole-none		EVID: unowned, no package template, creator not evidenced; read by libwrap
+debian-b8a8c42f35	hole-none		EVID: unowned, no package template, creator not evidenced; read by libwrap
+debian-f3f8b50a94	derivative	initramfs-tools	modules copied from /usr/share/initramfs-tools/modules by its postinst
+debian-413e0b552f	derivative	readline-common	copied from /usr/share/readline/inputrc by its postinst; readline settings
+debian-a349a8354f	hole-none		EVID: unowned, no package template, written at image build; read by kernel hooks
+debian-f2368b74f2	derivative	libc-bin	ldconfig cache for ld.so
+debian-cf102b2bab	derivative	locales	created by locales postinst, read by locale-gen
+debian-966442e2a8	derivative	tzdata	link set by tzdata postinst
+debian-1809ee6527	derivative	systemd	generated by systemd at first boot
+debian-1af8deec0e	hole-none		EVID: blacklist.conf unowned, no package template, creator not evidenced
+debian-9e65e302c3	derivative	kmod	EVID: created by kmod postinst if missing; read by modules-load
+debian-fb657bdf06	derivative	base-files	copied from /usr/share/base-files/motd by base-files postinst
+debian-6b4026dd02	derivative	systemd	EVID: link to ../proc/self/mounts made by systemd tmpfiles
+debian-bbe4c8f871	hole-none		DEF: 50-cloud-init.yaml made by cloud-init but needed by netplan/networkd; removing cloud-init must not drop network
+debian-6f021dad80	hole-none		EVID: unowned, no package template, creator not evidenced
+debian-5f65179c45	derivative	libc-bin	copied from /usr/share/libc-bin/nsswitch.conf by postinst; read by glibc
+debian-4d882498fa	derivative	libpam-runtime	common-* generated by pam-auth-update from /usr/share/pam-configs
+debian-493d4cfdb1	hole-two		one file holds recorded entries (base-passwd/sysusers/user-data) and derivative ones (sshd,tcpdump,uuidd): P2 vs P6
+debian-c169edc1ca	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-3543b3a205	derivative	bash, dash	shell code executed by login shells (code rule); copied by base-files postinst
+debian-2dfb100dfa	derivative	python3	EVID: debian_config created by python3 maintainer scripts for py3compile
+debian-5ecd8ad6ee	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-2e520cea02	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-31b4602da2	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-78bcc39697	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-8e766b28b8	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-f032939066	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-b1fb6e4c19	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-4311df43fb	derivative	packages owning the init scripts (update-rc.d)	start/stop links made by each package postinst for its own init script
+debian-cee61291d2	derivative	systemd-resolved	link to resolved file set by systemd-resolved
+debian-e2573a99e5	derivative	openssh-server	runsvdir link made by openssh-server postinst for its service
+debian-84b24ebf2a	derivative	libpam-modules	opasswd store for pam_unix/pam_pwhistory
+debian-20302e112e	derivative	sgml-base	catalog link maintained by update-catalog
+debian-cfe66bc678	hole-two		one file holds recorded entries (base-passwd/sysusers/user-data) and derivative ones (sshd,tcpdump,uuidd): P2 vs P6
+debian-9ed4eb3a99	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-5b5a9c277e	derivative	debianutils (add-shell for bash/dash/screen)	built from shells.d registrations
+debian-0075a76d48	hole-none		DEF: host keys made by cloud-init (console.log) but needed by sshd; sshd_config itself is derivative of openssh-server
+debian-0306bdd9a9	derivative	ca-certificates	cert links/bundle made by update-ca-certificates
+debian-f18cbc897b	derivative	passwd (shadow)	subordinate id ranges allocated by useradd
+debian-c1ef82d842	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-f17149d114	derivative	passwd (shadow)	subordinate id ranges allocated by useradd
+debian-a2bc9043e2	derivative	passwd (shadow)	backup written by shadow tools when editing account files
+debian-09d09204d8	recorded		90-cloud-init-users from user-data sudo: ALL=(ALL) NOPASSWD:ALL
+debian-b86fee9a16	derivative	packages owning the enabled units (deb-systemd-helper)	enable/alias links made by each package postinst for its own unit
+debian-8c833da179	derivative	tzdata	written by tzdata postinst
+debian-f4c9cf7ef7	derivative	screen	screen-cleanup.conf created by screen postinst for its socket dir
+debian-66fa11f56b	derivative	xml-core	catalogs maintained by update-xmlcatalog
+debian-3787beb4db	derivative	bash	skel copy (not person-made); shell code executed by bash (code rule)
+debian-2d36998dd6	derivative	bash	skel copy (not person-made); shell code executed by bash (code rule)
+debian-7fa8a1d5c0	data		person's editor setting written in day.log ('set tabsize 4')
+debian-c15063bcfe	derivative	bash	skel copy (not person-made); shell code executed by login shell (code rule)
+debian-c3a3dd6c9b	recorded		authorized_keys from user-data ssh_authorized_keys
+debian-c63f1a59b6	derivative	sudo	marker created by sudo for its admin hint
+debian-90017bfd94	derivative	bash	copied from base-files dot.bashrc; shell code executed by bash (code rule)
+debian-0fbf442b3c	derivative	bash	copied from base-files dot.profile; shell code executed by login shell (code rule)
+debian-351644c1fd	recorded		cloud-init disable_root entry built from the person's seeded key
+debian-97fc2dd36c	hole-none		EVID: compatibility link, creator not evidenced; placeholder needed by no creator
+debian-f447463411	derivative	apparmor	compiled profile cache
+debian-869a3e13d4	derivative	apt	downloaded .deb cache
+debian-68207b149d	derivative	debconf	debconf databases
+debian-2b7dd179b7	derivative	libc-bin	ldconfig aux cache
+debian-54ff9bafac	derivative	man-db	man index cache
+debian-b20e807939	derivative	apt	package lists and extended_states
+debian-995a8560ba	derivative	cloud-init	cloud-init instance state
+debian-7c99ede366	derivative	dbus	machine-id link made by dbus postinst
+debian-3cce15cf49	derivative	dpkg	dpkg's own database (P3: not a source of truth, though it lists installed packages)
+debian-6ead5eb670	derivative	man-db	auto-update flag
+debian-b56df50fe2	derivative	libpam-runtime	pam-auth-update state
+debian-769028f968	derivative	python3.11	installed marker from python3.11 postinst
+debian-68ad82b745	derivative	sgml-base	supercatalog state
+debian-1108460cc8	derivative	debianutils	add-shell state
+debian-57da4d32dc	derivative	systemd	mixed: systemd state + deb-systemd-helper state (init-system-helpers); linger/census written by logind
+debian-eaf0301642	derivative	ucf	ucf cache/registry of managed config files
+debian-b26e35ff37	derivative	xml-core	catalog state
+debian-d01c2fc3c7	derivative	systemd	EVID: link to systemd README.logs made by systemd tmpfiles
+debian-83df02e6eb	derivative	apt	apt logs
+debian-9c96b64591	derivative	systemd	login-failure log file created by systemd tmpfiles, written by login tools
+debian-93b020b2d3	derivative	cloud-init	cloud-init log
+debian-2954505d9d	derivative	cloud-init	cloud-init log
+debian-6f5cf081f0	derivative	dpkg	dpkg log
+debian-8dc29397cf	derivative	passwd (shadow)	EVID: failure log of shadow/pam tools
+debian-e6b33c3854	derivative	systemd	journald store
+debian-698c23461f	derivative	login/libpam-modules	last-login log written by login/pam_lastlog
+debian-dea214b7e3	derivative	unattended-upgrades	its log
+debian-d6ce9987c3	derivative	systemd	login records log created by tmpfiles, written by update-utmp/login
+debian-98e3025b9e	hole-none		DEF+EVID: compat link made by base-files; no mail program present, not for creator, not person
+debian-64f62c6553	hole-none		DEF: base-files FHS placeholders (/usr/local/*,/opt,/srv,/var/opt,/var/mail) serve no program; rest recorded/data/derivative
+debian-96787848d5	derivative	netplan.io	generated in /run/systemd/system by netplan generator
+debian-0758efc3b0	derivative	systemd	generated by systemd-fstab-generator in /run/systemd/generator
+debian-a3f2270221	derivative	systemd	device units synthesized from udev (system manager)
+debian-18fb2985ed	derivative	systemd	mount units synthesized from mount table (system manager)
+debian-9994d7ebc4	derivative	systemd	in-memory placeholders for referenced absent units (no file) (system manager)
+debian-0ff15b2741	derivative	systemd	scopes made by systemd/logind (system manager)
+debian-253d752b01	derivative	systemd	slices made by systemd/logind (system manager)
+debian-88335c6c87	derivative	systemd	device units synthesized from udev (user manager)
+debian-565df89b5f	derivative	systemd	mount units synthesized from mount table (user manager)
+debian-97fdaec6aa	derivative	systemd	in-memory placeholders for referenced absent units (no file) (user manager)
+debian-3bc8c8458c	derivative	systemd	scopes made by systemd/logind (user manager)
+debian-b855166ba5	derivative	systemd	slices made by systemd/logind (user manager)
+nixos-96a19ba1e6	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-27d89cb149	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-9911292f99	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-af2a58bec6	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-26ad58fd4b	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-cbaf0b4232	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-dbea3590f8	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-e7927b082e	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-ee17e5a4df	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-195a1b489c	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-54ef0687f4	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-1525133242	recorded		in evaluated declaration users-groups.json (account-definitions.txt)
+nixos-8a2cb02577	recorded		nixbld1..32 in evaluated users-groups.json
+nixos-89ce5c5668	recorded		threads of the recorded kernel
+nixos-d8ee8908a9	recorded		collector run of recorded procps
+nixos-bfd49e603a	derivative	nix	3669 .drv + build inputs + root channel: nix build/eval cache
+nixos-d2fde56a38	hole-none		DEF: hello installed by non-root nix-env (day.log): not recorded, not needed by nix, not person-made; bypass has no P3 class
+nixos-977a82fc40	derivative	grub (NixOS install-grub)	copied by install-grub for grub menu
+nixos-03b787fa8a	derivative	grub (NixOS install-grub)	font converted by install-grub for grub
+nixos-76634f69cd	derivative	grub (NixOS install-grub)	modules/grub.cfg written by install-grub for grub
+nixos-8b702739b5	derivative	NixOS setup-etc	setup-etc's list of copied files
+nixos-5932b79e41	derivative	systemd	stamp for ConditionNeedsUpdate
+nixos-c093c82f20	derivative	NixOS stage-2/switch-to-configuration	EVID: marker written and checked by NixOS system scripts
+nixos-6c8f567e70	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-69b4850472	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-4e2b0e7d53	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-df290cde86	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-228a030233	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-e972ba2446	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-7ec0efa4d1	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-41632fad0a	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-4cce813fe8	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-dd17eb66aa	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-8e628def89	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-a763d184b3	recorded		written by update-users-groups.pl from declared users-groups.json; all entries declared
+nixos-ff21b3cde5	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-ea2b617ba5	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-5cad41b508	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-413e0b552f	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-132a96a8d6	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-197b8faf2d	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-d59101ffe2	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-cafee5136d	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-8f95c550d5	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-1ba388a08e	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-1809ee6527	derivative	systemd	generated by systemd at first boot
+nixos-2527479582	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-1af8deec0e	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-009e4f8fbe	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-6b4026dd02	derivative	NixOS stage-2	EVID: link to /proc/mounts made by NixOS boot scripts
+nixos-56c91b49c3	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-c9a2b38b8a	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-334b6692d5	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-56394eddb3	hole-none		DEF: the declaration files themselves have no class in sec.5; hardware-configuration.nix generated by nixos-generate-config
+nixos-d3b2250429	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-5f65179c45	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-6a38277ef0	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-f25f265aa4	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-4d882498fa	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-493d4cfdb1	recorded		written by update-users-groups.pl from declared users-groups.json; all entries declared
+nixos-f088c5f883	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-3543b3a205	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-6c0aa5e2c0	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-cee61291d2	derivative	openresolv	generated by resolvconf from dhcpcd input
+nixos-3e261cb18e	derivative	openresolv	EVID: backup of resolv.conf by resolvconf handling
+nixos-ab45f0cccb	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-9b10886117	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-0f267cfacf	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-5189c7f54c	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-cfe66bc678	recorded		written by update-users-groups.pl from declared users-groups.json; all entries declared
+nixos-5b5a9c277e	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-0075a76d48	recorded		mixed: config links + authorized_keys.d/census declared; host keys derivative of sshd
+nixos-0306bdd9a9	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-06b99d7903	derivative	NixOS setup-etc	link to current etc tree used by setup-etc
+nixos-f18cbc897b	recorded		written by update-users-groups.pl from declared users-groups.json; all entries declared
+nixos-f17149d114	recorded		written by update-users-groups.pl from declared users-groups.json; all entries declared
+nixos-09d9e916a6	recorded		copied by setup-etc from declared security.sudo (environment.etc mode file)
+nixos-7ab5b73f41	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-b86fee9a16	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-7fca164fdd	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-f4c9cf7ef7	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-561d6a5935	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-1ef4d5e9cf	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-62bb2e052f	recorded		link into /etc/static = environment.etc of the evaluated declaration (system closure)
+nixos-ea3d75074e	derivative	nix	user profile generation links made by nix-env
+nixos-3e7f003ce6	derivative	nix	channel links made by nix-env
+nixos-0ae3a1e7df	derivative	nix	profile link made by nix
+nixos-dfc5f24c51	hole-two		DEF: person's editor config ('set number') = data, and Vim script executed by vim = derivative
+nixos-ca60585e85	derivative	nix	build logs
+nixos-cf8679a110	derivative	nix	gc.lock
+nixos-cd5745eaa2	derivative	nix	nix-daemon socket
+nixos-049151ab36	derivative	nix	store database
+nixos-20175b2d24	derivative	nix	gc roots incl. current/booted-system
+nixos-d8abd72569	derivative	nix	system generation and root channel links
+nixos-f0398dd524	derivative	nix	build-user pool state
+nixos-64e02036ee	derivative	nix	binary cache metadata
+nixos-541e573a24	derivative	nix	EVID: channel list used by nix-channel
+nixos-a5c695f848	derivative	nix	channel links
+nixos-63d8a049ea	derivative	nix	profile link
+nixos-1711d3c8c4	derivative	systemd	stamp for ConditionNeedsUpdate
+nixos-0fc35c3f9b	derivative	dhcpcd	duid and lease
+nixos-23338df933	derivative	util-linux (lastlog2)	last-login database
+nixos-ec96d00e30	derivative	NixOS update-users-groups	uid/gid maps of the user activation
+nixos-57da4d32dc	derivative	systemd	random-seed, timers, timesync, linger/census by logind
+nixos-c33b46c2c2	derivative	systemd	EVID: compat link made by systemd tmpfiles
+nixos-9c96b64591	derivative	systemd	login-failure log
+nixos-e6b33c3854	derivative	systemd	journald store
+nixos-e6b89b1ddd	derivative	util-linux (lastlog2)	migration marker
+nixos-d6ce9987c3	derivative	systemd	login records log
+nixos-c2cf70a5ff	derivative	systemd	EVID: compat link made by systemd tmpfiles
+nixos-64f62c6553	derivative	nix/systemd	mixed: /home,/root,/home/census declared (activation, createHome); nix and tmpfiles dirs derivative
+nixos-a3f2270221	derivative	systemd	device units synthesized from udev (system manager)
+nixos-18fb2985ed	derivative	systemd	mount units synthesized from mount table (system manager)
+nixos-9994d7ebc4	derivative	systemd	in-memory placeholders for referenced absent units (no file) (system manager)
+nixos-0ff15b2741	derivative	systemd	scopes made by systemd/logind (system manager)
+nixos-253d752b01	derivative	systemd	slices made by systemd/logind (system manager)
+nixos-eb57ff0e5c	derivative	systemd	sshd sockets made by systemd-ssh-generator (system manager)
+nixos-88335c6c87	derivative	systemd	device units synthesized from udev (user manager)
+nixos-565df89b5f	derivative	systemd	mount units synthesized from mount table (user manager)
+nixos-97fdaec6aa	derivative	systemd	in-memory placeholders for referenced absent units (no file) (user manager)
+nixos-3bc8c8458c	derivative	systemd	scopes made by systemd/logind (user manager)
+nixos-b855166ba5	derivative	systemd	slices made by systemd/logind (user manager)

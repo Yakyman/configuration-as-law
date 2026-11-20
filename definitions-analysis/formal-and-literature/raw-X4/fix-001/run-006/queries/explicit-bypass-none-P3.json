@@ -1,0 +1,195 @@
+{
+  "name": "explicit-bypass-none-P3",
+  "status": "unsat",
+  "note": "Classification violation under synthetic negatives, not P1/P3 opposing duties",
+  "smt2": "X/raw-X4/fix-001/run-006/queries/explicit-bypass-none-P3.smt2",
+  "rule_sources": {
+    "physical.active_present": [],
+    "physical.accessible_present": [],
+    "physical.deleted_absent": [],
+    "physical.running_present": [],
+    "action.launch_attempt_is_bypass": [],
+    "action.launch_requires_attempt": [],
+    "physical.launched_present": [],
+    "single.archive_setting": [],
+    "bound.single_list_mode": [],
+    "P3.remainder": [
+      142
+    ],
+    "P3.one_authority": [
+      142
+    ],
+    "fact.x_runs": [],
+    "fact.root_records_x": [],
+    "fact.personal_records_x": [],
+    "fact.bypass_line_applies": [],
+    "fact.person_created_x": [],
+    "fact.p0_executes_x_internally": [],
+    "fact.p1_executes_x_internally": [],
+    "fact.p0_created_x_itself": [],
+    "fact.p1_created_x_itself": []
+  },
+  "formulae": {
+    "physical.active_present": "Implies(active, present)",
+    "physical.accessible_present": "Implies(accessible, present)",
+    "physical.deleted_absent": "Implies(deleted, Not(present))",
+    "physical.running_present": "Implies(x_runs, present)",
+    "action.launch_attempt_is_bypass": "Implies(bypass_launch_attempt,\n        And(changes_running_component,\n            Not(writes_declaration)))",
+    "action.launch_requires_attempt": "Implies(launch_effective, bypass_launch_attempt)",
+    "physical.launched_present": "Implies(launch_effective, present)",
+    "single.archive_setting": "Not(And(archive_keep, archive_delete))",
+    "bound.single_list_mode": "Not(And(allowlist_enabled, denylist_enabled))",
+    "P3.remainder": "Implies(And(present,\n            Not(Or(root_records_x, personal_records_x))),\n        Or(person_created_x,\n           And(Or(Or(And(p0_described_at_creation,\n                         p0_created_x_itself,\n                         p0_needs_x),\n                     p0_executes_x_internally),\n                  Or(And(p1_described_at_creation,\n                         p1_created_x_itself,\n                         p1_needs_x),\n                     p1_executes_x_internally)),\n               Or(And(Or(And(p0_described_at_creation,\n                             p0_created_x_itself,\n                             p0_needs_x),\n                         p0_executes_x_internally),\n                      Or(p0_recorded_now, False)),\n                  And(Or(And(p1_described_at_creation,\n                             p1_created_x_itself,\n                             p1_needs_x),\n                         p1_executes_x_internally),\n                      Or(p1_recorded_now, False))))))",
+    "P3.one_authority": "Implies(Or(Or(And(p0_described_at_creation,\n                  p0_created_x_itself,\n                  p0_needs_x),\n              p0_executes_x_internally),\n           Or(And(p1_described_at_creation,\n                  p1_created_x_itself,\n                  p1_needs_x),\n              p1_executes_x_internally)),\n        Not(derivative_is_independent_authority))",
+    "fact.x_runs": "x_runs == True",
+    "fact.root_records_x": "root_records_x == False",
+    "fact.personal_records_x": "personal_records_x == False",
+    "fact.bypass_line_applies": "bypass_line_applies == True",
+    "fact.person_created_x": "person_created_x == False",
+    "fact.p0_executes_x_internally": "p0_executes_x_internally == False",
+    "fact.p1_executes_x_internally": "p1_executes_x_internally == False",
+    "fact.p0_created_x_itself": "p0_created_x_itself == False",
+    "fact.p1_created_x_itself": "p1_created_x_itself == False"
+  },
+  "source_ids": [
+    "P3",
+    "C-declaration",
+    "C-components",
+    "C-derivative",
+    "C-data",
+    "C-generation",
+    "C-bypass",
+    "bypass-nonenumeration"
+  ],
+  "source_lines": {
+    "P3": [
+      142
+    ],
+    "C-declaration": [
+      131
+    ],
+    "C-components": [
+      132
+    ],
+    "C-derivative": [
+      133
+    ],
+    "C-data": [
+      134
+    ],
+    "C-generation": [
+      135
+    ],
+    "C-bypass": [
+      136
+    ],
+    "bypass-nonenumeration": [
+      150
+    ]
+  },
+  "named_obligations": {
+    "physical.active_present": {
+      "formula": "Implies(active, present)",
+      "source_id": "instrument/context"
+    },
+    "physical.accessible_present": {
+      "formula": "Implies(accessible, present)",
+      "source_id": "instrument/context"
+    },
+    "physical.deleted_absent": {
+      "formula": "Implies(deleted, Not(present))",
+      "source_id": "instrument/context"
+    },
+    "physical.running_present": {
+      "formula": "Implies(x_runs, present)",
+      "source_id": "instrument/context"
+    },
+    "action.launch_attempt_is_bypass": {
+      "formula": "Implies(bypass_launch_attempt,\n        And(changes_running_component,\n            Not(writes_declaration)))",
+      "source_id": "instrument/context"
+    },
+    "action.launch_requires_attempt": {
+      "formula": "Implies(launch_effective, bypass_launch_attempt)",
+      "source_id": "instrument/context"
+    },
+    "physical.launched_present": {
+      "formula": "Implies(launch_effective, present)",
+      "source_id": "instrument/context"
+    },
+    "single.archive_setting": {
+      "formula": "Not(And(archive_keep, archive_delete))",
+      "source_id": "instrument/context"
+    },
+    "bound.single_list_mode": {
+      "formula": "Not(And(allowlist_enabled, denylist_enabled))",
+      "source_id": "instrument/context"
+    },
+    "P3.remainder": {
+      "formula": "Implies(And(present,\n            Not(Or(root_records_x, personal_records_x))),\n        Or(person_created_x,\n           And(Or(Or(And(p0_described_at_creation,\n                         p0_created_x_itself,\n                         p0_needs_x),\n                     p0_executes_x_internally),\n                  Or(And(p1_described_at_creation,\n                         p1_created_x_itself,\n                         p1_needs_x),\n                     p1_executes_x_internally)),\n               Or(And(Or(And(p0_described_at_creation,\n                             p0_created_x_itself,\n                             p0_needs_x),\n                         p0_executes_x_internally),\n                      Or(p0_recorded_now, False)),\n                  And(Or(And(p1_described_at_creation,\n                             p1_created_x_itself,\n                             p1_needs_x),\n                         p1_executes_x_internally),\n                      Or(p1_recorded_now, False))))))",
+      "source_id": "P3"
+    },
+    "P3.one_authority": {
+      "formula": "Implies(Or(Or(And(p0_described_at_creation,\n                  p0_created_x_itself,\n                  p0_needs_x),\n              p0_executes_x_internally),\n           Or(And(p1_described_at_creation,\n                  p1_created_x_itself,\n                  p1_needs_x),\n              p1_executes_x_internally)),\n        Not(derivative_is_independent_authority))",
+      "source_id": "P3"
+    },
+    "fact.x_runs": {
+      "formula": "x_runs == True",
+      "source_id": "instrument/context"
+    },
+    "fact.root_records_x": {
+      "formula": "root_records_x == False",
+      "source_id": "instrument/context"
+    },
+    "fact.personal_records_x": {
+      "formula": "personal_records_x == False",
+      "source_id": "instrument/context"
+    },
+    "fact.bypass_line_applies": {
+      "formula": "bypass_line_applies == True",
+      "source_id": "instrument/context"
+    },
+    "fact.person_created_x": {
+      "formula": "person_created_x == False",
+      "source_id": "instrument/context"
+    },
+    "fact.p0_executes_x_internally": {
+      "formula": "p0_executes_x_internally == False",
+      "source_id": "instrument/context"
+    },
+    "fact.p1_executes_x_internally": {
+      "formula": "p1_executes_x_internally == False",
+      "source_id": "instrument/context"
+    },
+    "fact.p0_created_x_itself": {
+      "formula": "p0_created_x_itself == False",
+      "source_id": "instrument/context"
+    },
+    "fact.p1_created_x_itself": {
+      "formula": "p1_created_x_itself == False",
+      "source_id": "instrument/context"
+    }
+  },
+  "semantic_profile": {
+    "recorded_lifecycle": false,
+    "broad_unix": false,
+    "root_program_privileges": false,
+    "immediate_saved_delete": false,
+    "universal_personal_inclusion": false,
+    "historical_owner_eligibility": false,
+    "shared_needer_eligibility": false
+  },
+  "unsat_core": [
+    "track.fact.person_created_x",
+    "track.fact.p1_executes_x_internally",
+    "track.P3.remainder",
+    "track.fact.p0_created_x_itself",
+    "track.fact.root_records_x",
+    "track.fact.x_runs",
+    "track.fact.p0_executes_x_internally",
+    "track.physical.running_present",
+    "track.fact.personal_records_x",
+    "track.fact.p1_created_x_itself"
+  ],
+  "expected": "unsat",
+  "expectation_met": true
+}

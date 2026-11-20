@@ -1,0 +1,139 @@
+{
+  "completed": true,
+  "family": "D",
+  "finished_ns": 1795082650440029287,
+  "hashes": {
+    "a1": "e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357",
+    "a2": "401117a09a08047546b0bf3e4511ee8a6361db028a3a25e3908c42a0a4009323",
+    "b1": "ed15358fbbe09267926220793d1c354be7393ea70b2b9d6c28b68f5cc2c145ef",
+    "safe": "5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa"
+  },
+  "instrumented": true,
+  "name": "D-Qyx",
+  "requests": [
+    {
+      "ack": {
+        "effective": {
+          "allow_channels": {},
+          "archive": "delete",
+          "generation": "1795082647219791286",
+          "personal": {
+            "alice": {
+              "programs": {
+                "local-alice-a1": {
+                  "executable": "/home/alice/p32/a1",
+                  "sha256": "e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357",
+                  "version": "1"
+                },
+                "local-alice-safe": {
+                  "executable": "/home/alice/p32/safe",
+                  "sha256": "5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa",
+                  "version": "1"
+                }
+              }
+            },
+            "bob": {
+              "programs": {}
+            }
+          },
+          "programs": {
+            "local-alice-a1": {
+              "executable": "/var/lib/cal/executables/alice/e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357",
+              "owners": [
+                "alice"
+              ],
+              "scope": "user",
+              "sha256": "e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357",
+              "version": "1"
+            },
+            "local-alice-safe": {
+              "executable": "/var/lib/cal/executables/alice/5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa",
+              "owners": [
+                "alice"
+              ],
+              "scope": "user",
+              "sha256": "5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa",
+              "version": "1"
+            }
+          },
+          "root": {
+            "allow_channels": {},
+            "archive": "delete",
+            "policies": {},
+            "programs": {},
+            "shared": {}
+          },
+          "shared": {}
+        },
+        "generation": "1795082647219791286",
+        "hook_stderr": "",
+        "hook_stdout": "{\"argv\": [\"systemctl\", \"stop\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n",
+        "ok": true
+      },
+      "ack_valid": true,
+      "argv": [
+        "ssh",
+        "-F",
+        "/dev/null",
+        "-i",
+        "<WORKDIR>/P3-2/key-alice",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=3",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=<WORKDIR>/P3-2/known_hosts",
+        "-p",
+        "23332",
+        "alice@127.0.0.1",
+        "/usr/local/bin/cal-login -c 'printf \"P32_CLIENT_PID=%s\\n\" \"$$\" >&2; id >&2; cat /proc/$$/attr/current >&2; exec /usr/local/bin/calctl apply'"
+      ],
+      "client_pid": 918,
+      "finished_ns": 1795082647881718934,
+      "label": "Y",
+      "rc": 0,
+      "started_ns": 1795082646643330149,
+      "stderr": "P32_CLIENT_PID=918\nuid=32101(alice) gid=32101(alice) groups=32101(alice),1002(calusers)\ncal-alice (enforce)\n",
+      "stdout": "{\"effective\": {\"allow_channels\": {}, \"archive\": \"delete\", \"generation\": \"1795082647219791286\", \"personal\": {\"alice\": {\"programs\": {\"local-alice-a1\": {\"executable\": \"/home/alice/p32/a1\", \"sha256\": \"e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357\", \"version\": \"1\"}, \"local-alice-safe\": {\"executable\": \"/home/alice/p32/safe\", \"sha256\": \"5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa\", \"version\": \"1\"}}}, \"bob\": {\"programs\": {}}}, \"programs\": {\"local-alice-a1\": {\"executable\": \"/var/lib/cal/executables/alice/e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"e1aae9f7036134f2895f89ea2359483e31f4d855b85ac9aee00b34f713ef9357\", \"version\": \"1\"}, \"local-alice-safe\": {\"executable\": \"/var/lib/cal/executables/alice/5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa\", \"owners\": [\"alice\"], \"scope\": \"user\", \"sha256\": \"5e814f2aca781aa52c3414439ab86ccc2e54879bbec2beca9a4518b4d27f20aa\", \"version\": \"1\"}}, \"root\": {\"allow_channels\": {}, \"archive\": \"delete\", \"policies\": {}, \"programs\": {}, \"shared\": {}}, \"shared\": {}}, \"generation\": \"1795082647219791286\", \"hook_stderr\": \"\", \"hook_stdout\": \"{\\\"argv\\\": [\\\"systemctl\\\", \\\"stop\\\", \\\"bq1-wifi-client\\\"], \\\"rc\\\": 0, \\\"stdout\\\": \\\"\\\", \\\"stderr\\\": \\\"\\\"}\\nLoaded enforcing profiles for alice, bob, and the managed root worker\\n\", \"ok\": true}\n",
+      "user": "alice"
+    },
+    {
+      "ack": {
+        "error": "root denylist forbids local-alice-a1",
+        "ok": false
+      },
+      "ack_valid": true,
+      "argv": [
+        "ssh",
+        "-F",
+        "/dev/null",
+        "-i",
+        "<WORKDIR>/P3-2/key-root",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=3",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=<WORKDIR>/P3-2/known_hosts",
+        "-p",
+        "23332",
+        "root@127.0.0.1",
+        "printf \"P32_CLIENT_PID=%s\\n\" \"$$\" >&2; id >&2; cat /proc/$$/attr/current >&2; exec /usr/local/bin/calctl apply"
+      ],
+      "client_pid": 947,
+      "finished_ns": 1795082647882175538,
+      "label": "X",
+      "rc": 1,
+      "started_ns": 1795082647024517652,
+      "stderr": "P32_CLIENT_PID=947\nuid=0(root) gid=0(root) groups=0(root)\nunconfined\n",
+      "stdout": "{\"error\": \"root denylist forbids local-alice-a1\", \"ok\": false}\n",
+      "user": "root"
+    }
+  ],
+  "schedule": "Qyx",
+  "started_ns": 1795082638864131305
+}

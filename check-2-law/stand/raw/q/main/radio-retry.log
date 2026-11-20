@@ -1,0 +1,61 @@
+uid=1000(alice) gid=1000(alice) groups=1000(alice),1002(calusers)
+cal-alice (enforce)
+{"programs":{"browser":{},"editor":{},"python":{},"node":{},"hello":{}},"connections":{"wifi":"<SSID>","bluetooth":"<MAC-1>"}}{"effective": {"allow_channels": {}, "archive": "keep", "generation": "1795077776318287625", "personal": {"alice": {"connections": {"bluetooth": "<MAC-1>", "wifi": "<SSID>"}, "programs": {"browser": {}, "editor": {}, "hello": {}, "node": {}, "python": {}}}, "bob": {"programs": {}}}, "programs": {"browser": {"owners": ["alice"], "scope": "user", "version": "1"}, "editor": {"owners": ["alice"], "scope": "user", "version": "1"}, "hello": {"owners": ["alice"], "scope": "user", "version": "1"}, "node": {"owners": ["alice"], "scope": "user", "version": "1"}, "python": {"owners": ["alice"], "scope": "user", "version": "1"}}, "root": {"allow_channels": {}, "archive": "keep", "policies": {}, "programs": {}, "shared": {}, "system_update": "bq1-version-changing-upgrade"}, "shared": {}}, "generation": "1795077776318287625", "hook_stderr": "", "hook_stdout": "{\"argv\": [\"systemctl\", \"start\", \"bq1-wifi-client\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\n{\"argv\": [\"wpa_cli\", \"-i\", \"wlan0\", \"status\"], \"rc\": 0, \"stdout\": \"bssid=<MAC-4>\\nfreq=2412\\nssid=<SSID>\\nid=0\\nmode=station\\npairwise_cipher=CCMP\\ngroup_cipher=CCMP\\nkey_mgmt=WPA2-PSK\\nwpa_state=COMPLETED\\nip_address=192.0.2.2\\np2p_device_address=<MAC-2>\\naddress=<MAC-3>\\nuuid=362db47b-a53a-5191-88fb-5458b986b2e4\\n\", \"stderr\": \"\"}\n{\"argv\": [\"ping\", \"-c\", \"2\", \"-W\", \"2\", \"192.0.2.1\"], \"rc\": 0, \"stdout\": \"PING 192.0.2.1 (192.0.2.1) 56(84) bytes of data.\\n64 bytes from 192.0.2.1: icmp_seq=1 ttl=64 time=0.086 ms\\n64 bytes from 192.0.2.1: icmp_seq=2 ttl=64 time=0.109 ms\\n\\n--- 192.0.2.1 ping statistics ---\\n2 packets transmitted, 2 received, 0% packet loss, time 1021ms\\nrtt min/avg/max/mdev = 0.086/0.097/0.109/0.011 ms\\n\", \"stderr\": \"\"}\n{\"argv\": [\"hcitool\", \"-i\", \"hci0\", \"cc\", \"<MAC-1>\"], \"rc\": 0, \"stdout\": \"\", \"stderr\": \"\"}\n{\"argv\": [\"l2ping\", \"-i\", \"hci0\", \"-c\", \"2\", \"-t\", \"2\", \"<MAC-1>\"], \"rc\": 0, \"stdout\": \"Ping: <MAC-1> from <MAC-5> (data size 44) ...\\nno response from <MAC-1>: id 0\\nno response from <MAC-1>: id 1\\n2 sent, 0 received, 100% loss\\n\", \"stderr\": \"\"}\n{\"argv\": [\"hcitool\", \"con\"], \"rc\": 0, \"stdout\": \"Connections:\\n\\t> ACL <MAC-5> handle 42 state 5 lm PERIPHERAL \\n\\t< ACL <MAC-1> handle 43 state 1 lm CENTRAL \\n\", \"stderr\": \"\"}\nLoaded enforcing profiles for alice, bob, and the managed root worker\n", "ok": true}
+Connected to <MAC-4> (on wlan0)
+	SSID: <SSID>
+	freq: 2412
+	RX: 41678 bytes (695 packets)
+	TX: 5497 bytes (41 packets)
+	signal: -30 dBm
+	rx bitrate: 54.0 MBit/s
+	tx bitrate: 54.0 MBit/s
+
+	bss flags:	short-slot-time
+	dtim period:	2
+	beacon int:	100
+bssid=<MAC-4>
+freq=2412
+ssid=<SSID>
+id=0
+mode=station
+pairwise_cipher=CCMP
+group_cipher=CCMP
+key_mgmt=WPA2-PSK
+wpa_state=COMPLETED
+ip_address=192.0.2.2
+p2p_device_address=<MAC-2>
+address=<MAC-3>
+uuid=362db47b-a53a-5191-88fb-5458b986b2e4
+Connections:
+	> ACL <MAC-5> handle 42 state 5 lm PERIPHERAL 
+	< ACL <MAC-1> handle 43 state 1 lm CENTRAL 
+Station <MAC-3> (on wlan1)
+	inactive time:	4020 ms
+	rx bytes:	6059
+	rx packets:	41
+	tx bytes:	761
+	tx packets:	8
+	tx retries:	0
+	tx failed:	0
+	rx drop misc:	0
+	signal:  	-30 dBm
+	signal avg:	-30 dBm
+	tx bitrate:	54.0 MBit/s
+	tx duration:	0 us
+	rx bitrate:	54.0 MBit/s
+	rx duration:	0 us
+	expected throughput:	19.133Mbps
+	authorized:	yes
+	authenticated:	yes
+	associated:	yes
+	preamble:	short
+	WMM/WME:	no
+	MFP:		no
+	TDLS peer:	no
+	DTIM period:	2
+	beacon interval:100
+	short slot time:yes
+	connected time:	33 seconds
+	associated at [boottime]:	215.573s
+	associated at:	1795077743069 ms
+	current time:	1795077776323 ms
