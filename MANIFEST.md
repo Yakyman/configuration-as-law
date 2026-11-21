@@ -185,7 +185,7 @@ Each value below was recounted from the published (cleaned) file named in the la
 ```
 5eebefd3682e32d661f307a28539b304e5e52fb1eb33ba214e61d7a57663e4f0  LICENSE
 62191fd767a50c67dd9923e6c7407f9bbd07e5fd5412e0b200c341dc18b2f1ee  LICENSE-CODE
-58e88a99740bc9351aef295fc970b6fb9c6595a83562cc832299623297746ca9  README.md
+12dc9ae252b175bd2b69722a826939068d4990b050212be0bdab06c463ceaf93  README.md
 e5db48196d5ba90107636e16d656cab5d747da0e1b8831119f84d190e5bfc3ea  check-1-census/debian-fedora-coreos-nixos/METHOD.md
 5a184715436b5aa8ef48b3457d26170c6d4c9a22be4ac967eec1ece48703580b  check-1-census/debian-fedora-coreos-nixos/RESULT.md
 4aac4b78585fd061f7d622e62b2225ac2057dd2c92e55003fe3128d97dc8293a  check-1-census/debian-fedora-coreos-nixos/REVIEW-2.md
@@ -1106,6 +1106,8 @@ abaade17fa382815900ffeed3414611cd9b7aa686170103c312e6870f6e52ef2  open-problems/
 691eda83cb363611cd47cfd67c4da3ae3a1154af05a9f5430d310fc68fb13269  open-problems/apply-crash/raw-P4-2/server/results/replay-R-keep/meta.json
 cb2e961c40bb003cbbf3e42c6ce4929331883d246fca16fa2de17fb94809f69a  open-problems/apply-crash/raw-P4-2/src/run.py
 ce3b8e2ee4d203d3461994ab84a9d3633fc4711b8720b89d6bdf8179f3005108  open-problems/apply-crash/raw-P4-2/src/verify-evidence.py
+f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistration-v3/configuration-as-law-v3.pdf
+b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 923.
+Files listed: 925.

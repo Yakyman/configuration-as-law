@@ -3,9 +3,18 @@
 This repository holds the evidence records behind the second paper on the *Configuration as Law*
 hypothesis, «Testing the “Configuration as Law” Hypothesis: Results of the First Cycle and a Second
 Version». The second paper is published at <https://yakyman.com/configuration-as-law-v2.pdf> (page
-<https://yakyman.com/research>). The first paper, which stated version 1 of the hypothesis and fixed
+<https://yakyman.com/research-v2>). The first paper, which stated version 1 of the hypothesis and fixed
 five checks and their failure conditions before any check was run, is published at
 <https://yakyman.com/configuration-as-law-v1.pdf>.
+
+## Version 3: fixed before its checks
+
+The folder `preregistration-v3/` holds the third paper, «Testing the “Configuration as Law”
+Hypothesis, Version 3: Hypothesis, Checks, and Failure Conditions Fixed Before the Checks»
+(21 November 2026): version 3 of the hypothesis, its four checks and their failure conditions,
+published before any of these checks is run. `prereg-en.md` is the text; `configuration-as-law-v3.pdf`
+is the same text as published at <https://yakyman.com/configuration-as-law-v3.pdf> (page
+<https://yakyman.com/research>).
 
 The records were produced on 19 November 2026 (UTC). The experiments ran on disposable virtual
 machines: clean installations of existing systems and a disposable Linux prototype (the *stand*, called
@@ -42,6 +51,7 @@ definitions does not resolve).
 | `check-5-authority/` | Final authority run on the stand (`stand/`), Unix permissions, competing application and restoration on both implementations (`stands/`). | §4.5 |
 | `definitions-analysis/` | Analysis of the written definitions on documented object types (`documented-objects/`), the finite formal analysis and the comparison with documented rules of existing systems (`formal-and-literature/`). | §4.1, §5.2, §9 |
 | `open-problems/` | Records cited for open problem O14 (`apply-crash/`). | §9 |
+| `preregistration-v3/` | The third paper: version 3 of the hypothesis with its checks and failure conditions, published before the checks (`prereg-en.md`, `configuration-as-law-v3.pdf`). | |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record
