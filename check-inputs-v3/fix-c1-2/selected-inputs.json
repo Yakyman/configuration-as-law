@@ -1,0 +1,66 @@
+{
+  "recipes": {
+    "fedora": [
+      "../install/fedora/ACTIONS.md",
+      "../install/fedora/RECIPE.md",
+      "../install/fedora/download-verify.sh",
+      "../install/fedora/install.sh",
+      "../install/fedora/ks.cfg"
+    ],
+    "mint": [
+      "../install/mint/README.md",
+      "../install/mint/boot.sh",
+      "../install/mint/console-input.py",
+      "../install/mint/enable-serial.sh",
+      "../install/mint/preseed.cfg",
+      "../install/mint/sendkey.py"
+    ],
+    "flatcar": [
+      "../install/flatcar/README.md",
+      "../install/flatcar/boot.sh",
+      "../install/flatcar/ignition.json"
+    ],
+    "talos": [
+      "../install/talos/README.md",
+      "../install/talos/boot.sh",
+      "../install/talos/controlplane.yaml"
+    ],
+    "guix": [
+      "../install/guix/README.md",
+      "../install/guix/config.scm",
+      "../install/guix/drive-install.py",
+      "../install/guix/install.sh",
+      "../install/guix/launch.sh",
+      "../install/guix/prepare-media.sh",
+      "../install/guix/shutdown-installer.py"
+    ],
+    "nixos": [
+      "../fix-c1-1/nixos/README.md",
+      "../fix-c1-1/nixos/configuration.nix",
+      "../fix-c1-1/nixos/hardware-configuration.nix",
+      "../fix-c1-1/nixos/install.sh",
+      "../fix-c1-1/nixos/prepare.sh",
+      "../fix-c1-1/nixos/launch.sh",
+      "../fix-c1-1/nixos/drive-install.py"
+    ],
+    "opensuse": [
+      "../fix-c1-1/opensuse/RECIPE.md",
+      "../fix-c1-1/opensuse/launch.sh",
+      "../fix-c1-1/opensuse/verify-start.sh",
+      "../fix-c1-1/opensuse/terminal.py",
+      "../fix-c1-1/opensuse/ui.py",
+      "../fix-c1-1/opensuse/raw/input-events.jsonl",
+      "../fix-c1-1/opensuse/register.sh"
+    ]
+  },
+  "actions": {
+    "fedora": "../actions/fedora.sh",
+    "opensuse": "../actions/opensuse.sh",
+    "mint": "../fix-c1-1/actions/mint.sh"
+  },
+  "instruments": [
+    "../fix-c1-1/lab.sh",
+    "../fix-c1-1/collector/collect.sh",
+    "../fix-c1-1/collector/talos-collect.sh"
+  ]
+}

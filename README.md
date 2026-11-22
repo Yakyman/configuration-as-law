@@ -16,6 +16,9 @@ published before any of these checks is run. `prereg-en.md` is the text; `config
 is the same text as published at <https://yakyman.com/configuration-as-law-v3.pdf> (page
 <https://yakyman.com/research>).
 
+The folder `check-inputs-v3/` holds the concrete inputs of the checks of version 3, committed before the
+first observation of each check, as Section 4.1 of the third paper requires.
+
 The records were produced on 19 November 2026 (UTC). The experiments ran on disposable virtual
 machines: clean installations of existing systems and a disposable Linux prototype (the *stand*, called
 the *testbed* in the paper) built only to test the properties. The records in `definitions-analysis/`

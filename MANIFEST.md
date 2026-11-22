@@ -185,7 +185,7 @@ Each value below was recounted from the published (cleaned) file named in the la
 ```
 5eebefd3682e32d661f307a28539b304e5e52fb1eb33ba214e61d7a57663e4f0  LICENSE
 62191fd767a50c67dd9923e6c7407f9bbd07e5fd5412e0b200c341dc18b2f1ee  LICENSE-CODE
-12dc9ae252b175bd2b69722a826939068d4990b050212be0bdab06c463ceaf93  README.md
+c6e5feba6bf78fed43ddfa350d9ac8e5f90ad35ccbf79fc014f8b9b578fad509  README.md
 e5db48196d5ba90107636e16d656cab5d747da0e1b8831119f84d190e5bfc3ea  check-1-census/debian-fedora-coreos-nixos/METHOD.md
 5a184715436b5aa8ef48b3457d26170c6d4c9a22be4ac967eec1ece48703580b  check-1-census/debian-fedora-coreos-nixos/RESULT.md
 4aac4b78585fd061f7d622e62b2225ac2057dd2c92e55003fe3128d97dc8293a  check-1-census/debian-fedora-coreos-nixos/REVIEW-2.md
@@ -1034,6 +1034,57 @@ a6dc4a8d2ecbf663afe056a8b6da1b3583e97a16a219bf10e65c72b622ec6ba6  check-5-author
 f416598e25096dc0d2116d8640c824c7589a8a56675e396c977f6b3281123545  check-5-authority/stands/raw-P8-1/server/X3/analysis/independent/summary.json
 14b74566e8ccc9d74093722abdd220d6b93e7c22ed6dae31e0d2d833976b8395  check-5-authority/stands/raw-P8-1/server/X3/analysis/summary.json
 0cc8da82193075676ce7bdf0407fa00a500cccdf5fc679c6669a63723139c395  check-5-authority/stands/raw-P8-1/timing.json
+f548d056ede0751ff418f7f1cf3387581998daaded77e70c38307a97167c7d4a  check-inputs-v3/README.md
+9a0b6b477cb6423e448387671d59fc03645b6738a5d9cb2ee1d58359dec1f05a  check-inputs-v3/actions/fedora.sh
+057f88461ea541deaab6abeff28a3c9d6958e7528241f3408c357c16d4e191fe  check-inputs-v3/actions/opensuse.sh
+0a73c047f0cac52b918c98170ca45260d18c5d7b586060c9aec709f98870b626  check-inputs-v3/fix-c1-1/COLLECT.md
+75a7a8dc262677f6267cf3c2ccef31b4d701215ed9d774e6395f31f5df92ae0a  check-inputs-v3/fix-c1-1/TALOS-COLLECT.md
+bf617770327e50a4d72a8475c5d5c8ffca112aa71bf3c54406c8c716a90549c5  check-inputs-v3/fix-c1-1/actions/mint.sh
+487b5290c97cc356be80264064ce1e8468c7015051412857eca62658cee47c1d  check-inputs-v3/fix-c1-1/collector/collect.sh
+3a16bfad0fd1e914503dc517bd123f6aa56c3a7a2a97bbba0aaa009ad31a4802  check-inputs-v3/fix-c1-1/collector/talos-collect.sh
+31755c2ec329bda0e44be354f3fae5d36e48788673c67def9a75bcda531ae1ce  check-inputs-v3/fix-c1-1/nixos/README.md
+45f4f0c5de2b4bb4e49b6870915e7a66053f4feac30102d695778bc8737c9901  check-inputs-v3/fix-c1-1/nixos/configuration.nix
+75a51715591e17654cbac0527b623da2e696c29a4e00f53e58b6da920250493a  check-inputs-v3/fix-c1-1/nixos/drive-install.py
+cebc3637167ab8ece0fd8cd18dac47522548b8e2cb47968f2d246bde04fbd7d5  check-inputs-v3/fix-c1-1/nixos/hardware-configuration.nix
+c68fe736907d114490a2306a9098bfb1584477f9575543e022fd1da66fc3c7d4  check-inputs-v3/fix-c1-1/nixos/install.sh
+c85deeb2279f30bf2fd6eac41a73fcc4d2cf96a55c6c94eafa37f90ee44a5842  check-inputs-v3/fix-c1-1/nixos/launch.sh
+0ca9d511994349992523b95e7f2df2fde3b370b3681b2de0c508643309d43b88  check-inputs-v3/fix-c1-1/nixos/prepare.sh
+50cdee71fdcc619c0ca9d00f5c6b3c2476871888d6985cd78e36c6b162ccc552  check-inputs-v3/fix-c1-1/opensuse/RECIPE.md
+d0a576608d8f738110c1548df7b3dbcfa8b69721e70812ae67958ca8efe8f6c1  check-inputs-v3/fix-c1-1/opensuse/launch.sh
+1291f7cc9adee2bab38685eda32454e02793b4f31eb5c73d0cd20058b9b7bdbe  check-inputs-v3/fix-c1-1/opensuse/raw/input-events.jsonl
+a22a7c20cf80e5ebd0b0912c4c1a5e43ac57f353772719dd552acab54f9e4756  check-inputs-v3/fix-c1-1/opensuse/register.sh
+607bc461d710db0ca74fc2c3512ed7d19cacada34e3183a5a6b7229a92582152  check-inputs-v3/fix-c1-1/opensuse/terminal.py
+9b4f900fbb17c867bfff7fdb51d8788b4a3e8310ad24d928d26f66c17fffdf80  check-inputs-v3/fix-c1-1/opensuse/ui.py
+933a74570ad530a86aab6851186763abcab9e794cb235d908425fc153ac1e375  check-inputs-v3/fix-c1-1/opensuse/verify-start.sh
+7f6200c5a093bb4b31ce72f755f8e1bb1705c6d0ee167b29ead6652800a4b788  check-inputs-v3/fix-c1-2/DISCLOSURES.md
+e0187cb72d0661ed47dfdf94ddf742ef5aa7cbe1a68105b23436e7d2bec5061c  check-inputs-v3/fix-c1-2/input-files.sha256.tsv
+714d519904631874686d47ceeb45b968bcf4e6992710b29320094f34b9ce8dc5  check-inputs-v3/fix-c1-2/inputs-check-1.md
+86cddfd873942187c16de42172b5cfc4429290b418b43780527e087a46f69827  check-inputs-v3/fix-c1-2/inputs-check-4.md
+b289d1c8428eab859cfa36db6dda9c719d3f696a40438f64905cfaa89df4f08d  check-inputs-v3/fix-c1-2/releases.tsv
+713366afdd69a605382b3bcc2b9e0b04969c802d24a0c7d59e281b456e3623cf  check-inputs-v3/fix-c1-2/selected-inputs.json
+6147145d238122d550b30e3b3be159d1bf08709cda4138ec94369dd6eb184f55  check-inputs-v3/install/fedora/ACTIONS.md
+f9f9c5a7f500f56b02ede8281e5e0b3f553960d0f74360b6762300f5be6cfb96  check-inputs-v3/install/fedora/RECIPE.md
+b4bdd9b6116e3ccf15171ff6ce41701e44f88cfb6f1c507027dc1b853446d767  check-inputs-v3/install/fedora/download-verify.sh
+c4459850bc4dde5c3f004e5f36e36646213e69a9f2664c8655a5573af573e8a3  check-inputs-v3/install/fedora/install.sh
+20c244ffb25b9fe9cd767b12be6f797fb46a3094f56cc6c8d6fbb376ab4a7913  check-inputs-v3/install/fedora/ks.cfg
+6be71bc334217aa5f9888cdc05f9535cd1eb09b7abba939a72f52f63dc8d55a9  check-inputs-v3/install/flatcar/README.md
+d5d40da469d40a0a637ac07e772cca1a54f0de2ff43797958858d55a3061c3b6  check-inputs-v3/install/flatcar/boot.sh
+b2096e195e8796f484e4ba1fdbddf2030572d7c9e6b6a22aeee9ee4d872794ab  check-inputs-v3/install/flatcar/ignition.json
+41ed64ea8abaea9dabd343a1099a08b68e989316224bf3f09543ac5c183e1d76  check-inputs-v3/install/guix/README.md
+442f088ab713e68721c4156793f2316a04b785b1c8d8e6dffb11efe31726b886  check-inputs-v3/install/guix/config.scm
+ce4c63c94a9093fdfb6cb30b10e1cfe4472e867a4e6711ffdda15a7721cbbec0  check-inputs-v3/install/guix/drive-install.py
+cad0e6b9348a40db325e9025977e704a04463a3b6e30fe53ae92d824b51880a3  check-inputs-v3/install/guix/install.sh
+75f9468b92ed1a1013cd4c87628561346920717553b7d71464e19a7f9cb200f9  check-inputs-v3/install/guix/launch.sh
+98a7e81a4e592b806b489fba2d37bdcd8eba58db37c482d68fcb14ec74f830bb  check-inputs-v3/install/guix/prepare-media.sh
+6951df17961d8e4f19d807fc2c12b155c3a70048d13d63889f3e9c3398d50099  check-inputs-v3/install/guix/shutdown-installer.py
+a3927f9610347a23c6e18c995aaa25fa6af08b1868a72624820e479ae2d8af25  check-inputs-v3/install/mint/README.md
+1ff05f82268f3d9c1a046505ee743c050c088a668c57fc515921113485df1e14  check-inputs-v3/install/mint/boot.sh
+bf3b485221fdd498d61f181cd310f0276460ae1a2c7dec11c93b4327b14ec6a8  check-inputs-v3/install/mint/console-input.py
+7152450c7d89a46519a45af0a1fadb68a41a11589007c5e9d3b28b8f1fe3882e  check-inputs-v3/install/mint/enable-serial.sh
+d8a99fa8af8aad824921622ef4394abe3cefa1277b72b6dfcd770ef7f37ce8e4  check-inputs-v3/install/mint/preseed.cfg
+2ba38e24d266bfecfea1a9b842c1bc37b43247bf6f77993e176c67975a460cd5  check-inputs-v3/install/mint/sendkey.py
+9c2d5951207302e3ede228cfd336da8dbcac892b1d429a8286b447d66d147f5b  check-inputs-v3/install/talos/README.md
+c37f7291349e9841a54995ceb3c54f5d16c020463b35faa628ff29a72011b99a  check-inputs-v3/install/talos/boot.sh
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
 1c49c7dc7a3be70da98901999af4858ffe62ce6ccaf23c46ba2d50f6c00a5b72  definitions-analysis/documented-objects/SOURCES.md
@@ -1110,4 +1161,4 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 925.
+Files listed: 976.

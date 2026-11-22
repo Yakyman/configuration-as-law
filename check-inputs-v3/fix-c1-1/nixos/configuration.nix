@@ -1,0 +1,16 @@
+{ config, pkgs, ... }:
+{
+  imports = [ ./hardware-configuration.nix ];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.kernelParams = [ "console=ttyS0,115200n8" ];
+  time.timeZone = "UTC";
+  i18n.defaultLocale = "en_US.UTF-8";
+  networking.useDHCP = true;
+  users.users.user = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    initialPassword = "cal-test";
+  };
+  system.stateVersion = "26.05";
+}
