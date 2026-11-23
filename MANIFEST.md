@@ -2164,6 +2164,7 @@ cf01619ebfc85f2e83609712d09b964577dfd857ce9266cb24ba65cdd819c2b9  check-inputs-v
 1277fed54a24d19f04e566e88033fedf73a374be55b13745b8d9b4129c4e4aa1  check-inputs-v4/supplement-1/step-5-cases/bc3-fixtures.json
 2bbc5cadf8a3167d2ffd77fe244e61aa1afc6d7153455c27be954703ff5dce62  check-inputs-v4/supplement-1/step-5-cases/inputs-seal.json
 ce667a9b5ebd4e6dc7d0988a63e53751f86249f2545f25ddb0e01ac49783856a  check-inputs-v4/supplement-1/step-5.md
+3d490b8c1495afea94729d0bba78b942d1db7e59e874fda5badda78fe94dcc9f  check-inputs-v4/supplement-1/step-6.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
 1c49c7dc7a3be70da98901999af4858ffe62ce6ccaf23c46ba2d50f6c00a5b72  definitions-analysis/documented-objects/SOURCES.md
@@ -2242,7 +2243,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2057.
+Files listed: 2058.
 
 ## 5. Version 3: results of its checks, and version 4
 
