@@ -2473,3 +2473,12 @@ committed. No instrument, recipe or script was changed by them.
   packages in ten, a known integrity for more than nine packaged files in ten) were set during the preparation and
   are not part of Section 9.2. Four of the five check-1 systems did not meet them; the check proceeds on all five,
   as `inputs-check-1.md` states.
+
+## Correction of one manifest entry (23 November 2026, about 11:14 UTC)
+
+The entry of `PUBLISH.list` in `input-files.sha256.tsv` of the first commit of these inputs was computed before the
+list was rewritten, so it did not match the committed list. The first start of the inventory task of check 1
+verified the inputs, found this one mismatch and stopped before creating any machine: no machine was created, no
+action and no collector was run, and nothing was observed. Its record is kept and is published with the records of
+the checks. The manifest was recomputed; apart from the manifest and this document no committed file changed. The
+corrected manifest was committed before the first observation.
