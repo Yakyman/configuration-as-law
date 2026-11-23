@@ -1,0 +1,15 @@
+{
+  "go": "go version go1.24.4 linux/amd64",
+  "binary_sha256": "a986b6811a48432b762713f3d3b02e75b8058e71c19ef6a47bb30aa375883631",
+  "source_sha256": {
+    "probe.go": "808dfc17fc3fd5f2354e689d130e17446a314a9581af1bcfdb1fff12a84d946e",
+    "btrfs_linux.go": "f05551b71a7c524ff401f33ffbb0d36ad28709c19cd5df0a95252e92bf724dee"
+  },
+  "runtime_original_sha256": "bca5f40d1154071a3fa57627e25acb7b2eb4dbb68c3aaf65acaa9011dd740ebf",
+  "runtime_overlay_sha256": "429ee24422ba2fe17e05818e223392ec9f43c5b862dc83f03b661afbce6037bc",
+  "runtime_changes": [
+    "disable hugepage sysfs read",
+    "disable auxv proc fallback",
+    "disable random device fallback"
+  ]
+}

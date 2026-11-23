@@ -2109,6 +2109,56 @@ f359108f3d3fa028f9765de75c88d592dc015186388253a9c2c979e3b1a85326  check-inputs-v
 11b959dea7b11ae9350db46c04e9cceb00fccaace015d27c7261dc43434ad7d4  check-inputs-v4/supplement-1/step-1.md
 f6459cc91c7bd91c27558afebbb2c9f1340ba918348447e0aee4020a5dbfd55e  check-inputs-v4/supplement-1/step-2.md
 653b04219ad772ab4d3984c88142ea06e6565ff7bb7eb197729a3d770ffd8fe8  check-inputs-v4/supplement-1/step-3.md
+f3afc19ec4b925646f9f17545bb3241a3b8c55720e8205a91059d019ac684520  check-inputs-v4/supplement-1/step-4-instruments/S4/CLASSIFICATION-INPUTS.list
+c58d3747df52343a5f9db3559f74b0551c3eca8ef45b303997fd5f6257327084  check-inputs-v4/supplement-1/step-4-instruments/S4/COLLECT.md
+13a080572745cb4c99672aa00de3c0e9ce3f97b278b2d975f9de57ee9a29b1f9  check-inputs-v4/supplement-1/step-4-instruments/S4/COMMANDS.md
+b3bdb6d599388ef874e8a4e7638a5332e84a02497340c6de03ba6849984f0ff8  check-inputs-v4/supplement-1/step-4-instruments/S4/HANDOFF.md
+337030c25424cd1948bd8bb28ddd7ad7c57d6fa03034081273316580e73f77fa  check-inputs-v4/supplement-1/step-4-instruments/S4/MATCH.md
+7258c3ebcaa2d8610066f3faf20e8571fc034a5efe94705a10062c744fc6caf4  check-inputs-v4/supplement-1/step-4-instruments/S4/MISSING.tsv
+43675611346a7d24ffac61c703fb9a7b2cd5109d8534474da1adadac0a9de644  check-inputs-v4/supplement-1/step-4-instruments/S4/PUBLISH.list
+a8399afc2c84da00f238a3543ecb3ea0ef31d48b3edb32d104e9b990bf971fd7  check-inputs-v4/supplement-1/step-4-instruments/S4/collect.sh
+902b0b4487f006ba53a769d4b1d91ca399d21ff5b70310128cc8611f78dd451a  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/PACKAGES.md
+f05551b71a7c524ff401f33ffbb0d36ad28709c19cd5df0a95252e92bf724dee  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/btrfs_linux.go
+c80eb0299487ffa7cabac000924169e62a2608ae359a2a4de6b18f13d7f12f05  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/build_probe.py
+380ee3f10619e16bb8a13f4721421241dd7f9d49aa500c004d7091431ef7cae9  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/cleanup-lab.py
+81e4a94efd3da2a7cb6cc2229f868e025c6b46ed3825786a2e2ff99e9ffdff78  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/extended.py
+2cdf9d5826fcc5b1286fe0d2b0724b17082aa770dc6bfa55caed2f5ae3489344  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/extra_alma.py
+906dbbc96c26ced010f055f51db3a79df0eb41c58b33f5daa5cad4e23194187d  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/extra_microos.py
+b92ae7ad2fdaf8973e60945f0127ea9f276df49f9db89f8a38d185db241097e0  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/extra_talos.py
+e40677a95e610d5607cbaab42736cc0b5101db71320224930f3e2f4d08f30ba8  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/extra_void.py
+b91171ab3e2dee49228b7e24d53b00ae32ddaa3fd56035cd6abeb66ed364de9e  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/guest-tests.py
+b8d28646fc338ef3b68c6034c074877ae3621e72d9ea19280cee6c35e0c68f44  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/main.py
+5f02eb1035d75c39ffda693d598faac5acb31adb19776b7ef5f1e48b02c87a70  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/match.py
+2b234f43c3aeae0a8ec44c087565363ddf6e5b352ada53310bddfe7ab7b91a36  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/pack-evidence.py
+f4d72f5063e25f9b1cb95e9ae899eda3c6974bddbb23657f2c4bc6d4a005390d  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/packages.py
+698e70637801dfddfdf56ad17a3183f345fe20985733d7ff8759888c8bdcce68  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/parser-tests.py
+5f72a480e0ffcdeef91a7dc5088c82533c792694d38967c148acff46df5199d4  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/portage-reasons.py
+b8976f583fef02af56b08a3c1b03e68154f4d7d210ae7763a9887ee1b478f4c3  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/prepare-rpm.sh
+ec5fee388c8c1b6a97cb44672d3708b89983dacee399f739fac4a1a030d2d334  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-build.json
+65750aaca749950e68413b6e44993b3fcde57d855be41b0749d7630e0917caaf  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz
+a7b02d3d804044c2001d971a598d05ddb35ce78c42c12cb2515ae16fdd91449f  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz.part-000
+da7e4ed5eddba0b4b83a26af4ca89beab6d63846a2f33b16442866ff1303ddcb  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz.part-001
+3fd2da96bc3d265308de4344e1148c8cb76ad63aa4b79432f107ed61dd2f4624  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz.part-002
+8af65ca99be07c57ed0632762a3f6316e320749efdb14eead6f11dc180e01fad  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz.part-003
+de61bd897651430e0116f03729bff7bee84091e76e2dbf076d4fcae296d00adc  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe-linux-amd64.gz.part-004
+808dfc17fc3fd5f2354e689d130e17446a314a9581af1bcfdb1fff12a84d946e  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/probe.go
+20a4a78e488fc0bb0ea68b48fca49ae5e2bc5271861e5670a65a2a50732729de  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/read-only-rpm.sh
+ff346b8448b1a1b9fff839a28225b0f7cdb5f18b9b6b480384ff858f2d9f01c0  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/rpm-selected-groups.py
+d4155479e7c67b45ad7ef195e448c9282a079e675bdf3ed5015d5848d552d22d  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/run-guest-tests.py
+ccc63d48adde744bbef3779d49e3e37b9a12abba959a8e65c5251ec27e62c8de  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/run-parser-tests.py
+59a47c440606d6ff3d20f98f80df4a85e22ba22dac6718b15c212df4838dd8e2  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/seed-fixture.sh
+b3ef94f3c30ba481b27af061e15d4585b752e57371603ce683cee98c395ba75a  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/talos.py
+1ec9ca4ed8e9c3872c85a559c63cf5c811b45b7d206fc4ed63badd5393c431f8  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/transport-tests.py
+bfc3c46aa85c99527b52ab17efa043b2c83a85eb4ab7e0bcb0b54b2f70e3e097  check-inputs-v4/supplement-1/step-4-instruments/S4/collector/validate-output.py
+d617cd228e069927b2f04e1cb4f64bcb52fcb0874b14b19119b6bd33b42c84e2  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/assembled-main.py
+3aaedf8ce0e64918bf638d2b57eb6e93f7243752ef4fc6d9211e8a5388df8e6a  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/checks/match-scope.tsv
+4c3a9792e51f36e292407838fbce2cb3ef78af29a6aed69ef9d6d1a0ee7466d1  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/collect.sh
+f260c683630165f415fb711c4372232ef075fe630e85d6ce295c2a447a4eebb8  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/key_events.py
+e14a8132269ff14281b99fb06cba3fa5f910c53284c2947e004dc9017a134156  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/neutral-literals.tsv
+724bca3aa5855e555a22e3cb8a79fcaec4c5a37ab223f8b45f0fb210430fc34d  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/neutralize.py
+7c04e7322029c64d923de3e87db0d0b79e51a80e418f8e83359cecd2fc290630  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/tables/missing-row-map.tsv
+bca5ca15515a34426f5f4f27bddbc4170394ec096c5aa8c3af081c33b3e2c81e  check-inputs-v4/supplement-1/step-4-instruments/S4/fix-s4-p-3/verify-inputs.py
+51e2ab9722e4e92d815728a009f75c1ddf1c886c246714dc4c0ae937ea8232ba  check-inputs-v4/supplement-1/step-4-instruments/S4/input-files.sha256.tsv
 426d7ff69d288e812a61a131b3f33cb2ec2eeaba647fbfb5f0253945e2f7dc12  check-inputs-v4/supplement-1/step-4.md
 ce667a9b5ebd4e6dc7d0988a63e53751f86249f2545f25ddb0e01ac49783856a  check-inputs-v4/supplement-1/step-5.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
@@ -2189,7 +2239,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2004.
+Files listed: 2054.
 
 ## 5. Version 3: results of its checks, and version 4
 
