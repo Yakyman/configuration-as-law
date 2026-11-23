@@ -1,0 +1,361 @@
+{
+  "account": {
+    "command": [
+      "/usr/sbin/useradd",
+      "-M",
+      "-u",
+      "1998",
+      "-s",
+      "/usr/sbin/nologin",
+      "v4raw"
+    ],
+    "id": "root-native-account-bypass",
+    "source_log": "B2/raw/round-1/final-2/tools.jsonl"
+  },
+  "cases": [
+    {
+      "command": "printf 'printf SAVED_CODE_RAN\\n' > saved.txt; bash saved.txt",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/saved.txt"
+      ],
+      "id": "SAVED-SCRIPT",
+      "inline_writes": true,
+      "marker": "SAVED_CODE_RAN",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "cat saved.txt | bash",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/saved.txt"
+      ],
+      "id": "SAVED-PIPE",
+      "inline_writes": false,
+      "marker": "SAVED_CODE_RAN",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "source saved.txt",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/saved.txt"
+      ],
+      "id": "SAVED-SOURCE",
+      "inline_writes": false,
+      "marker": "SAVED_CODE_RAN",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "BASH_ENV=\"$HOME/saved.txt\" bash -c :",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/saved.txt"
+      ],
+      "id": "STARTUP-ENV",
+      "inline_writes": false,
+      "marker": "SAVED_CODE_RAN",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "printf 'print(\"IMPORTED_UNRECORDED\")\\n' > loose_module.py; python3 -B -c 'import loose_module'",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/loose_module.py"
+      ],
+      "id": "PYTHON-IMPORT",
+      "inline_writes": true,
+      "marker": "IMPORTED_UNRECORDED",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "python3 -B -c 'import pickle; p=b\"cbuiltins\\nprint\\n(S\\x27PICKLE_EXECUTED\\x27\\ntR.\"; open(\"serialized\",\"wb\").write(p); pickle.load(open(\"serialized\",\"rb\"))' ",
+      "cwd": "/home/stand",
+      "files": [
+        "/home/stand/serialized"
+      ],
+      "id": "PICKLE-CODE",
+      "inline_writes": true,
+      "marker": "PICKLE_EXECUTED",
+      "source_log": "B2/raw/round-1/final-2/shell.jsonl"
+    },
+    {
+      "command": "bash < saved.sh",
+      "cwd": "/home/stand/v4-direct",
+      "files": [
+        "/home/stand/v4-direct/saved.sh"
+      ],
+      "id": "DIRECT-REDIRECT-STDIN",
+      "inline_writes": false,
+      "marker": "SAVED_DIRECT_RAN",
+      "source_log": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "command": "exec 3<saved.sh; bash /proc/self/fd/3",
+      "cwd": "/home/stand/v4-direct",
+      "files": [
+        "/home/stand/v4-direct/saved.sh"
+      ],
+      "id": "DIRECT-PROC-FD",
+      "inline_writes": false,
+      "marker": "SAVED_DIRECT_RAN",
+      "source_log": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "command": "python3 -B -c 'exec(open(\"saved.py\").read())'",
+      "cwd": "/home/stand/v4-direct",
+      "files": [
+        "/home/stand/v4-direct/saved.py"
+      ],
+      "id": "DIRECT-READ-EXEC",
+      "inline_writes": false,
+      "marker": "READ_EXEC_RAN",
+      "source_log": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "command": "awk -f saved.awk",
+      "cwd": "/home/stand/v4-direct",
+      "files": [
+        "/home/stand/v4-direct/saved.awk"
+      ],
+      "id": "DIRECT-AWK-FILE",
+      "inline_writes": false,
+      "marker": "AWK_FILE_RAN",
+      "source_log": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "command": "find . -maxdepth 0 -exec bash saved.sh ';'",
+      "cwd": "/home/stand/v4-direct",
+      "files": [
+        "/home/stand/v4-direct/saved.sh"
+      ],
+      "id": "DIRECT-SCRIPT-HELPER",
+      "inline_writes": false,
+      "marker": "SAVED_DIRECT_RAN",
+      "source_log": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "command": "cd /tmp/v4-extra-7z89hz2f && bash --rcfile /tmp/v4-extra-7z89hz2f/startup.rc -i -c :",
+      "cwd": "/home/stand",
+      "files": [
+        "/tmp/v4-extra-7z89hz2f/startup.rc"
+      ],
+      "id": "RC-STARTUP",
+      "inline_writes": false,
+      "marker": "SAVED_RC_EXECUTED",
+      "source_log": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "command": "cd /tmp/v4-extra-7z89hz2f && ed -s < /tmp/v4-extra-7z89hz2f/commands.ed",
+      "cwd": "/home/stand",
+      "files": [
+        "/tmp/v4-extra-7z89hz2f/commands.ed"
+      ],
+      "id": "EDITOR-SAVED-COMMANDS",
+      "inline_writes": false,
+      "marker": "SAVED_EDITOR_COMMAND_EXECUTED",
+      "source_log": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "command": "cd /tmp/v4-extra-7z89hz2f && python3 -B -c 'import ctypes,mmap\nb=open('\"'\"'/tmp/v4-extra-7z89hz2f/machine.bytes'\"'\"',\"rb\").read()\nm=mmap.mmap(-1,4096,prot=mmap.PROT_READ|mmap.PROT_WRITE|mmap.PROT_EXEC)\nm.write(b)\nf=ctypes.CFUNCTYPE(ctypes.c_int)(ctypes.addressof(ctypes.c_char.from_buffer(m)))\nprint(\"JIT_SAVED_INPUT_EXECUTED\",f())\n'",
+      "cwd": "/home/stand",
+      "files": [
+        "/tmp/v4-extra-7z89hz2f/machine.bytes"
+      ],
+      "id": "JIT-SAVED-INPUT",
+      "inline_writes": false,
+      "marker": "JIT_SAVED_INPUT_EXECUTED 42",
+      "source_log": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "command": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch --file /tmp/v4-extra-7z89hz2f/instructions.ops",
+      "cwd": "/home/stand",
+      "files": [
+        "/tmp/v4-extra-7z89hz2f/instructions.ops"
+      ],
+      "id": "DISPATCHER-SAVED",
+      "inline_writes": false,
+      "marker": "DISPATCHER_SAVED_EXECUTED",
+      "source_log": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    }
+  ],
+  "dispatcher_row": {
+    "entrypoints": [
+      {
+        "interpreter": "/usr/bin/python3.13",
+        "path": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch"
+      }
+    ],
+    "files": [
+      {
+        "content_b64": "IyEvdXNyL2Jpbi9weXRob24zLjEzCmltcG9ydCBwYXRobGliLHN5cwp0ZXh0PXN5cy5hcmd2WzJdIGlmIHN5cy5hcmd2WzFdPT0iLS1pbmxpbmUiIGVsc2UgcGF0aGxpYi5QYXRoKHN5cy5hcmd2WzJdKS5yZWFkX3RleHQoKQpwYXJ0cz10ZXh0LnNwbGl0KCkKaWYgbGVuKHBhcnRzKT09MiBhbmQgcGFydHNbMF09PSJQUklOVCI6CiBwcmludChwYXJ0c1sxXSkK",
+        "gid": 0,
+        "kind": "file",
+        "mode": 493,
+        "path": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch",
+        "sha256": "9a7ec8b74bd50d37656ac65a4cd355d86e64ef47397a35467bf6a49ed5fe3631",
+        "uid": 0
+      }
+    ],
+    "id": "v4-extra-dispatch",
+    "managed": true,
+    "source": "builder:manual-dispatcher",
+    "type": "code",
+    "version": "1"
+  },
+  "files": [
+    {
+      "bytes": 22,
+      "content_b64": "cHJpbnRmIFNBVkVEX0NPREVfUkFOCg==",
+      "gid": 1000,
+      "mode": 420,
+      "path": "/home/stand/saved.txt",
+      "sha256": "17415ceff55ee272ac1df03cebd32d979e47bc8727836ab76f55a56c8521009d",
+      "uid": 1000
+    },
+    {
+      "bytes": 29,
+      "content_b64": "cHJpbnQoIklNUE9SVEVEX1VOUkVDT1JERUQiKQo=",
+      "gid": 1000,
+      "mode": 420,
+      "path": "/home/stand/loose_module.py",
+      "sha256": "7f938b43be066efce524423ea6484377bb4dd1e40fbc217e0cc4b3df9072c045",
+      "uid": 1000
+    },
+    {
+      "bytes": 39,
+      "content_b64": "Y2J1aWx0aW5zCnByaW50CihTJ1BJQ0tMRV9FWEVDVVRFRCcKdFIu",
+      "gid": 1000,
+      "mode": 420,
+      "path": "/home/stand/serialized",
+      "sha256": "b26a48df0be6ba31e0b3db37a9a5ae0289f337bffd329fbe7ad72aa3390aaaa3",
+      "uid": 1000
+    },
+    {
+      "bytes": 40,
+      "content_b64": "IyEvdXNyL2Jpbi9iYXNoCnByaW50ZiBTQVZFRF9ESVJFQ1RfUkFOCg==",
+      "gid": 1000,
+      "mode": 493,
+      "path": "/home/stand/v4-direct/saved.sh",
+      "sha256": "43d50a29262f6b0a31a30fc85806697adb289ad85bd98591fcce61ab7fc5bb2a",
+      "uid": 1000
+    },
+    {
+      "bytes": 23,
+      "content_b64": "cHJpbnQoIlJFQURfRVhFQ19SQU4iKQo=",
+      "gid": 1000,
+      "mode": 420,
+      "path": "/home/stand/v4-direct/saved.py",
+      "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+      "uid": 1000
+    },
+    {
+      "bytes": 31,
+      "content_b64": "QkVHSU4geyBwcmludCAiQVdLX0ZJTEVfUkFOIiB9Cg==",
+      "gid": 1000,
+      "mode": 420,
+      "path": "/home/stand/v4-direct/saved.awk",
+      "sha256": "c6d3872bf43cbf05e2c48b2f496dcea1f5d36ccc7af58d0f125ed45441dc5889",
+      "uid": 1000
+    },
+    {
+      "bytes": 29,
+      "content_b64": "cHJpbnRmICJTQVZFRF9SQ19FWEVDVVRFRFxuIgo=",
+      "gid": 1000,
+      "mode": 384,
+      "path": "/tmp/v4-extra-7z89hz2f/startup.rc",
+      "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+      "uid": 1000
+    },
+    {
+      "bytes": 44,
+      "content_b64": "IXByaW50ZiAiU0FWRURfRURJVE9SX0NPTU1BTkRfRVhFQ1VURURcbiIKcQo=",
+      "gid": 1000,
+      "mode": 384,
+      "path": "/tmp/v4-extra-7z89hz2f/commands.ed",
+      "sha256": "83f83d4ddda12cb3ec60bdc2cef97c112835dd31900571ad4fc819a6ecb09174",
+      "uid": 1000
+    },
+    {
+      "bytes": 32,
+      "content_b64": "UFJJTlQgRElTUEFUQ0hFUl9TQVZFRF9FWEVDVVRFRAo=",
+      "gid": 1000,
+      "mode": 384,
+      "path": "/tmp/v4-extra-7z89hz2f/instructions.ops",
+      "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+      "uid": 1000
+    },
+    {
+      "bytes": 6,
+      "content_b64": "uCoAAADD",
+      "gid": 1000,
+      "mode": 384,
+      "path": "/tmp/v4-extra-7z89hz2f/machine.bytes",
+      "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+      "uid": 1000
+    }
+  ],
+  "verified_original_hashes": [
+    {
+      "path": "/home/stand/v4-direct/saved.sh",
+      "sha256": "43d50a29262f6b0a31a30fc85806697adb289ad85bd98591fcce61ab7fc5bb2a",
+      "source": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "path": "/home/stand/v4-direct/saved.sh",
+      "sha256": "43d50a29262f6b0a31a30fc85806697adb289ad85bd98591fcce61ab7fc5bb2a",
+      "source": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "path": "/home/stand/v4-direct/saved.py",
+      "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+      "source": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "path": "/home/stand/v4-direct/saved.awk",
+      "sha256": "c6d3872bf43cbf05e2c48b2f496dcea1f5d36ccc7af58d0f125ed45441dc5889",
+      "source": "B2/raw/round-1/final-2/supplement/direct.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/startup.rc",
+      "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/startup.rc",
+      "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/commands.ed",
+      "sha256": "83f83d4ddda12cb3ec60bdc2cef97c112835dd31900571ad4fc819a6ecb09174",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/commands.ed",
+      "sha256": "83f83d4ddda12cb3ec60bdc2cef97c112835dd31900571ad4fc819a6ecb09174",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/machine.bytes",
+      "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/machine.bytes",
+      "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/instructions.ops",
+      "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    },
+    {
+      "path": "/tmp/v4-extra-7z89hz2f/instructions.ops",
+      "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+      "source": "B2/raw/round-1/final-2/supplement/extra.jsonl"
+    }
+  ],
+  "version": 1
+}
