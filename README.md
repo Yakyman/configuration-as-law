@@ -98,6 +98,15 @@ rewritten neutrally; the independence and scope of reviews are preserved. Names 
 found in an inventory remain part of the observation. Host local timestamps, where present, are
 expressed in UTC; UTC guest records and names of timezone data files remain as collected.
 
+## Version 4: order of its checks
+
+The folder `check-inputs-v4/` holds `PROTOCOL.md`, published before the first observation of any check of
+version 4. It restates that the outcome of each check is determined only by the failure conditions of
+Section 9 of the fourth paper, sets out how the gaps that are found are weighted, lists the cases whose
+decision is known in advance, and names the investigations carried out beyond the plan. The concrete inputs of
+the checks are committed to the same folder before the first observation of each check, as Section 9.1 of the
+fourth paper requires.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper
@@ -131,6 +140,7 @@ definitions does not resolve).
 | `preregistration-v3/` | The third paper: version 3 of the hypothesis with its checks and failure conditions, published before the checks (`prereg-en.md`, `configuration-as-law-v3.pdf`). | |
 | `check-inputs-v3/` | Inputs of the checks of version 3, committed before the first observation of each check. | third paper §4.1 |
 | `fourth-paper/`, `records-v3/`, `trial-v4/` | The fourth paper and the records of the second cycle; see «Version 3: results of its checks, and version 4» above. | fourth paper |
+| `check-inputs-v4/` | The order of the checks of version 4 (`PROTOCOL.md`) and the inputs of these checks, committed before the first observation of each check. | fourth paper §9 |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record

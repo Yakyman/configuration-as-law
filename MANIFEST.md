@@ -185,7 +185,7 @@ Each value below was recounted from the published (cleaned) file named in the la
 ```
 5eebefd3682e32d661f307a28539b304e5e52fb1eb33ba214e61d7a57663e4f0  LICENSE
 62191fd767a50c67dd9923e6c7407f9bbd07e5fd5412e0b200c341dc18b2f1ee  LICENSE-CODE
-f89cfe5fb7f02ffae41d79d43157e052c3fdc6f3a74b47e3e3f8e0bf32e6b2b2  README.md
+de26820fec321096c5d731111f101a0994a906c06bc38ab2bb774e19a1bba872  README.md
 e5db48196d5ba90107636e16d656cab5d747da0e1b8831119f84d190e5bfc3ea  check-1-census/debian-fedora-coreos-nixos/METHOD.md
 5a184715436b5aa8ef48b3457d26170c6d4c9a22be4ac967eec1ece48703580b  check-1-census/debian-fedora-coreos-nixos/RESULT.md
 4aac4b78585fd061f7d622e62b2225ac2057dd2c92e55003fe3128d97dc8293a  check-1-census/debian-fedora-coreos-nixos/REVIEW-2.md
@@ -1085,6 +1085,7 @@ d8a99fa8af8aad824921622ef4394abe3cefa1277b72b6dfcd770ef7f37ce8e4  check-inputs-v
 2ba38e24d266bfecfea1a9b842c1bc37b43247bf6f77993e176c67975a460cd5  check-inputs-v3/install/mint/sendkey.py
 9c2d5951207302e3ede228cfd336da8dbcac892b1d429a8286b447d66d147f5b  check-inputs-v3/install/talos/README.md
 c37f7291349e9841a54995ceb3c54f5d16c020463b35faa628ff29a72011b99a  check-inputs-v3/install/talos/boot.sh
+6f8e958edd1a32fb7a021aa32d2f9aad6113c10ba917a2aed7f72926ed34adc3  check-inputs-v4/PROTOCOL.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
 1c49c7dc7a3be70da98901999af4858ffe62ce6ccaf23c46ba2d50f6c00a5b72  definitions-analysis/documented-objects/SOURCES.md
@@ -1163,7 +1164,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 978.
+Files listed: 979.
 
 ## 5. Version 3: results of its checks, and version 4
 
