@@ -2109,6 +2109,7 @@ f359108f3d3fa028f9765de75c88d592dc015186388253a9c2c979e3b1a85326  check-inputs-v
 11b959dea7b11ae9350db46c04e9cceb00fccaace015d27c7261dc43434ad7d4  check-inputs-v4/supplement-1/step-1.md
 f6459cc91c7bd91c27558afebbb2c9f1340ba918348447e0aee4020a5dbfd55e  check-inputs-v4/supplement-1/step-2.md
 653b04219ad772ab4d3984c88142ea06e6565ff7bb7eb197729a3d770ffd8fe8  check-inputs-v4/supplement-1/step-3.md
+426d7ff69d288e812a61a131b3f33cb2ec2eeaba647fbfb5f0253945e2f7dc12  check-inputs-v4/supplement-1/step-4.md
 ce667a9b5ebd4e6dc7d0988a63e53751f86249f2545f25ddb0e01ac49783856a  check-inputs-v4/supplement-1/step-5.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
@@ -2188,7 +2189,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2003.
+Files listed: 2004.
 
 ## 5. Version 3: results of its checks, and version 4
 
