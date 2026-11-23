@@ -1,0 +1,28 @@
+{
+  "package": {
+    "name": "dev-worker",
+    "version": "1",
+    "source": "builder-source:development-worker",
+    "artifact_in_image": "/usr/local/share/stand/dev/worker-1.json",
+    "artifact_sha256": "cc7a77f4e8cb92e2db65c112f17cce425bf966980ff239772bf500599d1ff2ba",
+    "files": [
+      {
+        "gid": 0,
+        "kind": "file",
+        "mode": 493,
+        "path": "/opt/stand/pkgs/dev-worker/bin/worker",
+        "sha256": "039eff836b8e0d9c9de6d22cddd3e9882dac6e52dd755d5b6e39392501a4b27a",
+        "uid": 0
+      }
+    ],
+    "recipe": "B2/build/dev-inputs.py",
+    "recipe_sha256": "590b8c051a3be3222b415e4d937c89909da389f1d6fcdb02e269f1f14620938e"
+  },
+  "network": {
+    "controller": "QMP set_link",
+    "name": "net0",
+    "disconnect": false,
+    "restore": true,
+    "source": "https://www.qemu.org/docs/master/interop/qemu-qmp-ref.html#command-net.set_link"
+  }
+}

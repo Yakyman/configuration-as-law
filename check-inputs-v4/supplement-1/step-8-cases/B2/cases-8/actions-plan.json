@@ -1,0 +1,66 @@
+{
+  "format": "step8-action-plan-v1",
+  "instructions": "At each observation point record every listed action as done or not done, with exact command/UTC/evidence and a reason for not done. No outcome is assigned by this input.",
+  "h1": [
+    "h1.update-1",
+    "h1.restart-1",
+    "h1.update-2",
+    "h1.restart-2"
+  ],
+  "h2": [
+    "h2.1.fetch",
+    "h2.1.original.build",
+    "h2.1.original.run",
+    "h2.1.edit",
+    "h2.1.edited.build",
+    "h2.1.edited.run",
+    "h2.2.fetch",
+    "h2.2.original.build",
+    "h2.2.original.run",
+    "h2.2.edit",
+    "h2.2.edited.build",
+    "h2.2.edited.run",
+    "h2.3.fetch",
+    "h2.3.original.build",
+    "h2.3.original.run",
+    "h2.3.edit",
+    "h2.3.edited.build",
+    "h2.3.edited.run"
+  ],
+  "h3": [
+    "h3-prerequisites-fetch",
+    "h3-prerequisites-install",
+    "h3-prerequisites-readback",
+    "h3-launcher-fetch",
+    "h3-launcher-setup",
+    "h3-game-install",
+    "h3-game-start-1",
+    "h3-game-details-1",
+    "h3-game-stop-1",
+    "h3-launcher-self-update",
+    "h3-game-start-2",
+    "h3-game-details-2",
+    "h3-game-stop-2"
+  ],
+  "h4": [
+    "h4.install",
+    "h4.install-network-down",
+    "h4.install-network-restored",
+    "h4.install-restored-retry-if-failed",
+    "h4.worker-run",
+    "h4.development-network-down",
+    "h4.development-network-restored",
+    "h4.development-restored-retry-if-failed"
+  ],
+  "h4_development_actions": "All h2 actions in h2 order on this history fresh copy. The first original build is split around its individual stand-build command; see frozen fragments.",
+  "template": {
+    "action": "",
+    "command_record": "",
+    "started_utc": null,
+    "ended_utc": null,
+    "done": false,
+    "evidence": [],
+    "reason": "not yet reached"
+  },
+  "conditional_recovery": "When the interrupted action succeeded, the recovery action is not done: not required (interrupted action succeeded). Preserve actual action completion separately."
+}

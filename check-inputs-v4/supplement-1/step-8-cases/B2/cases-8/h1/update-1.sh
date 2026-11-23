@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eu
+printf 'ACTION_BEGIN h1.update-1\n'
+/usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\n' ed
+/usr/local/bin/apt-get upgrade --stand-catalog ed
+test "$(/usr/bin/dpkg-query -W '-f=${Version}' ed)" = 1.21.1-1
+/usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\n' ed
+printf 'ACTION_DONE h1.update-1\n'

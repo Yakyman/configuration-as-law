@@ -2254,6 +2254,47 @@ ebf6930d83ff76b5e1dcebc8c455973924fd79278485832b0d80322ae55e140d  check-inputs-v
 d0d2ae1d4390aea9b16df24eaff826a5d63ad0ef2a565df44460bfab71449a7d  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removal-deltas.json
 1fcee73fdeb3142cf93bcd1eee7341e229c05d7869c50345c3424986ea1783a7  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removed-lines.json
 3d490b8c1495afea94729d0bba78b942d1db7e59e874fda5badda78fe94dcc9f  check-inputs-v4/supplement-1/step-6.md
+72f8a2f2f957922eefaf099faab4928751d309f153efe9f01d296e980b7df446  check-inputs-v4/supplement-1/step-8-cases/B2/CASES-8.md
+29b0c7f203fb8f2c8725768caa5c6a632231dc5f9b4eb5a1b591d259229f0af7  check-inputs-v4/supplement-1/step-8-cases/B2/OBSERVE-8.md
+501c777603af398101cbb592c3b335b65db8646903bb8f921507367c14638d5a  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/actions-plan.json
+1f95c90ee7ca028a1afe18d34b8602207372c549fcf1f7d8d6159e9be89cd72e  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/base-metadata.json
+2308d41811e98e98272e778cddd820cc3e2b19ca9022cd162a72f0ad81e9119b  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/criteria/SENTENCES.md
+6c6022614852d4456103bf53549ee051fa4e5a09d9674eab7961047e4176d47d  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/criteria/SUPPLEMENT-1.md
+9870346d010b9dc5f68a3a2015d58e0d780a6769fd2db6d88b904373098ec38b  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/criteria/TEXT.md
+8c9e6e6c1c82e2fe1d394c545bf844d3d3b0f671229fccf5114cb71e3ebe6288  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/criteria/step-8.md
+2e6946a893a04b121ef4687d82bc34fde2577e983ac0bfdc2ecf3ad4cdd79b4a  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/declaration.json
+788c31884a8a821e7bbf3c91f16e16ddad1a9b4882039c673f349364396d86c0  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/PREPARATION.md
+b5498068d8ac54ad004bacbde2223a348fee781f9bb94328b01d8bfcbd179b48  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/ed_1.21.1-1_amd64.deb
+593a7915c2ec0e3c87f824c2b11b4f72d3d74d654183c6833a18c4320e5df6a0  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/ed_1.22.5-1_amd64.deb
+20fd450f5c5ca7ede92d41d4eb07418b4f8d9ce5fa123955c37cc9eae407681d  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/sources.json
+328036045e51699e4644ed68ef33edb03ae4c079977b31e1fe6537f3250c0901  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/trial.py
+aefee753a9ec8519e35a63e84f15da5e86504bdec6c3c1e3bcda33382d8c012d  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/update-1.sh
+f39108baf245db64006a3f6cc077d03decae38c57314a50c7b73fbcc193ca88c  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h1/update-2.sh
+8b67bd1aabfec94ebfb6cda8070ab740db0a36cf67db8e64f5033fdefeb27589  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/README.md
+59230970d23884e1ba5ed4c7dc17db7b95532d4ba57a58501edd022037b8ff2e  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/expected-edited-1.txt
+61565a664cffb6f957778f4c1d0c70644b5c5c5d8d0a3b7e6afee277a76485bc  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/expected-edited-2.txt
+49f7d4506fb2e5cbd506b37e6fb1e071e38a343e18d470982dd17df5320cd3ce  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/expected-edited-3.txt
+8d9adee79e1c69c44f1713b1eeaf875a8dc33e738b1983a36c55be54899f871f  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/expected-original.txt
+cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/hello.c
+01d8175a286a41b92c25ca92185918fe305dceb3a69d1b177157971387d5405e  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/history.sh
+7eccb9b0a4dfd125e78796a2be2d881a617bc1ea487b0229b718cb63f877527f  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h2/inputs.json
+545e702c1e0f49acb6086a4c81530747c175b9512610bd646ea54cf89b3452d4  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h3/game.json
+5eeef358ca83a5dbd9b00f531f29c5582769a85507077f4911ebcae05ffad7d1  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h3/history.sh
+568725562883c8ed708eecec3cfd6f9ec795cac84058ee1b7c71443f6b6ef449  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h3/launcher-sources.json
+f16de43924521eef3e629fc7cd6f18459a3ab7047a6445df6693e52c04ca1341  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h3/prerequisites.json
+c2ae6e0512cfceb215c7b1586406443dc60b50f78c6b005874b704d7f5f95de1  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h3/prerequisites.sh
+0d5f29fb222859509273ee2a78f1ee31212c30dedf4b8cbbee96c5d08d5ea303  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/README.md
+ee9be6a1a9b947a1901ba5d298444c0c4213745ee2e374f8268dbd9a99007897  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/cut-action.py
+ae055ccb384217402afc77a5b94585322f2c96b242000fd7f2f810d4c2eb7890  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/development-prefix.sh
+2a1b095562b19cadccb4227e70e003c91f9cec78f89387ae85868fbcacd37508  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/development-split.json
+a4e005338c8297f66ee6ffbc02b27f6770fb07e684e9a37cae48a325fbd1525c  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/development-suffix.sh
+2b49ed95e836011f3657368007b91b1a1a835f0798d3b4075562de8ac9691971  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/inputs.json
+1c7f01334d4469413088b38c9d7530b791c94705a26c2b56040af9df300dd6c1  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/split-development.py
+cc7a77f4e8cb92e2db65c112f17cce425bf966980ff239772bf500599d1ff2ba  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/h4/worker-1.json
+68d5a18ce6c8ff9bb0efc0c97bd51332aabfd57dabc2e661e8c2a0efcb12c0ed  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/inputs-seal.json
+3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/observe.py
+a25ad9742b2814e9c602e50c4dde66b93ea8a9174d7c8d9e1945e70c9a299624  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/run.py
+6bdfc2af987a85f93db86c1d683e90df76bc64ea87b8da7d6a5db88904158a8b  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/source-identities.json
 8c9e6e6c1c82e2fe1d394c545bf844d3d3b0f671229fccf5114cb71e3ebe6288  check-inputs-v4/supplement-1/step-8.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
@@ -2333,7 +2374,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2148.
+Files listed: 2189.
 
 ## 5. Version 3: results of its checks, and version 4
 

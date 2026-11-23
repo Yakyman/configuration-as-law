@@ -1,0 +1,78 @@
+#!/usr/bin/bash
+# Run once through the image's ordinary stand shell. Stop at first failed action.
+set -e
+trap 'printf "ACTION_FAILED h3 line=%s\n" "$LINENO"' ERR
+record_game_process() {
+python3 -B - <<'PYPROCESS'
+import os,pathlib,json
+expected=str(pathlib.Path('serverfiles/etded').resolve())
+argv=['./etded','+set','sv_punkbuster','0','+set','net_strict','1','+set','fs_homepath',str(pathlib.Path('serverfiles').resolve()),'+exec','wetserver.cfg']
+matches=[];errors=[]
+for proc in pathlib.Path('/proc').iterdir():
+    if not proc.name.isdigit(): continue
+    try:
+        executable=os.readlink(proc/'exe')
+        if executable!=expected: continue
+        actual=(proc/'cmdline').read_bytes().rstrip(b'\0').decode().split('\0')
+        stat=(proc/'stat').read_text().rsplit(') ',1)[1].split()
+        matches.append(dict(pid=int(proc.name),exe=executable,comm=(proc/'comm').read_text().strip(),argv=actual,state=stat[0],starttime=stat[19],argv_matches=actual==argv))
+    except (FileNotFoundError,ProcessLookupError): continue
+    except PermissionError: errors.append({'pid':int(proc.name),'error':'permission denied'})
+print(json.dumps(dict(expected_exe=expected,expected_argv=argv,processes=matches,unreadable=errors),sort_keys=True))
+assert any(p['comm']=='etded' and p['state']!='Z' and p['argv_matches'] for p in matches), 'no live game process with expected executable and argv'
+PYPROCESS
+}
+printf "ACTION_BEGIN h3-launcher-fetch\n"
+mkdir -p s8-h3
+cd s8-h3
+export LGSM_GITHUBBRANCH=50dc4e551b661b9d1fa39c291068a16a66056aff
+curl --fail --location --output linuxgsm.sh https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/50dc4e551b661b9d1fa39c291068a16a66056aff/linuxgsm.sh
+printf '%s\n' '3063de7f3bf025976dcd11693af84bbe78b43564c3174129d524c7b3c16f5707  linuxgsm.sh' | sha256sum --check -
+printf "ACTION_DONE h3-launcher-fetch\n"
+printf "ACTION_BEGIN h3-launcher-setup\n"
+bash linuxgsm.sh wetserver
+printf "ACTION_DONE h3-launcher-setup\n"
+printf "ACTION_BEGIN h3-game-install\n"
+bash wetserver auto-install
+printf '%s\n' 'ac359aebe0bf8fd568341876e3a8992d7c562ee6fdc4a8906bdbab47eae66cf3  lgsm/tmp/wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz' | sha256sum --check -
+printf '%s\n' '0e3ac5ec64711dfb6b89c5a1634034b83b785a154a76fb6eba162e56a686f174  lgsm/config-default/config-game/server.cfg' | sha256sum --check -
+printf "ACTION_DONE h3-game-install\n"
+printf "ACTION_BEGIN h3-game-start-1\n"
+bash wetserver start
+record_game_process
+printf "ACTION_DONE h3-game-start-1\n"
+printf "ACTION_BEGIN h3-game-details-1\n"
+bash wetserver details
+printf "ACTION_DONE h3-game-details-1\n"
+printf "ACTION_BEGIN h3-game-stop-1\n"
+bash wetserver stop
+grep -F -- '------ Server Initialization ------' serverfiles/etmain/etconsole.log
+printf "ACTION_DONE h3-game-stop-1\n"
+printf "ACTION_BEGIN h3-launcher-self-update\n"
+sha256sum wetserver
+export LGSM_GITHUBBRANCH=9ca2e951c6e15d4db7184a60e1fd8a831b2cdb0f
+bash wetserver update-lgsm
+python3 -B - <<'PY'
+import pathlib,re,hashlib
+payload=pathlib.Path('wetserver').read_bytes()
+print('UPDATED_LAUNCHER_SHA256',hashlib.sha256(payload).hexdigest())
+s=payload.decode()
+# The upstream updater replaces these server-identity/default branch fields.
+s=re.sub(r'^shortname="wet"$', 'shortname="core"', s, flags=re.M)
+s=re.sub(r'^gameservername="wetserver"$', 'gameservername="core"', s, flags=re.M)
+s=s.replace('githubbranch="9ca2e951c6e15d4db7184a60e1fd8a831b2cdb0f"','githubbranch="master"')
+assert hashlib.sha256(s.encode()).hexdigest()=='f0fa0f6e60c6d8fb296f4e50fe88ab441d7dd5ff930abaf1487a055961411f6e'
+print('LAUNCHER_UPDATE_BYTES_MATCH')
+PY
+printf "ACTION_DONE h3-launcher-self-update\n"
+printf "ACTION_BEGIN h3-game-start-2\n"
+bash wetserver start
+record_game_process
+printf "ACTION_DONE h3-game-start-2\n"
+printf "ACTION_BEGIN h3-game-details-2\n"
+bash wetserver details
+printf "ACTION_DONE h3-game-details-2\n"
+printf "ACTION_BEGIN h3-game-stop-2\n"
+bash wetserver stop
+grep -F -- '------ Server Initialization ------' serverfiles/etmain/etconsole.log
+printf "ACTION_DONE h3-game-stop-2\n"

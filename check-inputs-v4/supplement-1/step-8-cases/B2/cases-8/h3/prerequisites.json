@@ -1,0 +1,472 @@
+{
+  "index_source": "https://deb.debian.org/debian/dists/trixie/main/binary-amd64/Packages.xz",
+  "index_sha256": "be3d7d96a040eda0505c1808cccc67f183bbc05dff0842c50f88e6c396557412",
+  "required": [
+    "bc",
+    "binutils",
+    "bsdmainutils",
+    "bzip2",
+    "ca-certificates",
+    "cpio",
+    "curl",
+    "distro-info",
+    "file",
+    "gzip",
+    "hostname",
+    "jq",
+    "lib32gcc-s1",
+    "lib32stdc++6",
+    "netcat-openbsd",
+    "pigz",
+    "procps",
+    "python3",
+    "tar",
+    "tmux",
+    "unzip",
+    "util-linux",
+    "uuid-runtime",
+    "wget",
+    "xz-utils"
+  ],
+  "packages": [
+    {
+      "package": "bc",
+      "version": "1.07.1-4",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/b/bc/bc_1.07.1-4_amd64.deb",
+      "sha256": "d055a11f0f9c5f8fe78b31d502c01dfe46ddf9c24f753aaddadaaff95fcc75ad",
+      "filename": "bc_1.07.1-4_amd64.deb",
+      "bytes": 103196,
+      "depends": "libc6 (>= 2.34), libreadline8t64 (>= 6.0)",
+      "pre_depends": ""
+    },
+    {
+      "package": "bsdmainutils",
+      "version": "12.1.8",
+      "architecture": "all",
+      "source": "https://deb.debian.org/debian/pool/main/b/bsdmainutils/bsdmainutils_12.1.8_all.deb",
+      "sha256": "02e817ed3ac20296862ed240942d5697a86bc043312bd402991fad8501e054b0",
+      "filename": "bsdmainutils_12.1.8_all.deb",
+      "bytes": 5952,
+      "depends": "bsdutils (>= 3.0-0), debianutils (>= 1.8), bsdextrautils (>= 2.35.2-7), ncal",
+      "pre_depends": ""
+    },
+    {
+      "package": "bzip2",
+      "version": "1.0.8-6",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.8-6_amd64.deb",
+      "sha256": "6b5fbe71f0fc41e85919bc4b3c514e6c47577c5005dbf1f5af6e4a49cc221aab",
+      "filename": "bzip2_1.0.8-6_amd64.deb",
+      "bytes": 40520,
+      "depends": "libbz2-1.0 (= 1.0.8-6), libc6 (>= 2.34)",
+      "pre_depends": ""
+    },
+    {
+      "package": "distro-info",
+      "version": "1.13",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/d/distro-info/distro-info_1.13_amd64.deb",
+      "sha256": "ae95925233da814e0b9f5998757115e82c619bc94a044fcf311eb84effdc2aba",
+      "filename": "distro-info_1.13_amd64.deb",
+      "bytes": 18936,
+      "depends": "distro-info-data (>= 0.59~), libc6 (>= 2.34)",
+      "pre_depends": ""
+    },
+    {
+      "package": "jq",
+      "version": "1.7.1-6+deb13u4",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/j/jq/jq_1.7.1-6+deb13u4_amd64.deb",
+      "sha256": "7350392f700e20e46b7ae174a57f54e4ea106dd559753646d629b4e618bf2bff",
+      "filename": "jq_1.7.1-6+deb13u4_amd64.deb",
+      "bytes": 78900,
+      "depends": "libc6 (>= 2.38), libjq1 (= 1.7.1-6+deb13u4)",
+      "pre_depends": ""
+    },
+    {
+      "package": "lib32gcc-s1",
+      "version": "14.2.0-19",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/g/gcc-14/lib32gcc-s1_14.2.0-19_amd64.deb",
+      "sha256": "aa7674a786d58a1efaacb3ce377c06a2d3153c1fa7360b08375c7dd67c90c3fe",
+      "filename": "lib32gcc-s1_14.2.0-19_amd64.deb",
+      "bytes": 88400,
+      "depends": "gcc-14-base (= 14.2.0-19), libc6-i386 (>= 2.35)",
+      "pre_depends": ""
+    },
+    {
+      "package": "lib32stdc++6",
+      "version": "14.2.0-19",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/g/gcc-14/lib32stdc++6_14.2.0-19_amd64.deb",
+      "sha256": "326011247094e9a5e5b7dd431b67ccf6dddfd9c4ee5078a8d1a15661883791c2",
+      "filename": "lib32stdc++6_14.2.0-19_amd64.deb",
+      "bytes": 745160,
+      "depends": "gcc-14-base (= 14.2.0-19), lib32gcc-s1 (>= 14.2.0-19), libc6-i386 (>= 2.38)",
+      "pre_depends": ""
+    },
+    {
+      "package": "libc6-i386",
+      "version": "2.41-12+deb13u5",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/g/glibc/libc6-i386_2.41-12+deb13u5_amd64.deb",
+      "sha256": "1e59f89ce33149849ffffc53c38ca54ffa7a15e48cd0394eb3f4ba02fe553ca4",
+      "filename": "libc6-i386_2.41-12+deb13u5_amd64.deb",
+      "bytes": 2539008,
+      "depends": "libc6 (= 2.41-12+deb13u5)",
+      "pre_depends": ""
+    },
+    {
+      "package": "libevent-core-2.1-7t64",
+      "version": "2.1.13-stable-1~deb13u1",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/libe/libevent/libevent-core-2.1-7t64_2.1.13-stable-1~deb13u1_amd64.deb",
+      "sha256": "faa7d20cc8fa05ac3b0497065fa60bc920eacd3711ff039649d43a7aa34421ce",
+      "filename": "libevent-core-2.1-7t64_2.1.13-stable-1~deb13u1_amd64.deb",
+      "bytes": 132868,
+      "depends": "libc6 (>= 2.38)",
+      "pre_depends": ""
+    },
+    {
+      "package": "libjq1",
+      "version": "1.7.1-6+deb13u4",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/j/jq/libjq1_1.7.1-6+deb13u4_amd64.deb",
+      "sha256": "70bb2cbd66d5ada4349067ae9f61d0560b3b359d4203f2c051ca5773153ae0ba",
+      "filename": "libjq1_1.7.1-6+deb13u4_amd64.deb",
+      "bytes": 167808,
+      "depends": "libc6 (>= 2.39), libonig5 (>= 6.8.1)",
+      "pre_depends": ""
+    },
+    {
+      "package": "libonig5",
+      "version": "6.9.9-1+b1",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/libo/libonig/libonig5_6.9.9-1+b1_amd64.deb",
+      "sha256": "3abee130696244050500bcc7870e3b4cb82ddd87149ece3fd55010c3d4e1d18c",
+      "filename": "libonig5_6.9.9-1+b1_amd64.deb",
+      "bytes": 189396,
+      "depends": "libc6 (>= 2.14)",
+      "pre_depends": ""
+    },
+    {
+      "package": "ncal",
+      "version": "12.1.8",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/b/bsdmainutils/ncal_12.1.8_amd64.deb",
+      "sha256": "d2de213d7e86ae56d1d44318dc8307e1efe5ea6ede0dbef6ae3c7ed68e4be618",
+      "filename": "ncal_12.1.8_amd64.deb",
+      "bytes": 19704,
+      "depends": "libc6 (>= 2.34), libtinfo6 (>= 6)",
+      "pre_depends": ""
+    },
+    {
+      "package": "pigz",
+      "version": "2.8-1",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/p/pigz/pigz_2.8-1_amd64.deb",
+      "sha256": "876b4612815c310d91cced1e6193a14e397d03ebb5ae85fec72fc6e0246ccdd9",
+      "filename": "pigz_2.8-1_amd64.deb",
+      "bytes": 62672,
+      "depends": "libc6 (>= 2.34), zlib1g (>= 1:1.2.6)",
+      "pre_depends": "dpkg (>= 1.15.6)"
+    },
+    {
+      "package": "tmux",
+      "version": "3.5a-3",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/t/tmux/tmux_3.5a-3_amd64.deb",
+      "sha256": "e6b6aa51780044e2c4a0e618c33f832b70ec80caa30303e6c254a0c851b5af78",
+      "filename": "tmux_3.5a-3_amd64.deb",
+      "bytes": 490296,
+      "depends": "libc6 (>= 2.38), libevent-core-2.1-7t64 (>= 2.1.8-stable), libjemalloc2 (>= 2.1.1), libsystemd0 (>= 221), libtinfo6 (>= 6.5)",
+      "pre_depends": ""
+    },
+    {
+      "package": "unzip",
+      "version": "6.0-29+deb13u1",
+      "architecture": "amd64",
+      "source": "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-29+deb13u1_amd64.deb",
+      "sha256": "fc11f8736bdec6fc46a6864f75bce0c8206a790df37dbcab5ddb25b1bf0f58f0",
+      "filename": "unzip_6.0-29+deb13u1_amd64.deb",
+      "bytes": 172916,
+      "depends": "libbz2-1.0, libc6 (>= 2.34)",
+      "pre_depends": ""
+    }
+  ],
+  "dependency_obligations": [
+    {
+      "requiring": "bc",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "bc",
+      "field": "Depends",
+      "requirement": "libreadline8t64 (>= 6.0)",
+      "selected": "libreadline8t64",
+      "installed_version": "8.2-6",
+      "candidate_version": "8.2-6"
+    },
+    {
+      "requiring": "bsdmainutils",
+      "field": "Depends",
+      "requirement": "bsdutils (>= 3.0-0)",
+      "selected": "bsdutils",
+      "installed_version": "1:2.41.5-0+deb13u1",
+      "candidate_version": "1:2.41.5-0+deb13u1"
+    },
+    {
+      "requiring": "bsdmainutils",
+      "field": "Depends",
+      "requirement": "debianutils (>= 1.8)",
+      "selected": "debianutils",
+      "installed_version": "5.23.2",
+      "candidate_version": "5.23.2"
+    },
+    {
+      "requiring": "bsdmainutils",
+      "field": "Depends",
+      "requirement": "bsdextrautils (>= 2.35.2-7)",
+      "selected": "bsdextrautils",
+      "installed_version": "2.41.5-0+deb13u1",
+      "candidate_version": "2.41.5-0+deb13u1"
+    },
+    {
+      "requiring": "bsdmainutils",
+      "field": "Depends",
+      "requirement": "ncal",
+      "selected": "ncal",
+      "installed_version": null,
+      "candidate_version": "12.1.8"
+    },
+    {
+      "requiring": "ncal",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "ncal",
+      "field": "Depends",
+      "requirement": "libtinfo6 (>= 6)",
+      "selected": "libtinfo6",
+      "installed_version": "6.5+20250216-2",
+      "candidate_version": "6.5+20250216-2"
+    },
+    {
+      "requiring": "bzip2",
+      "field": "Depends",
+      "requirement": "libbz2-1.0 (= 1.0.8-6)",
+      "selected": "libbz2-1.0",
+      "installed_version": "1.0.8-6",
+      "candidate_version": "1.0.8-6"
+    },
+    {
+      "requiring": "bzip2",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "distro-info",
+      "field": "Depends",
+      "requirement": "distro-info-data (>= 0.59~)",
+      "selected": "distro-info-data",
+      "installed_version": "0.66+deb13u2",
+      "candidate_version": "0.66+deb13u2"
+    },
+    {
+      "requiring": "distro-info",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "jq",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.38)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "jq",
+      "field": "Depends",
+      "requirement": "libjq1 (= 1.7.1-6+deb13u4)",
+      "selected": "libjq1",
+      "installed_version": null,
+      "candidate_version": "1.7.1-6+deb13u4"
+    },
+    {
+      "requiring": "libjq1",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.39)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "libjq1",
+      "field": "Depends",
+      "requirement": "libonig5 (>= 6.8.1)",
+      "selected": "libonig5",
+      "installed_version": null,
+      "candidate_version": "6.9.9-1+b1"
+    },
+    {
+      "requiring": "libonig5",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.14)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "lib32gcc-s1",
+      "field": "Depends",
+      "requirement": "gcc-14-base (= 14.2.0-19)",
+      "selected": "gcc-14-base",
+      "installed_version": "14.2.0-19",
+      "candidate_version": "14.2.0-19"
+    },
+    {
+      "requiring": "lib32gcc-s1",
+      "field": "Depends",
+      "requirement": "libc6-i386 (>= 2.35)",
+      "selected": "libc6-i386",
+      "installed_version": null,
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "libc6-i386",
+      "field": "Depends",
+      "requirement": "libc6 (= 2.41-12+deb13u5)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "lib32stdc++6",
+      "field": "Depends",
+      "requirement": "gcc-14-base (= 14.2.0-19)",
+      "selected": "gcc-14-base",
+      "installed_version": "14.2.0-19",
+      "candidate_version": "14.2.0-19"
+    },
+    {
+      "requiring": "lib32stdc++6",
+      "field": "Depends",
+      "requirement": "lib32gcc-s1 (>= 14.2.0-19)",
+      "selected": "lib32gcc-s1",
+      "installed_version": null,
+      "candidate_version": "14.2.0-19"
+    },
+    {
+      "requiring": "lib32stdc++6",
+      "field": "Depends",
+      "requirement": "libc6-i386 (>= 2.38)",
+      "selected": "libc6-i386",
+      "installed_version": null,
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "pigz",
+      "field": "Pre-Depends",
+      "requirement": "dpkg (>= 1.15.6)",
+      "selected": "dpkg",
+      "installed_version": "1.22.22",
+      "candidate_version": "1.22.22"
+    },
+    {
+      "requiring": "pigz",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "pigz",
+      "field": "Depends",
+      "requirement": "zlib1g (>= 1:1.2.6)",
+      "selected": "zlib1g",
+      "installed_version": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "candidate_version": "1:1.3.dfsg+really1.3.1-1+deb13u1"
+    },
+    {
+      "requiring": "tmux",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.38)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "tmux",
+      "field": "Depends",
+      "requirement": "libevent-core-2.1-7t64 (>= 2.1.8-stable)",
+      "selected": "libevent-core-2.1-7t64",
+      "installed_version": null,
+      "candidate_version": "2.1.13-stable-1~deb13u1"
+    },
+    {
+      "requiring": "libevent-core-2.1-7t64",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.38)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    },
+    {
+      "requiring": "tmux",
+      "field": "Depends",
+      "requirement": "libjemalloc2 (>= 2.1.1)",
+      "selected": "libjemalloc2",
+      "installed_version": "5.3.0-3",
+      "candidate_version": "5.3.0-3"
+    },
+    {
+      "requiring": "tmux",
+      "field": "Depends",
+      "requirement": "libsystemd0 (>= 221)",
+      "selected": "libsystemd0",
+      "installed_version": "257.13-1~deb13u1",
+      "candidate_version": "257.13-1~deb13u1"
+    },
+    {
+      "requiring": "tmux",
+      "field": "Depends",
+      "requirement": "libtinfo6 (>= 6.5)",
+      "selected": "libtinfo6",
+      "installed_version": "6.5+20250216-2",
+      "candidate_version": "6.5+20250216-2"
+    },
+    {
+      "requiring": "unzip",
+      "field": "Depends",
+      "requirement": "libbz2-1.0",
+      "selected": "libbz2-1.0",
+      "installed_version": "1.0.8-6",
+      "candidate_version": "1.0.8-6"
+    },
+    {
+      "requiring": "unzip",
+      "field": "Depends",
+      "requirement": "libc6 (>= 2.34)",
+      "selected": "libc6",
+      "installed_version": "2.41-12+deb13u5",
+      "candidate_version": "2.41-12+deb13u5"
+    }
+  ]
+}

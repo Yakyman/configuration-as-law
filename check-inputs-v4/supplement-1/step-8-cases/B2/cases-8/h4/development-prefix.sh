@@ -1,0 +1,47 @@
+#!/bin/bash
+# Run once via lab.py run FRESH_GUEST, as the ordinary guest user.
+set -eu
+export LC_ALL=C
+export PYTHONDONTWRITEBYTECODE=1
+mkdir -p /home/stand/step8-h2
+cd /home/stand/step8-h2
+round=1
+phase=original
+  printf 'ACTION_BEGIN h2.%s.fetch\n' "$round"
+  python3 -B - <<'PY'
+import hashlib,pathlib,urllib.request
+url='https://raw.githubusercontent.com/docker-library/hello-world/522bcd2faf422c60b9d20e64d7cd6d56600aec97/hello.c'
+with urllib.request.urlopen(url,timeout=30) as response:
+    data=response.read()
+assert hashlib.sha256(data).hexdigest()=='cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34'
+pathlib.Path('hello.c').write_bytes(data)
+print('FETCH_VERIFIED',len(data),hashlib.sha256(data).hexdigest())
+PY
+  printf 'ACTION_DONE h2.%s.fetch\n' "$round"
+    if test "$phase" = edited; then
+      printf 'ACTION_BEGIN h2.%s.edit\n' "$round"
+      python3 -B - "$round" <<'PY'
+import pathlib,sys
+p=pathlib.Path('hello.c'); before=p.read_bytes()
+old=b'\t"Hello from Docker!\\n"'
+new=('\t"Hello from step 8 development round '+sys.argv[1]+'!\\n"').encode()
+assert before.count(old)==1
+after=before.replace(old,new)
+assert len(before.splitlines())==len(after.splitlines())
+assert sum(a!=b for a,b in zip(before.splitlines(),after.splitlines()))==1
+p.write_bytes(after)
+print('ONE_SOURCE_LINE_CHANGED',sys.argv[1])
+PY
+      printf 'ACTION_DONE h2.%s.edit\n' "$round"
+    fi
+    printf 'ACTION_BEGIN h2.%s.%s.build\n' "$round" "$phase"
+    python3 -B - "$round" "$phase" <<'PY'
+import hashlib,json,pathlib,sys
+p=pathlib.Path('hello.c').resolve()
+spec={'id':'h2-hello','version':sys.argv[1]+'-'+sys.argv[2],
+      'source':'https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit='+str(sys.argv[2]=='edited'),
+      'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'path':str(p)}
+pathlib.Path('source.json').write_text(json.dumps(spec,sort_keys=True)+'\n')
+print(json.dumps(spec,sort_keys=True))
+PY
+    stand-import source /home/stand/step8-h2/source.json
