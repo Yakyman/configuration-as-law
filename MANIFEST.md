@@ -2254,6 +2254,13 @@ ebf6930d83ff76b5e1dcebc8c455973924fd79278485832b0d80322ae55e140d  check-inputs-v
 d0d2ae1d4390aea9b16df24eaff826a5d63ad0ef2a565df44460bfab71449a7d  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removal-deltas.json
 1fcee73fdeb3142cf93bcd1eee7341e229c05d7869c50345c3424986ea1783a7  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removed-lines.json
 3d490b8c1495afea94729d0bba78b942d1db7e59e874fda5badda78fe94dcc9f  check-inputs-v4/supplement-1/step-6.md
+65322915c1f70b92bea0b9966355cab8fd22a333bb414d88fdb7d941ce2189cf  check-inputs-v4/supplement-1/step-7-inputs/ACTIONS-9.2.md
+2b76ab09fbc2a37cc23d1f8124c1f1428affc61978e089eff8a79f90c77b0654  check-inputs-v4/supplement-1/step-7-inputs/CASES.md
+b60f31da5e7cf3222cca1300686a13a598c01b3234f4f4d9189776ee24d765a0  check-inputs-v4/supplement-1/step-7-inputs/PAIRS.tsv
+00a734b33493b8c2ff2d117ea363984a7152eefd06cadad616b2cc82c719e0a4  check-inputs-v4/supplement-1/step-7-inputs/TEXT-8.1-8.5.md
+b9c2b1904b35738735f6d5f3805a0a03b69104bbe4f17bf0ed229dd60a45b87b  check-inputs-v4/supplement-1/step-7-inputs/key/KEY.tsv
+90f5746e1f6e29620b36d9a3896d1a2459916e6f646ce742f3372624b559a828  check-inputs-v4/supplement-1/step-7-inputs/s7_pairs.py
+86c4cb36e8872ad74cfb4b8af0cbf30f276010d0250758c8af082bab0be82f7f  check-inputs-v4/supplement-1/step-7.md
 72f8a2f2f957922eefaf099faab4928751d309f153efe9f01d296e980b7df446  check-inputs-v4/supplement-1/step-8-cases/B2/CASES-8.md
 29b0c7f203fb8f2c8725768caa5c6a632231dc5f9b4eb5a1b591d259229f0af7  check-inputs-v4/supplement-1/step-8-cases/B2/OBSERVE-8.md
 501c777603af398101cbb592c3b335b65db8646903bb8f921507367c14638d5a  check-inputs-v4/supplement-1/step-8-cases/B2/cases-8/actions-plan.json
@@ -2374,7 +2381,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2189.
+Files listed: 2196.
 
 ## 5. Version 3: results of its checks, and version 4
 
