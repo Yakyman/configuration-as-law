@@ -1,0 +1,791 @@
+{
+  "case-3-before -> case-3-after": {
+    "constituent_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "after_sha256": "5b30ad23b0fd504d80a75154e70997c51fd70dfb2317d20e316ebd90df233054",
+        "before_sha256": "af1a399c79a94646d733a7d55bf06088fa02071c7c780d3436a152a2e9daa427",
+        "other_fields": {
+          "generation": {
+            "after": 335,
+            "before": 295
+          },
+          "next_inode": {
+            "after": 1375,
+            "before": 1370
+          }
+        },
+        "paths": {
+          "/apparmor.d/abstractions/stand-map": {
+            "after": {
+              "sha256": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+              "st_atime": 1795455919.1265745,
+              "st_ctime": 1795455919.210165,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455919.1576266,
+              "st_size": 104297,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1373",
+            "before": {
+              "sha256": "db0337772513201c31e0d0aa46fd1fc49a47438546c2c7b9a66fab7160306a5f",
+              "st_atime": 1795455871.5009716,
+              "st_ctime": 1795455871.5734923,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455871.5255172,
+              "st_size": 104340,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1367",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_mtime",
+              "st_size"
+            ]
+          },
+          "/ssh/sshd_config.d/00-stand.conf": {
+            "after": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795455913.9012094,
+              "st_ctime": 1795455914.0026183,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455914.0026183,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1370",
+            "before": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795455867.1517482,
+              "st_ctime": 1795455867.2521045,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455867.2521045,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1363",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/launch.tsv": {
+            "after": {
+              "sha256": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+              "st_atime": 1795455918.964917,
+              "st_ctime": 1795455919.0611877,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455919.061187,
+              "st_size": 946,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1372",
+            "before": {
+              "sha256": "e03e56c6f1c24b8b89a40eee9ccfd822598ff9247f3567d8d7462ed794e64429",
+              "st_atime": 1795455871.3726587,
+              "st_ctime": 1795455871.449499,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455871.449499,
+              "st_size": 1317,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1366",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_mtime",
+              "st_size"
+            ]
+          },
+          "/stand/read-closure": {
+            "after": {
+              "sha256": "750ffb05835c42ff513077a1295d69bcedb2f3eab7357f47c0c37fd6f5afb939",
+              "st_atime": 1795455918.4489825,
+              "st_ctime": 1795455918.9015753,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455918.8373857,
+              "st_size": 1492032,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1371",
+            "before": {
+              "sha256": "bb6ae834eb1df8f78e04550c22fd04d36d00c07d198c68ba4e3dc6c68cfa8746",
+              "st_atime": 1795455870.884156,
+              "st_ctime": 1795455871.3199985,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455871.2667542,
+              "st_size": 1492128,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1365",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_mtime",
+              "st_size"
+            ]
+          },
+          "/stand/stand-profiles": {
+            "after": {
+              "sha256": "09be8114c1c4c9f5a5d344c42355ea50ff507e8f72befd775b223f1820f231f5",
+              "st_atime": 1795455919.2930849,
+              "st_ctime": 1795455919.3743246,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455919.3251889,
+              "st_size": 27441,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1374",
+            "before": {
+              "sha256": "5696309f5c25c01a74fa06d7fa30095ebe59c71dfbaf0347b6468c767861a880",
+              "st_atime": 1795455871.6231377,
+              "st_ctime": 1795455871.6959493,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455871.6475563,
+              "st_size": 28487,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1368",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_mtime",
+              "st_size"
+            ]
+          },
+          "/systemd/system/multi-user.target.wants/stand-development.service": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455845.9328578,
+              "st_ctime": 1795455845.9328578,
+              "st_gid": 0,
+              "st_mode": 41471,
+              "st_mtime": 1795455845.9328578,
+              "st_size": 45,
+              "st_uid": 0,
+              "target": "/etc/systemd/system/stand-development.service",
+              "xattrs": {}
+            },
+            "before_inode": "1362",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "target",
+              "xattrs"
+            ]
+          },
+          "/systemd/system/stand-development.service": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "sha256": "ccd5a80d500d94562e73b01e34036a3f5971e3256ead561785ebe0797afdb3e6",
+              "st_atime": 1795455867.30524,
+              "st_ctime": 1795455867.3821118,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455867.3821115,
+              "st_size": 306,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1364",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          },
+          "/systemd/system/stand-development.service.d": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455845.514478,
+              "st_ctime": 1795455845.514478,
+              "st_gid": 0,
+              "st_mode": 16877,
+              "st_mtime": 1795455845.514478,
+              "st_size": 0,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1360",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          },
+          "/systemd/system/stand-development.service.d/50-code-boundary.conf": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "sha256": "4ea445e60e8a2cc9857000b7551b79d5c00caf3e6703de5c2ed4c67d5586fd26",
+              "st_atime": 1795455875.0270119,
+              "st_ctime": 1795455875.117289,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795455875.117289,
+              "st_size": 179,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1369",
+            "changed_fields": [
+              "sha256",
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          }
+        }
+      },
+      "/var/lib/stand-fs/tmp/current/declaration.json": {
+        "after_sha256": "4f95f6b93dbeb3db81b6732a58ab24b3b73680f4c48f9a0f08e52a727e8353ef",
+        "before_sha256": "cc88f3b101708a669e82da5611f73c20d2ff8e891d98fb88bb28cb2ee9031890",
+        "other_fields": {
+          "generation": {
+            "after": 67,
+            "before": 65
+          }
+        },
+        "paths": {
+          "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-b6IYGz": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455846.1855056,
+              "st_ctime": 1795455846.1855056,
+              "st_gid": 0,
+              "st_mode": 16832,
+              "st_mtime": 1795455846.1855056,
+              "st_size": 0,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "70",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          },
+          "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-b6IYGz/tmp": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455846.1928327,
+              "st_ctime": 1795455846.1928327,
+              "st_gid": 0,
+              "st_mode": 17407,
+              "st_mtime": 1795455846.1928327,
+              "st_size": 0,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "71",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          }
+        }
+      },
+      "/var/lib/stand-fs/vartmp/current/declaration.json": {
+        "after_sha256": "70fb47e096bd0d90cd35b88cf938b66507a85c32fb3f5944005f03726874e6df",
+        "before_sha256": "284cfe2f6ed8841cabe262797b968f913612b6ea2321407a9bfdb5031bffdc8e",
+        "other_fields": {
+          "generation": {
+            "after": 9,
+            "before": 7
+          }
+        },
+        "paths": {
+          "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-FQGkOV": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455846.1997182,
+              "st_ctime": 1795455846.1997182,
+              "st_gid": 0,
+              "st_mode": 16832,
+              "st_mtime": 1795455846.1997182,
+              "st_size": 0,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "9",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          },
+          "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-FQGkOV/tmp": {
+            "after": null,
+            "after_inode": null,
+            "before": {
+              "st_atime": 1795455846.2053173,
+              "st_ctime": 1795455846.2053173,
+              "st_gid": 0,
+              "st_mode": 17407,
+              "st_mtime": 1795455846.2053173,
+              "st_size": 0,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "10",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_gid",
+              "st_mode",
+              "st_mtime",
+              "st_size",
+              "st_uid",
+              "xattrs"
+            ]
+          }
+        }
+      },
+      "/var/lib/stand/current/machine.jsonl": {
+        "after_sha256": "f55feb601ac3ca590a054b13c72337dfb30253a3457c7076c0877df4f2cddc00",
+        "before_sha256": "149a6f598eee4c81926cd3930b85b8c9f409a9581705091c8fc307a433f64ad1"
+      }
+    },
+    "removed_machine_ids": [
+      "dev-worker",
+      "dev-service",
+      "dev-rule"
+    ],
+    "surviving_machine_lines_byte_identical": true
+  },
+  "case-4-both -> case-4-one": {
+    "constituent_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "after_sha256": "37e0c26fc62427359544d1aab501f634bc2fc993c5fcdd991b0cef6d808ff059",
+        "before_sha256": "f77bf95e045b1639c537be0ddd52499fbf33d89e66d61e5d300a44cfe5378c8c",
+        "other_fields": {
+          "generation": {
+            "after": 273,
+            "before": 237
+          },
+          "next_inode": {
+            "after": 1364,
+            "before": 1359
+          }
+        },
+        "paths": {
+          "/apparmor.d/abstractions/stand-map": {
+            "after": {
+              "sha256": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+              "st_atime": 1795456061.6995618,
+              "st_ctime": 1795456061.7867508,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.7306652,
+              "st_size": 104297,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1362",
+            "before": {
+              "sha256": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+              "st_atime": 1795456017.2373493,
+              "st_ctime": 1795456017.3246481,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456017.2666006,
+              "st_size": 104297,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1357",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/ssh/sshd_config.d/00-stand.conf": {
+            "after": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795456057.2537315,
+              "st_ctime": 1795456057.3513832,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456057.351383,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1359",
+            "before": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795456012.9104514,
+              "st_ctime": 1795456013.0057077,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456013.0057077,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1354",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/launch.tsv": {
+            "after": {
+              "sha256": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+              "st_atime": 1795456061.535863,
+              "st_ctime": 1795456061.6328092,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.632809,
+              "st_size": 946,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1361",
+            "before": {
+              "sha256": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+              "st_atime": 1795456017.0854445,
+              "st_ctime": 1795456017.1759765,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456017.1759765,
+              "st_size": 946,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1356",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/read-closure": {
+            "after": {
+              "sha256": "750ffb05835c42ff513077a1295d69bcedb2f3eab7357f47c0c37fd6f5afb939",
+              "st_atime": 1795456060.9578838,
+              "st_ctime": 1795456061.4602435,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.3959959,
+              "st_size": 1492032,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1360",
+            "before": {
+              "sha256": "750ffb05835c42ff513077a1295d69bcedb2f3eab7357f47c0c37fd6f5afb939",
+              "st_atime": 1795456016.5356057,
+              "st_ctime": 1795456017.0248415,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456016.968538,
+              "st_size": 1492032,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1355",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/stand-profiles": {
+            "after": {
+              "sha256": "09be8114c1c4c9f5a5d344c42355ea50ff507e8f72befd775b223f1820f231f5",
+              "st_atime": 1795456061.8421793,
+              "st_ctime": 1795456061.928079,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.870944,
+              "st_size": 27441,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1363",
+            "before": {
+              "sha256": "09be8114c1c4c9f5a5d344c42355ea50ff507e8f72befd775b223f1820f231f5",
+              "st_atime": 1795456017.3839908,
+              "st_ctime": 1795456017.4722311,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456017.4134195,
+              "st_size": 27441,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1358",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          }
+        }
+      },
+      "/var/lib/stand/current/machine.jsonl": {
+        "after_sha256": "e0a3861e37da3efcdef5d239728fcca42218e1ef51b2811a01a577689592be35",
+        "before_sha256": "3e00337c7c3eaf1ed0811416992ed8b828caf7c82a424b808c5bf8f446d4449c"
+      }
+    },
+    "removed_machine_ids": [
+      "bc4:owner-a"
+    ],
+    "surviving_machine_lines_byte_identical": true
+  },
+  "case-4-one -> case-4-none": {
+    "constituent_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "after_sha256": "49eb33b74a90ded9bff3c5b6a985b6cb0c5aafd216fabaa7d60e424f269e7fa0",
+        "before_sha256": "37e0c26fc62427359544d1aab501f634bc2fc993c5fcdd991b0cef6d808ff059",
+        "other_fields": {
+          "generation": {
+            "after": 309,
+            "before": 273
+          },
+          "next_inode": {
+            "after": 1369,
+            "before": 1364
+          }
+        },
+        "paths": {
+          "/apparmor.d/abstractions/stand-map": {
+            "after": {
+              "sha256": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+              "st_atime": 1795456089.7861536,
+              "st_ctime": 1795456089.8797832,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456089.8171885,
+              "st_size": 104297,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1367",
+            "before": {
+              "sha256": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+              "st_atime": 1795456061.6995618,
+              "st_ctime": 1795456061.7867508,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.7306652,
+              "st_size": 104297,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1362",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/ssh/sshd_config.d/00-stand.conf": {
+            "after": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795456085.3863037,
+              "st_ctime": 1795456085.4743161,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456085.4743161,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1364",
+            "before": {
+              "sha256": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+              "st_atime": 1795456057.2537315,
+              "st_ctime": 1795456057.3513832,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456057.351383,
+              "st_size": 92,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1359",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/launch.tsv": {
+            "after": {
+              "sha256": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+              "st_atime": 1795456089.635015,
+              "st_ctime": 1795456089.7240996,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456089.7240994,
+              "st_size": 946,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1366",
+            "before": {
+              "sha256": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+              "st_atime": 1795456061.535863,
+              "st_ctime": 1795456061.6328092,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.632809,
+              "st_size": 946,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1361",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/read-closure": {
+            "after": {
+              "sha256": "750ffb05835c42ff513077a1295d69bcedb2f3eab7357f47c0c37fd6f5afb939",
+              "st_atime": 1795456089.073578,
+              "st_ctime": 1795456089.5676947,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456089.5065322,
+              "st_size": 1492032,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1365",
+            "before": {
+              "sha256": "750ffb05835c42ff513077a1295d69bcedb2f3eab7357f47c0c37fd6f5afb939",
+              "st_atime": 1795456060.9578838,
+              "st_ctime": 1795456061.4602435,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.3959959,
+              "st_size": 1492032,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1360",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          },
+          "/stand/stand-profiles": {
+            "after": {
+              "sha256": "09be8114c1c4c9f5a5d344c42355ea50ff507e8f72befd775b223f1820f231f5",
+              "st_atime": 1795456089.9474115,
+              "st_ctime": 1795456090.0381007,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456089.977382,
+              "st_size": 27441,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "after_inode": "1368",
+            "before": {
+              "sha256": "09be8114c1c4c9f5a5d344c42355ea50ff507e8f72befd775b223f1820f231f5",
+              "st_atime": 1795456061.8421793,
+              "st_ctime": 1795456061.928079,
+              "st_gid": 0,
+              "st_mode": 33188,
+              "st_mtime": 1795456061.870944,
+              "st_size": 27441,
+              "st_uid": 0,
+              "xattrs": {}
+            },
+            "before_inode": "1363",
+            "changed_fields": [
+              "st_atime",
+              "st_ctime",
+              "st_mtime"
+            ]
+          }
+        }
+      },
+      "/var/lib/stand/current/machine.jsonl": {
+        "after_sha256": "f55feb601ac3ca590a054b13c72337dfb30253a3457c7076c0877df4f2cddc00",
+        "before_sha256": "e0a3861e37da3efcdef5d239728fcca42218e1ef51b2811a01a577689592be35"
+      }
+    },
+    "removed_machine_ids": [
+      "bc4:owner-b"
+    ],
+    "surviving_machine_lines_byte_identical": true
+  }
+}

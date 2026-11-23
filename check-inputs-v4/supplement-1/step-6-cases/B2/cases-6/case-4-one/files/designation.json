@@ -1,0 +1,19 @@
+{
+  "filesystem_mounts": {
+    "etc": "/etc",
+    "home": "/home/stand",
+    "shm": "/dev/shm",
+    "tmp": "/tmp",
+    "vartmp": "/var/tmp"
+  },
+  "format": "bc3-primary-designation-v1",
+  "primary_files": [
+    "/var/lib/stand/current/machine.jsonl",
+    "/var/lib/stand-fs/home/current/declaration.json",
+    "/var/lib/stand-fs/tmp/current/declaration.json",
+    "/var/lib/stand-fs/vartmp/current/declaration.json",
+    "/var/lib/stand-fs/shm/current/declaration.json",
+    "/var/lib/stand-fs/etc/current/declaration.json"
+  ],
+  "semantics": "Filesystem declarations are desired namespace/inode/content state. System file operations apply prospective declarations before exposure; material is voluntarily recorded."
+}
