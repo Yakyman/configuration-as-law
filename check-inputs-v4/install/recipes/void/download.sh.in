@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+cd "@LAB_ROOT@"
+mkdir -p images/void
+cd images/void
+for file in void-live-x86_64-20250202-base.iso sha256sum.txt sha256sum.sig; do
+    curl -fLsS --retry 3 -O "https://repo-default.voidlinux.org/live/20250202/$file"
+done
+curl -fsSL https://raw.githubusercontent.com/void-linux/void-packages/1f6d0fb0197aae91ff2b9f1c52cacbdd9b1f37ec/srcpkgs/void-release-keys/files/void-release-20250202.pub -o release.pub
+minisign -V -p release.pub -x sha256sum.sig -m sha256sum.txt >signature.log 2>&1
+sha256sum -c sha256sum.txt --ignore-missing >checksum.log 2>&1

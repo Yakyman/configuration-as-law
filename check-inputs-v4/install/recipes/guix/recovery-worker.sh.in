@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+base="@LAB_ROOT@"
+cd "$base"
+for n in {1..12}; do
+ exec {slot}>"$base/slots/slot-$n.lock"
+ if flock -n "$slot"; then break; fi
+ exec {slot}>&-
+ unset slot
+done
+[[ -v slot ]] || exit 75
+port=$(cat install/guix/recovery-port.txt)
+exec qemu-system-x86_64 -enable-kvm -cpu host -smp 2 -m 4096 -display none -serial null -monitor none -no-reboot -pidfile "$base/install/guix/recovery.pid" -drive file="$base/install/guix/recovery.qcow2",format=qcow2,if=none,id=guix -device virtio-blk-pci,drive=guix,bootindex=2 -drive file="$base/install/guix/helper.qcow2",format=qcow2,if=none,id=helper -device virtio-blk-pci,drive=helper,bootindex=1 -drive file="$base/install/debian/seed.iso",media=cdrom,readonly=on -nic user,model=virtio-net-pci,hostfwd=tcp:127.0.0.1:"$port"-:22 >/dev/null 2>&1

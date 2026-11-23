@@ -1,0 +1,10 @@
+# AlmaLinux installation inputs
+
+Cutoff: 2026-11-23T01:19:00Z. The official release table places 10.3 on 2026-11-16 and has no newer stable major/minor release at the cutoff: https://wiki.almalinux.org/release-notes/ . The announcement is linked in `alma-release.tsv`.
+
+- Select x86_64 and the full DVD image. Official installation guide https://wiki.almalinux.org/documentation/installation-guide.html offers architectures and says: “AlmaLinux has 3 types of ISOs for each supported architecture”. The DVD supplies the installer defaults offline; a minimal image would restrict the available environment. The guide offers BIOS and UEFI without a unique selection: use QEMU BIOS, 40 GB disk, 4 GB RAM, 2 vCPU.
+- Preserve the default software selection with `%packages --default`. The primary Kickstart documentation https://pykickstart.readthedocs.io/en/latest/sections.html says: “Install the default environment.” Its following explanation equates this with leaving the interactive package screen unchanged. No package names or optional environments are supplied by this recipe.
+- The installation guide requires choosing language and a user account, and describes selectable keyboard and timezone rather than fixing them. Use English (US), US keyboard, UTC, one ordinary account `user` in `wheel`, as the task prescribes. Automatic partitioning delegates the layout to the installer. Root password is locked.
+- SSH lab public key, enabled SSH access through the firewall, and passwordless sudo for `user` are instrument access. No guest inventory is performed. The kickstart is the exact input; installer and post-install output are discarded. The firstboot interactive wizard is disabled to allow unattended access.
+
+Expected instrument test, written before execution: the installed VM boots; the supplied SSH key logs in as `user`; an empty script returns zero and `exit 37` returns 37. All guest output goes to `/dev/null`. These are installation and transport tests, not observations of either check.

@@ -1,0 +1,27 @@
+#!/bin/bash
+# combustion: network
+exec >/dev/null 2>&1
+set -eu
+step() {
+  name=$1; shift
+  if "$@" >/dev/null 2>&1; then rc=0; else rc=$?; fi
+  printf 'C1STATUS:%s:%s\n' "$name" "$rc" > /dev/ttyS1
+  curl -fsS --max-time 5 "http://10.0.2.2:18007/exit/$name/$rc" >/dev/null 2>&1 || :
+  return "$rc"
+}
+printf 'C1STATUS:combustion-start:0\n' > /dev/ttyS1
+curl -fsS --max-time 5 http://10.0.2.2:18007/exit/combustion-start/0 >/dev/null 2>&1 || :
+# Instrument access: an ordinary account, lab public key, and noninteractive sudo.
+step useradd useradd --create-home --user-group user
+step usermod usermod --password '*' user
+install -d -m 0700 -o user -g user /home/user/.ssh
+printf '%s\n' '@LITERAL_LAB_PUBLIC_KEY@' > /home/user/.ssh/authorized_keys
+chown user:user /home/user/.ssh/authorized_keys
+chmod 0600 /home/user/.ssh/authorized_keys
+printf '%s\n' 'user ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/lab
+chmod 0440 /etc/sudoers.d/lab
+step ssh-enable systemctl enable sshd.service
+step selinux-label restorecon -RF /home/user/.ssh /etc/sudoers.d/lab
+step firstboot-flag-remove sed -i 's/combustion.firstboot//g' /etc/kernel/cmdline
+printf 'C1STATUS:combustion-end:0\n' > /dev/ttyS1
+curl -fsS --max-time 5 http://10.0.2.2:18007/exit/combustion-end/0 >/dev/null 2>&1 || :

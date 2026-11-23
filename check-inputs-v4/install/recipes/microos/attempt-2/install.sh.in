@@ -1,0 +1,60 @@
+#!/bin/bash
+set -euo pipefail
+root="@LAB_ROOT@"
+work="$root/C1/microos"
+cd "$work"
+python3 status-server.py >/dev/null 2>&1 &
+status_pid=$!
+trap 'kill "$status_pid" 2>/dev/null || :' EXIT
+for slot in {1..12}; do
+  exec 9>"$root/slots/slot-$slot.lock"
+  if flock -n 9; then break; fi
+  exec 9>&-
+done
+if ! flock -n 9; then exit 75; fi
+printf '%s installation_start slot=%s\n' "$(date -u +%FT%TZ)" "$slot" >> status.log
+set +e
+timeout 2400 qemu-system-x86_64 -enable-kvm -machine q35 -cpu host -m 4096 -smp 2 \
+  -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd \
+  -drive if=pflash,format=raw,file=microos.vars.fd \
+  -drive file=microos.qcow2,if=virtio,format=qcow2 \
+  -cdrom "$root/images/openSUSE-MicroOS-DVD-x86_64-Snapshot20261121-Media.iso" \
+  -kernel boot/linux -initrd boot/initrd-auto \
+  -append 'autoyast=file:///autoinst.xml install=cd:/ textmode=1 console=ttyS0,115200 netsetup=dhcp self_update=0' \
+  -netdev user,id=net0,hostfwd=tcp:127.0.0.1:22607-:22 -device virtio-net-pci,netdev=net0 \
+  -fw_cfg name=opt/org.opensuse.combustion/script,file=combustion \
+  -display none -serial null -monitor none -no-reboot >/dev/null 2>&1
+rc=$?
+printf '%s installation_qemu_exit=%s\n' "$(date -u +%FT%TZ)" "$rc" >> status.log
+if [ "$rc" -ne 0 ]; then exit "$rc"; fi
+timeout 900 qemu-system-x86_64 -enable-kvm -machine q35 -cpu host -m 4096 -smp 2 \
+  -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd \
+  -drive if=pflash,format=raw,file=microos.vars.fd \
+  -drive file=microos.qcow2,if=virtio,format=qcow2 \
+  -netdev user,id=net0,hostfwd=tcp:127.0.0.1:22607-:22 -device virtio-net-pci,netdev=net0 \
+  -fw_cfg name=opt/org.opensuse.combustion/script,file=combustion \
+  -display none -serial null -monitor none -no-reboot >/dev/null 2>&1 &
+vm=$!
+# Only login and fixed exit status are tested; no guest state is read.
+sshopt=(-i "$root/keys/lab" -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 22607)
+for attempt in {1..60}; do
+  timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'exit 37' >/dev/null 2>&1
+  rc=$?
+  printf '%s login_attempt=%s exit=%s\n' "$(date -u +%FT%TZ)" "$attempt" "$rc" >> status.log
+  if [ "$rc" -eq 37 ]; then
+    timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'sudo -n sh -c "exit 37"' >/dev/null 2>&1
+    root_rc=$?
+    printf '%s root_exit=%s\n' "$(date -u +%FT%TZ)" "$root_rc" >> status.log
+    timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'sudo -n poweroff' >/dev/null 2>&1
+    printf '%s shutdown_exit=%s\n' "$(date -u +%FT%TZ)" "$?" >> status.log
+    wait "$vm"
+    printf '%s boot_qemu_exit=%s\n' "$(date -u +%FT%TZ)" "$?" >> status.log
+    if [ "$root_rc" -eq 37 ]; then touch ready; exit 0; fi
+    exit 1
+  fi
+  sleep 10
+done
+kill "$vm" 2>/dev/null
+wait "$vm"
+printf '%s login_timeout\n' "$(date -u +%FT%TZ)" >> status.log
+exit 124

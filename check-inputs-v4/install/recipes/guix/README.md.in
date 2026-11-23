@@ -1,0 +1,62 @@
+KIT2 update: the active reuse recipe is [KIT2.md](KIT2.md). The SSH
+preparation described below remains an unsuccessful historical attempt.
+
+# Reuse and instrument access
+
+The official release announcement calls 1.5.0 a stable release (2026-01-23);
+the official release index has no later stable installer at the cutoff.
+The preceding release row has the same release and SHA256. The verified ISO,
+signature and clean installation are copied from the previous laboratory;
+`original.qcow2` is read-only. Nothing in the previous laboratory is changed.
+
+`original-config.scm` is the preceding host-authored installation input. Its
+recipe partitions a 32 GiB BIOS disk, formats ext4, starts cow-store, and runs
+`guix system init` with that declaration. This task reuses that installation.
+`config.scm` adds only instrument access: OpenSSH, the laboratory public key for
+`user`, and passwordless wheel sudo. `access.sh` writes the known declaration
+and applies it, discarding all output. The serial bootstrap is needed because
+the preserved recipe did not enable SSH. The final transport is SSH.
+
+Documentation: https://guix.gnu.org/cookbook/en/guix-cookbook.pdf (OpenSSH
+configuration and authorized keys); the original manual base-system choice is
+retained as explicitly requested. No property assessment is performed.
+
+Expected access-bootstrap result, recorded before execution: the reused clean
+installation logs in on its existing serial instrument; applying `access.sh`
+returns zero; SSH runs return 37 for `exit 37` and zero for root `exit 0`.
+`bootstrap.sh` retains only statuses, stops the instrument-access overlay,
+flattens it to a read-only backing, and repeats these smoke tests on a fresh
+disposable overlay. Neither test reads guest content. Access bootstrap has a
+30-minute command limit, inside the 60-minute resistance limit.
+
+Offline access recovery, if serial bootstrap fails: `original-install.sh`
+fixes a single ext4 root partition `/dev/vda1`. `recovery-worker.sh` attaches
+the writable Guix overlay first (`vda`, bootindex 2), and the Debian instrument
+helper second (`vdb`, bootindex 1). This preserves the declaration's vda
+bootloader target and ensures it cannot target the helper disk. No disk
+inspection, discovery or guest enumeration is performed.
+
+The official Guix manual section “Chrooting into an existing system” documents
+mounting the known root, binding proc/sys/dev, sourcing the system profile,
+starting `guix-daemon --build-users-group=guixbuild --disable-chroot`, and
+reconfiguring. See saved `C1/raw/guix/manual.texi`, lines 50006 onward, and
+https://guix.gnu.org/manual/en/html_node/Chrooting-into-an-existing-system.html .
+The helper supplies QEMU user-network DNS (10.0.2.3) as installation-network
+access. Reboot uses the unchanged declared DHCP service. `chroot-access.sh`
+writes only the known access declaration, and discards all command output.
+Its distinct mount failure statuses are 81–84; the reconfigure status is
+returned unchanged. No package update or guix pull is performed.
+
+Before recovery execution: expected helper login status zero, chroot access
+status zero, and fresh Guix SSH login/exit37/root-exit0 success. The chroot
+command has an 1100-second limit to leave room for smoke tests within the
+60-minute resistance budget. Both helper and disposable target are removed
+when no longer needed.
+
+The final recovery candidate preserves a booted access candidate as its backing before the Debian helper mounts it. This lets a first-boot activation attempt occur before applying the manual's existing-system chroot procedure. An unsuccessful SSH boot required a forced stop, recorded explicitly; a subsequent ordinary ext4 mount handles replay. This is a preparation choice, not a finding about installed state.
+
+The generated Guix profile is sourced with nounset disabled, matching the manual's normal shell context; nounset is restored afterward. Static review of the official 1.5 source found search-path assignments with unguarded trailing variable references. Enabling nounset before sourcing that generated input was a recipe defect. All guest output remains discarded, so no earlier runtime failure is attributed to that defect as an observed cause.
+
+After pausing at 06:54:28Z, the final return began at 06:55:20Z using `recovery-final.sh`: the preserved booted candidate, corrected profile sourcing, a 900-second application deadline, and bounded fresh SSH tests. This longer deadline replaces the earlier 300-second recovery budget. Temporary certificate access is supplied by a bind mount of the instrument helper's CA directory into a tmpfs installation path, exported through the Guix-documented `SSL_CERT_DIR` and `SSL_CERT_FILE`; it does not change the declared installed packages. The alternate substitute source is the documented official `https://ci.guix.gnu.org`, with no channel update or `guix pull`.
+
+Final result: the 900-second application returned timeout 124 at 07:10:34Z, so no successful SSH-ready base was promoted. All failed recovery candidates and helper disks were removed by 07:11:15Z; the original verified read-only installation and image remain. The scripts are exact records of the attempted inputs, not a claim of a completed SSH installation. To reproduce the final route from scratch, recreate the documented booted candidate first; its disposable `activated.qcow2` artifact was removed during final cleanup.

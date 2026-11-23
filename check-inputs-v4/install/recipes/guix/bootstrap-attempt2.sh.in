@@ -1,0 +1,68 @@
+#!/bin/bash
+set -uo pipefail
+base="@LAB_ROOT@"
+cd "$base"
+status="$base/install/guix/status.txt"
+printf 'start=%s\n' "$(date -u +%FT%TZ)" > "$status"
+ln -sfn ../../install/guix/original.qcow2 C1/base/guix.qcow2
+printf '%s\n' '{"system":"guix","transport":"serial","user":"user","password":"cal-test","key":"keys/lab"}' > C1/base/guix.json
+timeout --kill-after=10 300 ./lab.sh new guix-bootstrap guix >/dev/null 2>&1
+rc=$?
+printf 'bootstrap_login_status=%s\n' "$rc" >> "$status"
+if test "$rc" = 0; then
+  ./lab.sh run guix-bootstrap --root --timeout 1800 < install/guix/access.sh >/dev/null 2>&1
+  rc=$?
+  printf 'access_transport_status=%s\n' "$rc" >> "$status"
+  rc=0 # A console-service restart may disconnect serial; test SSH next.
+fi
+if test "$rc" != 0; then
+  ./lab.sh kill guix-bootstrap >/dev/null 2>&1
+  ./lab.sh destroy guix-bootstrap >/dev/null 2>&1
+  printf 'failed=%s\n' "$(date -u +%FT%TZ)" >> "$status"
+  exit "$rc"
+fi
+python3 - <<'PY'
+import json,pathlib
+p=pathlib.Path('C1/vms/guix-bootstrap/meta.json')
+m=json.loads(p.read_text());m.update(transport='ssh',key='keys/lab');p.write_text(json.dumps(m)+'\n')
+PY
+printf 'exit 37\n' | ./lab.sh run guix-bootstrap --timeout 30 >/dev/null 2>&1
+rc=$?
+printf 'ssh_exit37_status=%s\n' "$rc" >> "$status"
+printf 'exit 0\n' | ./lab.sh run guix-bootstrap --root --timeout 30 >/dev/null 2>&1
+root_rc=$?
+printf 'ssh_root_exit0_status=%s\n' "$root_rc" >> "$status"
+if test "$rc" != 37 || test "$root_rc" != 0; then
+ ./lab.sh kill guix-bootstrap >/dev/null 2>&1
+ ./lab.sh destroy guix-bootstrap >/dev/null 2>&1
+ printf 'failed=%s\n' "$(date -u +%FT%TZ)" >> "$status"
+ exit 1
+fi
+./lab.sh stop guix-bootstrap >/dev/null 2>&1
+rc=$?
+printf 'bootstrap_stop_status=%s\n' "$rc" >> "$status"
+if test "$rc" != 0; then exit "$rc"; fi
+qemu-img convert -O qcow2 C1/vms/guix-bootstrap/disk.qcow2 install/guix/base.qcow2 >/dev/null 2>&1
+rc=$?
+printf 'flatten_status=%s\n' "$rc" >> "$status"
+if test "$rc" != 0; then exit "$rc"; fi
+chmod 444 install/guix/base.qcow2
+ln -sfn ../../install/guix/base.qcow2 C1/base/guix.qcow2
+printf '%s\n' '{"system":"guix","transport":"ssh","user":"user","key":"keys/lab"}' > C1/base/guix.json
+./lab.sh destroy guix-bootstrap >/dev/null 2>&1
+printf 'bootstrap_destroy_status=%s\n' "$?" >> "$status"
+timeout --kill-after=10 300 ./lab.sh new guix-kit-test guix >/dev/null 2>&1
+rc=$?
+printf 'fresh_boot_login_status=%s\n' "$rc" >> "$status"
+if test "$rc" = 0; then
+ printf 'exit 37\n' | ./lab.sh run guix-kit-test --timeout 30 >/dev/null 2>&1
+ printf 'fresh_exit37_status=%s\n' "$?" >> "$status"
+ printf 'exit 0\n' | ./lab.sh run guix-kit-test --root --timeout 30 >/dev/null 2>&1
+ printf 'fresh_root_exit0_status=%s\n' "$?" >> "$status"
+fi
+./lab.sh stop guix-kit-test >/dev/null 2>&1
+rc=$?
+printf 'fresh_stop_status=%s\n' "$rc" >> "$status"
+if test "$rc" != 0; then ./lab.sh kill guix-kit-test >/dev/null 2>&1; fi
+./lab.sh destroy guix-kit-test >/dev/null 2>&1
+printf 'fresh_destroy_status=%s\nfinish=%s\n' "$?" "$(date -u +%FT%TZ)" >> "$status"

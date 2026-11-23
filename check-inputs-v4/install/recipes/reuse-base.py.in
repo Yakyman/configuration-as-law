@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+"""Host-side access overlay driver; never reads guest contents."""
+import pathlib,subprocess as sp,json,sys,time
+r=pathlib.Path(__file__).resolve().parents[1];system=sys.argv[1]
+if system not in ('fedora','mint'):raise SystemExit('Unsupported auxiliary system')
+b=r/'C1/base';name='kit-access-'+system;d=r/'C1/vms'/name
+source=r.parent/'@PREVIOUS_LAB_ROOT@/C1/base'/(system+'.qcow2')
+if not source.is_file() or source.stat().st_mode&0o222:raise SystemExit('Source must be read-only')
+base=b/(system+'.qcow2');base.symlink_to(source)
+m=dict(system=system,transport='serial',user='user',password='cal-test')
+(b/(system+'.json')).write_text(json.dumps(m))
+records=[]
+def call(args,script=None):
+ t=time.time();p=sp.run([str(r/'lab.sh')]+args,input=script,stdout=sp.DEVNULL,stderr=sp.DEVNULL)
+ records.append(dict(command=args,status=p.returncode,utc=time.strftime('%FT%TZ',time.gmtime()),seconds=round(time.time()-t,2)))
+ (r/'install'/system/'status.json').write_text(json.dumps(records,indent=2))
+ return p.returncode
+if call(['new',name,system]):raise SystemExit(1)
+access_status=call(['run',name,'--root','--timeout','1200'],(r/'install'/system/'access.sh').read_bytes())
+# Reconfiguration can close the serial session. Test the intended SSH access
+# before deciding whether a nonzero transport result means setup is unusable.
+machine=json.loads((d/'meta.json').read_text());machine.update(transport='ssh',key='keys/lab');(d/'meta.json').write_text(json.dumps(machine))
+deadline=time.monotonic()+180
+while call(['run',name,'--timeout','20'],b'exit 37\n')!=37:
+ if time.monotonic()>=deadline:raise SystemExit(3)
+ time.sleep(5)
+if call(['run',name,'--root','--timeout','20'],b'exit 0\n'):raise SystemExit(4)
+if call(['stop',name]):raise SystemExit(5)
+# Keep the original immutable installation as the direct backing of this overlay.
+# Pin the backing filename before changing the registry link; otherwise that
+# link would resolve back to this overlay and form a cycle.
+rebase=sp.run(['qemu-img','rebase','-u','-f','qcow2','-F','qcow2','-b',str(source),str(d/'disk.qcow2')],stdout=sp.DEVNULL,stderr=sp.DEVNULL)
+if rebase.returncode:raise SystemExit(9)
+final=r/'install'/system/'base.qcow2';(d/'disk.qcow2').rename(final);final.chmod(0o444)
+base.unlink();base.symlink_to(final)
+m.update(transport='ssh',key='keys/lab');m.pop('password',None);(b/(system+'.json')).write_text(json.dumps(m))
+import shutil
+shutil.rmtree(d)
+if call(['new','kit-smoke-'+system,system]):raise SystemExit(6)
+if call(['run','kit-smoke-'+system,'--timeout','20'],b'exit 37\n')!=37:raise SystemExit(7)
+if call(['destroy','kit-smoke-'+system]):raise SystemExit(8)

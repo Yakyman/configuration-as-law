@@ -1,0 +1,11 @@
+#!/bin/bash
+exec >/dev/null 2>&1
+set -e
+chroot /mnt/gentoo /bin/bash -s <<'CHROOT'
+source /etc/profile || exit 101
+emerge-webrsync --revert=20261122 || exit 102
+mkdir -p /etc/portage/package.use
+printf 'sys-kernel/installkernel dracut\n' > /etc/portage/package.use/installkernel
+emerge --getbinpkg=n --usepkg=n --oneshot sys-kernel/installkernel || exit 103
+emerge --getbinpkg=n --usepkg=n sys-kernel/gentoo-kernel sys-boot/grub net-misc/dhcpcd net-misc/openssh app-admin/sudo || exit 104
+CHROOT

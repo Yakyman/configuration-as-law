@@ -1,0 +1,11 @@
+#!/bin/bash
+# Answers to the published void-installer interface; never record dialog text.
+case "$*" in
+ *'installed successfully!'*) touch /tmp/install-success; exit 1;;
+ *'Void Linux installation menu'*)
+   if test -f /tmp/install-attempt; then echo Exit >&2; else touch /tmp/install-attempt; echo Install >&2; fi;;
+ *'--checklist'*) exit 1;;
+ *'--programbox'*|*'--progressbox'*) cat >/dev/null;;
+ *'--yesno'*) exit 0;;
+esac
+exit 0

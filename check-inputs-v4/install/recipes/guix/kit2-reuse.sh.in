@@ -1,0 +1,7 @@
+#!/bin/bash
+# Run from the laboratory root. This touches host image metadata only.
+set -euo pipefail
+cmp -s @PREVIOUS_LAB_ROOT@/C1/base/guix.qcow2 install/guix/original.qcow2
+chmod 444 install/guix/original.qcow2
+ln -s ../../install/guix/original.qcow2 C1/base/guix.qcow2
+cp install/guix/kit2-base.json C1/base/guix.json

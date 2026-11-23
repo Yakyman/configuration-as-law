@@ -1,0 +1,22 @@
+# Fedora auxiliary backing
+
+This is outside the checks. The prior laboratory's read-only clean image is
+`C1/base/fedora.qcow2` (the actual location differs from the task's `install/`
+shorthand). It remains the direct immutable backing of a new read-only access
+overlay, `install/fedora/base.qcow2`. The old image is never modified.
+
+`../reuse-base.py fedora` creates an overlay, uses the preserved serial login
+once, and applies `access.sh`: install/enable OpenSSH, add the lab public key,
+set its SELinux labels, and permit noninteractive sudo. The final transport is
+SSH. The driver pins the old image's direct path with `qemu-img rebase -u`
+before changing the registry link. It then tests a fresh clone and destroys it.
+
+The initial access setup succeeded. The first smoke clone failed because the
+host-created overlay referenced the registry link that was subsequently changed
+to point back to that overlay, creating a backing cycle. This is a host recipe
+error, not a fact inferred from the guest. Replacing that backing filename with
+the original immutable path corrected the cycle; `repair-status.txt` records
+status 0. The final fresh clone passed boot, ordinary/root exit 37, shutdown and
+destruction (`raw/fedora/smoke.json`). Initial status records are retained.
+
+Elapsed: 2026-11-23T06:20:57Z–06:24:03Z, 3m06s including the host correction.

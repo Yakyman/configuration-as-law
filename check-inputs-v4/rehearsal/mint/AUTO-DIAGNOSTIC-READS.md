@@ -1,0 +1,353 @@
+# Diagnostic reads for query acceptance
+
+The classifier reads only coverage and retained stderr, never query stdout or object/member records. Every diagnostic read and its machine-level disclosure follows.
+
+- `rehearsal/mint/diagnostics/fx1/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/mint/diagnostics/fx1/0004-filesystem.err`: Nonzero query remains unexplained and is not accepted.
+- `rehearsal/mint/diagnostics/fx1/0128-packages-flatpak-user-app.err`: Nonzero query remains unexplained and is not accepted.
+- `rehearsal/mint/diagnostics/fx1/0129-packages-flatpak-user-runtime.err`: Nonzero query remains unexplained and is not accepted.
+- `rehearsal/mint/diagnostics/fx1/0406-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0407-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0414-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0415-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0416-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0417-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0421-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0422-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0423-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0425-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0426-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0431-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx1/0432-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/mint/diagnostics/fx2/0074-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0075-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0076-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0077-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0078-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0079-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0080-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0081-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0082-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0083-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0084-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0085-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0086-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0087-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0088-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0089-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0090-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0091-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0092-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0093-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0094-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0095-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0096-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0097-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0098-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0099-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0100-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0101-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0102-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0103-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0104-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0105-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0106-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0107-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0108-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0109-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0110-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0111-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0112-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0113-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0114-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0115-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0116-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0117-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0118-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0119-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0120-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0121-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0122-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0123-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0124-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0125-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0126-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0127-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0128-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0129-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0130-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0131-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0132-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0133-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0134-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0135-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0136-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0137-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0138-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0139-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0140-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0141-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0142-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0143-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0144-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0145-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0146-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0147-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0148-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0149-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0150-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0151-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0152-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0153-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0154-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0155-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0156-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0157-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0158-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0159-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0160-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0161-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0162-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0163-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0164-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0165-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0166-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0167-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0168-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0169-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0170-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0171-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx2/0406-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0407-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0414-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0415-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0416-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0417-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0421-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0422-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0423-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0425-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0426-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0431-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx2/0432-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/mint/diagnostics/fx3/0084-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0085-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0086-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0087-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0088-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0089-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0090-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0091-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0092-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0093-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0094-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0095-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0096-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0097-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0098-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0099-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0100-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0101-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0102-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0103-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0104-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0105-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0106-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0107-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0108-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0109-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0110-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0111-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0112-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0113-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0114-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0115-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0116-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0117-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0118-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0119-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0120-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0121-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0122-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0123-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0124-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0125-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0126-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0127-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0128-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0129-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0130-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0131-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0132-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0133-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0134-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0135-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0136-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0137-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0138-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0139-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0140-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0141-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0142-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0143-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0144-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0145-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0146-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0147-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0148-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0149-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0150-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0151-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0152-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0153-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0154-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0155-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0156-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0157-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0158-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0159-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0160-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0161-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0162-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0163-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0164-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0165-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0166-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0167-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0168-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0169-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0170-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0171-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0172-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0173-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0174-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0175-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0178-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0179-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0180-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0181-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx3/0421-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0422-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0429-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0430-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0431-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0432-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0436-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0437-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0438-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0440-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0441-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0446-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx3/0447-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/mint/diagnostics/fx4/0084-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0085-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0086-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0087-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0088-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0089-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0090-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0091-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0092-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0093-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0094-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0095-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0096-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0097-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0098-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0099-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0100-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0101-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0102-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0103-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0104-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0105-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0106-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0107-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0108-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0109-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0110-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0111-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0112-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0113-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0114-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0115-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0116-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0117-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0118-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0119-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0120-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0121-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0122-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0123-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0124-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0125-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0126-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0127-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0128-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0129-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0130-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0131-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0132-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0133-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0134-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0135-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0136-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0137-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0138-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0139-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0140-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0141-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0142-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0143-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0144-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0145-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0146-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0147-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0148-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0149-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0150-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0151-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0152-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0153-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0154-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0155-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0156-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0157-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0158-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0159-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0160-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0161-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0162-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0163-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0164-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0165-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0166-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0167-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0168-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0169-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0170-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0171-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0172-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0173-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0174-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0175-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0178-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0179-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0180-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0181-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/mint/diagnostics/fx4/0421-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0422-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0429-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0430-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0431-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0432-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0436-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0437-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0438-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0440-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0441-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0446-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/mint/diagnostics/fx4/0447-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.

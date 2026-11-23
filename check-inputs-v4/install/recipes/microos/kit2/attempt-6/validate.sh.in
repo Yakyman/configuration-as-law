@@ -1,0 +1,19 @@
+#!/bin/bash
+set -uo pipefail
+root="@LAB_ROOT@"
+cd "$root"
+log="$root/C1/microos-kit2/attempt-6/runner-status.log"
+status() { printf '%s %s=%s\n' "$(date -u +%FT%TZ)" "$1" "$2" >> "$log"; }
+./lab.sh new kit2-microos microos >/dev/null 2>&1
+rc=$?;status new_exit "$rc"
+if [ "$rc" -ne 0 ]; then exit "$rc"; fi
+printf 'exit 0\n' | ./lab.sh run kit2-microos --timeout 60 >/dev/null 2>&1
+rc0=$?;status run_zero_exit "$rc0"
+printf 'exit 37\n' | ./lab.sh run kit2-microos --timeout 60 >/dev/null 2>&1
+rc37=$?;status run_nonzero_exit "$rc37"
+printf 'exit 37\n' | ./lab.sh run kit2-microos --root --timeout 60 >/dev/null 2>&1
+rcroot=$?;status run_root_exit "$rcroot"
+./lab.sh destroy kit2-microos >/dev/null 2>&1
+rcdestroy=$?;status destroy_exit "$rcdestroy"
+if [ "$rc0" -eq 0 ] && [ "$rc37" -eq 37 ] && [ "$rcroot" -eq 37 ] && [ "$rcdestroy" -eq 0 ]; then exit 0; fi
+exit 1

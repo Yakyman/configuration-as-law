@@ -1,0 +1,42 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")/../.."
+root=$PWD
+mkdir -p images install/debian C1/base
+cd images
+curl -fsSL https://cdimage.debian.org/images/cloud/trixie/20261116-2664/SHA512SUMS -o debian-SHA512SUMS
+curl -fsSL https://cdimage.debian.org/images/cloud/trixie/20261116-2664/debian-13-generic-amd64-20261116-2664.qcow2 -o debian-13.qcow2
+awk '$2=="debian-13-generic-amd64-20261116-2664.qcow2" {print $1 "  debian-13.qcow2"}' debian-SHA512SUMS > debian-selected.sha512
+test -s debian-selected.sha512
+sha512sum -c debian-selected.sha512 > ../install/debian/verification.log
+chmod a-w debian-13.qcow2
+cd "$root"
+key=$(cat keys/lab.pub)
+cat > install/debian/user-data <<EOF
+#cloud-config
+users:
+  - name: user
+    groups: [sudo]
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - $key
+ssh_pwauth: false
+disable_root: true
+EOF
+printf 'instance-id: cal1123-debian\nlocal-hostname: lab\n' > install/debian/meta-data
+cloud-localds install/debian/seed.iso install/debian/user-data install/debian/meta-data
+qemu-img create -q -f qcow2 -F qcow2 -b "$root/images/debian-13.qcow2" C1/base/debian.qcow2 20G
+chmod a-w C1/base/debian.qcow2
+python3 - <<'PY'
+import pathlib,json
+r=pathlib.Path.cwd()
+m=dict(system='debian',transport='ssh',user='user',key='keys/lab',qemu_args=['-drive',f'file={r}/install/debian/seed.iso,media=cdrom,readonly=on'])
+(r/'C1/base/debian.json').write_text(json.dumps(m))
+PY
+qemu-img create -q -f qcow2 -F qcow2 -b "$root/images/debian-13.qcow2" C1/base/debian-server.qcow2 40G
+chmod a-w C1/base/debian-server.qcow2
+python3 - <<'PY'
+import json,pathlib
+p=pathlib.Path('C1/base');m=json.loads((p/'debian.json').read_text());m.update(system='debian-server',slots=2);(p/'debian-server.json').write_text(json.dumps(m))
+PY

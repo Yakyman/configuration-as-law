@@ -1,0 +1,40 @@
+# Reuse and instrument access
+
+The current official stable channel still points to 26.05.14979.94c3211b0ee8,
+released 2026-11-21 21:58:18 UTC, before the publication cutoff.
+The preceding night's release row has the identical build and SHA256.
+The verified installer and the clean installation are copied from that laboratory;
+`original.qcow2` is read-only and no source image is changed.
+
+`original-configuration.nix` is the preceding host-authored installation input,
+not copied from a guest. Its original recipe partitions a 32 GiB BIOS disk with
+ext4, runs `nixos-generate-config --root /mnt`, writes that declaration, and runs
+`nixos-install --no-root-passwd`. The generated hardware declaration was never
+read. See the preceding named `install/nixos/` recipe.
+
+`configuration.nix` adds only instrument access: OpenSSH, the laboratory public
+key for user `user`, and passwordless wheel sudo. `access.sh` writes this exact
+host-authored declaration onto a copy and applies it, discarding all output.
+The serial bootstrap is required because the preserved previous recipe did not
+enable SSH. The final transport is SSH. No property assessment is performed.
+
+Documentation: https://nixos.org/manual/nixos/stable/ (SSH and configuration).
+Selection of a minimal, non-desktop manual installation is retained from the
+previous recipe, as explicitly requested for this task.
+
+## Executed access preparation
+
+The copied original was temporarily registered with serial transport, ordinary
+user `user` and the recipe's `cal-test` password. `lab.sh new nixos-access nixos`
+returned 0. `lab.sh run nixos-access --root --timeout 900 < access.sh` returned 0.
+All output was redirected to `/dev/null`. `ssh-status.py`, reading only the
+host-owned forwarding metadata, independently confirmed ordinary SSH exit 37
+and noninteractive root exit 0.
+
+The access machine's host metadata was then switched to SSH; the machine was
+stopped, and its overlay was flattened with `qemu-img convert -O qcow2` into
+`install/nixos/base.qcow2`. The final disk is mode 0444. Registry metadata uses
+SSH, user `user`, and `keys/lab`; the base link points to that disk. The temporary
+access overlay was destroyed. A fresh disposable clone checks boot/login and
+ordinary/root `exit 37`, followed by stop and destruction. Exit statuses are
+recorded in `C1/raw/nixos/access-status.log`; no guest output is retained.

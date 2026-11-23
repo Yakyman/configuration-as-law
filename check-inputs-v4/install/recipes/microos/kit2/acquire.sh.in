@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+root="@LAB_ROOT@"
+work="$root/C1/microos-kit2"
+mkdir -p "$work" "$root/images"
+cd "$root/images"
+image=openSUSE-MicroOS.x86_64-16.0.0-kvm-and-xen-Snapshot20261121.qcow2
+for suffix in '' .sha256 .sha256.asc; do
+ curl -fsSL --retry 2 --max-time 900 "https://download.opensuse.org/tumbleweed/appliances/$image$suffix" -o "$image$suffix"
+done
+sha256sum -c "$image.sha256" > "$work/verification.txt"
+keydir=$(mktemp -d "$work/keyring.XXXXXX")
+trap 'rm -rf "$keydir"' EXIT
+curl -fsSL https://download.opensuse.org/tumbleweed/repo/oss/repodata/repomd.xml.key -o "$work/signing-key.asc"
+gpg --homedir "$keydir" --batch --import "$work/signing-key.asc" >/dev/null 2>&1
+gpg --homedir "$keydir" --batch --status-fd 1 --verify "$image.sha256.asc" "$image.sha256" 2>/dev/null >> "$work/verification.txt"
+grep -q '^\[GNUPG:\] VALIDSIG AD485664E901B867051AB15F35A2F86E29B700A4 ' "$work/verification.txt"
+chmod 0444 "$image"
+printf '%s acquisition_exit=0\n' "$(date -u +%FT%TZ)" >> "$work/status.log"

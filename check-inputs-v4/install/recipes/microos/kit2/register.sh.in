@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+root="@LAB_ROOT@"
+work="$root/C1/microos-kit2/attempt-5"
+test -f "$work/ready"
+# The producer writes ready only after orderly emulator exit 0.
+mkdir -p "$root/install/microos/kit2" "$root/C1/base"
+mv "$work/disk.qcow2" "$root/C1/base/microos.qcow2"
+chmod 0444 "$root/C1/base/microos.qcow2"
+cp "$work/firmware-vars.fd" "$root/install/microos/OVMF_VARS.fd"
+chmod 0444 "$root/install/microos/OVMF_VARS.fd"
+cat > "$root/C1/base/microos.json" <<'JSON'
+{"system":"microos","transport":"ssh","user":"user","key":"keys/lab","firmware_code":"/usr/share/OVMF/OVMF_CODE_4M.fd","firmware_vars":"install/microos/OVMF_VARS.fd","qemu_args":["-machine","q35"]}
+JSON
+printf '%s base_registration_exit=0\n' "$(date -u +%FT%TZ)" >> "$work/status.log"

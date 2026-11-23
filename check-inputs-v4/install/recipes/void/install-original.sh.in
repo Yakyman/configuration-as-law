@@ -1,0 +1,43 @@
+#!/bin/bash
+exec >/dev/null 2>&1
+set -e
+# The live medium is accessed solely to execute its installer.
+rm -f /dev/tty8
+ln -s /dev/null /dev/tty8
+mkdir -p /tmp/lab-bin
+cp /mnt/lab/dialog /tmp/lab-bin/dialog
+chmod 755 /tmp/lab-bin/dialog
+printf 'label: dos\nstart=2048, type=83, bootable\n' | sfdisk /dev/vda
+cat >/tmp/.void-installer.conf <<'CONF'
+SOURCE local
+KEYMAP us
+TIMEZONE Etc/UTC
+ROOTPASSWORD void-lab-install
+USERLOGIN user
+USERNAME user
+USERPASSWORD void-lab-install
+USERGROUPS wheel,audio,video,floppy,cdrom,optical,kvm,users,xbuilder
+BOOTLOADER /dev/vda
+MOUNTPOINT /dev/vda1 ext4 24G / 1
+CONF
+PATH=/tmp/lab-bin:$PATH TERM=linux timeout 2700 void-installer
+# Installation success is the installer's explicit completion status, not an inventory.
+test -f /tmp/install-success
+mount /dev/vda1 /mnt/target
+mkdir -p /mnt/target/home/user/.ssh /mnt/target/etc/sudoers.d
+cp /mnt/lab/lab.pub /mnt/target/home/user/.ssh/authorized_keys
+chmod 700 /mnt/target/home/user/.ssh
+chmod 600 /mnt/target/home/user/.ssh/authorized_keys
+chroot /mnt/target chown -R user:user /home/user/.ssh
+printf 'user ALL=(ALL:ALL) NOPASSWD: ALL\n' >/mnt/target/etc/sudoers.d/lab
+chmod 440 /mnt/target/etc/sudoers.d/lab
+ln -sf /etc/sv/sshd /mnt/target/etc/runit/runsvdir/default/sshd
+sync
+umount /mnt/target
+# Make an exit-only completion endpoint available on the temporary live environment.
+mkdir -p /root/.ssh
+cp /mnt/lab/lab.pub /root/.ssh/authorized_keys
+chmod 700 /root/.ssh
+chmod 600 /root/.ssh/authorized_keys
+/usr/bin/ssh-keygen -A
+/usr/bin/sshd -o PermitRootLogin=prohibit-password

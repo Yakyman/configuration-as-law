@@ -1,0 +1,27 @@
+# Debian instrument and auxiliary server
+
+Debian stable cloud image: Trixie 13, official build 20261116-2664.
+Index URL: https://cdimage.debian.org/images/cloud/trixie/latest/
+Dated image: https://cdimage.debian.org/images/cloud/trixie/20261116-2664/debian-13-generic-amd64-20261116-2664.qcow2
+Published checksum: https://cdimage.debian.org/images/cloud/trixie/20261116-2664/SHA512SUMS
+The official index timestamps the generic amd64 image 2026-11-16 17:46 UTC.
+No detached signature is linked in that official build index. The downloaded
+image matches the published SHA512 (`raw/debian/verification.log` and
+`raw/debian/published-sha512.txt`).
+
+`prepare.sh` downloads and verifies on the host, creates read-only cloud-image
+backings and a NoCloud seed with user `user`, the laboratory key, and passwordless
+sudo. `debian` has 4 GiB / 2 vCPU / 20 GiB; `debian-server` has 8 GiB / 4 vCPU /
+40 GiB and takes two slot locks. Each disposable overlay performs cloud-init
+on first boot. No package update is requested by the seed.
+
+Cloud-init documentation: https://docs.cloud-init.io/en/latest/reference/datasources/nocloud.html
+“NoCloud” provides configuration locally; user-data and meta-data are required.
+
+`validate.py HOST_ALIAS` is the instrument validation driver. The caller supplies
+the host alias; it is not part of published inputs. Expectations are recorded
+before execution in `raw/runner-expectations.md`; the recorded assertions passed
+in `raw/debian/runner-validation.json`, including explicit creation of both variants.
+This validation was repeated after the runner changed to stream output without
+buffering it in host memory. The stdin and lock timeout checks are separately
+recorded in `raw/debian/timeout-supplement.json`. Disposable VMs were destroyed.

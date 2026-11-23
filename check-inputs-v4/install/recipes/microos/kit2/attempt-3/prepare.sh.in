@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+root="@LAB_ROOT@"
+work="$root/C1/microos-kit2/attempt-3"
+cd "$work"
+cp --reflink=auto "$root/images/openSUSE-MicroOS.x86_64-16.0.0-kvm-and-xen-Snapshot20261121.qcow2" disk.qcow2
+chmod 0600 disk.qcow2
+qemu-img resize disk.qcow2 40G >/dev/null
+cp /usr/share/OVMF/OVMF_VARS_4M.fd firmware-vars.fd
+python3 - "$root" <<'PY'
+import pathlib,sys
+root=pathlib.Path(sys.argv[1]); w=root/'C1/microos-kit2/attempt-3'
+(w/'combustion').write_text((w/'combustion.template').read_text().replace('@LITERAL_LAB_PUBLIC_KEY@',(root/'keys/lab.pub').read_text().strip()))
+PY

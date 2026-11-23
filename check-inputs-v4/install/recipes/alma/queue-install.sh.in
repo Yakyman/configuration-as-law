@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+base="@LAB_ROOT@"
+while systemctl --user is-active --quiet cal1123-alma-download.service; do sleep 15; done
+grep -q 'AlmaLinux-10.3-x86_64-dvd.iso: OK' "$base/images/alma-verification.txt"
+exec bash "$base/install/alma/install.sh"

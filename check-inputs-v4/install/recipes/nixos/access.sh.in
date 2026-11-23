@@ -1,0 +1,26 @@
+#!/bin/sh
+exec >/dev/null 2>&1
+set -eu
+cat > /etc/nixos/configuration.nix <<'DECLARATION'
+{ config, pkgs, ... }:
+{
+  imports = [ ./hardware-configuration.nix ];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.kernelParams = [ "console=ttyS0,115200n8" ];
+  time.timeZone = "UTC";
+  i18n.defaultLocale = "en_US.UTF-8";
+  networking.useDHCP = true;
+  users.users.user = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    initialPassword = "cal-test";
+  };
+  system.stateVersion = "26.05";
+  # Instrument access only.
+  services.openssh.enable = true;
+  users.users.user.openssh.authorizedKeys.keys = [ "@LAB_PUBLIC_KEY@" ];
+  security.sudo.wheelNeedsPassword = false;
+}
+DECLARATION
+nixos-rebuild switch

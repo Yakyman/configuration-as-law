@@ -1,0 +1,12 @@
+#!/bin/bash
+# Run from @LAB_ROOT@; no check-machine access.
+set -euo pipefail
+export TZ=UTC
+curl -fL https://distfiles.gentoo.org/snapshots/portage-20261122.tar.xz -o images/portage-20261122.tar.xz
+curl -fL https://distfiles.gentoo.org/snapshots/portage-20261122.tar.xz.gpgsig -o gentoo/portage.gpgsig
+gpgv --status-fd 3 --keyring ./gentoo/service-keys.gpg gentoo/portage.gpgsig images/portage-20261122.tar.xz 3>gentoo/portage-signature.status
+grep -q '^\[GNUPG:\] VALIDSIG E1D6ABB63BFCFB4BA02FDF1CEC590EEAC9189250 ' gentoo/portage-signature.status
+curl -fL https://distfiles.gentoo.org/snapshots/portage-20261122.tar.xz.md5sum -o gentoo/portage.md5sum
+(cd images; md5sum -c ../gentoo/portage.md5sum)
+# Locally calculated digest retained alongside the upstream detached signature.
+(cd images; sha512sum portage-20261122.tar.xz)

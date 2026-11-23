@@ -1,0 +1,39 @@
+# Active Guix preparation recipe
+
+KIT2 reuses the unchanged GNU Guix System 1.5.0 clean installation. The release
+and verified ISO match the preceding laboratory, as recorded in
+`C1/releases.tsv` and the preceding `C1/fix-c1-2/releases.tsv`. The prior recipe
+is preserved here as `original-install.sh` and `original-config.scm`.
+
+The original installation already copied to `install/guix/original.qcow2` is
+compared byte-for-byte with the preceding read-only base, then kept read-only.
+`kit2-reuse.sh` registers that image using `kit2-base.json`. Run it from the
+laboratory root. It intentionally fails if the base link already exists.
+The previous laboratory remains read-only.
+
+The active transport is serial, with the existing `user` account and its
+original `cal-test` password. The task explicitly permits serial when the
+recipe cannot enable SSH. No lab public key is claimed to be installed:
+previous SSH reconfiguration did not complete. `config.scm`, `access.sh` and
+the recovery scripts remain records of unsuccessful prior preparations;
+they are not applied in KIT2. No package, service, account or file inventory
+is performed.
+
+The original declaration explicitly requests the serial agetty. Primary
+manual source: `C1/raw/guix/manual.texi`, agetty-service-type reference,
+https://guix.gnu.org/manual/en/html_node/Base-Services.html . It states: “Type of the service that runs agetty, which implements virtual and
+serial console log-in.” Existing serial access therefore
+needs no system declaration change or reconfiguration.
+
+The selected preceding runner's passive boot/login behavior is restored,
+gated by `passive_boot_login: true` in this base's registry. It does not send
+Ctrl-C while waiting for the first login prompt. See `kit2-passive.patch`
+and preceding `C1/fix-c1-1/LAB.md`. Normal command framing remains unchanged.
+Serial bytes are used only transiently for login and command-return framing;
+no console tail or command output is saved during preparation.
+
+`kit2-smoke.sh` creates one disposable clone, confirms boot/login and exact
+script exit statuses, then shuts down and destroys it. QEMU runs under the
+runner's persistent user service and holds one numbered slot lock. All
+installer and guest-command output is discarded, including redirection inside
+the test payloads. Only exit statuses are retained.

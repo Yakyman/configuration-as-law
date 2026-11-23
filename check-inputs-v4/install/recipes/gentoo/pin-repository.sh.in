@@ -1,0 +1,9 @@
+#!/bin/bash
+exec >/dev/null 2>&1
+mount --bind /run /mnt/gentoo/run || exit 110
+mount --make-slave /mnt/gentoo/run || exit 111
+chroot /mnt/gentoo /bin/bash -s <<'CHROOT'
+source /etc/profile || exit 101
+emerge-webrsync --revert=20261122 || exit 102
+emerge --update --oneshot --getbinpkg=n --usepkg=n sys-kernel/installkernel sys-kernel/gentoo-kernel sys-boot/grub net-misc/dhcpcd net-misc/openssh app-admin/sudo || exit 104
+CHROOT

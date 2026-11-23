@@ -1,0 +1,31 @@
+--- a/C1/lab.sh
++++ b/C1/lab.sh
+@@ -63,7 +63,7 @@
+    except socket.timeout:continue
+    if pattern(data):return data
+   fail('Serial timeout; VM retained')
+- send(b'\x03\r')
++ if os.getenv('LAB_PASSIVE_BOOT_LOGIN')!='1':send(b'\x03\r')
+  data=b'';deadline=time.monotonic()+int(os.getenv('LAB_LOGIN_TIMEOUT','45'))
+  while time.monotonic()<deadline:
+   try:
+@@ -147,11 +147,16 @@
+     except (OSError,RuntimeError,sp.TimeoutExpired):pass
+    else:
+     try:
+-     old_timeout=os.environ.get('LAB_RUN_TIMEOUT');os.environ['LAB_RUN_TIMEOUT']='15'
++     probe_keys=('LAB_RUN_TIMEOUT','LAB_LOGIN_TIMEOUT','LAB_PASSIVE_BOOT_LOGIN')
++     old_probe={key:os.environ.get(key) for key in probe_keys}
++     os.environ['LAB_RUN_TIMEOUT']='15'
++     if m['transport']=='serial' and m.get('passive_boot_login'):
++      os.environ.update(LAB_LOGIN_TIMEOUT=str(max(1,int(deadline-time.monotonic()))),LAB_PASSIVE_BOOT_LOGIN='1')
+      try:out,rc=run(d,b'exit 0\n',quiet=True)
+      finally:
+-      if old_timeout is None:os.environ.pop('LAB_RUN_TIMEOUT',None)
+-      else:os.environ['LAB_RUN_TIMEOUT']=old_timeout
++      for key,value in old_probe.items():
++       if value is None:os.environ.pop(key,None)
++       else:os.environ[key]=value
+      if rc==0:return
+     except (OSError,RuntimeError,sp.TimeoutExpired):pass
+   p=sp.run(['systemctl','--user','is-active',unit],stdout=sp.PIPE)

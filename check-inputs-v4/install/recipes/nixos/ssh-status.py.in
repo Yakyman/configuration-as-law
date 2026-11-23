@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+# Read host-owned runner metadata; execute only exit-status probes over SSH.
+import json,pathlib,subprocess
+root=pathlib.Path('@LAB_ROOT@')
+meta=json.loads((root/'C1/vms/nixos-access/meta.json').read_text())
+base=['ssh','-F','/dev/null','-o','BatchMode=yes','-o','StrictHostKeyChecking=no','-o','UserKnownHostsFile=/dev/null','-o','ConnectTimeout=5','-i',str(root/'keys/lab'),'-p',str(meta['port']),'user@127.0.0.1']
+for label,cmd in [('user','exit 37'),('root','sudo -n sh -c "exit 0"')]:
+ try:r=subprocess.run(base+[cmd],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=15).returncode
+ except subprocess.TimeoutExpired:r=124
+ print(f'{label}_ssh_exit={r}')

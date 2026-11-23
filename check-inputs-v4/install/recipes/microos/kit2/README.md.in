@@ -1,0 +1,17 @@
+# Vendor VM image recipe
+
+The active successful first-boot recipe is **attempt-6/**. This is the KIT2 authorized fallback to the same Snapshot20261121 vendor VM image. Earlier AutoYaST history remains in the parent directory. Choices, failed attempts and documentation are in `../../../parts/microos-kit2.md`.
+
+On the laboratory host:
+
+1. Copy `acquire.sh` to `C1/microos-kit2/` and run it in a durable user unit. It downloads the pinned qcow2 and signed checksum, verifies SHA256 and the official signature, and makes the verified download read-only.
+2. Copy `attempt-6/` intact to `C1/microos-kit2/attempt-6/`. Run its `prepare.sh` to make a separate copy, expand its virtual disk to 40 GiB, copy UEFI variables and insert the lab public key. Its exact resulting input is `attempt-6/combustion`.
+3. Run `attempt-6/boot.sh` in a durable user unit with MemoryMax=4608M and both unit output streams discarded. It holds one shared flock slot, boots with Combustion, and uses a separate UART to accept only whitelisted numeric command exit records with the fixed random token. The first console is discarded. It tests SSH `exit 37`, privileged `exit 37`, shutdown and emulator exit 0. The producer writes `ready` only on success.
+4. Run `attempt-6/register.sh` to move the stopped disk to read-only `C1/base/microos.qcow2`, retain firmware variables at `install/microos/OVMF_VARS.fd`, and write base metadata for SSH, UEFI and q35.
+5. Run `attempt-6/validate.sh` in a durable user unit. It creates a disposable clone through the shared runner, requires ordinary exits 0/37 and privileged exit 37, then destroys the clone. Every guest and lifecycle output stream is discarded; only numeric statuses are retained.
+
+The top-level `boot.sh`, `prepare.sh`, `combustion*` and `status-channel.py` preserve superseded attempt-2 inputs; do not use those as the active recipe. Immutable earlier inputs are also in attempt-1 through attempt-5.
+
+The final first-boot script mounts `/home` before creating the user and writing the key, then unmounts it after labeling. This follows the vendor Combustion user-creation example: https://documentation.suse.com/sle-micro/6.2/html/Micro-deployment-selfinstall-images/index.html#combustion-adding-users . The earlier failed supplementary-group assumption was removed based on installer exit 6 and its documented meaning: https://github.com/shadow-maint/shadow/blob/master/man/useradd.8.xml . No group, mount, file or service listing was run on any check machine.
+
+The final preparation supplies the same two NIC definitions, MAC addresses, order and user networks as the shared runner. Standalone setup and a disposable shared-runner clone both passed; the clone was destroyed. Evidence: `../../../raw/microos-kit2/attempt-6-status.log` and `../../../raw/microos-kit2/attempt-6-runner-status.log`. The retained base and firmware template have mode 0444 (`registered-base.txt`).

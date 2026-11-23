@@ -1,0 +1,17 @@
+# Mint auxiliary backing
+
+This is outside the checks. The prior laboratory's read-only clean image is
+`C1/base/mint.qcow2` (the actual location differs from the task's `install/`
+shorthand). It remains the direct immutable backing of a new access overlay.
+The old image is never modified.
+
+`../reuse-base.py mint` creates an overlay, uses the preserved serial login once,
+and applies `access.sh`: install/enable OpenSSH, add the lab public key, and permit
+noninteractive sudo. The final transport is SSH. The driver pins the old image's
+direct path with `qemu-img rebase -u` before changing the registry link, makes the
+new overlay read-only, tests a fresh clone, and destroys the disposable clone.
+
+Status-only execution records are saved in `raw/mint/status.json`: initial
+serial access setup, SSH exit 37, root exit 0, shutdown, fresh-clone boot and exit
+37, and destruction all succeeded. Elapsed: 2026-11-23T06:24:36Z–06:25:32Z
+(56 seconds). No failed step occurred.

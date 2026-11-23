@@ -1,0 +1,60 @@
+#!/bin/sh
+exec >/dev/null 2>&1
+set -eu
+mkdir -p /mnt/guix
+mount /dev/vda1 /mnt/guix || exit 81
+mkdir -p /mnt/guix/proc /mnt/guix/sys /mnt/guix/dev || exit 80
+mount --rbind /proc /mnt/guix/proc || exit 82
+mount --rbind /sys /mnt/guix/sys || exit 83
+mount --rbind /dev /mnt/guix/dev || exit 84
+# DNS is installation-network access; the new boot uses its declared DHCP service.
+rm -f /mnt/guix/etc/resolv.conf
+printf 'nameserver 10.0.2.3\n' > /mnt/guix/etc/resolv.conf
+cat > /mnt/guix/etc/config.scm <<'DECLARATION'
+(use-modules (gnu))
+(use-service-modules networking base ssh)
+(operating-system
+  (host-name "cal")
+  (timezone "UTC")
+  (locale "en_US.utf8")
+  (kernel-arguments (append '("console=ttyS0,115200n8") %default-kernel-arguments))
+  (bootloader (bootloader-configuration
+                (bootloader grub-bootloader)
+                (targets '("/dev/vda"))))
+  (file-systems (cons (file-system
+                       (device (file-system-label "root"))
+                       (mount-point "/")
+                       (type "ext4"))
+                     %base-file-systems))
+  (users (cons (user-account
+                (name "user")
+                (group "users")
+                (password "$6$cal1122$ZIs03fvnBPSkasZ1B2RLSUt5dtUPGWVefzUbzC/CFnMSXK4xzJO5MQW1e3hyUIucJpFf/YLlootGG36zQ6EqB0")
+                (supplementary-groups '("wheel" "netdev")))
+               %base-user-accounts))
+  (sudoers-file (plain-file "sudoers"
+    "root ALL=(ALL:ALL) ALL\n%wheel ALL=(ALL:ALL) NOPASSWD: ALL\n"))
+  (services (append (list
+    (service openssh-service-type
+      (openssh-configuration
+        (authorized-keys
+          `(("user" ,(plain-file "lab.pub" "@LAB_PUBLIC_KEY@\n")))))) (service dhcp-client-service-type)
+                          (service agetty-service-type
+                            (agetty-configuration (tty "ttyS0") (baud-rate "115200"))))
+                    %base-services)))
+DECLARATION
+chroot /mnt/guix /var/guix/profiles/system/profile/bin/bash <<'CHROOT'
+exec >/dev/null 2>&1
+set -eu
+export GUIX_PROFILE=/var/guix/profiles/system/profile
+. "$GUIX_PROFILE/etc/profile"
+export LC_ALL=C
+/var/guix/profiles/system/profile/bin/guix-daemon --build-users-group=guixbuild --disable-chroot &
+daemon_pid=$!
+trap 'kill "$daemon_pid" >/dev/null 2>&1 || :' EXIT
+sleep 3
+set +e
+/var/guix/profiles/system/profile/bin/guix system reconfigure --substitute-urls=https://ci.guix.gnu.org /etc/config.scm
+rc=$?
+exit "$rc"
+CHROOT

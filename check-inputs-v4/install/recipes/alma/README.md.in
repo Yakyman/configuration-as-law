@@ -1,0 +1,9 @@
+# AlmaLinux unattended installation
+
+Run `download.sh` on the lab host; it retrieves the 10.3 DVD, signed CHECKSUM and official signing key, verifies the signature, and checks the pinned SHA256. Verification results are copied to `C1/raw/alma/verification.txt`.
+
+Run `install.sh` from a durable user service after copying `ks.cfg` beside it. It acquires one lab slot before booting, creates a 40 GB disposable target, injects the input Kickstart into the installer initramfs, and starts the installer with its complete output discarded. It records only the VM exit status and UTC timestamps. Maximum installer execution is 55 minutes.
+
+`ks.cfg` selects the installer default environment and automatic partitioning. The SSH key and sudo rule are instrument access. On successful login/exit-status checks, keep the shut-down image read-only as the lab backing image. Do not inspect its contents.
+
+`queue-install.sh` waits for image acquisition and gates the installer on verified checksums. `finish.sh` waits for the installer, registers a read-only backing image, tests only boot/login and script exit statuses through a disposable overlay, then shuts down and destroys that overlay. Successful status evidence is in `C1/raw/alma/status.txt`.

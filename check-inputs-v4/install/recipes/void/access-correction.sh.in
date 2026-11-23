@@ -1,0 +1,3 @@
+#!/bin/sh
+# Correct ordering of the instrument rule after installer-provided group rules.
+printf '%s\n' void-lab-install | sudo -S -p '' sh -c 'mv /etc/sudoers.d/lab /etc/sudoers.d/zz-lab' >/dev/null 2>&1

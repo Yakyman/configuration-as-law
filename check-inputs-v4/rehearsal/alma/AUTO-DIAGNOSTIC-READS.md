@@ -1,0 +1,46 @@
+# Diagnostic reads for query acceptance
+
+The classifier reads only coverage and retained stderr, never query stdout or object/member records. Every diagnostic read and its machine-level disclosure follows.
+
+- `rehearsal/alma/diagnostics/fx1/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/alma/diagnostics/fx1/0004-filesystem.err`: Nonzero query remains unexplained and is not accepted.
+- `rehearsal/alma/diagnostics/fx1/0036-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx1/0037-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx1/0431-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0432-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0441-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0442-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0446-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0447-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx1/0448-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/alma/diagnostics/fx2/0004-filesystem.err`: Nonzero query remains unexplained and is not accepted.
+- `rehearsal/alma/diagnostics/fx2/0039-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx2/0040-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx2/0198-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0199-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0208-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0209-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0213-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0214-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx2/0215-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/alma/diagnostics/fx3/0040-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx3/0041-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx3/0199-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0200-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0209-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0210-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0214-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0215-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx3/0216-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/alma/diagnostics/fx4/0040-packages-flatpak-user-app.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx4/0041-packages-flatpak-user-runtime.err`: This optional user Flatpak installation scope cannot be opened; it is not collected.
+- `rehearsal/alma/diagnostics/fx4/0199-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0200-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0209-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0210-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0214-user-service.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0215-user-timer.err`: The user manager or session bus is unavailable; its interface is not collected.
+- `rehearsal/alma/diagnostics/fx4/0216-user-unit-file.err`: The user manager or session bus is unavailable; its interface is not collected.

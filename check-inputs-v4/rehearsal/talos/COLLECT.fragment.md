@@ -1,0 +1,9 @@
+# Talos collector repair supplement
+
+The adapter emits one structured installed-image package. Reason is explicit only when the active machine configuration names the image; the host filter retains only the image reference and never credentials. Talos v1.14 uses `UnattendedInstallConfig.installer.image`; the older `machine.install.image` form is also recognized.
+
+Mount/backing evidence is retained from block mount status and the exact join of the actual root source from `talosctl mounts` to `Disks.block.talos.dev.dev_path` with `readonly=true`. Source implementation obtains the disk flag from the kernel readonly ioctl. This does not certify every visible file: available APIs cannot prove a complete covering-mount map. The final collector therefore leaves image integrity and all packaged-file integrity unknown, including symlinks. Bounded `/usr` installed-namespace listing emits file facts while retaining one image object; no stored image/container artifact is extracted. Zero packaged files is never a passing percentage.
+
+Round 14 measured 95 regular files, integrity 0/95. Post-round conservative review added symlink rows with unknown integrity, required complete covering-mount certification before any file could be unchanged, and removed image-level integrity inference. No fifth rehearsal was run; no final-source file count is claimed.
+
+Named limitations: no complete image manifest, no complete second-level inventory, finite depth/directory/member/time caps (including query status75 on a cap), no complete namespace/mount masking (the mounts CLI suppresses zero-size/file entries), no direct root flags from the legacy runtime mount API, no cryptographic image verification, no bounded file-content signatures, and no inference of readonly state from the product name/version. Existing Talos unsupported kinds remain as detailed in TALOS-COLLECT.md. Section9.2's incomplete-second-level rule continues to apply.

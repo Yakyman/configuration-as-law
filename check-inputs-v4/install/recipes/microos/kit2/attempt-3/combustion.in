@@ -1,0 +1,38 @@
+#!/bin/bash
+exec >/dev/null 2>&1
+set -eu
+stage=begin
+report() { printf 'C1KIT256AB849BFDE9742C1641F529FDF24D78:%s:%s\n' "$stage" "$1" > /dev/ttyS1 2>/dev/null || :; }
+trap 'rc=$?; report "$rc"' EXIT
+report 0
+stage=useradd
+useradd --create-home --user-group user
+report 0
+stage=password
+usermod --password '*' user
+report 0
+stage=ssh-directory
+install -d -m 0700 -o user -g user /home/user/.ssh
+report 0
+stage=ssh-key-write
+printf '%s\n' '@LAB_PUBLIC_KEY@' > /home/user/.ssh/authorized_keys
+report 0
+stage=ssh-key-owner
+chown user:user /home/user/.ssh/authorized_keys
+report 0
+stage=ssh-key-mode
+chmod 0600 /home/user/.ssh/authorized_keys
+report 0
+stage=sudo-write
+printf '%s\n' 'user ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/lab
+report 0
+stage=sudo-mode
+chmod 0440 /etc/sudoers.d/lab
+report 0
+stage=ssh-enable
+systemctl enable sshd.service
+report 0
+stage=selinux-label
+restorecon -RF /home/user/.ssh /etc/sudoers.d/lab
+report 0
+stage=complete

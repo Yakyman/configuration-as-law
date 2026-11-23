@@ -1,0 +1,69 @@
+#!/bin/bash
+# Unattended Handbook installation; every output stream is discarded.
+exec >/dev/null 2>&1
+set -eE
+trap 'exit "$LINENO"' ERR
+export DEBIAN_FRONTEND=noninteractive
+apt-get update
+apt-get install -y parted xz-utils curl
+parted -s /dev/vdb mklabel msdos mkpart primary ext4 1MiB 3MiB mkpart primary ext4 3MiB 100% set 2 boot on
+mkfs.ext4 -F -L gentoo-root /dev/vdb2
+mkdir -p /mnt/gentoo
+mount /dev/vdb2 /mnt/gentoo
+curl -f http://10.0.2.2:23002/stage3-amd64-openrc-20261122T164601Z.tar.xz | tar xJpf - --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
+cp -L /etc/resolv.conf /mnt/gentoo/etc/resolv.conf
+mount -t proc proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+mount --bind /run /mnt/gentoo/run
+mount --make-slave /mnt/gentoo/run
+cat >> /mnt/gentoo/etc/portage/make.conf <<'CONFIG'
+MAKEOPTS="-j8"
+EMERGE_DEFAULT_OPTS="--getbinpkg=n --usepkg=n"
+GRUB_PLATFORMS="pc"
+CONFIG
+# No binary package host is configured or used by the installation recipe.
+rm -rf /mnt/gentoo/etc/portage/binrepos.conf
+cat > /mnt/gentoo/etc/fstab <<'CONFIG'
+LABEL=gentoo-root / ext4 defaults 0 1
+CONFIG
+chroot /mnt/gentoo /bin/bash -s <<'CHROOT'
+set -e
+source /etc/profile
+emerge-webrsync --revert=20261122
+mkdir -p /etc/portage/package.use
+printf 'sys-kernel/installkernel dracut\n' > /etc/portage/package.use/installkernel
+emerge --getbinpkg=n --usepkg=n --oneshot sys-kernel/installkernel
+emerge --getbinpkg=n --usepkg=n sys-kernel/gentoo-kernel sys-boot/grub net-misc/dhcpcd net-misc/openssh app-admin/sudo
+rm -rf /etc/portage/binrepos.conf
+printf '\nPORTAGE_BINHOST=""\n' >> /etc/portage/make.conf
+fallocate -l 8G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+printf '/swapfile none swap sw 0 0\n' >> /etc/fstab
+ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
+echo 'LANG="en_US.UTF-8"' > /etc/env.d/02locale
+useradd -m -U -G wheel -s /bin/bash user
+passwd -d user
+mkdir -p /home/user/.ssh
+cat > /home/user/.ssh/authorized_keys <<'KEY'
+@LAB_PUBLIC_KEY@
+KEY
+chown -R user:user /home/user/.ssh
+chmod 700 /home/user/.ssh
+chmod 600 /home/user/.ssh/authorized_keys
+mkdir -p /etc/sudoers.d
+printf 'user ALL=(ALL) NOPASSWD: ALL\n' > /etc/sudoers.d/lab-access
+printf '\n@includedir /etc/sudoers.d\n' >> /etc/sudoers
+chmod 440 /etc/sudoers.d/lab-access
+printf '\nPasswordAuthentication no\nPermitEmptyPasswords no\n' >> /etc/ssh/sshd_config
+rc-update add sshd default
+rc-update add dhcpcd default
+grub-install --target=i386-pc /dev/vdb
+grub-mkconfig -o /boot/grub/grub.cfg
+CHROOT
+sync

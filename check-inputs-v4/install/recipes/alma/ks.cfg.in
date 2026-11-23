@@ -1,0 +1,25 @@
+# Installation input; SSH key and passwordless sudo are instrument access.
+text
+cdrom
+lang en_US.UTF-8
+keyboard us
+timezone Etc/UTC --utc
+network --bootproto=dhcp --device=link --activate
+rootpw --lock
+user --name=user --groups=wheel --lock
+sshkey --username=user "@LAB_PUBLIC_KEY@"
+zerombr
+clearpart --all --initlabel
+autopart
+bootloader --location=mbr
+services --enabled=sshd
+firewall --enabled --service=ssh
+firstboot --disable
+poweroff
+%packages --default
+%end
+%post --erroronfail --log=/dev/null
+exec >/dev/null 2>&1
+printf 'user ALL=(ALL) NOPASSWD: ALL\n' > /etc/sudoers.d/lab-access
+chmod 440 /etc/sudoers.d/lab-access
+%end

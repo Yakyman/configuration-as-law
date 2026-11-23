@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu
+cd "@LAB_ROOT@"
+slot_acquired=false
+for slot_n in $(seq 1 12); do
+  exec 9>"slots/slot-$slot_n.lock"
+  if flock -n 9; then slot_acquired=true; break; fi
+  exec 9>&-
+done
+$slot_acquired || exit 75
+xorriso -osirrox on -indev images/void/void-live-x86_64-20250202-base.iso -extract /boot/vmlinuz void/vmlinuz -extract /boot/initrd void/initrd >/dev/null 2>&1
+xorriso -as mkisofs -quiet -o void/seed.iso -V LABSEED -J -R void/seed >/dev/null 2>&1
+qemu-img create -f qcow2 void/clean.qcow2 24G >/dev/null 2>&1
+exec qemu-system-x86_64 -enable-kvm -cpu host -m 4096 -smp 2 -display none -monitor none -no-reboot -kernel void/vmlinuz -initrd void/initrd -append 'root=live:CDLABEL=VOID_LIVE ro init=/sbin/init rd.luks=0 rd.md=0 rd.dm=0 console=ttyS0,115200' -drive file=void/clean.qcow2,if=virtio,format=qcow2 -drive file=images/void/void-live-x86_64-20250202-base.iso,media=cdrom,readonly=on -drive file=void/seed.iso,media=cdrom,readonly=on -netdev user,id=n,hostfwd=tcp:127.0.0.1:22235-:22 -device virtio-net-pci,netdev=n -serial unix:void/serial.sock,server=on,wait=off >/dev/null 2>&1

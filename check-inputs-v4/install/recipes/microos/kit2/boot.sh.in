@@ -1,0 +1,42 @@
+#!/bin/bash
+set -uo pipefail
+root="@LAB_ROOT@"
+work="$root/C1/microos-kit2"
+cd "$work"
+for slot in {1..12}; do
+ exec 9>"$root/slots/slot-$slot.lock"
+ if flock -n 9; then break; fi
+ exec 9>&-
+done
+if ! flock -n 9; then exit 75; fi
+log() { printf '%s %s=%s\n' "$(date -u +%FT%TZ)" "$1" "$2" >> status.log; }
+python3 status-channel.py >/dev/null 2>&1 &
+parser=$!
+sleep 1
+log firstboot_start 0
+timeout 900 qemu-system-x86_64 -enable-kvm -machine q35 -cpu host -m 4096 -smp 2 \
+ -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE_4M.fd \
+ -drive if=pflash,format=raw,file=firmware-vars.fd \
+ -drive file=disk.qcow2,if=virtio,format=qcow2 \
+ -netdev user,id=net0,hostfwd=tcp:127.0.0.1:22627-:22 -device virtio-net-pci,netdev=net0 \
+ -fw_cfg name=opt/org.opensuse.combustion/script,file=combustion \
+ -display none -serial null -serial pipe:command-status -monitor none -no-reboot >/dev/null 2>&1 &
+vm=$!
+trap 'kill "$parser" 2>/dev/null || :; kill "$vm" 2>/dev/null || :; wait "$vm" 2>/dev/null || :' EXIT
+sshopt=(-F /dev/null -i "$root/keys/lab" -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 22627)
+for attempt in {1..60}; do
+ timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'exit 37' >/dev/null 2>&1
+ rc=$?; log "login_attempt_${attempt}_exit" "$rc"
+ if [ "$rc" -eq 37 ]; then
+  timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'sudo -n sh -c "exit 37"' >/dev/null 2>&1
+  root_rc=$?; log root_exit "$root_rc"
+  timeout 10 ssh "${sshopt[@]}" user@127.0.0.1 'sudo -n poweroff' >/dev/null 2>&1
+  log shutdown_exit "$?"
+  wait "$vm"; vm_rc=$?; log qemu_exit "$vm_rc"
+  if [ "$root_rc" -eq 37 ] && [ "$vm_rc" -eq 0 ]; then touch ready; exit 0; fi
+  exit 1
+ fi
+ sleep 10
+done
+log login_timeout 124
+exit 124

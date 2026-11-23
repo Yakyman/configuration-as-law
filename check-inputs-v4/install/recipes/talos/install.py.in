@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+import pathlib,subprocess as sp,fcntl,time,json,sys,os
+r=pathlib.Path(__file__).resolve().parents[2];d=r/'install/talos';os.chdir(r)
+logs=[]
+def record(step,rc):
+ logs.append(dict(utc=time.strftime('%FT%TZ',time.gmtime()),step=step,status=rc));(d/'status.json').write_text(json.dumps(logs,indent=2)+'\n')
+def cmd(step,args,limit=60):
+ try:p=sp.run([str(x) for x in args],stdout=sp.DEVNULL,stderr=sp.DEVNULL,timeout=limit);rc=p.returncode
+ except sp.TimeoutExpired:rc=124
+ record(step,rc);return rc
+import socket
+ctl=r/'C1/bin/talosctl';disk=d/'base.qcow2'
+with socket.socket() as bind_socket:
+ bind_socket.bind(('127.0.0.1',0));port=bind_socket.getsockname()[1]
+endpoint='127.0.0.1:'+str(port)
+(d/'endpoint.txt').write_text(endpoint)
+def require(ok,message):
+ if not ok:raise RuntimeError(message)
+require(cmd('create-disk',['qemu-img','create','-q','-f','qcow2',disk,'32G'])==0,'Disk creation failed')
+require(cmd('generate-config',[ctl,'gen','config','lab','https://10.0.2.15:6443','--install-disk','/dev/vda','--install-image','factory.talos.dev/metal-installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba@sha256:125325c788341e5aa99e33606413858f65c6c6f3748036027bace8f0e7bfa569','--config-patch','{"machine":{"certSANs":["127.0.0.1"]}}','--with-docs=false','--with-examples=false','--output-types','controlplane,talosconfig','--output',d])==0,'Configuration generation failed')
+locks=[]
+for n in range(1,13):
+ f=open(r/'slots'/f'slot-{n}.lock','a')
+ if sp.run(['flock','-n',str(f.fileno())],pass_fds=(f.fileno(),)).returncode==0:locks.append(f);break
+ f.close()
+require(locks,'No free VM slot')
+base=['qemu-system-x86_64','-enable-kvm','-cpu','host','-m','4096','-smp','2','-display','none','-serial','none','-no-reboot','-drive',f'file={disk},format=qcow2,if=virtio','-netdev',f'user,id=n,hostfwd=tcp:127.0.0.1:{port}-:50000','-device','virtio-net-pci,netdev=n,mac=52:54:00:ca:10:01']
+vm=None
+try:
+ vm=sp.Popen(base+['-cdrom',str(r/'images/talos-metal-amd64.iso'),'-boot','d'],stdout=sp.DEVNULL,stderr=sp.DEVNULL,pass_fds=tuple(f.fileno() for f in locks))
+ time.sleep(35)
+ rc=cmd('apply-config',[ctl,'apply-config','--insecure','--nodes',endpoint,'--file',d/'controlplane.yaml'],120)
+ require(rc==0,'Configuration apply failed')
+ # Wait for installation access, then request explicit poweroff to test disk-only boot.
+ auth=[ctl,'--talosconfig',d/'talosconfig','--endpoints',endpoint,'--nodes','10.0.2.15']
+ time.sleep(120)
+ if vm.poll() is None:
+  require(cmd('installer-api-login',auth+['version'],30)==0,'Installer login failed')
+  require(cmd('installer-shutdown',auth+['shutdown','--wait=false'],30)==0,'Installer shutdown failed')
+ rc=vm.wait(timeout=180)
+ record('installer-exit',rc);require(rc==0,'Installer exit failed')
+ vm=sp.Popen(base,stdout=sp.DEVNULL,stderr=sp.DEVNULL,pass_fds=tuple(f.fileno() for f in locks))
+ auth=[ctl,'--talosconfig',d/'talosconfig','--endpoints',endpoint,'--nodes','10.0.2.15']
+ deadline=time.monotonic()+600
+ while time.monotonic()<deadline:
+  rc=cmd('api-login',auth+['version'],15)
+  if rc==0:break
+  time.sleep(5)
+ require(rc==0,'Authenticated login failed')
+ require(cmd('bootstrap',auth+['bootstrap'],120)==0,'Bootstrap failed')
+ time.sleep(60)
+ require(cmd('shutdown',auth+['shutdown','--wait=false'],30)==0,'Shutdown failed')
+ rc=vm.wait(timeout=180);record('shutdown-exit',rc);require(rc==0,'Shutdown exit failed')
+ disk.chmod(0o444)
+ b=r/'C1/base';(b/'talos.qcow2').symlink_to(disk)
+ (b/'talos.json').write_text(json.dumps(dict(system='talos',transport='talos',talosconfig='install/talos/talosconfig',talos_node='10.0.2.15')))
+ record('base-ready',0)
+finally:
+ if vm and vm.poll() is None:
+  vm.terminate()
+  try:vm.wait(timeout=15)
+  except sp.TimeoutExpired:vm.kill();vm.wait()
+ for f in locks:f.close()

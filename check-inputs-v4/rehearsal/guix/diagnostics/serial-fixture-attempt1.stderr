@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "NIGHT_ROOT/C1/rehearsal/guix/serial-fixture.py", line 32, in <module>
+    out,rc=namespace['serial'](pathlib.Path('.'),{'user':'fixture'},f'exit {expected}\n\n'.encode())
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "serial-under-test", line 82, in serial
+  File "NIGHT_ROOT/C1/rehearsal/guix/serial-fixture.py", line 20, in recv
+    return os.read(master,n)
+           ~~~~~~~^^^^^^^^^^
+OSError: [Errno 5] Input/output error

@@ -1,0 +1,15 @@
+#!/bin/bash
+# combustion: network
+exec >/dev/null 2>&1
+set -eu
+# Instrument access: an ordinary account, lab public key, and noninteractive sudo.
+useradd --create-home --groups wheel user
+usermod --password '*' user
+install -d -m 0700 -o user -g users /home/user/.ssh
+printf '%s\n' '@LITERAL_LAB_PUBLIC_KEY@' > /home/user/.ssh/authorized_keys
+chown user:users /home/user/.ssh/authorized_keys
+chmod 0600 /home/user/.ssh/authorized_keys
+printf '%s\n' 'user ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/lab
+chmod 0440 /etc/sudoers.d/lab
+systemctl enable sshd.service
+restorecon -RF /home/user/.ssh /etc/sudoers.d/lab

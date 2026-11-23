@@ -1,0 +1,28 @@
+#!/bin/bash
+set -uo pipefail
+base="@LAB_ROOT@"
+cd "$base"
+while systemctl --user is-active --quiet cal1123-alma-queue.service; do sleep 15; done
+status="$base/install/alma/status.txt"
+if ! grep -q '^installer_exit=0$' "$status"; then exit 1; fi
+chmod 444 install/alma/base.qcow2
+mkdir -p C1/base
+ln -s ../../install/alma/base.qcow2 C1/base/alma.qcow2
+printf '%s\n' '{"system":"alma","transport":"ssh","user":"user","key":"keys/lab"}' > C1/base/alma.json
+printf 'boot_test_start=%s\n' "$(date -u +%FT%TZ)" >> "$status"
+timeout --kill-after=10 300 ./lab.sh new alma-kit-test alma >/dev/null 2>&1
+rc=$?
+printf 'boot_login_exit=%s\n' "$rc" >> "$status"
+if test "$rc" = 0; then
+  printf 'exit 37\n' | ./lab.sh run alma-kit-test --timeout 20 >/dev/null 2>&1
+  printf 'run_exit37_status=%s\n' "$?" >> "$status"
+  printf 'exit 0\n' | ./lab.sh run alma-kit-test --root --timeout 20 >/dev/null 2>&1
+  printf 'run_root_exit0_status=%s\n' "$?" >> "$status"
+fi
+./lab.sh stop alma-kit-test >/dev/null 2>&1
+stop_rc=$?
+printf 'stop_status=%s\n' "$stop_rc" >> "$status"
+if test "$stop_rc" != 0; then ./lab.sh kill alma-kit-test >/dev/null 2>&1; fi
+./lab.sh destroy alma-kit-test >/dev/null 2>&1
+printf 'destroy_status=%s\nfinish=%s\n' "$?" "$(date -u +%FT%TZ)" >> "$status"
+rm -f install/alma/vmlinuz install/alma/initrd.img

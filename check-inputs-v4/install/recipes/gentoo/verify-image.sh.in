@@ -1,0 +1,20 @@
+#!/bin/bash
+# Run on the laboratory host from @LAB_ROOT@.
+set -euo pipefail
+export TZ=UTC
+mkdir -p images gentoo
+base=https://distfiles.gentoo.org/releases/amd64/autobuilds/20261122T164601Z
+name=stage3-amd64-openrc-20261122T164601Z.tar.xz
+curl -fL "$base/$name" -o "images/$name"
+curl -fL "$base/$name.asc" -o gentoo/stage3.asc
+curl -fL "$base/$name.DIGESTS" -o gentoo/DIGESTS
+curl -fL https://qa-reports.gentoo.org/output/service-keys.gpg -o gentoo/service-keys.gpg
+# Official service keyring URL is linked by https://www.gentoo.org/downloads/signatures/.
+# Expected weekly-release signing key fingerprint:
+# 534E4209AB49EEE1C19D96162C44695DB9F6043D
+# gpgv output must identify this fingerprint and a good signature.
+gpgv --status-fd 3 --keyring ./gentoo/service-keys.gpg gentoo/stage3.asc "images/$name" 3>gentoo/image-signature.status
+grep -q '^\[GNUPG:\] VALIDSIG 534E4209AB49EEE1C19D96162C44695DB9F6043D ' gentoo/image-signature.status
+gpgv --status-fd 3 --keyring ./gentoo/service-keys.gpg gentoo/DIGESTS 3>gentoo/digests-signature.status
+grep -q '^\[GNUPG:\] VALIDSIG 534E4209AB49EEE1C19D96162C44695DB9F6043D ' gentoo/digests-signature.status
+(cd images; printf '%s  %s\n' df8c3d560dd0bcfd6fea5b8c1bf5f4e60ef081219f7421d791d26a36004dd9aaa7ef885ec9aeb9024c56a12296f7792ff7c445e538f67891d68abf14a0477bd5 "$name" | sha512sum -c)

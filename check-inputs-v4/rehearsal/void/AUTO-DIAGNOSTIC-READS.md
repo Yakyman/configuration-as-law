@@ -1,0 +1,80 @@
+# Diagnostic reads for query acceptance
+
+The classifier reads only coverage and retained stderr, never query stdout or object/member records. Every diagnostic read and its machine-level disclosure follows.
+
+- `rehearsal/void/diagnostics/fx1/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/void/diagnostics/fx1/0196-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0197-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0198-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0200-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0201-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0203-firewall-nft.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0208-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0209-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0215-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0216-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0217-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0219-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0220-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0221-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0222-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0223-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0225-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx1/0226-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/void/diagnostics/fx2/0053-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0054-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0055-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0057-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0058-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0060-firewall-nft.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0065-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0066-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0072-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0073-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0074-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0076-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0077-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0078-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0079-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0080-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0082-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx2/0083-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/void/diagnostics/fx3/0050-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0051-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0052-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0054-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0055-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0057-firewall-nft.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0062-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0063-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0069-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0070-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0071-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0073-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0074-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0075-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0076-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0077-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0079-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx3/0080-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/void/diagnostics/fx4/0058-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0059-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0060-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0062-openrc-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0063-openrc-runlevel.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0065-firewall-nft.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0070-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0071-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0077-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0078-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0079-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0081-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0082-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0083-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0084-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0085-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0087-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/void/diagnostics/fx4/0088-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.

@@ -1,0 +1,15 @@
+#!/bin/sh
+exec >/dev/null 2>&1
+set -eu
+dnf -y install openssh-server
+mkdir -p /home/user/.ssh
+chmod 700 /home/user/.ssh
+cat > /home/user/.ssh/authorized_keys <<'KEY'
+@LAB_PUBLIC_KEY@
+KEY
+chmod 600 /home/user/.ssh/authorized_keys
+chown -R user:user /home/user/.ssh
+printf 'user ALL=(ALL) NOPASSWD: ALL\n' > /etc/sudoers.d/zz-lab
+chmod 440 /etc/sudoers.d/zz-lab
+restorecon -RF /home/user/.ssh
+systemctl enable --now sshd

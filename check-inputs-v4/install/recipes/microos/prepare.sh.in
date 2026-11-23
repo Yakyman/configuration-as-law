@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+root="@LAB_ROOT@"
+cd "$root/C1/microos"
+image="$root/images/openSUSE-MicroOS-DVD-x86_64-Snapshot20261121-Media.iso"
+mkdir -p boot initrd-add
+xorriso -osirrox on -indev "$image" -extract /boot/x86_64/loader/linux boot/linux -extract /boot/x86_64/loader/initrd boot/initrd > /dev/null 2>&1
+cp autoinst.xml initrd-add/autoinst.xml
+(cd initrd-add; printf 'autoinst.xml\n' | cpio -o -H newc 2>/dev/null) > boot/autoyast.cpio
+cat boot/initrd boot/autoyast.cpio > boot/initrd-auto
+python3 - <<'PY'
+from pathlib import Path
+root=Path('@LAB_ROOT@')
+p=root/'C1/microos'
+(p/'combustion').write_text((p/'combustion.template').read_text().replace('@LITERAL_LAB_PUBLIC_KEY@',(root/'keys/lab.pub').read_text().strip()))
+PY
+cp /usr/share/OVMF/OVMF_VARS_4M.fd microos.vars.fd
+qemu-img create -f qcow2 microos.qcow2 40G >/dev/null

@@ -1,0 +1,6 @@
+{"passed": true, "results": [{"call": 1, "empty_output": true, "status": 0}, {"call": 2, "empty_output": true, "status": 37}, {"call": 3, "empty_output": true, "status": 0}, {"call": 4, "empty_output": true, "status": 37}], "scenario": "normal"}
+{"passed": true, "rejected": "Serial wrapper-hash timeout; VM retained", "scenario": "bad-wrapper"}
+{"passed": true, "results": [{"call": 1, "empty_output": true, "status": 1}], "scenario": "bad-payload"}
+{"passed": true, "rejected": "Serial close timeout; VM retained", "scenario": "bad-ack"}
+{"passed": true, "rejected": "Serial tty timeout; VM retained", "scenario": "bad-stty"}
+{"fixture": "synthetic PTY fixed commands and deterministic faults", "passed": true, "scenarios": 5}

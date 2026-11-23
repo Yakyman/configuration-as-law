@@ -1,0 +1,47 @@
+# Talos single-node installation
+
+Release 1.14.6 (2026-11-11), unchanged from the previous laboratory's image
+selection. Only the previously verified ISO, signature bundles and client binary
+are copied. The check machine itself is a new clean installation.
+
+`verify.sh` validates the ISO and client SHA256 against the release checksum file
+and their Sigstore bundles. The expected identity is the official repository's
+`ci.yaml` workflow at `refs/tags/v1.14.6`, with the GitHub Actions OIDC issuer.
+The verifier binary is pinned to its official release asset digest. The exact
+Sigstore trust root is retained and pinned to an immutable upstream revision and
+SHA256; see `raw/talos/trust-root-provenance.txt`. Evidence:
+`raw/talos/verification.log`; the initial host launch used a relative path and
+failed before verification; its corrected absolute-path launch succeeded.
+
+`install.py` creates an empty 32 GiB virtio disk, generates the release client's
+minimal control-plane configuration, and boots the official ISO in BIOS mode.
+The generated `controlplane.yaml` and `talosconfig` are exact host-created inputs,
+retained with the recipe; their bytes are never obtained from a check machine.
+The install payload is pinned to the official factory image digest recorded in
+`raw/talos/installer-digest.txt`; its image-factory signing identity and transparency
+log inclusion were verified before the second installation. The first attempt used
+the client default version tag and was stopped without acceptance; its exact inputs
+and statuses are preserved under `attempt1/`. The install disk is fixed as `/dev/vda` from the QEMU drive definition, so no disk
+query is performed. The node address comes from the fixed QEMU user network,
+so no console or guest networking observation is needed.
+
+A loopback forwarded API port provides instrument access. Talos does not use the
+SSH key: its generated client certificate is the instrument credential. The
+configuration adds the loopback certificate SAN needed by this transport. All
+other generated defaults are retained. The configuration is applied once;
+after a fixed settling interval, a graceful poweroff ends the ISO session,
+then a disk-only boot is started. This also handles an installer that does not
+automatically reboot. API-login command output is discarded. Bootstrap is invoked once,
+then the system is shut down and the backing made read-only.
+
+Only exit statuses of installation, API login and script execution are retained.
+No health, service, object, disk, file, account or process listing is requested.
+After registration, the planned disposable smoke test is `talosctl version`
+with its entire output discarded followed by `exit 37`; expected status 37.
+This validates authentication and the host-side `run` wrapper only.
+
+Sources:
+
+- https://github.com/siderolabs/talos/releases/tag/v1.14.6 — “Talos 1.14.6 (2026-11-11)”.
+- https://docs.siderolabs.com/talos/v1.14/platform-specific-installations/bare-metal-platforms/iso — the ISO installs only after configuration is applied.
+- https://docs.siderolabs.com/talos/v1.14/getting-started/getting-started — machine configuration generation, application and single bootstrap procedure.

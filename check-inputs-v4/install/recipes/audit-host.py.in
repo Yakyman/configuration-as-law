@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+"""Audit only host-owned image-format metadata, never guest disk contents."""
+import json,pathlib,subprocess as sp,stat,time,hashlib
+r=pathlib.Path(__file__).resolve().parents[1]
+def label(s):
+ p=pathlib.Path(s)
+ try:return str(p.relative_to(r))
+ except ValueError:
+  try:return 'previous-lab/'+str(p.relative_to(r.parent/'@PREVIOUS_LAB_ROOT@'))
+  except ValueError:return p.name
+records={'utc':time.strftime('%FT%TZ',time.gmtime()),'runner_sha256':hashlib.sha256((r/'lab.sh').read_bytes()).hexdigest(),'systems':[]}
+for name in ('alma','void','gentoo','microos','talos','nixos','guix','debian','fedora','mint','debian-server'):
+ p=r/'C1/base'/(name+'.qcow2');entry={'system':name,'registered':p.exists()}
+ if p.exists():
+  q=sp.run(['qemu-img','info','--backing-chain','--output=json',str(p)],stdout=sp.PIPE,stderr=sp.DEVNULL)
+  entry['host_metadata_status']=q.returncode
+  if q.returncode==0:
+   entry['chain']=[{'file':label(x['filename']),'format':x['format'],'virtual_size':x['virtual-size'],'mode':oct(stat.S_IMODE(pathlib.Path(x['filename']).stat().st_mode))} for x in json.loads(q.stdout)]
+   entry['all_read_only']=all(not pathlib.Path(x['filename']).stat().st_mode&0o222 for x in json.loads(q.stdout))
+  m=json.loads((r/'C1/base'/(name+'.json')).read_text())
+  entry['transport']=m['transport'];entry['slots']=m.get('slots',1)
+ records['systems'].append(entry)
+print(json.dumps(records,indent=2))

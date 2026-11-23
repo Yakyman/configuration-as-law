@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+cd "@LAB_ROOT@/images"
+image=openSUSE-MicroOS-DVD-x86_64-Snapshot20261121-Media.iso
+for suffix in '' .sha256 .sha256.asc; do curl --fail --location --retry 3 --continue-at - "https://download.opensuse.org/tumbleweed/iso/$image$suffix" -o "$image$suffix"; done
+sha256sum -c "$image.sha256"

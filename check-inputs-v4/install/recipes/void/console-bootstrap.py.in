@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+# Blind write-only login/bootstrap. All received console bytes go to /dev/null.
+import os,socket,threading,time
+s=socket.socket(socket.AF_UNIX)
+for attempt in range(60):
+    try:
+        s.connect(os.path.expanduser('@LAB_ROOT@/void/serial.sock'))
+        break
+    except OSError:
+        time.sleep(1)
+else:
+    raise SystemExit(1)
+def discard():
+    with open(os.devnull,'wb',buffering=0) as null:
+        while True:
+            data=s.recv(65536)
+            if not data: break
+            null.write(data)
+threading.Thread(target=discard,daemon=True).start()
+time.sleep(75)
+s.sendall(b'\nroot\n')
+time.sleep(3)
+s.sendall(b'voidlinux\n')
+time.sleep(3)
+s.sendall(b'mkdir -p /mnt/lab; mount -o ro /dev/sr1 /mnt/lab >/dev/null 2>&1; bash /mnt/lab/install.sh >/dev/null 2>&1\n')
+time.sleep(3000)

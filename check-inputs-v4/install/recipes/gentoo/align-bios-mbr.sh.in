@@ -1,0 +1,18 @@
+#!/bin/bash
+# Run in the bootstrap after reboot, with no target mounts.
+# This retains the original partition boundaries and filesystem contents.
+exec >/dev/null 2>&1
+set -e
+export DEBIAN_FRONTEND=noninteractive
+apt-get install -y gdisk
+sgdisk --typecode=1:8300 --gpttombr=1:2 /dev/vdb
+parted -s /dev/vdb set 2 boot on
+mount /dev/vdb2 /mnt/gentoo
+mount -t proc proc /mnt/gentoo/proc
+mount --rbind /sys /mnt/gentoo/sys
+mount --make-rslave /mnt/gentoo/sys
+mount --rbind /dev /mnt/gentoo/dev
+mount --make-rslave /mnt/gentoo/dev
+chroot /mnt/gentoo grub-install --target=i386-pc /dev/vdb
+chroot /mnt/gentoo grub-mkconfig -o /boot/grub/grub.cfg
+sync

@@ -1,0 +1,148 @@
+[
+  {
+    "system": "alma",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "9/9 zero",
+    "collector": "exit 0; 76.862 s; L2 1692; reason 999/1561; recorded 1238/1561 includes unseparated language-parent inference; established lower bound used; files 120520/121931",
+    "transport": "20/20 zero",
+    "whole": 180.137,
+    "failures": [
+      "reason known 999/1561"
+    ],
+    "evidence": "`rehearsal/alma/status.tsv`, `rehearsal/alma/counts.tsv`, `rehearsal/alma/query-limitations.tsv`"
+  },
+  {
+    "system": "void",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "9/9 zero",
+    "collector": "exit 0; 27.682 s; L2 2068; reason 342/546; recorded 530/546 includes unseparated language-parent inference; established lower bound used; files 37652/37931",
+    "transport": "20/20 zero",
+    "whole": 365.953,
+    "failures": [
+      "reason known 342/546"
+    ],
+    "evidence": "`rehearsal/void/status.tsv`, `rehearsal/void/counts.tsv`, `rehearsal/void/query-limitations.tsv`"
+  },
+  {
+    "system": "gentoo",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "8/9 zero",
+    "collector": "exit 0; 62.697 s; L2 31578; reason 12/440; files 109038/109382",
+    "transport": "20/20 zero",
+    "whole": 627.011,
+    "failures": [
+      "browser_extension exit 1",
+      "reason known 12/440"
+    ],
+    "evidence": "`rehearsal/gentoo/status.tsv`, `rehearsal/gentoo/counts.tsv`, `rehearsal/gentoo/query-limitations.tsv`"
+  },
+  {
+    "system": "microos",
+    "ready": true,
+    "round": 11,
+    "fx_rounds": 1,
+    "fx_rounds_started": 1,
+    "actions": "not assigned",
+    "collector": "exit 0; 42.419 s; L2 5070; reason 376/376; files 18246/18575",
+    "transport": "20/20 zero",
+    "whole": 76.21,
+    "failures": [],
+    "evidence": "`rehearsal/microos/status.tsv`, `rehearsal/microos/counts.tsv`, `rehearsal/microos/query-limitations.tsv`"
+  },
+  {
+    "system": "talos",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "not assigned",
+    "collector": "exit 0; 10.296 s; L2 53; reason 1/1; files 0/95",
+    "transport": "20/20 zero",
+    "whole": 42.599,
+    "failures": [
+      "integrity known 0/95 files"
+    ],
+    "evidence": "`rehearsal/talos/status.tsv`, `rehearsal/talos/counts.tsv`, `rehearsal/talos/query-limitations.tsv`"
+  },
+  {
+    "system": "nixos",
+    "ready": true,
+    "round": 11,
+    "fx_rounds": 1,
+    "fx_rounds_started": 1,
+    "actions": "not assigned",
+    "collector": "not assigned (check 4)",
+    "transport": "20/20 zero",
+    "whole": 28.814,
+    "failures": [],
+    "evidence": "`rehearsal/nixos/status.tsv`"
+  },
+  {
+    "system": "guix",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "not assigned",
+    "collector": "not assigned (check 4)",
+    "transport": "0/20 zero",
+    "whole": null,
+    "failures": [
+      "transport sequence incomplete or failed",
+      "whole-run 30-minute criterion not met"
+    ],
+    "evidence": "`rehearsal/guix/status.tsv`, `rehearsal/guix/counts.tsv`"
+  },
+  {
+    "system": "fedora",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "13/13 zero",
+    "collector": "exit 0; 144.851 s; L2 6870; reason 1679/2248; files 164540/169962",
+    "transport": "20/20 zero",
+    "whole": 297.981,
+    "failures": [
+      "reason known 1679/2248"
+    ],
+    "evidence": "`rehearsal/fedora/status.tsv`, `rehearsal/fedora/counts.tsv`, `rehearsal/fedora/query-limitations.tsv`"
+  },
+  {
+    "system": "mint",
+    "ready": false,
+    "round": 14,
+    "fx_rounds": 4,
+    "fx_rounds_started": 4,
+    "actions": "9/9 zero",
+    "collector": "exit 0; 194.159 s; L2 36446; reason 2202/2303; files 283328/449205",
+    "transport": "20/20 zero",
+    "whole": 695.253,
+    "failures": [
+      "integrity known 283328/449205 files"
+    ],
+    "evidence": "`rehearsal/mint/status.tsv`, `rehearsal/mint/counts.tsv`, `rehearsal/mint/query-limitations.tsv`"
+  },
+  {
+    "system": "debian-server",
+    "ready": true,
+    "round": 11,
+    "fx_rounds": 1,
+    "fx_rounds_started": 1,
+    "actions": "13/13 zero",
+    "collector": "exit 0; 33.241 s; L2 1249; reason 359/392; files 23314/25166",
+    "transport": "20/20 zero",
+    "whole": 147.739,
+    "failures": [],
+    "evidence": "`rehearsal/debian-server/status.tsv`, `rehearsal/debian-server/counts.tsv`, `rehearsal/debian-server/query-limitations.tsv`"
+  }
+]

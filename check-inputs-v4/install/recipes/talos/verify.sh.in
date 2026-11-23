@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")/../.."
+mkdir -p C1/bin install/talos/cosign-cache
+curl -fsSL --max-time 180 https://github.com/sigstore/cosign/releases/download/v3.1.4/cosign-linux-amd64 -o C1/bin/cosign
+printf '%s  %s\n' 424e2c97d0b45fd7a6b608a87f090f35633f4c23ece5f092d48bba11aaf4bbfa C1/bin/cosign | sha256sum -c -
+chmod 755 C1/bin/cosign
+export XDG_CACHE_HOME="$PWD/install/talos/cosign-cache"
+curl --max-time 30 -fsSL https://raw.githubusercontent.com/sigstore/root-signing/c9bda74ad2221f938f7d2e0295ca3aad2da710a8/targets/trusted_root.json -o install/talos/trusted_root.json
+printf '%s  %s\n' 6494e21ea73fa7ee769f85f57d5a3e6a08725eae1e38c755fc3517c9e6bc0b66 install/talos/trusted_root.json | sha256sum -c -
+for asset in metal-amd64.iso talosctl-linux-amd64; do
+  digest=$(awk -v n="$asset" '$2==n {print $1}' images/talos-sha256sum.txt)
+  test -n "$digest"
+  printf '%s  %s\n' "$digest" "images/talos-$asset" | sha256sum -c -
+  C1/bin/cosign verify-blob --trusted-root install/talos/trusted_root.json --bundle "images/talos-$asset.bundle" --certificate-identity 'https://github.com/siderolabs/talos/.github/workflows/ci.yaml@refs/tags/v1.14.6' --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' "images/talos-$asset"
+done
+cp images/talos-talosctl-linux-amd64 C1/bin/talosctl
+chmod 755 C1/bin/talosctl
+C1/bin/cosign verify --trusted-root install/talos/trusted_root.json --certificate-identity image-factory-signing@talos-production.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com factory.talos.dev/metal-installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba@sha256:125325c788341e5aa99e33606413858f65c6c6f3748036027bace8f0e7bfa569

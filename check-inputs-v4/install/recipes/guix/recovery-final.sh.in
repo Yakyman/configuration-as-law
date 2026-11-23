@@ -1,0 +1,63 @@
+#!/bin/bash
+set -uo pipefail
+base="@LAB_ROOT@"
+cd "$base"
+status="$base/install/guix/recovery-status.txt"
+printf 'start=%s\n' "$(date -u +%FT%TZ)" > "$status"
+qemu-img create -q -f qcow2 -F qcow2 -b "$base/install/guix/activated.qcow2" install/guix/recovery.qcow2
+qemu-img create -q -f qcow2 -F qcow2 -b "$base/C1/base/debian.qcow2" install/guix/helper.qcow2
+python3 - <<'PY' > install/guix/recovery-port.txt
+import socket
+with socket.socket() as s:s.bind(('127.0.0.1',0));print(s.getsockname()[1])
+PY
+port=$(cat install/guix/recovery-port.txt)
+ssh_args=(-F /dev/null -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=3 -i "$base/keys/lab" -p "$port" user@127.0.0.1)
+systemd-run --user --unit=cal1123-guix-recovery-worker --property=StandardOutput=null --property=StandardError=null bash "$base/install/guix/recovery-worker.sh" >/dev/null 2>&1
+for attempt in {1..60}; do
+ ssh "${ssh_args[@]}" 'exit 0' >/dev/null 2>&1
+ rc=$?
+ if test "$rc" = 0; then break; fi
+ sleep 2
+done
+printf 'helper_login_status=%s\n' "$rc" >> "$status"
+if test "$rc" = 0; then
+ timeout --kill-after=10 900 ssh "${ssh_args[@]}" 'sudo -n sh' < install/guix/chroot-access-certs.sh >/dev/null 2>&1
+ rc=$?
+ printf 'chroot_access_status=%s\n' "$rc" >> "$status"
+fi
+ssh "${ssh_args[@]}" 'sudo -n poweroff' >/dev/null 2>&1
+for attempt in {1..60}; do
+ systemctl --user is-active --quiet cal1123-guix-recovery-worker.service || break
+ sleep 1
+done
+systemctl --user stop cal1123-guix-recovery-worker.service >/dev/null 2>&1
+rm -f install/guix/helper.qcow2 install/guix/recovery.pid install/guix/recovery-port.txt
+if test "$rc" != 0 && test "$rc" != 1; then
+ mv install/guix/recovery.qcow2 install/guix/paused-recovery.qcow2
+ printf 'failed=%s\n' "$(date -u +%FT%TZ)" >> "$status"
+ exit "$rc"
+fi
+qemu-img convert -O qcow2 install/guix/recovery.qcow2 install/guix/new-base.qcow2 >/dev/null 2>&1
+rc=$?
+printf 'flatten_status=%s\n' "$rc" >> "$status"
+if test "$rc" != 0; then exit "$rc"; fi
+rm -f install/guix/recovery.qcow2
+chmod 444 install/guix/new-base.qcow2
+mv -f install/guix/new-base.qcow2 install/guix/base.qcow2
+ln -sfn ../../install/guix/base.qcow2 C1/base/guix.qcow2
+printf '%s\n' '{"system":"guix","transport":"ssh","user":"user","key":"keys/lab"}' > C1/base/guix.json
+timeout --kill-after=10 300 ./lab.sh new guix-kit-test guix >/dev/null 2>&1
+rc=$?
+printf 'fresh_boot_login_status=%s\n' "$rc" >> "$status"
+if test "$rc" = 0; then
+ printf 'exit 37\n' | ./lab.sh run guix-kit-test --timeout 30 >/dev/null 2>&1
+ printf 'fresh_exit37_status=%s\n' "$?" >> "$status"
+ printf 'exit 0\n' | ./lab.sh run guix-kit-test --root --timeout 30 >/dev/null 2>&1
+ printf 'fresh_root_exit0_status=%s\n' "$?" >> "$status"
+fi
+./lab.sh stop guix-kit-test >/dev/null 2>&1
+stop_rc=$?
+printf 'fresh_stop_status=%s\n' "$stop_rc" >> "$status"
+if test "$stop_rc" != 0; then ./lab.sh kill guix-kit-test >/dev/null 2>&1; fi
+./lab.sh destroy guix-kit-test >/dev/null 2>&1
+printf 'fresh_destroy_status=%s\nfinish=%s\n' "$?" "$(date -u +%FT%TZ)" >> "$status"

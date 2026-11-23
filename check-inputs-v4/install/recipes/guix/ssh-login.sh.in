@@ -1,0 +1,14 @@
+#!/bin/bash
+# Instrument-only login test; all guest output is discarded.
+set -u
+base="@LAB_ROOT@"
+port=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["port"])' "$base/C1/vms/guix-bootstrap/meta.json")
+status="$base/install/guix/ssh-login-status.txt"
+printf 'start=%s\n' "$(date -u +%FT%TZ)" > "$status"
+for attempt in {1..90}; do
+ ssh -F /dev/null -o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=3 -i "$base/keys/lab" -p "$port" user@127.0.0.1 'exit 0' >/dev/null 2>&1
+ rc=$?
+ if test "$rc" = 0; then break; fi
+ sleep 10
+done
+printf 'ssh_login_exit0_status=%s\nfinish=%s\n' "$rc" "$(date -u +%FT%TZ)" >> "$status"

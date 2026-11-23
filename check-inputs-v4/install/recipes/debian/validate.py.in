@@ -1,0 +1,25 @@
+import subprocess as sp,json,time,pathlib,sys
+ssh=['ssh','-F',str(pathlib.Path.home()/'.ssh/config'),sys.argv[1]]
+results=[]
+def call(label,args,script=None,expected=0,output=None):
+ t=time.monotonic();p=sp.run(ssh+['@LAB_ROOT@/lab.sh '+args],input=script,stdout=sp.PIPE,stderr=sp.PIPE)
+ good=p.returncode==expected and (output is None or p.stdout==output)
+ results.append(dict(test=label,status=p.returncode,expected=expected,passed=good,seconds=round(time.monotonic()-t,2)))
+ if label in ('streams','timeout'):results[-1].update(stdout=p.stdout.decode(),stderr=p.stderr.decode())
+ pathlib.Path('C1/raw/debian/runner-validation.json').write_text(json.dumps(results,indent=2)+'\n')
+ return good
+call('new','new kit-debian debian')
+call('streams','run kit-debian --timeout 15',b'printf "line one\\nline two\\n"\nexit 37\n',37,b'line one\nline two\n')
+call('root','run kit-debian --root --timeout 15',b'test "$(id -u)" = 0\n',0)
+call('timeout','run kit-debian --timeout 2',b'sleep 20\n',124)
+call('create-file','run kit-debian --timeout 15',b'printf "copy verification\\n" > /tmp/lab-copy-test\n',0)
+call('copy-out','copy-out kit-debian /tmp/lab-copy-test @LAB_ROOT@/install/debian/copied',None,0)
+p=sp.run(ssh+['cat @LAB_ROOT@/install/debian/copied/lab-copy-test'],stdout=sp.PIPE)
+results.append(dict(test='copy-bytes',passed=p.returncode==0 and p.stdout==b'copy verification\n'))
+call('stop','stop kit-debian')
+call('start','start kit-debian')
+call('destroy','destroy kit-debian')
+call('server-new','new kit-debian-server debian-server')
+call('server-status','run kit-debian-server --timeout 15',b'exit 29\n',29)
+call('server-destroy','destroy kit-debian-server')
+print(json.dumps(results,indent=2))

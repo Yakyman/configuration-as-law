@@ -1,0 +1,37 @@
+#!/bin/sh
+exec >/dev/null 2>&1
+set -eu
+cat > /etc/config.scm <<'DECLARATION'
+(use-modules (gnu))
+(use-service-modules networking base ssh)
+(operating-system
+  (host-name "cal")
+  (timezone "UTC")
+  (locale "en_US.utf8")
+  (kernel-arguments (append '("console=ttyS0,115200n8") %default-kernel-arguments))
+  (bootloader (bootloader-configuration
+                (bootloader grub-bootloader)
+                (targets '("/dev/vda"))))
+  (file-systems (cons (file-system
+                       (device (file-system-label "root"))
+                       (mount-point "/")
+                       (type "ext4"))
+                     %base-file-systems))
+  (users (cons (user-account
+                (name "user")
+                (group "users")
+                (password "$6$cal1122$ZIs03fvnBPSkasZ1B2RLSUt5dtUPGWVefzUbzC/CFnMSXK4xzJO5MQW1e3hyUIucJpFf/YLlootGG36zQ6EqB0")
+                (supplementary-groups '("wheel" "netdev")))
+               %base-user-accounts))
+  (sudoers-file (plain-file "sudoers"
+    "root ALL=(ALL:ALL) ALL\n%wheel ALL=(ALL:ALL) NOPASSWD: ALL\n"))
+  (services (append (list
+    (service openssh-service-type
+      (openssh-configuration
+        (authorized-keys
+          `(("user" ,(plain-file "lab.pub" "@LAB_PUBLIC_KEY@\n")))))) (service dhcp-client-service-type)
+                          (service agetty-service-type
+                            (agetty-configuration (tty "ttyS0") (baud-rate "115200"))))
+                    %base-services)))
+DECLARATION
+guix system reconfigure --substitute-urls=https://ci.guix.gnu.org /etc/config.scm

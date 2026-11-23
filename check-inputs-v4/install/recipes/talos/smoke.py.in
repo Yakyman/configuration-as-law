@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+import pathlib,subprocess as sp,json,time
+r=pathlib.Path(__file__).resolve().parents[2];rows=[]
+for args,body,expected in [(['new','kit-talos','talos'],None,0),(['run','kit-talos','--timeout','30'],b'talosctl version >/dev/null 2>&1 || exit $?\nexit 37\n',37),(['stop','kit-talos'],None,0),(['destroy','kit-talos'],None,0)]:
+ p=sp.run([str(r/'lab.sh')]+args,input=body,stdout=sp.DEVNULL,stderr=sp.DEVNULL)
+ rows.append(dict(utc=time.strftime('%FT%TZ',time.gmtime()),command=args,status=p.returncode,expected=expected,passed=p.returncode==expected))
+ (r/'install/talos/smoke.json').write_text(json.dumps(rows,indent=2))
+ if p.returncode!=expected:raise SystemExit(1)

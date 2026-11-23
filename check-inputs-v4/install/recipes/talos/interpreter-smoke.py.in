@@ -1,0 +1,9 @@
+import pathlib,subprocess as sp,json,time
+r=pathlib.Path(__file__).resolve().parents[2]
+script=b'#!/usr/bin/python3\nimport subprocess,sys\nrc=subprocess.run(["talosctl","version"],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode\nsys.exit(37 if rc==0 else 99)\n'
+results=[]
+for args,data,expected in [(['new','kit-talos-interpreter','talos'],None,0),(['run','kit-talos-interpreter','--timeout','30'],script,37),(['stop','kit-talos-interpreter'],None,0),(['destroy','kit-talos-interpreter'],None,0)]:
+ p=sp.run([str(r/'lab.sh')]+args,input=data,stdout=sp.DEVNULL,stderr=sp.DEVNULL)
+ results.append(dict(command=args,status=p.returncode,expected=expected,utc=time.strftime('%FT%TZ',time.gmtime())))
+ (r/'install/talos/interpreter-smoke.json').write_text(json.dumps(results,indent=2))
+ if p.returncode!=expected:raise SystemExit(1)

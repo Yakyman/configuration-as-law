@@ -1,0 +1,21 @@
+#!/bin/bash
+set -euo pipefail
+base="@LAB_ROOT@"
+cd "$base/install/alma"
+for n in {1..12}; do
+  exec {slot}>"$base/slots/slot-$n.lock"
+  if flock -n "$slot"; then break; fi
+  exec {slot}>&-
+  unset slot
+done
+[[ -v slot ]] || exit 75
+start=$(date -u +%FT%TZ)
+printf 'start=%s\n' "$start" > status.txt
+xorriso -osirrox on -indev "$base/images/AlmaLinux-10.3-x86_64-dvd.iso" -extract /images/pxeboot/vmlinuz vmlinuz -extract /images/pxeboot/initrd.img initrd.img >/dev/null 2>&1
+printf 'ks.cfg\n' | cpio -o -H newc >> initrd.img 2>/dev/null
+qemu-img create -f qcow2 base.qcow2 40G >/dev/null 2>&1
+set +e
+timeout --kill-after=10 3300 qemu-system-x86_64 -enable-kvm -cpu host -smp 2 -m 4096 -display none -serial null -monitor none -no-reboot -drive file=base.qcow2,format=qcow2,if=virtio -cdrom "$base/images/AlmaLinux-10.3-x86_64-dvd.iso" -kernel vmlinuz -initrd initrd.img -append 'inst.ks=file:/ks.cfg inst.stage2=hd:sr0 inst.repo=cdrom console=ttyS0 inst.text' -nic user,model=virtio-net-pci >/dev/null 2>&1
+rc=$?
+printf 'installer_exit=%s\nend=%s\n' "$rc" "$(date -u +%FT%TZ)" >> status.txt
+exit "$rc"

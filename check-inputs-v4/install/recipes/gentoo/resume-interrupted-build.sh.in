@@ -1,0 +1,11 @@
+#!/bin/bash
+# Run only after remount.sh at the return to this system.
+# No repository resync before recovering the interrupted build.
+exec >/dev/null 2>&1
+chroot /mnt/gentoo /bin/bash -s <<'CHROOT'
+source /etc/profile || exit 101
+FEATURES=keepwork emerge --resume --getbinpkg=n --usepkg=n || exit 105
+# Ensure every explicitly requested source package is completed if the interrupted
+# operation was the preceding installkernel-only step.
+emerge --getbinpkg=n --usepkg=n sys-kernel/gentoo-kernel sys-boot/grub net-misc/dhcpcd net-misc/openssh app-admin/sudo || exit 104
+CHROOT

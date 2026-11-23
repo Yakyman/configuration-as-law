@@ -1,0 +1,15 @@
+# Void clean installation recipe
+
+Image selection and choices are recorded in `C1/parts/void-release.tsv` and `C1/parts/void-choices.md`. Image verification logs are in `C1/raw/void/`.
+
+The server lab root is `@LAB_ROOT@/`. Copy `dialog` and `install.sh` into `void/seed/`, together with `keys/lab.pub`. Run `start-installer.sh` as a durable user service, then `console-bootstrap.py` as another durable user service. The VM holds slot 5, 4 GiB RAM and 2 vCPU. The bootstrap uses the published live login and starts the script; all console bytes and installer output are sent to `/dev/null`.
+
+The wrapper runs the original image's `void-installer` with a prepared `/tmp/.void-installer.conf`; it does not substitute a manual installation. The shim supplies installation controls only. The disk is formatted by the original installer. Local image packages are selected. The access key, enabled sshd and noninteractive sudo rule are instrument access.
+
+The temporary live system permits the lab key for root only after successful installer completion and access setup. An SSH command `exit 0` to forwarded port 22235 acknowledges completion without retrieving contents. Shut down the live machine, stop its bootstrap service, and make the resulting `void/clean.qcow2` read-only. Register it as `C1/base/void.qcow2` with the shared SSH metadata. Validate a disposable overlay through the shared lab kit using only login and `exit 37`, and destroy the overlay afterward.
+
+The initial start was replaced before installation to use only `console=ttyS0,115200`; the public live serial setup script keys off the console argument. No serial output was inspected. Failure diagnostics remain restricted to exit statuses; a failed preparation must not be reported as ready.
+
+Actual successful run: the instrument sudo rule was renamed from `lab` to `zz-lab` using `access-correction.sh`, then the stopped overlay was flattened into `void/clean-fixed.qcow2`. A fresh clone of that read-only backing passed ordinary and root `exit 37` checks. The corrected `install.sh` now writes `zz-lab` directly.
+
+`install-original.sh` preserves the exact initial installation input. `install.sh` is the corrected repeatable recipe. `access-correction.sh` records the only post-install correction. `status-console.py` collected only the initial script's numerical exit status after the blind bootstrap, discarding all other console bytes.

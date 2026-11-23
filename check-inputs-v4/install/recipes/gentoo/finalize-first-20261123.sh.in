@@ -1,0 +1,30 @@
+#!/bin/bash
+exec >/dev/null 2>&1
+chroot /mnt/gentoo /bin/bash -se <<'CHROOT'
+rm -rf /etc/portage/binrepos.conf
+printf '\nPORTAGE_BINHOST=""\n' >> /etc/portage/make.conf
+fallocate -l 8G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+printf '/swapfile none swap sw 0 0\n' >> /etc/fstab
+ln -sf /usr/share/zoneinfo/UTC /etc/localtime
+echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen
+echo 'LANG="en_US.UTF-8"' > /etc/env.d/02locale
+useradd -m -U -G wheel -s /bin/bash user
+passwd -d user
+mkdir -p /home/user/.ssh
+cat > /home/user/.ssh/authorized_keys <<'KEY'
+@LAB_PUBLIC_KEY@
+KEY
+chown -R user:user /home/user/.ssh
+chmod 700 /home/user/.ssh
+chmod 600 /home/user/.ssh/authorized_keys
+printf 'user ALL=(ALL) NOPASSWD: ALL\n' > /etc/sudoers.d/lab-access
+chmod 440 /etc/sudoers.d/lab-access
+printf '\nPasswordAuthentication no\nPermitEmptyPasswords no\n' >> /etc/ssh/sshd_config
+rc-update add sshd default
+rc-update add dhcpcd default
+grub-install --target=i386-pc /dev/vdb
+grub-mkconfig -o /boot/grub/grub.cfg
+CHROOT

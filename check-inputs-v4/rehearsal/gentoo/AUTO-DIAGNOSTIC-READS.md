@@ -1,0 +1,82 @@
+# Diagnostic reads for query acceptance
+
+The classifier reads only coverage and retained stderr, never query stdout or object/member records. Every diagnostic read and its machine-level disclosure follows.
+
+- `rehearsal/gentoo/diagnostics/fx1/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/gentoo/diagnostics/fx1/0099-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0100-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0101-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0106-firewall-nft.err`: The installed nft binary lacks JSON support; nft JSON rules are not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0109-saved-network.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0110-polkit-action.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0111-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0112-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0113-docker-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0114-docker-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0118-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0119-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0120-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0122-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0123-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0124-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0125-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0126-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0128-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx1/0129-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/gentoo/diagnostics/fx2/0122-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0123-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0124-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0129-firewall-nft.err`: The installed nft binary lacks JSON support; nft JSON rules are not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0132-saved-network.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0133-polkit-action.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0134-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0135-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0141-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0142-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0143-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0145-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0146-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0147-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0148-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0149-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0151-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx2/0152-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/gentoo/diagnostics/fx3/0122-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0123-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0124-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0129-firewall-nft.err`: The installed nft binary lacks JSON support; nft JSON rules are not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0132-saved-network.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0133-polkit-action.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0134-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0135-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0141-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0142-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0143-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0145-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0146-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0147-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0148-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0149-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0151-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx3/0152-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/coverage.tsv`: Query statuses, durations and numerical coverage only.
+- `rehearsal/gentoo/diagnostics/fx4/0122-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0123-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0124-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0129-firewall-nft.err`: The installed nft binary lacks JSON support; nft JSON rules are not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0132-saved-network.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0133-polkit-action.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0134-container.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0135-container-image.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0141-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0142-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0143-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0145-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0146-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0147-user-service.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0148-user-timer.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0149-user-unit-file.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0151-user-containers.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.
+- `rehearsal/gentoo/diagnostics/fx4/0152-user-images.err`: Optional command or interpreter is unavailable; the corresponding interface is not collected.

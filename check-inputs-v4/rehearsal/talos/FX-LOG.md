@@ -1,0 +1,25 @@
+# Talos repair log
+
+2026-11-23 UTC. Before new round 1: expect the host-side redacted active-config query to return a configured image, allowing an explicit reason. Expect block mount resources to succeed; only a readOnly=true squashfs/erofs resource proves image integrity. No readonly evidence is inferred from the product description. Existing bounded file listing should continue yielding L2 rows. No raw inventory will be read.
+
+Documentation checked before changing the collector:
+- https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/pkg/machinery/resources/config/machine_config.go : active ID v1alpha1; spec marshals as YAML text.
+- https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/cmd/talosctl/cmd/talos/output/json.go : the JSON writer preserves the YAML text spec.
+- https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/pkg/machinery/resources/block/mount_status.go : resource spec exposes filesystem, target and readOnly.
+- https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/internal/app/machined/pkg/controllers/runtime/mount_status.go : legacy runtime mount resources are a restricted projection; the controller does not populate Options. Therefore the new query uses the full block resource.
+
+The installed image remains one package-like object and is never expanded. Only regular files already exposed by the bounded namespace listing and covered by a proven readonly image mount enter package-files. No opaque image is relabeled as a file to pass a denominator.
+
+Round 11 completed in 30.691 s, collector and queries zero, transport 20/20, L2 48. Reason 0/1 and packaged-file denominator zero. Coverage showed install-image returned a 15-byte redacted result; no inventory contents were read. Documentation inspection then found the v1.14 UnattendedInstallConfig uses installer.image (not top-level image). Source: https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/pkg/machinery/config/types/runtime/unattended_install.go . Before round 12: expect the corrected nested parser to provide one known reason; retain only aggregate instrument-parser diagnostic counts for readonly-image mapping.
+
+Round 12: reason 1/1, package-files 0. Instrument diagnostic reports one configured-image match and zero proven readonly image mounts. Before round 13: remove an unnecessarily narrow fs-type assumption. The block filesystem enum lacks squashfs/erofs (https://raw.githubusercontent.com/siderolabs/talos/v1.14.0/pkg/machinery/resources/block/filesystemtype.go). A readOnly=true mount of `/` itself is sufficient root-image evidence independent of its filesystem encoding; nested mount boundaries must be respected. Expect reason remains known; integrity is known only if this broader genuine evidence exists.
+
+Round 13 completed in 46.058 s, reason 1/1, package-files 0, all queries zero. The final repair changes the lookup to join the actual root mount source with Disks.block.talos.dev dev_path and readonly=true. Source: https://raw.githubusercontent.com/siderolabs/talos/v1.14.6/internal/app/machined/pkg/controllers/block/disks.go fills readonly from the block-device IsReadOnly ioctl. Resource schema: https://raw.githubusercontent.com/siderolabs/talos/v1.14.6/pkg/machinery/resources/block/disk.go . An overlay root does not pass solely because a backing disk is readonly.
+
+The API-exposed installed /usr namespace is now listed within the existing depth/count/time caps for packaged-file facts, retaining one installed-image package. This is an installed namespace listing authorized by collector requirements B/D, not extraction of a stored image or container artifact. Actual container stores, snapshots, pseudo-filesystems and symlinks remain opaque. Reported child mount targets conservatively exclude files from readonly attribution.
+
+Public boot source, https://raw.githubusercontent.com/siderolabs/talos/v1.14.6/internal/app/init/main.go , and mount/v3/helpers.go always construct the boot root readonly. That version-specific design is not substituted for actual root mount/backing evidence. The mounts API/CLI omits flags and zero-sized/file mounts: this is an explicit coverage limitation.
+
+Before round 14: expect collector and transport zero, reason 1/1 and observed /usr packaged-file rows. Integrity succeeds only if the API connects the actual root mount to a readonly block device or reports a readonly root mount directly. A missing relationship stays unknown. Offline synthetic fixtures in fixture.json confirm a readonly direct root succeeds, an overlay does not, child mounts mask attribution, and ordinary mutable files are never attributed to the image. Fixtures make no machine calls.
+
+Final round14 completed: collector0 in10.296s, all queries0, transport20/20, L2 rows53, reason1/1, packaged files95 with integrity0/95. Whole run42.599s. The final numeric diagnostic confirms the actual readonly-root join did not establish evidence. Destroy0. Four new rounds are complete; no fifth round is run and no unknown fact is changed to pass the threshold.

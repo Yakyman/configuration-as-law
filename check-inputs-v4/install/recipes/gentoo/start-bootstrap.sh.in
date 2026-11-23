@@ -1,0 +1,14 @@
+#!/bin/bash
+# Run from @LAB_ROOT@ on the host after stopping the previous bootstrap.
+set -euo pipefail
+labroot=$PWD
+systemd-run --user --unit=cal1123-gentoo-bootstrap --property=StandardOutput=null --property=StandardError=null \
+  flock -n "$labroot/slots/slot-1.lock" \
+  flock -n "$labroot/slots/slot-2.lock" \
+  flock -n "$labroot/slots/slot-3.lock" \
+  flock -n "$labroot/slots/slot-4.lock" \
+  qemu-system-x86_64 -enable-kvm -m 16384 -smp 8 -display none -serial null -monitor none \
+  -drive "file=$labroot/gentoo/bootstrap.qcow2,if=virtio" \
+  -drive "file=$labroot/gentoo/target.qcow2,if=virtio" \
+  -drive "file=$labroot/gentoo/seed.iso,media=cdrom" \
+  -netdev user,id=n,hostfwd=tcp:127.0.0.1:23001-:22 -device virtio-net-pci,netdev=n
