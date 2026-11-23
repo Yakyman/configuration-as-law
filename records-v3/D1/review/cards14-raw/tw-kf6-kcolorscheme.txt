@@ -1,0 +1,17 @@
+Source: https://api.opensuse.org/public/source/openSUSE:Factory/kf6-kcolorscheme/kf6-kcolorscheme.spec
+%files
+%{_kf6_debugdir}/kcolorscheme.categories
+
+%files -n libKF6ColorScheme6
+%license LICENSES/*
+%doc README.md
+%{_kf6_libdir}/libKF6ColorScheme.so.*
+
+%files devel
+%{_kf6_cmakedir}/KF6ColorScheme/
+%{_kf6_includedir}/KColorScheme/
+%{_kf6_libdir}/libKF6ColorScheme.so
+
+%files -n libKF6ColorScheme6-lang -f kcolorscheme6.lang
+
+%changelog

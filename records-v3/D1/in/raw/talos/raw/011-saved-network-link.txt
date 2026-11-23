@@ -1,0 +1,323 @@
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "bond0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "bondMaster": {
+            "adLacpActive": "on",
+            "arpAllTargets": "any",
+            "arpValidate": "none",
+            "failOverMac": "none",
+            "lacpRate": "slow",
+            "lpInterval": 1,
+            "missedMax": 2,
+            "mode": "balance-rr",
+            "numPeerNotif": 1,
+            "packetsPerSlave": 1,
+            "primaryReselect": "always",
+            "resendIgmp": 1,
+            "tlbLogicalLb": 1,
+            "useCarrier": true,
+            "xmitHashPolicy": "layer2"
+        },
+        "broadcastAddr": "<MAC>",
+        "driver": "bonding",
+        "driverVersion": "6.18.63-talos",
+        "duplex": "Unknown",
+        "firmwareVersion": "2",
+        "flags": "BROADCAST,MASTER,MULTICAST",
+        "hardwareAddr": "<MAC>",
+        "index": 2,
+        "kind": "bond",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1500,
+        "operationalState": "down",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "speedMbit": 4294967295,
+        "type": "ether"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "dummy0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "<MAC>",
+        "driver": "dummy",
+        "driverVersion": "6.18.63-talos",
+        "duplex": "Unknown",
+        "flags": "BROADCAST,NOARP",
+        "hardwareAddr": "<MAC>",
+        "index": 3,
+        "kind": "dummy",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1500,
+        "operationalState": "down",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "type": "ether"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "ens3",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "altNames": [
+            "enp0s3",
+            "enx525400ca1001"
+        ],
+        "broadcastAddr": "<MAC>",
+        "busPath": "0000:00:03.0",
+        "driver": "virtio_net",
+        "driverVersion": "1.0.0",
+        "duplex": "Unknown",
+        "flags": "UP,BROADCAST,RUNNING,MULTICAST,LOWER_UP",
+        "hardwareAddr": "<MAC>",
+        "index": 8,
+        "kind": "",
+        "linkIndex": 0,
+        "linkState": true,
+        "mtu": 1500,
+        "operationalState": "up",
+        "permanentAddr": "<MAC>",
+        "port": "Other",
+        "product": "Virtio network device",
+        "productID": "0x1000",
+        "queueDisc": "pfifo_fast",
+        "slaveKind": "",
+        "speedMbit": 4294967295,
+        "type": "ether",
+        "vendor": "Red Hat, Inc.",
+        "vendorID": "0x1af4"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "ens4",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "altNames": [
+            "enp0s4",
+            "enx525400ca1002"
+        ],
+        "broadcastAddr": "<MAC>",
+        "busPath": "0000:00:04.0",
+        "driver": "virtio_net",
+        "driverVersion": "1.0.0",
+        "duplex": "Unknown",
+        "flags": "UP,BROADCAST,RUNNING,MULTICAST,LOWER_UP",
+        "hardwareAddr": "<MAC>",
+        "index": 9,
+        "kind": "",
+        "linkIndex": 0,
+        "linkState": true,
+        "mtu": 1500,
+        "operationalState": "up",
+        "permanentAddr": "<MAC>",
+        "port": "Other",
+        "product": "Virtio network device",
+        "productID": "0x1000",
+        "queueDisc": "pfifo_fast",
+        "slaveKind": "",
+        "speedMbit": 4294967295,
+        "type": "ether",
+        "vendor": "Red Hat, Inc.",
+        "vendorID": "0x1af4"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "ip6tnl0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "<MAC>",
+        "driver": "ip6tnl",
+        "driverVersion": "6.18.63-talos",
+        "duplex": "Unknown",
+        "flags": "NOARP",
+        "hardwareAddr": "<MAC>",
+        "index": 7,
+        "kind": "ip6tnl",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1452,
+        "operationalState": "down",
+        "permanentAddr": "<MAC>",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "type": "tunnel6"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "lo",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "<MAC>",
+        "duplex": "Unknown",
+        "flags": "UP,LOOPBACK,RUNNING,LOWER_UP",
+        "hardwareAddr": "<MAC>",
+        "index": 1,
+        "kind": "",
+        "linkIndex": 0,
+        "linkState": true,
+        "mtu": 65536,
+        "operationalState": "unknown",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noqueue",
+        "slaveKind": "",
+        "type": "loopback"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "sit0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "<MAC>",
+        "driver": "sit",
+        "driverVersion": "6.18.63-talos",
+        "duplex": "Unknown",
+        "flags": "NOARP",
+        "hardwareAddr": "<MAC>",
+        "index": 6,
+        "kind": "sit",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1480,
+        "operationalState": "down",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "type": "sit"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "teql0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "",
+        "duplex": "Unknown",
+        "flags": "NOARP",
+        "hardwareAddr": "",
+        "index": 4,
+        "kind": "",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1500,
+        "operationalState": "down",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "type": "void"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "tunl0",
+        "namespace": "network",
+        "owner": "network.LinkStatusController",
+        "phase": "running",
+        "type": "LinkStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "broadcastAddr": "<MAC>",
+        "driver": "ipip",
+        "driverVersion": "6.18.63-talos",
+        "duplex": "Unknown",
+        "flags": "NOARP",
+        "hardwareAddr": "<MAC>",
+        "index": 5,
+        "kind": "ipip",
+        "linkIndex": 0,
+        "linkState": false,
+        "mtu": 1480,
+        "operationalState": "down",
+        "permanentAddr": "",
+        "port": "Other",
+        "queueDisc": "noop",
+        "slaveKind": "",
+        "type": "ipip"
+    }
+}

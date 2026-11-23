@@ -1,0 +1,16 @@
+# FX-A3R-H-2 — correction record
+
+Date: 2026-11-22 UTC. Updated result: [RESULT.md](RESULT.md). New outputs: [fix-a3r-h-2/](fix-a3r-h-2). The previous result is preserved as [RESULT.before.md](fix-a3r-h-2/RESULT.before.md).
+
+| Finding | Disposition | Correction and evidence |
+|---|---|---|
+| 1. Card 9 omits user-instance helper markers | **Fixed** | The exact installed-version source defines both enabled-state roots, switches to the user root for user units, and uses the same marker check/touch branch for both. [Numbered source excerpts](fix-a3r-h-2/raw/helper-source.txt), original lines 100–110, 354–375 and 576–580. The corrected scan covers both roots and all 5,212 table rows. [Witnesses](fix-a3r-h-2/helper-witnesses.tsv): 56 system and 11 user markers. [Five added memberships](fix-a3r-h-2/added-memberships.tsv) exactly match the review's IDs; no memberships were removed. Card 9: **26 rows**; all three cards: **142 distinct rows**. [Full search](fix-a3r-h-2/helper-search.tsv), [ledger](fix-a3r-h-2/code_extent.tsv), [counts](fix-a3r-h-2/counts.json). |
+| 2. S2.5-1 grouped with sentences supporting refutations | **Fixed** | The introductory paragraph under “Cards that did not survive” now explicitly says S2.5-1 is quoted only to explain why these cards are not OUTSIDE. It supplies neither a recording exemption nor a refutation. The exact quotation remains unchanged. |
+
+Both findings are supported; none is rejected. The extra user markers satisfy the existing card-9 facts: a stored past enable action also governs subsequent service-link creation. The source supplies no difference that would remove the existing S2.2-6/S2.2-1 collision for user instances. The result remains **3 confirmed holes**, with **no published-check outcome**. No text, failure condition, rule, case selection or hole disposition has changed.
+
+Only card 9's membership search and derived extent totals were rerun, by [recount.py](fix-a3r-h-2/recount.py), with [saved output](fix-a3r-h-2/raw/recount.txt). Cards 1 and 7 are preserved field-for-field from round 1. Sample IDs, seeds, dispositions and audit files remain unchanged; no sample draw, classification, VM, build or removal experiment was repeated. The source and saved inventory answer the factual question without a probe. The `.dsh-also` lists remain excluded from the marker witnesses; the directory groups qualify through their actual marker-bearing members.
+
+Validation: `/usr/bin/python3 -I bin/check_quotes.py A3R/RESULT.md` passes, **14 quotations checked, 0 missing**, [saved output](fix-a3r-h-2/raw/quote-check.txt). The recount verifies **1,066 frozen-file digests**, covering the prior baseline, round-1 outputs, review findings and governing text. [Baseline manifest](fix-a3r-h-2/frozen-inputs.sha256.json). The source excerpt adds the previously missing user-instance constant and preserves its original line numbers.
+
+Independent acceptance: **ACCEPT**, [review record](fix-a3r-h-2/independent-review.md). The review independently checks both findings, the 67 marker witnesses, all 5,212 rows, the five additions, the 26/142 totals, unchanged cards and frozen files, and exact quotations. [Final validation](fix-a3r-h-2/raw/validation.json); [result diff](fix-a3r-h-2/raw/result.diff).

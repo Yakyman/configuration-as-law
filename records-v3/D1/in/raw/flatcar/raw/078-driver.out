@@ -1,0 +1,29 @@
+/sys/devices/pnp0/00:05/driver	../../../bus/pnp/drivers/rtc_cmos
+/sys/devices/pnp0/00:05/rtc/rtc0/alarmtimer.0.auto/driver	../../../../../../bus/platform/drivers/alarmtimer
+/sys/devices/pnp0/00:01/driver	../../../bus/pnp/drivers/i8042 aux
+/sys/devices/pnp0/00:04/00:04:0/driver	../../../../bus/serial-base/drivers/ctrl
+/sys/devices/pnp0/00:04/00:04:0/00:04:0.0/driver	../../../../../bus/serial-base/drivers/port
+/sys/devices/pnp0/00:04/driver	../../../bus/pnp/drivers/serial
+/sys/devices/pnp0/00:00/driver	../../../bus/pnp/drivers/i8042 kbd
+/sys/devices/platform/reg-dummy/driver	../../../bus/platform/drivers/reg-dummy
+/sys/devices/platform/serial8250/serial8250:0/serial8250:0.3/driver	../../../../../bus/serial-base/drivers/port
+/sys/devices/platform/serial8250/serial8250:0/serial8250:0.1/driver	../../../../../bus/serial-base/drivers/port
+/sys/devices/platform/serial8250/serial8250:0/driver	../../../../bus/serial-base/drivers/ctrl
+/sys/devices/platform/serial8250/serial8250:0/serial8250:0.2/driver	../../../../../bus/serial-base/drivers/port
+/sys/devices/platform/serial8250/driver	../../../bus/platform/drivers/serial8250
+/sys/devices/platform/i8042/serio0/driver	../../../../bus/serio/drivers/atkbd
+/sys/devices/platform/i8042/driver	../../../bus/platform/drivers/i8042
+/sys/devices/platform/i8042/serio1/driver	../../../../bus/serio/drivers/psmouse
+/sys/devices/pci0000:00/0000:00:04.0/virtio1/driver	../../../../bus/virtio/drivers/virtio_net
+/sys/devices/pci0000:00/0000:00:04.0/driver	../../../bus/pci/drivers/virtio-pci
+/sys/devices/pci0000:00/0000:00:01.3/driver	../../../bus/pci/drivers/piix4_smbus
+/sys/devices/pci0000:00/0000:00:03.0/driver	../../../bus/pci/drivers/virtio-pci
+/sys/devices/pci0000:00/0000:00:03.0/virtio0/driver	../../../../bus/virtio/drivers/virtio_net
+/sys/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0/driver	../../../../../../../bus/scsi/drivers/sr
+/sys/devices/pci0000:00/0000:00:01.1/driver	../../../bus/pci/drivers/ata_piix
+/sys/devices/pci0000:00/0000:00:05.0/virtio2/driver	../../../../bus/virtio/drivers/virtio_blk
+/sys/devices/pci0000:00/0000:00:05.0/driver	../../../bus/pci/drivers/virtio-pci
+/sys/devices/pci0000:00/QEMU0002:00/driver	../../../bus/platform/drivers/fw_cfg
+/sys/devices/system/cpu/cpu1/driver	../../../../bus/cpu/drivers/processor
+/sys/devices/system/cpu/cpu0/driver	../../../../bus/cpu/drivers/processor
+/sys/devices/LNXSYSTM:00/LNXPWRBN:00/driver	../../../bus/acpi/drivers/button

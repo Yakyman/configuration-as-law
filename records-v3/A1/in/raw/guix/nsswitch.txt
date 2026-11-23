@@ -1,0 +1,5 @@
+group:	files
+hosts:	files mdns_minimal [NOTFOUND=return] dns mdns
+networks:	files dns [!UNAVAIL=return]
+passwd:	files
+shadow:	files

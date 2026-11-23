@@ -1,0 +1,359 @@
+Source: https://sources.debian.org/data/main/i/init-system-helpers/1.69~deb13u1/script/deb-systemd-helper
+Retrieved 2026-11-22 UTC; selected implementation lines only.
+152: 
+153: sub find_unit {
+166:     return $service_path;
+167: }
+168: 
+169: sub dsh_state_path {
+170:     my ($scriptname) = @_;
+171:     return $enabled_state_dir . '/' . basename($scriptname) . '.dsh-also';
+172: }
+173: 
+174: sub state_file_entries {
+175:     my ($dsh_state) = @_;
+176:     debug "Reading state file $dsh_state";
+177:     my @entries;
+178:     if (open(my $fh, '<', $dsh_state)) {
+179:         @entries = map { chomp; "$dpkg_root$_" } <$fh>;
+180:         close($fh);
+181:     }
+182:     return @entries;
+183: }
+184: 
+185: # Writes $service_link into $dsh_state unless it’s already in there.
+186: sub record_in_statefile {
+187:     my ($dsh_state, $service_link) = @_;
+188: 
+189:     assertdpkgroot($dsh_state, "record_in_statefile");
+190:     assertnotdpkgroot($service_link, "record_in_statefile");
+191: 
+192:     # Appending a newline makes the following code simpler; we can skip
+193:     # chomp()ing and appending newlines in every print.
+194:     $service_link .= "\n";
+195: 
+196:     make_path(dirname($dsh_state));
+197:     my $line_exists;
+198:     my ($outfh, $tmpname) = tempfile('.stateXXXXX',
+199:         DIR => dirname($dsh_state),
+200:         SUFFIX => '.tmp',
+201:         UNLINK => 0);
+202:     chmod(0644, $tmpname);
+203:     if (-e $dsh_state) {
+204:         open(my $infh, '<', $dsh_state) or error("unable to read from $dsh_state");
+205:         while (<$infh>) {
+206:             $line_exists = 1 if $_ eq $service_link;
+207:             print $outfh $_;
+208:         }
+209:         close($infh);
+210:     }
+211:     print $outfh $service_link unless $line_exists;
+212:     close($outfh) or error("unable to close $tmpname");
+213: 
+214:     debug "Renaming temp file $tmpname to state file $dsh_state";
+215:     rename($tmpname, $dsh_state) or
+216:         error("Unable to move $tmpname to $dsh_state");
+217: }
+218: 
+219: # Gets the transitive closure of links, i.e. all links that need to be created
+220: # when enabling this service file. Not straight-forward because service files
+221: # can refer to other service files using Also=.
+222: sub get_link_closure {
+223:     my ($scriptname, $service_path, @visited) = @_;
+224:     assertnotdpkgroot($service_path, "get_link_closure");
+225: 
+226:     my @links;
+227:     my @wants_dirs;
+228: 
+229:     my $unit_name = basename($service_path);
+230:     my $wanted_target = $unit_name;
+231: 
+232:     # The keys parsed from the unit file below can only have unit names
+233:     # as values. Since unit names can't have whitespace in systemd,
+234:     # simply use split and strip any leading/trailing quotes. See
+235:     # systemd-escape(1) for examples of valid unit names.
+236:     open my $fh, '<', "$dpkg_root$service_path" or error("unable to read $dpkg_root$service_path");
+237:     while (my $line = <$fh>) {
+238:         chomp($line);
+239:         my $service_link;
+240: 
+241:         if ($line =~ /^\s*(WantedBy|RequiredBy)=(.+)$/i) {
+242:             for my $value (split(/\s+/, $2)) {
+243:                 $value =~ s/^(["'])(.*)\g1$/$2/;
+244:                 my $wants_dir = "/etc/systemd/$instance/$value";
+245:                 $wants_dir .= '.wants' if $1 eq 'WantedBy';
+246:                 $wants_dir .= '.requires' if $1 eq 'RequiredBy';
+247:                 push @wants_dirs, "$wants_dir/";
+248:             }
+249:         }
+250: 
+251:         if ($line =~ /^\s*Also=(.+)$/i) {
+252:             for my $value (split(/\s+/, $1)) {
+253:                 $value =~ s/^(["'])(.*)\g1$/$2/;
+254:                 if ($value ne $unit_name and not grep $_ eq $value, @visited) {
+255:                     # We can end up in an infinite recursion, so remember what units we
+256:                     # already processed to break it
+257:                     push @visited, $value;
+258:                     push @links, get_link_closure($value, find_unit($value), @visited);
+259:                 }
+260:             }
+261:         }
+262: 
+263:         if ($line =~ /^\s*Alias=(.+)$/i) {
+264:             for my $value (split(/\s+/, $1)) {
+265:                 $value =~ s/^(["'])(.*)\g1$/$2/;
+266:                 if ($value ne $unit_name) {
+305:     my @existing_links = grep { -l "$dpkg_root$_->{src}" } @links;
+306: 
+307:     return (@existing_links == 0);
+308: }
+309: 
+310: sub enable {
+311:     my ($scriptname, $service_path) = @_;
+312:     if ($has_systemctl) {
+313:         # We use 'systemctl preset' on the initial installation only.
+314:         # On upgrade, we manually add the missing symlinks only if the
+315:         # service already has some links installed. Using 'systemctl
+316:         # preset' allows administrators and downstreams to alter the
+317:         # enable policy using systemd-native tools.
+318:         my $create_links = 0;
+319:         if (debian_installed($scriptname)) {
+320:             $create_links = 1 unless no_link_installed($scriptname, $service_path);
+321:         } else {
+322:             debug "Using systemctl preset to enable $scriptname";
+323:             my $systemd_root = '/';
+324:             if ($dpkg_root ne '') {
+325:                 $systemd_root = $dpkg_root;
+326:             }
+327:             system("systemctl",
+328:                    "--root=$systemd_root",
+329:                    $instance eq "user" ? "--global" : "--system",
+330:                    "--preset-mode=enable-only",
+331:                    "preset", $scriptname) == 0
+332:                 or error("systemctl preset failed on $scriptname: $!");
+333:         }
+334:         make_systemd_links($scriptname, $service_path, create_links => $create_links);
+335:     } else {
+336:         # We create all the symlinks ourselves
+337:         make_systemd_links($scriptname, $service_path);
+338:     }
+339: }
+340: 
+341: sub make_systemd_links {
+342:     my ($scriptname, $service_path, %opts) = @_;
+343:     $opts{'create_links'} //= 1;
+344: 
+345:     my $dsh_state = dsh_state_path($scriptname);
+346: 
+347:     my @links = get_link_closure($scriptname, $service_path);
+348:     for my $link (@links) {
+349:         my $service_path = $link->{dest};
+350:         my $service_link = $link->{src};
+351: 
+352:         record_in_statefile($dsh_state, $service_link);
+353: 
+354:         my $statefile = $service_link;
+355:         $statefile =~ s,^/etc/systemd/$instance/,$enabled_state_dir/,;
+356:         $service_link = "$dpkg_root$service_link";
+357:         assertdpkgroot($statefile, "make_systemd_links");
+358:         assertdpkgroot($service_link, "make_systemd_links");
+359:         assertnotdpkgroot($service_path, "make_systemd_links");
+360:         next if -e $statefile;
+361: 
+362:         if ($opts{'create_links'} && ! -l $service_link) {
+363:             make_path(dirname($service_link));
+364:             symlink($service_path, $service_link) or
+365:                 error("unable to link $service_link to $service_path: $!");
+366:             $changed_sth = 1;
+367:         }
+368: 
+369:         # Store the fact that we ran enable for this service_path,
+370:         # so that we can skip enable the next time.
+371:         # This allows us to call deb-systemd-helper unconditionally
+372:         # and still only enable unit files on the initial installation
+373:         # of a package.
+374:         make_path(dirname($statefile));
+375:         open(my $fh, '>>', $statefile) or error("Failed to create/touch $statefile");
+376:         close($fh) or error("Failed to create/touch $statefile");
+377:     }
+378: 
+379: }
+380: 
+381: # In contrary to make_systemd_links(), which only modifies the state file in an
+382: # append-only fashion, update_state() can also remove entries from the state
+383: # file.
+384: #
+385: # The distinction is important because update_state() should only be called
+386: # when the unit file(s) are guaranteed to be on-disk, e.g. on package updates,
+387: # but not on package removals.
+388: sub update_state {
+389:     my ($scriptname, $service_path) = @_;
+390: 
+391:     my $dsh_state = dsh_state_path($scriptname);
+392:     my @links = get_link_closure($scriptname, $service_path);
+393:     assertdpkgroot($dsh_state, "update_state");
+394: 
+395:     debug "Old state file contents: " .
+396:         Data::Dumper::Dumper([ state_file_entries($dsh_state) ]);
+397: 
+398:     make_path(dirname($dsh_state));
+399:     my ($outfh, $tmpname) = tempfile('.stateXXXXX',
+400:         DIR => dirname($dsh_state),
+401:         SUFFIX => '.tmp',
+402:         UNLINK => 0);
+403:     chmod(0644, $tmpname);
+404:     for my $link (@links) {
+405:         assertnotdpkgroot($link->{src}, "update_state");
+406:         print $outfh $link->{src} . "\n";
+407:     }
+408:     close($outfh) or error("Failed to close $tmpname");
+409: 
+410:     debug "Renaming temp file $tmpname to state file $dsh_state";
+411:     rename($tmpname, $dsh_state) or
+412:         error("Unable to move $tmpname to $dsh_state");
+413: 
+414:     debug "New state file contents: " .
+415:         Data::Dumper::Dumper([ state_file_entries($dsh_state) ]);
+416: }
+417: 
+418: sub was_enabled {
+419:     my ($scriptname) = @_;
+420: 
+421:     my @entries = state_file_entries(dsh_state_path($scriptname));
+422:     debug "Contents: " . Data::Dumper::Dumper(\@entries);
+423: 
+424:     for my $link (@entries) {
+425:         assertdpkgroot($link, "was_enabled");
+426:         if (! -l $link) {
+427:             debug "Link $link is missing, considering $scriptname was-disabled.";
+428:             return 0;
+429:         }
+430:     }
+431: 
+432:     debug "All links present, considering $scriptname was-enabled.";
+433:     return 1;
+434: }
+435: 
+436: sub debian_installed {
+437:     my ($scriptname) = @_;
+438:     return -f dsh_state_path($scriptname);
+439: }
+440: 
+441: sub remove_links {
+442:     my ($service_path) = @_;
+443: 
+444:     my $dsh_state = dsh_state_path($service_path);
+445:     my @entries = state_file_entries($dsh_state);
+446:     debug "Contents: " . Data::Dumper::Dumper(\@entries);
+447:     assertdpkgroot($dsh_state, "remove_links");
+448:     assertnotdpkgroot($service_path, "remove_links");
+449: 
+450:     if (is_purge()) {
+451:         unlink($dsh_state) if -e $dsh_state;
+452:     }
+453: 
+454:     # Also disable all the units which were enabled when this one was enabled.
+455:     for my $link (@entries) {
+456:         # Delete the corresponding state file:
+457:         # • Always when purging
+458:         # • If the user did not disable (= link still exists) the service.
+459:         #   If we don’t do this, the link will be deleted a few lines down,
+460:         #   but not re-created when re-installing the package.
+461:         assertdpkgroot($link, "remove_links");
+462:         if (is_purge() || -l $link) {
+463:             my $link_state = $link;
+464:             $link_state =~ s,^\Q$dpkg_root\E/etc/systemd/$instance/,$enabled_state_dir/,;
+465:             unlink($link_state);
+466:         }
+467: 
+468:         next unless -l $link;
+469:         unlink($link) or
+470:             print STDERR "$0: unable to remove '$link': $!\n";
+471: 
+472:         $changed_sth = 1;
+473:     }
+474: 
+475:     # Read $service_path, recurse for all Also= units.
+476:     # This might not work when $service_path was already deleted,
+477:     # i.e. after apt-get remove. In this case we just return
+478:     # silently in order to not confuse the user about whether
+479:     # disabling actually worked or not — the case is handled by
+480:     # dh_installsystemd generating an appropriate disable
+481:     # command by parsing the service file at debhelper-time.
+482:     open(my $fh, '<', "$dpkg_root$service_path") or return;
+483:     while (my $line = <$fh>) {
+484:         chomp($line);
+485:         my $service_link;
+486: 
+487:         if ($line =~ /^\s*Also=(.+)$/i) {
+488:             remove_links(find_unit($1));
+489:         }
+490:     }
+491:     close($fh);
+492: }
+493: 
+494: # Recursively deletes a directory structure, if all (!) components are empty,
+495: # e.g. to clean up after purging.
+496: sub rmdir_if_empty {
+497:     my ($dir) = @_;
+498: 
+499:     debug "rmdir_if_empty $dir";
+500: 
+501:     rmdir_if_empty($_) for (grep { -d } <$dir/*>);
+502: 
+503:     if (!rmdir($dir)) {
+504:         debug "rmdir($dir) failed ($!)";
+505:     }
+506: }
+507: 
+508: sub mask_service {
+573:     "system" => sub { $instance = 'system'; }, # default
+574: );
+575: 
+576: if ($instance eq 'user') {
+577:     debug "is user unit = yes";
+578:     $enabled_state_dir = $dpkg_root . USER_INSTANCE_ENABLED_STATE_DIR;
+579:     $masked_state_dir = $dpkg_root . USER_INSTANCE_MASKED_STATE_DIR;
+580: }
+581: 
+582: my $action = shift;
+583: if (!defined($action)) {
+584:     # Called without arguments. Explain that this script should not be run interactively.
+585:     print "$0 is a program which should be called by dpkg maintscripts only.\n";
+586:     print "Please do not run it interactively, ever. Also see the manpage deb-systemd-helper(1).\n";
+587:     exit 0;
+588: }
+589: 
+590: if (!$ENV{DPKG_MAINTSCRIPT_PACKAGE}) {
+591:     print STDERR "$0 was not called from dpkg. Exiting.\n";
+592:     exit 1;
+593: }
+594: 
+595: if ($action eq 'purge') {
+596:     $ENV{_DEB_SYSTEMD_HELPER_PURGE} = 1;
+597:     $action = 'disable';
+598: }
+599: 
+600: debug "is purge = " . (is_purge() ? "yes" : "no");
+601: 
+602: my $rc = 0;
+603: if ($action eq 'is-enabled' ||
+604:     $action eq 'was-enabled' ||
+605:     $action eq 'debian-installed') {
+606:     $rc = 1;
+607: }
+608: for my $scriptname (@ARGV) {
+609:     my $service_path = find_unit($scriptname);
+610: 
+611:     debug "action = $action, scriptname = $scriptname, service_path = $service_path";
+612: 
+613:     if ($action eq 'is-enabled') {
+614:         my $enabled = all_links_installed($scriptname, $service_path);
+615:         print STDERR ($enabled ? "enabled\n" : "disabled\n") unless $quiet;
+616:         $rc = 0 if $enabled;
+617:     }
+618: 
+619:     # was-enabled is the same as is-enabled, but only considers links recorded
+620:     # in the state file. This is useful after package upgrades, to determine
+621:     # whether the unit file was enabled before upgrading, even if the unit file
+622:     # has changed and is not entirely enabled currently (due to a new Alias=

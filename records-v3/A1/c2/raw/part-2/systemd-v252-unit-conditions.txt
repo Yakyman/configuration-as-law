@@ -1,0 +1,20 @@
+curl: (56) Recv failure: Connection reset by peer
+MISS initrd-parse-etc.service.in
+curl: (56) Recv failure: Connection reset by peer
+MISS initrd-switch-root.service
+curl: (56) Recv failure: Connection reset by peer
+MISS initrd-udevadm-cleanup-db.service
+curl: (56) Recv failure: Connection reset by peer
+MISS systemd-pcrphase.service.in
+curl: (56) Recv failure: Connection reset by peer
+MISS systemd-pcrphase-sysinit.service.in
+curl: (56) Recv failure: Connection reset by peer
+MISS first-boot-complete.target
+curl: (56) Recv failure: Connection reset by peer
+MISS systemd-firstboot.service
+curl: (56) Recv failure: Connection reset by peer
+MISS systemd-repart.service.in
+curl: (56) Recv failure: Connection reset by peer
+MISS systemd-sysext.service
+systemd-pcrphase-initrd.service.in:ConditionSecurity=tpm2
+systemd-pcrphase-initrd.service.in:ConditionPathExists=/sys/firmware/efi/efivars/StubPcrKernelImage-<REDACTED>

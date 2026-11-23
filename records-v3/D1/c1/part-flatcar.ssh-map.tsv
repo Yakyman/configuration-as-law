@@ -1,0 +1,94 @@
+key	class	what
+port	port	Sets the SSH listening port.
+AddressFamily	port	Selects address families for SSH listeners.
+listenaddress	port	Sets the SSH listening address.
+UsePAM	auth	Enables PAM authentication and account/session processing.
+PAMServiceName	auth	Selects the PAM policy used for SSH logins.
+LoginGraceTime	internal	Sets the SSH authentication timeout.
+X11DisplayOffset	internal	Sets the initial display number for SSH X11 forwarding.
+MaxAuthTries	internal	Limits SSH authentication attempts per connection.
+MaxSessions	session	Limits simultaneous shell, login, or subsystem sessions.
+ClientAliveInterval	internal	Sets the SSH client liveness probe interval.
+ClientAliveCountMax	internal	Limits unanswered SSH client liveness probes.
+RequiredRSASize	internal	Sets the minimum accepted SSH RSA key size.
+StreamLocalBindMask	port	Sets access permissions on forwarded Unix sockets.
+UnusedConnectionTimeout	internal	Sets the timeout for SSH connections without channels.
+PermitRootLogin	password	Controls permitted methods for superuser login.
+IgnoreRhosts	auth	Controls whether hostbased login trusts user rhosts files.
+IgnoreUserKnownHosts	auth	Controls hostbased login use of user known-hosts files.
+HostbasedAuthentication	auth	Enables or disables hostbased account authentication.
+HostbasedUsesNameFromPacketOnly	internal	Selects hostname handling for SSH hostbased authentication.
+PubkeyAuthentication	auth	Enables or disables public-key account authentication.
+KerberosAuthentication	auth	Enables or disables Kerberos account authentication.
+KerberosOrLocalPasswd	password	Allows local-password fallback after Kerberos authentication failure.
+KerberosTicketCleanup	session	Controls cleanup of the user's Kerberos ticket cache.
+GSSAPIAuthentication	auth	Enables or disables GSSAPI account authentication.
+GSSAPICleanupCredentials	session	Controls cleanup of delegated credentials after session termination.
+GSSAPIDelegateCredentials	session	Controls delegation of credentials to the login session.
+GSSAPIStrictAcceptorCheck	internal	Restricts GSSAPI acceptor identity checks.
+PasswordAuthentication	password	Controls whether password login is allowed.
+KbdInteractiveAuthentication	auth	Enables or disables keyboard-interactive account authentication.
+PrintMotd	internal	Controls display of the login message.
+PrintLastLog	internal	Controls display of the previous login time.
+X11Forwarding	forward	Controls forwarding of X11 application connections.
+X11UseLocalhost	port	Controls whether X11 forwarding listeners bind only loopback.
+PermitTTY	session	Controls allocation of a pseudo-terminal for the login session.
+PermitUserRC	launch	Controls execution of the user's SSH startup script.
+StrictModes	auth	Checks account files and directory permissions before accepting login.
+TCPKeepAlive	internal	Controls TCP keepalive messages on SSH connections.
+PermitEmptyPasswords	password	Controls whether empty-password account login is allowed.
+Compression	internal	Controls SSH connection compression.
+GatewayPorts	port	Controls externally accessible bindings for remote forwarding listeners.
+UseDNS	internal	Controls reverse DNS lookup and verification of SSH client addresses.
+AllowTcpForwarding	forward	Controls TCP connection forwarding through SSH.
+AllowAgentForwarding	forward	Controls forwarding to an authentication agent.
+DisableForwarding	forward	Controls whether SSH forwarding features are disabled.
+AllowStreamLocalForwarding	forward	Controls forwarding of Unix-domain socket connections.
+StreamLocalBindUnlink	port	Controls unlinking existing socket paths before binding forwarded listeners.
+FingerprintHash	internal	Selects the hash displayed for SSH key fingerprints.
+ExposeAuthInfo	session	Controls exposure of authentication information to the login session.
+RefuseConnection	auth	Controls unconditional rejection of SSH connections.
+PidFile	integration	Selects the file exposing the SSH server process identifier.
+ModuliFile	internal	Selects SSH Diffie-Hellman group parameters.
+XAuthLocation	launch	Selects the external X11 authentication helper.
+Ciphers	internal	Selects permitted SSH encryption algorithms.
+Macs	internal	Selects permitted SSH message authentication algorithms.
+Banner	internal	Selects the SSH authentication banner.
+ForceCommand	launch	Controls forced execution of a command for SSH sessions.
+ChrootDirectory	session	Controls the filesystem root visible to login session processes.
+TrustedUserCAKeys	auth	Selects certificate authorities trusted for account login.
+SecurityKeyProvider	internal	Selects the SSH security-key provider interface.
+AuthorizedPrincipalsFile	auth	Selects certificate principals permitted to log into an account.
+VersionAddendum	internal	Sets additional text in the SSH version identification.
+AuthorizedKeysCommand	launch	Selects an external command obtaining account login keys.
+AuthorizedKeysCommandUser	launch	Selects the account running the authorized-keys lookup command.
+AuthorizedPrincipalsCommand	launch	Selects an external command obtaining authorized certificate principals.
+AuthorizedPrincipalsCommandUser	launch	Selects the account running the certificate-principals lookup command.
+HostKeyAgent	internal	Selects the agent performing SSH host authentication operations.
+KexAlgorithms	internal	Selects SSH key exchange algorithms.
+CASignatureAlgorithms	internal	Selects acceptable certificate signature algorithms for SSH.
+HostbasedAcceptedAlgorithms	internal	Selects signature algorithms for SSH hostbased authentication.
+HostKeyAlgorithms	internal	Selects SSH host-key signature algorithms.
+PubkeyAcceptedAlgorithms	internal	Selects SSH public-key signature algorithms.
+SshdSessionPath	launch	Selects the executable handling SSH sessions.
+SshdAuthPath	launch	Selects the executable handling SSH authentication.
+PerSourcePenaltyExemptList	internal	Selects addresses exempt from SSH connection penalties.
+LogLevel	internal	Sets SSH logging verbosity.
+SyslogFacility	internal	Selects the facility label for SSH log messages.
+AuthorizedKeysFile	auth	Selects files containing keys authorized for account login.
+HostKey	internal	Selects the server identity key for SSH host authentication.
+AcceptEnv	session	Selects client environment variables inherited by login session processes.
+AuthenticationMethods	auth	Sets authentication combinations required for account login.
+ChannelTimeout	internal	Sets inactivity timeouts for SSH channels.
+subsystem	launch	Defines the SFTP subsystem available through SSH sessions.
+maxstartups	internal	Limits concurrent unauthenticated SSH connections.
+persourcemaxstartups	internal	Limits concurrent unauthenticated SSH connections per source.
+persourcenetblocksize	internal	Sets source grouping for SSH connection limits.
+PermitTunnel	session	Controls creation of tunnel network devices through SSH.
+ipqos	internal	Sets quality-of-service markings for SSH traffic.
+rekeylimit	internal	Sets SSH data and time limits between key renewals.
+permitopen	forward	Restricts destinations of SSH TCP forwarding.
+permitlisten	port	Restricts listening addresses and ports for remote SSH forwarding.
+PermitUserEnvironment	session	Controls user-defined environment variables in login session processes.
+pubkeyauthoptions	internal	Sets additional public-key authentication checks inside SSH.
+persourcepenalties	internal	Sets SSH connection penalties for source addresses.

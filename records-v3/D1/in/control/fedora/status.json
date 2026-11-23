@@ -1,0 +1,40 @@
+{
+  "machine": "fedora",
+  "system": "fedora",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "started_utc": "2026-11-22T06:31:40.585614+00:00",
+  "steps": [
+    {
+      "stage": "new",
+      "started_utc": "2026-11-22T06:31:40.586480+00:00",
+      "finished_utc": "2026-11-22T06:31:58.537370+00:00",
+      "exit_code": 0,
+      "log": "control/fedora/new.log"
+    },
+    {
+      "stage": "actions",
+      "started_utc": "2026-11-22T06:31:58.537842+00:00",
+      "finished_utc": "2026-11-22T06:32:38.617791+00:00",
+      "exit_code": 0,
+      "log": "control/fedora/actions.log"
+    },
+    {
+      "stage": "collector",
+      "started_utc": "2026-11-22T06:32:38.618106+00:00",
+      "finished_utc": "2026-11-22T08:43:53.511457+00:00",
+      "exit_code": 0,
+      "log": "control/fedora/collector.log"
+    },
+    {
+      "stage": "destroy",
+      "started_utc": "2026-11-22T08:43:53.514875+00:00",
+      "finished_utc": "2026-11-22T08:43:55.464498+00:00",
+      "exit_code": 0,
+      "log": "control/fedora/destroy.log"
+    }
+  ],
+  "stage": "finished",
+  "vm_directory_removed": true,
+  "inventory_present": true,
+  "finished_utc": "2026-11-22T08:43:55.464768+00:00"
+}

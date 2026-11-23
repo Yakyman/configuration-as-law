@@ -1,0 +1,78 @@
+2026-11-22T07:02:57Z
+== host name
+cal
+== time zone
+/gnu/store/1zwwykw79j5xz1iaiia56hwqxdqnrk2c-tzdata-2025a/share/zoneinfo/UTC
+UTC
+TZ=
+== locale
+LANG=en_US.utf8
+== kernel params
+BOOT_IMAGE=/gnu/store/pbpfl2ll5qz36bqfnl3g3vvag764714h-linux-libre-6.17.12/bzImage root=root gnu.system=/gnu/store/7w6pasllhkybg8ivwqy33bbg845w6yl4-system gnu.load=/gnu/store/7w6pasllhkybg8ivwqy33bbg845w6yl4-system/boot console=ttyS0,115200n8 modprobe.blacklist=usbmouse,usbkbd quiet
+== grub mbr
+1
+== root fs
+/dev/vda1 / ext4 rw,relatime 0 0
+lrwxrwxrwx 1 root root 10 Nov 22 07:02 root -> ../../vda1
+/dev/vda1: LABEL="root" TYPE="ext4"
+== account
+sh: line 8: getent: command not found
+uid=1000(user) gid=998(users) groups=999(wheel),990(netdev),998(users)
+sh: line 8: getent: command not found
+== password hash equal to declared
+sh: line 9: getent: command not found
+different
+== services
+Started:
+ + console-font-tty1
+ + console-font-tty2
+ + console-font-tty3
+ + console-font-tty4
+ + console-font-tty5
+ + console-font-tty6
+ + file-system-/dev/pts
+ + file-system-/dev/shm
+ + file-system-/gnu/store
+ + file-system-/sys/firmware/efi/efivars
+ + file-system-/sys/kernel/debug
+ + file-systems
+ + guix-daemon
+ + loopback
+ + networking
+ + nscd
+ + pam
+ + root
+ + root-file-system
+ + system-log
+ + term-console
+ + term-tty1
+ + term-tty2
+ + term-tty3
+ + term-tty4
+ + term-tty5
+ + term-tty6
+ + term-ttyS0
+ + timer
+ + transient
+ + udev
+ + urandom-seed
+ + user-file-systems
+ + user-processes
+ + virtual-terminal
+Running timers:
+ + log-cleanup
+ + log-rotation
+One-shot:
+ * guix-ownership
+ * host-name
+ * sysctl
+ * user-homes
+== dhcp address
+lo 127.0.0.1/8
+eth0 10.0.2.15/24
+eth1 10.0.3.15/24
+== generation
+system-1-link
+/gnu/store/7w6pasllhkybg8ivwqy33bbg845w6yl4-system
+/gnu/store/7w6pasllhkybg8ivwqy33bbg845w6yl4-system
+run-check rc=0

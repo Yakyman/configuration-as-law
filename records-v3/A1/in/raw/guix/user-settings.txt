@@ -1,0 +1,61 @@
+
+### /home/guest/.bash_profile -> /home/guest/.bash_profile
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /home/guest/.bash_profile
+# Set up Guix Home profile
+if [ -f ~/.profile ]; then . ~/.profile; fi
+
+# Honor per-interactive-shell startup file
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+
+# Merge search-paths from multiple profiles, the order matters.
+eval "$(guix package --search-paths \
+-p $HOME/.config/guix/current \
+-p $HOME/.guix-home/profile \
+-p $HOME/.guix-profile \
+-p /run/current-system/profile)"
+
+# Prepend setuid programs.
+export PATH=/run/setuid-programs:$PATH
+
+### /home/guest/.profile -> /gnu/store/i3f4kyjpipacln89glvfcibchp23m6w6-shell-profile
+d7d2ebd770591681c73753f9d5c3caae0bf0cd3c969e8c81a5155571c2ce45f6  /home/guest/.profile
+HOME_ENVIRONMENT=$HOME/.guix-home
+. $HOME_ENVIRONMENT/setup-environment
+$HOME_ENVIRONMENT/on-first-login
+unset HOME_ENVIRONMENT
+
+### /home/guest/.vimrc -> /home/guest/.vimrc
+c820691ecae2ceddcc74fc5007dddef91648448637083e61c2e7aeb9cbcdf0e3  /home/guest/.vimrc
+set number
+
+### /home/guest/home.scm -> /home/guest/home.scm
+40e3bac799271cddd9de75fe689a4dae54e6a5864be0877ad261ec91637756fc  /home/guest/home.scm
+(use-modules (gnu home) (gnu services) (gnu home services) (guix gexp))
+(home-environment
+ (services
+  (list
+   (simple-service 'w1-declared-note home-files-service-type
+                   (list `( ".config/w1/declared-note"
+                            ,(plain-file "w1-declared-note" "This file belongs to the user's Home declaration.\n")))))))
+
+### /home/guest/.config/w1/declared-note -> /gnu/store/s9jm6xf59wxqgd618zp438af76kvs4wb-w1-declared-note
+72aea8eca656198165600fd0810e6e6664265d6fd7758dfcb13f3b76a1cc90b0  /home/guest/.config/w1/declared-note
+This file belongs to the user's Home declaration.
+
+### /etc/skel/.bash_profile -> /gnu/store/cbx0fxh623rzj9z6mn7p4w4vp7f1ya40-skel/.bash_profile
+0d833deed3e2c5aeeac2ca5bcaa3b1ebf3aeed320b41ad298751161fca91c928  /etc/skel/.bash_profile
+# Set up Guix Home profile
+if [ -f ~/.profile ]; then . ~/.profile; fi
+
+# Honor per-interactive-shell startup file
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
+
+# Merge search-paths from multiple profiles, the order matters.
+eval "$(guix package --search-paths \
+-p $HOME/.config/guix/current \
+-p $HOME/.guix-home/profile \
+-p $HOME/.guix-profile \
+-p /run/current-system/profile)"
+
+# Prepend setuid programs.
+export PATH=/run/setuid-programs:$PATH

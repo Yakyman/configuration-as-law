@@ -1,0 +1,434 @@
+[
+  {
+    "before": {
+      "id": "mint-aef3f7ceb964425450ff4358",
+      "decision": "MUST",
+      "sentences": "S2.2-9",
+      "what_it_does": "Processor microcode firmware for Intel CPUs",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "This package supplies a runnable program; installation method does not exempt programs from recording."
+    },
+    "after": {
+      "id": "mint-aef3f7ceb964425450ff4358",
+      "decision": "MUST",
+      "sentences": "S2.2-2,S2.2-16",
+      "what_it_does": "Updates processor microcode",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "Firmware updates change processor behavior; this software update package establishes system ability to change firmware."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-d0cf3bfc0f782be651893767",
+      "decision": "NOT",
+      "sentences": "S2.2-2,S2.2-4",
+      "what_it_does": "Provides default-version dependency metadata and package documentation.",
+      "basis": "doc:https://packages.ubuntu.com/noble/amd64/libpython3-stdlib/filelist",
+      "reason": "This dependency package contains no standard-library implementation; removing it leaves separately packaged library code available."
+    },
+    "after": {
+      "id": "mint-d0cf3bfc0f782be651893767",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects the standard library for the default interpreter version.",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Its versioned dependency tracks the default interpreter library; removing this selector loses that package-management behavior, even while the current library remains."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-f3a27734d1c9e9356a0e2c91",
+      "decision": "NOT",
+      "sentences": "S2.2-7,S2.2-13",
+      "what_it_does": "Supplies syntax grammars and output styles for source highlighting.",
+      "basis": "doc:https://packages.ubuntu.com/noble/amd64/libsource-highlight-common/filelist",
+      "reason": "Grammar and style values configure highlighting inside the program; the setting exemption applies."
+    },
+    "after": {
+      "id": "mint-f3a27734d1c9e9356a0e2c91",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Supplies shared syntax-recognition grammars and output styles to programs using a highlighting library.",
+      "basis": "doc:https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz",
+      "reason": "Removing shared language definitions removes highlighting capabilities across library consumers; these settings are not confined to one program."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-abfe052ec72b3e4d59ff2dd7",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-4",
+      "what_it_does": "Selects Bluetooth support packages through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz",
+      "reason": "The text does not specify whether removing a dependency-only package includes its selected dependencies or only its otherwise inert package record."
+    },
+    "after": {
+      "id": "mint-abfe052ec72b3e4d59ff2dd7",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Maintains selection of supported Bluetooth stack plugins.",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz",
+      "reason": "Its dependencies select the documented set of supported plugins; removing the selector changes package-management behavior, without assuming removal of installed dependencies."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-267e53cbb404e5549ed2f412",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-4",
+      "what_it_does": "Lists and selects packages required for software builds",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "The text does not specify whether removing a dependency-only package includes its selected dependencies or only its otherwise inert package record."
+    },
+    "after": {
+      "id": "mint-267e53cbb404e5549ed2f412",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Maintains essential build-tool dependencies for package compilation.",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Its dependencies maintain the documented essential build-tool selection; removing this selector changes package-management behavior even while installed tools remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-283909d2e9d052078ee95400",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-4",
+      "what_it_does": "Transitions package selection to the replacement file-transfer client",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "The text does not specify whether removing a dependency-only package includes its selected dependencies or only its otherwise inert package record."
+    },
+    "after": {
+      "id": "mint-283909d2e9d052078ee95400",
+      "decision": "NOT",
+      "sentences": "S2.2-4",
+      "what_it_does": "Provides package-selection metadata and documentation",
+      "basis": "doc:https://packages.ubuntu.com/noble/amd64/ftp/filelist",
+      "reason": "This individual package supplies documentation or informational lists; removing it does not remove separately inventoried dependency programs."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-c5056f235638fd42ac7b8127",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-4",
+      "what_it_does": "Ensures selection of an installed initialization system",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "The text does not specify whether removing a dependency-only package includes its selected dependencies or only its otherwise inert package record."
+    },
+    "after": {
+      "id": "mint-c5056f235638fd42ac7b8127",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Ensures an initialization system remains selected through package dependencies.",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "The documented dependency constraint ensures an initialization system remains available; removing the constraint changes what package operations permit."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-51a0d615cf5d1320bf36e727",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-7",
+      "what_it_does": "Configures an audio output library shared by applications",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "The text does not say whether shared-library settings count as inside one program or across its calling programs."
+    },
+    "after": {
+      "id": "mint-51a0d615cf5d1320bf36e727",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Configures audio output across applications using the shared library",
+      "basis": "doc:https://manpages.ubuntu.com/manpages/noble/man5/libao.conf.5.html",
+      "reason": "System-wide audio output settings affect multiple applications; they are not in force only inside one program."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-9fdd4a5218a3044204c2f903",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-7",
+      "what_it_does": "Configures the security auditing library",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "reason": "The text does not determine whether a library’s configuration is confined to one program when many programs load it."
+    },
+    "after": {
+      "id": "mint-9fdd4a5218a3044204c2f903",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Configures audit-failure behavior across applications using the shared library",
+      "basis": "doc:https://manpages.ubuntu.com/manpages/noble/man5/libaudit.conf.5.html",
+      "reason": "The documented settings control failure actions across linked applications, including termination; the one-program setting exemption does not apply."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-113e18df451dd886766290a4",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks latest kernel and headers through package dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-113e18df451dd886766290a4",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks latest kernel and headers through package dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-3177c342fa78688f4cc720db",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks newest kernel header package",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-3177c342fa78688f4cc720db",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks newest kernel header package",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-449bad2904a4781cf8e19aa5",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks latest kernel image through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-449bad2904a4781cf8e19aa5",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Tracks latest kernel image through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-8c9a57a0630f529dde9df2ec",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Provides desktop theme definitions",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Theme exemption refers to settings inside one program; text does not decide whether desktop-wide theme definitions qualify."
+    },
+    "after": {
+      "id": "mint-8c9a57a0630f529dde9df2ec",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7",
+      "what_it_does": "Defines desktop appearance across toolkit applications shell and window manager",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/main/m/mint-l-theme/mint-l-theme_2.0.1_all.deb",
+      "reason": "Archive contains GTK, Cinnamon and window-manager themes; settings affect multiple programs, so the only-one-program exemption does not apply."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-c53985fe7e4e1719c8e2a38f",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects default desktop packages through dependencies",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-c53985fe7e4e1719c8e2a38f",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects default desktop packages through dependencies",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-7bda0a7a54573354b473943c",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects core distribution packages through dependencies",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-7bda0a7a54573354b473943c",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects core distribution packages through dependencies",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-080d921edec13ac525101e7e",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Provides desktop theme definitions",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz",
+      "reason": "Theme exemption refers to settings inside one program; text does not decide whether desktop-wide theme definitions qualify."
+    },
+    "after": {
+      "id": "mint-080d921edec13ac525101e7e",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7",
+      "what_it_does": "Defines desktop appearance across toolkit applications shell and window manager",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/main/m/mint-themes/mint-themes_2.3.2_all.deb",
+      "reason": "Archive contains GTK, Cinnamon and window-manager themes; settings affect multiple programs, so the only-one-program exemption does not apply."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-c0787986efe6c9b79d180892",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects recommended multimedia packages through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-c0787986efe6c9b79d180892",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects recommended multimedia packages through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-11ea76b71b17cb2a11ce5b11",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Defines image-viewer settings and web-album templates",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/backport/p/pix/pix-data_3.4.7+zara_all.deb",
+      "reason": "Internal settings and templates suggest exemption; required presentation functionality depends on them. Text does not establish the capability/content boundary."
+    },
+    "after": {
+      "id": "mint-11ea76b71b17cb2a11ce5b11",
+      "decision": "MUST",
+      "sentences": "S2.2-9,S2.2-10,S2.2-13",
+      "what_it_does": "Provides executable extension-build macros plus image-viewer interface resources",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/backport/p/pix/pix-data_3.4.7+zara_all.deb",
+      "reason": "pix.m4 defines executable Autoconf macros and shell build commands; code counts as code despite accompanying internal settings and images."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-8a371d8839102003d120caed",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects widget-style plugins through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-8a371d8839102003d120caed",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects widget-style plugins through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-c4c19df68728a2834f6e3951",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Defines editor settings interfaces and plugin resources",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/backport/x/xed/xed-common_3.8.4+zara_all.deb",
+      "reason": "Internal settings and interface content suggest exemption; removing required interfaces prevents editing operations. Text does not resolve this boundary."
+    },
+    "after": {
+      "id": "mint-c4c19df68728a2834f6e3951",
+      "decision": "NOT",
+      "sentences": "S2.2-4,S2.2-7,S2.2-13",
+      "what_it_does": "Defines editor settings interfaces and plugin resources",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/backport/x/xed/xed-common_3.8.4+zara_all.deb",
+      "reason": "File listing establishes program-internal interface values, settings, translations and images; the explicit exemption applies to these single-program values."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-edd08984f5139b4648ed596c",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects graphical-system components through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-edd08984f5139b4648ed596c",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects graphical-system components through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-c5924d8b2d8e93353e93c93f",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects server and graphics drivers through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged."
+    },
+    "after": {
+      "id": "mint-c5924d8b2d8e93353e93c93f",
+      "decision": "MUST",
+      "sentences": "S2.2-1,S2.2-2",
+      "what_it_does": "Selects server and graphics drivers through dependencies",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Dependency constraints govern which packages future upgrades select; removal loses that automatic selection behavior even though currently installed programs remain."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-d2b5ce4a3bf501bc717a298a",
+      "decision": "HOLE",
+      "sentences": "S2.2-10,S2.2-11,S2.2-13",
+      "what_it_does": "Transforms help-document markup using stylesheets",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Stylesheets execute transformations but may be confined to renderer interface; documentation does not establish the rights boundary needed by the text."
+    },
+    "after": {
+      "id": "mint-d2b5ce4a3bf501bc717a298a",
+      "decision": "UNKNOWN",
+      "sentences": "S3-2",
+      "what_it_does": "Transforms help-document markup using stylesheets",
+      "basis": "doc:https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz",
+      "reason": "Stylesheet transformation is established, but available evidence does not establish whether execution is confined to renderer interface or has unrestricted program rights."
+    }
+  },
+  {
+    "before": {
+      "id": "mint-5df8214610acc5b0d2a99002",
+      "decision": "HOLE",
+      "sentences": "S2.2-1,S2.2-2,S2.2-7,S2.2-13",
+      "what_it_does": "Defines dialog interfaces and supplies translations and images",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/upstream/z/zenity/zenity-common_3.44.2-1+wilma_all.deb",
+      "reason": "Internal interface content suggests exemption; required dialog definitions enable program operations. Text does not resolve this content/capability boundary."
+    },
+    "after": {
+      "id": "mint-5df8214610acc5b0d2a99002",
+      "decision": "NOT",
+      "sentences": "S2.2-4,S2.2-7,S2.2-13",
+      "what_it_does": "Defines dialog interfaces and supplies translations and images",
+      "basis": "doc:https://mirrors.kernel.org/linuxmint-packages/pool/upstream/z/zenity/zenity-common_3.44.2-1+wilma_all.deb",
+      "reason": "File listing establishes program-internal interface values, settings, translations and images; the explicit exemption applies to these single-program values."
+    }
+  }
+]

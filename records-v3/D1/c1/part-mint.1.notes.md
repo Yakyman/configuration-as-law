@@ -1,0 +1,776 @@
+# Package classification notes, assigned first segment
+
+Scope: first 635 dpkg-query rows. No earlier classification was consulted. Installed identities and versions were established from the supplied inventory. Public archive metadata establishes package function; archive descriptions are not inventory classifications. No objects were removed and no machine experiments were run.
+
+Each inventory row here is one package, not a directory group of independently enumerated members. A package containing runnable code is classified by the contribution of that code; accompanying manuals do not turn the entire package into exempt content. Dependency-only packages were examined separately.
+
+## Sentences used
+
+- **S2.2-1** Whatever the computer’s behaviour depends on—what it does and what can be done on it—must be recorded.
+- **S2.2-2** The test is removal: if, after an object is removed, the computer stops doing something or something becomes impossible on it, the object must be recorded.
+- **S2.2-4** content—documents, photographs, the contents of databases: after it is removed, the computer does and can do the same, and only the content itself is unavailable;
+- **S2.2-6** records of the past—logs, history;
+- **S2.2-7** settings that are in force only inside one program, for example the home page, theme, and extensions of a web browser.
+- **S2.2-9** a program that runs on the computer must be recorded regardless of how it was installed—including an application package (Flatpak), a program in the home directory, and a program in a container;
+- **S2.2-10** code that another program executes must be recorded if the program runs it with the program’s own rights, so that the code can do whatever the program can do: scripts executed by an interpreter (python, bash), shell startup files, an editor configuration written in the editor’s programming language.
+- **S2.2-13** A file that a program executes as code counts as code even when it holds settings; a file that a program only reads as values counts as a setting;
+- **S2.2-16** the boot order and device firmware must be recorded where the system is able to change them.
+- **S3-1** **Whether an object must be recorded.** The decision is made from the text of Section 2.2 and information about what the object does, established by documentation, by observation, or by removal: in a disputed case, the object is removed on a disposable copy of the machine, and what stopped working is recorded.
+- **S3-2** If what the object does remains unknown, the case yields ?.
+
+## Homogeneous rules and manual checks
+
+No name prefix alone determines executable status. The explicitly selected ordinary-program and runtime-library sets were read against their package descriptions. Data, configuration, firmware, compiler dependency packages, debugging packages and common-file packages received separate examination.
+
+R1: A package supplying an independently runnable program is MUST under S2.2-9. The following ten entries were checked manually: each description identifies the executable and its task.
+
+- `mint-2fefc3b8c16ec0f56484edbe` (`7zip`): “7-Zip file archiver with a high compression ratio”; checked against MUST rationale.
+- `mint-bd39a4b50da417df00c2ed50` (`aardvark-dns`): “Container-focused DNS server”; checked against MUST rationale.
+- `mint-f797f068d0ef2976862c010a` (`accountsservice`): “query and manipulate user account information”; checked against MUST rationale.
+- `mint-6ea8e65211f3781437f7f7d4` (`acl`): “access control list - utilities”; checked against MUST rationale.
+- `mint-87ba567c3238acd25165e3c4` (`adduser`): “add and remove users and groups”; checked against MUST rationale.
+- `mint-830aa35501eb790fcfdd3ec6` (`alsa-utils`): “Utilities for configuring and using ALSA”; checked against MUST rationale.
+- `mint-79ef6e77e3a19e49879c881d` (`anacron`): “cron-like program that doesn't go by time”; checked against MUST rationale.
+- `mint-cd7b0939c55f505e0c2dd134` (`apg`): “Automated Password Generator - Standalone version”; checked against MUST rationale.
+- `mint-8efdad51d1629955aed654f7` (`apparmor`): “user-space parser utility for AppArmor”; checked against MUST rationale.
+- `mint-fc1849859d4f829a7eebd8c8` (`apt`): “commandline package manager”; checked against MUST rationale.
+
+R2: A documented executable library or native runtime module is MUST under S2.2-10 and S2.2-13: the caller executes its code with the caller’s rights. This rule excludes detached symbols, development data and common-file packages. Ten manually checked entries follow.
+
+- `mint-18b7e44d1c0c7dc9eb446aa6` (`libaa1`): “ASCII art library”; checked against MUST rationale.
+- `mint-7080b3647d35809c7e0ee687` (`libabsl20220623t64`): “extensions to the C++ standard library”; checked against MUST rationale.
+- `mint-2ba6a194b244a3386c326c52` (`libabw-0.1-1`): “library for reading and writing AbiWord(tm) documents”; checked against MUST rationale.
+- `mint-22b27c537106c98e4554e21e` (`libaccountsservice0`): “query and manipulate user account information - shared libraries”; checked against MUST rationale.
+- `mint-88ac1ecee4af06163c0684f3` (`libacl1`): “access control list - shared library”; checked against MUST rationale.
+- `mint-a7fc920ee57e0b45f388b00e` (`libadwaita-1-0`): “Library with GTK widgets for mobile phones”; checked against MUST rationale.
+- `mint-7da534cefd43b685e5a481cb` (`libaio1t64`): “Linux kernel AIO access library - shared library”; checked against MUST rationale.
+- `mint-7c415b17bb0b9a2c1ae267bd` (`libao4`): “Cross Platform Audio Output Library”; checked against MUST rationale.
+- `mint-4851fbe3937eac150dcc43c9` (`libaom3`): “AV1 Video Codec Library”; checked against MUST rationale.
+- `mint-71132d962002eb2894698309` (`libapparmor1`): “changehat AppArmor library”; checked against MUST rationale.
+
+R3: Runtime introspection metadata is MUST under S2.2-1 and S2.2-2 because it enables language bindings to call the native API. It is not displayed document content. Official project documentation at https://gi.readthedocs.io/en/latest/ states: “Then language bindings can read this metadata and automatically provide bindings to call into the C library.” Ten manually checked package descriptions identify introspection or typelib data.
+
+- `mint-46991dc3899466deda689a67` (`gir1.2-accountsservice-1.0`): “GObject introspection data for AccountService”; checked against MUST rationale.
+- `mint-c86ec8818dc63110eed70a07` (`gir1.2-atk-1.0`): “ATK accessibility toolkit (GObject introspection)”; checked against MUST rationale.
+- `mint-383bf53be2ec4cbb69bd2479` (`gir1.2-atspi-2.0`): “Assistive Technology Service Provider (GObject introspection)”; checked against MUST rationale.
+- `mint-c215a52ef23efe90c5cefafd` (`gir1.2-ayatanaappindicator3-0.1`): “Typelib files for libayatana-appindicator3-1 (GTK-3+ version)”; checked against MUST rationale.
+- `mint-d8db6c23e8d114b6ea4b15c6` (`gir1.2-camel-1.2`): “GObject introspection for the Camel library”; checked against MUST rationale.
+- `mint-331c8df8e56c9265832b4ec8` (`gir1.2-caribou-1.0`): “GObject introspection for the Caribou library”; checked against MUST rationale.
+- `mint-b70e8b5f8580baa331445b78` (`gir1.2-cinnamondesktop-3.0`): “Introspection data for CinnamonDesktop”; checked against MUST rationale.
+- `mint-01a0e344c3a86cdd43accc9e` (`gir1.2-clutter-1.0`): “GObject introspection data for the Clutter 1.0 library”; checked against MUST rationale.
+- `mint-b2533eab240462bfcf322e16` (`gir1.2-clutter-gst-3.0`): “GObject introspection data for Clutter GStreamer elements”; checked against MUST rationale.
+- `mint-8e8c9b316e863ad0f1b3a461` (`gir1.2-cmenu-3.0`): “GObject introspection data for the Cinnamon menu library”; checked against MUST rationale.
+
+R4: Font packages are HOLE under S2.2-2 and S2.2-4: removing glyphs and metrics can mean only losing graphical content, or losing the ability to render particular characters correctly. The text supplies no boundary between these readings. Ten manually checked packages supply glyphs and metrics, not font-management executables.
+
+- `mint-235d4ec522642882f926eb27` (`fonts-dejavu-core`): “Vera font family derivate with additional characters”; checked against HOLE rationale.
+- `mint-333828a5247abd0aa698d26b` (`fonts-dejavu-mono`): “Vera font family derivate with additional characters”; checked against HOLE rationale.
+- `mint-2c4f8ff5a67ee625bef68c4e` (`fonts-droid-fallback`): “handheld device font with extensive style and language support (fallback)”; checked against HOLE rationale.
+- `mint-1162f68e41f0d35b2f9c9343` (`fonts-liberation`): “fonts with the same metrics as Times, Arial and Courier”; checked against HOLE rationale.
+- `mint-f6b90fa1b7acc162814857e2` (`fonts-mathjax`): “JavaScript display engine for LaTeX and MathML (fonts)”; checked against HOLE rationale.
+- `mint-af6961bcf790f4f792437f97` (`fonts-noto-cjk`): “"No Tofu" font families with large Unicode coverage (CJK regular and bold)”; checked against HOLE rationale.
+- `mint-854622d42bc8ca5d899db0ff` (`fonts-noto-color-emoji`): “color emoji font from Google”; checked against HOLE rationale.
+- `mint-8ddfd74bd50c9296043d6b74` (`fonts-noto-core`): “"No Tofu" font families with large Unicode coverage (core)”; checked against HOLE rationale.
+- `mint-daac7e63db042cc2f3b04b9a` (`fonts-noto-mono`): “"No Tofu" monospaced font family with large Unicode coverage”; checked against HOLE rationale.
+- `mint-76c2c41ca55b1bec436fe365` (`fonts-opensymbol`): “OpenSymbol TrueType font”; checked against HOLE rationale.
+
+R5: Pure text, image and descriptive-content packages are NOT under S2.2-4: removal loses the supplied content while leaving executable capabilities. This rule is not applied automatically to every data/common suffix. Ten manually checked entries below identify such content; system-routing configuration, processing schemas, code hidden in data packages and other exceptions were examined separately.
+
+- `mint-463205593f6d946eda63ffd4` (`adwaita-icon-theme`): “default icon theme of GNOME”; checked against NOT rationale.
+- `mint-183fe54bb88d761c24d4f814` (`app-install-data`): “Ubuntu applications (data files)”; checked against NOT rationale.
+- `mint-b33afdd28c39888aab1502e8` (`aptdaemon-data`): “data files for clients”; checked against NOT rationale.
+- `mint-a7968d3e1a82bd508b18e515` (`aptitude-common`): “architecture independent files for the aptitude package manager”; checked against NOT rationale.
+- `mint-0aaf5fda87db3c90b7de32b7` (`binutils-common`): “Common files for the GNU assembler, linker and binary utilities”; checked against NOT rationale.
+- `mint-b76380704db4b5b4af9e52c1` (`cinnamon-control-center-data`): “configuration applets for Cinnamon - data files”; checked against NOT rationale.
+- `mint-f029447dfa5b81e83920cfc2` (`cinnamon-l10n`): “Translation files for the Cinnamon desktop”; checked against NOT rationale.
+- `mint-e8d247fed81713d4e7067b06` (`circle-flags-svg`): “Circle flags in SVG format”; checked against NOT rationale.
+- `mint-35798aaf81b02f78c722892e` (`distro-info-data`): “information about the distributions' releases (data files)”; checked against NOT rationale.
+- `mint-c5e3f9597065613a57deaa42` (`dmz-cursor-theme`): “Style neutral, scalable cursor theme”; checked against NOT rationale.
+
+## Individually assessed exceptions
+
+The explicit per-index assignments in part-mint.1.finish.py record individual assessments, not a suffix-derived blanket rule. Their row reasons state the relevant removal consequence or missing boundary. The following distinctions were checked:
+
+- Firmware packages change device behavior; system-update availability establishes the condition in S2.2-16.
+- Shared hardware routing, keyboard configuration, desktop schemas and interprocess messaging extend across programs and therefore do not fit the one-program setting exemption.
+- Dependency-only metapackages expose an unspecified removal boundary: remove just the dependency record, or the functionality selected through it. No external package-manager removal semantics were silently substituted for the text.
+- Detached debugging symbols expose content versus symbolic-debugging-capability readings. The separate unstripped-binary debugging package explicitly supplies executable code and was classified MUST.
+- Dictionaries, processing schemas, templates, color profiles and keyboard maps received individual HOLE explanations; knowing their role does not resolve the text’s content/capability boundary.
+- Shared-library configuration exposes a separate one-program versus multiple-caller ambiguity.
+- Data/common names are insufficient: the primary file lists establish executable modules in cinnamon-common and hplip-data, service activation in evolution-data-server-common, and only documentation in gcc base packages.
+- No UNKNOWN was needed after consulting the public metadata and file lists.
+
+## Package-specific documentary evidence
+
+The following quotations are package description titles, keyed to exact inventory ids. Additional full descriptions and file lists were consulted for ambiguous titles; selected file paths follow below. The descriptions establish roles, not normative decisions. Current archive descriptions are used for stable package purpose; an installed version need not equal the archive revision. Mint-origin descriptions replace conflicting distribution descriptions, notably the browser package.
+
+- `mint-2fefc3b8c16ec0f56484edbe` (`7zip`): “7-Zip file archiver with a high compression ratio” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-bd39a4b50da417df00c2ed50` (`aardvark-dns`): “Container-focused DNS server” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-f797f068d0ef2976862c010a` (`accountsservice`): “query and manipulate user account information” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6ea8e65211f3781437f7f7d4` (`acl`): “access control list - utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-87ba567c3238acd25165e3c4` (`adduser`): “add and remove users and groups” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-463205593f6d946eda63ffd4` (`adwaita-icon-theme`): “default icon theme of GNOME” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-92428f010df383fc106c30ec` (`alsa-base`): “ALSA driver configuration files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fab95c6164242c351cacd8ab` (`alsa-topology-conf`): “ALSA topology configuration files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-03b033faa5ae44b97e1c4451` (`alsa-ucm-conf`): “ALSA Use Case Manager configuration files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-830aa35501eb790fcfdd3ec6` (`alsa-utils`): “Utilities for configuring and using ALSA” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ea1b58590e4983ba0b5a4c81` (`amd64-microcode`): “Processor microcode firmware for AMD CPUs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-79ef6e77e3a19e49879c881d` (`anacron`): “cron-like program that doesn't go by time” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cd7b0939c55f505e0c2dd134` (`apg`): “Automated Password Generator - Standalone version” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-183fe54bb88d761c24d4f814` (`app-install-data`): “Ubuntu applications (data files)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-8efdad51d1629955aed654f7` (`apparmor`): “user-space parser utility for AppArmor” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-00c01f0d858a3a050187e679` (`appstream`): “Software component metadata management” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fc1849859d4f829a7eebd8c8` (`apt`): “commandline package manager” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-25b030329863626725c526c4` (`apt-utils`): “package management related utility programs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ab04fffce23e3f588ec39855` (`aptdaemon`): “transaction based package management service” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b33afdd28c39888aab1502e8` (`aptdaemon-data`): “data files for clients” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2962d7796e675f8f94209532` (`aptitude`): “terminal-based package manager” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-a7968d3e1a82bd508b18e515` (`aptitude-common`): “architecture independent files for the aptitude package manager” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-a658b9f516a866c13e30783a` (`aptkit`): “transaction based package management service” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-f7571bb4b98bfde89674e92d` (`aspell`): “GNU Aspell spell-checker” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3201e0d0d24b245bd86db97d` (`aspell-en`): “English dictionary for GNU Aspell” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-327a4160e21ec1bdca3d633c` (`at-spi2-common`): “Assistive Technology Service Provider Interface (common files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-de404a66a515223d1924d09b` (`at-spi2-core`): “Assistive Technology Service Provider Interface (D-Bus core)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-75ac4edf5ec65be995673f87` (`attr`): “utilities for manipulating filesystem extended attributes” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d19563f2278c5b0ec1499c82` (`avahi-autoipd`): “Avahi IPv4LL network address configuration daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-ed30dbf2aa796692abab474b` (`avahi-daemon`): “Avahi mDNS/DNS-SD daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5928c6b340781abfcc2aec26` (`avahi-utils`): “Avahi browsing, publishing and discovery utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-58aef8a4df8c49ac764caa99` (`baobab`): “GNOME disk usage analyzer” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8221d0b24ac32d06ce1123ac` (`base-files`): “Debian base system miscellaneous files” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-74d8182c1dfac517321485b6` (`base-passwd`): “Debian base system master password and group files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0b4c0322dde5f9a4c4c6307c` (`bash`): “GNU Bourne Again SHell” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7c7aff1f1cf775dde31d9ded` (`bash-completion`): “programmable completion for the bash shell” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4658e56e468c4e23e607b2f3` (`bc`): “GNU bc arbitrary precision calculator language” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-86a6ee80461a1149ae0772a2` (`bind9-dnsutils`): “Clients provided with BIND 9” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-104122af3bbbd703d3c629c6` (`bind9-host`): “DNS Lookup Utility” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-51c3a0b00f9cf87aed70a186` (`bind9-libs`): “Shared Libraries used by BIND 9” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9dc97fb0b7802333fc15cca2` (`binutils`): “GNU assembler, linker and binary utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0aaf5fda87db3c90b7de32b7` (`binutils-common`): “Common files for the GNU assembler, linker and binary utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a0c1503e78a6720e5314e97c` (`binutils-x86-64-linux-gnu`): “GNU binary utilities, for x86-64-linux-gnu target” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f5cca40488112690f7538c00` (`blueman`): “Graphical bluetooth manager” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-abfe052ec72b3e4d59ff2dd7` (`bluetooth`): “Bluetooth support (metapackage)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b53934c81b5f55bbc7143798` (`bluez`): “Bluetooth tools and daemons” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ccf5cd036761c5877a359401` (`bluez-cups`): “Bluetooth printer driver for CUPS” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-90f60d8af200a9d3f04f9559` (`bluez-obexd`): “bluez obex daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f75b5f104a80ee8637ad3175` (`bolt`): “system daemon to manage thunderbolt 3 devices” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-541845641e039a9006fb173c` (`brasero-common`): “Common files for the Brasero CD burning application and library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-5ffb8680deea7f620f5a8750` (`brltty`): “Access software for a blind person using a braille display” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-31ae7722c16aaaa739fef225` (`bsdextrautils`): “extra utilities from 4.4BSD-Lite” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-707115569cc9db1dee20f946` (`bsdutils`): “basic utilities from 4.4BSD-Lite” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b25c8579928f9c881d3226e0` (`btrfs-progs`): “Checksumming Copy on Write Filesystem utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-dffe0d053cc1722cf5c5c86d` (`bubblewrap`): “utility for unprivileged chroot and namespace manipulation” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-267e53cbb404e5549ed2f412` (`build-essential`): “Informational list of build-essential packages” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-79efb7f744f99783bddc0c3c` (`buildah`): “CLI tool to facilitate building OCI images” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-eba8e78e63b1fdb925fe56f9` (`bulky`): “Bulk Renamer” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-66f7e7fa38548ef7ae408ff7` (`busybox-initramfs`): “Standalone shell setup for initramfs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a28a0cd896f35288bf5ed357` (`busybox-static`): “Standalone rescue shell with tons of builtin utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a59bdfdd3e0f29abe44e9972` (`bzip2`): “high-quality block-sorting file compressor - utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1dc109a34e4f261672fd46a8` (`ca-certificates`): “Common CA certificates” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6713630719ac5ab25a1c841c` (`captain`): “Collection of APT tools” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-469ad5b9d60d1435429befd8` (`casper`): “Run a "live" preinstalled system from read-only media” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1f08dcc499fc0f8519f92e39` (`catatonit`): “init process for containers” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-65fde47cef6f821c3abbf569` (`catdoc`): “text extractor for MS-Office files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c2501a47eb5f1f4510c69322` (`celluloid`): “simple GTK+ frontend for mpv” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-b538029289c257f1fb275e1d` (`cifs-utils`): “Common Internet File System utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-aa25a70e5aba48a2f8b07404` (`cinnamon`): “Modern Linux desktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-08a8ab049ff24665c1b8e05b` (`cinnamon-common`): “Cinnamon desktop (Common data files)” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-b3e8120298329b23b7f67b2f` (`cinnamon-control-center`): “utilities to configure the Cinnamon desktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-b76380704db4b5b4af9e52c1` (`cinnamon-control-center-data`): “configuration applets for Cinnamon - data files” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-ff58418b0703f7cafb0e40ac` (`cinnamon-control-center-dbg`): “utilities to configure the Cinnamon desktop - debug symbols” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-6bce92151e226b7ac96fe618` (`cinnamon-dbg`): “Debugging symbols for the Cinnamon desktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-2e97d4a2f5457c35f02bb14b` (`cinnamon-desktop-data`): “Common files for Cinnamon desktop apps” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-f029447dfa5b81e83920cfc2` (`cinnamon-l10n`): “Translation files for the Cinnamon desktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-8ebfa20ac94cc62b737bec51` (`cinnamon-screensaver`): “Cinnamon screen saver and locker” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-2ee36b2ebfaa3b2855ba573d` (`cinnamon-session`): “Cinnamon Session Manager - Minimal runtime” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-8dbbc24f24270afd1dc329fe` (`cinnamon-session-common`): “Cinnamon Session Manager - common files” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-9a03bc8a14e517fe8244ada7` (`cinnamon-settings-daemon`): “daemon handling the Cinnamon session settings” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-e8d247fed81713d4e7067b06` (`circle-flags-svg`): “Circle flags in SVG format” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-41d9842314e159e8de75a958` (`cjs`): “Mozilla-based javascript bindings for the Cinnamon platform (cli tool)” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-5d5e6b701e89300c1432d2d8` (`colord`): “system service to manage device colour profiles -- system daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ce92df556ddfea81b035e5f6` (`colord-data`): “system service to manage device colour profiles -- data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9206cf60155118abbad833d6` (`command-not-found`): “Suggest installation of packages in interactive bash sessions” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-919220f84897eef7dfa90f2a` (`conmon`): “OCI container runtime monitor” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-54c554cf9dbf17285ed80c7f` (`console-setup`): “console font and keymap setup program” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b26420cf3111572dc2261203` (`console-setup-linux`): “Linux specific part of console-setup” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-237e7b89d823183a280136eb` (`containernetworking-plugins`): “standard networking plugins - binaries” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1ffc5a279bde8b78c119d186` (`coreutils`): “GNU core utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b198828af0c51a48e53d8c75` (`cpdb-backend-cups`): “Common Print Dialog Backends - CUPS/IPP Backend” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b58263847f1e720551582b32` (`cpio`): “GNU cpio -- a program to manage archives of files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0f6201505f4a66083482ec1f` (`cpp`): “GNU C preprocessor (cpp)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-81e7b15e35416b42196e086a` (`cpp-13`): “GNU C preprocessor” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d4b09144dfa32d9b0c6e9ca3` (`cpp-13-x86-64-linux-gnu`): “GNU C preprocessor for x86_64-linux-gnu” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-623892068141aebfb288e80e` (`cpp-x86-64-linux-gnu`): “GNU C preprocessor (cpp) for the amd64 architecture” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c8c83d574dd3641905059587` (`cracklib-runtime`): “runtime support for password checker library cracklib2” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-51a5d1d9a8e19d3007819733` (`cron`): “process scheduling daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-01716d4dba025cae1f39bfe5` (`cron-daemon-common`): “process scheduling daemon's configuration files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9e358a6c5110de88bc68bfb2` (`crun`): “lightweight OCI runtime for running containers” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c54b8dff78ef60fbe619b7d6` (`cryptsetup`): “disk encryption support - startup scripts” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5bd219f51f8b16191ae4251d` (`cryptsetup-bin`): “disk encryption support - command line tools” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3addbac73a09d48929f7cf6a` (`cryptsetup-initramfs`): “disk encryption support - initramfs integration” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6aa9efe951df245c72547e24` (`cups`): “Common UNIX Printing System(tm) - PPD/driver support, web interface” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9aa267da1dea488cb6e2824d` (`cups-browsed`): “OpenPrinting cups-browsed” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8d9bb22ac6c7df6fcc923cfc` (`cups-bsd`): “Common UNIX Printing System(tm) - BSD commands” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-13bfa582982e7213e44f945f` (`cups-client`): “Common UNIX Printing System(tm) - client programs (SysV)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5411c6ec3ac75c4b2f97d742` (`cups-common`): “Common UNIX Printing System(tm) - common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ad216d55d5899cf9f9b5e969` (`cups-core-drivers`): “Common UNIX Printing System(tm) - driverless printing” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-85657925d49e093de38f7471` (`cups-daemon`): “Common UNIX Printing System(tm) - daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-08455455af303b7ab2d26008` (`cups-filters`): “OpenPrinting CUPS Filters - Main Package” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1e58b6801f30b5f30a85f8de` (`cups-filters-core-drivers`): “OpenPrinting CUPS Filters - Driverless printing” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-29c59085aa5bde1c65cf8eec` (`cups-ipp-utils`): “Common UNIX Printing System(tm) - IPP developer/admin utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-66e0f4e0093159ed824105c7` (`cups-pk-helper`): “PolicyKit helper to configure cups with fine-grained privileges” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-880cee7d47e32321b429c613` (`cups-ppdc`): “Common UNIX Printing System(tm) - PPD manipulation utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e2442700a14fd214191b7801` (`cups-server-common`): “Common UNIX Printing System(tm) - server common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1c5bbd4d7ea46c38c7e90a14` (`curl`): “command line tool for transferring data with URL syntax” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5f79ff45e489886af89ff59c` (`dash`): “POSIX-compliant shell” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-edd4f2cd522101e326ea4974` (`dbus`): “simple interprocess messaging system (system message bus)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3fe1596e4b4912125cff7cc4` (`dbus-bin`): “simple interprocess messaging system (command line utilities)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-033dd40fd6065001ceac3d1d` (`dbus-daemon`): “simple interprocess messaging system (reference message bus)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-047568654150fb9d73f4db26` (`dbus-session-bus-common`): “simple interprocess messaging system (session bus configuration)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-41c4c8398834984717f15241` (`dbus-system-bus-common`): “simple interprocess messaging system (system bus configuration)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-797856d6b6be758fb4c16eae` (`dbus-user-session`): “simple interprocess messaging system (systemd --user integration)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6fbd2445209b7db91868bf7f` (`dbus-x11`): “simple interprocess messaging system (X11 deps)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e505c154eb14b1ee0f22ba86` (`dc`): “GNU dc arbitrary precision reverse-polish calculator” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-673be87bb67110cca26bd09e` (`dconf-cli`): “simple configuration storage system - utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-eb3052409c0b3aac620730f4` (`dconf-gsettings-backend`): “simple configuration storage system - GSettings back-end” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-671a78898715e3735af187ee` (`dconf-service`): “simple configuration storage system - D-Bus service” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5873622f6ff42103fee36a41` (`dcraw`): “decode raw digital camera images” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-49404ecf878ec00473e26b1b` (`dctrl-tools`): “Command-line tools to process Debian package information” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fe6d2ae83c2de9c01616ab79` (`debconf`): “Debian configuration management system” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6adef65ce0f4a6ce74a24418` (`debconf-i18n`): “full internationalization support for debconf” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4adddeb8c42e96cba3651c3a` (`debianutils`): “Miscellaneous utilities specific to Debian” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ecb560485187bdfd9c6927a0` (`desktop-file-utils`): “Utilities for .desktop files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fcbdcbec3a07aad3358e90fe` (`dhcpcd-base`): “DHCPv4 and DHCPv6 dual-stack client (binaries and exit hooks)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c6a56107c07a1761931278fa` (`dialog`): “Displays user-friendly dialog boxes from shell scripts” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-bd73eff51c43aa5bace713f5` (`dictionaries-common`): “spelling dictionaries - common utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ab950f8c94156503e9a29da2` (`diffutils`): “File comparison utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3a868ac8fc439a5b0c66b6a1` (`dirmngr`): “GNU privacy guard - network certificate management service” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-130e37eb3402311fcac93f84` (`distro-info`): “provides information about the distributions' releases” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-35798aaf81b02f78c722892e` (`distro-info-data`): “information about the distributions' releases (data files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6f50715299cbf6e9220c1b0a` (`dkms`): “Dynamic Kernel Module System (DKMS)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-919dfda78a1234b23b15b18a` (`dmeventd`): “Linux Kernel Device Mapper event daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-93db2fb21b083b8ad5fe2411` (`dmidecode`): “SMBIOS/DMI table decoder” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6f4b8d04b19222d344e5f044` (`dmraid`): “Device-Mapper Software RAID support tool” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-68ab1e3b09a50cc59c5749c2` (`dmsetup`): “Linux Kernel Device Mapper userspace library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c5e3f9597065613a57deaa42` (`dmz-cursor-theme`): “Style neutral, scalable cursor theme” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b15c1998a84609fb2c469839` (`dns-root-data`): “DNS root data including root zone and DNSSEC key” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-94d205778350de3289e8f00f` (`dnsmasq-base`): “Small caching DNS proxy and DHCP/TFTP server - executable” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c3b484127e106ad7b41be3a8` (`docbook-xml`): “standard XML documentation system for software and systems” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cf36c6f906e80cde31094d6a` (`dosfstools`): “utilities for making and checking MS-DOS FAT filesystems” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fc6f4befc9b8c5089c618cc0` (`dpkg`): “Debian package management system” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-590bbee4efaec69b1755d170` (`dpkg-dev`): “Debian package development tools” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7e44dfa9cfe28e946c898113` (`dpkg-repack`): “Debian package archiving tool” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-12e784286bc19596dd238be0` (`dracut-install`): “dracut is an event driven initramfs infrastructure (dracut-install)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-27551f795723209ef580db34` (`drawing`): “simple drawing application for the GNOME desktop” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-0a5812a6d914bcb9f44e7868` (`e2fsprogs`): “ext2/ext3/ext4 file system utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-23f7a3424c752b9645ec5459` (`ecryptfs-utils`): “ecryptfs cryptographic filesystem (utilities)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-e4822a2d8ca23c72a28451a0` (`ed`): “classic UNIX line editor” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c60e0ed2b242924853c4d7a4` (`efibootmgr`): “Interact with the EFI Boot Manager” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-823a481d6ce08ada5c278725` (`eject`): “ejects CDs and operates CD-Changers under Linux” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f9adda0c62a1463ab282fa61` (`emacsen-common`): “Common facilities for all emacsen” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c2c7c38f0674f1c6bd273a64` (`enchant-2`): “Wrapper for various spell checker engines (binary programs)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-64b6282dd6f7dfb6c0fdf80a` (`espeak-ng-data`): “Multi-lingual software speech synthesizer: speech data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9777cdc51ccdb8e55b338a65` (`ethtool`): “display or change Ethernet device settings” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0014d252400d48a574d259a7` (`evolution-data-server`): “evolution database backend server” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8d75c5911789669cba52a7e3` (`evolution-data-server-common`): “architecture independent files for Evolution Data Server” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e083c62b35b37ba2d1e40c34` (`exfat-fuse`): “read and write exFAT driver for FUSE” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1beff73051db6e96e4362c0d` (`exfatprogs`): “exFAT file system utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c1321e6463ecaf9983e00cc4` (`exif`): “command-line utility to show EXIF information in JPEG files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-fd1a6a0468a055f1c8181f06` (`fakeroot`): “tool for simulating superuser privileges” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e3fb48c626ddf4a5d4b7b156` (`fdisk`): “collection of partitioning utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6046f51a549c13bdef983664` (`ffmpegthumbnailer`): “fast and lightweight video thumbnailer” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-2c9f7d24199e2c96d32bc234` (`file`): “Recognize the type of data in a file using "magic" numbers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-477b7e57e7a5ca7ef02988a0` (`file-roller`): “archive manager for GNOME” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-9b4094cfd4f081023163e62b` (`finalrd`): “final runtime directory for shutdown” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6a6e12df08f3bc316528f202` (`findutils`): “utilities for finding files--find, xargs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-85f4b22ff6d8b349606dfd7b` (`fingwit`): “Fingerprint Configuration Tool” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-fdecb77a3635f99c8dfb361d` (`firefox`): “The Firefox web browser” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-f0ea7dcf8aaf9dd02a599025` (`firefox-locale-en`): “English language packs for Firefox” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-71d8eb353373c078ebfbf3ca` (`firmware-sof-signed`): “Intel SOF firmware - signed” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a75a78932e46c69311ab6bf6` (`flatpak`): “Application deployment framework for desktop apps” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-def665262327d61aa497d55a` (`folder-color-switcher`): “Change a folder color” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-ec6cc07d40792a090a99203f` (`fontconfig`): “generic font configuration library - support binaries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e4b9946a71ee5e493dca3419` (`fontconfig-config`): “generic font configuration library - configuration” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-235d4ec522642882f926eb27` (`fonts-dejavu-core`): “Vera font family derivate with additional characters” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-333828a5247abd0aa698d26b` (`fonts-dejavu-mono`): “Vera font family derivate with additional characters” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2c4f8ff5a67ee625bef68c4e` (`fonts-droid-fallback`): “handheld device font with extensive style and language support (fallback)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1162f68e41f0d35b2f9c9343` (`fonts-liberation`): “fonts with the same metrics as Times, Arial and Courier” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f6b90fa1b7acc162814857e2` (`fonts-mathjax`): “JavaScript display engine for LaTeX and MathML (fonts)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-af6961bcf790f4f792437f97` (`fonts-noto-cjk`): “"No Tofu" font families with large Unicode coverage (CJK regular and bold)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-854622d42bc8ca5d899db0ff` (`fonts-noto-color-emoji`): “color emoji font from Google” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8ddfd74bd50c9296043d6b74` (`fonts-noto-core`): “"No Tofu" font families with large Unicode coverage (core)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-daac7e63db042cc2f3b04b9a` (`fonts-noto-mono`): “"No Tofu" monospaced font family with large Unicode coverage” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-76c2c41ca55b1bec436fe365` (`fonts-opensymbol`): “OpenSymbol TrueType font” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-515816f17b3f22b0d4757ac2` (`fonts-ubuntu`): “sans-serif font set from Ubuntu” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6d32375033464cb6d41228c0` (`fonts-urw-base35`): “font set metric-compatible with the 35 PostScript Level 2 Base Fonts” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-dbfdf274539591521116d6fc` (`foomatic-db-compressed-ppds`): “OpenPrinting printer support - Compressed PPDs derived from the database” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4188ee1d485ce089f81a67c6` (`fprintd`): “D-Bus daemon for fingerprint reader access” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f660bd938800a476890205b7` (`friendly-recovery`): “Make recovery boot mode more user-friendly” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-283909d2e9d052078ee95400` (`ftp`): “dummy transitional package for tnftp” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8fbbb2a5787eb593b7e6b7cc` (`fuse-overlayfs`): “implementation of overlay+shiftfs in FUSE for rootless containers” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-ac836d426c60309e606fcdfd` (`fuse3`): “Filesystem in Userspace (3.x version)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-611955b90707846f7c8a7369` (`fwupd`): “Firmware update daemon” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-edbb471da6f6c3a500e656d4` (`fwupd-signed`): “Linux Firmware Updater EFI signed binary” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-266d7bc541381992b978ee95` (`g++`): “GNU C++ compiler” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-47e572fa131b5a7f189dadcf` (`g++-13`): “GNU C++ compiler” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3a506ef4bfa3353af3eaf7bb` (`g++-13-x86-64-linux-gnu`): “GNU C++ compiler for x86_64-linux-gnu architecture” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-466cafeb2dc117b088fd1d96` (`g++-x86-64-linux-gnu`): “GNU C++ compiler for the amd64 architecture” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-83a50943f5d979feba49b327` (`gamemode`): “Optimise Linux system performance on demand” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-50589b5b4e59f82bb2adccf9` (`gamemode-daemon`): “Optimise Linux system performance on demand (daemon)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a69a8af3259a95cbcd14d1cd` (`gcc`): “GNU C compiler” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7a6d1e637a285717a49f4628` (`gcc-13`): “GNU C compiler” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d9fa506d50754c763b7ba8f0` (`gcc-13-base`): “GCC, the GNU Compiler Collection (base package)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1e180478b1eadcfca9f4ade6` (`gcc-13-x86-64-linux-gnu`): “GNU C compiler for the x86_64-linux-gnu architecture” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2eff8ca7533a01281d1f6c11` (`gcc-14-base`): “GCC, the GNU Compiler Collection (base package)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-16cba5d08f45171ba26fbc86` (`gcc-x86-64-linux-gnu`): “GNU C compiler for the amd64 architecture” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46fe291af9c8b4133199847b` (`gcr`): “GNOME crypto services (daemon and tools)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-dd0d38e526377fd955b33730` (`gcr4`): “GNOME crypto services (daemon and tools)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2f93077d5570b6786b03cce5` (`gdb`): “GNU Debugger” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4ae6e1102437204c6994b73d` (`gdisk`): “GPT fdisk text-mode partitioning tool” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0e23fe82a69f3180465cb2da` (`genisoimage`): “Creates ISO-9660 CD-ROM filesystem images” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-69e3af0fec199f18c087b88f` (`geoclue-2.0`): “geoinformation service” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ce912c6d04cb481509f2e631` (`geocode-glib-common`): “icons for the geocode-glib library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ad84f7151f824a2826d6faed` (`geoip-database`): “IP lookup command line tools that use the GeoIP library (country database)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-f29a911d524a708ed24e4c88` (`gettext`): “GNU Internationalization utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bbb1b4440b9762928ea56cc7` (`gettext-base`): “GNU Internationalization utilities for the base system” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-eb80057319d9f209cdf4b8c8` (`ghostscript`): “interpreter for the PostScript language and for PDF” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46991dc3899466deda689a67` (`gir1.2-accountsservice-1.0`): “GObject introspection data for AccountService” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c86ec8818dc63110eed70a07` (`gir1.2-atk-1.0`): “ATK accessibility toolkit (GObject introspection)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-383bf53be2ec4cbb69bd2479` (`gir1.2-atspi-2.0`): “Assistive Technology Service Provider (GObject introspection)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c215a52ef23efe90c5cefafd` (`gir1.2-ayatanaappindicator3-0.1`): “Typelib files for libayatana-appindicator3-1 (GTK-3+ version)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d8db6c23e8d114b6ea4b15c6` (`gir1.2-camel-1.2`): “GObject introspection for the Camel library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-331c8df8e56c9265832b4ec8` (`gir1.2-caribou-1.0`): “GObject introspection for the Caribou library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b70e8b5f8580baa331445b78` (`gir1.2-cinnamondesktop-3.0`): “Introspection data for CinnamonDesktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-01a0e344c3a86cdd43accc9e` (`gir1.2-clutter-1.0`): “GObject introspection data for the Clutter 1.0 library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b2533eab240462bfcf322e16` (`gir1.2-clutter-gst-3.0`): “GObject introspection data for Clutter GStreamer elements” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-8e8c9b316e863ad0f1b3a461` (`gir1.2-cmenu-3.0`): “GObject introspection data for the Cinnamon menu library” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-a76d5805385927e839e23f39` (`gir1.2-cogl-1.0`): “GObject introspection data for the Cogl 1.0 library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-fbda5f9498d7ccaa766c5e12` (`gir1.2-coglpango-1.0`): “GObject introspection data for the CoglPango 1.0 library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-d0637ddfdcd4a772adde3005` (`gir1.2-cvc-1.0`): “Introspection data for Cinnamon pulseaudio abstraction” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-3b88a208c60f1e9fbae6d05f` (`gir1.2-dbusmenu-glib-0.4`): “typelib file for libdbusmenu-glib4” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5589559941bf330f1ea5600f` (`gir1.2-dee-1.0`): “GObject introspection data for the Dee library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-82cf7afa6839da2780d967e6` (`gir1.2-ecal-2.0`): “GObject introspection for the ECal library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-662fd464551cce5f20c686cc` (`gir1.2-edataserver-1.2`): “GObject introspection for the EDataServer library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d87bc089fc28bad55655aee4` (`gir1.2-flatpak-1.0`): “Application deployment framework for desktop apps (introspection)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b92c7475329fa4a19130e933` (`gir1.2-freedesktop`): “Introspection data for some FreeDesktop components” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1e40332cd50551779e293804` (`gir1.2-gck-1`): “GObject introspection data for the GCK library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-68ed3eccd69d540ff55af63f` (`gir1.2-gcr-3`): “GObject introspection data for the GCR library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cb1c8ae2c7b6dd785307d6b2` (`gir1.2-gdesktopenums-3.0`): “GObject introspection for GSettings desktop-wide schemas” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-27e536121a9c9fcd27ccf802` (`gir1.2-gdkpixbuf-2.0`): “GDK Pixbuf library - GObject-Introspection” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-be8771b29afaa8ba41b35a3a` (`gir1.2-girepository-2.0`): “Introspection data for GIRepository library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f13bb4176f57825366128e87` (`gir1.2-gkbd-3.0`): “GObject introspection data for the GnomeKbd library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ec79599c10e72b1af96e465f` (`gir1.2-glib-2.0`): “Introspection data for GLib, GObject, Gio and GModule” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-49c309b6cd64fd282800f257` (`gir1.2-gnomedesktop-3.0`): “Introspection data for GnomeDesktop (GTK 3)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7d92bbc354680e91fa2233fa` (`gir1.2-graphene-1.0`): “library of graphic data types (introspection files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fba7430554d94d62fb18a668` (`gir1.2-gsound-1.0`): “small library for playing system sounds (gir bindings)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e40f86698448bff1be0aebec` (`gir1.2-gspell-1`): “spell-checking library for GTK+ applications - GObject introspection” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ddba1589486cbcace9734220` (`gir1.2-gst-plugins-base-1.0`): “GObject introspection data for the GStreamer Plugins Base library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-60f4ed2afded96dd89d248b1` (`gir1.2-gstreamer-1.0`): “GObject introspection data for the GStreamer library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-99b8451933209593749c10b4` (`gir1.2-gtk-3.0`): “GTK graphical user interface library -- gir bindings” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-61cf46076e7e829b56e50cea` (`gir1.2-gtkclutter-1.0`): “GObject introspection data for the GTK+ Clutter library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c8935a7df00f9ecd2f3807e0` (`gir1.2-gtksource-3.0`): “gir files for the GTK+ syntax highlighting widget” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-8100d28cdb8a11adf1ddaeff` (`gir1.2-gtksource-4`): “gir files for the GTK+ syntax highlighting widget” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-16829ea269a2c04e57fee085` (`gir1.2-gtop-2.0`): “gtop system monitoring library (gir bindings)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c8381a58359b8370f42edee6` (`gir1.2-gudev-1.0`): “libgudev-1.0 introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4e5b7714216ce80aca95d489` (`gir1.2-handy-1`): “GObject introspection files for libhandy” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-038b4193155dc3c5ea298c71` (`gir1.2-harfbuzz-0.0`): “OpenType text shaping engine (GObject introspection data)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1db35c7f451c9a146793daf4` (`gir1.2-ibus-1.0`): “Intelligent Input Bus - introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9667bb0c93739b60ba28765d` (`gir1.2-ical-3.0`): “iCalendar library implementation in C (GObject Introspection)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-52b157930a62c78596788ec1` (`gir1.2-javascriptcoregtk-4.1`): “JavaScript engine library from WebKitGTK - GObject introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0de16027885a385be863a89c` (`gir1.2-json-1.0`): “GLib JSON manipulation library (introspection data)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-37575fc5ee206419acdf88a0` (`gir1.2-keybinder-3.0`): “registers global key bindings for applications - Gtk+3 - typelib” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-a31bba13563f9d1731b3d814` (`gir1.2-matedesktop-2.0`): “GObject introspection data for the libmate-desktop library” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-c6444601488ba584e3cbc030` (`gir1.2-matemenu-2.0`): “GObject introspection data for the MATE menu specification” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-08bc4c3b5fabbf48d8ab21a8` (`gir1.2-matepanelapplet-4.0`): “GObject introspection data for MATE panel” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-8259e0403dc65891be3c2aac` (`gir1.2-meta-muffin-0.0`): “GObject introspection data for Muffin” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-bc25ed802c8187943f9c8b13` (`gir1.2-nemo-3.0`): “libraries for nemo components - gir bindings” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-12f4b10e579860c608a27e59` (`gir1.2-nm-1.0`): “GObject introspection data for the libnm library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e5bd6c3725003fbada11f289` (`gir1.2-nma-1.0`): “GObject introspection data for libnma” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-3b1bdbfc5e75ed274fc0af28` (`gir1.2-notify-0.7`): “sends desktop notifications to a notification daemon (Introspection files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-eb9ed4eaae71e384b847fc1e` (`gir1.2-packagekitglib-1.0`): “GObject introspection data for the PackageKit GLib library” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-4345c50f44fd67e655a47ea7` (`gir1.2-pango-1.0`): “Layout and rendering of internationalized text - gir bindings” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-688207f3f9ba1fa2b675793a` (`gir1.2-peas-1.0`): “Application plugin library (introspection files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a164f0148a5d75888a568d64` (`gir1.2-polkit-1.0`): “GObject introspection data for polkit” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8e9289d5d16361e73a14a8ea` (`gir1.2-rb-3.0`): “GObject introspection data for the rhythmbox music player” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-55f4638e749c897a93dbe436` (`gir1.2-secret-1`): “Secret store (GObject-Introspection)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3b60abb072e8489221d50f7e` (`gir1.2-soup-2.4`): “GObject introspection data for the libsoup HTTP library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b78c6c5b531491389469c38b` (`gir1.2-soup-3.0`): “GObject introspection data for the libsoup HTTP library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-702ca478a3ea6c6112a73129` (`gir1.2-timezonemap-1.0`): “typelib interface for libtimezonemap” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b6cdc6211a58c39b14ccab25` (`gir1.2-udisks-2.0`): “GObject based library to access udisks2 - introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8c87eb6503573fb7d5ee1277` (`gir1.2-upowerglib-1.0`): “GObject introspection data for upower” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-07602302e06e773845c5a94f` (`gir1.2-vte-2.91`): “GObject introspection data for the VTE library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a2add8db0e28a2d396cd9fda` (`gir1.2-webkit2-4.1`): “Web content engine library for GTK - GObject introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cf1821301c35121670b987b3` (`gir1.2-wnck-3.0`): “GObject introspection data for the WNCK library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-77cba8556e54053fbcfc873b` (`gir1.2-xapp-1.0`): “Introspection data for XApp” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-b58ee9991c8a18a6ffe59576` (`gir1.2-xkl-1.0`): “X Keyboard Extension high-level API - introspection data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e639e4b4b503240d6acb6975` (`gir1.2-xmlb-2.0`): “GObject introspection data for libxmlb” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-07c71d3d39850b0868ef14da` (`gir1.2-xreader`): “GObject introspection data for Xreader” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-77314fa9f88941a3c425975b` (`gir1.2-xviewer-3.0`): “GObject introspection data for Xviewer” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-44d4702b54d4b8bccbb4a85e` (`gkbd-capplet`): “GNOME control center tools for libgnomekbd” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-388cc2c9956f9d415771603a` (`glib-networking`): “network-related giomodules for GLib” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-539b39c1a4cfb5978629626c` (`glib-networking-common`): “network-related giomodules for GLib - data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-dc7f3557d7035ff6400c0841` (`glib-networking-services`): “network-related giomodules for GLib - D-Bus services” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a6f85bbf6c13e15ddbdfef31` (`gnome-accessibility-themes`): “High Contrast GTK 2 theme and icons” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e9bbcfd0a6dfcfccdd470bca` (`gnome-calculator`): “GNOME desktop calculator” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-433a750626380c6835c4a725` (`gnome-calendar`): “Calendar application for GNOME” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-33a8d744e6723f38bd466fd1` (`gnome-desktop3-data`): “Common files for GNOME desktop apps” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e41555ea552768c6fc02dbdf` (`gnome-disk-utility`): “manage and configure disk drives and media” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a07ade575db890711c9da16d` (`gnome-font-viewer`): “font viewer for GNOME” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-72c159f7417d186ee8e4541f` (`gnome-keyring`): “GNOME keyring services (daemon and tools)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d65084f3deb87526297616ba` (`gnome-keyring-pkcs11`): “GNOME keyring module for the PKCS#11 module loading library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b220cf67b9d177eddeb22f61` (`gnome-menus`): “GNOME implementation of the freedesktop menu specification” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-59de98322b0121e73684d67f` (`gnome-online-accounts`): “service to manage online accounts for the GNOME desktop” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-99df303f656b63e8f7f01fc7` (`gnome-online-accounts-gtk`): “GUI Utility for logging into online accounts for the” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-d15c83b9ee595fce52b01924` (`gnome-power-manager`): “power management tool for the GNOME desktop” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-42569a594af282404ce0a68e` (`gnome-screenshot`): “screenshot application for GNOME” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-a8122077f24e478187f53673` (`gnome-session-canberra`): “GNOME session log in and log out sound events” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8bc59d6313222356de0ed3c2` (`gnome-settings-daemon-common`): “daemon handling the GNOME session settings - common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-40cb0cf9aa5bd40c3d4cb5a2` (`gnome-system-monitor`): “Process viewer and system resource monitor for GNOME” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bd64297f6666227de0104b10` (`gnome-terminal`): “GNOME terminal emulator application” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-707cb6be107ec462ef11c223` (`gnome-terminal-data`): “Data files for the GNOME terminal emulator” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-77fa30d9a86e8ce9e3c9771d` (`gnome-themes-extra`): “Adwaita GTK 2 theme — engine” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-be231c5c769a75aa0fb3b726` (`gnome-themes-extra-data`): “Adwaita GTK 2 theme and Adwaita-dark GTK 3 theme — common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-531e5f4850c6f53d92fd4607` (`gnupg`): “GNU privacy guard - a free PGP replacement” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5000f6f88f8b8d4ec28c86a8` (`gnupg-utils`): “GNU privacy guard - utility programs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-48953385bb2e313693fb3ed4` (`golang-github-containers-common`): “Common files for github.com/containers repositories” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-e7ba87d118209c8837cb4401` (`golang-github-containers-image`): “Configuration files and manpages for github.com/containers repositories” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-cb1d3c85aaf8db2b657127ab` (`gpg`): “GNU Privacy Guard -- minimalist public key operations” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6896d0f4ea49c2e49e843bce` (`gpg-agent`): “GNU privacy guard - cryptographic agent” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ca8e787d5223bcdca1e725eb` (`gpgconf`): “GNU privacy guard - core configuration utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-561e68c5750a57c9e552722f` (`gpgsm`): “GNU privacy guard - S/MIME version” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2a265ac3a070a6df4aa0b974` (`gpgv`): “GNU privacy guard - signature verification tool” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f55c866ca4021559f8654bf0` (`grep`): “GNU grep, egrep and fgrep” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-674a7624d682b5f369ad9242` (`groff-base`): “GNU troff text-formatting system (base system components)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-064de8bd6d275b0b071d29a8` (`grub-common`): “GRand Unified Bootloader (common files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7db59feea6c2389882d6a96e` (`grub-efi-amd64-bin`): “GRand Unified Bootloader, version 2 (EFI-AMD64 modules)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7f15e9c488228508dba5d583` (`grub-efi-amd64-signed`): “GRand Unified Bootloader, version 2 (EFI-AMD64 version, signed)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5858a4b5a64c36a53734549d` (`grub-gfxpayload-lists`): “GRUB gfxpayload blacklist” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fb73f5d7604c1ecabae0c2f9` (`grub-pc`): “GRand Unified Bootloader, version 2 (PC/BIOS version)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-38c9c8d8f45474d026528a6f` (`grub-pc-bin`): “GRand Unified Bootloader, version 2 (PC/BIOS modules)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ae442f7d52212d8e9e6183d4` (`grub2-common`): “GRand Unified Bootloader (common files for version 2)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-05101c48f8104a8843e751e5` (`gsettings-desktop-schemas`): “GSettings desktop-wide schemas” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6c93e1ed3781f12a62b3ba3c` (`gstreamer1.0-alsa`): “GStreamer plugin for ALSA” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6f9b6c6f0c460fb9af2bb8bc` (`gstreamer1.0-clutter-3.0`): “Clutter PLugin for GStreamer 1.0” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-068a0a10ba901078401bae50` (`gstreamer1.0-gl`): “GStreamer plugins for GL” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-360801039aeefe17d5dafd0d` (`gstreamer1.0-gtk3`): “GStreamer plugin for GTK+3” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7a941bedd3f119c7e9c5cd02` (`gstreamer1.0-packagekit`): “GStreamer plugin to install codecs using PackageKit” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-bc88d27511f2e6f110152c0e` (`gstreamer1.0-pipewire`): “GStreamer 1.0 plugin for the PipeWire multimedia server” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e6cacc39cf047b2e58233aa2` (`gstreamer1.0-plugins-base`): “GStreamer plugins from the "base" set” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6b6e6045a17aac6d2c5c36e7` (`gstreamer1.0-plugins-base-apps`): “GStreamer helper programs from the "base" set” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-36ac4b03cdd8f55b03804029` (`gstreamer1.0-plugins-good`): “GStreamer plugins from the "good" set” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bd5ff5dac085f3f7dc509cf2` (`gstreamer1.0-tools`): “Tools for use with GStreamer” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6df172867dafea9ca9235f34` (`gstreamer1.0-x`): “GStreamer plugins for X11 and Pango” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1c1e2f8728a75b17bed41ed0` (`gtk-update-icon-cache`): “icon theme caching utility” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-077b901f13beac30fbab9c3f` (`gtk2-engines-murrine`): “cairo-based gtk+-2.0 theme engine” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-006e419fe5fb57cda79afaac` (`gtk2-engines-pixbuf`): “pixbuf-based theme for GTK 2” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f1e4708cb01206f2ef1d8c96` (`gucharmap`): “Unicode character picker and font browser” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-22a4958e3b81a0982c2fe847` (`gufw`): “graphical user interface for ufw” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-7050a9d1271d6165adbe5cab` (`gvfs`): “userspace virtual filesystem - GIO module” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e28bbed47c2692c0337cfb9f` (`gvfs-backends`): “userspace virtual filesystem - backends” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3d3894cc019bd86c2579e778` (`gvfs-common`): “userspace virtual filesystem - common data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-219893d6546c92eee143d47e` (`gvfs-daemons`): “userspace virtual filesystem - servers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e1a6ef681a285a0d91e4899a` (`gvfs-fuse`): “userspace virtual filesystem - fuse server” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cfb90405b185acaaaf61e52f` (`gvfs-libs`): “userspace virtual filesystem - private libraries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7d5ff0b737c40d66055c19c3` (`gzip`): “GNU compression utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-71208be840d74846c7641e2b` (`hdparm`): “tune hard disk parameters for high performance” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8f8f9474614d1b26216afd0f` (`heif-gdk-pixbuf`): “ISO/IEC 23008-12:2017 HEIF file format decoder - gdk-pixbuf loader” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fa7dd3b1cefa2ee9c5ebd276` (`hello`): “example package based on GNU hello” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1253621a0b0f3ef205c787e9` (`hfsprogs`): “mkfs and fsck for HFS and HFS+ file systems” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c6f00ac3c35865302adb3359` (`hicolor-icon-theme`): “default fallback theme for FreeDesktop.org icon themes” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-79ea155271dffb06e988eec5` (`hostname`): “utility to set/show the host name or domain name” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-23a8cc41782cab2f3db23266` (`hplip`): “HP Linux Printing and Imaging System (HPLIP)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3f79b8dc779147be554b809c` (`hplip-data`): “HP Linux Printing and Imaging - data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-449ba026174166f41ae9816a` (`html2text`): “advanced HTML to text converter” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-80491ea0acb4226abf7312a4` (`humanity-icon-theme`): “Humanity Icon theme” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-04000ad521d7f0066c02b987` (`hunspell-en-us`): “English_american dictionary for hunspell” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-397e6b48a31274185cbfca8e` (`hwdata`): “hardware identification / configuration data” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-768ce1ae74fa2c1f90f6ed0a` (`hyphen-en-us`): “English (US) hyphenation patterns” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6c4ff27ced9253588da04e8c` (`hypnotix`): “IPTV Player” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-e3e80c249b4ee1b971463343` (`i965-va-driver`): “VAAPI driver for Intel G45 & HD Graphics family” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-640f83b6c886f47b952e97dc` (`ibus`): “Intelligent Input Bus - core” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3a3ad75355eff91124e14d60` (`ibus-data`): “Intelligent Input Bus - data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c05323e2e84bfcd142502c93` (`ibus-gtk`): “Intelligent Input Bus - GTK2 support” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-383bc4434f12d625f08d9386` (`ibus-gtk3`): “Intelligent Input Bus - GTK3 support” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-559c535ec37d85aaeb46d85e` (`ibus-gtk4`): “Intelligent Input Bus - GTK4 support” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9034df26f14abc7d3f0547d1` (`id3`): “Editor for ID3 tags” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-11e7ba806501a886d0203e66` (`ideviceinstaller`): “Utility to manage installed applications on an iDevice” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-d87e22cc525cd40bb5ab09c2` (`ieee-data`): “OUI and IAB listings” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ee3730d1463e69397f27779a` (`ifuse`): “FUSE module for iPhone and iPod Touch devices” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-4f96caf2014d16fb27bd31b5` (`iio-sensor-proxy`): “IIO sensors to D-Bus proxy” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e8116462fbe4d7b1938949b9` (`im-config`): “Input method configuration framework” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-24d16db7bc931dee13477e9d` (`inetutils-telnet`): “telnet client” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d65d52d2352516f7adbc15c6` (`info`): “Standalone GNU Info documentation browser” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c5056f235638fd42ac7b8127` (`init`): “metapackage ensuring an init system is installed” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ebf530f5285066fd8722c330` (`init-system-helpers`): “helper tools for all init systems” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-50912621834446722c63420a` (`initramfs-tools`): “generic modular initramfs generator (automation)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7abe620a62ff81942ce9e8dd` (`initramfs-tools-bin`): “binaries used by initramfs-tools” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-57478e81f3364bfc52e3560f` (`initramfs-tools-core`): “generic modular initramfs generator (core tools)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8d2fe1de119c0a5dc4602712` (`inputattach`): “utility to connect serial-attached peripherals to the input subsystem” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46d8ddee25919092db276bdd` (`install-info`): “Manage installed documentation in info format” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2ee986ea99842048de315d1e` (`intel-media-va-driver`): “VAAPI driver for the Intel GEN8+ Graphics family” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-aef3f7ceb964425450ff4358` (`intel-microcode`): “Processor microcode firmware for Intel CPUs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-95e3b6e7a6e680fa1efefb61` (`inxi`): “full featured system information script” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-a39d455f870ac67a472c1b77` (`ipp-usb`): “Daemon for IPP over USB printer support” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8f397dfb905c0f2d5a684b0e` (`iproute2`): “networking and traffic control tools” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c3e743d754bbf70e125fc0ea` (`iptables`): “administration tools for packet filtering and NAT” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-315e69c58303c6cf0f367bc1` (`iputils-ping`): “Tools to test the reachability of network hosts” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6e5b493f0218888d58558f75` (`iputils-tracepath`): “Tools to trace the network path to a remote host” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e821833be8d84ea7dc262e81` (`irqbalance`): “Daemon to balance interrupts for SMP systems” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3e375ca2075b37cda19fef51` (`isc-dhcp-client`): “DHCP client for automatically obtaining an IP address” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-cc904dc75daeceb1bf69732f` (`isc-dhcp-common`): “common manpages relevant to all of the isc-dhcp packages” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-3e98a37d0d7888d4fd3900ba` (`iso-codes`): “ISO language, territory, currency, script codes and their translations” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-93ccd53e57ba4d3dcdaf2483` (`iso-flag-png`): “ISO country flags in PNG format” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz
+- `mint-7aaa93b148650fe9879cdf16` (`iucode-tool`): “Intel processor microcode tool” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-62fbda7fccdd34566013ed0f` (`jfsutils`): “utilities for managing the JFS filesystem” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d29dc2af0b4fcfbc2659e638` (`kbd`): “Linux console font and keytable utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cd8c336ecd414c3021b3592e` (`kerneloops`): “kernel oops tracker” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46e53c46b1e18217bd78b71a` (`keyboard-configuration`): “system-wide keyboard preferences” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8839e9a90aa74eed31668d29` (`keyboxd`): “GNU privacy guard - public key material service” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46ca67fcd4a4d7ff44f7eba9` (`keyutils`): “Linux Key Management Utilities” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-96a6c8cf3f5868e625a5cc82` (`klibc-utils`): “small utilities built with klibc for early boot” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c256a65a9770522f9573004b` (`kmod`): “tools for managing Linux kernel modules” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4b10533f72c92a00d57dbd30` (`kpartx`): “create device mappings for partitions” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f6ada7fc2760ccb3e66a604d` (`kpartx-boot`): “Provides kpartx during boot” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-37282c96276f617d4c9a85e0` (`krb5-locales`): “internationalization support for MIT Kerberos” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9352838a838811dec69a88be` (`language-pack-en`): “translation updates for language English” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c06ea61e4f735327d478bbfe` (`language-pack-en-base`): “translations for language English” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c6da76afe4a09b56ac6863d9` (`language-pack-gnome-en`): “GNOME translation updates for language English” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bc36f6f87a8c353ddc907081` (`language-pack-gnome-en-base`): “GNOME translations for language English” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0e032e2f83176ac3d251559a` (`laptop-detect`): “system chassis type checker” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-af68e6a273ca1de251784a78` (`less`): “pager program similar to more” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-18b7e44d1c0c7dc9eb446aa6` (`libaa1`): “ASCII art library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7080b3647d35809c7e0ee687` (`libabsl20220623t64`): “extensions to the C++ standard library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2ba6a194b244a3386c326c52` (`libabw-0.1-1`): “library for reading and writing AbiWord(tm) documents” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-22b27c537106c98e4554e21e` (`libaccountsservice0`): “query and manipulate user account information - shared libraries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-88ac1ecee4af06163c0684f3` (`libacl1`): “access control list - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a7fc920ee57e0b45f388b00e` (`libadwaita-1-0`): “Library with GTK widgets for mobile phones” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz
+- `mint-7da534cefd43b685e5a481cb` (`libaio1t64`): “Linux kernel AIO access library - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-51a0d615cf5d1320bf36e727` (`libao-common`): “Cross Platform Audio Output Library (Common files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7c415b17bb0b9a2c1ae267bd` (`libao4`): “Cross Platform Audio Output Library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4851fbe3937eac150dcc43c9` (`libaom3`): “AV1 Video Codec Library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-71132d962002eb2894698309` (`libapparmor1`): “changehat AppArmor library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2355b3125d0eb4f4cc69d3b0` (`libappstream5`): “Library to access AppStream services” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-22168bcab99893a59a68c157` (`libapt-pkg6.0t64`): “package management runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-55428cb9caea9c5f9a97c466` (`libarchive13t64`): “Multi-format archive and compression library (shared library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1f4c360cfa0f522f381faf8b` (`libargon2-1`): “memory-hard hashing function - runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-af456cad552ea1c783edb7cc` (`libasan8`): “AddressSanitizer -- a fast memory error detector” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c181c4a9a019c6506a4a2888` (`libasound2-data`): “Configuration files and profiles for ALSA drivers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-87f67de18f4d53eef79747ba` (`libasound2t64`): “shared library for ALSA applications” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8b26b05c37de102b0613743f` (`libaspell15`): “GNU Aspell spell-checker runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cb9c531e0b6bb013c1bb0610` (`libass9`): “library for SSA/ASS subtitles rendering” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-3128cc47167bc72d29a220b9` (`libassuan0`): “IPC library for the GnuPG components” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-907b055f8120154fdb7a3010` (`libasyncns0`): “Asynchronous name service query library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f95cd8e0d799d0a546a4c83f` (`libatasmart4`): “ATA S.M.A.R.T. reading and parsing library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-da71362d2ee5655ee5c2c20b` (`libatk-adaptor`): “AT-SPI 2 toolkit bridge” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b30ec9e4311254c0562b75e4` (`libatk-bridge2.0-0t64`): “AT-SPI 2 toolkit bridge - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c40940fa3fd8ad079aef86ec` (`libatk1.0-0t64`): “ATK accessibility toolkit” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-911d8ac528425c7f22bbb54b` (`libatkmm-1.6-1v5`): “C++ wrappers for ATK accessibility toolkit (shared libraries)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-db6fcd7d270f7a1001b879c9` (`libatm1t64`): “shared library for ATM (Asynchronous Transfer Mode)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d4261d384b2b671b3306d335` (`libatomic1`): “support library providing __atomic built-in functions” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9cc59467801735d2deaed197` (`libatopology2t64`): “shared library for handling ALSA topology definitions” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-16232fc2350c7d74cee500a9` (`libatspi2.0-0t64`): “Assistive Technology Service Provider Interface - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-37220680fe612c1aebf711de` (`libattr1`): “extended attribute handling - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9fdd4a5218a3044204c2f903` (`libaudit-common`): “Dynamic library for security auditing - common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3d1a30e4710401f664dac490` (`libaudit1`): “Dynamic library for security auditing” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cada749cdc7e42f3479ed4a8` (`libauthen-sasl-perl`): “Authen::SASL - SASL Authentication framework” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b245029c77ded7fa2460dd8f` (`libavahi-client3`): “Avahi client library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f236fe7314eeea3b255b1546` (`libavahi-common-data`): “Avahi common data files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1da145f5a7445ebd5dda3986` (`libavahi-common3`): “Avahi common library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-87ad4799d3e1c41370644791` (`libavahi-core7`): “Avahi's embeddable mDNS/DNS-SD library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4c2c5b0748a5cceec77b04f9` (`libavahi-glib1`): “Avahi GLib integration library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8004beba5e3136d72a47cd99` (`libavc1394-0`): “control IEEE 1394 audio/video devices” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d15aaac1ade1f884aca5c58d` (`libavcodec60`): “FFmpeg library with de/encoders for audio/video codecs - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-660bbc8013250899f6c87045` (`libavdevice60`): “FFmpeg library for handling input and output devices - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b985ca658ffc41e5bae9f929` (`libavfilter9`): “FFmpeg library containing media filters - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1bf17fc50dca1664ecb2f60f` (`libavformat60`): “FFmpeg library with (de)muxers for multimedia containers - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-8091118e6e437988749984d6` (`libavutil58`): “FFmpeg library with functions for simplifying programming - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-eca0a07f9aa0f8f0bb1d962d` (`libayatana-appindicator3-1`): “Ayatana Application Indicators (GTK-3+ version)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a68086679e42cfcef02008fc` (`libayatana-ido3-0.4-0`): “Widgets and other objects used for Ayatana Indicators” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cd4ad32184e0e0c06fc2bb51` (`libayatana-indicator3-7`): “panel indicator applet - shared library (GTK-3+ variant)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0060d3e1b2e36a0eb0d4047f` (`libbabeltrace1`): “Babeltrace conversion libraries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7267826730747aac80b1ec71` (`libbinutils`): “GNU binary utilities (private shared library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-912d71a3563e115f441144ed` (`libblas3`): “Basic Linear Algebra Reference implementations, shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-819d1f1d15a958a6cc497977` (`libblkid1`): “block device ID library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3c195b51c9fa2057b9108c55` (`libblockdev-crypto3`): “Crypto plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-5fe4c54d01459afd29124478` (`libblockdev-fs3`): “file system plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b3ebca86e07644e4130ee0d9` (`libblockdev-loop3`): “Loop device plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c77f3f73653b1614fe518fb7` (`libblockdev-mdraid3`): “MD RAID plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3a50b4cb2b287d6548c125d0` (`libblockdev-nvme3`): “NVMe plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6ffd28debb462d87257cf57d` (`libblockdev-part3`): “Partitioning plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-660652c7181bbf429d7cdb36` (`libblockdev-swap3`): “Swap plugin for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-80c4b4bc4e19c90cb6121167` (`libblockdev-utils3`): “Utility functions for libblockdev” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-eb8ae94e733744c3a0949510` (`libblockdev3`): “Library for manipulating block devices” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8a93ae78c96418bd4e325c1a` (`libbluetooth3`): “Library to use the BlueZ Linux Bluetooth stack” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-535cce0e07e5a9776d974eaa` (`libbluray2`): “Blu-ray disc playback support library (shared library)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-ab651df30ecf7d7d2975a250` (`libboost-iostreams1.83.0`): “Boost.Iostreams Library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-04387f943dcfee9b43e16ccc` (`libboost-locale1.83.0`): “C++ facilities for localization” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1dd16f4065e9ef3ce56e93c2` (`libboost-thread1.83.0`): “portable C++ multi-threading” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8f54d609a712c01b9ee428f4` (`libbpf1`): “eBPF helper library (shared library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1e2f152f3a0973a10bafec55` (`libbrasero-media3-1`): “CD/DVD burning library for GNOME - runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-33eb0e9c99666bf3c5162fb7` (`libbrlapi0.8`): “braille display access via BRLTTY - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-26cb9f33f22bd77685bae07a` (`libbrotli1`): “library implementing brotli encoder and decoder (shared libraries)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e13e30e48d4306b74c66341f` (`libbs2b0`): “Bauer stereophonic-to-binaural DSP library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-7f4df82b0babc79c89420370` (`libbsd0`): “utility functions from BSD systems - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cbdd68d58c74496177252091` (`libburn4t64`): “library to provide CD/DVD/BD writing functions” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-672c874eccbbd7f5427d8db7` (`libbytesize-common`): “library for common operations with sizes in bytes - translations” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e6be3f7e0ee0f9ccc380c877` (`libbytesize1`): “library for common operations with sizes in bytes” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b22976db1f2aea4e572c8f4a` (`libbz2-1.0`): “high-quality block-sorting file compressor library - runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9df0303f6228123db7e8ead8` (`libc-bin`): “GNU C Library: Binaries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-64142c974c00f651d1221798` (`libc-dev-bin`): “GNU C Library: Development binaries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9bf7b1cb97cdf74c8d8ee562` (`libc6`): “GNU C Library: Shared libraries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-57b2ba58a6b978c5a373bbe0` (`libc6-dbg`): “GNU C Library: detached debugging symbols” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d0a16790eff461da9b806c2e` (`libc6-dev`): “GNU C Library: Development Libraries and Header Files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-83d6ec89bb96954ead35c04c` (`libcaca0`): “colour ASCII art library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3bf35f323177cca9f765033f` (`libcairo-gobject-perl`): “integrate Cairo into the Glib type system in Perl” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d95b2365d39d54234d285023` (`libcairo-gobject2`): “Cairo 2D vector graphics library (GObject library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-caeb2317808c93420ab5344c` (`libcairo-perl`): “Perl interface to the Cairo graphics library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2d4c87f7657751e5855a4564` (`libcairo-script-interpreter2`): “Cairo 2D vector graphics library (script interpreter)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c91de8d098ccaf9c8736f1ae` (`libcairo2`): “Cairo 2D vector graphics library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9336d12525f7d98a3efedc58` (`libcairomm-1.0-1v5`): “C++ wrappers for Cairo (shared libraries)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ab8e9af717d59d6c2b6afe22` (`libcairomm-1.16-1`): “C++ wrappers for Cairo (shared libraries)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6e7a725640d57008d51c2bd2` (`libcamel-1.2-64t64`): “Evolution MIME message handling library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b13efec4275880d114b63da7` (`libcanberra-gtk3-0t64`): “GTK+ 3.0 helper for playing widget event sounds with libcanberra” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fa40da1f5fa8ee082a8742b5` (`libcanberra-gtk3-module`): “translates GTK3 widgets signals to event sounds” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4514a947d68bd604b88effaa` (`libcanberra-pulse`): “PulseAudio backend for libcanberra” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-906fed1791115af9a74a5adc` (`libcanberra0t64`): “simple abstract interface for playing event sounds” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b8546d8cbb4df8be83c42574` (`libcap-ng0`): “alternate POSIX capabilities library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7213b49c7b2682f4e601b5dc` (`libcap2`): “POSIX 1003.1e capabilities (library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-231d18a488f274d267b84eb1` (`libcap2-bin`): “POSIX 1003.1e capabilities (utilities)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-f4f48ed0d5b9095347aaf20f` (`libcaribou-common`): “Configurable on screen keyboard with scanning mode - common files” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-39beea2a8bd4c8319b71bfc1` (`libcaribou0`): “Configurable on screen keyboard with scanning mode - library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-eddd6d2314ed46975808f7b4` (`libcbor0.10`): “library for parsing and generating CBOR (RFC 7049)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-03df40188c35f7bcf3609ce8` (`libcc1-0`): “GCC cc1 plugin for GDB” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-32d95e49279081eb9be12de3` (`libcdio-cdda2t64`): “library to read and control digital audio CDs” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8b33ad166f728ce9417808ba` (`libcdio-paranoia2t64`): “library to read digital audio CDs with error correction” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-31bdd825a0df2d04f420cfe2` (`libcdio19t64`): “library to read and control CD-ROM” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-afcd99c5733939eaa4b803a0` (`libcdparanoia0`): “audio extraction tool for sampling CDs (library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-245de8d4e0b99a49b6e69b72` (`libcdr-0.1-1`): “library for reading and converting Corel DRAW files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0128f24e59d1252ee10c609e` (`libcgi-fast-perl`): “CGI subclass for work with FCGI” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a2e97748c69c73dc83bedd36` (`libcgi-pm-perl`): “module for Common Gateway Interface applications” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-93c6f17353524c00a1ff5496` (`libchamplain-0.12-0`): “C library providing ClutterActor to display maps” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c0061e41b7b512b70c1d88a7` (`libchamplain-gtk-0.12-0`): “Gtk+ widget to display maps” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-836581332b76905d0dadf1ea` (`libchromaprint1`): “audio fingerprint library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-5b6146dadea50d82da4def68` (`libcinnamon-control-center1`): “utilities to configure the Cinnamon desktop” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-df392dd32c573575dc9af6cb` (`libcinnamon-desktop-dbg`): “Cinnamon shared utility library - debugging symbols” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-96c892cf2bc672f4d67daa46` (`libcinnamon-desktop4`): “Cinnamon shared utility library.” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-9c56dcf8e570453b4068c651` (`libcinnamon-menu-3-0`): “Cinnamon implementation of the freedesktop menu specification” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-3112f73fda8dde2c470e105d` (`libcinnamon-menu-3-0-dbg`): “Cinnamon implementation of the freedesktop menu specification” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-786315c46bebc2d5e4cedb2e` (`libcjs-dbg`): “Mozilla-based javascript bindings for the Cinnamon platform” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-128e202f8558de004190809c` (`libcjs0`): “Mozilla-based javascript bindings for the Cinnamon platform” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-6b6a8fe60f6058d0de0c6c1d` (`libcjson1`): “Ultralightweight JSON parser in ANSI C” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-0d45d9912c02da53caeaa105` (`libclone-perl`): “module for recursively copying Perl datatypes” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4ac8290abe6775196898a518` (`libclucene-contribs1t64`): “language specific text analyzers (runtime)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2c7408bae99924fcd35150d1` (`libclucene-core1t64`): “core library for full-featured text search engine (runtime)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6a20f04f971f5432c22dc64e` (`libclutter-1.0-0`): “Open GL based interactive canvas library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-027a9715c3796fe2f5d77645` (`libclutter-1.0-common`): “Open GL based interactive canvas library (common files)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-dee1390cdecb37dd45844216` (`libclutter-gst-3.0-0`): “Open GL based interactive canvas library GStreamer elements” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c230715fc91b7c2fbb2a38e0` (`libclutter-gtk-1.0-0`): “Open GL based interactive canvas library GTK+ widget” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-81b14876f0154451f6b4844b` (`libcodec2-1.2`): “Codec2 runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-c0a70662aa5e1bb2408c2b10` (`libcogl-common`): “Object oriented GL/GLES Abstraction/Utility Layer (common files)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-363997bbd6054cf16fd69538` (`libcogl-pango20`): “Object oriented GL/GLES Abstraction/Utility Layer” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-38c357de8a2657abd11ddd7c` (`libcogl-path20`): “Object oriented GL/GLES Abstraction/Utility Layer” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1cfed4a3d743f3cb123e3bec` (`libcogl20`): “Object oriented GL/GLES Abstraction/Utility Layer” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-a89e55cf59d8192edb7b8f55` (`libcolamd3`): “column approximate minimum degree ordering library for sparse matrices” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d1d2fdbeb5503e0c381cbfca` (`libcolord2`): “system service to manage device colour profiles -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d90bcc161e1916df0aa910f8` (`libcolorhug2`): “library to access the ColorHug colourimeter -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-df09c4e02711af7a28ebe31c` (`libcom-err2`): “common error description library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-fca4e63a1a832e8e33a908a7` (`libcpdb2t64`): “Common Print Dialog Backends - Interface Library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1d8656a423d75917ad5a08ee` (`libcrack2`): “pro-active password checker library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2915a410d24254f1ad2f59a8` (`libcrypt-dev`): “libcrypt development files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cecc3368c84995e394c3d7d4` (`libcrypt1`): “libcrypt shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b2ad5df1be08f2dfdc0565a8` (`libcryptsetup12`): “disk encryption support - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9c88f4a8fa50dabf78d95709` (`libctf-nobfd0`): “Compact C Type Format library (runtime, no BFD dependency)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-afe788c9e2ebf244008123cd` (`libctf0`): “Compact C Type Format library (runtime, BFD dependency)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1bad7dd74a07807e1e28c08b` (`libcups2t64`): “Common UNIX Printing System(tm) - Core library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ff696179d8a74792f7e3f10d` (`libcupsfilters2-common`): “OpenPrinting libcupsfilters - Auxiliary files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4f8e23f90eee2df28063a916` (`libcupsfilters2t64`): “OpenPrinting libcupsfilters - Shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c29ed3c37fe9aeffbd12ec12` (`libcupsimage2t64`): “Common UNIX Printing System(tm) - Raster image library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-efe11fad14ba70cd9fadc7a9` (`libcurl3t64-gnutls`): “easy-to-use client-side URL transfer library (GnuTLS flavour)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b8e701b631577c74cb00777e` (`libcurl4t64`): “easy-to-use client-side URL transfer library (OpenSSL flavour)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-2308d2a796c876e3b9e27bd3` (`libcvc-dbg`): “Cinnamon pulseaudio abstraction library - debug symbols” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-9fa5e6e31a1d22028d4ceaa0` (`libcvc0`): “Cinnamon pulseaudio abstraction library” — https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz
+- `mint-5f97343c391ac84f378bcf51` (`libcwidget4`): “high-level terminal interface library for C++ (runtime files)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-e7f592981e430820bb00b0db` (`libdaemon0`): “lightweight C library for daemons - runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-da0ae845c94c958446aadae8` (`libdata-dump-perl`): “Perl module to help dump data structures” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d80f85fa0de2e17764ab11e5` (`libdatrie1`): “Double-array trie library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-111851b38b7065573dadcf42` (`libdav1d7`): “fast and small AV1 video stream decoder (shared library)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-1c5443176c742e093c39313b` (`libdb5.3t64`): “Berkeley v5.3 Database Libraries [runtime]” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bdda6106570828ec0e636d34` (`libdbus-1-3`): “simple interprocess messaging system (library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-67975243ad79c69ce678f4e1` (`libdbus-glib-1-2`): “deprecated library for D-Bus IPC” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-888aa7b5a9662d341b719033` (`libdbusmenu-glib4`): “library for passing menus over DBus” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ddc67ddbbcc5ab4f5189eb0d` (`libdbusmenu-gtk3-4`): “library for passing menus over DBus - GTK-3+ version” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3476f02ce98638dc9d26d2b8` (`libdc1394-25`): “high level programming interface for IEEE 1394 digital cameras” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-25aff1d146d27c751d88560c` (`libdconf1`): “simple configuration storage system - runtime library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8bbc6a68280e7128e6d6e963` (`libde265-0`): “Open H.265 video codec implementation” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-3cf7cd09fbb60f341d28efe6` (`libdebconfclient0`): “Debian Configuration Management System (C-implementation library)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-a37036a0eae715556e6800b0` (`libdebuginfod-common`): “configuration to enable the Debian debug info server” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9ad9b9d9a686410c14ff87db` (`libdebuginfod1t64`): “library to interact with debuginfod (development files)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ecbc5b7c19b8b54306ee924d` (`libdecor-0-0`): “client-side window decoration library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-408c909b2f012f62d5486f13` (`libdee-1.0-4`): “Model to synchronize multiple instances over DBus - shared lib” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4f3f4a727067a45a94d5e189` (`libdeflate0`): “fast, whole-buffer DEFLATE-based compression and decompression” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-baafad7a45401fea3a7593b5` (`libdevmapper-event1.02.1`): “Linux Kernel Device Mapper event support library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-41b3633160e8cb7521e42668` (`libdevmapper1.02.1`): “Linux Kernel Device Mapper userspace library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e04809cb3388cc055ecb669b` (`libdjvulibre-text`): “Linguistic support files for libdjvulibre” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-ba282feafc8e35e4464adf3c` (`libdjvulibre21`): “Runtime support for the DjVu image format” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-bad1735c731578552a61c83e` (`libdmapsharing-4.0-3t64`): “DMAP client and server library - runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d68d8fd9a61aa385da97634a` (`libdmraid1.0.0.rc16`): “Device-Mapper Software RAID support tool - shared library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-9286eabbb46d36d27da07c21` (`libdotconf0`): “Configuration file parser library - runtime files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-79364ff469cb632e5326ec0d` (`libdouble-conversion3`): “routines to convert IEEE floats to and from strings” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-3debe3f993e160473cb7aaec` (`libdpkg-perl`): “Dpkg perl modules” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-de7f63ce54ac52ba450ab918` (`libdrm-amdgpu1`): “Userspace interface to amdgpu-specific kernel DRM services -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-cef67297df4b26083898d0be` (`libdrm-common`): “Userspace interface to kernel DRM services -- common files” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-976a84b4e6f9c909f92e9d5d` (`libdrm-intel1`): “Userspace interface to intel-specific kernel DRM services -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-0ec802ea1ee774c3c9ffb0be` (`libdrm-nouveau2`): “Userspace interface to nouveau-specific kernel DRM services -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-d4006c8d315332065bd44fa0` (`libdrm-radeon1`): “Userspace interface to radeon-specific kernel DRM services -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-4ed854c628741b3a871c151a` (`libdrm2`): “Userspace interface to kernel DRM services -- runtime” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-b4da10953c886fd95f1629c0` (`libduktape207`): “embeddable Javascript engine, library” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-e69b0b83cabe3f046ae05f09` (`libdv4t64`): “software library for DV format digital video (runtime lib)” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-823fe0195776d5e80b6a58b2` (`libdvdnav4`): “DVD navigation library” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-14478035bc4ab3b735c913ca` (`libdvdread8t64`): “library for reading DVDs” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-b2c1b51e23b709d537d84baf` (`libdw1t64`): “library that provides access to the DWARF debug information” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-46ae3d93e01cc6527f109658` (`libe-book-0.1-1`): “library for reading and converting various  e-book formats” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-64a2a9faf17958d3aacff84f` (`libebackend-1.2-11t64`): “Utility library for evolution data servers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-794f73c1174b32908bc5218e` (`libebook-1.2-21t64`): “Client library for evolution address books” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-6c5bcf2fe1e320c67afb033c` (`libebook-contacts-1.2-4t64`): “Client library for evolution contacts books” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-86e50e1bef11a62334da2ef0` (`libecal-2.0-3`): “Client library for evolution calendars” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c258c7c70e47ae549db9f932` (`libecryptfs1`): “ecryptfs cryptographic filesystem (library)” — https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz
+- `mint-9bacd1a6c5371d9adcab023c` (`libedata-book-1.2-27t64`): “Backend library for evolution address books” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-1fd485ef1a25dc2f1d654b65` (`libedata-cal-2.0-2t64`): “Backend library for evolution calendars” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-7a67fe666fdf9b76c5810c0d` (`libedataserver-1.2-27t64`): “Utility library for evolution data servers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-c5b179bd34b7b2d4da89dd18` (`libedataserverui-1.2-4t64`): “Utility library for evolution data servers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-73f266cfad10f5faed1383a0` (`libedataserverui4-1.0-0t64`): “GTK4 utility library for evolution data servers” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+- `mint-8a8a70fef09caec95657a274` (`libedit2`): “BSD editline and history libraries” — https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz
+
+## Selected file-list evidence
+
+- `at-spi2-common` — https://packages.ubuntu.com/noble/amd64/at-spi2-common/filelist: `/usr/share/doc/at-spi2-common/changelog.Debian.gz`; `/usr/share/doc/at-spi2-common/copyright`
+- `brasero-common` — https://packages.ubuntu.com/noble/amd64/brasero-common/filelist: `/usr/share/GConf/gsettings/brasero.convert`; `/usr/share/glib-2.0/schemas/org.gnome.brasero.gschema.xml`; `/usr/share/mime/packages/brasero.xml`
+- `cinnamon-common` — https://packages.ubuntu.com/noble/amd64/cinnamon-common/filelist: `/usr/lib/python3/dist-packages/cinnamon/__init__.py`; `/usr/lib/python3/dist-packages/cinnamon/harvester.py`; `/usr/lib/python3/dist-packages/cinnamon/logger.py`
+- `colord-data` — https://packages.ubuntu.com/noble/amd64/colord-data/filelist: `/usr/share/color/icc/colord/AdobeRGB1998.icc`; `/usr/share/color/icc/colord/AppleRGB.icc`; `/usr/share/color/icc/colord/BestRGB.icc`
+- `cups-common` — https://packages.ubuntu.com/noble/amd64/cups-common/filelist: `/usr/share/cups/drv/sample.drv`; `/usr/share/cups/ppdc/font.defs`; `/usr/share/cups/ppdc/media.defs`
+- `cups-server-common` — https://packages.ubuntu.com/noble/amd64/cups-server-common/filelist: `/usr/share/cups/doc-root/apple-touch-icon.png`; `/usr/share/cups/doc-root/cups-printable.css`; `/usr/share/cups/doc-root/cups.css`
+- `evolution-data-server-common` — https://packages.ubuntu.com/noble/amd64/evolution-data-server-common/filelist: `/usr/share/dbus-1/services/org.gnome.evolution.dataserver.AddressBook10.service`; `/usr/share/dbus-1/services/org.gnome.evolution.dataserver.Calendar8.service`; `/usr/share/dbus-1/services/org.gnome.evolution.dataserver.Sources5.service`
+- `gcc-13-base` — https://packages.ubuntu.com/noble/amd64/gcc-13-base/filelist: `/usr/share/doc/gcc-13-base/README.Debian.amd64.gz`; `/usr/share/doc/gcc-13-base/TODO.Debian`; `/usr/share/doc/gcc-13-base/changelog.Debian.gz`; `/usr/share/doc/gcc-13-base/copyright`
+- `gcc-14-base` — https://packages.ubuntu.com/noble/amd64/gcc-14-base/filelist: `/usr/share/doc/gcc-14-base/README.Debian.amd64.gz`; `/usr/share/doc/gcc-14-base/TODO.Debian`; `/usr/share/doc/gcc-14-base/changelog.Debian.gz`; `/usr/share/doc/gcc-14-base/copyright`
+- `hplip-data` — https://packages.ubuntu.com/noble/amd64/hplip-data/filelist: `/usr/share/apport/package-hooks/source_hplip.py`; `/usr/share/hplip/__init__.py`; `/usr/share/hplip/align.py`
+- `ibus-data` — https://packages.ubuntu.com/noble/amd64/ibus-data/filelist: `/usr/share/glib-2.0/schemas/org.freedesktop.ibus.gschema.xml`; `/usr/share/ibus/component/dconf.xml`; `/usr/share/ibus/component/gtkextension.xml`
+- `libavahi-common-data` — https://packages.ubuntu.com/noble/amd64/libavahi-common-data/filelist: `/usr/lib/x86_64-linux-gnu/avahi/service-types.db`
+- `libcaribou-common` — https://packages.ubuntu.com/noble/amd64/libcaribou-common/filelist: `/usr/share/caribou/layouts/fullscale/de.xml`; `/usr/share/caribou/layouts/fullscale/us.xml`; `/usr/share/caribou/layouts/scan/us.xml`
+- `libclutter-1.0-common` — https://packages.ubuntu.com/noble/amd64/libclutter-1.0-common/filelist: `/usr/share/doc/libclutter-1.0-common/changelog.Debian.gz`; `/usr/share/doc/libclutter-1.0-common/copyright`; `/usr/share/locale/an/LC_MESSAGES/clutter-1.0.mo`
+- `libcogl-common` — https://packages.ubuntu.com/noble/amd64/libcogl-common/filelist: `/usr/share/doc/libcogl-common/changelog.Debian.gz`; `/usr/share/doc/libcogl-common/copyright`; `/usr/share/locale/an/LC_MESSAGES/cogl.mo`
+- `libdjvulibre-text` — https://packages.ubuntu.com/noble/amd64/libdjvulibre-text/filelist: `/usr/share/djvu/osi/cs/messages.xml`; `/usr/share/djvu/osi/de/libdjvu++.xml`; `/usr/share/djvu/osi/de/messages.xml`
+- `libdrm-common` — https://packages.ubuntu.com/noble/amd64/libdrm-common/filelist: `/usr/share/libdrm/amdgpu.ids`
+
+## Verification
+
+635 unique assigned input ids equal 635 output ids; decisions are restricted to the five permitted words. Every what_it_does field is at most 15 words and every reason field at most 30 words. Counts: {'MUST': 558, 'NOT': 39, 'HOLE': 38}.
+
+## Corrections recommended after review
+
+The immutable shard preserves initial appended rows. The main output should apply the seven explicit replacements in part-mint.1.recommended-corrections.tsv. These supersede the initial metapackage and library-setting uncertainty explanations above.
+
+- The object under review is the individual package. Assuming that removal also removes separately inventoried dependencies adds an unstated operation. Primary file lists for bluetooth, build-essential, ftp and init contain only documentation, informational lists and packaging metadata: NOT under S2.2-4. Their exact file lists and URLs are saved in part-mint.1.review-evidence.json.
+- https://manpages.ubuntu.com/manpages/noble/man5/libao.conf.5.html explicitly states: “libao.conf sets system-wide options”. Shared audio output selection affects multiple applications: MUST.
+- https://manpages.ubuntu.com/manpages/noble/man5/libaudit.conf.5.html states: “contains configuration information for user space applications that link to libaudit.” The documented failure action can terminate applications, establishing behavioral scope across consumers: MUST.
+- The processor microcode package remains MUST, with the justification corrected from the program clause to the firmware clause.
+
+After these recommended replacements, this segment contributes MUST 560, NOT 43, HOLE 32, UNKNOWN 0, MIXED 0.

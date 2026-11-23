@@ -1,0 +1,27 @@
+root:x:0:0:root:/root:/bin/bash
+tftp:x:499:499:TFTP Account:/srv/tftpboot:/usr/sbin/nologin
+nobody:x:65534:498:nobody:/var/lib/nobody:/usr/sbin/nologin
+man:x:13:62:Manual pages viewer:/var/lib/empty:/usr/sbin/nologin
+lp:x:498:497:Printing daemon:/var/spool/lpd:/usr/sbin/nologin
+daemon:x:2:2:Daemon:/sbin:/usr/sbin/nologin
+bin:x:1:1:bin:/bin:/usr/sbin/nologin
+messagebus:x:497:481:User for D-Bus:/run/dbus:/usr/sbin/nologin
+dnsmasq:x:496:480:dnsmasq:/var/lib/empty:/usr/sbin/nologin
+avahi:x:495:479:User for Avahi:/run/avahi-daemon:/usr/sbin/nologin
+wsdd:x:494:478:User for wsdd:/run/wsdd:/usr/sbin/nologin
+flatpak:x:476:476:Flatpak system helper:/:/usr/sbin/nologin
+polkitd:x:475:475:User for polkitd:/:/usr/sbin/nologin
+systemd-coredump:x:474:474:systemd Core Dumper:/:/usr/sbin/nologin
+pcscd:x:473:473:PC/SC Smart Card Daemon:/:/usr/sbin/nologin
+scard:x:472:472:Smart Card Reader:/run/pcscd:/usr/sbin/nologin
+rtkit:x:471:471:RealtimeKit:/var/lib/empty:/usr/sbin/nologin
+systemd-timesync:x:470:470:systemd Time Synchronization:/:/usr/sbin/nologin
+usbmux:x:469:469:usbmuxd daemon:/var/lib/usbmuxd:/usr/sbin/nologin
+chrony:x:468:468:Chrony Daemon:/var/lib/chrony:/usr/sbin/nologin
+sshd:x:467:467:SSH daemon:/var/lib/sshd:/usr/sbin/nologin
+nm-openvpn:x:466:466:NetworkManager OpenVPN:/var/lib/openvpn/chroot:/usr/sbin/nologin
+nm-openconnect:x:465:465:NetworkManager user for OpenConnect:/var/lib/nm-openconnect:/usr/sbin/nologin
+sddm:x:464:464:SDDM Greeter Account:/var/lib/sddm:/usr/sbin/nologin
+vnc:x:463:463:user for VNC:/var/lib/empty:/usr/sbin/nologin
+user:x:1000:1000:user:/home/user:/bin/bash
+fwupd-refresh:x:462:462:Firmware update daemon:/var/lib/fwupd:/usr/sbin/nologin

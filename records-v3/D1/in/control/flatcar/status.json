@@ -1,0 +1,33 @@
+{
+  "machine": "flatcar",
+  "system": "flatcar",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "started_utc": "2026-11-22T07:45:10.796139+00:00",
+  "steps": [
+    {
+      "stage": "new",
+      "started_utc": "2026-11-22T07:45:10.796220+00:00",
+      "finished_utc": "2026-11-22T07:45:27.201051+00:00",
+      "exit_code": 0,
+      "log": "control/flatcar/new.log"
+    },
+    {
+      "stage": "collector",
+      "started_utc": "2026-11-22T07:45:27.201698+00:00",
+      "finished_utc": "2026-11-22T07:46:16.762541+00:00",
+      "exit_code": 0,
+      "log": "control/flatcar/collector.log"
+    },
+    {
+      "stage": "destroy",
+      "started_utc": "2026-11-22T07:46:16.762984+00:00",
+      "finished_utc": "2026-11-22T07:46:17.998915+00:00",
+      "exit_code": 0,
+      "log": "control/flatcar/destroy.log"
+    }
+  ],
+  "stage": "finished",
+  "vm_directory_removed": true,
+  "inventory_present": true,
+  "finished_utc": "2026-11-22T07:46:17.999274+00:00"
+}

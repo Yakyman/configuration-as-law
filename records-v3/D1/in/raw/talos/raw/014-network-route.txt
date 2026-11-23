@@ -1,0 +1,648 @@
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "ens3/inet6//fe80::/64/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::/64",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:26Z",
+        "id": "ens3/inet6//fec0::/64/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:26Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fec0::/64",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:26Z",
+        "id": "ens3/inet6/fe80::2//1024",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:26Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "fe80::2",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 1024,
+        "protocol": "ra",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "ens4/inet6//fe80::/64/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::/64",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:25Z",
+        "id": "ens4/inet6//fec0::/64/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:25Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fec0::/64",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:25Z",
+        "id": "ens4/inet6/fe80::2//1024",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:25Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "fe80::2",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 1024,
+        "protocol": "ra",
+        "scope": "global",
+        "src": "",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "inet4//10.0.2.0/24/1024",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.2.0/24",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 1024,
+        "protocol": "kernel",
+        "scope": "link",
+        "src": "10.0.2.15",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "inet4//10.0.3.0/24/1024",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.3.0/24",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 1024,
+        "protocol": "kernel",
+        "scope": "link",
+        "src": "10.0.3.15",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "inet4/10.0.2.2//1024",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "10.0.2.2",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 1024,
+        "protocol": "boot",
+        "scope": "global",
+        "src": "10.0.2.15",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:26Z",
+        "id": "local/ens3/inet6//fe80::/128/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:26Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::/128",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "anycast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:26Z",
+        "id": "local/ens3/inet6//fe80::5054:ff:feca:1001/128/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:26Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::5054:ff:feca:1001/128",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/ens3/inet6//ff00::/8/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "ff00::/8",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "multicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:25Z",
+        "id": "local/ens4/inet6//fe80::/128/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:25Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::/128",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "anycast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:25Z",
+        "id": "local/ens4/inet6//fe80::5054:ff:feca:1002/128/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:25Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "fe80::5054:ff:feca:1002/128",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/ens4/inet6//ff00::/8/256",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "ff00::/8",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 256,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "multicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//10.0.2.15/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.2.15/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "host",
+        "src": "10.0.2.15",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//10.0.2.255/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.2.255/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 8,
+        "outLinkName": "ens3",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "link",
+        "src": "10.0.2.15",
+        "table": "local",
+        "type": "broadcast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//10.0.3.15/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.3.15/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "host",
+        "src": "10.0.3.15",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//10.0.3.255/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "10.0.3.255/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 9,
+        "outLinkName": "ens4",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "link",
+        "src": "10.0.3.15",
+        "table": "local",
+        "type": "broadcast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//127.0.0.0/8/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "127.0.0.0/8",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 1,
+        "outLinkName": "lo",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "host",
+        "src": "127.0.0.1",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:23Z",
+        "id": "local/inet4//127.0.0.1/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:23Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "127.0.0.1/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 1,
+        "outLinkName": "lo",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "host",
+        "src": "127.0.0.1",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//127.255.255.255/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "127.255.255.255/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 1,
+        "outLinkName": "lo",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "link",
+        "src": "127.0.0.1",
+        "table": "local",
+        "type": "broadcast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/inet4//169.254.116.108/32/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "169.254.116.108/32",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 1,
+        "outLinkName": "lo",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "host",
+        "src": "169.254.116.108",
+        "table": "local",
+        "type": "local"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-22T07:46:24Z",
+        "id": "local/lo/inet6//::1/128/0",
+        "namespace": "network",
+        "owner": "network.RouteStatusController",
+        "phase": "running",
+        "type": "RouteStatuses.net.talos.dev",
+        "updated": "2026-11-22T07:46:24Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "::1/128",
+        "family": "inet6",
+        "flags": "",
+        "gateway": "",
+        "outLinkIndex": 1,
+        "outLinkName": "lo",
+        "priority": 0,
+        "protocol": "kernel",
+        "scope": "global",
+        "src": "",
+        "table": "local",
+        "type": "local"
+    }
+}

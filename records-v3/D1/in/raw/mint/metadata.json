@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-22T07:45:09.402834+00:00",
+  "machine": "d1-mint",
+  "system": "mint",
+  "mode": "--observe",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "filesystem_status": 1,
+  "engine_graph_roots": [],
+  "opaque_storage_paths": [],
+  "container_boundary_gaps": [
+    "podman:root:root-query-failed",
+    "podman:user:root-query-failed",
+    "docker:root:root-query-failed"
+  ],
+  "ownership_queries_complete": false,
+  "package_parse_gaps": [],
+  "unsupported_ownership_managers": [],
+  "limitations": [
+    "Ownership not established by any queried record is listed as belonging to no package, per the binding input decision.",
+    "Failed queries and inaccessible paths are coverage gaps, not evidence of absence.",
+    "Container and VM image contents are not expanded."
+  ]
+}

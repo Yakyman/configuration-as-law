@@ -1,0 +1,248 @@
+aajohan-comfortaa-fonts	FONT
+abattis-cantarell-fonts	FONT
+abattis-cantarell-vf-fonts	FONT
+adobe-source-code-pro-fonts	FONT
+adwaita-mono-fonts	FONT
+adwaita-sans-fonts	FONT
+gdouros-symbola-fonts	FONT
+google-carlito-fonts	FONT
+google-crosextra-caladea-fonts	FONT
+google-droid-sans-fonts	FONT
+google-noto-color-emoji-fonts	FONT
+google-noto-emoji-fonts	FONT
+jomolhari-fonts	FONT
+julietaula-montserrat-fonts	FONT
+liberation-mono-fonts	FONT
+liberation-sans-fonts	FONT
+liberation-serif-fonts	FONT
+libreoffice-opensymbol-fonts	FONT
+madan-fonts	FONT
+open-sans-fonts	FONT
+paktype-naskh-basic-fonts	FONT
+rit-meera-new-fonts	FONT
+rit-rachana-fonts	FONT
+sil-padauk-fonts	FONT
+stix-fonts	FONT
+vazirmatn-vf-fonts	FONT
+urw-base35-fonts-common	FONT			Fontconfig fallback rules mapping old PostScript font names to URW fonts	
+google-noto-fonts-common	DOC
+urw-base35-fonts	META
+langpacks-core-en	META
+langpacks-en	META
+langpacks-fonts-en	META
+kernel	META
+qemu-kvm	META
+qemu-kvm-core	META
+qemu-system-x86	META
+libvirt-daemon-kvm	META
+libvirt-daemon-driver-storage	META
+libblockdev-plugins-all	META
+libreoffice-filters	META
+containers-common-extra	META
+anaconda-install-env-deps	META
+nbdkit	META
+nfs-client-utils	META
+passwdqc	META
+hyperv-daemons	META
+python3-urllib3+socks	META
+default-editor	META
+plymouth-system-theme	META
+fedora-release-workstation	META
+dbus	META
+fonts-filesystem	DIRS
+cmake-filesystem	DIRS
+cups-filesystem	DIRS
+efi-filesystem	DIRS
+emacs-filesystem	DIRS
+gnome-control-center-filesystem	DIRS
+hunspell-filesystem	DIRS
+libreport-filesystem	DIRS
+llvm-filesystem	DIRS
+mozilla-filesystem	DIRS
+qt6-filesystem	DIRS
+kde-filesystem	DIRS			Owns KDE directory layout, empty help directories	
+mesa-filesystem	DOC			Owns Mesa driver directories plus one licence e-mail document	
+kf6-filesystem	DOC			Owns KDE Frameworks 6 directories plus a licence file	
+redhat-systemd-presets	DOC			Licence file of the presets set; presets are in subpackages	
+linux-firmware-whence	DOC
+hyperv-daemons-license	DOC
+xen-licenses	DOC
+rdma-core-common	DOC
+tesseract-tessdata-doc	DOC
+pcre2-syntax	DOC			Manual pages on PCRE2 regular expression syntax	
+man-pages	DOC			Manual pages for the Linux kernel and C library interfaces	
+gnome-user-docs	DOC			GNOME user help pages shown by the help viewer	
+dnf-plugins-core	DOC			Manual pages for DNF plugins; the plugin code is in another package	
+fedora-chromium-config	DOC			Licence file only; Chromium is not installed	
+libreoffice-help-en	NOT	S2.2-4,S2.2-11	English LibreOffice help pages with scripts run inside the browser	Help pages are documents (content); their scripts run confined to the browser page. Removal leaves only the help unavailable.
+gpg-pubkey	MUST	S2.2-1,S2.2-2	Fedora package-signing public key imported into the rpm database	rpm and dnf verify package signatures against it; after removal signature verification of Fedora packages fails, so something becomes impossible.
+filesystem	MUST	S2.2-1,S2.2-2	Base directory layout and compatibility links such as /bin, /lib64, /sbin	Removing it removes the merged-usr links through which the dynamic loader and programs are found; programs stop starting.
+redhat-systemd-presets-common	MUST	S2.2-1,S2.2-2	systemd preset files deciding which services are enabled by default	Presets decide what systemctl preset enables system-wide; removal changes which services get enabled, not a one-program setting.
+redhat-systemd-presets-desktop	MUST	S2.2-1,S2.2-2	Desktop systemd preset file deciding default-enabled services	Presets decide what systemctl preset enables system-wide; removal changes which services get enabled, not a one-program setting.
+fedora-release-identity-workstation	MUST	S2.2-1,S2.2-2	os-release identity, workstation presets and dnf protected-package list	os-release is read by many programs, presets decide enabled services, protected.d blocks removals; removal changes what the system does.
+fedora-release-common	MUST	S2.2-1,S2.2-2,S2.2-13	Release files, os-release, rpm dist macro and libdnf defaults	os-release and libdnf defaults are read by many programs; removal changes their behaviour, so the removal test holds.
+fedora-gpg-keys	MUST	S2.2-1,S2.2-2	Fedora RPM and IMA signing keys referenced by repository files	dnf repository definitions point to these keys; without them package signature checks fail and installation from Fedora repositories becomes impossible.
+fedora-repos	MUST	S2.2-1,S2.2-2	Repository definitions of the Fedora package repositories	Read by dnf5, PackageKit and the software centre; after removal installing from Fedora repositories becomes impossible.
+fedora-workstation-repositories	MUST	S2.2-1,S2.2-2	Definitions of third-party repositories (Chrome, NVIDIA, Steam) for the software centre	Read by dnf and the software centre; after removal these repositories can no longer be enabled or used.
+fedora-flathub-remote	MUST	S2.2-1,S2.2-2	Flathub remote definition and filter used by Flatpak and third-party tool	Flatpak and fedora-third-party read it; removal makes enabling the filtered Flathub remote impossible.
+distribution-gpg-keys	MUST	S2.2-1,S2.2-2	Package signing keys of many distributions, used by third-party repository files	Repository files of fedora-workstation-repositories reference these keys; without them those repositories fail signature checks.
+systemd-import-keys	MUST	S2.2-1,S2.2-2	Keyring that systemd-importd uses to verify downloaded images	Without the keyring, verified image import by systemd-importd fails, so something becomes impossible.
+tzdata	DB			IANA time zone database read by the C library for local time	
+tzdata-java	NOT	S2.2-7,S2.2-13,S2.2-4	Time zone data file read only by the Java runtime	Data read as values is a setting (S2.2-13) in force only inside the Java runtime, which S2.2-7 exempts; it is also database content (S2.2-4).
+ncurses-base	DB			terminfo data base describing common terminals for all terminal programs	
+publicsuffix-list-dafsa	DB			Public suffix database used by libpsl in curl, libsoup, NetworkManager, wget	
+osinfo-db	DB			Operating-system database used by libosinfo in GNOME Boxes and localsearch	
+gweather-locations	DB			Translations of the GWeather locations database used by many GNOME programs	
+gweather-locations-common	DB			GWeather locations database used by clocks, weather, shell and others	
+mobile-broadband-provider-info	DB			Mobile broadband provider database used by libnma in network settings	
+unicode-ucd	NOT	S2.2-7,S2.2-13,S2.2-4	Unicode Character Database read only by ibus-typing-booster	Data read as values is a setting (S2.2-13) in force only inside ibus-typing-booster, exempt by S2.2-7; it is also database content (S2.2-4).
+words	NOT	S2.2-7,S2.2-13,S2.2-4	English word list read by the look command	Data read as values is a setting (S2.2-13) in force only inside look, exempt by S2.2-7; its documentation calls it a database (S2.2-4).
+hwdata	MUST	S2.2-1,S2.2-2	PCI/USB ID lists plus a modprobe blacklist of kernel modules	The modprobe blacklist decides which kernel modules load system-wide; removal changes what the kernel loads, so it must be recorded.
+iso-codes	MUST	S2.2-1,S2.2-2,S2.2-13	ISO country, language and currency lists used by gdm, settings, ibus, GStreamer	Read as values by several programs, so not exempt by S2.2-7; removal changes or breaks their language and region handling.
+cldr-emoji-annotation	NOT	S2.2-7,S2.2-13	Emoji annotation data read only by ibus-typing-booster	Data read as values is a setting (S2.2-13) in force only inside ibus-typing-booster, exempt by S2.2-7.
+cldr-emoji-annotation-dtd	NOT	S2.2-7,S2.2-13	DTD files for the emoji annotation data of ibus-typing-booster	Data read as values in force only inside ibus-typing-booster (S2.2-13, S2.2-7).
+liblangtag-data	NOT	S2.2-7,S2.2-13	Language tag registry read by liblangtag inside LibreOffice	Data read as values in force only inside LibreOffice, which uses liblangtag; S2.2-7 exempts settings of one program.
+libpinyin-data	NOT	S2.2-7,S2.2-13	Pinyin dictionaries read only by the ibus-libpinyin input method	Data read as values in force only inside ibus-libpinyin, exempt by S2.2-7.
+kasumi-common	NOT	S2.2-7,S2.2-4	Translations, icon and manual page of the kasumi dictionary tool	Translations are settings in force only inside kasumi (S2.2-7); the manual page is a document (S2.2-4).
+mythes-en	NOT	S2.2-7,S2.2-13	English thesaurus read only by LibreOffice	Data read as values in force only inside LibreOffice, exempt by S2.2-7.
+hyphen-en	NOT	S2.2-7,S2.2-13	English hyphenation rules read only by LibreOffice	Data read as values in force only inside LibreOffice, exempt by S2.2-7.
+autocorr-en	NOT	S2.2-7,S2.2-13	English auto-correction rules read only by LibreOffice	Data read as values in force only inside LibreOffice, exempt by S2.2-7.
+libreoffice-langpack-en	NOT	S2.2-7,S2.2-13	English language pack data for LibreOffice	Language data read as values in force only inside LibreOffice, exempt by S2.2-7.
+libreoffice-xsltfilter	MUST	S2.2-2,S2.2-13	XSLT import/export filters executed by LibreOffice	XSLT files are executed as transformation code (S2.2-13); after removal LibreOffice cannot import or export these formats.
+mariadb-connector-c-config	NOT	S2.2-7,S2.2-13	Client configuration of the MariaDB connector, used only by LibreOffice	Settings read as values by the connector, which only LibreOffice uses here; in force inside one program, exempt by S2.2-7.
+gnome-app-list	NOT	S2.2-7,S2.2-13	Curated list of featured applications read by GNOME Software	Data read as values in force only inside GNOME Software, exempt by S2.2-7.
+appstream-data	MUST	S2.2-1,S2.2-2,S2.2-13	Fedora AppStream catalogue read by libappstream in Software, Flatpak, dnf5 plugin	Read as values by several programs, so S2.2-7 does not exempt it; removal makes catalogue search in the software centre impossible.
+hunspell-en	MUST	S2.2-1,S2.2-2,S2.2-13	English spelling dictionaries used by enchant (GTK programs) and LibreOffice	Read as values by several programs; after removal English spell checking becomes impossible.
+hunspell-en-AU	MUST	S2.2-1,S2.2-2,S2.2-13	Australian English spelling dictionary for enchant and LibreOffice	Read as values by several programs; after removal this spell checking becomes impossible.
+hunspell-en-CA	MUST	S2.2-1,S2.2-2,S2.2-13	Canadian English spelling dictionary for enchant and LibreOffice	Read as values by several programs; after removal this spell checking becomes impossible.
+hunspell-en-GB	MUST	S2.2-1,S2.2-2,S2.2-13	British English spelling dictionary for enchant and LibreOffice	Read as values by several programs; after removal this spell checking becomes impossible.
+hunspell-en-US	MUST	S2.2-1,S2.2-2,S2.2-13	US English spelling dictionary for enchant and LibreOffice	Read as values by several programs; after removal US English spell checking becomes impossible.
+adobe-mappings-cmap	MUST	S2.2-1,S2.2-2,S2.2-13	CMap resources used by Ghostscript library (ghostscript, ImageMagick)	Read as values by several programs; after removal CJK PDF/PostScript rendering in them fails.
+adobe-mappings-cmap-deprecated	MUST	S2.2-1,S2.2-2,S2.2-13	Deprecated CMap resources used by Ghostscript library	Read as values by several programs using libgs; removal makes documents needing these CMaps unrenderable.
+adobe-mappings-pdf	MUST	S2.2-1,S2.2-2,S2.2-13	PDF-to-Unicode mappings used by Ghostscript library	Read as values by several programs using libgs; removal breaks text extraction for these encodings.
+poppler-data	MUST	S2.2-1,S2.2-2,S2.2-13	Encoding data used by poppler (document viewer, pdftools, LibreOffice import)	Read as values by several programs; after removal CJK PDF text rendering in them fails.
+liblouis-tables	MUST	S2.2-1,S2.2-2,S2.2-13	Braille translation tables used by liblouis (screen reader, liblouisutdml)	Read as values by several programs; after removal braille translation becomes impossible.
+m17n-db	MUST	S2.2-1,S2.2-2,S2.2-13	Input method tables used by m17n-lib in two IBus engines	Read as values by several programs; after removal these input methods stop working.
+tesseract-common	MUST	S2.2-1,S2.2-2,S2.2-13	Tesseract OCR configuration used by the tesseract library in libavfilter	Read by the OCR library that any program using libavfilter can load; removal makes OCR impossible.
+tesseract-langpack-eng	MUST	S2.2-1,S2.2-2,S2.2-13	English OCR model used by the tesseract library	Without it English OCR through the tesseract library becomes impossible.
+xml-common	MUST	S2.2-1,S2.2-2,S2.2-13	System XML catalog and common DTD/XSD files used by libxml2 users	The XML catalog is read by many programs; removal changes how they resolve DTDs and schemas.
+xkeyboard-config	MUST	S2.2-1,S2.2-2,S2.2-13	Keyboard layout descriptions used by the display server and desktop	Read as values by the compositor, Xwayland and settings; after removal keyboard layouts cannot be loaded.
+kbd-misc	MUST	S2.2-1,S2.2-2,S2.2-13	Console fonts, keymaps and Unicode maps for the console tools	Read by loadkeys/setfont and systemd-vconsole-setup; removal makes console keymap and font setup impossible.
+kbd-legacy	MUST	S2.2-1,S2.2-2,S2.2-13	Legacy console keymaps for the kbd tools	Read by loadkeys and systemd-vconsole-setup; removal makes these keymaps unavailable to the console.
+libX11-common	MUST	S2.2-1,S2.2-2,S2.2-13	X11 locale and compose tables used by every X11 client library user	Read as values by all X11 programs; removal breaks compose input and locale handling in them.
+libwacom-data	HWDATA			Tablet descriptions and hwdb entries for graphics tablets, none attached	
+alsa-ucm	HWDATA			ALSA use-case configurations for specific sound cards; no sound card present	
+usb_modeswitch-data	HWDATA			Mode-switch rules for USB modems; no such device present	
+alsa-sof-firmware	FWHW
+amd-gpu-firmware	FWHW
+amd-ucode-firmware	FWHW			AMD CPU microcode; the kernel does not load microcode under a hypervisor	
+atheros-firmware	FWHW
+b43-openfwwf	FWHW			Open firmware and modprobe option for Broadcom 43xx Wi-Fi; no such chip	
+brcmfmac-firmware	FWHW
+cirrus-audio-firmware	FWHW
+intel-audio-firmware	FWHW
+intel-gpu-firmware	FWHW
+intel-npu-firmware	FWHW
+intel-vsc-firmware	FWHW
+iwlbluetooth-firmware	FWHW
+iwlegacy-firmware	FWHW
+iwlwifi-dvm-firmware	FWHW
+iwlwifi-mld-firmware	FWHW
+iwlwifi-mvm-firmware	FWHW
+libertas-firmware	FWHW
+linux-firmware	FWHW
+microcode_ctl	FWHW			Intel CPU microcode files; the kernel does not load microcode under a hypervisor	
+mt7xxx-firmware	FWHW
+nvidia-gpu-firmware	FWHW
+nxpwireless-firmware	FWHW
+qcom-wwan-firmware	FWHW
+realtek-firmware	FWHW
+tiwilink-firmware	FWHW
+seabios-bin	VMFW			SeaBIOS firmware that QEMU runs inside BIOS virtual machines	
+seavgabios-bin	VMFW			VGA BIOS images that QEMU runs inside virtual machines	
+ipxe-roms-qemu	VMFW			iPXE network boot ROMs that QEMU runs inside virtual machines	
+edk2-ovmf	VMFW			UEFI firmware (OVMF) that QEMU runs inside virtual machines	
+edk2-shell-x64	VMFW			UEFI shell executed inside virtual machines	
+shim-x64	UEFI
+shim-ia32	UEFI
+grub2-efi-x64	UEFI
+grub2-efi-ia32	UEFI
+grub2-efi-x64-cdboot	UEFI			GRUB EFI image for booting removable media, placed on the EFI partition	
+grub2-efi-ia32-cdboot	UEFI			GRUB EFI image for booting removable media, placed on the EFI partition	
+fwupd-plugin-uefi-capsule-data	UEFI			Localized images shown during UEFI capsule firmware updates	
+dbus-common	UNIT			D-Bus bus configuration, socket units and system user definition	
+nftables-services	UNIT			nftables.service unit and example nftables rule sets	
+libreswan	UNIT			ipsec.service unit for the Libreswan IPsec daemon	
+grub2-pc	MUST	S2.2-2,S2.2-13	GRUB configuration /boot/grub2/grub.cfg and links used at boot	grub.cfg is a script GRUB executes at boot (S2.2-13 code); after removal the boot menu cannot load the system.
+rootfiles	MUST	S2.2-10	Shell startup files for root (.bashrc, .bash_profile, .cshrc)	S2.2-10 names shell startup files as code that must be recorded.
+vim-data	MUST	S2.2-10	defaults.vim startup script of vi/vim	An editor configuration written in the editor's language; S2.2-10 requires it to be recorded.
+javapackages-filesystem	MUST	S2.2-10,S2.2-13	rpm macro file for Java packaging	rpm loads and expands macro files as code on every run (S2.2-13); code executed with rpm's rights must be recorded (S2.2-10).
+color-filesystem	MUST	S2.2-10,S2.2-13	rpm macro file for colour-management packaging	rpm loads and expands macro files as code on every run (S2.2-13); code executed with rpm's rights must be recorded (S2.2-10).
+firewalld-filesystem	MUST	S2.2-10,S2.2-13	rpm macro file for firewalld packaging	rpm loads and expands macro files as code on every run (S2.2-13); code executed with rpm's rights must be recorded (S2.2-10).
+qt6-qtbase-common	MUST	S2.2-10,S2.2-13	rpm macro file for Qt6 packaging	rpm loads and expands macro files as code on every run (S2.2-13); code executed with rpm's rights must be recorded (S2.2-10).
+pkgconf-m4	NOT	S2.2-10,S2.2-4	autoconf m4 macro for pkg-config plus manual page	S2.2-10 covers code a program executes; m4 and autoconf are not installed, so nothing executes it; the manual page is a document.
+libssh-config	MUST	S2.2-1,S2.2-2,S2.2-13	Client and server configuration of libssh	Read by libssh in curl, libvirt, QEMU and others, so not a one-program setting; removal changes their SSH behaviour.
+fuse-common	MUST	S2.2-1,S2.2-2,S2.2-15	/etc/fuse.conf controlling what users may do with FUSE mounts	Sets whether users may let others access their FUSE mounts, a system-wide right; removal changes what can be done.
+hplip-common	MUST	S2.2-1,S2.2-2	HPLIP configuration and printer model data used by all HPLIP tools	hplip.conf is read by every HPLIP program and the CUPS hp backend; removal breaks them.
+dnf-data	NOT	S2.2-6,S2.2-5,S2.2-7	DNF log placeholders, log rotation and cache-directory rules	Logs are records of the past (S2.2-6); the cache directory is cache (S2.2-5); rotation of DNF's own logs is a DNF-only setting (S2.2-7).
+containers-common	MUST	S2.2-1,S2.2-2,S2.2-13	Registry, policy and storage configuration shared by Podman, Buildah, Skopeo	Read by several container programs; removal makes pulling images by short name and signature policy checks fail.
+dnf5daemon-server-polkit	MUST	S2.2-15,S2.2-1	Polkit rule letting wheel members install trusted packages without password	A rule granting rights to administrators' group; removal changes what users can do.
+samba-common	MUST	S2.2-1,S2.2-2	Samba configuration, sysusers entry and shared settings	smb.conf and sysusers entry are read by Samba clients and tools; removal changes their behaviour and removes an account definition.
+httpd-filesystem	MUST	S2.2-15,S2.2-1	sysusers definition of the apache account and httpd config directory	The sysusers file creates the apache account at boot; S2.2-15 requires accounts to be recorded.
+gnome-shell-common	MUST	S2.2-1,S2.2-2,S2.2-13	GSettings schema of GNOME Shell	Schemas are read through GSettings by the shell and the settings tools; without the schema GNOME Shell cannot start.
+mutter-common	MUST	S2.2-1,S2.2-2,S2.2-13	GSettings schemas and data of the mutter window manager	Read by mutter and settings tools; without the schemas the compositor cannot start.
+gnome-session-wayland-session	MUST	S2.2-2	Session file that lets the display manager start GNOME on Wayland	After removal the display manager cannot offer or start the GNOME Wayland session.
+gnome-classic-session	MUST	S2.2-2	Session definition and schema overrides for GNOME Classic	After removal GNOME Classic can no longer be started from the display manager.
+gnome-shell-extension-common	NOT	S2.2-7,S2.2-13	Translations and schemas for GNOME Shell extensions	Values read only inside GNOME Shell's extensions, a setting in force inside one program (S2.2-13, S2.2-7).
+desktop-backgrounds-gnome	NOT	S2.2-7	Schema overrides choosing Fedora default wallpaper and lock screen picture	The default background picture is an appearance setting in force only inside GNOME Shell, like a browser theme (S2.2-7).
+f45-backgrounds-base	NOT	S2.2-4,S2.2-7	Fedora 45 default wallpaper images	Pictures displayed by GNOME Shell as background; content (S2.2-4) used by a one-program appearance setting (S2.2-7).
+f45-backgrounds-gnome	NOT	S2.2-7	Wallpaper list entry shown in GNOME Settings	A list read only by the background chooser of GNOME Settings; setting in force inside one program.
+f45-backgrounds-gnome-time-of-day	NOT	S2.2-7	Time-of-day wallpaper list entry for GNOME Settings	A list read only by the background chooser of GNOME Settings; setting in force inside one program.
+gnome-backgrounds	NOT	S2.2-4,S2.2-7	Selectable GNOME wallpaper pictures	Pictures offered for the shell background; content (S2.2-4) and a one-program appearance setting (S2.2-7).
+fedora-workstation-backgrounds	NOT	S2.2-4,S2.2-7	Selectable Fedora Workstation wallpaper pictures	Pictures offered for the shell background; content (S2.2-4) and a one-program appearance setting (S2.2-7).
+plymouth-theme-spinner	NOT	S2.2-7	Images and definition of the Plymouth spinner boot-splash theme	A theme in force only inside Plymouth; S2.2-7 exempts themes of one program.
+fedora-logos	HOLE	S2.2-4,S2.2-2	Fedora logos and pictures shown by Plymouth, GDM, Settings and the installer	Pictures look like content (S2.2-4), yet several programs display them and change when removed (S2.2-2); text does not say whether program pictures are content.
+fedora-logos-httpd	NOT	S2.2-4	Apache test page and powered-by picture	A web page and picture are content; nothing else changes after removal.
+adwaita-icon-theme	MUST	S2.2-1,S2.2-2,S2.2-13	Adwaita icons including symbolic icons for interface controls	Used by all GTK programs to draw controls such as checkboxes; removal makes their interface unusable.
+adwaita-icon-theme-legacy	HOLE	S2.2-4,S2.2-2	Full-colour legacy icons used by programs requesting legacy icon names	Pictures look like content (S2.2-4), yet programs show other or missing icons after removal (S2.2-2); text does not say whether program pictures are content.
+adwaita-cursor-theme	MUST	S2.2-1,S2.2-2,S2.2-13	Mouse cursor images used by the compositor and all programs	Read by the compositor and every program; removal leaves pointer cursors missing system-wide.
+hicolor-icon-theme	MUST	S2.2-1,S2.2-2	Base fallback icon theme index required by the icon theme specification	Icon lookup of all programs falls back to hicolor; without its index fallback icon lookup fails.
+sound-theme-freedesktop	MUST	S2.2-1,S2.2-2,S2.2-13	Event sounds used by desktop programs through libcanberra	Read by several programs; after removal they stop playing these event sounds.
+redhat-menus	MUST	S2.2-1,S2.2-2,S2.2-13	Desktop menu definitions and translations	Read by the shell and application launchers; removal changes how applications are grouped and found.
+cockpit-system	MUST	S2.2-2,S2.2-10	Cockpit web pages for system administration executed via cockpit-bridge	The pages drive cockpit-bridge, which runs commands with the user's rights, so not confined to a browser; removal makes these admin functions impossible.
+cockpit-networkmanager	MUST	S2.2-2,S2.2-10	Cockpit web pages for network administration	The pages drive cockpit-bridge, which runs commands with the user's rights; removal makes web network administration impossible.
+cockpit-storaged	MUST	S2.2-2,S2.2-10	Cockpit web pages for storage administration	The pages drive cockpit-bridge, which acts with the user's rights; removal makes web storage administration impossible.
+cockpit-ws-selinux	MUST	S2.2-1,S2.2-2	SELinux policy module for cockpit-ws	SELinux policy is a system-wide access rule set; removal changes what cockpit-ws may do.
+container-selinux	MUST	S2.2-1,S2.2-2	SELinux policy for container runtimes	SELinux policy decides what containers may access system-wide; removal changes what can be done.
+flatpak-selinux	MUST	S2.2-1,S2.2-2	SELinux policy module for Flatpak	SELinux policy is a system-wide access rule set; removal changes what Flatpak may do.
+nbdkit-selinux	MUST	S2.2-1,S2.2-2	SELinux policy module for nbdkit	SELinux policy is a system-wide access rule set; removal changes what nbdkit may do.
+passt-selinux	MUST	S2.2-1,S2.2-2	SELinux policy modules for passt and pasta	SELinux policy is a system-wide access rule set; removal changes what passt and pasta may do.
+smartmontools-selinux	MUST	S2.2-1,S2.2-2	SELinux policy module for smartmontools	SELinux policy is a system-wide access rule set; removal changes what smartd may do.
+swtpm-selinux	MUST	S2.2-1,S2.2-2	SELinux policy modules for swtpm	SELinux policy is a system-wide access rule set; removal changes what swtpm may do.
+NetworkManager-ssh-selinux	MUST	S2.2-1,S2.2-2	SELinux policy module for NetworkManager-ssh	SELinux policy is a system-wide access rule set; removal changes what the plugin may do.
+selinux-policy-targeted	MUST	S2.2-1,S2.2-2	SELinux targeted policy enforced by the kernel	Decides what every process may access; removal changes or disables enforcement system-wide.
+libnma-common	MUST	S2.2-1,S2.2-2,S2.2-13	Translations and schemas of the NetworkManager applet library	Read by libnma in several programs (Settings, shell, VPN plugins); not a one-program setting.
+evolution-data-server-langpacks	MUST	S2.2-1,S2.2-2,S2.2-13	Translations of evolution-data-server used by calendar, contacts and shell	Read as values by several programs using the library; removal changes their messages in those languages.
+evolution-ews-langpacks	NOT	S2.2-7,S2.2-13	Translations for evolution-ews, whose programs are not installed	Translations read only inside evolution-ews (not installed); a setting of one program, exempt by S2.2-7.
+firefox-langpacks	NOT	S2.2-7	Firefox language pack extensions	S2.2-7 names extensions of a web browser as settings that need not be recorded.
+gawk-all-langpacks	NOT	S2.2-7,S2.2-13	Message translations of gawk	Translations read only by gawk; a setting in force inside one program (S2.2-13, S2.2-7).
+whois-nls	NOT	S2.2-7,S2.2-13	Message translations of the whois tools	Translations read only by whois; a setting in force inside one program.
+quota-nls	NOT	S2.2-7,S2.2-13	Message translations of the disk quota tools	Translations read only by the quota tools; a setting in force inside one program family.
+gnulib-l10n	MUST	S2.2-1,S2.2-2,S2.2-13	Translations of gnulib messages shared by coreutils, gawk, tar, others	Read by many programs, so S2.2-7 does not exempt it; removal changes their messages in those languages.
+glibc-all-langpacks	MUST	S2.2-1,S2.2-2,S2.2-13	Locale data of the C library for all languages	Read by every program; after removal setting any non-built-in locale becomes impossible.
+qt6-qttranslations	MUST	S2.2-1,S2.2-2,S2.2-13	Translations for Qt6 used by all Qt programs	Read by several programs; removal changes their interface language.
+dns-root-data	MUST	S2.2-1,S2.2-2	DNS root hints and DNSSEC trust anchor	Read by resolvers such as unbound-anchor; removal makes DNSSEC validation from the trust anchor impossible.
+mailcap	MUST	S2.2-1,S2.2-2,S2.2-13	System MIME type and helper application tables	Read by many programs to recognise file types; removal changes what they do with files.
+python-pip-wheel	MUST	S2.2-2,S2.2-10	pip wheel that python3 venv installs into new environments	Python code installed by the venv module; after removal creating virtual environments with pip becomes impossible.
+libreport-anaconda	MUST	S2.2-1,S2.2-2	libreport event and workflow definitions for installer bug reports	Event definitions tell libreport which actions to run; removal makes this reporting workflow impossible.
+libvirt-daemon-config-network	MUST	S2.2-1,S2.2-2,S2.2-14	Definition and autostart link of libvirt's default virtual network	libvirt starts this network with bridge and NAT rules; after removal it no longer exists for virtual machines.
+NetworkManager-config-connectivity-fedora	MUST	S2.2-1,S2.2-2	NetworkManager configuration for connectivity checks against Fedora servers	The system checks internet reachability with it; removal stops these checks and the captive-portal detection.
+systemd-oomd-defaults	MUST	S2.2-1,S2.2-2	Configuration enabling systemd-oomd on system and user slices	Decides when processes are killed under memory pressure system-wide; removal changes that behaviour.
+zram-generator-defaults	MUST	S2.2-1,S2.2-2	Default configuration creating compressed swap in RAM	zram-generator reads it at boot; after removal no zram swap device is created.
+pipewire-config-raop	MUST	S2.2-1,S2.2-2	PipeWire configuration enabling the AirPlay (RAOP) module	Loads a module in the audio server used by all programs; removal stops AirPlay sink discovery.
+pipewire-jack-audio-connection-kit	MUST	S2.2-1,S2.2-2	Dynamic linker path entry pointing JACK programs to PipeWire's libjack	A system-wide linker setting; after removal JACK programs load a different library or fail.
+fedora-chromium-config-gnome	NOT	S2.2-7	Extension preference files for Chrome/Chromium GNOME integration	S2.2-7 names extensions of a web browser as settings that need not be recorded.
+fedora-bookmarks	NOT	S2.2-7	Default browser bookmarks file	Bookmarks are in force only inside the web browser, like its home page (S2.2-7).
+git-core-doc	DOC			Documentation files for git-core	
+vpnc-script	MUST	S2.2-10	Shell script that vpnc and openconnect run as root to set routes and DNS	A script executed by an interpreter with the calling program's rights; S2.2-10 requires it to be recorded.
+langtable	MUST	S2.2-1,S2.2-2,S2.2-13	Locale, keyboard and territory defaults data read by the langtable library	Read as values by langtable users such as the installer and initial setup; removal breaks their default guessing.

@@ -1,0 +1,71 @@
+Module                  Size  Used by
+9p                     77824  1
+cfg80211             1327104  0
+8021q                  49152  0
+garp                   24576  1 8021q
+mrp                    24576  1 8021q
+stp                    12288  1 garp
+llc                    20480  2 stp,garp
+intel_rapl_msr         20480  0
+intel_rapl_common      49152  1 intel_rapl_msr
+kvm_amd               204800  0
+ccp                   151552  1 kvm_amd
+ppdev                  24576  0
+joydev                 24576  0
+bochs                  20480  1
+kvm                  1302528  1 kvm_amd
+drm_shmem_helper       40960  2 bochs
+drm_client_lib         24576  1 bochs
+irqbypass              16384  1 kvm
+polyval_clmulni        12288  0
+ghash_clmulni_intel    12288  0
+aesni_intel            98304  0
+9pnet_virtio           24576  1
+drm_kms_helper        237568  3 bochs,drm_shmem_helper,drm_client_lib
+9pnet                 102400  2 9p,9pnet_virtio
+psmouse               200704  0
+vga16fb                28672  0
+input_leds             16384  0
+netfs                 589824  2 9p,9pnet
+vgastate               24576  1 vga16fb
+serio_raw              16384  0
+pcspkr                 12288  0
+drm                   770048  6 drm_kms_helper,bochs,drm_shmem_helper,drm_client_lib
+i2c_piix4              32768  0
+i2c_smbus              20480  1 i2c_piix4
+parport_pc             49152  0
+qemu_fw_cfg            24576  0
+mac_hid                16384  0
+parport                73728  2 parport_pc,ppdev
+floppy                 94208  0
+virtio_scsi            28672  0
+virtio_mmio            24576  0
+virtio_rng             16384  0
+virtio_console         45056  0
+virtio_net            114688  0
+virtio_blk             36864  1
+virtio_balloon         28672  0
+virtio_pci             57344  0
+virtio_pci_legacy_dev    16384  1 virtio_pci
+virtio                 28672  9 virtio_rng,virtio_mmio,virtio_console,virtio_balloon,virtio_scsi,9pnet_virtio,virtio_pci,virtio_blk,virtio_net
+virtio_pci_modern_dev    24576  1 virtio_pci
+virtio_ring            57344  10 virtio_rng,virtio_mmio,virtio_console,virtio_balloon,virtio_scsi,9pnet_virtio,virtio_pci,virtio_blk,virtio,virtio_net
+isci                  180224  0
+libsas                122880  1 isci
+scsi_transport_sas     57344  2 isci,libsas
+pata_atiixp            12288  0
+pata_acpi              12288  0
+nls_iso8859_1          12288  0
+wp512                  36864  0
+serpent_generic        24576  0
+dm_crypt               65536  0
+mmc_block              65536  0
+rpmb_core              20480  1 mmc_block
+hid_apple              28672  0
+hid_generic            12288  0
+usbhid                 73728  0
+hid                   258048  3 usbhid,hid_apple,hid_generic
+uas                    32768  0
+usb_storage            86016  1 uas
+ahci                   49152  0
+libahci                53248  1 ahci

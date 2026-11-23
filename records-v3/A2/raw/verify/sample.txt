@@ -1,0 +1,31 @@
+seed=20261122 rows=192 pool(MUST|NOT)=179
+L6	Unused factory configuration example	Linux	NOT	S2.2-4	Documentation example not used as effective configuration.	hierarchy: /usr/share/factory/etc/	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/
+L11	Executable compatibility symlink	Linux	MUST	S2.2-1,S2.2-2	Required command pathname disappears.	hierarchy: Compatibility Symlinks	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/
+L17	Service activation definition	Linux	MUST	S2.2-1,S2.2-2	Enables managed execution.	units: systemd.service(5)	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html
+L38	File synchronization lock	Linux desktop	MUST	S2.2-1,S2.2-2	Prevents simultaneous operation.	xdg: XDG_RUNTIME_DIR: file locking	https://specifications.freedesktop.org/basedir/latest/
+L46	SysRq permitted-operation mask	Linux	MUST	S2.2-1,S2.2-2	Enables emergency operations.	sysctl: sysrq	https://docs.kernel.org/admin-guide/sysctl/kernel.html
+L61	Browser extension confined to browser interface	Firefox	NOT	S2.2-7,S2.2-11	Express extension and confinement exemption.	browser: Extensions	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data
+L63	Web browsing history	Firefox	NOT	S2.2-6	Explicit history exemption.	browser: Bookmarks, Downloads and Browsing History	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data
+L70	Dependency install-reason flag	Linux	NOT	S2.2-6	Past installation reason; explicit history exemption.	pacman: Database options: --asdeps / --asexplicit	https://man.archlinux.org/man/pacman.8.en
+L80	Shell logout cleanup file	Unix-like	MUST	S2.2-10	Code executed with shell rights.	shell: FILES: .bash_logout	https://man.archlinux.org/man/bash.1.en
+L84	Shell file-creation umask	Unix-like	MUST	S2.2-1,S2.2-2	Inherited access effect across processes.	shell: umask	https://man.archlinux.org/man/bash.1.en
+L94	Connection last-used timestamp	Linux	NOT	S2.2-6	Explicit past-record exemption, although autoconnection consumes it.	network: timestamp / autoconnect-priority	https://networkmanager.dev/docs/api/latest/settings-connection.html
+L100	Wi-Fi protected-management-frame requirement	Linux	MUST	S2.2-14	Part of saved network.	wifi: pmf	https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html
+L106	DHCP client identifier	Linux	MUST	S2.2-1	Controls network lease identity.	ipv4: dhcp-client-id	https://networkmanager.dev/docs/api/latest/settings-ipv4.html
+L107	Policy-routing selection rule	Linux	MUST	S2.2-1,S2.2-2	Selects routing table.	ipv4: routing-rules	https://networkmanager.dev/docs/api/latest/settings-ipv4.html
+L108	Network address-translation policy	Linux	MUST	S2.2-1,S2.2-2	Enables address-family connectivity.	ipv4: clat / method=shared	https://networkmanager.dev/docs/api/latest/settings-ipv4.html
+L110	Container bind-mount mapping	Linux containers	MUST	S2.2-1,S2.2-2	Enables access to host files.	containers: Bind mounts	https://docs.docker.com/engine/storage/
+L122	Guest memory snapshot	QEMU	NOT	S2.5-1	Accumulated state transfer excluded.	vm: -loadvm	https://www.qemu.org/docs/master/system/invocation.html
+L133	Device visibility ruleset	FreeBSD	MUST	S2.2-1,S2.2-2	Controls device accessibility.	jails: Devfs Rulesets	https://docs.freebsd.org/en/books/handbook/jails/
+L139	Mandatory multifactor-authentication sequence	OpenBSD / OpenSSH	MUST	S2.2-1,S2.2-2	Controls login prerequisites.	auth: AuthenticationMethods	https://man.openbsd.org/sshd_config
+L140	SSH server identity key	OpenBSD / OpenSSH	MUST	S2.2-1,S2.2-2	Authenticates server rather than merely configuring internal presentation.	auth: HostKey	https://man.openbsd.org/sshd_config
+L142	SSH agent forwarding permission	OpenBSD / OpenSSH	MUST	S2.2-1,S2.2-2	Changes credential access across processes.	auth: AllowAgentForwarding	https://man.openbsd.org/sshd_config
+L145	Account expiration deadline	OpenBSD	MUST	S2.2-15	Account attribute controls login availability.	accounts: expire	https://man.openbsd.org/passwd.5
+L148	System-wide Registry configuration value	Windows	MUST	S2.2-1,S2.2-2	Changes system behavior; content-only exemption condition fails.	windowsregistry: Registry overview: configuration data	https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry
+L158	Global preferences domain value	macOS	MUST	S2.2-1	Applies across applications.	macdefaults: The Global Domain	https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html
+L168	Persistent boot order	Linux EFI	MUST	S2.2-16	Explicit requirement where writable.	bootctl: set-default	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html
+L170	Firmware-setup next-boot flag	Linux EFI	MUST	S2.2-1,S2.2-2	Changes next boot destination.	bootctl: reboot-to-firmware	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html
+L174	Firmware search-path override	Linux	MUST	S2.2-1,S2.2-2	Selects device code.	firmware: firmware_class.path	https://docs.kernel.org/driver-api/firmware/fw_search_path.html
+L175	Device permission assignment rule	Linux	MUST	S2.2-1,S2.2-2	Changes device accessibility.	udev: Description: device permissions	https://www.freedesktop.org/software/systemd/man/latest/udev.html
+L185	System timezone selection	Linux	MUST	S2.2-1	Shared time interpretation.	localtime: Description: /etc/localtime	https://www.freedesktop.org/software/systemd/man/latest/localtime.html
+L189	System collation-order setting	Linux	MUST	S2.2-1	Changes sorting across programs.	locale: LC_COLLATE	https://www.freedesktop.org/software/systemd/man/latest/locale.conf.html

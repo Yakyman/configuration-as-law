@@ -1,0 +1,49 @@
+== usr/share/X11/xorg.conf.d/50-device.conf
+# Having multiple "Device" sections is known to be problematic. Make
+# sure you don't have in use another one laying around e.g. in another
+# xorg.conf.d file or even a generic xorg.conf file. More details can
+# be found in https://bugs.freedesktop.org/show_bug.cgi?id=32430.
+#
+#Section "Device"
+#  Identifier "Default Device"
+#
+#  #Driver "radeon"
+#
+#  ## Required magic for radeon/radeonhd drivers; output name
+#  ## (here: "DVI-0") can be figured out via 'xrandr -q'
+#  #Option "monitor-DVI-0" "Default Monitor"
+#
+#EndSection
+== usr/share/X11/xorg.conf.d/50-monitor.conf
+# Having multiple "Monitor" sections is known to be problematic. Make
+# sure you don't have in use another one laying around e.g. in another
+# xorg.conf.d file or even a generic xorg.conf file. More details can
+# be found in https://bugs.freedesktop.org/show_bug.cgi?id=32430.
+#
+#Section "Monitor"
+#  Identifier "Default Monitor"
+#
+#  ## If your monitor doesn't support DDC you may override the
+#  ## defaults here
+#  #HorizSync 28-85
+#  #VertRefresh 50-100
+#
+#  ## Add your mode lines here, use e.g the cvt tool
+#
+#EndSection
+== usr/share/X11/xorg.conf.d/50-screen.conf
+# Having multiple "Screen" sections is known to be problematic. Make
+# sure you don't have in use another one laying around e.g. in another
+# xorg.conf.d file or even a generic xorg.conf file. More details can
+# be found in https://bugs.freedesktop.org/show_bug.cgi?id=32430.
+#
+#Section "Screen"
+#  Identifier "Default Screen"
+#
+#  Device "Default Device"
+#
+#  ## Doesn't help for radeon/radeonhd drivers; use magic in
+#  ## 50-device.conf instead
+#  Monitor "Default Monitor"
+#
+#EndSection

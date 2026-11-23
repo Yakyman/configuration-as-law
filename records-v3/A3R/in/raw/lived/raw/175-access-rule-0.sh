@@ -1,0 +1,1 @@
+cat -- /etc/sudoers.d/90-cloud-init-users

@@ -1,0 +1,158 @@
+{
+  "tmpfiles.d": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/tmpfiles.d.html",
+    "excerpt": "Description ¶ tmpfiles.d configuration files provide a generic mechanism to define the creation of regular files, directories, pipes, and device nodes, adjustments to\n    their access mode, ownership, attributes, quota assignments, and contents , and\n    finally their time-based removal . It is mostly commonly used for volatile and\n    temporary files and directories (such as those located under /run/ , /tmp/ , /var/tmp/ , the API file systems such as /sys/ or /proc/ , as well as some other directories below /var/ ). systemd-tmpfiles (8) uses this configuration to create volatile files and directories during boot and to do periodic cleanup\n    afterwards. See systemd-tmpfiles (8) for\n    the"
+  },
+  "sysctl.d": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/sysctl.d.html",
+    "excerpt": "Description ¶ At boot, systemd-sysctl.service (8) reads configuration files from the above directories to configure sysctl (8) kernel parameters. Configuration Format ¶ The configuration files contain a list of variable\n    assignments, separated by newlines. Empty lines and lines whose\n    first non-whitespace character is \" # \" or\n    \" ; \" are ignored. Note that either \" / \" or \" . \" may be used as separators within\n    sysctl variable names. If the first separator is a slash, remaining slashes and dots are left intact. If\n    the first separator is a dot, dots and slashes are interchanged.\n    \" kernel.domainname=foo \" and \" kernel/domainname=foo \" are equivalent and\n    will cause \" foo"
+  },
+  "systemd-system.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd-system.conf.html",
+    "excerpt": "Description ¶ When run as a system instance, systemd interprets the configuration file system.conf and the files in system.conf.d directories; when\n    run as a user instance, it interprets the configuration file user.conf (in order of\n    priority, in the home directory of the user and under /etc/systemd/ , /run/systemd/ , and /usr/lib/systemd/ ) and the files in user.conf.d directories. These configuration files contain a few settings\n    controlling basic manager operations. See systemd.syntax (7) for a\n    general description of the syntax. Configuration Directories and Precedence ¶ The default configuration is set during compilation, so configuration is only needed when it is\n    necess"
+  },
+  "timesyncd.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/timesyncd.conf.html",
+    "excerpt": "Description ¶ These configuration files control NTP network time synchronization. See systemd.syntax (7) for a general description of the syntax. Configuration Directories and Precedence ¶ The default configuration is set during compilation, so configuration is only needed when it is\n    necessary to deviate from those defaults. The main configuration file is loaded from one of the\n    listed directories in order of priority, only the first file found is used: /etc/systemd/ , /run/systemd/ , /usr/local/lib/systemd/ [1] , /usr/lib/systemd/ .\n    The vendor version of the file contains commented out entries showing the defaults as a guide to the\n    administrator. Local overrides can also be c"
+  },
+  "coredump.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/coredump.conf.html",
+    "excerpt": "Description ¶ These files configure the behavior of systemd-coredump (8) ,\n    a handler for core dumps invoked by the kernel. Whether systemd-coredump is used\n    is determined by the kernel's kernel.core_pattern sysctl (8) setting. See systemd-coredump (8) and core (5) pages for the details. On systems where core dumps are processed by the long-running systemd-coredumpd.service (rather than a fresh systemd-coredump@.service instance started for every crash, see systemd-coredump (8) for\n    details on when each applies), these configuration files are only read once, when the service starts.\n    If systemd-coredumpd.service is running, changes to coredump.conf or its drop-ins will not take e"
+  },
+  "journald.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/journald.conf.html",
+    "excerpt": "Description ¶ These files configure various parameters of the systemd journal service, systemd-journald.service (8) .\n    See systemd.syntax (7) for a general description of the syntax. The systemd-journald instance managing the default namespace is configured by /etc/systemd/journald.conf and associated drop-ins. Instances managing other\n    namespaces read /etc/systemd/journald@ NAMESPACE .conf and associated drop-ins with the namespace identifier filled in. This allows each namespace to carry\n    a distinct configuration. See systemd-journald.service (8) for details about journal namespaces. Configuration Directories and Precedence ¶ The default configuration is set during compilation, so"
+  },
+  "oomd.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/oomd.conf.html",
+    "excerpt": "Description ¶ These files configure the various parameters of the systemd (1) userspace\n    out-of-memory (OOM) killer, systemd-oomd.service (8) .\n    See systemd.syntax (7) for a general description of the syntax. Configuration Directories and Precedence ¶ The default configuration is set during compilation, so configuration is only needed when it is\n    necessary to deviate from those defaults. The main configuration file is loaded from one of the\n    listed directories in order of priority, only the first file found is used: /etc/systemd/ , /run/systemd/ , /usr/local/lib/systemd/ [1] , /usr/lib/systemd/ .\n    The vendor version of the file contains commented out entries showing the defaul"
+  },
+  "logind.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/logind.conf.html",
+    "excerpt": "Description ¶ These files configure various parameters of the systemd login manager, systemd-logind.service (8) . See systemd.syntax (7) for a general description of the syntax. Configuration Directories and Precedence ¶ The default configuration is set during compilation, so configuration is only needed when it is\n    necessary to deviate from those defaults. The main configuration file is loaded from one of the\n    listed directories in order of priority, only the first file found is used: /etc/systemd/ , /run/systemd/ , /usr/local/lib/systemd/ [1] , /usr/lib/systemd/ .\n    The vendor version of the file contains commented out entries showing the defaults as a guide to the\n    administrato"
+  },
+  "systemd-sleep.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd-sleep.conf.html",
+    "excerpt": "Description ¶ systemd supports four general\n    power-saving modes: suspend ¶ a low-power state\n        where execution of the OS is paused,\n        and complete power loss might result\n        in lost data, and which is fast to\n        enter and exit. This corresponds to\n        suspend, standby, or freeze states as\n        understood by the kernel. Added in version 203. hibernate ¶ a low-power state\n        where execution of the OS is paused,\n        and complete power loss does not\n        result in lost data, and which might\n        be slow to enter and exit. This\n        corresponds to the hibernation as\n        understood by the kernel. Added in version 203. hybrid-sleep ¶ a low-power"
+  },
+  "systemd.preset": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.preset.html",
+    "excerpt": "Description ¶ Preset files may be used to encode policy which units shall be enabled by default and which ones\n    shall be disabled. They are read by systemctl preset which uses this information to\n    enable or disable a unit. Depending on that policy, systemctl preset is identical to systemctl enable or systemctl disable . systemctl preset is used by the post install scriptlets of rpm packages (or other OS\n    package formats), to enable/disable specific units by default on package installation, enforcing\n    distribution, spin, or administrator preset policy. This allows choosing a certain set of units to be\n    enabled/disabled even before installing the actual package. For more informa"
+  },
+  "systemd.generator": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.generator.html",
+    "excerpt": "Description ¶ Generators are small executables placed in /usr/lib/systemd/system-generators/ and other\n    directories listed above. systemd (1) will execute\n    these binaries very early at bootup and at configuration reload time — before unit files are\n    loaded. Their main purpose is to convert configuration and execution context parameters that are not\n    native to the service manager into dynamically generated unit files, symlinks or unit file drop-ins, so\n    that they can extend the unit file hierarchy the service manager subsequently loads and operates\n    on. systemd will call each generator with three directory paths that are to be used\n    for generator output. In these three di"
+  },
+  "systemd.environment-generator": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd.environment-generator.html",
+    "excerpt": "Description ¶ Generators are small executables that live in /usr/lib/systemd/system-environment-generators/ and other directories listed above. systemd (1) will\n    execute those binaries very early at the startup of each manager and at configuration\n    reload time, before running the generators described in systemd.generator (7) and before starting any units. Environment generators can override the environment that the\n    manager exports to services and other processes. Generators are loaded from a set of paths determined during compilation, as listed\n    above. System and user environment generators are loaded from directories with names ending in system-environment-generators/ and user-"
+  },
+  "environment.d": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/environment.d.html",
+    "excerpt": "Description ¶ Configuration files in the environment.d/ directories contain lists of\n    environment variable assignments passed to services started by the systemd user instance. systemd-environment-d-generator (8) parses them and updates the environment exported by the systemd user instance. See below for an\n    discussion of which processes inherit those variables. The user-level configuration directory defaults to ~/.config/environment.d/ .\n    If $XDG_CONFIG_HOME is set to an absolute path in the user service manager\n    environment (e.g. via PAM or /etc/environment ), it takes precedence over ~/.config/ . Note that this creates a bootstrapping consideration: variables\n    set in environ"
+  },
+  "vconsole.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/vconsole.conf.html",
+    "excerpt": "Description ¶ The /etc/vconsole.conf file configures\n    the virtual console, i.e. keyboard mapping and console font. It is\n    applied at boot by udev using 90-vconsole.rules file.\n    You can safely mask this file if you want to avoid this kind of initialization. The format of vconsole.conf is a newline-separated list of environment-like\n    shell-compatible variable assignments, ignoring comments and empty lines. It is possible to source the\n    configuration from shell scripts, however, beyond mere variable assignments no shell features are\n    supported, allowing applications to read the file without implementing a shell compatible execution\n    engine. See os-release (5) for a\n    deta"
+  },
+  "locale.conf": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/locale.conf.html",
+    "excerpt": "Description ¶ The /etc/locale.conf file configures\n    system-wide locale settings. It is read at early boot by systemd (1) . The format of locale.conf is a newline-separated list of environment-like\n    shell-compatible variable assignments, ignoring comments and empty lines. It is possible to source the\n    configuration from shell scripts, however, beyond mere variable assignments, no shell features are\n    supported, allowing applications to read the file without implementing a shell compatible execution\n    engine. See os-release (5) for a\n    detailed description of the format. Note that the kernel command line options locale.LANG= , locale.LANGUAGE= , locale.LC_CTYPE= , locale.LC_NUME"
+  },
+  "os-release": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/os-release.html",
+    "excerpt": "Description ¶ The /etc/os-release and /usr/lib/os-release files contain operating\n    system identification data. The format of os-release is a newline-separated list of\n    environment-like shell-compatible variable assignments. It is possible to source the configuration from\n    Bourne shell scripts, however, beyond mere variable assignments, no shell features are supported (this\n    means variable expansion is explicitly not supported), allowing applications to read the file without\n    implementing a shell compatible execution engine. Variable assignment values must be enclosed in double\n    or single quotes if they include spaces, semicolons or other special characters outside of A–Z, a"
+  },
+  "hwdb": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/hwdb.html",
+    "excerpt": "Description ¶ The hardware database is a key-value store for associating modalias-like keys to\n    udev-property-like values. It is used primarily by udev to add the relevant properties\n    to matching devices, but it can also be queried directly. Hardware Database Files ¶ The hwdb files are read from the files located in the\n      system hwdb directory /usr/lib/udev/hwdb.d and\n      the local administration directory /etc/udev/hwdb.d .\n      All hwdb files are collectively sorted and processed in lexicographic order,\n      regardless of the directories in which they live. However, files with\n      identical filenames replace each other. Files in /etc/ have the highest priority and take prec"
+  },
+  "udev": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/udev.html",
+    "excerpt": "Description ¶ udev supplies the system software with device events, manages permissions\n    of device nodes and may create additional symlinks in the /dev/ directory, or renames network interfaces. The kernel usually just assigns unpredictable\n    device names based on the order of discovery. Meaningful symlinks or network device\n    names provide a way to reliably identify devices based on their properties or\n    current configuration. The udev daemon, systemd-udevd.service (8) , receives device uevents directly from\n    the kernel whenever a device is added or removed from the system, or it changes its\n    state. When udev receives a device event, it matches its configured set of rules\n   "
+  },
+  "systemd-halt": {
+    "url": "https://www.freedesktop.org/software/systemd/man/latest/systemd-halt.html",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "hosts": {
+    "url": "https://man7.org/linux/man-pages/man5/hosts.5.html",
+    "excerpt": "DESCRIPTION | FILES | NOTES | EXAMPLES | SEE ALSO | COLOPHON hosts (5)                   File Formats Manual hosts (5) NAME top hosts - static table lookup for hostnames SYNOPSIS top /etc/hosts DESCRIPTION top This manual page describes the format of the /etc/hosts file.\n       This file is a simple text file that associates IP addresses with\n       hostnames, one line per IP address.  For each host a single line\n       should be present with the following information:\n\n              IP_address canonical_hostname [aliases...]\n\n       The IP address can conform to either IPv4 or IPv6.  Fields of the\n       entry are separated by any number of blanks and/or tab characters.\n       Text from a \""
+  },
+  "nsswitch.conf": {
+    "url": "https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html",
+    "excerpt": "DESCRIPTION | FILES | NOTES | SEE ALSO | COLOPHON nsswitch.conf (5)           File Formats Manual nsswitch.conf (5) NAME top nsswitch.conf - Name Service Switch configuration file DESCRIPTION top The Name Service Switch (NSS) configuration file, /etc/nsswitch.conf , is used by the GNU C Library and certain other\n       applications to determine the sources from which to obtain name-\n       service information in a range of categories, and in what order.\n       Each category of information is identified by a database name.\n\n       The file is plain ASCII text, with columns separated by spaces or\n       tab characters.  The first column specifies the database name.\n       The remaining columns"
+  },
+  "gai.conf": {
+    "url": "https://man7.org/linux/man-pages/man5/gai.conf.5.html",
+    "excerpt": "DESCRIPTION | FILES | VERSIONS | EXAMPLES | SEE ALSO | COLOPHON gai.conf (5)                File Formats Manual gai.conf (5) NAME top gai.conf - getaddrinfo(3) configuration file DESCRIPTION top A call to getaddrinfo(3) might return multiple answers.  According\n       to RFC 3484 these answers must be sorted so that the answer with\n       the highest success rate is first in the list.  The RFC provides\n       an algorithm for the sorting.  The static rules are not always\n       adequate, though.  For this reason, the RFC also requires that\n       system administrators should have the possibility to dynamically\n       change the sorting.  For the glibc implementation, this can be\n       achie"
+  },
+  "host.conf": {
+    "url": "https://man7.org/linux/man-pages/man5/host.conf.5.html",
+    "excerpt": "DESCRIPTION | ENVIRONMENT | FILES | NOTES | SEE ALSO | COLOPHON host.conf (5)               File Formats Manual host.conf (5) NAME top host.conf - resolver configuration file DESCRIPTION top The file /etc/host.conf contains configuration information\n       specific to the resolver library.  It should contain one\n       configuration keyword per line, followed by appropriate\n       configuration information.  The following keywords are recognized: trim This keyword may be listed more than once.  Each time it\n              should be followed by a list of domains, separated by\n              colons (':'), semicolons (';') or commas (','), with the\n              leading dot.  When set, the resolv"
+  },
+  "fstab": {
+    "url": "https://man7.org/linux/man-pages/man5/fstab.5.html",
+    "excerpt": "DESCRIPTION | FILES | NOTES | HISTORY | SEE ALSO | REPORTING BUGS | AVAILABILITY FSTAB (5)                       File formats FSTAB (5) NAME top fstab - static information about the filesystems SYNOPSIS top /etc/fstab DESCRIPTION top The file fstab contains descriptive information about the\n       filesystems the system can mount. fstab is only read by programs,\n       and not written; it is the duty of the system administrator to\n       properly create and maintain this file. The order of records in fstab is important because fsck(8) , mount(8) , and umount(8) sequentially iterate through fstab doing their thing.\n\n       The file is not read by mount(8) only but often is used by many\n      "
+  },
+  "shells": {
+    "url": "https://man7.org/linux/man-pages/man5/shells.5.html",
+    "excerpt": "DESCRIPTION | FILES | EXAMPLES | SEE ALSO | COLOPHON shells (5)                  File Formats Manual shells (5) NAME top shells - pathnames of valid login shells DESCRIPTION top /etc/shells is a text file which contains the full pathnames of\n       valid login shells.  This file is consulted by chsh(1) and\n       available to be queried by other programs.\n\n       Be aware that there are programs which consult this file to find\n       out if a user is a normal user; for example, FTP daemons\n       traditionally disallow access to users with shells not included in\n       this file. FILES top /etc/shells EXAMPLES top /etc/shells may contain the following paths: /bin/sh /bin/bash /bin/csh SEE AL"
+  },
+  "issue": {
+    "url": "https://man7.org/linux/man-pages/man5/issue.5.html",
+    "excerpt": "DESCRIPTION | FILES | SEE ALSO | COLOPHON issue (5)                   File Formats Manual issue (5) NAME top issue - prelogin message and identification file DESCRIPTION top /etc/issue is a text file which contains a message or system\n       identification to be printed before the login prompt.  It may\n       contain various @ char and \\ char sequences, if supported by the getty -type program employed on the system. FILES top /etc/issue SEE ALSO top motd(5) , agetty(8) , mingetty (8) COLOPHON top This page is part of the man-pages (Linux kernel and C library\n       user-space interface documentation) project.  Information about\n       the project can be found at \n       ⟨ https://www.kernel."
+  },
+  "netgroup": {
+    "url": "https://man7.org/linux/man-pages/man5/netgroup.5.html",
+    "error": "HTTP Error 404: Not Found"
+  },
+  "modprobe.d": {
+    "url": "https://man7.org/linux/man-pages/man5/modprobe.d.5.html",
+    "excerpt": "DESCRIPTION | CONFIGURATION FORMAT | CONFIGURATION DIRECTORIES AND PRECEDENCE | COMMANDS | COMPATIBILITY | SEE ALSO | AUTHORS | BUGS | COLOPHON MODPROBE.D (5)                   modprobe.d MODPROBE.D (5) NAME top modprobe.d - Configuration directory for modprobe SYNOPSIS top /etc/modprobe.d/*.conf\n\n       /run/modprobe.d/*.conf\n\n       /usr/local/lib/modprobe.d/*.conf\n\n       /usr/local/lib/modprobe.d/*.conf\n\n       /lib/modprobe.d/*.conf DESCRIPTION top Because the modprobe command can add or remove more than one\n       module, due to modules having dependencies, we need a method of\n       specifying what options are to be used with those modules. One can\n       also use them to create conve"
+  },
+  "pam.conf": {
+    "url": "https://man7.org/linux/man-pages/man5/pam.conf.5.html",
+    "excerpt": "DESCRIPTION | FILES | SEE ALSO | COLOPHON PAM.CONF (5)                  Linux-PAM Manual PAM.CONF (5) NAME top pam.conf, pam.d - PAM configuration files DESCRIPTION top When a PAM aware privilege granting application is started, it\n       activates its attachment to the PAM-API. This activation performs\n       a number of tasks, the most important being the reading of the\n       configuration file(s): /etc/pam.conf. Alternatively and\n       preferably, the configuration can be set by individual\n       configuration files located in a pam.d directory. The presence of\n       this directory will cause Linux-PAM to ignore /etc/pam.conf.\n\n       These files list the PAM s that will do the authent"
+  },
+  "nanorc": {
+    "url": "https://www.nano-editor.org/dist/latest/nanorc.5.html",
+    "excerpt": "DESCRIPTION NOTICES OPTIONS SYNTAX HIGHLIGHTING REBINDING KEYS EXAMPLES FILES SEE ALSO NAME nanorc - GNU\nnano’s configuration file DESCRIPTION The nanorc files contain the default settings for nano , a small and friendly text editor. During\nstartup, if --rcfile is not given, nano reads\ntwo files: first the system-wide settings, from /etc/nanorc (the exact path might be different on\nyour system), and then the user-specific settings, either\nfrom ~/.nanorc or from $XDG_CONFIG_HOME/\nnano/nanorc or from ~/.config/nano/nanorc ,\nwhichever is encountered first. If --rcfile is given, nano reads just the specified settings file. NOTICES Since version\n9.0, all lines are scrolled horizontally together ("
+  },
+  "fontconfig": {
+    "url": "https://fontconfig.pages.freedesktop.org/fontconfig/fontconfig-user.html",
+    "excerpt": "Description Fontconfig is a library designed to provide system-wide font configuration,\ncustomization and application access. Functional Overview Fontconfig contains two essential modules, the configuration module which\nbuilds an internal configuration from XML files and the matching module\nwhich accepts font patterns and returns the nearest matching font. Font Configuration The configuration module consists of the FcConfig datatype, libexpat and\nFcConfigParse which walks over an XML tree and amends a configuration with\ndata found within.  From an external perspective, configuration of the\nlibrary consists of generating a valid XML tree and feeding that to\nFcConfigParse.  The only other mech"
+  },
+  "ssh_config": {
+    "url": "https://man.openbsd.org/ssh_config",
+    "excerpt": "DESCRIPTION ssh(1) obtains configuration data from the following sources in the following\n    order: command-line options user's configuration file ( ~/.ssh/config ) system-wide configuration file\n      ( /etc/ssh/ssh_config ) Unless noted otherwise, for each configuration directive, the\n    first specified value will be used. The configuration files may contain sections separated by\n    conditional Host or Match directives. Configuration in these sections is only applied if the\n    conditional directive that started the section matches. Since the first obtained value for each directive is used, more\n    host-specific declarations should be given near the beginning of the file,\n    and gener"
+  },
+  "sshd_config": {
+    "url": "https://man.openbsd.org/sshd_config",
+    "excerpt": "DESCRIPTION sshd(8) reads configuration data from /etc/ssh/sshd_config (or the file specified with -f on the command line). The file contains\n    keyword-argument pairs, one per line. Unless noted otherwise, for each\n    keyword, the first obtained value will be used. Lines starting with\n    ‘ # ’ and empty lines are interpreted as\n    comments. Arguments may optionally be enclosed in double quotes (\") in\n    order to represent arguments containing spaces. The possible keywords and their meanings are as follows (note that\n    keywords are case-insensitive and arguments are case-sensitive): AcceptEnv Specifies what environment variables sent by the client will be copied\n      into the session"
+  },
+  "sudoers": {
+    "url": "https://www.sudo.ws/docs/man/sudoers.man/",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "nix.conf": {
+    "url": "https://nix.dev/manual/nix/latest/command-ref/conf-file.html",
+    "excerpt": "Description Nix supports a variety of configuration settings, which are read from configuration files or taken as command line flags. Configuration file By default Nix reads settings from each of the following places.\nSettings are applied on top of one another, so later settings overwrite earlier entries. The system-wide configuration file nix.conf in the configuration directory. The configuration directory defaults to ${sysconfdir}/nix (i.e. /etc/nix on most Unix systems) or %PROGRAMDATA%\\nix\\conf on Windows, and can be overridden with NIX_CONF_DIR . Values loaded in this file are not forwarded to the Nix daemon.\nThe client assumes that the daemon has already loaded them. If NIX_USER_CONF_F"
+  },
+  "nix-registry": {
+    "url": "https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-registry.html",
+    "excerpt": "Description nix registry provides subcommands for managing flake\nregistries . Flake registries are a convenience feature that allows\nyou to refer to flakes using symbolic identifiers such as nixpkgs ,\nrather than full URLs such as git://github.com/NixOS/nixpkgs . You\ncan use these identifiers on the command line (e.g. when you do nix run nixpkgs#hello ) or in flake input specifications in flake.nix files. The latter are automatically resolved to full URLs and recorded\nin the flake’s flake.lock file. In addition, the flake registry allows you to redirect arbitrary flake\nreferences (e.g. github:NixOS/patchelf ) to another location, such as\na local fork. There are multiple registries. These are"
+  },
+  "dhcpcd.conf": {
+    "url": "https://man.archlinux.org/man/dhcpcd.conf.5.en",
+    "excerpt": "DESCRIPTION Although dhcpcd can do everything from the\n    command line, there are cases where it's just easier to do it once in a\n    configuration file. Most of the options found in dhcpcd(8) can be used here. The\n    first word on the line is the option and the rest of the line is the value.\n    Leading and trailing whitespace for the option and value are trimmed. You\n    can escape characters in the value using the \\ character. Comments can be\n    prefixed with the # character. String values should be quoted with the\n    \" character. Here's a list of available options: allowinterfaces pattern When discovering interfaces, the interface name must match pattern which is a space or comma sep"
+  },
+  "resolvconf.conf": {
+    "url": "https://man.archlinux.org/man/resolvconf.conf.5.en",
+    "excerpt": "DESCRIPTION resolvconf.conf is the configuration file\n    for resolvconf(8) . The resolvconf.conf file is a shell script that is\n    sourced by resolvconf(8) ,\n    meaning that resolvconf.conf must contain valid\n    shell commands. Listed below are the standard resolvconf.conf variables that may be set. If the\n    values contain whitespace, wildcards or other special shell characters,\n    ensure they are quoted and escaped correctly. See the replace variable for an example on quoting. After updating this file, you may wish to run resolvconf -u to apply the new configuration. When a dynamically generated list is appended or prepended to, the\n    whole is made unique where left-most wins. RESO"
+  },
+  "logrotate": {
+    "url": "https://man7.org/linux/man-pages/man8/logrotate.8.html",
+    "excerpt": "DESCRIPTION | OPTIONS | CONFIGURATION FILE | CONFIGURATION FILE DIRECTIVES | SCRIPTS | USER AND GROUP | FILES | SEE ALSO | AUTHORS | COLOPHON LOGROTATE (8)          System Administrator's Manual LOGROTATE (8) NAME top logrotate ‐ rotates, compresses, and mails system logs SYNOPSIS top logrotate [ --force ] [ --debug ] [ --state file ] [ --skip-state-lock ]\n       [ --wait-for-state-lock ] [ --verbose ] [ --log file ] [ --mail command ] config_file [ config_file2 ... ] DESCRIPTION top logrotate is designed to ease administration of systems that\n       generate large numbers of log files.  It allows automatic\n       rotation, compression, removal, and mailing of log files.  Each\n       log fil"
+  }
+}

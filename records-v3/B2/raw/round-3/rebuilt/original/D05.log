@@ -1,0 +1,62 @@
+UTC 2026-11-22T09:42:05Z OP frontends
+$ sudo -u stand /usr/local/bin/apt install unselected-package
+FAILED [Errno 2] No such file or directory: 'unselected-package'
+EXIT 1
+$ sudo /usr/local/bin/apt install unselected-package
+FAILED [Errno 2] No such file or directory: 'unselected-package'
+EXIT 1
+$ sudo -u stand /usr/local/bin/pip install unselected-package
+REFUSED pip: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/pip install unselected-package
+REFUSED pip: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/npm install unselected-package
+REFUSED npm: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/npm install unselected-package
+REFUSED npm: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/flatpak install unselected-package
+REFUSED flatpak: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/flatpak install unselected-package
+REFUSED flatpak: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/systemctl enable unselected.service
+REFUSED systemctl: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/systemctl enable unselected.service
+REFUSED systemctl: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/nmcli connection add
+REFUSED nmcli: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/nmcli connection add
+REFUSED nmcli: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/nft flush ruleset
+REFUSED nft: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/nft flush ruleset
+REFUSED nft: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/useradd unselected
+REFUSED useradd: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/useradd unselected
+REFUSED useradd: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/podman run unselected
+REFUSED podman: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/podman run unselected
+REFUSED podman: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo -u stand /usr/local/bin/crontab -
+REFUSED crontab: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+$ sudo /usr/local/bin/crontab -
+REFUSED crontab: use stand-line add LINE.json or a supported pinned artifact operation
+EXIT 64
+Direct original backend paths remain present; source-level P4 gap, not breaking

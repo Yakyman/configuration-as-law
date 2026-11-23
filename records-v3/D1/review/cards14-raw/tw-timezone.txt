@@ -1,0 +1,13 @@
+Source: https://api.opensuse.org/public/source/openSUSE:Factory/timezone/timezone.spec
+%files
+%license LICENSE
+%verify(not link md5 size mtime) %config(missingok,noreplace) %{_sysconfdir}/localtime
+%{_datadir}/zoneinfo
+%{_sbindir}/zdump
+%{_sbindir}/zic
+
+%files -n tzselect
+%license LICENSE
+%{_bindir}/tzselect
+
+%changelog

@@ -1,0 +1,366 @@
+{
+  "accounts": [
+    {
+      "id": "flatcar-9446ea4c2ea6643ef119fe94",
+      "name": "root",
+      "evidence": "raw/flatcar/raw/001-accounts.out:1"
+    },
+    {
+      "id": "flatcar-1573a97b22b14bf0bc661037",
+      "name": "bin",
+      "evidence": "raw/flatcar/raw/001-accounts.out:5"
+    },
+    {
+      "id": "flatcar-32c2519983ce1a3a69e200f6",
+      "name": "sync",
+      "evidence": "raw/flatcar/raw/001-accounts.out:9"
+    },
+    {
+      "id": "flatcar-1a79c863917a6387494f4291",
+      "name": "operator",
+      "evidence": "raw/flatcar/raw/001-accounts.out:14"
+    },
+    {
+      "id": "flatcar-8a63d6c9caea3d68b0d56ad8",
+      "name": "syslog",
+      "evidence": "raw/flatcar/raw/001-accounts.out:18"
+    },
+    {
+      "id": "flatcar-e638ed82a9c48805caa94e12",
+      "name": "dhcp",
+      "evidence": "raw/flatcar/raw/001-accounts.out:22"
+    },
+    {
+      "id": "flatcar-426a551faa38f300d21d663b",
+      "name": "polkitd",
+      "evidence": "raw/flatcar/raw/001-accounts.out:26"
+    },
+    {
+      "id": "flatcar-3509f4eef5a197145d96425f",
+      "name": "systemd-bus-proxy",
+      "evidence": "raw/flatcar/raw/001-accounts.out:31"
+    },
+    {
+      "id": "flatcar-b0f90d7ad88193bbd94691bb",
+      "name": "pcap",
+      "evidence": "raw/flatcar/raw/001-accounts.out:35"
+    },
+    {
+      "id": "flatcar-b18c5de7a54360092dbeab4d",
+      "name": "systemd-timesync",
+      "evidence": "raw/flatcar/raw/001-accounts.out:39"
+    }
+  ],
+  "groups": [
+    {
+      "id": "flatcar-3e7acd7861265a9c89184e3b",
+      "name": "root",
+      "evidence": "raw/flatcar/raw/002-groups.out:1"
+    },
+    {
+      "id": "flatcar-c23346b48a0e548523a60586",
+      "name": "user",
+      "evidence": "raw/flatcar/raw/002-groups.out:8"
+    },
+    {
+      "id": "flatcar-6d011a00027adadf3a3b9238",
+      "name": "lp",
+      "evidence": "raw/flatcar/raw/002-groups.out:16"
+    },
+    {
+      "id": "flatcar-5660feb17732bd3e2d11db19",
+      "name": "man",
+      "evidence": "raw/flatcar/raw/002-groups.out:23"
+    },
+    {
+      "id": "flatcar-53bebc1021f83702f71d74a5",
+      "name": "lock",
+      "evidence": "raw/flatcar/raw/002-groups.out:30"
+    },
+    {
+      "id": "flatcar-42b94f5513549dd2f613cc26",
+      "name": "messagebus",
+      "evidence": "raw/flatcar/raw/002-groups.out:38"
+    },
+    {
+      "id": "flatcar-4f9bee274fd71767025c64e9-occurrence-2",
+      "name": "docker",
+      "evidence": "raw/flatcar/raw/002-groups.out:45"
+    },
+    {
+      "id": "flatcar-99dccc2b5ae11e3bbbc90ae6-occurrence-2",
+      "name": "systemd-journal",
+      "evidence": "raw/flatcar/raw/002-groups.out:52"
+    },
+    {
+      "id": "flatcar-4bd27d3eeee4cd8cf97317e1",
+      "name": "nobody",
+      "evidence": "raw/flatcar/raw/002-groups.out:60"
+    },
+    {
+      "id": "flatcar-6785b86ec58d3f7dd6d1ba25",
+      "name": "systemd-timesync",
+      "evidence": "raw/flatcar/raw/002-groups.out:67"
+    }
+  ],
+  "identified-processes": [
+    {
+      "id": "flatcar-05ec3cc0e86008caa5e18ce4",
+      "name": "1",
+      "evidence": "raw/flatcar/raw/076-process.out:1"
+    },
+    {
+      "id": "flatcar-b21bd699f15a45f57b4d2e38",
+      "name": "1276",
+      "evidence": "raw/flatcar/raw/076-process.out:5"
+    },
+    {
+      "id": "flatcar-c492be43fae992e473e5ae06",
+      "name": "1283",
+      "evidence": "raw/flatcar/raw/076-process.out:7"
+    },
+    {
+      "id": "flatcar-d0784996137a79baac0fb07a",
+      "name": "1489",
+      "evidence": "raw/flatcar/raw/076-process.out:11"
+    },
+    {
+      "id": "flatcar-7db8ca67487a94e2455688e4",
+      "name": "1544",
+      "evidence": "raw/flatcar/raw/076-process.out:14"
+    },
+    {
+      "id": "flatcar-0566f60f749051d42469de83",
+      "name": "1569",
+      "evidence": "raw/flatcar/raw/076-process.out:16"
+    },
+    {
+      "id": "flatcar-646408228193545da4978a72",
+      "name": "2399",
+      "evidence": "raw/flatcar/raw/076-process.out:22"
+    },
+    {
+      "id": "flatcar-9a3a3290224c2b5a725051f3",
+      "name": "2417",
+      "evidence": "raw/flatcar/raw/076-process.out:25"
+    },
+    {
+      "id": "flatcar-75981e3939136dbb4684104a",
+      "name": "2672",
+      "evidence": "raw/flatcar/raw/076-process.out:28"
+    },
+    {
+      "id": "flatcar-5e6b491559756a37c2018295",
+      "name": "2728",
+      "evidence": "raw/flatcar/raw/076-process.out:32"
+    }
+  ],
+  "unresolved-processes": [
+    {
+      "id": "flatcar-14525dd9e4b7bbef650b9011",
+      "name": "10",
+      "evidence": "raw/flatcar/raw/076-process.out:2"
+    },
+    {
+      "id": "flatcar-7d6150870c0e19813dac4f59",
+      "name": "13",
+      "evidence": "raw/flatcar/raw/076-process.out:9"
+    },
+    {
+      "id": "flatcar-06716a3aeb699bd0659be487",
+      "name": "1340",
+      "evidence": "raw/flatcar/raw/076-process.out:10"
+    },
+    {
+      "id": "flatcar-255713f7d7e2d3ddbb53e53c",
+      "name": "155",
+      "evidence": "raw/flatcar/raw/076-process.out:15"
+    },
+    {
+      "id": "flatcar-284cd771182864c383eb7a85",
+      "name": "157",
+      "evidence": "raw/flatcar/raw/076-process.out:17"
+    },
+    {
+      "id": "flatcar-5f92333a6fb6dc32157f880f",
+      "name": "162",
+      "evidence": "raw/flatcar/raw/076-process.out:19"
+    },
+    {
+      "id": "flatcar-ba8d8237dfa44ef3a053444c",
+      "name": "165",
+      "evidence": "raw/flatcar/raw/076-process.out:21"
+    },
+    {
+      "id": "flatcar-55032763f65826e491b088f3",
+      "name": "25",
+      "evidence": "raw/flatcar/raw/076-process.out:26"
+    },
+    {
+      "id": "flatcar-8185176747a03f9fcad21155",
+      "name": "27",
+      "evidence": "raw/flatcar/raw/076-process.out:29"
+    },
+    {
+      "id": "flatcar-06462aa9434fec4fc20c04f0",
+      "name": "28",
+      "evidence": "raw/flatcar/raw/076-process.out:33"
+    }
+  ],
+  "modules": [
+    {
+      "id": "flatcar-5eaca0ced48f94ffcbed0deb",
+      "name": "intel_rapl_msr",
+      "evidence": "raw/flatcar/raw/077-module.out:1"
+    },
+    {
+      "id": "flatcar-36406d293bdf3501bb2a7f14",
+      "name": "button",
+      "evidence": "raw/flatcar/raw/077-module.out:9"
+    },
+    {
+      "id": "flatcar-8272c1b46581420bee9a9d4c",
+      "name": "vsock_loopback",
+      "evidence": "raw/flatcar/raw/077-module.out:17"
+    },
+    {
+      "id": "flatcar-901e010e05818ed12feccd40",
+      "name": "jbd2",
+      "evidence": "raw/flatcar/raw/077-module.out:25"
+    },
+    {
+      "id": "flatcar-24ffceada3289c7b7fd77bd7",
+      "name": "net_failover",
+      "evidence": "raw/flatcar/raw/077-module.out:33"
+    },
+    {
+      "id": "flatcar-a73e6cae3c32fc7b0d8bb647",
+      "name": "libiscsi",
+      "evidence": "raw/flatcar/raw/077-module.out:41"
+    },
+    {
+      "id": "flatcar-a36013da02441d8736791940",
+      "name": "virtiofs",
+      "evidence": "raw/flatcar/raw/077-module.out:49"
+    },
+    {
+      "id": "flatcar-7bffe09a57f3ae7ee671c05b",
+      "name": "lzo_compress",
+      "evidence": "raw/flatcar/raw/077-module.out:57"
+    },
+    {
+      "id": "flatcar-be299f225b12dc74402a0081",
+      "name": "sd_mod",
+      "evidence": "raw/flatcar/raw/077-module.out:65"
+    },
+    {
+      "id": "flatcar-ddf5d2cb6c580613985a76c8",
+      "name": "crc32c_intel",
+      "evidence": "raw/flatcar/raw/077-module.out:73"
+    }
+  ],
+  "driver-links": [
+    {
+      "id": "flatcar-f680f2ced5cbbbb98c0f7e6e",
+      "name": "/sys/devices/pnp0/00:05/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:1"
+    },
+    {
+      "id": "flatcar-f0515208c7470ebde5ef43b0",
+      "name": "/sys/devices/pnp0/00:04/00:04:0/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:4"
+    },
+    {
+      "id": "flatcar-1f9163a7e2f94b85174294f1",
+      "name": "/sys/devices/pnp0/00:00/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:7"
+    },
+    {
+      "id": "flatcar-3d0421dd3fe9ece92d5747d4",
+      "name": "/sys/devices/platform/serial8250/serial8250:0/serial8250:0.1/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:10"
+    },
+    {
+      "id": "flatcar-56a7db23ffbc04132a032ab1",
+      "name": "/sys/devices/platform/serial8250/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:13"
+    },
+    {
+      "id": "flatcar-b605afe2f102578e85a9a076",
+      "name": "/sys/devices/pci0000:00/0000:00:04.0/virtio1/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:17"
+    },
+    {
+      "id": "flatcar-d02f30a66be6bd18bdc29171",
+      "name": "/sys/devices/pci0000:00/0000:00:03.0/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:20"
+    },
+    {
+      "id": "flatcar-bc8c732576c2b08f4d089545",
+      "name": "/sys/devices/pci0000:00/0000:00:01.1/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:23"
+    },
+    {
+      "id": "flatcar-075f446569106f7b41ed3158",
+      "name": "/sys/devices/pci0000:00/QEMU0002:00/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:26"
+    },
+    {
+      "id": "flatcar-130d22dd45e97d035accd37e",
+      "name": "/sys/devices/LNXSYSTM:00/LNXPWRBN:00/driver",
+      "evidence": "raw/flatcar/raw/078-driver.out:29"
+    }
+  ],
+  "polkit-actions": [
+    {
+      "id": "flatcar-5a4e50a2a12a6cc490521db3",
+      "name": "io.systemd.ask-password.ask",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:1"
+    },
+    {
+      "id": "flatcar-3fa90bb13762f44ad1c2d65d",
+      "name": "io.systemd.namespace-resource.allocate-user-namespace",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:16"
+    },
+    {
+      "id": "flatcar-6d11af61ff27b74dc904b558",
+      "name": "org.freedesktop.import1.import",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:31"
+    },
+    {
+      "id": "flatcar-43e25ae4565df96178e06f6f",
+      "name": "org.freedesktop.login1.inhibit-block-sleep",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:46"
+    },
+    {
+      "id": "flatcar-d9f112c1bbb41a4935544988",
+      "name": "org.freedesktop.login1.reboot-multiple-sessions",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:61"
+    },
+    {
+      "id": "flatcar-ef3f0c180371837766138b64",
+      "name": "org.freedesktop.machine1.inspect-images",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:76"
+    },
+    {
+      "id": "flatcar-1dc7a7dfc25ef1671e233671",
+      "name": "org.freedesktop.network1.set-default-route",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:91"
+    },
+    {
+      "id": "flatcar-09fa3a869650fb7efc8aba7b",
+      "name": "org.freedesktop.realmd.deconfigure-realm",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:106"
+    },
+    {
+      "id": "flatcar-975def8ff99e2d3e1c557d82",
+      "name": "org.freedesktop.resolve1.set-llmnr",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:121"
+    },
+    {
+      "id": "flatcar-d466d4b191cbefe0b38d2922",
+      "name": "org.freedesktop.timesync1.set-runtime-servers",
+      "evidence": "raw/flatcar/raw/087-polkit-actions.out:136"
+    }
+  ]
+}

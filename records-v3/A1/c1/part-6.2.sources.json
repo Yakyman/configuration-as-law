@@ -1,0 +1,412 @@
+{
+  "loader.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=loader&sektion=8&format=ascii",
+    "name": "loader -- kernel bootstrapping final stage",
+    "excerpt": "The program called loader is the final stage of FreeBSD's kernel bootstrap- ping process. It is responsible for bringing the kernel, kernel modules and other"
+  },
+  "loader.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=loader.conf&sektion=5&format=ascii",
+    "name": "loader.conf -- system bootstrap configuration information",
+    "excerpt": "The file loader.conf contains descriptive information on bootstrapping the system. Through it you can specify the kernel to be booted, parameters to be passed to"
+  },
+  "loader_4th.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=loader_4th&sektion=8&format=ascii",
+    "name": "loader_4th -- kernel bootstrapping final stage",
+    "excerpt": "The program called loader_4th is the final stage of FreeBSD's kernel boot- strapping process. On IA32 (i386) architectures, it is a BTX client. It is"
+  },
+  "loader_lua.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=loader_lua&sektion=8&format=ascii",
+    "name": "loader_lua -- kernel bootstrapping final stage",
+    "excerpt": "The program called loader_lua is the final stage of FreeBSD's kernel boot- strapping process. On IA32 (i386) architectures, it is a BTX client. It is"
+  },
+  "boot.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=boot&sektion=8&format=ascii",
+    "name": "boot -- system bootstrapping procedures",
+    "excerpt": "Power fail and crash recovery. Normally, the system will reboot itself at power-up or after crashes. An automatic consistency check of the file sys- tems"
+  },
+  "boot0cfg.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=boot0cfg&sektion=8&format=ascii",
+    "name": "boot0cfg -- boot manager installation/configuration utility",
+    "excerpt": "The FreeBSD `boot0' boot manager permits the operator to select from which disk and slice an i386 machine (PC) is booted. Note that what are"
+  },
+  "gptboot.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=gptboot&sektion=8&format=ascii",
+    "name": "gptboot -- GPT bootcode for UFS on BIOS-based computers",
+    "excerpt": "gptboot is used on BIOS-based computers to boot from a UFS partition on a GPT-partitioned disk. gptboot is installed in a freebsd-boot partition with gpart(8)."
+  },
+  "gptzfsboot.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=gptzfsboot&sektion=8&format=ascii",
+    "name": "gptzfsboot -- GPT bootcode for ZFS on BIOS-based computers",
+    "excerpt": "gptzfsboot is used on BIOS-based computers to boot from a filesystem in a ZFS pool. gptzfsboot is installed in a freebsd-boot partition of a GPT-"
+  },
+  "pxeboot.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=pxeboot&sektion=8&format=ascii",
+    "name": "pxeboot -- Preboot Execution Environment (PXE) bootloader",
+    "excerpt": "The pxeboot bootloader is a modified version of the system third-stage bootstrap loader(8) configured to run under Intel's Preboot Execution Envi- ronment (PXE) system. PXE"
+  },
+  "userboot.3": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=userboot&sektion=3&format=ascii",
+    "name": "Sorry, no results found for 'userboot'",
+    "excerpt": "Sorry, no results found for 'userboot'"
+  },
+  "device.hints.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=device.hints&sektion=5&format=ascii",
+    "name": "device.hints -- device resource hints",
+    "excerpt": "The device.hints file is read in by the boot loader(8) when the system is about to start, and its contents are passed to the kernel."
+  },
+  "save-entropy.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=save-entropy&sektion=8&format=ascii",
+    "name": "save-entropy -- Save bits of entropy to feed /dev/random at startup",
+    "excerpt": "The save-entropy command is used to save entropy data from /dev/random to files in a specified output location. The files saved are used at startup"
+  },
+  "rc.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=rc&sektion=8&format=ascii",
+    "name": "rc -- command scripts for auto-reboot and daemon startup",
+    "excerpt": "The rc utility is the command script which controls the automatic boot process after being called by init(8). The rc.local script contains com- mands which"
+  },
+  "rc.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=rc.conf&sektion=5&format=ascii",
+    "name": "rc.conf -- system configuration information",
+    "excerpt": "The file rc.conf contains descriptive information about the local host name, configuration details for any potential network interfaces and which services should be started up"
+  },
+  "csh.1": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=csh&sektion=1&format=ascii",
+    "name": "tcsh - C shell with file name completion and command line editing",
+    "excerpt": "tcsh is an enhanced but completely compatible version of the Berkeley UNIX C shell, csh(1). It is a command language interpreter usable both as an"
+  },
+  "sh.1": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=sh&sektion=1&format=ascii",
+    "name": "sh -- command interpreter (shell)",
+    "excerpt": "The sh utility is the standard command interpreter for the system. The current version of sh is close to the IEEE Std 1003.1 (\"POSIX.1\") specifi-"
+  },
+  "crontab.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=crontab&sektion=5&format=ascii",
+    "name": "crontab -- tables for driving cron",
+    "excerpt": "A crontab file contains instructions to the cron(8) daemon of the general form: ``run this command at this time on this date''. Each user has"
+  },
+  "auto_master.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=auto_master&sektion=5&format=ascii",
+    "name": "auto_master -- autofs automounter configuration and map file format",
+    "excerpt": "The automounter configuration consists of the auto_master configuration file, which assigns filesystem paths to map names, and maps, which contain actual mount information. The auto_master"
+  },
+  "devd.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=devd.conf&sektion=5&format=ascii",
+    "name": "devd.conf -- configuration file format for devd(8)",
+    "excerpt": "General Syntax A devd(8) configuration consists of two general features, statements and comments. All statements end with a semicolon. Many statements can con- tain substatements,"
+  },
+  "devfs.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=devfs.conf&sektion=5&format=ascii",
+    "name": "devfs.conf -- boot-time devfs configuration information",
+    "excerpt": "The devfs.conf file provides an easy way to set ownership and permissions, or create links for devices available at boot. It does not work for"
+  },
+  "blacklistd.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=blacklistd.conf&sektion=5&format=ascii",
+    "name": "blacklistd.conf -- configuration file format for blacklistd",
+    "excerpt": "The blacklistd.conf file contains configuration entries for blacklistd(8) in a fashion similar to inetd.conf(5). Only one entry per line is permit- ted. Every entry must"
+  },
+  "ddb.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=ddb&sektion=8&format=ascii",
+    "name": "ddb -- configure DDB kernel debugger properties",
+    "excerpt": "The ddb utility configures certain aspects of the ddb(4) kernel debugger from user space that are not configured at compile-time or easily via sysctl(8) MIB"
+  },
+  "dhclient.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=dhclient.conf&sektion=5&format=ascii",
+    "name": "dhclient.conf -- DHCP client configuration file",
+    "excerpt": "The dhclient.conf file contains configuration information for dhclient(8), the Internet Software Consortium DHCP Client. The dhclient.conf file is a free-form ASCII text file. It is"
+  },
+  "disktab.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=disktab&sektion=5&format=ascii",
+    "name": "disktab -- disk description file",
+    "excerpt": "Disktab is a simple database which describes disk geometries and disk par- tition characteristics. It is used to initialize the disk label on the disk."
+  },
+  "dump.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=dump&sektion=8&format=ascii",
+    "name": "dump, rdump -- file system backup",
+    "excerpt": "The dump utility examines files on a file system and determines which files need to be backed up. These files are copied to the given"
+  },
+  "fbtab.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=fbtab&sektion=5&format=ascii",
+    "name": "fbtab -- change device protection upon login",
+    "excerpt": "The fbtab file contains a number of lines specifying a device together with a list of devices with associated protections. Comments start with a `#'"
+  },
+  "ftpusers.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=ftpusers&sektion=5&format=ascii",
+    "name": "ftpusers, ftpchroot -- tnftpd(8) access control file",
+    "excerpt": "The ftpusers file provides user access control for tnftpd(8) by defining which users may login. If the ftpusers file does not exist, all users are"
+  },
+  "gettytab.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=gettytab&sektion=5&format=ascii",
+    "name": "gettytab -- terminal configuration data base",
+    "excerpt": "The gettytab file is a simplified version of the termcap(5) data base used to describe terminal lines. The initial terminal login process getty(8) accesses the"
+  },
+  "group.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=group&sektion=5&format=ascii",
+    "name": "group -- format of the group permissions file",
+    "excerpt": "The group file is the local source of group information. It can be used in conjunction with the Hesiod domain `group', and the NIS maps"
+  },
+  "hostid.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=hostid&sektion=8&format=ascii",
+    "name": "Sorry, no results found for 'hostid'",
+    "excerpt": "Sorry, no results found for 'hostid'"
+  },
+  "hosts.allow.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=hosts.allow&sektion=5&format=ascii",
+    "name": "hosts_options - host access control language extensions",
+    "excerpt": "This document describes optional extensions to the language described in the hosts_access(5) document. The extensions are enabled at program build time. For example, by editing"
+  },
+  "hosts.equiv.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=hosts.equiv&sektion=5&format=ascii",
+    "name": "hosts.equiv, .rhosts -- trusted remote host and user name data base",
+    "excerpt": "The hosts.equiv and .rhosts files contain information regarding trusted hosts and users on the network. For each host a single line should be present with"
+  },
+  "hosts.lpd.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=hosts.lpd&sektion=5&format=ascii",
+    "name": "hosts.lpd -- trusted hosts that may use local print services",
+    "excerpt": "The hosts.lpd file contains a list of hostnames or IP addresses that are allowed to use your local print services. List every hostname or IP"
+  },
+  "libalias.3": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=libalias&sektion=3&format=ascii",
+    "name": "libalias -- packet aliasing library for masquerading and network address translation",
+    "excerpt": "The libalias library is a collection of functions for aliasing and de- aliasing of IP packets, intended for masquerading and network address translation (NAT). INTRODUCTION"
+  },
+  "libmap.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=libmap.conf&sektion=5&format=ascii",
+    "name": "libmap.conf -- configuration file for dynamic object dependency mapping",
+    "excerpt": "The libmap functionality of ld-elf.so.1(1) allows dynamic object dependen- cies to be mapped to arbitrary names. Each line in /etc/libmap.conf can have one of five"
+  },
+  "locate.updatedb.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=locate.updatedb&sektion=8&format=ascii",
+    "name": "locate.updatedb -- update locate database",
+    "excerpt": "The locate.updatedb utility updates the database used by locate(1). It is typically run once a week by the /etc/periodic/weekly/310.locate script. The contents of the newly"
+  },
+  "login.access.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=login.access&sektion=5&format=ascii",
+    "name": "login.access -- login access control table",
+    "excerpt": "The login.access file specifies (user, host) combinations and/or (user, tty) combinations for which a login will be either accepted or refused. When someone logs in,"
+  },
+  "login.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=login.conf&sektion=5&format=ascii",
+    "name": "login.conf -- login class capability database",
+    "excerpt": "login.conf contains various attributes and capabilities of login classes. A login class (an optional annotation against each record in the user ac- count database, /etc/master.passwd)"
+  },
+  "mac.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=mac.conf&sektion=5&format=ascii",
+    "name": "mac.conf -- format of the MAC library configuration file",
+    "excerpt": "The mac.conf file configures the default label elements to be used by pol- icy-agnostic applications that operate on MAC labels. A file contains a series"
+  },
+  "mail.1": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=mail&sektion=1&format=ascii",
+    "name": "mail, Mail, mailx -- send and receive mail",
+    "excerpt": "MAIL(1) General Commands Manual MAIL(1) NAME mail, Mail, mailx -- send and receive mail SYNOPSIS mail [-dEiInv] [-s subject] [-c cc-addr] [-b bcc-addr] [-F] to-addr"
+  },
+  "passwd.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=passwd&sektion=5&format=ascii",
+    "name": "passwd, master.passwd, pwd.db, spwd.db -- format of the password file",
+    "excerpt": "The passwd files are the local source of password information. They can be used in conjunction with the Hesiod domains `passwd' and `uid', and the"
+  },
+  "pwd_mkdb.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=pwd_mkdb&sektion=8&format=ascii",
+    "name": "pwd_mkdb -- generate the password databases",
+    "excerpt": "The pwd_mkdb utility creates db(3) style secure and insecure databases for the specified file. These databases are then installed into /etc/spwd.db and /etc/pwd.db respectively. The"
+  },
+  "motd.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=motd&sektion=5&format=ascii",
+    "name": "motd -- file containing message(s) of the day",
+    "excerpt": "The file /var/run/motd is normally displayed by login(1) after a user has logged in but before the shell is run. It is generally used for"
+  },
+  "netconfig.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=netconfig&sektion=5&format=ascii",
+    "name": "netconfig -- network configuration data base",
+    "excerpt": "The netconfig file defines a list of \"transport names\", describing their semantics and protocol. In FreeBSD, this file is only used by the RPC li-"
+  },
+  "networks.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=networks&sektion=5&format=ascii",
+    "name": "networks -- network name data base",
+    "excerpt": "The networks file contains information regarding the known networks which comprise the DARPA Internet. For each network a single line should be present with the"
+  },
+  "newsyslog.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=newsyslog.conf&sektion=5&format=ascii",
+    "name": "newsyslog.conf -- system message log rotator configuration file",
+    "excerpt": "The newsyslog.conf file is used to set log file rotation configuration for the newsyslog(8) utility. Configuration may designate that logs are ro- tated based on"
+  },
+  "nscd.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=nscd.conf&sektion=5&format=ascii",
+    "name": "nscd.conf -- nscd configuration file",
+    "excerpt": "The nscd.conf file is used by the nscd(8) daemon and is read on its startup. Its syntax is mostly similar to the nscd.conf syntax in"
+  },
+  "nsmb.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=nsmb.conf&sektion=5&format=ascii",
+    "name": "nsmb.conf -- configuration file for server message block (SMB1/CIFS) re- quests",
+    "excerpt": "The nsmb.conf file contains information about the computers, users, and shares or mount points for the SMB network protocol. The configuration files are loaded in"
+  },
+  "nsswitch.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=nsswitch.conf&sektion=5&format=ascii",
+    "name": "nsswitch.conf -- name-service switch configuration file",
+    "excerpt": "The nsswitch.conf file specifies how the nsdispatch(3) (name-service switch dispatcher) routines in the C library should operate. The configuration file controls how a process looks"
+  },
+  "pf.os.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=pf.os&sektion=5&format=ascii",
+    "name": "pf.os -- format of the operating system fingerprints file",
+    "excerpt": "The pf(4) firewall and the tcpdump(1) program can both fingerprint the op- erating system of hosts that originate an IPv4 TCP connection. The file consists"
+  },
+  "phones.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=phones&sektion=5&format=ascii",
+    "name": "phones -- remote host phone number data base",
+    "excerpt": "The file /etc/phones contains the system-wide private phone numbers for the tip(1) program. This file is normally unreadable, and so may contain priv- ileged information."
+  },
+  "printcap.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=printcap&sektion=5&format=ascii",
+    "name": "printcap -- printer capability data base",
+    "excerpt": "The Printcap function is a simplified version of the termcap(5) data base used to describe line printers. The spooling system accesses the printcap file every"
+  },
+  "protocols.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=protocols&sektion=5&format=ascii",
+    "name": "protocols -- protocol name data base",
+    "excerpt": "The protocols file contains information regarding the assigned protocol numbers used by IPv4 and IPv6 to identify the next level protocol. For each protocol a"
+  },
+  "regdomain.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=regdomain&sektion=5&format=ascii",
+    "name": "regdomain.xml -- 802.11 wireless regulatory definitions",
+    "excerpt": "The regdomain.xml file describes regulations for the operation of IEEE 802.11 wireless radios. This information is used by the ifconfig(8) program to construct regulatory state"
+  },
+  "remote.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=remote&sektion=5&format=ascii",
+    "name": "remote -- remote host description file",
+    "excerpt": "The systems known by tip(1) and their attributes are stored in an ASCII file which is structured somewhat like the termcap(5) file. Each line in"
+  },
+  "resolv.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=resolv.conf&sektion=5&format=ascii",
+    "name": "resolver -- resolver configuration file",
+    "excerpt": "The resolver(3) is a set of routines in the C library which provide access to the Internet Domain Name System. The resolver configuration file con-"
+  },
+  "rmt.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=rmt&sektion=8&format=ascii",
+    "name": "rmt -- remote magtape protocol module",
+    "excerpt": "The rmt utility is used by the remote dump and restore programs in manipu- lating a magnetic tape drive through an interprocess communication connec- tion."
+  },
+  "rpc.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=rpc&sektion=5&format=ascii",
+    "name": "rpc -- rpc program number data base",
+    "excerpt": "The rpc file contains user readable names that can be used in place of RPC program numbers. For each RPC program a single line should"
+  },
+  "services.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=services&sektion=5&format=ascii",
+    "name": "services -- internet service name and port number data base",
+    "excerpt": "The services file contains information regarding the known services avail- able in the Internet. For each service a single line should be present with the"
+  },
+  "shells.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=shells&sektion=5&format=ascii",
+    "name": "shells -- shell database",
+    "excerpt": "The shells file contains a list of the shells on the system. For each shell a single line should be present, consisting of the shell's"
+  },
+  "snmpd.config.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=snmpd.config&sektion=5&format=ascii",
+    "name": "Sorry, no results found for 'snmpd.config'",
+    "excerpt": "Sorry, no results found for 'snmpd.config'"
+  },
+  "sysctl.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=sysctl.conf&sektion=5&format=ascii",
+    "name": "sysctl.conf -- kernel state defaults",
+    "excerpt": "The /etc/sysctl.conf file is read in when the system goes into multi-user mode to set default settings for the kernel. The /etc/sysctl.conf file is in"
+  },
+  "syslog.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=syslog.conf&sektion=5&format=ascii",
+    "name": "syslog.conf -- syslogd system message log configuration file",
+    "excerpt": "The syslog.conf file is the configuration file for the syslogd(8) program. It consists of blocks of lines separated by program, hostname or property-based filter specifications"
+  },
+  "termcap.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=termcap&sektion=5&format=ascii",
+    "name": "termcap -- terminal capability data base",
+    "excerpt": "The termcap file is a data base describing terminals, used, for example, by vi(1) and ncurses(3). Terminals are described in termcap by giving a set"
+  },
+  "ttys.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=ttys&sektion=5&format=ascii",
+    "name": "ttys -- terminal initialization information",
+    "excerpt": "The file ttys contains information that is used by various routines to ini- tialize and control the use of terminal special files. Pseudo-terminals (see pts(4))"
+  },
+  "os-release.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=os-release&sektion=5&format=ascii",
+    "name": "os-release -- file describing the current OS and some of its attributes",
+    "excerpt": "The os-release file is a new-line separated list of key value pairs. The syntax of this file is a reduced sh(1) variable assignment with the"
+  },
+  "bhyveload.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=bhyveload&sektion=8&format=ascii",
+    "name": "bhyveload.8",
+    "excerpt": "bhyveload is used to load a FreeBSD guest inside a bhyve(4) virtual ma- chine. bhyveload is based on loader(8) and will present an interface identical"
+  },
+  "bsnmpd.1": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=bsnmpd&sektion=1&format=ascii",
+    "name": "bsnmpd.1",
+    "excerpt": "The bsnmpd daemon serves the internet SNMP (Simple Network Management Pro- tocol). It is intended to serve only the absolute basic MIBs and implement all"
+  },
+  "inetd.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=inetd&sektion=8&format=ascii",
+    "name": "inetd.8",
+    "excerpt": "The inetd utility should be run at boot time by /etc/rc (see rc(8)). It then listens for connections on certain internet sockets. When a connec-"
+  },
+  "blacklistd.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=blacklistd&sektion=8&format=ascii",
+    "name": "blacklistd.8",
+    "excerpt": "blacklistd is a daemon similar to syslogd(8) that listens to sockets at paths specified in the sockpathsfile for notifications from other daemons about successful or"
+  },
+  "freebsd-update.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=freebsd-update.conf&sektion=5&format=ascii",
+    "name": "freebsd-update.conf.5",
+    "excerpt": "The freebsd-update.conf file controls the behaviour of the freebsd-up- date(8) utility. The file contains lines consisting of a case-sensitive option name and zero or more"
+  },
+  "aliases.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=aliases&sektion=5&format=ascii",
+    "name": "aliases.5",
+    "excerpt": "This file describes user ID aliases used by sendmail. The file resides in /etc/mail and is formatted as a series of lines of the form"
+  },
+  "devfs.rules.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=devfs.rules&sektion=5&format=ascii",
+    "name": "devfs.rules.5",
+    "excerpt": "The devfs.rules file provides an easy way to create and apply devfs(8) rules, even for devices that are not available at boot. For devices available"
+  },
+  "gssapi.3": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=gssapi&sektion=3&format=ascii",
+    "name": "gssapi.3",
+    "excerpt": "gssapi(3) Heimdal GSS-API library gssapi(3) NAME gssapi - Heimdal GSS-API functions SYNOPSIS Functions GSSAPI_LIB_FUNCTION OM_uint32 GSSAPI_LIB_CALL gss_add_oid_set_member (OM_uint32 *minor_status, const gss_OID member_oid, gss_OID_set *oid_set) GSSAPI_LIB_FUNCTION"
+  },
+  "cap_mkdb.1": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=cap_mkdb&sektion=1&format=ascii",
+    "name": "cap_mkdb.1",
+    "excerpt": "The cap_mkdb utility builds a hashed database out of the getcap(3) logical database constructed by the concatenation of the specified files. The database is named"
+  },
+  "login_cap.3": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=login_cap&sektion=3&format=ascii",
+    "name": "login_cap.3",
+    "excerpt": "These functions represent a programming interface to the login classes database provided in login.conf(5). This database contains capabilities, attributes and default environment and accounting settings"
+  },
+  "periodic.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=periodic&sektion=8&format=ascii",
+    "name": "periodic.8",
+    "excerpt": "The periodic utility is intended to be called by cron(8) to execute shell scripts located in the specified directory. One or more of the following"
+  },
+  "autofs.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=autofs&sektion=5&format=ascii",
+    "name": "autofs.5",
+    "excerpt": "Sorry, no results found for 'autofs'"
+  },
+  "fstab.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=fstab&sektion=5&format=ascii",
+    "excerpt": "The file fstab contains descriptive information about the various file sys- tems. fstab is only read by programs, and not written; it is the duty"
+  },
+  "hosts.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=hosts&sektion=5&format=ascii",
+    "excerpt": "The hosts file contains information regarding the known hosts on the net- work. It can be used in conjunction with DNS, and the NIS maps"
+  },
+  "ntp.conf.5": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=ntp.conf&sektion=5&format=ascii",
+    "excerpt": "The ntp.conf configuration file is read at initial startup by the ntpd(1nt- pdmdoc) daemon in order to specify the synchronization sources, modes and other related"
+  },
+  "ftpd.8": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=ftpd&sektion=8&format=ascii",
+    "excerpt": "ent before any file operations may be performed. 2. The login name must not appear in the file /etc/ftpusers. 3. The login name must not"
+  },
+  "getcap.3": {
+    "url": "https://man.freebsd.org/cgi/man.cgi?query=getcap&sektion=3&format=ascii",
+    "excerpt": "malloc(3)'d copy of it in buf. The cgetent() function will first look for files ending in .db (see cap_mkdb(1)) before accessing the ASCII file. The"
+  }
+}

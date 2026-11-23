@@ -1,0 +1,706 @@
+[
+  [
+    "C1.1 Repository install, upgrade, downgrade, reinstall and remove through CLI",
+    "R; S3-6; S3-9",
+    "UNKNOWN",
+    "Candidate only: Transaction broker translates requested changes into declaration; backend has only inactive tree access; activate only declared artifacts; no evidenced complete declaration-only integration",
+    "[I ledger: E1,E2,E10,E11](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: System updating remains possible; application may require a restart or reboot; retained operation not established"
+  ],
+  [
+    "C1.2 Direct low-level manager or library/API/GUI frontend bypassing CLI wrapper",
+    "R; S3-6",
+    "UNKNOWN",
+    "Candidate only: Deny backend active-tree write authority by domain, not executable name/PATH; all frontends use broker; no evidenced complete declaration-only integration",
+    "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Extra frontend integration; unrestricted stock manager command unavailable; retained operation not established"
+  ],
+  [
+    "C1.3 Alternate root, alternate database, package extraction into writable directory",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Stored artifacts remain nonstartable until broker admission; all native execution outside active tree denied",
+    "[I ledger: E1,E3,E10](raw/install-sources.md)",
+    "Archives can be inspected; executing extracted files needs declaration"
+  ],
+  [
+    "C1.4 Maintainer scripts, triggers, hooks and post-install service activation",
+    "R; S2.2-10; S3-10",
+    "UNKNOWN",
+    "Candidate only: Record hook code before execution or execute in recorded VM; constrain effects and generate service/account/rule lines before active changes; no evidenced complete declaration-only integration",
+    "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Some packages require adapted installation; installer arbitrary host effects denied; retained operation not established"
+  ],
+  [
+    "C1.5 Hook disable/config override, backend flag or environment bypass",
+    "R; S2.3-7; S3-6",
+    "UNKNOWN",
+    "Candidate only: Hooks are optional convenience only; mandatory writer/execute policy remains effective when hooks skipped; no evidenced complete declaration-only integration",
+    "[I ledger: E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Customizing backend cannot grant active-tree authority; retained operation not established"
+  ],
+  [
+    "C1.6 Old generations, package cache copies, rollback paths after removal",
+    "R; S2.4-4",
+    "CLOSABLE",
+    "Authorize current-generation objects only; retained cache/rollback bytes not executable until a new declaration application",
+    "[I ledger: E3,E10,E18](raw/install-sources.md)",
+    "Rollback becomes an explicit declaration transition; retention itself allowed by S2.5-1"
+  ],
+  [
+    "C2.1 pip system, --user, virtualenv, --target/--prefix installs",
+    "R; S3-6; S3-9",
+    "UNKNOWN",
+    "Candidate only: Managed environments and broker-created immutable import closure; ordinary writable directories cannot become import/code sources; no evidenced complete declaration-only integration",
+    "[I ledger: E4,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Project dependencies work through declaration; direct mutable environment installation denied; retained operation not established"
+  ],
+  [
+    "C2.2 npm local, global, prefix/workspace installs and executable links",
+    "R; S3-6; S3-9",
+    "UNKNOWN",
+    "Candidate only: Register complete resolved dependency closure and entrypoints; gate module loads as code, not only native exec; no evidenced complete declaration-only integration",
+    "[I ledger: E6,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Managed project environments; lock information alone insufficient without exact content; retained operation not established"
+  ],
+  [
+    "C2.3 Local archives, VCS URLs and package indexes selected by flags",
+    "R; S3-9",
+    "CLOSABLE",
+    "Resolve exact content and record it before activation; source transport does not bypass admission",
+    "[I ledger: E4,E10](raw/install-sources.md)",
+    "Offline/local packages supported after import"
+  ],
+  [
+    "C2.4 Editable pip installs, npm links, mutable source and dependency replacement",
+    "R; S2.2-10; S2.4-4",
+    "CLOSABLE",
+    "Snapshot each admitted code version; edits remain data until applied; prevent imports from mutable original directory",
+    "[I ledger: E4,E5,E10 plus C7](raw/install-sources.md)",
+    "Edit–apply–run instead of unrestricted edit–run"
+  ],
+  [
+    "C2.5 Build backend, lifecycle script, npm run/start/test and dependency hook execution",
+    "R; S2.2-10; S3-6",
+    "UNKNOWN",
+    "Candidate only: Record script/backend closure before execution or use recorded build VM; `ignore-scripts` alone not sufficient; no evidenced complete declaration-only integration",
+    "[I ledger: E5,E6](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Build/hook workflows need admission; ordinary program install retained; retained operation not established"
+  ],
+  [
+    "C2.6 Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+    "R; S2.2-10; S2.2-13",
+    "CLOSABLE",
+    "N gates native mappings; D gates module/.pth file reads including custom dispatch; no F/I completeness assumed",
+    "[I ledger: E5,E7,E10,E12 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+    "Immutable admitted code only; D removes unrecorded document/project-data reads; caches remain C7.18"
+  ],
+  [
+    "C3.1 Flatpak system install/update and graphical or D-Bus frontend",
+    "R; S3-6; S3-9",
+    "UNKNOWN",
+    "Candidate only: Broker owns deployments; record app and runtime commits and permissions, then activate; no evidenced complete declaration-only integration",
+    "[I ledger: E8,E9,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Desktop apps work; extra broker integration; retained operation not established"
+  ],
+  [
+    "C3.2 Flatpak --user install, extra installation roots/remotes, local bundles",
+    "R; S2.2-9",
+    "UNKNOWN",
+    "Candidate only: Ordinary user cannot authorize new executable tree; every deployment admitted through declaration; no evidenced complete declaration-only integration",
+    "[I ledger: E8,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Per-user applications remain possible as declaration entries; retained operation not established"
+  ],
+  [
+    "C3.3 Flatpak runtime/extension updates, override permissions, alternate commands and development mode",
+    "R; S2.2-9; S2.2-10; S3-10",
+    "UNKNOWN",
+    "Candidate only: Runtime/extension code closure and host-affecting permissions recorded; alternate command cannot introduce unrecorded code; no evidenced complete declaration-only integration",
+    "[I ledger: E8,E9,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Debug/SDK commands require declarations; portals preserve document access; retained operation not established"
+  ],
+  [
+    "C3.4 AppImage directly executed and self-mounted via FUSE",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Record image content and mounted executable closure; deny unadmitted image runtime and executable mount authority",
+    "[I ledger: E3,E13,E10](raw/install-sources.md)",
+    "Import image before first run; download remains possible"
+  ],
+  [
+    "C3.5 AppImage extracted/mounted externally, AppDir launch or self-update",
+    "R; S2.2-9; S2.4-4",
+    "UNKNOWN",
+    "Candidate only: Same execute/map policy on extracted artifacts; self-updater submits new declaration content; no evidenced complete declaration-only integration",
+    "[I ledger: E3,E13,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: No unrestricted self-update; managed update retained; retained operation not established"
+  ],
+  [
+    "C4.1 Download a native executable and chmod/run it",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Writable trees noexec plus mandatory execute/map denial; importer records code into active tree",
+    "[I ledger: E3,E10,E11](raw/install-sources.md)",
+    "Download and document editing unaffected; launch requires admission"
+  ],
+  [
+    "C4.2 Download and extract archive, including nested archives and renamed files",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Gate actual execution/read-as-code independent of suffix and extraction route",
+    "[I ledger: E3,E7,E10](raw/install-sources.md)",
+    "Archive extraction allowed as data; run requires admission"
+  ],
+  [
+    "C4.3 Download by browser, curl, copier, sync client or application self-updater",
+    "R; S2.2-9",
+    "UNKNOWN",
+    "Candidate only: The final code boundary, not downloader executable, controls activation; self-updater broker required; no evidenced complete declaration-only integration",
+    "[I ledger: E3,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Browser download retained; automatic native updates mediated; retained operation not established"
+  ],
+  [
+    "C4.4 Downloaded script or library passed to existing interpreter/loader",
+    "R; S2.2-10; S2.2-13",
+    "CLOSABLE",
+    "N gates native library mapping; D denies downloaded script/data file opens, including custom dispatch; noexec alone insufficient",
+    "[I ledger: E7,E10,E12,E14 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+    "Declared files remain usable; interpreter loses unrecorded document/project-data reads"
+  ],
+  [
+    "C4.5 Stream download directly into interpreter or process substitution",
+    "R; S2.2-10",
+    "UNKNOWN",
+    "Depends on the same unevidenced stream refusal/admission integration as C7.04; noexec or D file-open policy alone does not mediate inherited stdin",
+    "[I ledger: E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "`curl ... \\| sh` becomes import–apply–run; browser content exception unchanged"
+  ],
+  [
+    "C5.1 Compile/link native program in home, then execute output",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Compiler may write inert output; publish output digest through declaration before execute permission",
+    "[I ledger: E3,E10,E11](raw/install-sources.md)",
+    "Programming requires an apply between build and run"
+  ],
+  [
+    "C5.2 Build-system commands, configure probes, generators and test binaries",
+    "R; S2.2-10",
+    "UNKNOWN",
+    "Candidate only: Record build code and generated executable before each host launch, or recorded VM builds; host output still admitted separately; no evidenced complete declaration-only integration",
+    "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Conventional host builds need orchestration; build VM avoids repeated host admissions; retained operation not established"
+  ],
+  [
+    "C5.3 Install target copying to user prefix, changing PATH or creating symlinks",
+    "R; S2.2-9",
+    "CLOSABLE",
+    "Paths and links cannot grant execution; active-tree broker controls resulting artifact closure",
+    "[I ledger: E3,E10](raw/install-sources.md)",
+    "User prefix may hold inert artifacts; managed activation retained"
+  ],
+  [
+    "C5.4 Rebuild/replace an already recorded binary or library in place",
+    "R; S2.3-5; S3-9",
+    "CLOSABLE",
+    "Immutable active version; rebuild enters new version, application atomically changes active closure",
+    "[I ledger: E10,E11,E12](raw/install-sources.md)",
+    "Hot mutation denied; restart/reapplication may be needed"
+  ],
+  [
+    "C5.5 Compilers embedding plugins or build processes loading generated code",
+    "R; S2.2-10; S2.2-13",
+    "UNKNOWN",
+    "Candidate only: Code imports require admission; alternatively do computation inside recorded VM and admit output; no evidenced complete declaration-only integration",
+    "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Plugins and generators recorded; unrestricted host compiler plugins denied; retained operation not established"
+  ],
+  [
+    "C6.1 Persistent user units and drop-ins, aliases, template instances and symlinks",
+    "R; S2.1-3; S3-10",
+    "UNKNOWN",
+    "Candidate only: Manager reads protected declaration-generated unit tree; writable user search paths disabled/ignored by policy; no evidenced complete declaration-only integration",
+    "[I ledger: E15,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: User service definitions submitted through broker; retained operation not established"
+  ],
+  [
+    "C6.2 Direct manager API/CLI start, enable, reload, set-property or link",
+    "R; S2.3-7; S3-6; S3-10",
+    "UNKNOWN",
+    "Candidate only: Gate manager control socket/API and mutation authority, not only systemctl wrapper; no evidenced complete declaration-only integration",
+    "[I ledger: E15,E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Start allowed when existing line permits; configuration change needs declaration; retained operation not established"
+  ],
+  [
+    "C6.3 Transient service/scope/timer/path/socket created through systemd-run or D-Bus",
+    "R; S2.1-3; S3-10",
+    "UNKNOWN",
+    "Candidate only: Broker records transient unit semantics before creation; deny bypass API access; no evidenced complete declaration-only integration",
+    "[I ledger: E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Ephemeral scheduling possible through declaration; expiry/removal is another application; retained operation not established"
+  ],
+  [
+    "C6.4 User cron entries, @reboot and crontab replacement",
+    "R; S2.1-3; S2.2-10; S3-10",
+    "UNKNOWN",
+    "Candidate only: Protect spool; crontab tool writes declaration; recorded commands only; cron user identity cannot overwrite admitted code; no evidenced complete declaration-only integration",
+    "[I ledger: E17,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Scheduled work available through broker; retained operation not established"
+  ],
+  [
+    "C6.5 Generated units, user environment generators and cron command text loading more code",
+    "R; S2.2-10; S2.2-13",
+    "UNKNOWN",
+    "Candidate only: Record generator/command code and generated effective units; deny unrecorded mutable input that changes effective required configuration; no evidenced complete declaration-only integration",
+    "[I ledger: E15,E17,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Generator outputs need a declaration-described result; ordinary desktop retained; retained operation not established"
+  ],
+  [
+    "C6.6 Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+    "R; S2.4-4",
+    "CLOSABLE",
+    "Withdraw every activation edge; kill and verify former processes; revoke executable authorization unless remaining lines cover it",
+    "[I ledger: E15,E16,E10](raw/install-sources.md)",
+    "Application must quiesce related tasks before success"
+  ],
+  [
+    "C7.01 Script file passed as interpreter argument",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "D denies opening unrecorded script files; declared immutable file remains readable; F is not established",
+    "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+    "File execution retained only in restricted read domain; no unrecorded user-document/project-data reads"
+  ],
+  [
+    "C7.02 Executable shebang script",
+    "R; S2.2-9,10; S2.3-4,6",
+    "CLOSABLE",
+    "Kernel execute policy plus D for interpreter file reads; no F adopter assumed",
+    "[T E3,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "No direct launch of undeclared writable script; declared scripts retained"
+  ],
+  [
+    "C7.03 Code supplied as -c or -e argument",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "[T1,T2,T17](raw/c7-sources.md); [P01](raw/python-securebits-output.txt); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Equivalent declared-file workflow is a proposal; P01 demonstrates stock argument-code execution under locked bits"
+  ],
+  [
+    "C7.04 Code piped into stdin, FIFO, socket, here-document or process substitution",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Piped scripting unavailable; ordinary data pipelines through non-interpreting tools retained"
+  ],
+  [
+    "C7.05 Code from regular file redirected to stdin or /proc/self/fd/N",
+    "R; S2.2-10,13; S2.3-4,6",
+    "UNKNOWN",
+    "D covers a new file open only; inherited stdin/FD route lacks evidenced F integration",
+    "[T ledger: E1,E2,E16](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Path-open case loses unrecorded file reads; retained redirected-input support is unestablished"
+  ],
+  [
+    "C7.06 Interactive REPL with language statements",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "REPL programming lost; declaration-mediated script execution can remain"
+  ],
+  [
+    "C7.07 Recorded script sources another file",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "D denies opening the unrecorded sourced file; an F-only alternative does not cover arbitrary data-to-code dispatch",
+    "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+    "No unrecorded document/project-data file reads in this domain; inherited inputs separately unresolved"
+  ],
+  [
+    "C7.08 exec(open(file).read()), eval of read data, custom import loader",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "D denies the unrecorded file open, independent of eval/import/custom-dispatch semantics; only this bounded file route is closed",
+    "[T E6–8,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Arbitrary admitted scripts lose unrecorded data-file reads; keeping both capabilities permits the Q1 conditional failure"
+  ],
+  [
+    "C7.09 Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "D confines readable module sources to declared immutable dependency closure; custom loaders fall under C7.08",
+    "[T ledger: E6,E8,E12](raw/c7-sources.md)",
+    "Project dependencies/import paths must be declared; writable project source cannot be imported before application"
+  ],
+  [
+    "C7.10 Embedded interpreter in editor, awk, make, debugger or database program",
+    "R; S2.2-10,13; S2.3-4,6",
+    "UNKNOWN",
+    "Every evaluator entry and data-to-code conversion needs mediation; shell escape switches do not prove this",
+    "[T ledger: E1,E7,E9,E14](raw/c7-sources.md)",
+    "Removing all programmable applications is a possible conservative restriction, but not proven necessary"
+  ],
+  [
+    "C7.11 Helper process launch: find -exec, editor shell escape, make recipe child",
+    "R; S2.2-9,12; S2.3-4,6",
+    "UNKNOWN",
+    "N closes native child launch, but shell-command child code depends on unevidenced F/I input mediation",
+    "[T ledger: E1,E3,E11](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Helpers and scripts declared; ordinary editing can retain safe helpers"
+  ],
+  [
+    "C7.12 Git hook program in writable project",
+    "R; S2.2-9,10,12; S2.3-4,6",
+    "CLOSABLE",
+    "N authorizes native hooks; D denies opening undeclared script hooks; hook execution via other input routes inherits their UNKNOWNs",
+    "[T E3,E12,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Hooks require declaration; ordinary file editing unaffected"
+  ],
+  [
+    "C7.13 Direct dynamic loader invocation",
+    "R; S2.2-9,10; S2.3-4,6",
+    "CLOSABLE",
+    "N covers executable file mappings as well as execve; trusting loader alone fails",
+    "[T ledger: E3,E11](raw/c7-sources.md)",
+    "Libraries and binaries need trust policy derived from declaration"
+  ],
+  [
+    "C7.14 LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+    "R; S2.2-10; S2.3-4,6",
+    "CLOSABLE",
+    "N denies unrecorded native library mappings; environment sanitization alone insufficient",
+    "[T ledger: E3,E11](raw/c7-sources.md)",
+    "Plugins/FFI libraries must be declared; normal recorded linkage remains"
+  ],
+  [
+    "C7.15 Native executable memfd, fexecve/execveat of memory file",
+    "R; S2.2-9,10; S2.3-4,6",
+    "CLOSABLE",
+    "Enforced memfd noexec plus N; close permitted creation and inherited descriptor routes",
+    "[T ledger: E4,E5](raw/c7-sources.md)",
+    "Software depending on executable memfd needs adaptation; text reads still require C7.04–08"
+  ],
+  [
+    "C7.16 Anonymous machine code, JIT, writable/executable aliases",
+    "R; S2.2-10; S2.3-4,6",
+    "CLOSABLE",
+    "N plus MemoryDenyWriteExecute, deny memfd and writable executable filesystems, native ABI restriction",
+    "[T ledger: E3,E5](raw/c7-sources.md)",
+    "Host-native JIT/FFI trampolines disabled in this domain; browser exemption requires separate analysis"
+  ],
+  [
+    "C7.17 Shell command line, including invocation of a declared program",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "Denying all interactive input removes the interactive shell; record-before-interpret has no cited implementation",
+    "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Removal option loses all interactive shell use; retained mediated shell is UNKNOWN"
+  ],
+  [
+    "C7.18 Regenerable executable bytecode/JIT cache with same-rights execution",
+    "R; S2.2-5 versus S2.2-10",
+    "TEXT-OPEN",
+    "Cache exemption and same-rights code requirement both fit a cache whose removal only slows execution",
+    "[Text](../SENTENCES.md); [T3,T6](raw/c7-sources.md); card T1 below",
+    "Cache-priority reading permits unrecorded rebuild; code-priority reading requires recording before execution"
+  ],
+  [
+    "C7.19 Browser web code and JIT confined inside recorded renderer/helper programs",
+    "R; S2.2-11,12",
+    "CLOSABLE",
+    "Record each browser component program; genuinely interface-confined webpage code retains explicit exemption",
+    "[T ledger: S2.2-11,12; E1](raw/c7-sources.md)",
+    "Browsing remains possible; exemption is conditional on actual confinement, not merely process name"
+  ],
+  [
+    "C7.20 Code-bearing serialized input (pickle, macro-bearing document)",
+    "R; S2.2-10; S2.2-13 decides code/settings classification",
+    "CLOSABLE",
+    "Deny code-bearing deserialization/macro evaluation before reading payload as code; retain values-only parser",
+    "[T ledger: E15; S2.2-13](raw/c7-sources.md)",
+    "Some document/state formats lose active content; ordinary passive document editing remains"
+  ],
+  [
+    "C7.21 WASI module with a preopened host directory and partial runtime rights",
+    "R; S2.2-1,10–13",
+    "TEXT-OPEN",
+    "T3: text does not operationally delimit own interface or partial authority",
+    "[Text](../SENTENCES.md); [O12,O13](raw/ordinary-sources.md)",
+    "Reading determines whether code must be admitted; no automatic sandbox exemption"
+  ],
+  [
+    "C7.22 Debugger/interpreter writing another process memory or injecting code",
+    "R; S2.2-9,10; S2.3-6",
+    "CLOSABLE",
+    "Deny ptrace, process_vm_writev and proc memory writes through mandatory policy and syscall restrictions",
+    "[O7](raw/ordinary-sources.md); [I10,I25](raw/install-sources.md)",
+    "Host debugging/injection and some crash handlers restricted; ordinary tasks retained"
+  ],
+  [
+    "C7.23 binfmt_misc handlers and user-mode foreign-binary interpreters",
+    "R; S2.2-9–12",
+    "CLOSABLE",
+    "Control handler registrations; N gates native binaries and D gates foreign-binary file reads; this is not full evaluator input mediation",
+    "[O8,O9](raw/ordinary-sources.md); [T1,T12](raw/c7-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+    "Foreign programs need admission; unrestricted user-mode emulator data/code conversion inherits C7.08"
+  ],
+  [
+    "C7.24 Recorded custom dispatcher interprets unrecorded command file without eval/import",
+    "R; S2.2-10; S2.2-13; Q1 capability premise",
+    "CLOSABLE",
+    "D denies the file open; F/I evaluator-entry checks alone miss dispatch implemented by admitted script",
+    "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Q1 textual audit](fix-b1-1/text-audit.md)",
+    "Lose unrecorded document/project-data reads; retaining both arbitrary admitted same-rights interpretation and those reads admits the Q1 conditional failure"
+  ],
+  [
+    "C7.25 Runtime-selected TCP listening port (also C2/C3/C5/C9.2)",
+    "R; S2.2-15; S2.3-4,6",
+    "UNKNOWN",
+    "Landlock BIND_TCP closes explicit unauthorized bind only; complete listener policy including implicit bind and inherited sockets is not evidenced",
+    "[Network evidence](fix-b1-1/evidence-addendum.md)",
+    "Declared port/service/rule and matching lifecycle required; arbitrary runtime listeners unavailable; exact retained networking integration unresolved"
+  ],
+  [
+    "C8.01 Shell startup profiles and rc files",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "Declared immutable startup files and D deny unrecorded startup file opens; F cooperation not established",
+    "[T E9,E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Shell customization moves to declaration"
+  ],
+  [
+    "C8.02 Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+    "R; S2.2-10,13; S2.3-4,6",
+    "CLOSABLE",
+    "D denies opening environment-selected unrecorded startup files; environment code itself remains C8.03 UNKNOWN",
+    "[T E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Arbitrary environment-selected initialization disallowed"
+  ],
+  [
+    "C8.03 Environment-imported shell functions and command substitutions",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "[T ledger: E2,E10](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Exported functions require recorded replacement"
+  ],
+  [
+    "C8.04 Editor executable configuration, plugins, modelines executing code",
+    "R; S2.2-10,13; S2.3-4,6",
+    "UNKNOWN",
+    "Startup flags and restricted mode alone do not mediate later eval/source or all editor code paths",
+    "[T ledger: E14,E1](raw/c7-sources.md)",
+    "Programmable configuration needs audited integration; ordinary editing can use non-programmable editor"
+  ],
+  [
+    "C8.05 Project-local executable settings: Git !alias, external filter, build recipe",
+    "R; S2.2-10,13; S2.3-4,6",
+    "UNKNOWN",
+    "D gates configuration file opens and N gates native children; shell snippets/helper arguments still require unevidenced F/I mediation",
+    "[T ledger: E1,E11,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Project settings become declaration inputs before execution"
+  ],
+  [
+    "C8.06 Runtime own-rights code definitions: shell functions, aliases, editor commands",
+    "R; S2.2-10; S2.3-4,6",
+    "UNKNOWN",
+    "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Spontaneous definitions require mediation; ordinary value-only settings stay exempt"
+  ],
+  [
+    "C8.07 Browser extension executing with browser-equivalent rights",
+    "R; S2.2-10; S2.2-13 decides code/settings classification",
+    "UNKNOWN",
+    "Privileged API implementation is own-rights code and must be recorded; complete admission/update/load control not evidenced",
+    "[O10](raw/ordinary-sources.md); [extension evidence](fix-b1-1/evidence-addendum.md)",
+    "Recorded extension workflow needs integration; ordinary browsing need not include this extension"
+  ],
+  [
+    "C8.08 Settings only read as values, such as theme or home page",
+    "R; S2.2-7,13",
+    "CLOSABLE",
+    "No required-to-record object for genuinely local values; retain values-only parser and prevent code reinterpretation",
+    "[T ledger: S2.2-7,13; E9](raw/c7-sources.md)",
+    "Ordinary preferences retained; cannot relabel executable settings as values"
+  ],
+  [
+    "C9.1 Rootful image pull/run, mutable tags and manager API",
+    "R; S2.2-12; S3-9",
+    "UNKNOWN",
+    "Candidate only: Broker records immutable image closure and container configuration; manager cannot accept arbitrary active-state mutation; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Declared containers available; tag must resolve to pinned content; retained operation not established"
+  ],
+  [
+    "C9.2 Rootless containers, user namespaces, alternative OCI runtime invocation",
+    "R; S2.2-9; S2.2-12",
+    "UNKNOWN",
+    "Candidate only: Policy applies to every process/namespace; ordinary users lack authority to create executable mounts outside admitted closure; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Managed rootless workloads possible; direct arbitrary runtime calls denied; retained operation not established"
+  ],
+  [
+    "C9.3 Bind-mounted executable/script, writable overlay, exec into container and package install inside",
+    "R; S2.2-10; S2.2-12",
+    "UNKNOWN",
+    "Candidate only: Deny new code in writable layer/mounts; broker records changes and rebuilds admitted image; apply C7 within container; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Writable data preserved; ad-hoc container software installation mediated; retained operation not established"
+  ],
+  [
+    "C9.4 Image build RUN/hooks, import/load archive and commit modified container",
+    "R; S2.2-9; S2.2-10; S2.2-12",
+    "UNKNOWN",
+    "Candidate only: Execute recorded build closure or VM; resulting image inactive until declaration includes exact content; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Build requires orchestration or VM; container artifact format retained; retained operation not established"
+  ],
+  [
+    "C9.5 Privileged/host-namespace/device/runtime-hook options",
+    "R; S2.3-7; S2.2-15",
+    "UNKNOWN",
+    "Candidate only: Declaration broker validates capabilities, mounts, ports, hooks; built-in manager root domain cannot disable its own controls; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Unsafe options not accepted as implicit grants; explicit declared services may be supported; retained operation not established"
+  ],
+  [
+    "C9.6 Removed image/container restarted through old name, daemon state, API or retained layers",
+    "R; S2.4-4",
+    "UNKNOWN",
+    "Candidate only: Revoke current allow-set and activation references, stop processes, retain layers only as inert content; no evidenced complete declaration-only integration",
+    "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Restart after removal requires fresh declaration application; retained operation not established"
+  ],
+  [
+    "C10.1 Documented privileged package/service/account/network/firewall administration",
+    "R; S2.1-7; S3-6,7",
+    "UNKNOWN",
+    "Candidate only: Mandatory broker authority at mutation sink, including daemon APIs and direct backend paths; no evidenced complete declaration-only integration",
+    "[M9–12](raw/mechanics-sources.md); [I10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Admin interfaces need integration; the six ordinary actions retain mediated routes; retained operation not established"
+  ],
+  [
+    "C10.2 Built-in privileged tool changes guards, permissions, mounts or execution policy",
+    "R; S2.3-7; S3-6",
+    "UNKNOWN",
+    "Candidate only: Tool cannot alter active policy except as an applied declaration change; root CLI is not an exemption; no evidenced complete declaration-only integration",
+    "[M12](raw/mechanics-sources.md); [I10,I23](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "Proposed workflow: Arbitrary administrative options may be refused; declared administration remains; retained operation not established"
+  ],
+  [
+    "C10.3 Retained arbitrary privileged hooks and multi-resource live side effects",
+    "R; S2.2-10; S3-3–6",
+    "UNKNOWN",
+    "Staging/denial closes bounded hooks; no general rollback and complete mediation proof for unrestricted retained hooks",
+    "[Mechanics](MECHANICS-research.md); [I1,I5,I6](raw/install-sources.md)",
+    "Unsupported hooks rejected or moved to build VM; arbitrary package compatibility unestablished"
+  ],
+  [
+    "C10.4 Root editor with documented package installer",
+    "R; S2.2-10; S3-6 versus S3-7; S3-8",
+    "TEXT-OPEN",
+    "Documented installer purpose and explicit editor exclusion decide built-in/breaking both ways; card T4",
+    "[Original C10.4 analysis](MECHANICS-research.md); [O6](raw/ordinary-sources.md); [text audit](fix-b1-1/text-audit.md)",
+    "Installer reading requires declaration mediation; editor-exclusion reading treats privileged bypass as breaking"
+  ],
+  [
+    "M1.01 All C1–C10: successful inactive preparation versus actual application report",
+    "S2.1-5; S2.3-4–7; S3-3",
+    "CLOSABLE",
+    "Keep candidate inaccessible; package/download/build success is preparation, not applied-state success",
+    "[M3,M4](raw/mechanics-sources.md)",
+    "Updates may wait for activation or reboot"
+  ],
+  [
+    "M1.02 All C1–C10: complete live activation and success report across all objects",
+    "S2.3-4–7; S3-3",
+    "UNKNOWN",
+    "Need concrete serialized multi-resource activation protocol and readback; existing staging primitives do not prove it",
+    "[Mechanics](MECHANICS-research.md)",
+    "Potential reboot/session interruption; no proved loss of ordinary actions"
+  ],
+  [
+    "M2.01 All C1–C10: durable exact file generation and boot selection after report",
+    "S2.3-5; S3-3,5",
+    "CLOSABLE",
+    "Immutable generation plus checked file/directory fsync and durable report-linked boot selector",
+    "[M1–4](raw/mechanics-sources.md)",
+    "Storage flush and reboot cost; report protocol must choose this exact generation"
+  ],
+  [
+    "M2.02 All C1–C10: add/change/remove power cut with complete runtime/device replay",
+    "S2.3-5; S3-5",
+    "UNKNOWN",
+    "Old-or-new crash safety is insufficient; all line requirements must hold for the reported generation",
+    "[M1–4](raw/mechanics-sources.md); [O1–3](raw/ordinary-sources.md)",
+    "Boot reconciliation required; actual adapter and complete state replay untested"
+  ],
+  [
+    "M3.01 All C1–C10: explicit failure or timeout while only inert preparation changed",
+    "S2.3-4,5; S3-4",
+    "CLOSABLE",
+    "Leave active generation and authorities intact; isolate/cancel candidate workers",
+    "[M3,M4](raw/mechanics-sources.md)",
+    "Discard work; retry needs a new application"
+  ],
+  [
+    "M3.02 All C1–C10: partial activation failure, stalled worker, or no report at one hour",
+    "S2.3-4,5; S3-4",
+    "UNKNOWN",
+    "Need old declaration fully restored/enforced by deadline; snapshot of files alone does not restore live/device effects",
+    "[Mechanics](MECHANICS-research.md)",
+    "Watchdog/recovery design required; stalled application cannot count as success"
+  ],
+  [
+    "M4.01 All C1–C10: running code, descendants, open FDs and mapped/injected copies",
+    "S2.1-3; S2.3-4,6; S2.4-4",
+    "CLOSABLE",
+    "Revoke every launch authority; terminate/restart all holders and wait for absence, or reboot affected generation",
+    "[M5–8](raw/mechanics-sources.md)",
+    "Programs/sessions stop; unlink and SIGTERM alone insufficient"
+  ],
+  [
+    "M4.02 All C1–C10: executable aliases, copied cache/store/image content, old generations",
+    "S2.3-4,6; S2.4-4; S2.5-1",
+    "CLOSABLE",
+    "Current-declaration membership authorizes execution, not old signature or surviving pathname",
+    "[I3,I10,I18](raw/install-sources.md); [M7,M8](raw/mechanics-sources.md)",
+    "Retained bytes permitted only as inert content; rollback requires application"
+  ],
+  [
+    "M4.03 All C1–C10: service activators, timers, restart policy and effective rules",
+    "S2.1-3; S2.4-4",
+    "CLOSABLE",
+    "Remove uncovered activation edges and rule state, stop tasks, prevent reactivation through broker policy",
+    "[I15–17,I20](raw/install-sources.md); [M9,M11](raw/mechanics-sources.md)",
+    "Services interrupt; relevant client state may need restart"
+  ],
+  [
+    "M4.04 All C1–C10: contributions shared with remaining declaration lines",
+    "S2.4-4",
+    "CLOSABLE",
+    "Compute residual declared dependency closure and remove only uncovered contributions",
+    "[Text](../SENTENCES.md); [Mechanics](MECHANICS-research.md)",
+    "Shared dependencies remain available; provenance/coverage map needed"
+  ],
+  [
+    "M5.01 All C1–C10: finite typed lines, exact content, permissions and documented defaults",
+    "S2.1-4; S2.3-4,5; S3-9,10",
+    "CLOSABLE",
+    "Compare each realized object and effective permission with line; separately inventory extras for P1",
+    "[M9–11](raw/mechanics-sources.md); [I15,I20](raw/install-sources.md)",
+    "Admitted line types need validators; package DB alone insufficient"
+  ],
+  [
+    "M5.02 All C1–C10: unrestricted algorithmic requirements and semantic effects",
+    "S2.1-4; S2.3-5; S2.4-1; S2.5-3",
+    "UNKNOWN",
+    "No complete validator established for unrestricted semantic requirements; admissibility and Understanding readings are left open in Q2",
+    "[Q2 below](#q2--an-algorithm-reads-every-script-in-directory-d-from-computer-state); [text audit](fix-b1-1/text-audit.md)",
+    "Finite validators are bounded evidence; no admissibility rule is added to the published text"
+  ]
+]

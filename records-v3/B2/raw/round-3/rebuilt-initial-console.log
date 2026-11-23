@@ -1,0 +1,9 @@
+{"log": "bc3-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T08:46:23Z"}
+{"log": "bc3-rebuilt-copy-round3-selftest.py.log", "rc": 0, "utc": "2026-11-22T08:46:23Z"}
+{"log": "round3.jsonl", "rc": 1, "utc": "2026-11-22T08:59:58Z"}
+{"log": "bc3-rebuilt-destroy.log", "rc": 0, "utc": "2026-11-22T08:59:59Z"}
+Traceback (most recent call last):
+  File "<stand-root>/round-3-final/build/round3-driver.py", line 83, in <module>
+    if guest(name,'python3 -B /tmp/round3-selftest.py\n','round3.jsonl'):raise RuntimeError('transaction selftest failed; aborting dependent boot/power-cut branch')
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: transaction selftest failed; aborting dependent boot/power-cut branch

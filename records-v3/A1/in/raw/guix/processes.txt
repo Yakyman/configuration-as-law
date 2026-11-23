@@ -1,0 +1,135 @@
+  PID  PPID USER     COMMAND         COMMAND
+    1     0 root     shepherd        /gnu/store/zkq8h96kjpgv0lkmwdn5s5lrnrryp0pv-guile-3.0.9/bin/guile --no-auto-compile /gnu/store/v9pallcp70h5yxrq5fqxrllm832yb3gf-shepherd-1.0.9/bin/shepherd --config /gnu/store/1niaijd7gr1g393kc9gy7ndxwkpmxfhv-shepherd.conf
+    2     0 root     kthreadd        [kthreadd]
+    3     2 root     pool_workqueue_ [pool_workqueue_release]
+    4     2 root     kworker/R-rcu_g [kworker/R-rcu_gp]
+    5     2 root     kworker/R-sync_ [kworker/R-sync_wq]
+    6     2 root     kworker/R-kvfre [kworker/R-kvfree_rcu_reclaim]
+    7     2 root     kworker/R-slub_ [kworker/R-slub_flushwq]
+    8     2 root     kworker/R-netns [kworker/R-netns]
+   10     2 root     kworker/0:1-mm_ [kworker/0:1-mm_percpu_wq]
+   11     2 root     kworker/0:0H-ev [kworker/0:0H-events_highpri]
+   12     2 root     kworker/u8:0-ev [kworker/u8:0-events_unbound]
+   13     2 root     kworker/R-mm_pe [kworker/R-mm_percpu_wq]
+   14     2 root     ksoftirqd/0     [ksoftirqd/0]
+   15     2 root     rcu_preempt     [rcu_preempt]
+   16     2 root     rcu_exp_par_gp_ [rcu_exp_par_gp_kthread_worker/0]
+   17     2 root     rcu_exp_gp_kthr [rcu_exp_gp_kthread_worker]
+   18     2 root     migration/0     [migration/0]
+   19     2 root     idle_inject/0   [idle_inject/0]
+   20     2 root     cpuhp/0         [cpuhp/0]
+   21     2 root     cpuhp/1         [cpuhp/1]
+   22     2 root     idle_inject/1   [idle_inject/1]
+   23     2 root     migration/1     [migration/1]
+   24     2 root     ksoftirqd/1     [ksoftirqd/1]
+   25     2 root     kworker/1:0-eve [kworker/1:0-events]
+   26     2 root     kworker/1:0H-ev [kworker/1:0H-events_highpri]
+   27     2 root     kdevtmpfs       [kdevtmpfs]
+   28     2 root     kworker/R-inet_ [kworker/R-inet_frag_wq]
+   29     2 root     rcu_tasks_kthre [rcu_tasks_kthread]
+   30     2 root     rcu_tasks_rude_ [rcu_tasks_rude_kthread]
+   31     2 root     rcu_tasks_trace [rcu_tasks_trace_kthread]
+   32     2 root     kauditd         [kauditd]
+   33     2 root     khungtaskd      [khungtaskd]
+   34     2 root     kworker/u8:1-ev [kworker/u8:1-events_unbound]
+   35     2 root     oom_reaper      [oom_reaper]
+   37     2 root     kworker/R-write [kworker/R-writeback]
+   38     2 root     kcompactd0      [kcompactd0]
+   39     2 root     ksmd            [ksmd]
+   40     2 root     khugepaged      [khugepaged]
+   41     2 root     kworker/R-kbloc [kworker/R-kblockd]
+   42     2 root     kworker/R-blkcg [kworker/R-blkcg_punt_bio]
+   43     2 root     kworker/R-kinte [kworker/R-kintegrityd]
+   44     2 root     irq/9-acpi      [irq/9-acpi]
+   46     2 root     kworker/R-tpm_d [kworker/R-tpm_dev_wq]
+   47     2 root     kworker/R-ata_s [kworker/R-ata_sff]
+   48     2 root     kworker/R-md    [kworker/R-md]
+   49     2 root     kworker/R-md_bi [kworker/R-md_bitmap]
+   50     2 root     kworker/R-edac- [kworker/R-edac-poller]
+   51     2 root     kworker/R-devfr [kworker/R-devfreq_wq]
+   52     2 root     watchdogd       [watchdogd]
+   53     2 root     kworker/R-quota [kworker/R-quota_events_unbound]
+   54     2 root     kworker/1:1H-kb [kworker/1:1H-kblockd]
+   55     2 root     kswapd0         [kswapd0]
+   56     2 root     kdamond.0       [kdamond.0]
+   57     2 root     ecryptfs-kthrea [ecryptfs-kthread]
+   58     2 root     kworker/R-kthro [kworker/R-kthrotld]
+   59     2 root     kworker/R-acpi_ [kworker/R-acpi_thermal_pm]
+   60     2 root     kworker/R-nvme- [kworker/R-nvme-wq]
+   61     2 root     kworker/R-nvme- [kworker/R-nvme-reset-wq]
+   62     2 root     kworker/R-nvme- [kworker/R-nvme-delete-wq]
+   63     2 root     kworker/R-nvme- [kworker/R-nvme-auth-wq]
+   64     2 root     scsi_eh_0       [scsi_eh_0]
+   65     2 root     kworker/R-scsi_ [kworker/R-scsi_tmf_0]
+   66     2 root     scsi_eh_1       [scsi_eh_1]
+   67     2 root     kworker/R-scsi_ [kworker/R-scsi_tmf_1]
+   69     2 root     kworker/R-mld   [kworker/R-mld]
+   70     2 root     kworker/u8:4-ev [kworker/u8:4-events_power_efficient]
+   71     2 root     kworker/R-ipv6_ [kworker/R-ipv6_addrconf]
+   72     2 root     kworker/R-kstrp [kworker/R-kstrp]
+   73     2 root     kworker/u9:0    [kworker/u9:0]
+   84     2 root     kworker/R-charg [kworker/R-charger_manager]
+   85     2 root     kworker/0:1H-kb [kworker/0:1H-kblockd]
+   87     2 root     kworker/R-uas   [kworker/R-uas]
+   92     2 root     jbd2/vda2-8     [jbd2/vda2-8]
+   93     2 root     kworker/R-ext4- [kworker/R-ext4-rsv-conversion]
+  108     1 root     udevd           /gnu/store/siszgfp09jf6v9p2p83yb3la3fg4qxsz-eudev-3.2.14/sbin/udevd
+  137     1 root     nscd            /gnu/store/yj053cys0724p7vs9kir808x7fivz17m-glibc-2.41/sbin/nscd -f /gnu/store/mam32iva1j0kfrnd1dncj0l4f3bx55l0-nscd.conf --foreground
+  138     1 message+ dbus-daemon     /gnu/store/19i4zdly8mwq4dfrii1nl4y6j7wh3pnq-dbus-1.15.8/bin/dbus-daemon --nofork --system
+  139     1 dhcpcd   dhcpcd          dhcpcd: [manager] [ip4] [ip6]                                        .
+  140     1 root     mingetty        /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty6
+  141     1 root     login           /gnu/store/hhla6mvfm6rdsw981nhnsrpawls3jd3h-shadow-4.13/bin/login --
+  142     1 root     login           /gnu/store/hhla6mvfm6rdsw981nhnsrpawls3jd3h-shadow-4.13/bin/login --
+  143     1 root     login           /gnu/store/hhla6mvfm6rdsw981nhnsrpawls3jd3h-shadow-4.13/bin/login --
+  144   139 root     dhcpcd          dhcpcd: [privileged proxy]                                           .
+  145   139 dhcpcd   dhcpcd          dhcpcd: [network proxy]                                              .
+  146   139 dhcpcd   dhcpcd          dhcpcd: [control proxy]                                              .
+  148     1 root     mingetty        /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty2
+  158     1 root     mingetty        /gnu/store/wvfy774ff33xzbq54ab39qhvrxwakvw6-mingetty-1.08/sbin/mingetty --nohangup tty1
+  159     1 ntpd     ntpd            /gnu/store/vyjzw741pbvq1swsah307fydsv7afr3b-ntp-4.2.8p18/bin/ntpd -n -c /gnu/store/7ac2i2c6dp2f9006llg3m5vkrna7pjbf-ntpd.conf -u ntpd -g
+  178     2 root     kworker/R-cfg80 [kworker/R-cfg80211]
+  189     1 root     elogind         /gnu/store/4adgaban53wpsp25x1scgdij4igy8v9k-elogind-255.17/libexec/elogind/elogind
+  190     1 root     spice-vdagentd  /gnu/store/d12b6j7qqck5lmf48cw3ylpd9sls6m75-spice-vdagent-0.22.1/sbin/spice-vdagentd -x
+  191     1 root     .upowerd-real   upowerd
+  192     1 avahi    avahi-daemon    avahi-daemon: running [gnu.local]
+  193     1 root     slim            /gnu/store/pzp1vdmpdziw3vgvmmmw8kd0nbq9flzp-slim-1.4.1/bin/slim -nodaemon
+  195   192 avahi    avahi-daemon    avahi-daemon: chroot helper
+  196     2 root     psimon          [psimon]
+  203   193 root     X               /gnu/store/j96b54q010h9sq837226dq1j57iyxl1p-xorg-server-21.1.21/bin/X -xkbdir /gnu/store/wrnf014sa8sq6jarp6p3r54n2xcpdnf2-xkeyboard-config-2.44/share/X11/xkb -config /gnu/store/rdgpg2ss7gnfcjr37pflfmsh54nf157a-xserver.conf -configdir /gnu/store/p1xvglfsz8c96han71im0ylkwpidj9v8-xorg.conf.d -logverbose -verbose -terminate -nolisten tcp :0 vt7 -auth /var/run/slim-vt7.auth
+  217   193 guest    xfce4-session   xfce4-session
+  232   144 dhcpcd   dhcpcd          dhcpcd: [BPF ARP] eth0 10.0.2.15                                     .
+  237     1 guest    dbus-launch     dbus-launch --autolaunch bbee301a5dff0713bc2b81fe6afeb808 --binary-syntax --close-stderr
+  238     1 guest    dbus-daemon     /gnu/store/19i4zdly8mwq4dfrii1nl4y6j7wh3pnq-dbus-1.15.8/bin/dbus-daemon --syslog-only --fork --print-pid 5 --print-address 7 --session
+  242     1 guest    dbus-launch     /run/current-system/profile/bin/dbus-launch --sh-syntax --exit-with-session xfce4-session
+  243     1 guest    dbus-daemon     /gnu/store/19i4zdly8mwq4dfrii1nl4y6j7wh3pnq-dbus-1.15.8/bin/dbus-daemon --syslog --fork --print-pid 5 --print-address 7 --session
+  246     1 guest    .at-spi-bus-lau at-spi-bus-launcher
+  251   246 guest    dbus-daemon     /gnu/store/19i4zdly8mwq4dfrii1nl4y6j7wh3pnq-dbus-1.15.8/bin/dbus-daemon --config-file=/gnu/store/kvnygjgjzwdbabxmifqm2hlmmzgc97lz-at-spi2-core-2.52.0/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_0
+  263     1 guest    .at-spi2-regist at-spi2-registryd --use-gnome-session
+  268   217 guest    xfwm4           xfwm4
+  273   217 guest    xfsettingsd     xfsettingsd
+  278   217 guest    xfce4-panel     xfce4-panel
+  284   217 guest    .thunar-real    thunar --daemon
+  297   278 guest    wrapper-2.0     /gnu/store/i801mz000ssa2ml5sg2plnngsgkgfcjs-xfce4-panel-4.20.3/lib/xfce4/panel/wrapper-2.0 /run/current-system/profile/lib/xfce4/panel/plugins/libsystray.so 6 23068684 systray Status Tray Plugin Provides status notifier items (application indicators) and legacy systray items
+  303   278 guest    wrapper-2.0     /gnu/store/i801mz000ssa2ml5sg2plnngsgkgfcjs-xfce4-panel-4.20.3/lib/xfce4/panel/wrapper-2.0 /run/current-system/profile/lib/xfce4/panel/plugins/libactions.so 10 23068685 actions Action Buttons Log out, lock or other system actions
+  310     1 polkitd  polkitd         /gnu/store/4kr51y6ag3h8xyffswqp9xwrcd7mpnb3-polkit-121/lib/polkit-1/polkitd --no-debug
+  342   217 guest    xfdesktop       xfdesktop
+  360     1 root     .accounts-daemo accounts-daemon
+  367   217 guest    .x-resize-real  /gnu/store/zkq8h96kjpgv0lkmwdn5s5lrnrryp0pv-guile-3.0.9/bin/guile \ /gnu/store/5lx5rrc3xlahlb7m1arvxcm9pfmwc08s-x-resize-0.3/bin/.x-resize-real
+  368   217 guest    xfce4-screensav xfce4-screensaver
+  370   217 guest    .polkit-mate-au polkit-mate-authentication-agent-1
+  377   217 guest    xfce4-power-man xfce4-power-manager
+  416     1 guest    xfce4-notifyd   /gnu/store/7wi5fmwqkhd48wfgsanah68fb6g0a3w6-xfce4-notifyd-0.9.7/lib/xfce4/notifyd/xfce4-notifyd
+  428   143 guest    bash            -bash
+  465     1 root     guix-daemon     /gnu/store/zzjwsl5wcc12sppv0ms9jpjs6gf85rh0-guix-1.5.0.d58da8a/bin/guix-daemon --build-users-group guixbuild --max-silent-time 3600 --timeout 86400 --log-compression gzip --discover=no --substitute-urls https://bordeaux.guix.gnu.org https://ci.guix.gnu.org
+  467   142 guest    bash            -bash
+  476   141 guest    bash            -bash
+  689     2 root     kworker/0:2-eve [kworker/0:2-events]
+  706     2 root     kworker/1:1-eve [kworker/1:1-events]
+  788     2 root     kworker/u8:2-ev [kworker/u8:2-events_power_efficient]
+ 1416     2 root     kworker/u8:3    [kworker/u8:3]
+ 2605     1 root     sshd-session    sshd-session: root [priv]
+ 2606  2605 root     sshd            [sshd] <defunct>
+ 2608  2605 root     sshd-session    sshd-session: root@notty
+ 2609  2608 root     bash            bash -s
+ 2611  2609 root     bash            bash /mnt/taskshare/collect.sh
+ 2622  2611 root     ps              ps -ww -eo pid,ppid,user,comm,args

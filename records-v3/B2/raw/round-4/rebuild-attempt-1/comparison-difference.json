@@ -1,0 +1,32 @@
+{
+  "declaration_bytes_equal": false,
+  "values_equal": false,
+  "differing_rows": [
+    "base"
+  ],
+  "differing_base_files": [
+    {
+      "path": "/boot/initrd.img-6.12.117+deb13-amd64",
+      "left": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/boot/initrd.img-6.12.117+deb13-amd64",
+        "sha256": "d13d3daec8efe41bb1fd322f0ff1cd234fcd78f2a007632e184fc19e2083ae10",
+        "uid": 0
+      },
+      "right": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/boot/initrd.img-6.12.117+deb13-amd64",
+        "sha256": "c557fc22a4ac5237c8c0572b633075d6883ee86c749e93b64d82b29fd4e47db6",
+        "uid": 0
+      }
+    }
+  ],
+  "validation_service": [
+    "Result=exit-code",
+    "ActiveState=failed"
+  ]
+}

@@ -1,0 +1,106 @@
+
+ACTION 01 BEGIN
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+For security reasons, the password you type will not be visible.
+
+[sudo] password for user: Updating and loading repositories:
+ Fedora 45 openh264 (From Cisco) - x86_ 100% |   4.2 KiB/s |   5.3 KiB |  00m01s
+ Fedora 45 - x86_64 - Updates           100% |   3.6 MiB/s |   5.7 MiB |  00m02s
+ Fedora 45 - x86_64                     100% |  13.5 MiB/s |  36.6 MiB |  00m03s
+Repositories loaded.
+Package "podman-5:6.1.3-1.fc45.x86_64" is already installed.
+Package "flatpak-1.19.0^really1.18.4-1.fc45.x86_64" is already installed.
+
+Package Arch   Version         Repository      Size
+Installing:
+ hello  x86_64 0:2.12.3-2.fc45 fedora     238.3 KiB
+Installing weak dependencies:
+ info   x86_64 0:7.3-3.fc45    fedora     372.4 KiB
+
+Transaction Summary:
+ Installing:         2 packages
+
+Total size of inbound packages is 286 KiB. Need to download 286 KiB.
+After this operation, 611 KiB extra will be used (install 611 KiB, remove 0 B).
+[1/2] hello-0:2.12.3-2.fc45.x86_64      100% | 500.7 KiB/s |  94.6 KiB |  00m00s
+[2/2] info-0:7.3-3.fc45.x86_64          100% | 824.2 KiB/s | 191.2 KiB |  00m00s
+--------------------------------------------------------------------------------
+[2/2] Total                             100% | 840.7 KiB/s | 285.8 KiB |  00m00s
+Running transaction
+Importing OpenPGP key 0xF577861E:
+ UserID     : "Fedora (45) <<REDACTED>>"
+ Fingerprint: 4F50A6114CD5C6976A7F1179655A4B02F577861E
+ From       : file:///usr/share/pki/rpm-gpg/RPM-GPG-KEY-fedora-45-x86_64
+The key was successfully imported.
+[1/4] Verify package files              100% | 333.0   B/s |   2.0   B |  00m00s
+[2/4] Prepare transaction               100% |  12.0   B/s |   2.0   B |  00m00s
+[3/4] Installing info-0:7.3-3.fc45.x86_ 100% |   5.5 MiB/s | 372.8 KiB |  00m00s
+[4/4] Installing hello-0:2.12.3-2.fc45. 100% | 111.2 KiB/s | 246.6 KiB |  00m02s
+Complete!
+ACTION 01 EXIT 0
+
+ACTION 02 BEGIN
+ACTION 02 EXIT 0
+
+ACTION 03 BEGIN
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+Installing runtime/org.gnome.Calculator.Locale/x86_64/stable
+Installing runtime/org.gnome.Platform.Locale/x86_64/51
+Installing runtime/org.gnome.Platform/x86_64/51
+Installing app/org.gnome.Calculator/x86_64/stable
+ACTION 03 EXIT 0
+
+ACTION 04 BEGIN
+Connection 'cal-secondary' (<REDACTED>) successfully added.
+ACTION 04 EXIT 0
+
+ACTION 05 BEGIN
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/4)
+ACTION 05 EXIT 0
+
+ACTION 06 BEGIN
+Connection '<SSID>' (<REDACTED>) successfully added.
+ACTION 06 EXIT 0
+
+ACTION 07 BEGIN
+ACTION 07 EXIT 0
+
+ACTION 08 BEGIN
+ACTION 08 EXIT 0
+
+ACTION 09 BEGIN
+ACTION 09 EXIT 0
+
+ACTION 10 BEGIN
+ACTION 10 EXIT 0
+
+ACTION 11 BEGIN
+ACTION 11 EXIT 0
+
+ACTION 12 BEGIN
+ACTION 12 EXIT 0
+
+ACTION 13 BEGIN
+ACTION 13 EXIT 0
+
+ACTION 14 BEGIN
+Created symlink '/home/user/.config/systemd/user/timers.target.wants/cal-hello.timer' → '/home/user/.config/systemd/user/cal-hello.timer'.
+ACTION 14 EXIT 0
+
+ACTION 15 BEGIN
+Trying to pull docker.io/library/alpine:3.22...
+Getting image source signatures
+Copying blob sha256:710f3da1112f360bed5d2908205aeee86b9d04ecd471354cf7049a2f0bdb5c72
+Copying config sha256:812e99317af7009fea987b5ad913e63f8494c2d6e596b59b6ac8b8f91f7766e8
+Writing manifest to image destination
+cal-test
+ACTION 15 EXIT 0

@@ -1,0 +1,17 @@
+guix /run/current-system/profile/bin/guix
+herd /run/current-system/profile/bin/herd
+useradd /run/current-system/profile/sbin/useradd
+usermod /run/current-system/profile/sbin/usermod
+userdel /run/current-system/profile/sbin/userdel
+groupadd /run/current-system/profile/sbin/groupadd
+gpasswd /run/current-system/profile/bin/gpasswd
+passwd /run/setuid-programs/passwd
+ip /run/current-system/profile/sbin/ip
+iptables ABSENT
+nft ABSENT
+loginctl ABSENT
+systemctl ABSENT
+crontab ABSENT
+442f088ab713e68721c4156793f2316a04b785b1c8d8e6dffb11efe31726b886  /etc/config.scm
+guix (GNU Guix) 1.5.0
+rc=0

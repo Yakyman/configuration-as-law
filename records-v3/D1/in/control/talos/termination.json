@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-22T08:06:22.870252+00:00",
+  "reason": "Entire collector attempt terminated: its first pagemap read had streamed more than 137 GB after 1112 seconds; the saved listing contains 359 pagemap paths and 114323 regular files, all read fully without a bound before objects.tsv is written. Completion tonight is not credible. No repair, selective continuation or rerun.",
+  "collector_pid": 385355,
+  "descendant_pids": [
+    385356,
+    390673
+  ],
+  "signal": "SIGTERM",
+  "inventory_file_before_termination": false,
+  "review": "control/review-talos-operation.md"
+}

@@ -1,0 +1,50 @@
+2026-11-22T06:52:48Z
+building the system configuration...
+Checking switch inhibitors... done
+updating GRUB 2 menu...
+activating the configuration...
+setting up /etc...
+reloading user units for user...
+restarting the following user units: nixos-activation.service
+restarting sysinit-reactivation.target
+the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
+Done. The new configuration is /nix/store/qij7dlaw8cwsn7mi03l2c0jncbyrw88d-nixos-system-nixos-26.05.14979.94c3211b0ee8
+nixos-rebuild switch exit=0
+2026-11-22T06:52:53Z
+run-apply rc=0
+kill rc=0 at 2026-11-22T06:52:53Z
+start rc=0 at 2026-11-22T06:53:12Z
+2026-11-22T06:53:16Z
+== kernel params
+BOOT_IMAGE=(hd0,msdos1)/nix/store/klj5d351lajhxbajijm835lj9cqsgw0j-linux-6.18.64/bzImage init=/nix/store/qij7dlaw8cwsn7mi03l2c0jncbyrw88d-nixos-system-nixos-26.05.14979.94c3211b0ee8/init console=ttyS0,115200n8 root=fstab loglevel=4 lsm=landlock,yama,bpf
+== time zone
+/nix/store/jyxqrqac17bajsr0irn9cbkq0grg733l-tzdata-2026f/share/zoneinfo/UTC
+UTC
+== locale
+LANG=en_US.UTF-8
+
+LANG=en_US.UTF-8
+== dhcp
+enabled
+active
+lo 127.0.0.1/8
+ens3 10.0.2.15/24
+ens4 10.0.3.15/24
+== account
+user:x:1000:100::/home/user:/run/current-system/sw/bin/bash
+uid=1000(user) gid=100(users) groups=100(users),1(wheel)
+wheel:x:1:user
+== root fs
+/dev/vda1 ext4
+lrwxrwxrwx 1 root root 10 Nov 22 06:53 <REDACTED> -> ../../vda1
+== swap
+swap lines=0
+== grub mbr
+1
+== platform
+x86_64
+== generation
+system-1-link
+/nix/store/qij7dlaw8cwsn7mi03l2c0jncbyrw88d-nixos-system-nixos-26.05.14979.94c3211b0ee8
+/nix/store/qij7dlaw8cwsn7mi03l2c0jncbyrw88d-nixos-system-nixos-26.05.14979.94c3211b0ee8
+run-check rc=0

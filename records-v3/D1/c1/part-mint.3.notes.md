@@ -1,0 +1,702 @@
+# Package classification, segment 3
+
+Only the assigned input, Sections 2 and 3, numbered sentences, and public package documentation were consulted. Inventory class labels were ignored. No removal test or probe was performed.
+
+## Fixed text
+
+- **S2.2-1** Whatever the computer’s behaviour depends on—what it does and what can be done on it—must be recorded.
+
+- **S2.2-2** The test is removal: if, after an object is removed, the computer stops doing something or something becomes impossible on it, the object must be recorded.
+
+- **S2.2-4** content—documents, photographs, the contents of databases: after it is removed, the computer does and can do the same, and only the content itself is unavailable;
+
+- **S2.2-7** settings that are in force only inside one program, for example the home page, theme, and extensions of a web browser.
+
+- **S2.2-9** a program that runs on the computer must be recorded regardless of how it was installed—including an application package (Flatpak), a program in the home directory, and a program in a container;
+
+- **S2.2-10** code that another program executes must be recorded if the program runs it with the program’s own rights, so that the code can do whatever the program can do: scripts executed by an interpreter (python, bash), shell startup files, an editor configuration written in the editor’s programming language.
+
+- **S2.2-11** Code that the program confines to its own interface—a web page in a browser, a guest system in a virtual machine—need not be recorded, but the program itself must be.
+
+- **S2.2-13** A file that a program executes as code counts as code even when it holds settings; a file that a program only reads as values counts as a setting;
+
+- **S2.2-15** accounts, the right to become superuser, the keys used to log in to an account, firewall rules, and ports open for connection must be recorded; an account password need not be, but the rule that password login is allowed must be;
+
+- **S2.2-16** the boot order and device firmware must be recorded where the system is able to change them.
+
+- **S3-2** If what the object does remains unknown, the case yields ?.
+
+## Scripted homogeneous rule: executable capabilities
+
+Runtime programs, interpreters, libraries and modules documented to perform an operation are MUST under S2.2-1, S2.2-2, S2.2-9 and S2.2-10. Libraries and interpreter modules execute in the caller’s rights; neither their packaging nor their installation location supplies an exemption. The manually selected exclusion set removes metapackages, common-data packages, themes and ambiguous descriptions from this rule. Package name alone is not the rule.
+
+Ten manual checks follow, covering binaries, native libraries, interpreter modules and services. Each description establishes an executable operation rather than passive content.
+
+- mint-486d3e71b63a9871233e8b6a (`libwacom-bin`): "Wacom model feature query library -- binaries" — https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz
+- mint-668fecc5ea52f782b49e4f1d (`libwavpack1`): "audio codec (lossy and lossless) - library" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-75e5f5d6365454b8a1908057 (`libx11-6`): "X11 client-side library" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-7c7f74e40a77f719c686abde (`libxml-parser-perl`): "Perl module for parsing XML files" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-c6894bf5f42225da5d3174d8 (`lightdm`): "Display Manager" — https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz
+- mint-ee5a4467c12e6db4a0d87057 (`login`): "system login tools" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-4b056b07482dd11f028ceb45 (`mount`): "tools for mounting and manipulating filesystems" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-0bbf1dd67e7b12a88901aa98 (`python3-apt`): "Python 3 interface to libapt-pkg" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-a231610c1f79cace35c12cc1 (`python3-httplib2`): "comprehensive HTTP client library written for Python3" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+- mint-cb23aa1c1d78e3f94323138e (`systemd`): "system and service manager" — https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz
+
+## Individually reviewed exceptions
+
+The explicit index-to-decision table in part-mint.3.exceptions.txt records separate judgments for every nonhomogeneous row; the append script only serializes those decisions. The rows are single package objects, not groups of all their dependency packages. No dependency removal or autoremove is assumed. Safely removable transition packages do not inherit the function of their dependency. For dependency selectors without an express safe-removal description, the unresolved issue is future dependency-driven update behavior versus current executable capability.
+
+Public package descriptions establish functionality, not a claim that the currently published version is byte-identical to the inventoried version. Versioned kernel entries were matched by exact package name in the update repository. Package archive file listings were inspected without installation or execution. The saved filelist contains the source archive URL and exact member paths. Data-only package names were never assumed to exclude code: file inspection found helper scripts in several common-data packages.
+
+## Per-object documentation evidence
+
+- mint-486d3e71b63a9871233e8b6a (`libwacom-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Wacom model feature query library -- binaries". 
+- mint-0f10370e18f44273059b241b (`libwacom-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Wacom model feature query library (common files)". Archive https://archive.ubuntu.com/ubuntu/pool/main/libw/libwacom/libwacom-common_2.10.0-2_all.deb; inspected entries: `./usr/lib/udev/hwdb.d/65-libwacom.hwdb`, `./usr/lib/udev/rules.d/65-libwacom.rules`.
+- mint-35d473dfe02bd365515ece71 (`libwacom9`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Wacom model feature query library". 
+- mint-668fecc5ea52f782b49e4f1d (`libwavpack1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "audio codec (lossy and lossless) - library". 
+- mint-3bbe54d2485f0b90b8c0eb74 (`libwayland-client0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "wayland compositor infrastructure - client library". 
+- mint-448738c1e9a06b891125e3db (`libwayland-cursor0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "wayland compositor infrastructure - cursor library". 
+- mint-af1863bc8720e62d8ebcfc79 (`libwayland-egl1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "wayland compositor infrastructure - EGL library". 
+- mint-c1fbcd34571a5deedd8d3469 (`libwayland-server0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "wayland compositor infrastructure - server library". 
+- mint-11c20db4bc029bbb008241c5 (`libwbclient0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Samba winbind client library". 
+- mint-eecaef77255ea67eb42e6666 (`libwebkit2gtk-4.1-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Web content engine library for GTK". 
+- mint-f9c638855109accec04bf82e (`libwebkitgtk-6.0-4`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Web content engine library for GTK". 
+- mint-01a8f19432d36b389ce07c4f (`libwebp7`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Lossy compression of digital photographic images". 
+- mint-47c6f5627ff04365c580fffc (`libwebpdemux2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Lossy compression of digital photographic images.". 
+- mint-14d22a7c180c19741bd897cb (`libwebpmux3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Lossy compression of digital photographic images". 
+- mint-bd27d6b604d082191a0ae85d (`libwebrtc-audio-processing1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "AudioProcessing module from the WebRTC project.". 
+- mint-167c9bb69f23372bfbb64503 (`libwireplumber-0.4-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Shared libraries for WirePlumber". 
+- mint-19a8b4ccd6faa43d098dfd02 (`libwmf-0.2-7`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Windows metafile conversion library". 
+- mint-8b633134fefe53cf2aacc066 (`libwmf-0.2-7-gtk`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Windows metafile conversion GTK pixbuf plugin". 
+- mint-2a48a16a6f2133f3cd6ca5be (`libwmf0.2-7-gtk`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Windows metafile conversion GTK pixbuf plugin - transitional package". 
+- mint-3167ada4da3ccc04ec2d9665 (`libwmflite-0.2-7`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Windows metafile conversion lite library". 
+- mint-11051843c07e54b2ad22584a (`libwnck-3-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Window Navigator Construction Kit - runtime files". 
+- mint-e9fa0e8060168eabdcf27a98 (`libwnck-3-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Window Navigator Construction Kit - common files". 
+- mint-4e5673176a9db38ed6c0baeb (`libwoff1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library for converting fonts to WOFF 2.0". 
+- mint-33b348e1f4170309b6c65a6e (`libwpd-0.10-10`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Library for handling WordPerfect documents (shared library)". 
+- mint-dd3affb0527b721839bcbda3 (`libwpg-0.3-3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "WordPerfect graphics import/convert library (shared library)". 
+- mint-15eed78d45eb34849d73848d (`libwps-0.4-4`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Works text file format import filter library (shared library)". 
+- mint-8280537a8fb85f09206bd007 (`libwrap0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "TCP wrappers library". 
+- mint-dde9b3ef606e8db4d35d77d6 (`libwww-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "simple and consistent interface to the world-wide web". 
+- mint-6dee2ece19272d8f26e27c8e (`libwww-robotrules-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "database of robots.txt-derived permissions". 
+- mint-75e5f5d6365454b8a1908057 (`libx11-6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 client-side library". 
+- mint-f281dd26c02a813bc3e4856a (`libx11-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 client-side library". 
+- mint-f56a0b4cd24c32bc5535f61f (`libx11-protocol-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for the X Window System Protocol, version 11". 
+- mint-f8165c983a72b8a46326b2e6 (`libx11-xcb1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Xlib/XCB interface library". 
+- mint-d07bdd5532d695f6653cc89a (`libx264-164`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "x264 video coding library". 
+- mint-741917b37d9c01d56eb11f73 (`libx265-199`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "H.265/HEVC video stream encoder (shared library)". 
+- mint-64c720eb95895b14f11c085c (`libxapian30`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Search engine library". 
+- mint-d2d1733fc59983c1d2917a2d (`libxapp1`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "XApp library". 
+- mint-eb65b92d9d17365f46f94311 (`libxatracker2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X acceleration library -- runtime". 
+- mint-0c9b9fa9bbd3c903255e8df0 (`libxau6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 authorisation library". 
+- mint-c673cb23c16128c1d89d19f1 (`libxaw7`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Athena Widget library". 
+- mint-48598509145fea01e7a5ee1a (`libxcb-damage0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, damage extension". 
+- mint-3016f213d2f6513f2c12cceb (`libxcb-dri2-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, dri2 extension". 
+- mint-2b03043c8145c16776bca888 (`libxcb-dri3-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, dri3 extension". 
+- mint-b4219497d9b8f97ec4e31aa0 (`libxcb-glx0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, glx extension". 
+- mint-4e5e47c7e12ac4777aa24911 (`libxcb-icccm4`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility libraries for X C Binding -- icccm". 
+- mint-b47b6ba625e3e580338501d5 (`libxcb-image0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility libraries for X C Binding -- image". 
+- mint-1408a71a9fb90aa8f2b9c55d (`libxcb-keysyms1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility libraries for X C Binding -- keysyms". 
+- mint-b33b146b526f68f0a1a33f54 (`libxcb-present0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, present extension". 
+- mint-54a22138f750c1161abe1bf4 (`libxcb-randr0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, randr extension". 
+- mint-514e249f979b08d2034e68c4 (`libxcb-render-util0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility libraries for X C Binding -- render-util". 
+- mint-3ea9b74361c4c656b76d211e (`libxcb-render0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, render extension". 
+- mint-5075aa40675d5ce72ddc2abd (`libxcb-res0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, res extension". 
+- mint-fd05c953f68a02d4abca5707 (`libxcb-shape0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, shape extension". 
+- mint-5e9bd67af6a644e2d148e9d9 (`libxcb-shm0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, shm extension". 
+- mint-f5239483dc4b1bcb1b1acfca (`libxcb-sync1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, sync extension". 
+- mint-258ec83daec91246a34d3304 (`libxcb-util1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility libraries for X C Binding -- atom, aux and event". 
+- mint-687518aef916c465d49ccf90 (`libxcb-xfixes0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, xfixes extension". 
+- mint-7b53d110bfb821b7a6f20060 (`libxcb-xinerama0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, xinerama extension". 
+- mint-905d1c8e5d580a2c98cdc66a (`libxcb-xinput0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, xinput extension". 
+- mint-ef3513fe5f03f67f3212c403 (`libxcb-xkb1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, XKEYBOARD extension". 
+- mint-bc4db20984475b1970825bc9 (`libxcb-xv0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding, xv extension". 
+- mint-50814af124218fb3e0b190cc (`libxcb1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X C Binding". 
+- mint-b36838a8f62de72c5fa7b227 (`libxcomposite1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Composite extension library". 
+- mint-384de93b0cb9b4ddf764b66f (`libxcursor1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X cursor management library". 
+- mint-c8903ee6e611034e9ce2cee2 (`libxcvt0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "VESA CVT standard timing modelines generator -- shared library". 
+- mint-e6d4ef4bf5294d70a92779d6 (`libxdamage1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 damaged region extension library". 
+- mint-535d0c90d3e476c14c408a79 (`libxdmcp6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Display Manager Control Protocol library". 
+- mint-b570f32bb16e7a0cde621629 (`libxdo3`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "library for simulating (generating) X11 keyboard/mouse input events". 
+- mint-4be067900be64a60afc31bea (`libxext6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 miscellaneous extension library". 
+- mint-bc786792d3f5938a97bc4763 (`libxfixes3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 miscellaneous 'fixes' extension library". 
+- mint-520422119e52d58c1a7f404a (`libxfont2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 font rasterisation library". 
+- mint-99e86a9c635e167330d0d220 (`libxft2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "FreeType-based font drawing library for X". 
+- mint-daf204df1dfb8e82feb11785 (`libxi6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Input extension library". 
+- mint-b15717438bed230c38e7238e (`libxinerama1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Xinerama extension library". 
+- mint-0f6ab330f121a37ba33bb52a (`libxkbcommon-x11-0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library to create keymaps with the XKB X11 protocol". 
+- mint-d291bc7eac0c418f943c0f38 (`libxkbcommon0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library interface to the XKB compiler - shared library". 
+- mint-3c178c5a80944a52a67fe749 (`libxkbfile1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 keyboard file manipulation library". 
+- mint-099b659adae61e36ae7dbf5e (`libxkbregistry0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library to query available RMLVO". 
+- mint-ffeadb5ed28e87c0ebff2190 (`libxklavier16`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X Keyboard Extension high-level API". 
+- mint-d6eacbc7c9cdfbe99e384885 (`libxml-namespacesupport-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for supporting simple generic namespaces". 
+- mint-7c7f74e40a77f719c686abde (`libxml-parser-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for parsing XML files". 
+- mint-9812dff666026a99dc3dfa6b (`libxml-sax-base-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "base class for SAX drivers and filters". 
+- mint-a9b2eb76d99f87b62d1e1490 (`libxml-sax-expat-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for a SAX2 driver for Expat (XML::Parser)". 
+- mint-5d41327a2360139c41365fae (`libxml-sax-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for using and building Perl SAX2 XML processors". 
+- mint-16cab4b0f8c2048aa18afda3 (`libxml-twig-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Perl module for processing huge XML documents in tree mode". 
+- mint-2bd89ebed94fe43729a98cf0 (`libxml-xpathengine-perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "re-usable XPath engine for DOM-like trees". 
+- mint-aa8d204e09a032bae47b8ae3 (`libxml2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNOME XML library". 
+- mint-a005802fca4096f3caefdc72 (`libxmlb2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Binary XML library". 
+- mint-694422ebf8dfcc92d68ec7a8 (`libxmlsec1t64`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "XML security library". 
+- mint-c97616ea784d0ea1d26ff598 (`libxmlsec1t64-nss`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Nss engine for the XML security library". 
+- mint-771b74c7e74071a536ef8cef (`libxmu6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 miscellaneous utility library". 
+- mint-16acc491202bf94ea0d76f6d (`libxmuu1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 miscellaneous micro-utility library". 
+- mint-b52dfc318122c8b4bf5ce152 (`libxpm4`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 pixmap library". 
+- mint-836ff87870695d149d005e67 (`libxpresent1`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "X11 Present extension library". 
+- mint-d08133aa2d309f591e1b1c81 (`libxrandr2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 RandR extension library". 
+- mint-c839aadbfb9d338a9e9083bd (`libxreaderdocument3`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Document rendering library". 
+- mint-47dba8e81627e38a01ab0123 (`libxreaderview3`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Document viewing library". 
+- mint-40a3fb46ada3ae1f5033c826 (`libxrender1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X Rendering Extension client library". 
+- mint-01acfc75d27a9d789a75d7bf (`libxres1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Resource extension library". 
+- mint-7b3435630b0e5199c64976b4 (`libxshmfence1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X shared memory fences - shared library". 
+- mint-ea7b4969eab576814d78204d (`libxslt1.1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "XSLT 1.0 processing library - runtime library". 
+- mint-9c98f2a3f82303d0e726018e (`libxss1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Screen Saver extension library". 
+- mint-5e25458c52362290efa7d04e (`libxt6t64`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 toolkit intrinsics library". 
+- mint-f59be90eb3468e0707261f53 (`libxtables12`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "netfilter xtables library". 
+- mint-7c0d3a0e1e51fb94d3f10f88 (`libxtst6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Testing -- Record extension library". 
+- mint-10a5326b39b51e474c8d1c95 (`libxv1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Video extension library". 
+- mint-c1518578c86c09952524bf37 (`libxvidcore4`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Open source MPEG-4 video codec (library)". 
+- mint-522873260d4a1fac38d8be25 (`libxvmc1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Video extension library". 
+- mint-fd969115ef42d718a2fde421 (`libxxf86dga1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 Direct Graphics Access extension library". 
+- mint-40dddc62b44989abc29d2b1d (`libxxf86vm1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 XFree86 video mode extension library". 
+- mint-729d9946a750ee32642f984f (`libxxhash0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "shared library for xxhash". 
+- mint-6fc8c7c2c3c34e2488c6af95 (`libyajl2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Yet Another JSON Library". 
+- mint-22289eb08d4b869e1e568482 (`libyaml-0-2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Fast YAML 1.1 parser and emitter library". 
+- mint-6e5b74be64f7d8439aa56084 (`libyelp0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Library for the GNOME help browser". 
+- mint-57d25d05763a7da24251794e (`libzimg2`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "scaling, colorspace, depth conversion library (shared library)". 
+- mint-edfe9c076c46e125eb7693b2 (`libzip4t64`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "library for reading, creating, and modifying zip archives (runtime)". 
+- mint-9ec291391e46296ef9e76acd (`libzix-0-0`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "library of portability wrappers and data structures (shared library)". 
+- mint-7db12ffcf71f29d94619732f (`libzmq5`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "lightweight messaging kernel (shared library)". 
+- mint-692d8f27bc25e9982827dec2 (`libzstd1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "fast lossless compression algorithm". 
+- mint-c393bda3b18c8f61865b2819 (`libzvbi-common`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Vertical Blanking Interval decoder (VBI) - common files". 
+- mint-1f60f63deeeda9c81b2c8ee3 (`libzvbi0t64`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Vertical Blanking Interval decoder (VBI) - runtime files". 
+- mint-c6894bf5f42225da5d3174d8 (`lightdm`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Display Manager". 
+- mint-a3ff05edb0b3cd92ba626749 (`lightdm-settings`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "LightDM configuration tool". 
+- mint-6b6c50923eddf7dd3c82d51c (`linux-base`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Linux image base package". 
+- mint-f1bf97170e168712af812520 (`linux-firmware`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Firmware for Linux kernel drivers (metapackage)". 
+- mint-113e18df451dd886766290a4 (`linux-generic-hwe-24.04`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Complete Generic Linux kernel and headers". 
+- mint-a546e0583fc7d7668009b889 (`linux-headers-6.14.0-37-generic`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Linux kernel headers for version 6.14.0". 
+- mint-3177c342fa78688f4cc720db (`linux-headers-generic-hwe-24.04`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Generic Linux kernel headers". 
+- mint-032c457b30aed9c038c42e2f (`linux-hwe-6.14-headers-6.14.0-37`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Header files related to Linux kernel version 6.14.0". 
+- mint-189d66dffc0eb435f9052c86 (`linux-image-6.14.0-37-generic`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Signed kernel image generic". 
+- mint-449bad2904a4781cf8e19aa5 (`linux-image-generic-hwe-24.04`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Generic Linux kernel image". 
+- mint-e6ce9664b5f66c1d17c096b4 (`linux-libc-dev`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Linux Kernel Headers for development". 
+- mint-42a02e20b6a2cf9e24aa866a (`linux-modules-6.14.0-37-generic`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Linux kernel extra modules for version 6.14.0". 
+- mint-5427c67219e2fd13f009bb2d (`linux-modules-extra-6.14.0-37-generic`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "Linux kernel extra modules for version 6.14.0". 
+- mint-368aa34030d7588701e94635 (`linux-sound-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "base package for ALSA and OSS sound systems". 
+- mint-52a9706e35cc8050e6f8abb0 (`linuxmint-keyring`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "GnuPG key of the Linux Mint repository". 
+- mint-cf0b6dce496b48fbc5d62d47 (`lm-sensors`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "utilities to read temperature/voltage/fan sensors". 
+- mint-251662c577f62ba582110911 (`localechooser-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Lists of locales supported by the installer". 
+- mint-9a98a8542722dc27f6c88eaa (`locales`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU C Library: National Language (locale) data [support]". 
+- mint-ee5a4467c12e6db4a0d87057 (`login`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "system login tools". 
+- mint-4ce79e5598be5740d4564e03 (`logrotate`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Log rotation utility". 
+- mint-b982b41950146e5b4b2e5335 (`logsave`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "save the output of a command in a log file". 
+- mint-0acd8faca8ac919b0748474f (`lp-solve`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Solve (mixed integer) linear programming problems". 
+- mint-7ce5180311c314972ec5657f (`lsb-release`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Linux Standard Base version reporting utility (minimal implementation)". 
+- mint-d93bf9d0996942d6e9846551 (`lshw`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "information about hardware configuration". 
+- mint-8decdc4219773e40bfdb3c0d (`lsof`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility to list open files". 
+- mint-95b17a814c7eff02a0baf201 (`lto-disabled-list`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "list of packages not to build with LTO". 
+- mint-e566ef6a831bf8f605ee8115 (`ltrace`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Tracks runtime library calls in dynamically linked programs". 
+- mint-5dba566bc3dd6530eada8f4d (`lvm2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Linux Logical Volume Manager". 
+- mint-d575d855664feb486b13f522 (`mailcap`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Debian's mailcap system, and support programs". 
+- mint-73874f68b5c8650100f0aacb (`make`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility for directing compilation". 
+- mint-bc8798c1d8ffd58716597e5c (`man-db`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tools for reading manual pages". 
+- mint-7c372b5d7c6f05289917388b (`manpages`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Manual pages about using a GNU/Linux system". 
+- mint-8f52bff83eeab1dcf01ecd2b (`mate-desktop`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Library with common API for various MATE modules". 
+- mint-9aee0fb23028e3e622790b19 (`mate-desktop-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Library with common API for various MATE modules (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/upstream/m/mate-desktop/mate-desktop-common_1.26.2-1.1mint1+zara_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.mate.accessibility-keyboard.gschema.xml`, `./usr/share/glib-2.0/schemas/org.mate.accessibility-startup.gschema.xml`, `./usr/share/glib-2.0/schemas/org.mate.applications-at-mobility.gschema.xml`, `./usr/share/glib-2.0/schemas/org.mate.applications-at-visual.gschema.xml`.
+- mint-811bb57e47da239a14d15976 (`mate-menus`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "implementation of the freedesktop menu specification for MATE". 
+- mint-21acd6938b184c4842b6bcf5 (`mate-panel`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "launcher and docking facility for MATE". 
+- mint-e5858e424fab50db0bf97eb7 (`mate-panel-common`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "launcher and docking facility for MATE (common files)". Archive https://archive.ubuntu.com/ubuntu/pool/universe/m/mate-panel/mate-panel-common_1.27.1-2build3_all.deb; inspected entries: `./usr/share/doc/mate-panel-common/changelog.Debian.gz`, (not published: external working record), `./usr/share/help/C/mate-clock/index.docbook`, `./usr/share/help/C/mate-clock/legal.xml`.
+- mint-5a26ac3424c57910f8738835 (`mate-polkit`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "MATE authentication agent for PolicyKit-1". 
+- mint-b7005b2d4632f34851d9501e (`mate-polkit-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "MATE authentication agent for PolicyKit-1 (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/upstream/m/mate-polkit/mate-polkit-common_1.26.1+mint1_all.deb; inspected entries: `./etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop`.
+- mint-a628216001b934add965cc6e (`mawk`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Pattern scanning and text processing language". 
+- mint-a6956c6f8b5ee156c87a1401 (`mdadm`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tool for managing Linux MD devices (software RAID)". 
+- mint-9cb9e637346c655a41bb1782 (`media-player-info`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Media player identification files". 
+- mint-829651f8c86d896cb7dae9d0 (`media-types`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "List of standard media types and their usual file extension". 
+- mint-59668859131af231c384abb9 (`mesa-libgallium`): https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.gz — "shared infrastructure for Mesa drivers". 
+- mint-d82587113f6c9143d4abaf0e (`mesa-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Miscellaneous Mesa utilities -- symlinks". 
+- mint-d17d08f283e3b48eb227f628 (`mesa-utils-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Miscellaneous Mesa utilities -- native applications". 
+- mint-1a42b266e3e0845580bb3cbd (`mesa-va-drivers`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Mesa VA-API video acceleration drivers". 
+- mint-9e73ec9507ccba2bf25c9334 (`mesa-vdpau-drivers`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Mesa VDPAU video acceleration drivers". 
+- mint-971e96e6c87fd95a11ab6911 (`mesa-vulkan-drivers`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Mesa Vulkan graphics drivers". 
+- mint-c1df0151621330dfb0a40943 (`metacity`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "lightweight GTK window manager". 
+- mint-58e5bd7e0186ed5eb3afb4a9 (`metacity-common`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "shared files for the Metacity window manager". Archive https://archive.ubuntu.com/ubuntu/pool/universe/m/metacity/metacity-common_3.52.0-1build1_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.gnome.metacity.gschema.xml`, `./usr/share/glib-2.0/schemas/org.gnome.metacity.keybindings.gschema.xml`, `./usr/share/glib-2.0/schemas/org.gnome.metacity.theme.gschema.xml`.
+- mint-5717fd738c8a772af6c2c041 (`mint-artwork`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Linux Mint Artwork and Resources". Archive https://mirrors.kernel.org/linuxmint-packages/pool/main/m/mint-artwork/mint-artwork_1.9.2_all.deb; inspected entries: `./etc/X11/Xsession.d`, `./etc/X11/Xsession.d/99mint`, `./etc/lightdm/lightdm-gtk-greeter.conf.d`, `./etc/lightdm/lightdm-gtk-greeter.conf.d/99_linuxmint.conf`.
+- mint-a3f9714b5654642ca94d19dc (`mint-backgrounds-wallpapers`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Desktop backgrounds - Wallpapers". 
+- mint-0050505245ab51d8d6ed4382 (`mint-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Common scripts and resources for Linux Mint". 
+- mint-af4892a921ca8c42310979b2 (`mint-cursor-themes`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Linux Mint Cursor themes". 
+- mint-93f4e80faefef86dec4982df (`mint-info-cinnamon`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Necessary information about the Linux Mint release and edition.". 
+- mint-a1980b1ef78710f022b44853 (`mint-l-icons`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Mint-L icon theme". 
+- mint-8c9a57a0630f529dde9df2ec (`mint-l-theme`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Mint-L theme". 
+- mint-c53985fe7e4e1719c8e2a38f (`mint-meta-cinnamon`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Set of packages installed by default in the Cinnamon edition of Linux Mint". 
+- mint-7bda0a7a54573354b473943c (`mint-meta-core`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Core Linux Mint packages". 
+- mint-419c2821ae90f4ead396bde4 (`mint-mirrors`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Linux Mint Repository mirrors". 
+- mint-080d921edec13ac525101e7e (`mint-themes`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Mint themes". 
+- mint-4366c6860989f1b8e80e3e40 (`mint-translations`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Translation files for Linux Mint". 
+- mint-6d01ce1cf145a4d2f6ea5a2f (`mint-upgrade-info`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Information about upgrade paths". 
+- mint-82ead54536f2e4992fff6c7e (`mint-x-icons`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Mint-X icon theme". 
+- mint-630c4e50d42ba211a08f9d77 (`mint-y-icons`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Mint-Y icon theme". 
+- mint-00bb082ab77e989d479936cf (`mintbackup`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Home Directory Backup Tool". 
+- mint-ab22cb18c49db68a1534c914 (`mintchat`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Chat integration for Linux Mint". 
+- mint-84e1a490ea3e626eefce4f62 (`mintdrivers`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Driver Manager". 
+- mint-f317f28addb47d4d2bca3c31 (`mintinstall`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Software Manager". 
+- mint-a96071724e1608e5483ddd7e (`mintlocale`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Language selection tool". 
+- mint-4fca36170d78f0d8c50ce092 (`mintmenu`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Advanced MATE menu". 
+- mint-89ad3a5355b6350559207f54 (`mintreport`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Troubleshooting tool for Linux Mint". 
+- mint-48f72b2c7592e677f50e0ae2 (`mintsources`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Software Sources configuration tool". 
+- mint-6ec5d52104d1b40a830ad8b9 (`mintstick`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "write .img and .iso files to USB sticks". 
+- mint-f88a49d73a3914290364d16b (`mintsysadm`): https://mirrors.kernel.org/linuxmint-packages/dists/zena/main/binary-amd64/Packages.gz — "System Administration tool". 
+- mint-41db892ee2dd7102853fcaf6 (`mintsystem`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Linux Mint System Base Package". 
+- mint-12a1319e02bdf4e78b821954 (`mintupdate`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "The Linux Mint Update Manager". 
+- mint-e2ebece2e063c2c7e658c7f0 (`mintwelcome`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Welcome screen for Linux Mint". 
+- mint-5a04225dd007cc68ad3ad821 (`mobile-broadband-provider-info`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "database of mobile broadband service providers". 
+- mint-135a7c66c18d49eb9e9ad208 (`modemmanager`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "D-Bus service for managing modems". 
+- mint-da9a49bca1b8e451e6710602 (`mokutil`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tools for manipulating machine owner keys". 
+- mint-4b056b07482dd11f028ceb45 (`mount`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tools for mounting and manipulating filesystems". 
+- mint-694937eae28e31206e1cf504 (`mousetweaks`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "mouse accessibility enhancements for the GNOME desktop". 
+- mint-2c999295f4066391e40c5d66 (`mscompress`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Microsoft "compress.exe/expand.exe" compatible (de)compressor". 
+- mint-68ce521ca00bda343aca42f0 (`mtools`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tools for manipulating MSDOS files". 
+- mint-da924915dc3c0d04f575293d (`mtr-tiny`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Full screen ncurses traceroute tool". 
+- mint-bfd56f20b6d9f8610a94619a (`muffin`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "window and compositing manager". 
+- mint-697fbd758f1959606489bfb1 (`muffin-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "window and compositing manager (data files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/backport/m/muffin/muffin-common_6.4.1+xia_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.cinnamon.muffin.gschema.xml`, `./usr/share/glib-2.0/schemas/org.cinnamon.muffin.wayland.gschema.xml`, `./usr/share/glib-2.0/schemas/org.cinnamon.muffin.x11.gschema.xml`.
+- mint-0485f4f637e07234412cee1b (`muffin-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "window and compositing manager (debugging symbols)". 
+- mint-cbe21a27d956eab31ed127a6 (`mythes-en-us`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "English (USA) Thesaurus for LibreOffice". 
+- mint-276b0702f516d6a4ea800dbe (`nano`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "small, friendly text editor inspired by Pico". 
+- mint-799ef1effb65ec56ca44deb1 (`nautilus-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "data files for nautilus". Archive https://archive.ubuntu.com/ubuntu/pool/main/n/nautilus/nautilus-data_46.0-0ubuntu2_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.gnome.nautilus.gschema.xml`.
+- mint-56d8278373afc1f4b2d04ca5 (`ncurses-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "basic terminal type definitions". 
+- mint-0de8cbe41d6b94b34f85fc13 (`ncurses-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "terminal-related programs and man pages". 
+- mint-3140bf7a1d3de8ddeee31d53 (`nemo`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "file manager and graphical shell for Cinnamon". 
+- mint-3c9b11bf75e7dcd4e8eccf6a (`nemo-data`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "data files for nemo". Archive https://mirrors.kernel.org/linuxmint-packages/pool/backport/n/nemo/nemo-data_6.4.5+xia_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.nemo.gschema.xml`, (not published: external working record), (not published: external working record), (not published: external working record).
+- mint-7edd253b844e18b8ddcdadd2 (`nemo-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "file manager and graphical shell for Cinnamon - debugging version". 
+- mint-725bfae9233b84eef500ef28 (`nemo-emblems`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Change a folder or file emblem". 
+- mint-ad6ab11929b4582fec776519 (`nemo-fileroller`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "File Roller integration for Nemo". 
+- mint-ab427dd1e3ca101bdfd50577 (`nemo-preview`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "nemo-preview is a quick previewer for nemo". 
+- mint-1c0289a0e411c32fb1f32a11 (`nemo-share`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Nemo extension to share folder using Samba". 
+- mint-0c2dd565b5a0f2860b1c9c02 (`neofetch`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Shows Linux System Information with Distribution Logo". 
+- mint-017053a23ed5537fa40f4acc (`net-tools`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "NET-3 networking toolkit". 
+- mint-c38aafc369a9213ff55fd712 (`netavark`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Rust based network stack for containers". 
+- mint-c0138f2eddacb5bdeb1d8d2d (`netbase`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Basic TCP/IP networking system". 
+- mint-03ec5ffb618618da67a5fd44 (`netcat-openbsd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "TCP/IP swiss army knife". 
+- mint-ab5142af2871375b18357ccf (`netplan-generator`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Declarative network configuration systemd-generator". 
+- mint-f04355cf7d46f4f661532482 (`netplan.io`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Declarative network configuration for various backends". 
+- mint-d09b73d4a113c804609d6e5a (`network-manager`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "network management framework (daemon and userspace tools)". 
+- mint-71adb6e1255fa5a5c5656998 (`network-manager-config-connectivity-ubuntu`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "NetworkManager configuration to enable connectivity checking". 
+- mint-8f8202b3e154445d8fb8e876 (`network-manager-gnome`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "network management framework (GNOME frontend)". 
+- mint-d6dea8f159c32cad9af02165 (`network-manager-openvpn`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "network management framework (OpenVPN plugin core)". 
+- mint-1e4f7fb6d39a10da99b1bc18 (`network-manager-openvpn-gnome`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "network management framework (OpenVPN plugin GNOME GUI)". 
+- mint-85ffe364f68ba71f9d855551 (`network-manager-pptp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "network management framework (PPTP plugin core)". 
+- mint-984544409d4d4003028a9f49 (`network-manager-pptp-gnome`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "network management framework (PPTP plugin GNOME GUI)". 
+- mint-c86079063a019a92aa93ea3e (`networkd-dispatcher`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Dispatcher service for systemd-networkd connection status changes". 
+- mint-b71ee6b4b16834312c7a3e11 (`nftables`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Program to control packet filtering rules by Netfilter project". 
+- mint-5179b7c18690aeac2c06e883 (`ntfs-3g`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "read/write NTFS driver for FUSE". 
+- mint-16c1a6b1d520090ed3d380b7 (`nvidia-prime-applet`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "An applet for NVIDIA Prime". 
+- mint-e36bb013ad81131670b49a98 (`ocl-icd-libopencl1`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Generic OpenCL ICD Loader". 
+- mint-82f7d27edecb0df56a4a7537 (`onboard`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Simple On-screen Keyboard". 
+- mint-e35f9cbd729535781d677c5c (`onboard-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Simple On-screen Keyboard (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/upstream/o/onboard/onboard-common_1.4.1+mint4+wilma_all.deb; inspected entries: `./usr/share/dbus-1/services/org.onboard.Onboard.service`, `./usr/share/doc/onboard/onboard-default-settings.gschema.override.example`, `./usr/share/doc/onboard/onboard-defaults.conf.example.gz`, (not published: external working record).
+- mint-483181687d4226dff8464dc8 (`openprinting-ppds`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "OpenPrinting printer support - PostScript PPD files". 
+- mint-dd7c73b4cc09007e162c0481 (`openssh-client`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "secure shell (SSH) client, for secure access to remote machines". 
+- mint-8e0a1d8e7b6f313a2f0eb93e (`openssl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Secure Sockets Layer toolkit - cryptographic utility". 
+- mint-2eb0a909f3443677e6df73ad (`openvpn`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "virtual private network daemon". 
+- mint-d4509b1c45fe69a48753407b (`orca`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Scriptable screen reader". 
+- mint-47bbe6be6ae1ea99bf4cce5e (`os-prober`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utility to detect other OSes on a set of drives". 
+- mint-b9fab2db36763b1dcb45e6c2 (`p11-kit`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "p11-glue utilities". 
+- mint-8d0d9a19a34bbe71f852a487 (`p11-kit-modules`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "p11-glue proxy and trust modules". 
+- mint-e5e46ec71c79edd74a05817d (`p7zip`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "transitional package". 
+- mint-3cc441e16770ba7feebfb87b (`p7zip-full`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "transitional package". 
+- mint-34b513885c56b9f4846e5454 (`packagekit`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Provides a package management service". 
+- mint-fc9cca617452d08569e7353e (`packagekit-tools`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Provides PackageKit command-line tools". 
+- mint-5af41a9f36332985c630e745 (`papirus-icon-theme`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Papirus open source icon theme for Linux". 
+- mint-5fd3cb80f794ee951f643ac3 (`parted`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "disk partition manipulator". 
+- mint-41bf5502c837fe2b5194c558 (`passt`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "user-mode networking daemons for virtual machines and namespaces". 
+- mint-532126679c03c6332014197e (`passwd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "change and administer password and group data". 
+- mint-c493ee2f6782ddb5af1fcb0a (`patch`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Apply a diff file to an original". 
+- mint-9cc90be4bb452bb3191884a8 (`patchutils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Utilities to work with patches". 
+- mint-5462275c4788020f9e36154c (`pci.ids`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PCI ID Repository". 
+- mint-fda1d3579ac56dc2a206dd4d (`pciutils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PCI utilities". 
+- mint-d45135d069bb9e307b1dac98 (`pcmciautils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PCMCIA utilities for Linux 2.6". 
+- mint-3b6fdf4eb18c896839c4d852 (`perl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "This package contains the Perl interpreter and core modules.". 
+- mint-9141c93e39245e9cd8120977 (`perl-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "minimal Perl system". 
+- mint-4611c56d6edcd7a4cbb1a28d (`perl-modules-5.38`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Core Perl modules". 
+- mint-61506276b93614c6294d721f (`perl-openssl-defaults`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "version compatibility baseline for Perl OpenSSL packages". 
+- mint-384cdddb100a7fee98844fe2 (`pinentry-curses`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "curses-based PIN or pass-phrase entry dialog for GnuPG". 
+- mint-36b3ceb59773dc16e7143a36 (`pinentry-gnome3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNOME 3 PIN or pass-phrase entry dialog for GnuPG". 
+- mint-1186b00ba13d19de8bfa641c (`pipewire`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "audio and video processing engine multimedia server". 
+- mint-119aec4e9403c188c3f7de64 (`pipewire-alsa`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PipeWire ALSA plugin, for ALSA applications to output via PipeWire". 
+- mint-c0787986efe6c9b79d180892 (`pipewire-audio`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "recommended set of PipeWire packages for a standard audio desktop use". 
+- mint-00498cfd9071eff9ca6fb269 (`pipewire-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PipeWire multimedia server - programs". 
+- mint-56e73c458a7f6be382205555 (`pipewire-pulse`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PipeWire PulseAudio daemon". 
+- mint-3b4a0216d539064ab0b68934 (`pix`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "image viewer and browser". 
+- mint-11ea76b71b17cb2a11ce5b11 (`pix-data`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "image viewer and browser - arch-independent files". Archive https://mirrors.kernel.org/linuxmint-packages/pool/backport/p/pix/pix-data_3.4.7+zara_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.x.pix.catalogs.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.pix.change-date.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.pix.comments.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.pix.contact-sheet.gschema.xml`.
+- mint-64c62b8bf5b610e37b30e296 (`pix-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "image viewer and browser - debugging symbols". 
+- mint-8b0b47f137537e7687b1fe6f (`pkexec`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "run commands as another user with polkit authorization". 
+- mint-4f07c1852c4f7870063c16db (`pkg-config`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "manage compile and link flags for libraries (transitional package)". 
+- mint-1f153e9f200886e789238249 (`pkgconf`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "manage compile and link flags for libraries". 
+- mint-12fb64b034f3623851174869 (`pkgconf-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "manage compile and link flags for libraries (binaries)". 
+- mint-7c5959566ec114da047ce47d (`plocate`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "much faster locate". 
+- mint-97a5e225e9a6052eb7a9cc21 (`plymouth`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "boot animation, logger and I/O multiplexer". 
+- mint-82a64197f2a0678574114f9c (`plymouth-label`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "boot animation, logger and I/O multiplexer - label control". 
+- mint-24a16618d485340831275abc (`plymouth-theme-spinner`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "boot animation, logger and I/O multiplexer - spinner theme". 
+- mint-0a7c3145c6f26bcc948cb292 (`plymouth-theme-ubuntu-text`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "boot animation, logger and I/O multiplexer - ubuntu text theme". 
+- mint-d0b12edea3dbeb345c16716a (`pm-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "utilities and scripts for power management". 
+- mint-bb0d5634684c514b97cb6a79 (`podman`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "tool to manage containers and pods". 
+- mint-1125d8187dc51c0b4ebc07e1 (`policykit-1`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "transitional package for polkitd and pkexec". 
+- mint-781e41078f9585d0ed991e0d (`policykit-1-gnome`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "authentication agent for PolicyKit". 
+- mint-941fe040b0ed9278c5e4abaf (`policykit-desktop-privileges`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "run common desktop actions without password". 
+- mint-88b0ba9eec3e43fc5de25a7d (`polkitd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "framework for managing administrative policies and privileges". 
+- mint-4a572b8695fa7140761d2d1f (`poppler-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "encoding data for the poppler PDF rendering library". 
+- mint-02911b1b8cdceb336abfdbb0 (`poppler-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "PDF utilities (based on Poppler)". 
+- mint-23034ddca52c724cce685b62 (`power-profiles-daemon`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Makes power profiles handling available over D-Bus.". 
+- mint-09881b5a4d38d9ee5abdb562 (`powermgmt-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "common utils for power management". 
+- mint-504f83838ea0f361e8322e47 (`ppp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Point-to-Point Protocol (PPP) - daemon". 
+- mint-492a04f18262d87f035c0de5 (`pptp-linux`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Point-to-Point Tunneling Protocol (PPTP) Client". 
+- mint-a33aa0ca487d4320d1e4ec6c (`printer-driver-brlaser`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for (some) Brother laser printers". 
+- mint-c46e38889ef2b94dc2eb58f3 (`printer-driver-c2esp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for Kodak ESP AiO color inkjet Series". 
+- mint-9b81e8235ace2c1c2956202e (`printer-driver-foo2zjs`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for ZjStream-based printers". 
+- mint-efe7b0e7b5c41bd0f541b877 (`printer-driver-foo2zjs-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for ZjStream-based printers - common files". Archive https://archive.ubuntu.com/ubuntu/pool/main/f/foo2zjs/printer-driver-foo2zjs-common_20200505dfsg0-2ubuntu6_all.deb; inspected entries: `./usr/bin/foo2ddst-wrapper`, `./usr/bin/foo2hbpl2-wrapper`, `./usr/bin/foo2hiperc-wrapper`, `./usr/bin/foo2hp2600-wrapper`.
+- mint-8760dbb00f251d2f3474e926 (`printer-driver-gutenprint`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer drivers for CUPS". 
+- mint-97044758d9df26da00124a2c (`printer-driver-hpcups`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "HP Linux Printing and Imaging - CUPS Raster driver (hpcups)". 
+- mint-cdb5438fb82f6a60e3db23ba (`printer-driver-m2300w`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for Minolta magicolor 2300W/2400W color laser printers". 
+- mint-d1abeb1635c22bc85272ddc9 (`printer-driver-min12xxw`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for KonicaMinolta PagePro 1[234]xxW". 
+- mint-24577aec6bebbacf47beaae5 (`printer-driver-pnm2ppa`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for HP-GDI printers". 
+- mint-09613ec98a5f85c0d49570fe (`printer-driver-postscript-hp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "HP Printers PostScript Descriptions". 
+- mint-870e3edea384cf319aa11059 (`printer-driver-ptouch`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver Brother P-touch label printers". 
+- mint-f5604e1f5969022917bd617e (`printer-driver-pxljr`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for HP Color LaserJet 35xx/36xx". 
+- mint-bae2a54fe408ebe6a6de1be9 (`printer-driver-sag-gdi`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "printer driver for Ricoh Aficio SP 1000s/SP 1100s". 
+- mint-9077cfeb39963e0032f04528 (`printer-driver-splix`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Driver for Samsung and Xerox SPL2 and SPLc laser printers". 
+- mint-49e5c12e71397457615996ed (`procps`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "/proc file system utilities". 
+- mint-eb723c5ae080bdd52645fa90 (`psmisc`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "utilities that use the proc file system". 
+- mint-776e4c47009d316c25544098 (`publicsuffix`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "accurate, machine-readable list of domain name suffixes". 
+- mint-89a5f657411ad54a0b4a21f6 (`pulseaudio-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Command line tools for the PulseAudio sound server". 
+- mint-d75c910ab047073a2f894ce0 (`python-apt-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python interface to libapt-pkg (locales)". 
+- mint-fe458f2cf3dbe28278730c23 (`python-babel-localedata`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tools for internationalizing Python applications - locale data files". 
+- mint-62b65b8600cb487a09f23cc5 (`python-nemo`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Python binding for Nemo components". 
+- mint-005b8160a306ae4e41f82fed (`python-tinycss2-common`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Low-level CSS parser (test data)". 
+- mint-7cf1b3c6be667b4f1f2ff354 (`python3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "interactive high-level object-oriented language (default python3 version)". 
+- mint-f2caf4782203506e094b7cb5 (`python3-apport`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 library for Apport crash report handling". 
+- mint-0bbf1dd67e7b12a88901aa98 (`python3-apt`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 interface to libapt-pkg". 
+- mint-67145c03ce3b4c3d9d954ee1 (`python3-aptdaemon`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 module for the server and client of aptdaemon". 
+- mint-cba4af808189dbfc0dd575ae (`python3-aptdaemon.gtk3widgets`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 GTK+ 3 widgets to run an aptdaemon client". 
+- mint-88c42173f40b7ebe33b2220c (`python3-babel`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tools for internationalizing Python applications - Python 3.x". 
+- mint-8ee3131943c912a32bd833a9 (`python3-blinker`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Fast, simple object-to-object and broadcast signaling (Python3)". 
+- mint-6e5ca3be110095b05087996e (`python3-brlapi`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Braille display access via BRLTTY - Python3 bindings". 
+- mint-142e7fdd66fc576f07ade5d1 (`python3-brotli`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "lossless compression algorithm and format (Python 3 version)". 
+- mint-68c9513fce04a811fdaab13a (`python3-bs4`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "error-tolerant HTML parser for Python 3". 
+- mint-0a89337808532777718c1e52 (`python3-cairo`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python3 bindings for the Cairo vector graphics library". 
+- mint-bc303a6452c6289048b62bc1 (`python3-certifi`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "root certificates for validating SSL certs and verifying TLS hosts (python3)". 
+- mint-c1037d93056eb72620118b9e (`python3-cffi-backend`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Foreign Function Interface for Python 3 calling C code - runtime". 
+- mint-1af2a8d2c2d46ae37116da33 (`python3-chardet`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Universal Character Encoding Detector (Python3)". 
+- mint-8e04e80d975bb4ad7101bcfa (`python3-click`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Wrapper around optparse for command line utilities - Python 3.x". 
+- mint-84d725eabe376ff52a34a233 (`python3-colorama`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Cross-platform colored terminal text in Python - Python 3.x". 
+- mint-9b375790d75ef79048513c4f (`python3-commandnotfound`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 bindings for command-not-found.". 
+- mint-95883e706eb23f7a3cea218e (`python3-configobj`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "simple but powerful config file reader and writer for Python 3". 
+- mint-cb5a75cdc3fcec10e9ce1e51 (`python3-cryptography`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python library exposing cryptographic recipes and primitives (Python 3)". 
+- mint-32cbef5600df8b61424c359e (`python3-cups`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python3 bindings for CUPS". 
+- mint-731675ed6d6d928685dfafb9 (`python3-cupshelpers`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python utility modules around the CUPS printing system". 
+- mint-33c769521cef86a6a49da508 (`python3-dbus`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "simple interprocess messaging system (Python 3 interface)". 
+- mint-8fd66913a712e80838b656bf (`python3-debian`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 modules to work with Debian-related data formats". 
+- mint-c7d1969c6117e78589e66a9e (`python3-defer`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Small framework for asynchronous programming (Python 3)". 
+- mint-81b49b9c7ce06c0e0d63aabf (`python3-deprecation`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Library to handle automated deprecations". 
+- mint-c8d466a1ed1576a11152b0e6 (`python3-dill`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Serialize all of Python 3 (almost)". 
+- mint-08511a33256c8e72225a61e9 (`python3-distro`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Linux OS platform information API". 
+- mint-322e6afde4c5db14494fc7be (`python3-eyed3`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python module for id3-tags manipulation (Python 3 version)". 
+- mint-bcd57eec13208737b4332988 (`python3-filelock`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "platform independent file locking module". 
+- mint-942db62b49c8742f5994a011 (`python3-filetype`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Infer file type and MIME type of any file/buffer". 
+- mint-813f8c2dabfc36694604beec (`python3-gdbm`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU dbm database support for Python 3.x". 
+- mint-451acb08bbac06d3a572bc25 (`python3-gi`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 bindings for gobject-introspection libraries". 
+- mint-4bb8f3c0a17ff88dc18cf1c8 (`python3-gi-cairo`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 Cairo bindings for the GObject library". 
+- mint-30d3ae9cbb5b144f68f1d1fe (`python3-gnupg`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python wrapper for the GNU Privacy Guard (Python 3.x)". 
+- mint-b6546e483d5eeabbd2f6c184 (`python3-html2text`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python module for converting HTML to Markdown text (Python3 version)". 
+- mint-a231610c1f79cace35c12cc1 (`python3-httplib2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "comprehensive HTTP client library written for Python3". 
+- mint-ce528a381b0ff7d15bf0dc9e (`python3-ibus-1.0`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Intelligent Input Bus - introspection overrides for Python (Python 3)". 
+- mint-b185fcfe336d2025d037135f (`python3-icu`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 extension wrapping the ICU C++ API". 
+- mint-18a966370ffb36ac03644c4c (`python3-idna`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python IDNA2008 (RFC 5891) handling (Python 3)". 
+- mint-e31ee8e9db0e5e2759ff432d (`python3-ifaddr`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Pure Python implementation for detecting IP addresses". 
+- mint-8016dd66a79a05dbb3ceb93b (`python3-jwt`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 implementation of JSON Web Token". 
+- mint-c435c856d3c256a90929177e (`python3-launchpadlib`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Launchpad web services client library (Python 3)". 
+- mint-6284d9537752b59338fe6f40 (`python3-lazr.restfulclient`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "client for lazr.restful-based web services (Python 3)". 
+- mint-3d6d337f4b48699a266a86a7 (`python3-lazr.uri`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library for parsing, manipulating, and generating URIs". 
+- mint-8aa588f248e5b99270b73553 (`python3-ldb`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 bindings for LDB". 
+- mint-6e755d8356b8de2a7020946f (`python3-libevdev`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python 3 wrapper for libevdev". 
+- mint-024d6881b4a9fe043f4eb567 (`python3-louis`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python bindings for liblouis". 
+- mint-381ba46175f7adbd462f105a (`python3-lxml`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "pythonic binding for the libxml2 and libxslt libraries". 
+- mint-720bc48427b54cf769b5830f (`python3-mako`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "fast and lightweight templating for the Python 3 platform". 
+- mint-1b516cfd9f219ec4e023063b (`python3-markdown`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "text-to-HTML conversion library/tool (Python 3 version)". 
+- mint-1d492c5522ff2022433a90b3 (`python3-markdown-it`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python port of markdown-it and some its associated plugins". 
+- mint-899bd6c82ec0d77126cddd9a (`python3-markupsafe`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "HTML/XHTML/XML string library". 
+- mint-c1d404391cba3bf45cc7853f (`python3-mdurl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python port of the JavaScript mdurl package". 
+- mint-44fe31aabc9e10e57448ad0e (`python3-minimal`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "minimal subset of the Python language (default python3 version)". 
+- mint-28673c77b17a9a9fe8cb810b (`python3-multiprocess`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "better multiprocessing and multithreading in Python". 
+- mint-c271d09580b11bd451f224bc (`python3-mutagen`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "audio metadata editing library (Python 3)". 
+- mint-904684ac8a5c7b0159ca66b8 (`python3-nacl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python bindings to libsodium (Python 3)". 
+- mint-a4b3a2cd1d6eea1604c8cbca (`python3-netaddr`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "manipulation of various common network address notations (Python 3)". 
+- mint-36874967a0021b316e47696f (`python3-netifaces`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "portable network interface information - Python 3.x". 
+- mint-41673db08739d82218d475d3 (`python3-netplan`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Declarative network configuration Python bindings". 
+- mint-8554fd93a04f0152c31602c1 (`python3-oauthlib`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "generic, spec-compliant implementation of OAuth for Python3". 
+- mint-18942bd2a92cd76a3669af76 (`python3-packaging`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "core utilities for python3 packages". 
+- mint-77b7da4ae6a6571e7cbda5ce (`python3-pam`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python interface to the PAM library". 
+- mint-359a73c6664145b39049c9fc (`python3-parted`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python 3 interface for libparted". 
+- mint-11dff5147ca6577093f08261 (`python3-pexpect`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 module for automating interactive applications". 
+- mint-742888505eae4885ac726be4 (`python3-pil`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python Imaging Library (Python3)". 
+- mint-ed18a393154983969e25ef9a (`python3-pkg-resources`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Package Discovery and Resource Access using pkg_resources". 
+- mint-b3ffd37e40e692336039bb14 (`python3-png`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Pure Python PNG Reader/Writer (Python 3)". 
+- mint-9395787096f7fbb0c032e209 (`python3-problem-report`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 library to handle problem reports". 
+- mint-fa82f0aa3109acc27a2ea25a (`python3-psutil`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "module providing convenience functions for managing processes (Python3)". 
+- mint-803cfc27e08cc8471b04b87c (`python3-ptyprocess`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Run a subprocess in a pseudo terminal from Python 3". 
+- mint-c6f52a1d19efdc3283f3b691 (`python3-pyasyncore`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "asyncore for Python 3.12 onwards". 
+- mint-0ae966c0cb3669678df7b1a0 (`python3-pyatspi`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Assistive Technology Service Provider Interface - Python3 bindings". 
+- mint-8f5795ddb387b053b27b5e32 (`python3-pycryptodome`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "cryptographic Python library (Python 3)". 
+- mint-aea976c16c2c439296485fde (`python3-pycurl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python bindings to libcurl (Python 3)". 
+- mint-688c3276f07aa36a167e7e64 (`python3-pyelftools`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "pure-python3 library for parsing ELF and DWARF". 
+- mint-c9224f4e83c44446dbad4505 (`python3-pygments`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "syntax highlighting package written in Python 3". 
+- mint-5c43485e4d022fc7637d1451 (`python3-pyinotify`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "simple Linux inotify Python bindings". 
+- mint-989cd5120396226c9e658b36 (`python3-pyparsing`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "alternative to creating and executing simple grammars - Python 3.x". 
+- mint-b4df061e591a6bc5706eb325 (`python3-pyudev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python3 bindings for libudev". 
+- mint-db166bd94bfd6c3f5bcc8e8b (`python3-qrcode`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "QR Code image generator library - Python 3.x". 
+- mint-ce13d68a5042699ce84a0b2e (`python3-repolib`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/import/binary-amd64/Packages.gz — "Repository Management for APT in Python (Python 3)". 
+- mint-5471e9e965f01beb04f67788 (`python3-requests`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "elegant and simple HTTP library for Python3, built for human beings". 
+- mint-d07c1cedcbc49df11f07b32d (`python3-requests-file`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "File transport adapter for Requests - Python 3.X". 
+- mint-f069c83178d1736571ca4ed6 (`python3-rich`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "render rich text, tables, progress bars, syntax highlighting, markdown and more". 
+- mint-171782191733ff6cbed3bef1 (`python3-samba`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 bindings for Samba". 
+- mint-9dcd6a4096fd8a96b549bee2 (`python3-setproctitle`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Setproctitle implementation for Python 3". 
+- mint-241a9a5abb74818dff8f614e (`python3-six`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 2 and 3 compatibility library". 
+- mint-519802b3c24f6b248448a5ce (`python3-soupsieve`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "modern CSS selector implementation for BeautifulSoup (Python 3)". 
+- mint-cb3bae5352133a62f3427ce9 (`python3-speechd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python interface to Speech Dispatcher". 
+- mint-6024c9bb6e4b20b0faa41be5 (`python3-systemd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 bindings for systemd". 
+- mint-c9214648f328b3465c13f4e2 (`python3-talloc`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "hierarchical pool based memory allocator - Python3 bindings". 
+- mint-82273fc728a3a7fd6dac6ff2 (`python3-tdb`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python3 bindings for TDB". 
+- mint-4cce8eed9b91ed01de913a00 (`python3-tinycss2`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Low-level CSS parser (Python3 version)". 
+- mint-2b2793496ab80f927f944044 (`python3-tldextract`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Python library for separating TLDs". 
+- mint-22381f65570ee263718e58f5 (`python3-typing-extensions`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Backported and Experimental Type Hints for Python". 
+- mint-960e6bb6738c4d1161b6af7c (`python3-tz`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python3 version of the Olson timezone database". 
+- mint-3a23c064cc2ce024743b50bb (`python3-unidecode`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "ASCII transliterations of Unicode text (Python 3 module)". 
+- mint-9f7759283d7ac5887a43b04f (`python3-uno`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python-UNO bridge". 
+- mint-5f7ea2e842d5d7bd05ace7ae (`python3-urllib3`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "HTTP library with thread-safe connection pooling for Python3". 
+- mint-8a2eed9011c5c12d54202405 (`python3-wadllib`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 library for navigating WADL files". 
+- mint-fa1caa429c9ab0fb8527ed00 (`python3-webencodings`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python implementation of the WHATWG Encoding standard". 
+- mint-aac1b6506329afb87d13295e (`python3-websockets`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "implementation of the WebSocket Protocol (RFC 6455)". 
+- mint-2e02e27ea867e280a9d8d3b1 (`python3-xapp`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Python 3 XApp library". 
+- mint-f7dce1d369292fc6cc980372 (`python3-xdg`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Python 3 library to access freedesktop.org standards". 
+- mint-1bc5332110b61a32b8154252 (`python3-xkit`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "library for the manipulation of xorg.conf files (Python 3)". 
+- mint-4e0fd4028980cd0cf7102b10 (`python3-xlib`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "interface for Python 3 to the X11 protocol". 
+- mint-5e3f84ae457fb277ad359614 (`python3-xlrd`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "extract data from Microsoft Excel spreadsheet files (Python3 version)". 
+- mint-4b5bf550a538e35ad173ac71 (`python3-yaml`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "YAML parser and emitter for Python3". 
+- mint-fbc273a65e9acdb88c8a3ba8 (`python3.12`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Interactive high-level object-oriented language (version 3.12)". 
+- mint-09e0234e1272c8cc1ff7f624 (`python3.12-minimal`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Minimal subset of the Python language (version 3.12)". 
+- mint-4d53d21e0b3d00ab83fd6e58 (`qt5-gtk-platformtheme`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 GTK+ 3 platform theme". 
+- mint-e1dd53f025aabc039c5ca0de (`qt5-gtk2-platformtheme`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 extra widget styles - GTK+ 2 Platform theme". 
+- mint-71778e4fdc544f054602c2c0 (`qt5-style-plugin-cleanlooks`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 extra widget styles - Cleanlooks". 
+- mint-696079887be7d69dbe1b0ec9 (`qt5-style-plugin-motif`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 extra widget styles - Motif". 
+- mint-d65764e64a5287e50ed956f9 (`qt5-style-plugin-plastique`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 extra widget styles - Plastique". 
+- mint-8a371d8839102003d120caed (`qt5-style-plugins`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Qt 5 extra widget styles". 
+- mint-d9a28359736350879dd89ffc (`qttranslations5-l10n`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "translations for Qt 5". 
+- mint-d1f7ccb24caf7ba11fc20aa5 (`rdate`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "sets the system's date from a remote host with network time protocol". 
+- mint-f8dd8a8684649a0247de6294 (`readline-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU readline and history libraries, common files". Archive https://archive.ubuntu.com/ubuntu/pool/main/r/readline/readline-common_8.2-4build1_all.deb; inspected entries: `./usr/share/doc/readline-common/inputrc.arrows`, `./usr/share/readline/inputrc`.
+- mint-f278f644e57b7c7332269d8a (`reiserfsprogs`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "User-level tools for ReiserFS filesystems". 
+- mint-8ad0fbf7639bb8af81715fc0 (`rename`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Perl extension for renaming multiple files". 
+- mint-cb7d844801799cc5b9c5ac3d (`rfkill`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tool for enabling and disabling wireless devices". 
+- mint-a823e8cb31c60e632e06d5db (`rhythmbox`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "music player and organizer for GNOME". 
+- mint-b24f59ed65e9bd783fdb01b4 (`rhythmbox-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "data files for rhythmbox". Archive https://archive.ubuntu.com/ubuntu/pool/main/r/rhythmbox/rhythmbox-data_3.4.7-2ubuntu6_all.deb; inspected entries: (not published: external working record), `./usr/share/dbus-1/services/org.gnome.Rhythmbox3.service`, `./usr/share/glib-2.0/schemas/org.gnome.rhythmbox.gschema.xml`.
+- mint-73217a2361552980ce5a3434 (`rhythmbox-plugin-tray-icon`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "A tray icon plugin for rhythmbox music player". 
+- mint-b050409a55bc527db0ca8cf1 (`rhythmbox-plugins`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "plugins for rhythmbox music player". 
+- mint-a8fd2f8ffd3a9dd3687782af (`rpcsvc-proto`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "RPC protocol compiler and definitions". 
+- mint-c59be9d706d0ca5a64376172 (`rsync`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "fast, versatile, remote (and local) file-copying tool". 
+- mint-d9b01cea4189d1576ac405ed (`rsyslog`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "reliable system and kernel logging daemon". 
+- mint-10bc6681469afebdef895177 (`rtkit`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Realtime Policy and Watchdog Daemon". 
+- mint-d5c5e6b170ac78983c84c671 (`samba-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "common files used by both the Samba server and client". Archive https://archive.ubuntu.com/ubuntu/pool/main/s/samba/samba-common_4.19.5+dfsg-4ubuntu9_all.deb; inspected entries: `./usr/share/doc/samba-common/examples/smb.conf.default`, `./usr/share/samba/smb.conf`.
+- mint-def000f9770c314940c97286 (`samba-common-bin`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Samba common files used by both the server and the client". 
+- mint-bb7a8648c94efb41d2963ab1 (`samba-libs`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Samba core libraries". 
+- mint-f32e1a1ec132b42ebc522868 (`sane-airscan`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "SANE backend for AirScan (eSCL) and WSD document scanner". 
+- mint-f895de76e6ebf3ea4a152dc7 (`sane-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "API library for scanners -- utilities". 
+- mint-d455610e1bf49a5d4f3367b3 (`sbsigntool`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tools to manipulate signatures on UEFI binaries and drivers". 
+- mint-5840b826eccb00fe34526fba (`seahorse`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNOME front end for GnuPG". 
+- mint-495dccc52fcedfaf0d88e99a (`secureboot-db`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Secure Boot updates for DB and DBX". 
+- mint-cc126b101b0ed8687c98a049 (`sed`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU stream editor for filtering/transforming text". 
+- mint-c1b08ae6fd6fad0327bc30ab (`sensible-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Utilities for sensible alternative selection". 
+- mint-50d4c34b7ffec81a3735aba9 (`session-migration`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tool to migrate in user session settings". 
+- mint-c91198101e4c2623d46b5a8c (`sgml-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "SGML infrastructure and SGML catalog file support". 
+- mint-83f70d92b33dc9a05f18fa66 (`sgml-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "common SGML and XML data". 
+- mint-3efe7c7fcb41029cad42ee77 (`shared-mime-info`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "FreeDesktop.org shared MIME database and spec". 
+- mint-3c4374fd749d66f2137b1758 (`shim-signed`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Secure Boot chain-loading bootloader (Microsoft-signed binary)". 
+- mint-c20e87607de5e5c07f5b43a1 (`simple-scan`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Simple Scanning Utility". 
+- mint-e1f0f906a6b9960e13cd6a1b (`slick-greeter`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Slick-looking LightDM greeter". 
+- mint-790c3516e883cd0981ea48d9 (`slirp4netns`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "User-mode networking for unprivileged network namespaces". 
+- mint-e830238a165faaf16283f95d (`smbclient`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "command-line SMB/CIFS clients for Unix". 
+- mint-c724979d072923946fba7d05 (`sound-theme-freedesktop`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "freedesktop.org sound theme". 
+- mint-8c487f776b6a66a40113648a (`speech-dispatcher`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Common interface to speech synthesizers". 
+- mint-6c46dfe312977b3d3c585291 (`speech-dispatcher-audio-plugins`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Speech Dispatcher: Audio output plugins". 
+- mint-ab0af6501828626a6630f60a (`speech-dispatcher-espeak-ng`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Speech Dispatcher: Espeak-ng output module". 
+- mint-73fdff64588bbdad18554a02 (`squashfs-tools`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tool to create and append to squashfs filesystems". 
+- mint-b847f6703d81d5cc1d01f9fc (`ssl-cert`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "simple debconf wrapper for OpenSSL". 
+- mint-fda72642a699b8a17c5fd156 (`sticky`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Sticky Notes app". 
+- mint-5e1387f5416db3badd95a123 (`strace`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "System call tracer". 
+- mint-ea2d540c7e0729459a691bcf (`streamer`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "television capture tool (images/movies)". 
+- mint-f104273e3880a4a97ac44df9 (`sudo`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Provide limited super user privileges to specific users". 
+- mint-1a04c2efcb121fe4751b0e22 (`switcheroo-control`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "D-Bus service to check the availability of dual-GPU". 
+- mint-eeda94d1119519cfe20b8c1a (`syslinux`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "collection of bootloaders (DOS FAT and NTFS bootloader)". 
+- mint-b23f0aab8660a8ba3e5f0f31 (`syslinux-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "collection of bootloaders (common)". Archive https://archive.ubuntu.com/ubuntu/pool/main/s/syslinux/syslinux-common_6.04~git20190206.bf6db5b4+dfsg1-3ubuntu3_all.deb; inspected entries: `./usr/lib/syslinux/modules/bios/cat.c32`, `./usr/lib/syslinux/modules/bios/chain.c32`, `./usr/lib/syslinux/modules/bios/cmd.c32`, `./usr/lib/syslinux/modules/bios/cmenu.c32`.
+- mint-ef35df24da8db727a0178c71 (`syslinux-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "collection of bootloaders (utilities)". 
+- mint-c3190f19aca1a944376efe87 (`system-config-printer`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "graphical interface to configure the printing system". 
+- mint-da81a9251a22cd2e513ee48e (`system-config-printer-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "backend and the translation files for system-config-printer". 
+- mint-599f0c92c6ed2614231b71dc (`system-config-printer-udev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Utilities to detect and configure printers automatically". 
+- mint-98edfa954d2e1d848f843be1 (`system-tools-backends`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "System Tools to manage computer configuration -- scripts". 
+- mint-cb23aa1c1d78e3f94323138e (`systemd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "system and service manager". 
+- mint-e34698d1ccc968eb2cc3cfdc (`systemd-coredump`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "tools for storing and retrieving coredumps". 
+- mint-14e4ef55d0c999091494e411 (`systemd-dev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "systemd development files". 
+- mint-b45f676681fc354259939508 (`systemd-hwe-hwdb`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "udev rules for hardware enablement (HWE)". 
+- mint-ce8481869884cec8f02c1506 (`systemd-resolved`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "systemd DNS resolver". 
+- mint-12e7ad2163fcb25cdc89fbc4 (`systemd-sysv`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "system and service manager - SysV compatibility symlinks". 
+- mint-442812ead0b1c1d6dd2ad943 (`systemd-timesyncd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "minimalistic service to synchronize local time with NTP servers". 
+- mint-e845fda0fb200d5d6cd8d5ef (`sysvinit-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "System-V-like utilities". 
+- mint-e7dcdc4be2d0b3f2f102a67e (`t1utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Collection of simple Type 1 font manipulation programs". 
+- mint-33890bbde3ad0048af487de8 (`tar`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU version of the tar archiving utility". 
+- mint-447ffa22ad707cbd4a2bc47a (`tcl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tool Command Language (default version) - shell". 
+- mint-0bd4b01ffa6e2d36ed7a5ffe (`tcl8.6`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tcl (the Tool Command Language) v8.6 - shell". 
+- mint-207e185c0ef6a0f7a7bb54d9 (`tcpdump`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "command-line network traffic analyzer". 
+- mint-ed7808a3a1bd18b85f5b4e5d (`telnet`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "transitional dummy package for inetutils-telnet default switch". 
+- mint-002feba7c933b943340b5583 (`thermald`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Thermal monitoring and controlling daemon". 
+- mint-6b36a3d8b1affe20e71c7880 (`thingy`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Document Manager". 
+- mint-0e33df480b6c7df63fe4ce00 (`thunderbird`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Email, RSS and newsgroup client with integrated spam filter". 
+- mint-364051b8277d58fbbf204245 (`thunderbird-locale-en`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "English language packs for Thunderbird". 
+- mint-07c707625517cdd020cc62d0 (`thunderbird-locale-en-us`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Transitional package for Thunderbird language packs.". 
+- mint-f6020224c45b9c9fa5389537 (`time`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GNU time program for measuring CPU resource usage". 
+- mint-5687d19e6d9ba3cd7ac941af (`timeshift`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "System restore utility". 
+- mint-33fdfacc4de2e666db1892d2 (`tnftp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "enhanced ftp client". 
+- mint-2930693153da9d4077debd9e (`touchegg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/import/binary-amd64/Packages.gz — "Multi-touch gesture recognizer". 
+- mint-327eaf6fec88b664c4edd16b (`tpm-udev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "udev rules for TPM modules". 
+- mint-3419c485bbc415287fa3601b (`transmission-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "lightweight BitTorrent client (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/upstream/t/transmission/transmission-common_4.0.5-1build5mint2+mint22_amd64.deb; inspected entries: `./usr/share/transmission/public_html/index.html`.
+- mint-3f709cbd4da1b3cda97b1d1d (`transmission-gtk`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "lightweight BitTorrent client (GTK+ interface)". 
+- mint-834c14e84040a0295661fbe2 (`tzdata`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "time zone and daylight-saving time data". 
+- mint-224d1a39f1d0649a9ac98390 (`tzdata-legacy`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "time zone data for TAI minus ten seconds". 
+- mint-88227ec040d89c24cd82e6c8 (`ubuntu-dbgsym-keyring`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GnuPG keys of the Ubuntu Debug Symbols Archive". 
+- mint-b5e748f57cf1ec3407a5515c (`ubuntu-drivers-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Detect and install additional Ubuntu driver packages". 
+- mint-4f5c80f4825cd0df76ebab30 (`ubuntu-keyring`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GnuPG keys of the Ubuntu archive". 
+- mint-11aae2ec3c65791e6a33f4fd (`ubuntu-mono`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Ubuntu Mono Icon theme". 
+- mint-32e981bbfcb0baa1e9f5592d (`ubuntu-system-adjustments`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Adjustments to the Ubuntu package base". Archive https://mirrors.kernel.org/linuxmint-packages/pool/main/u/ubuntu-system-adjustments/ubuntu-system-adjustments_2025.05.20-zara_all.deb; inspected entries: `./etc/NetworkManager/conf.d/ubuntu-system-adjustments.conf`, `./etc/apt/apt.conf.d`, `./etc/apt/apt.conf.d/00mint`, `./etc/sysctl.d/20-apparmor-mint.conf`.
+- mint-9077b74547c1c4d6bbd12c9a (`ucf`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Update Configuration File(s): preserve user changes to config files". 
+- mint-7e8c9cdb9057d41768de349f (`udev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "/dev/ and hotplug management daemon". 
+- mint-cf8430bf6817b817c6c3f7f1 (`udisks2`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "D-Bus service to access and manipulate storage devices". 
+- mint-0aa3d88de8b64b1420ff08c5 (`ufw`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "program for managing a Netfilter firewall". 
+- mint-3d0f6689a804710f91d2ae40 (`uidmap`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "programs to help use subuids". 
+- mint-e09e7abf65bf56e5e38dfc7e (`uno-libs-private`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "LibreOffice UNO runtime environment -- private libraries used by public ones". 
+- mint-4dd0bf2f4af866f562ac263f (`untex`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "remove LaTeX commands from input". 
+- mint-2907398b720377ff2b8381ef (`unzip`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "De-archiver for .zip files". 
+- mint-4c5f0f57a2d487a75945cbf2 (`update-inetd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "inetd configuration file updater". 
+- mint-9c7685f7b975c99f91a6fc5e (`upower`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "abstraction for power management". 
+- mint-ce83bf02d1ca7fc184883cbd (`ure`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "LibreOffice UNO runtime environment". 
+- mint-b4da97e66efaefe734ddc5e2 (`usb-modeswitch`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "mode switching tool for controlling "flip flop" USB devices". 
+- mint-8f2a9f7703e55326c4cbac18 (`usb-modeswitch-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "mode switching data for usb-modeswitch". 
+- mint-53b4f1fdd00f31004638f092 (`usb.ids`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "USB ID Repository". 
+- mint-d71372938b2fc9c5a0eac842 (`usbmuxd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "USB multiplexor daemon for iPhone and iPod Touch devices". 
+- mint-6c35651d0ed5551c5e778a35 (`usbutils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Linux USB utilities". 
+- mint-6d2e6e5664a50aadebcadf60 (`user-setup`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Set up initial user and password". 
+- mint-6589732ad16c2bb64e384f20 (`util-linux`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "miscellaneous system utilities". 
+- mint-62551d871048f524d49d8da0 (`uuid-runtime`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "runtime components for the Universally Unique ID library". 
+- mint-224e806a9e786a6e195a3fb8 (`va-driver-all`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Video Acceleration (VA) API -- driver metapackage". 
+- mint-a0d6e39727c667f280b18ae2 (`vim-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Vi IMproved - Common files". Archive https://archive.ubuntu.com/ubuntu/pool/main/v/vim/vim-common_9.1.0016-1ubuntu7_all.deb; inspected entries: `./usr/bin/helpztags`, `./usr/share/applications/vim.desktop`.
+- mint-5bd06c9282f29aff0f1bf341 (`vim-tiny`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Vi IMproved - enhanced vi editor - compact version". 
+- mint-96f89ae2a9103a0c829d911b (`vulkan-tools`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "Miscellaneous Vulkan utilities". 
+- mint-5a56059734a84f2ab479ccc8 (`wamerican`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "American English dictionary words for /usr/share/dict". 
+- mint-165c1fa101a689d31a9fe743 (`warpinator`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Allows simple local network file sharing.". 
+- mint-0aa9453ea0eaeed5ac0cfe70 (`wbritish`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "British English dictionary words for /usr/share/dict". 
+- mint-c08671b4f95d45d04c96f709 (`webapp-manager`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Web Application Manager". 
+- mint-e6eb63e109573e637e850caf (`webp-pixbuf-loader`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "WebP Image format GdkPixbuf loader". 
+- mint-c46f34c1f3c1cc2fef1a659e (`wget`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "retrieves files from the web". 
+- mint-4d69585d2571bcf4ffb4415c (`whiptail`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Displays user-friendly dialog boxes from shell scripts". 
+- mint-daa855be48d2c15dc61b7754 (`wireless-regdb`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "wireless regulatory database". 
+- mint-7d7499d8e0e1d4b4135f9204 (`wireless-tools`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Tools for manipulating Linux Wireless Extensions". 
+- mint-475c1326a038737d5af27050 (`wireplumber`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "modular session / policy manager for PipeWire". 
+- mint-6668f4a74a00afb91a73d2af (`wmctrl`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "control an EWMH/NetWM compatible X Window Manager". 
+- mint-10b82560495de5bd319ff5a9 (`wpasupplicant`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "client support for WPA and WPA2 (IEEE 802.11i)". 
+- mint-b9846fd2074d63596ff57586 (`x11-apps`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X applications". 
+- mint-fc00b9c5a410fb3cb8a2cf63 (`x11-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X Window System (X.Org) infrastructure". Archive https://archive.ubuntu.com/ubuntu/pool/main/x/xorg/x11-common_7.7+23ubuntu3_all.deb; inspected entries: `./etc/X11/Xsession`, `./etc/X11/Xsession.d`, `./etc/X11/Xsession.d/20x11-common_process-args`, `./etc/X11/Xsession.d/30x11-common_xresources`.
+- mint-9216b118ef5f1d6179dbfcdb (`x11-session-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X session utilities". 
+- mint-6bcbca0dc146347a866aca2a (`x11-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 utilities". 
+- mint-787acc807811ddf117702677 (`x11-xkb-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X11 XKB utilities". 
+- mint-4f875d7a7dd30aa61596b7c5 (`x11-xserver-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X server utilities". 
+- mint-6bce89689daa96187a0620bb (`xapp-appimage-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "AppImage thumbnailer". 
+- mint-6c38a438219ea779387b6f3e (`xapp-epub-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "ePub thumbnailer". 
+- mint-92d0e127f88f84f0f9ac3fe1 (`xapp-jxl-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "JPEG XL thumbnailer". 
+- mint-f23ac92eb135d9eb5cb71af7 (`xapp-mp3-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "MP3 thumbnailer". 
+- mint-d03a61e5c2eef744325a4b2e (`xapp-ora-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "OpenRaster thumbnailer". 
+- mint-cde33549925a1f41d86c54e2 (`xapp-raw-thumbnailer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "RAW thumbnailer". 
+- mint-45efec5eb4a6f4d9b7a47608 (`xapp-symbolic-icons`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Set of symbolic icons for GTK applications". 
+- mint-4d0aa2ef59e29028bf6a2216 (`xapp-thumbnailers-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/main/binary-amd64/Packages.gz — "Common files for XApp thumbnailers". Archive https://mirrors.kernel.org/linuxmint-packages/pool/main/x/xapp-thumbnailers/xapp-thumbnailers-common_1.2.10_all.deb; inspected entries: (not published: external working record).
+- mint-0a587ab240e3609716e5838b (`xapps-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Common files for XApp desktop apps". 
+- mint-c4b7612b77b7e529c79df01b (`xauth`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X authentication utility". 
+- mint-6664f8b8e8874969ef7f0027 (`xawtv-plugins`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "television viewer - plugins". 
+- mint-c9fc3b32e77f0287c84e1519 (`xbitmaps`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Base X bitmaps". 
+- mint-8a6cd898d5a88c582fcb258f (`xbrlapi`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Access software for a blind person using a braille display - xbrlapi". 
+- mint-9a7ce130d37af94befefa618 (`xcvt`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "VESA CVT standard timing modelines generator". 
+- mint-51c3705b9c258f526f383f86 (`xdg-dbus-proxy`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "filtering D-Bus proxy". 
+- mint-237166abab967de23f143606 (`xdg-desktop-portal`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "desktop integration portal for Flatpak and Snap". 
+- mint-cb56f279cce5545aa29dfb8a (`xdg-desktop-portal-gtk`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "GTK+/GNOME portal backend for xdg-desktop-portal". 
+- mint-09b523239e0ecfb8b4ef2ce4 (`xdg-desktop-portal-xapp`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Xapp's Cinnamon, MATE and XFCE backends for xdg-desktop-portal.". 
+- mint-ac8923f22e8cccbb8551b439 (`xdg-user-dirs`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tool to manage well known user directories". 
+- mint-3758560352d7ca3fa10f511b (`xdg-user-dirs-gtk`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tool to manage well known user directories (Gtk extension)". 
+- mint-eb6a2571fdb61552be0e19d2 (`xdg-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "desktop integration utilities from freedesktop.org". 
+- mint-99cef124ee10bc43a8fe8448 (`xed`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Text editor". 
+- mint-c4c19df68728a2834f6e3951 (`xed-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Text editor (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/backport/x/xed/xed-common_3.8.4+zara_all.deb; inspected entries: `./usr/share/glib-2.0/schemas/org.x.editor.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.editor.plugins.filebrowser.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.editor.plugins.spell.gschema.xml`, `./usr/share/glib-2.0/schemas/org.x.editor.plugins.time.gschema.xml`.
+- mint-1d2ad4a6b5f28aaa86d733fa (`xed-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Text editor (debugging symbols)". 
+- mint-7d71487e062c447dc7da4c65 (`xfonts-base`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "standard fonts for X". 
+- mint-3163a342af599b02ba8bd575 (`xfonts-encodings`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Encodings for X.Org fonts". 
+- mint-c474b8fdac30d0b2f5c11e45 (`xfonts-scalable`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "scalable fonts for X". 
+- mint-c8554a9505c9e0445bf8e4a6 (`xfonts-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X Window System font utility programs". 
+- mint-fa984f383310a0e3ced5b7c0 (`xfsprogs`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Utilities for managing the XFS filesystem". 
+- mint-a0ceaa04d58d3b1983d847f3 (`xinit`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X server initialisation tool". 
+- mint-9a359440c6b3f6f0231bb48b (`xinput`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Runtime configuration and test of XInput devices". 
+- mint-b62a0008e41f12910c76f4e4 (`xkb-data`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X Keyboard Extension (XKB) configuration data". 
+- mint-9485adbd196ca947825110b7 (`xml-core`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "XML infrastructure and XML catalog file support". 
+- mint-edd08984f5139b4648ed596c (`xorg`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X Window System". 
+- mint-e8b41ae40a75964414c3991a (`xorg-docs-core`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Core documentation for the X.org X Window System". 
+- mint-6ccc1619d0bf0ef69bbf4e3a (`xreader`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Document viewer". 
+- mint-292b91a8f301ac1d6493487c (`xreader-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Document viewer (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/backport/x/xreader/xreader-common_4.6.8+wilma_all.deb; inspected entries: `./usr/share/doc/xreader-common/changelog.gz`, (not published: external working record), `./usr/share/help/C/xreader/index.docbook`, `./usr/share/help/C/xreader/legal.xml`.
+- mint-37e69dec2f3bf295ebcfb997 (`xreader-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Document viewer (debugging symbols)". 
+- mint-5856f651fdf9454252650399 (`xserver-common`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "common files used by various X servers". Archive https://archive.ubuntu.com/ubuntu/pool/main/x/xorg-server/xserver-common_21.1.12-1ubuntu1_all.deb; inspected entries: (not published: external working record), `./usr/share/doc/xserver-common/changelog.Debian.gz`, `./usr/share/man/man1/Xserver.1.gz`, `./var/lib/xkb/README.compiled`.
+- mint-01f5a14ade3427207363bad3 (`xserver-xephyr`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "nested X server". 
+- mint-c5924d8b2d8e93353e93c93f (`xserver-xorg`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server". 
+- mint-215359052f989f19d0722aba (`xserver-xorg-core`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Xorg X server - core server". 
+- mint-226e21b0b497c42cd88dbe0c (`xserver-xorg-input-all`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- input driver metapackage". 
+- mint-da32ead3de5ff60c181adbf9 (`xserver-xorg-input-libinput`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- libinput input driver". 
+- mint-6f9f93e49e19949282b76dbc (`xserver-xorg-input-wacom`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- Wacom input driver". 
+- mint-96d809ff4ca70268f78433a1 (`xserver-xorg-legacy`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "setuid root Xorg server wrapper". 
+- mint-10d2b7fe70e9862d28583c28 (`xserver-xorg-video-all`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- output driver metapackage". 
+- mint-80b35a4c2191bf5baf812b5f (`xserver-xorg-video-amdgpu`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- AMDGPU display driver". 
+- mint-bb2cbc8587ca66f8325d105a (`xserver-xorg-video-ati`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- AMD/ATI display driver wrapper". 
+- mint-424cad0376583b4c5474a97f (`xserver-xorg-video-fbdev`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- fbdev display driver". 
+- mint-0592f3c360f460ceccb96ba3 (`xserver-xorg-video-intel`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- Intel i8xx, i9xx display driver". 
+- mint-c703754c3a0945ebc40b5bc6 (`xserver-xorg-video-nouveau`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- Nouveau display driver". 
+- mint-e4fc26c5314813c5df28acce (`xserver-xorg-video-qxl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- QXL display driver". 
+- mint-523e0ec57514cbe10f42a800 (`xserver-xorg-video-radeon`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- AMD/ATI Radeon display driver". 
+- mint-a10efff5d186e909a2829227 (`xserver-xorg-video-vesa`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- VESA display driver". 
+- mint-8c0a94e23f4bc8c503eaf29d (`xserver-xorg-video-vmware`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X.Org X server -- VMware display driver". 
+- mint-6588d4abd8b228984c63c691 (`xviewer`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Image viewer". 
+- mint-ba031043427419853fa62812 (`xviewer-dbg`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "Image viewer - debugging symbols". 
+- mint-69512eabe1f5d48b076029c7 (`xviewer-plugins`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/backport/binary-amd64/Packages.gz — "set of plugins for xviewer". 
+- mint-5a3d16a92bc2e3f9d29fc928 (`xwayland`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "X server for running X clients under Wayland". 
+- mint-9c046affea94d33fd7f78c78 (`xxd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "tool to make (or reverse) a hex dump". 
+- mint-4eb5ff6b0e390b7b7c78f78e (`xz-utils`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "XZ-format compression utilities". 
+- mint-ea86e240ac04beb0508b36c6 (`yaru-theme-icon`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Yaru icon theme from the Ubuntu Community". 
+- mint-d136941ddac15c1275a78492 (`yelp`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Help browser for GNOME". 
+- mint-d2b5ce4a3bf501bc717a298a (`yelp-xsl`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "XSL stylesheets for the yelp help browser". 
+- mint-06a5b3c528b189bab5199312 (`yt-dlp`): https://archive.ubuntu.com/ubuntu/dists/noble/universe/i18n/Translation-en.xz — "downloader of videos from YouTube and other sites". 
+- mint-41358d018a61b3e0d4756c84 (`zenity`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Display graphical dialog boxes from shell scripts". 
+- mint-5df8214610acc5b0d2a99002 (`zenity-common`): https://mirrors.kernel.org/linuxmint-packages/dists/zara/upstream/binary-amd64/Packages.gz — "Display graphical dialog boxes from shell scripts (common files)". Archive https://mirrors.kernel.org/linuxmint-packages/pool/upstream/z/zenity/zenity-common_3.44.2-1+wilma_all.deb; inspected entries: `./usr/share/zenity/zenity.ui`.
+- mint-ec2c3d3e24b4f18147a95347 (`zip`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "Archiver for .zip files". 
+- mint-bf32577558e8b22f7e3f57ed (`zlib1g`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "compression library - runtime". 
+- mint-7b0ac62a03e4ad24fc54ac19 (`zstd`): https://archive.ubuntu.com/ubuntu/dists/noble/main/i18n/Translation-en.xz — "fast lossless compression algorithm -- CLI tool". 
+
+## Validation
+
+635 assigned ids equal 635 output ids, each once. All decisions use the allowed vocabulary; all summaries and reasons satisfy the word limits. Counts: MUST 559, NOT 33, HOLE 43, UNKNOWN 0, MIXED 0.
+
+## Subsequent evidence review corrections
+
+The 15 rows in part-mint.3.corrections.tsv supersede the corresponding judgments in the original shard for final merging. The shard itself remains unchanged to preserve its completed append-only record. Dependency constraints govern future update selection, which is behavior under S2.2-1; restricting removal to current executable capability would add an unsupported temporal boundary. Explicitly safely removable transition packages retain their earlier judgments.
+
+The theme archives contain `gtk-2.0/gtkrc`, `gtk-3.0/gtk.css`, `cinnamon/cinnamon.css` and `metacity-1/metacity-theme-3.xml`. These establish multiple-program scope, so mint-l-theme and mint-themes are MUST, rather than ambiguous single-program settings. Source archive URLs and exact paths are saved in part-mint.3.filelists.json.
+
+The interface definitions of xed-common and zenity-common are single-program values under S2.2-13 and exempt under S2.2-7. Lost interface operation alone does not defeat an explicit exemption. pix-data differs: its `usr/share/aclocal/pix.m4` contains `AC_DEFUN([PIX_EXTENSION_INIT],` and `AC_DEFUN([PIX_EXTENSION_RULES],` plus shell commands invoking package discovery, translation and sed. Thus executable build macros justify MUST. Source: https://mirrors.kernel.org/linuxmint-packages/pool/backport/p/pix/pix-data_3.4.7+zara_all.deb. Selected code is saved in part-mint.3.pix-macro.json.
+
+The confinement boundary of yelp-xsl remains factual uncertainty, hence UNKNOWN under S3-2; it was incorrectly labeled a textual HOLE in the original shard.

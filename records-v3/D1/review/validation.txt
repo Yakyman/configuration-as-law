@@ -1,0 +1,11 @@
+Validation 2026-11-22 UTC
+
+/usr/bin/python3 -I bin/check_quotes.py D1/RESULT.md
+quotes checked: 11; not found in TEXT.md: 0
+
+/usr/bin/python3 -I D1/review/verify_samples.py
+resolved: population 888, seed 2026112201, 40 ordered ids verified; {'OUTSIDE': 7, 'CORRECTED': 9, 'UPHELD': 21, 'NOT-ESTABLISHED': 3}
+agreed: population 14681, seed 2026112202, 60 ordered ids verified; {'UPHELD': 57, 'CANDIDATE:REFUTED': 3}
+Inventory and comparison counts verified.
+
+All eight fixed input hashes unchanged; result header and confirmed extent verified.

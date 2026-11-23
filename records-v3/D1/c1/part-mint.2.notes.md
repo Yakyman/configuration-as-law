@@ -1,0 +1,772 @@
+# Classification c1: package slice 2
+
+Scope: package-kind indices 635 through 1269 inclusive. Installation identity comes from the assigned inventory; operational function comes from the cited public package descriptions and file lists. No removal or execution probe was performed. Package contents are considered together as the single inventoried package object; this is not a grouped directory row.
+
+## Exact deciding sentences
+
+- **S2.2-1** Whatever the computer’s behaviour depends on—what it does and what can be done on it—must be recorded.
+- **S2.2-2** The test is removal: if, after an object is removed, the computer stops doing something or something becomes impossible on it, the object must be recorded.
+- **S2.2-3** The following need not be recorded:
+- **S2.2-4** content—documents, photographs, the contents of databases: after it is removed, the computer does and can do the same, and only the content itself is unavailable;
+- **S2.2-7** settings that are in force only inside one program, for example the home page, theme, and extensions of a web browser.
+- **S2.2-9** a program that runs on the computer must be recorded regardless of how it was installed—including an application package (Flatpak), a program in the home directory, and a program in a container;
+- **S2.2-10** code that another program executes must be recorded if the program runs it with the program’s own rights, so that the code can do whatever the program can do: scripts executed by an interpreter (python, bash), shell startup files, an editor configuration written in the editor’s programming language.
+- **S2.2-11** Code that the program confines to its own interface—a web page in a browser, a guest system in a virtual machine—need not be recorded, but the program itself must be.
+- **S2.2-13** A file that a program executes as code counts as code even when it holds settings; a file that a program only reads as values counts as a setting;
+- **S2.2-15** accounts, the right to become superuser, the keys used to log in to an account, firewall rules, and ports open for connection must be recorded; an account password need not be, but the rule that password login is allowed must be;
+- **S3-1** **Whether an object must be recorded.** The decision is made from the text of Section 2.2 and information about what the object does, established by documentation, by observation, or by removal: in a disputed case, the object is removed on a disposable copy of the machine, and what stopped working is recorded.
+- **S3-2** If what the object does remains unknown, the case yields ?.
+
+## Public documentation and method
+
+The primary package-index sources are https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz and https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz . Selected Description fields are retained in (not published: downloaded distribution package metadata). Per-package URLs and exact description quotations appear below. Base-release documentation establishes package function, not an assertion that an installed update has the base version. Additional source URLs cover packages absent from the base indexes.
+
+Shared-library semantics: https://www.debian.org/doc/debian-policy/ch-sharedlibs.html : “the dynamic linker knows that library must be loaded at runtime.” Native library routines execute in the caller, rather than a confined web-page or virtual-machine interface.
+
+Rule E (homogeneous executable packages): a documented native runtime library, interpreter module, or executable utility supplies runnable operations. S2.2-10 requires caller-rights library/module code; S2.2-9 requires standalone programs; S2.2-1 and S2.2-2 independently cover their removed capabilities. This rule is applied only after reading each package description. Data, development, common, theme, documentation and transitional packages were withheld and inspected individually. The same semantic rule covers libraries and utilities; their sentence fields distinguish the relevant explicit clause.
+
+Ten manually checked Rule E rows (id, package, checked role):
+- mint-eca934e83596f4d862beb0a3: libefiboot1t64; “Library to manage UEFI variables”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-5228c6f6a563073d47a00ea6: libelf1t64; “library to read and write ELF files”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-d4216a85fb7f9121ee51272c: libencode-locale-perl; “utility to determine the locale encoding”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-96939ddcdbba6a647cba4eef: libexpat1; “XML parsing C library - runtime library”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-f7cd793d33c7ff4033d06736: libfdisk1; “fdisk partitioning library”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-60df83a13018c5bb4adeafed: libgdk-pixbuf2.0-bin; “GDK Pixbuf library (thumbnailer)”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-b4b91ddb3d50caead34eed13: libglib2.0-bin; “Programs for the GLib library”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-b71d22a2c5e0f9fa974aea9e: libgtk-3-bin; “programs for the GTK graphical user interface library”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-8c847ebe1d9ec1bd20f74d0f: libimobiledevice-utils; “Utitilies for communicating with iPhone and other Apple devices”. This is executable runtime/module/utility functionality, not passive package data.
+- mint-65d864714e2c68fc8f692f53: libjxl-tools; “JPEG XL Image Coding System - "JXL" (command line utility)”. This is executable runtime/module/utility functionality, not passive package data.
+
+Additional manual utility checks to make both executable forms independently auditable:
+- mint-c5d4027fb2db22819395c898: libgsf-bin; “Structured File Library - programs”. Executable utility or helper.
+- mint-f4f144611089d4ac217ef330: libgtk2.0-bin; “programs for the GTK graphical user interface library”. Executable utility or helper.
+- mint-689927c041802fb13115b920: liblcms2-utils; “Little CMS 2 color management library (utilities)”. Executable utility or helper.
+- mint-aabf4685386e95940b474978: liblouisutdml-bin; “Braille UTDML translation utilities”. Executable utility or helper.
+- mint-afc65ac44abc739197f16cf9: libmbim-proxy; “Proxy to communicate with MBIM ports”. Executable utility or helper.
+- mint-4c695759c77f7b71645140bd: libmtp-runtime; “Media Transfer Protocol (MTP) runtime tools”. Executable utility or helper.
+- mint-9f5dc1d80382eae9fef304cd: libnotify-bin; “sends desktop notifications to a notification daemon (Utilities)”. Executable utility or helper.
+- mint-424a3e2205a2664bdf1e0ba0: libpam-modules-bin; “Pluggable Authentication Modules for PAM - helper binaries”. Executable utility or helper.
+- mint-1388e5c7adfe16d4f9c04e1b: libpaper-utils; “library for handling paper characteristics (utilities)”. Executable utility or helper.
+- mint-da55e568b5f7f22a3f137b3c: libqmi-proxy; “Proxy to communicate with QMI ports”. Executable utility or helper.
+
+## Individual exceptions
+
+Every entry below was decided after inspecting its own published file list; similar wording is not a rule inferred from package suffixes. File-list evidence is retained in (not published: downloaded distribution package metadata). Quotes identify representative actual contents, excluding routine package documentation where operational files exist. Documentation-only lists were inspected completely.
+
+- mint-e0fbe4b91d79b952736d5d49, libexttextcat-data: MUST. Removing the language models removes the detector’s recognition capability. Source: https://packages.ubuntu.com/noble/amd64/libexttextcat-data/filelist; file-list quote: “/usr/share/libexttextcat/ab.lm; /usr/share/libexttextcat/ace.lm”.
+- mint-603a1832fe4275ab596e0a6e, libgail-common: MUST. Native accessibility modules execute with the application’s own rights. Source: https://packages.ubuntu.com/noble/amd64/libgail-common/filelist; file-list quote: “/usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libferret.so; /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libgail.so”.
+- mint-e28e81ee373ab8f897476e8e, libgcc-13-dev: MUST. Removing these objects prevents compiling and linking supported programs. Source: https://packages.ubuntu.com/noble/amd64/libgcc-13-dev/filelist; file-list quote: “/usr/lib/gcc/x86_64-linux-gnu/13/crtbegin.o; /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o”.
+- mint-1a7a9682ddc9b84d1b6a7c1c, libgdata-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgdata-common/filelist; file-list quote: “/usr/share/doc/libgdata-common/changelog.Debian.gz; /usr/share/doc/libgdata-common/copyright”.
+- mint-b99d357e3028aca7e30a9360, libgdk-pixbuf2.0-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgdk-pixbuf2.0-common/filelist; file-list quote: “/usr/share/doc/libgdk-pixbuf2.0-common/changelog.Debian.gz; /usr/share/doc/libgdk-pixbuf2.0-common/copyright”.
+- mint-3d51ab53721bee678bb4af10, libglib2.0-data: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libglib2.0-data/filelist; file-list quote: “/usr/share/doc/libglib2.0-data/changelog.Debian.gz; /usr/share/doc/libglib2.0-data/copyright”.
+- mint-b484766ba233d05426f4a3e9, libgphoto2-l10n: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgphoto2-l10n/filelist; file-list quote: “/usr/share/doc/libgphoto2-l10n/changelog.Debian.gz; /usr/share/doc/libgphoto2-l10n/copyright”.
+- mint-1b6205004ca33a384f976275, libgsf-1-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgsf-1-common/filelist; file-list quote: “/usr/share/doc/libgsf-1-common/NEWS.gz; /usr/share/doc/libgsf-1-common/changelog.Debian.gz”.
+- mint-18d86df0f59caec6aaf212e2, libgspell-1-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgspell-1-common/filelist; file-list quote: “/usr/share/doc/libgspell-1-common/changelog.Debian.gz; /usr/share/doc/libgspell-1-common/copyright”.
+- mint-45bddac5da5b1c0ea8eeda3b, libgtop2-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libgtop2-common/filelist; file-list quote: “/usr/share/doc/libgtop2-common/changelog.Debian.gz; /usr/share/doc/libgtop2-common/copyright”.
+- mint-91cee78b097d42b2ce3643bd, libjson-glib-1.0-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libjson-glib-1.0-common/filelist; file-list quote: “/usr/share/doc/libjson-glib-1.0-common/changelog.Debian.gz; /usr/share/doc/libjson-glib-1.0-common/copyright”.
+- mint-f5128acc01919b6ea714f7d1, libsecret-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libsecret-common/filelist; file-list quote: “/usr/share/doc/libsecret-common/changelog.Debian.gz; /usr/share/doc/libsecret-common/copyright”.
+- mint-f19e0145c3f8f8ba45ccda10, libsoup-3.0-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libsoup-3.0-common/filelist; file-list quote: “/usr/share/doc/libsoup-3.0-common/changelog.Debian.gz; /usr/share/doc/libsoup-3.0-common/copyright”.
+- mint-e6484050258a37353a53125e, libsoup2.4-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libsoup2.4-common/filelist; file-list quote: “/usr/share/doc/libsoup2.4-common/changelog.Debian.gz; /usr/share/doc/libsoup2.4-common/copyright”.
+- mint-0e8a7e18e99acc29322752a8, libtotem-plparser-common: NOT. Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list. Source: https://packages.ubuntu.com/noble/amd64/libtotem-plparser-common/filelist; file-list quote: “/usr/share/doc/libtotem-plparser-common/changelog.Debian.gz; /usr/share/doc/libtotem-plparser-common/copyright”.
+- mint-a37141575c574866e1e94e2b, libgnomekbd-common: MUST. These shared keyboard facilities affect multiple applications; removing their schemas removes configuration capabilities. Source: https://packages.ubuntu.com/noble/amd64/libgnomekbd-common/filelist; file-list quote: “/usr/share/GConf/gsettings/libgnomekbd.convert; /usr/share/glib-2.0/schemas/org.gnome.libgnomekbd.desktop.gschema.xml”.
+- mint-3023b2a226683cd1db5915c2, libgoa-1.0-common: MUST. Shared account-service configuration affects applications using that service, beyond one program. Source: https://packages.ubuntu.com/noble/amd64/libgoa-1.0-common/filelist; file-list quote: “/usr/share/glib-2.0/schemas/org.gnome.online-accounts.gschema.xml”.
+- mint-c4dca01c9777ac62eee5fe6d, libgpod-common: MUST. Its independently executable helpers supply operations lost on removal. Source: https://packages.ubuntu.com/noble/amd64/libgpod-common/filelist; file-list quote: “/usr/bin/ipod-read-sysinfo-extended; /usr/bin/ipod-time-sync”.
+- mint-a453e15cdf70a904a6d2812d, libgs-common: NOT. These profiles are values configuring color rendering within the interpreter. Source: https://packages.ubuntu.com/noble/amd64/libgs-common/filelist; file-list quote: “/usr/share/color/icc/ghostscript/a98.icc; /usr/share/color/icc/ghostscript/default_cmyk.icc”.
+- mint-f03630dc00f470e339f74873, libgs10-common: UNKNOWN. Documentation shows executable interpreter resources, but available evidence does not establish their execution rights or confinement. Source: https://packages.ubuntu.com/noble/amd64/libgs10-common/filelist; file-list quote: “/usr/share/ghostscript/10.02.1/Resource/CIDFSubst/DroidSansFallback.ttf; /usr/share/ghostscript/10.02.1/Resource/CIDFont/ArtifexBullet”.
+- mint-b072fe21a5941e5b70717d4e, libgtk-3-common: MUST. Toolkit settings apply across applications; removing resources removes shared interface capabilities. Source: https://packages.ubuntu.com/noble/amd64/libgtk-3-common/filelist; file-list quote: “/etc/gtk-3.0/im-multipress.conf; /usr/share/glib-2.0/schemas/org.gtk.Settings.ColorChooser.gschema.xml”.
+- mint-7f2adcdd0c00a776b9a34c94, libgtk-4-common: MUST. Toolkit settings apply across applications; removing resources removes shared interface capabilities. Source: https://packages.ubuntu.com/noble/amd64/libgtk-4-common/filelist; file-list quote: “/usr/share/glib-2.0/schemas/org.gtk.gtk4.Settings.ColorChooser.gschema.xml; /usr/share/glib-2.0/schemas/org.gtk.gtk4.Settings.Debug.gschema.xml”.
+- mint-7e6749af2823cec1035a835c, libgtk2.0-common: MUST. Toolkit input and theme settings are used across applications, outside the one-program exemption. Source: https://packages.ubuntu.com/noble/amd64/libgtk2.0-common/filelist; file-list quote: “/etc/gtk-2.0/im-multipress.conf; /usr/share/themes/Default/gtk-2.0-key/gtkrc”.
+- mint-46b5afb6397df38a0f147efa, libgtksourceview-3.0-common: MUST. Removing grammars removes language-specific highlighting across applications using the widget. Source: https://packages.ubuntu.com/noble/amd64/libgtksourceview-3.0-common/filelist; file-list quote: “/usr/share/gtksourceview-3.0/language-specs/R.lang; /usr/share/gtksourceview-3.0/language-specs/abnf.lang”.
+- mint-49cb633f87d41791fab91e45, libgtksourceview-4-common: MUST. Removing grammars removes language-specific highlighting across applications using the widget. Source: https://packages.ubuntu.com/noble/amd64/libgtksourceview-4-common/filelist; file-list quote: “/usr/share/gtksourceview-4/language-specs/R.lang; /usr/share/gtksourceview-4/language-specs/abnf.lang”.
+- mint-8da217ac5f3e7316e94fc8d7, libgutenprint-common: MUST. Removing model definitions removes supported printing capabilities across programs. Source: https://packages.ubuntu.com/noble/amd64/libgutenprint-common/filelist; file-list quote: “/usr/share/gutenprint/5.3/xml/dither/matrix-1x1.xml; /usr/share/gutenprint/5.3/xml/dither/matrix-2x1.xml”.
+- mint-42af36e99ac3c7f718a68789, libgweather-4-common: HOLE. The location database is exempt content or operational recognition data; the text does not distinguish those readings. Source: https://packages.ubuntu.com/noble/amd64/libgweather-4-common/filelist; file-list quote: “/usr/share/glib-2.0/schemas/org.gnome.GWeather4.enums.xml; /usr/share/glib-2.0/schemas/org.gnome.GWeather4.gschema.xml”.
+- mint-4c012665c72203edb1c59ed6, libhtml-tagset-perl: MUST. The interpreter loads the module as code with its own rights. Source: https://packages.ubuntu.com/noble/amd64/libhtml-tagset-perl/filelist; file-list quote: “/usr/share/man/man3/HTML::Tagset.3pm.gz; /usr/share/perl5/HTML/Tagset.pm”.
+- mint-8a2f27d9c1c911fdb92fa3fb, libinput-bin: MUST. Removing executable helpers and system device rules removes input-device handling capabilities. Source: https://packages.ubuntu.com/noble/amd64/libinput-bin/filelist; file-list quote: “/lib/udev/libinput-device-group; /lib/udev/libinput-fuzz-extract”.
+- mint-bffd30fd970d239f8e671e3d, libjpeg8: NOT. The dependency package has no executable payload; its removal leaves the separately packaged implementation available. Source: https://packages.ubuntu.com/noble/amd64/libjpeg8/filelist; file-list quote: “/usr/share/doc/libjpeg8/changelog.Debian.gz; /usr/share/doc/libjpeg8/copyright”.
+- mint-07398272b8b4d6e2452d1f7c, libjs-mathjax: UNKNOWN. Browser-confined and interpreter execution are documented; inventory does not establish which execution rights apply here. Source: https://packages.ubuntu.com/noble/amd64/libjs-mathjax/filelist; file-list quote: “/usr/share/javascript/mathjax/MathJax.js; /usr/share/javascript/mathjax/config/AM_CHTML-full.js”.
+- mint-a282c662d65102e813baff88, liblangtag-common: MUST. Removing tag definitions removes recognition of supported language identifiers across dependent programs. Source: https://packages.ubuntu.com/noble/amd64/liblangtag-common/filelist; file-list quote: “/usr/share/liblangtag/common/bcp47/calendar.xml; /usr/share/liblangtag/common/bcp47/collation.xml”.
+- mint-d91138aecb724ed87b5a3f1d, liblouis-data: MUST. Removing translation tables prevents the supported braille conversions. Source: https://packages.ubuntu.com/noble/amd64/liblouis-data/filelist; file-list quote: “/usr/share/liblouis/tables/Es-Es-G0.utb; /usr/share/liblouis/tables/IPA-unicode-range.uti”.
+- mint-82b76eb7cd94a92667d29af3, liblouisutdml-data: MUST. Removing semantics and translation definitions prevents supported document-to-braille conversions. Source: https://packages.ubuntu.com/noble/amd64/liblouisutdml-data/filelist; file-list quote: “/usr/share/liblouisutdml/lbu_files/ThML.sem; /usr/share/liblouisutdml/lbu_files/Workbook.sem”.
+- mint-d08abb4b5a6de9256af74302, libmagic-mgc: MUST. Removing signature rules removes file-type recognition across programs; they are operational rules rather than a speed-only cache. Source: https://packages.ubuntu.com/noble/amd64/libmagic-mgc/filelist; file-list quote: “/usr/lib/file/magic.mgc; /usr/share/file/magic.mgc”.
+- mint-b47c33a97bcc8cb6c0f83166, libmateweather-common: HOLE. Weather locations can be read as exempt database content or capability-defining data; the text does not distinguish them. Source: https://packages.ubuntu.com/noble/amd64/libmateweather-common/filelist; file-list quote: “/usr/share/glib-2.0/schemas/org.mate.weather.gschema.xml; /usr/share/icons/hicolor/16x16/status/weather-clear-night-000.png”.
+- mint-1a0754df8cfbdeb1f7840808, libmtp-common: MUST. Its device rules and executable hook affect system access and run beyond one program’s interface. Source: https://packages.ubuntu.com/noble/amd64/libmtp-common/filelist; file-list quote: “/usr/lib/udev/hwdb.d/69-libmtp.hwdb; /usr/lib/udev/rules.d/69-libmtp.rules”.
+- mint-0abdd0ecc4d167f671611a4a, libnma-common: MUST. Network authentication configuration is shared across users of the library, beyond one program. Source: https://packages.ubuntu.com/noble/amd64/libnma-common/filelist; file-list quote: “/usr/share/glib-2.0/schemas/org.gnome.nm-applet.eap.gschema.xml”.
+- mint-30733059fb89dae7514595f5, libopenal-data: MUST. Audio configuration and profiles affect applications using the shared library; removal removes spatial-rendering capabilities. Source: https://packages.ubuntu.com/noble/amd64/libopenal-data/filelist; file-list quote: “/etc/openal/alsoft.conf; /usr/share/openal/alsoftrc.sample”.
+- mint-aa0e81ea3d43187befdb7bb4, libpam-runtime: MUST. Authentication helpers are programs and their shared access rules govern system login. Source: https://packages.ubuntu.com/noble/amd64/libpam-runtime/filelist; file-list quote: “/etc/pam.conf; /etc/pam.d/other”.
+- mint-d26ce339ea8777f96a700d2c, libpeas-common: NOT. Only image content becomes unavailable; the file list contains no executable plugin implementation. Source: https://packages.ubuntu.com/noble/amd64/libpeas-common/filelist; file-list quote: “/usr/share/icons/hicolor/16x16/actions/libpeas-plugin.png; /usr/share/icons/hicolor/22x22/actions/libpeas-plugin.png”.
+- mint-b989bc66a213f8f3501280a8, libpkcs11-helper1t64: MUST. The shared library executes with the calling program’s own rights. Source: https://packages.ubuntu.com/noble/amd64/libpkcs11-helper1t64/filelist; file-list quote: “/usr/lib/x86_64-linux-gnu/libpkcs11-helper.so.1; /usr/lib/x86_64-linux-gnu/libpkcs11-helper.so.1.0.0”.
+- mint-52f095f05ca53fba848d19b8, libppd2-common: MUST. Removing headers and format definitions prevents supported printer-description compilation. Source: https://packages.ubuntu.com/noble/amd64/libppd2-common/filelist; file-list quote: “/usr/share/ppdc/epson.h; /usr/share/ppdc/font.defs”.
+- mint-733875e389a687498d4e2634, libproxy1-plugin-gsettings: NOT. The transitional package contains no plugin implementation; removing it leaves the replacement implementation available. Source: https://packages.ubuntu.com/noble/amd64/libproxy1-plugin-gsettings/filelist; file-list quote: “/usr/share/doc/libproxy1-plugin-gsettings/changelog.Debian.gz; /usr/share/doc/libproxy1-plugin-gsettings/copyright”.
+- mint-532486c3efcfce3b07649c2f, libproxy1-plugin-networkmanager: NOT. The transitional package contains no plugin implementation; removing it leaves the replacement implementation available. Source: https://packages.ubuntu.com/noble/amd64/libproxy1-plugin-networkmanager/filelist; file-list quote: “/usr/share/doc/libproxy1-plugin-networkmanager/changelog.Debian.gz; /usr/share/doc/libproxy1-plugin-networkmanager/copyright”.
+- mint-faf613bbc932d574906aa6db, libpwquality-common: MUST. The policy configures shared authentication facilities rather than settings confined to one program. Source: https://packages.ubuntu.com/noble/amd64/libpwquality-common/filelist; file-list quote: “/etc/security/pwquality.conf; /usr/share/man/man5/pwquality.conf.5.gz”.
+- mint-d0cf3bfc0f782be651893767, libpython3-stdlib: NOT. This dependency package contains no standard-library implementation; removing it leaves separately packaged library code available. Source: https://packages.ubuntu.com/noble/amd64/libpython3-stdlib/filelist; file-list quote: “/usr/share/doc/libpython3-stdlib/README.Debian; /usr/share/doc/libpython3-stdlib/changelog.Debian.gz”.
+- mint-76e392db70d39d833ae72908, librda-common: NOT. The translated message content disappears; executable remote-desktop functions remain. Source: https://packages.ubuntu.com/noble/amd64/librda-common/filelist; file-list quote: “/usr/share/locale/af/LC_MESSAGES/librda.mo; /usr/share/locale/am/LC_MESSAGES/librda.mo”.
+- mint-e3bcf64cf309bedddb22d4fd, libreoffice-common: MUST. The package includes executable launchers and scripts required to start and operate the suite. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-common/filelist; file-list quote: “/etc/apparmor.d/usr.lib.libreoffice.program.oosplash; /etc/apparmor.d/usr.lib.libreoffice.program.senddoc”.
+- mint-2f6aa703da9fafd44daec271, libreoffice-help-common: NOT. Help content and its browser-interface scripts are explicitly exempt. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-help-common/filelist; file-list quote: “/usr/lib/libreoffice/share/config/images_helpimg.zip; /usr/share/bug/libreoffice-help-common/presubj”.
+- mint-bb5504062eb6b3dc716be62d, libreoffice-help-en-us: NOT. Help documents are content; navigation scripts remain within the browser interface. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-help-en-us/filelist; file-list quote: “/usr/share/bug/libreoffice-help-en-us/presubj; /usr/share/libreoffice/help/en-US/bookmarks.js”.
+- mint-17cfe851192ecea13111cb1a, libreoffice-style-colibre: NOT. Theme values affect only the office program’s interface and are expressly exempt. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-style-colibre/filelist; file-list quote: “/usr/lib/libreoffice/share/config/images_colibre.zip; /usr/lib/libreoffice/share/config/images_colibre_dark.zip”.
+- mint-f0792203cfac5c896f5acde5, libreoffice-uiconfig-calc: NOT. These interface values are settings confined to the office program; the explicit setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-calc/filelist; file-list quote: “/usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/menubar/menubar.xml; /usr/lib/libreoffice/share/config/soffice.cfg/modules/scalc/popupmenu/anchor.xml”.
+- mint-488c9c6152f9a5f984d35271, libreoffice-uiconfig-common: NOT. These interface values are settings confined to the office program; the explicit setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-common/filelist; file-list quote: “/usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/aboutconfigdialog.ui; /usr/lib/libreoffice/share/config/soffice.cfg/cui/ui/aboutdialog.ui”.
+- mint-c09b84ff3052885b9e908970, libreoffice-uiconfig-draw: NOT. These interface values are settings confined to the office program; the explicit setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-draw/filelist; file-list quote: “/usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/menubar/menubar.xml; /usr/lib/libreoffice/share/config/soffice.cfg/modules/sdraw/popupmenu/3dobject.xml”.
+- mint-2f697d16e5c6412108030251, libreoffice-uiconfig-impress: NOT. These interface values are settings confined to the office program; the explicit setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-impress/filelist; file-list quote: “/usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/menubar/menubar.xml; /usr/lib/libreoffice/share/config/soffice.cfg/modules/simpress/popupmenu/3dobject.xml”.
+- mint-f7c8cbe48c2d0e2049d5d92c, libreoffice-uiconfig-writer: NOT. These interface values are settings confined to the office program; the explicit setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-writer/filelist; file-list quote: “/usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/menubar/menubar.xml; /usr/lib/libreoffice/share/config/soffice.cfg/modules/sweb/popupmenu/anchor.xml”.
+- mint-25cba3f3f64f39fb77d2d18d, librsvg2-common: MUST. The image-loader module executes with its calling program’s own rights. Source: https://packages.ubuntu.com/noble/amd64/librsvg2-common/filelist; file-list quote: “/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-svg.so; /usr/share/lintian/overrides/librsvg2-common”.
+- mint-969c0d0a7ab22f765397a4fe, libsane-common: MUST. Backend selection and device settings govern scanning through multiple applications; removing them removes supported access. Source: https://packages.ubuntu.com/noble/amd64/libsane-common/filelist; file-list quote: “/etc/sane.d/abaton.conf; /etc/sane.d/agfafocus.conf”.
+- mint-81531ef6d83130e53c064a6b, libsemanage-common: MUST. System access-policy settings affect multiple programs, beyond the one-program exemption. Source: https://packages.ubuntu.com/noble/amd64/libsemanage-common/filelist; file-list quote: “/etc/selinux/semanage.conf; /usr/share/man/man5/semanage.conf.5.gz”.
+- mint-7e1d554495ea2538edd6bce3, libsensors-config: MUST. Sensor values are interpreted by multiple consumers of the shared library, beyond one program. Source: https://packages.ubuntu.com/noble/amd64/libsensors-config/filelist; file-list quote: “/etc/sensors.d/.placeholder; /etc/sensors3.conf”.
+- mint-c5095a8e093bb7ef63c31a8d, libsnmp-base: MUST. Removing these definitions removes management and code-generation capabilities across the tool suite. Source: https://packages.ubuntu.com/noble/amd64/libsnmp-base/filelist; file-list quote: “/etc/snmp/snmp.conf; /usr/share/man/man5/mib2c.conf.5.gz”.
+- mint-f3a27734d1c9e9356a0e2c91, libsource-highlight-common: NOT. Grammar and style values configure highlighting inside the program; the setting exemption applies. Source: https://packages.ubuntu.com/noble/amd64/libsource-highlight-common/filelist; file-list quote: “/usr/share/source-highlight/Hello.css; /usr/share/source-highlight/Hello2.css”.
+- mint-bdf8f6d772ec2e8c8641b3ee, libstdc++-13-dev: MUST. Removing these development objects prevents supported compilation and linking. Source: https://packages.ubuntu.com/noble/amd64/libstdc++-13-dev/filelist; file-list quote: “/usr/include/c++/13/algorithm; /usr/include/c++/13/any”.
+- mint-7588ce4f54fd792c9bd42dd5, libtag1v5: NOT. The package has no library implementation; removing it leaves the separately packaged implementation available. Source: https://packages.ubuntu.com/noble/amd64/libtag1v5/filelist; file-list quote: “/usr/share/doc/libtag1v5/README.bindings; /usr/share/doc/libtag1v5/changelog.Debian.gz”.
+- mint-a5f5ff7e91db3d3684bcf0d8, libthai-data: MUST. Removing the dictionary removes language-specific word segmentation across dependent programs. Source: https://packages.ubuntu.com/noble/amd64/libthai-data/filelist; file-list quote: “/usr/share/libthai/thbrk.tri”.
+- mint-29bb86e1f410b4e9273b2a6c, libtimezonemap-data: HOLE. Geographical entries can be exempt content or operational timezone-selection data; the text does not distinguish the readings. Source: https://packages.ubuntu.com/noble/amd64/libtimezonemap-data/filelist; file-list quote: “/usr/share/libtimezonemap/backward; /usr/share/libtimezonemap/ui/admin1Codes.txt”.
+- mint-ef80a80feb7709633f6d40e4, libtirpc-common: MUST. Network transport definitions govern multiple RPC consumers; removal removes configured transport capabilities. Source: https://packages.ubuntu.com/noble/amd64/libtirpc-common/filelist; file-list quote: “/etc/netconfig; /usr/share/man/man5/netconfig.5.gz”.
+- mint-f1de460c4c30e051eff71e46, libvte-2.91-common: MUST. Shell startup code and helper programs run with their executing programs’ rights. Source: https://packages.ubuntu.com/noble/amd64/libvte-2.91-common/filelist; file-list quote: “/etc/profile.d/vte-2.91.sh; /etc/profile.d/vte.csh”.
+
+MathJax execution uncertainty is supported by https://docs.mathjax.org/en/v2.7/ : “MathJax on NodeJS” and “works in all modern browsers.” The installed inventory does not select the execution context. Interpreter initialization resources likewise do not establish their installed confinement mode merely by their presence.
+
+HOLE rows concern the actual classification boundary for operational location databases; they do not ask how a system should transfer or preserve state. The text supplies no boundary between geographical database content and capability-defining lookup data.
+
+## Per-package function quotations
+
+- mint-eca934e83596f4d862beb0a3: https://packages.ubuntu.com/noble/libefiboot1t64 — “Library to manage UEFI variables”.
+- mint-a3580006e5de28b40bb369e8: https://packages.ubuntu.com/noble/libefivar1t64 — “Library to manage UEFI variables”.
+- mint-d661684c26d823f384bd7aea: https://packages.ubuntu.com/noble/libegl-mesa0 — “free implementation of the EGL API -- Mesa vendor library”.
+- mint-132cc7706b2bb70d4bac7554: https://packages.ubuntu.com/noble/libegl1 — “Vendor neutral GL dispatch library -- EGL support”.
+- mint-5228c6f6a563073d47a00ea6: https://packages.ubuntu.com/noble/libelf1t64 — “library to read and write ELF files”.
+- mint-7fe359c43b744f41fb93e4fc: https://packages.ubuntu.com/noble/libenchant-2-2 — “Wrapper library for various spell checker engines (runtime libs)”.
+- mint-d4216a85fb7f9121ee51272c: https://packages.ubuntu.com/noble/libencode-locale-perl — “utility to determine the locale encoding”.
+- mint-4ed8b81ceaad03991b93adcc: https://packages.ubuntu.com/noble/libeot0 — “Library for parsing/converting Embedded OpenType files”.
+- mint-737b24971bbdbd1fae379677: https://packages.ubuntu.com/noble/libepoxy0 — “OpenGL function pointer management library”.
+- mint-5377ed57cfef914bdb0bd2c2: https://packages.ubuntu.com/noble/libepubgen-0.1-1 — “EPUB generator library”.
+- mint-67b6cc759e512681a14a262d: https://packages.ubuntu.com/noble/libespeak-ng1 — “Multi-lingual software speech synthesizer: shared library”.
+- mint-fb2b3a86911d2c9a8ed7ae78: https://packages.ubuntu.com/noble/libestr0 — “Helper functions for handling strings (lib)”.
+- mint-8f252042fb027bc10d92ad99: https://packages.ubuntu.com/noble/libetonyek-0.1-1 — “library for reading and converting Apple Keynote presentations”.
+- mint-c7bd0e0afcafabc41c201f8c: https://packages.ubuntu.com/noble/libevdev2 — “wrapper library for evdev devices”.
+- mint-ca0ec4e2640f8fbb8dd03ee0: https://packages.ubuntu.com/noble/libevent-2.1-7t64 — “Asynchronous event notification library”.
+- mint-994f3f736dd634b03c81e018: https://packages.ubuntu.com/noble/libexempi8 — “library to parse XMP metadata (Library)”.
+- mint-e4530b3719815bf04babe84d: https://packages.ubuntu.com/noble/libexif12 — “library to parse EXIF files”.
+- mint-85dc9cf21979c582a86c3053: https://packages.ubuntu.com/noble/libexiv2-27 — “EXIF/IPTC/XMP metadata manipulation library”.
+- mint-96939ddcdbba6a647cba4eef: https://packages.ubuntu.com/noble/libexpat1 — “XML parsing C library - runtime library”.
+- mint-3d5de8ef1639e3906873ed31: https://packages.ubuntu.com/noble/libext2fs2t64 — “ext2/ext3/ext4 file system libraries”.
+- mint-c08b415c807b2eb08e4d3310: https://packages.ubuntu.com/noble/libexttextcat-2.0-0 — “Language detection library”.
+- mint-e0fbe4b91d79b952736d5d49: https://packages.ubuntu.com/noble/libexttextcat-data — “Language detection library - data files”.
+- mint-b7ae639746bf4427799617f7: https://packages.ubuntu.com/noble/libextutils-depends-perl — “Perl module for building extensions that depend on other extensions”.
+- mint-7e54cbb38e27427bda4f1027: https://packages.ubuntu.com/noble/libfakeroot — “tool for simulating superuser privileges - shared libraries”.
+- mint-f2a076a1fe2ac780c332507d: https://packages.ubuntu.com/noble/libfastjson4 — “fast json library for C”.
+- mint-d8a23ec513fe0693732ec12b: https://packages.ubuntu.com/noble/libfcgi-perl — “helper module for FastCGI”.
+- mint-66b6011ba4a51973f93be0ea: https://packages.ubuntu.com/noble/libfcgi0t64 — “shared library of FastCGI”.
+- mint-f7cd793d33c7ff4033d06736: https://packages.ubuntu.com/noble/libfdisk1 — “fdisk partitioning library”.
+- mint-f45896d03a66880bf38c01bc: https://packages.ubuntu.com/noble/libffi8 — “Foreign Function Interface library runtime”.
+- mint-1160eeb7502dfda0ae6a01ba: https://packages.ubuntu.com/noble/libffmpegthumbnailer4v5 — “shared library for ffmpegthumbnailer”.
+- mint-e04e43e3c6d80cc9d6f1049a: https://packages.ubuntu.com/noble/libfftw3-double3 — “Library for computing Fast Fourier Transforms - Double precision”.
+- mint-2ce32403edb60b677dfd22fe: https://packages.ubuntu.com/noble/libfftw3-single3 — “Library for computing Fast Fourier Transforms - Single precision”.
+- mint-be8b6cf91015bf4a3d06d84d: https://packages.ubuntu.com/noble/libfido2-1 — “library for generating and verifying FIDO 2.0 objects”.
+- mint-5a4c477a8282805097fc5632: https://packages.ubuntu.com/noble/libfile-basedir-perl — “Perl module to use the freedesktop basedir specification”.
+- mint-aed872e4910b52a36e0f22eb: https://packages.ubuntu.com/noble/libfile-desktopentry-perl — “Perl module to handle freedesktop .desktop files”.
+- mint-5c3eb31a1c31f281675dc8e4: https://packages.ubuntu.com/noble/libfile-fcntllock-perl — “Perl module for file locking with fcntl(2)”.
+- mint-49f501e7cfe7e252454cf0a4: https://packages.ubuntu.com/noble/libfile-listing-perl — “module to parse directory listings”.
+- mint-8adc3768eba3e65114db6ac9: https://packages.ubuntu.com/noble/libfile-mimeinfo-perl — “Perl module to determine file types”.
+- mint-ad2774df99c9afd78ac4fce9: https://packages.ubuntu.com/noble/libflac12t64 — “Free Lossless Audio Codec - runtime C library”.
+- mint-16ea369c6e19f1a57259f320: https://packages.ubuntu.com/noble/libflashrom1 — “Identify, read, write, erase, and verify BIOS/ROM/flash chips - library”.
+- mint-6fe29d6ec2d08d2b1ae0afbf: https://packages.ubuntu.com/noble/libflatpak0 — “Application deployment framework for desktop apps (library)”.
+- mint-87520183ff798db3465fddb5: https://packages.ubuntu.com/noble/libflite1 — “Small run-time speech synthesis engine - shared libraries”.
+- mint-c4935977c61d7a2f5191d2e8: https://packages.ubuntu.com/noble/libfont-afm-perl — “Perl interface to Adobe Font Metrics files”.
+- mint-9ec737b74087da081298e25b: https://packages.ubuntu.com/noble/libfontconfig1 — “generic font configuration library - runtime”.
+- mint-63b8892f6d9a78e73c4eb088: https://packages.ubuntu.com/noble/libfontenc1 — “X11 font encoding library”.
+- mint-d1c0789fec15915336a7b40f: https://packages.ubuntu.com/noble/libfprint-2-2 — “async fingerprint library of fprint project, shared libraries”.
+- mint-45c1782df723bbaa0e398e81: https://packages.ubuntu.com/noble/libfprint-2-tod1 — “async fingerprint library of fprint project, drivers shared libraries”.
+- mint-1bb81b95deb55ec7b4ef0c93: https://packages.ubuntu.com/noble/libfreeaptx0 — “Free implementation of aptX”.
+- mint-04ecaae7e92de290e12e4281: https://packages.ubuntu.com/noble/libfreehand-0.1-1 — “Library for parsing the FreeHand file format structure”.
+- mint-78cb17010cee754e8ce85cdc: https://packages.ubuntu.com/noble/libfreetype6 — “FreeType 2 font engine, shared library files”.
+- mint-86015c75190fb90c56e23f8a: https://packages.ubuntu.com/noble/libfribidi0 — “Free Implementation of the Unicode BiDi algorithm”.
+- mint-aff1eb30afa9c6f50b44ab4f: https://packages.ubuntu.com/noble/libftdi1-2 — “C Library to control and program the FTDI USB controllers”.
+- mint-ef3d7b1c81a6316bf1bbf18f: https://packages.ubuntu.com/noble/libfuse2t64 — “Filesystem in Userspace (library)”.
+- mint-7304dd9b254afc490c31dd13: https://packages.ubuntu.com/noble/libfuse3-3 — “Filesystem in Userspace (library) (3.x version)”.
+- mint-310d0a3cd09de10d6f9f3ffe: https://packages.ubuntu.com/noble/libfwupd2 — “Firmware update daemon library”.
+- mint-07541f3b91f6ddacb729f214: https://packages.ubuntu.com/noble/libgail-3-0t64 — “GNOME Accessibility Implementation Library -- shared libraries”.
+- mint-603a1832fe4275ab596e0a6e: https://packages.ubuntu.com/noble/libgail-common — “GNOME Accessibility Implementation Library -- common modules”.
+- mint-de9721580c9cae9ba32f14e3: https://packages.ubuntu.com/noble/libgail18t64 — “GNOME Accessibility Implementation Library -- shared libraries”.
+- mint-b97a5900cf5c3af0ae1d07c1: https://packages.ubuntu.com/noble/libgamemode0 — “Optimise Linux system performance on demand (host library)”.
+- mint-83df1b53c79c5b725d3b101a: https://packages.ubuntu.com/noble/libgamemodeauto0 — “Optimise Linux system performance on demand (client library)”.
+- mint-20875b358480c6f3bcda7bdd: https://packages.ubuntu.com/noble/libgbm1 — “generic buffer management API -- runtime”.
+- mint-e28e81ee373ab8f897476e8e: https://packages.ubuntu.com/noble/libgcc-13-dev — “GCC support library (development files)”.
+- mint-46233cf5e03e0c4e9152e692: https://packages.ubuntu.com/noble/libgcc-s1 — “GCC support library”.
+- mint-183dbfa8e921df5c0dbd5661: https://packages.ubuntu.com/noble/libgck-1-0 — “Glib wrapper library for PKCS#11 - runtime”.
+- mint-05921d1038c89daf26615bf9: https://packages.ubuntu.com/noble/libgck-2-2 — “Glib wrapper library for PKCS#11 - runtime”.
+- mint-9fffd0b90b9d25c99bd8dac2: https://packages.ubuntu.com/noble/libgcr-4-4 — “Library for Crypto related tasks”.
+- mint-cc49d2b92173f03511810c44: https://packages.ubuntu.com/noble/libgcr-base-3-1 — “Library for Crypto related tasks”.
+- mint-c3f067534930a3d0ec48d842: https://packages.ubuntu.com/noble/libgcr-ui-3-1 — “Library for Crypto UI related tasks”.
+- mint-6b0bbf67cc843dc9c20741aa: https://packages.ubuntu.com/noble/libgcrypt20 — “LGPL Crypto library - runtime library”.
+- mint-0c21b46300ab4cba62ba6c68: https://packages.ubuntu.com/noble/libgd3 — “GD Graphics Library”.
+- mint-1a7a9682ddc9b84d1b6a7c1c: https://packages.ubuntu.com/noble/libgdata-common — “Library for accessing GData webservices - common data files”.
+- mint-9d2c5dccaa774420e7cdf82a: https://packages.ubuntu.com/noble/libgdata22 — “Library for accessing GData webservices - shared libraries”.
+- mint-166e21ad9d01845741e3f356: https://packages.ubuntu.com/noble/libgdbm-compat4t64 — “GNU dbm database routines (legacy support runtime version) ”.
+- mint-20c3a6dd2ca94224d2828338: https://packages.ubuntu.com/noble/libgdbm6t64 — “GNU dbm database routines (runtime version) ”.
+- mint-7170ec9568f2b1815555de25: https://packages.ubuntu.com/noble/libgdk-pixbuf-2.0-0 — “GDK Pixbuf library”.
+- mint-60df83a13018c5bb4adeafed: https://packages.ubuntu.com/noble/libgdk-pixbuf2.0-bin — “GDK Pixbuf library (thumbnailer)”.
+- mint-b99d357e3028aca7e30a9360: https://packages.ubuntu.com/noble/libgdk-pixbuf2.0-common — “GDK Pixbuf library - data files”.
+- mint-2855469bed65d1b358167383: https://packages.ubuntu.com/noble/libgee-0.8-2 — “GObject based collection and utility library”.
+- mint-61467c590fe6c97fc37c0933: https://packages.ubuntu.com/noble/libgeoclue-2-0 — “convenience library to interact with geoinformation service”.
+- mint-3e1ba2bf03626c130f386976: https://packages.ubuntu.com/noble/libgeocode-glib-2-0 — “geocoding and reverse geocoding GLib library using Nominatim”.
+- mint-99bae2280dff6d3aa4214254: https://packages.ubuntu.com/noble/libgexiv2-2 — “GObject-based wrapper around the Exiv2 library”.
+- mint-ac1aa474350dca06dfc87902: https://packages.ubuntu.com/noble/libgfortran5 — “Runtime library for GNU Fortran applications”.
+- mint-c7a6a17bdece834cbad57bc7: https://packages.ubuntu.com/noble/libgif7 — “library for GIF images (library)”.
+- mint-873875a33f1a0a1bb52ade5a: https://packages.ubuntu.com/noble/libgirepository-1.0-1 — “Library for handling GObject introspection data (runtime library)”.
+- mint-5b6f2e03f98b3c105d2c33a1: https://packages.ubuntu.com/noble/libgl1 — “Vendor neutral GL dispatch library -- legacy GL support”.
+- mint-3ede1ab866c6316bdf1fa1f5: https://packages.ubuntu.com/noble/libgl1-mesa-dri — “free implementation of the OpenGL API -- DRI modules”.
+- mint-dc37532e4f8cb7bc095b0d32: https://packages.ubuntu.com/noble/libglapi-mesa — “free implementation of the GL API -- shared library”.
+- mint-8707cc3a010c96bb64419a11: https://packages.ubuntu.com/noble/libgles2 — “Vendor neutral GL dispatch library -- GLESv2 support”.
+- mint-66832badba472bd5821487a7: https://packages.ubuntu.com/noble/libglib-object-introspection-perl — “Perl bindings for gobject-introspection libraries”.
+- mint-2c54c71bb31debd192cf71e8: https://packages.ubuntu.com/noble/libglib-perl — “interface to the GLib and GObject libraries”.
+- mint-dc982e357b6400afb4b89936: https://packages.ubuntu.com/noble/libglib2.0-0t64 — “GLib library of C routines”.
+- mint-b4b91ddb3d50caead34eed13: https://packages.ubuntu.com/noble/libglib2.0-bin — “Programs for the GLib library”.
+- mint-3d51ab53721bee678bb4af10: https://packages.ubuntu.com/noble/libglib2.0-data — “Common files for GLib library”.
+- mint-c13462589beed73c8bd4f6fd: https://packages.ubuntu.com/noble/libglibmm-2.4-1t64 — “C++ wrapper for the GLib toolkit (shared libraries)”.
+- mint-35e92f38fb76519ba0f3dcc8: https://packages.ubuntu.com/noble/libglibmm-2.68-1t64 — “C++ wrapper for the GLib toolkit (shared libraries)”.
+- mint-83fb8dc73a88eb7e93f91811: https://packages.ubuntu.com/noble/libglu1-mesa — “Mesa OpenGL utility library (GLU)”.
+- mint-0082544be1931dac6ea6a1ba: https://packages.ubuntu.com/noble/libglvnd0 — “Vendor neutral GL dispatch library”.
+- mint-7c59d0fb28c8eb5147a1fbef: https://packages.ubuntu.com/noble/libglx-mesa0 — “free implementation of the OpenGL API -- GLX vendor library”.
+- mint-9001ef1d9d52a8e4e5f23484: https://packages.ubuntu.com/noble/libglx0 — “Vendor neutral GL dispatch library -- GLX support”.
+- mint-4c9e086d609a6dcc5de3cb49: https://packages.ubuntu.com/noble/libgme0 — “Playback library for video game music files - shared library”.
+- mint-c1436c994dce656fbad22509: https://packages.ubuntu.com/noble/libgmp10 — “Multiprecision arithmetic library”.
+- mint-d3de492adc0d57c847132c3d: https://packages.ubuntu.com/noble/libgnome-desktop-3-20t64 — “Utility library for the GNOME desktop - GTK 3 version”.
+- mint-a37141575c574866e1e94e2b: https://packages.ubuntu.com/noble/libgnomekbd-common — “GNOME library to manage keyboard configuration - common files”.
+- mint-820731b605d795163a865296: https://packages.ubuntu.com/noble/libgnomekbd8 — “GNOME library to manage keyboard configuration - shared library”.
+- mint-174b73735c614d2cbdcc5184: https://packages.ubuntu.com/noble/libgnutls30t64 — “GNU TLS library - main runtime library”.
+- mint-d5c1f430700a0f69bcd67c37: https://packages.ubuntu.com/noble/libgoa-1.0-0b — “library for GNOME Online Accounts”.
+- mint-3023b2a226683cd1db5915c2: https://packages.ubuntu.com/noble/libgoa-1.0-common — “library for GNOME Online Accounts - common files”.
+- mint-13201b063f933b889fbae35f: https://packages.ubuntu.com/noble/libgoa-backend-1.0-2 — “backend library for GNOME Online Accounts”.
+- mint-eddbe0e9a6f634a78696fc96: https://packages.ubuntu.com/noble/libgomp1 — “GCC OpenMP (GOMP) support library”.
+- mint-b94e695372565a1a5902b709: https://packages.ubuntu.com/noble/libgpg-error0 — “GnuPG development runtime library”.
+- mint-a0d69fe48043258ab0fe5e80: https://packages.ubuntu.com/noble/libgpgme11t64 — “GPGME - GnuPG Made Easy (library)”.
+- mint-0f9fd98c1a3c52e8c9cd4e54: https://packages.ubuntu.com/noble/libgpgmepp6t64 — “C++ wrapper library for GPGME”.
+- mint-9ec29c2aee46f54e08018816: https://packages.ubuntu.com/noble/libgphoto2-6t64 — “gphoto2 digital camera library”.
+- mint-b484766ba233d05426f4a3e9: https://packages.ubuntu.com/noble/libgphoto2-l10n — “gphoto2 digital camera library - localized messages”.
+- mint-a4adb9f0451827aade1f9fc5: https://packages.ubuntu.com/noble/libgphoto2-port12t64 — “gphoto2 digital camera port library”.
+- mint-3ac91cfad22dd3dc0a6d4123: https://packages.ubuntu.com/noble/libgpm2 — “General Purpose Mouse - shared library”.
+- mint-c4dca01c9777ac62eee5fe6d: https://packages.ubuntu.com/noble/libgpod-common — “common files for libgpod”.
+- mint-a337a7639a5ef0f5ee35009b: https://packages.ubuntu.com/noble/libgpod4t64 — “library to read and write songs and artwork to an iPod”.
+- mint-62c687385fe2b41c2cfb651d: https://packages.ubuntu.com/noble/libgprofng0 — “GNU Next Generation profiler (runtime library)”.
+- mint-878da04640490ece2f2faefa: https://packages.ubuntu.com/noble/libgraphene-1.0-0 — “library of graphic data types”.
+- mint-d2251826215d1b2d116b1c09: https://packages.ubuntu.com/noble/libgraphite2-3 — “Font rendering engine for Complex Scripts -- library”.
+- mint-d5582cf3f796efacae8d6954: https://packages.ubuntu.com/noble/libgrilo-0.3-0 — “Framework for discovering and browsing media - Shared libraries”.
+- mint-a453e15cdf70a904a6d2812d: https://packages.ubuntu.com/noble/libgs-common — “interpreter for the PostScript language and for PDF - ICC profiles”.
+- mint-a45246537561af70202f912f: https://packages.ubuntu.com/noble/libgs10 — “interpreter for the PostScript language and for PDF - Library”.
+- mint-f03630dc00f470e339f74873: https://packages.ubuntu.com/noble/libgs10-common — “interpreter for the PostScript language and for PDF - common files”.
+- mint-94041c0492e00805761952ef: https://packages.ubuntu.com/noble/libgsf-1-114 — “Structured File Library - runtime version”.
+- mint-1b6205004ca33a384f976275: https://packages.ubuntu.com/noble/libgsf-1-common — “Structured File Library - common files”.
+- mint-c5d4027fb2db22819395c898: https://packages.ubuntu.com/noble/libgsf-bin — “Structured File Library - programs”.
+- mint-b809e3e90ec18155e101b583: https://packages.ubuntu.com/noble/libgsm1 — “Shared libraries for GSM speech compressor”.
+- mint-a8aaa3b6e087af0d3ada0d69: https://packages.ubuntu.com/noble/libgsound0t64 — “small library for playing system sounds”.
+- mint-3020256d943a511d8d381830: https://packages.ubuntu.com/noble/libgspell-1-2 — “spell-checking library for GTK+ applications”.
+- mint-18d86df0f59caec6aaf212e2: https://packages.ubuntu.com/noble/libgspell-1-common — “libgspell architecture-independent files”.
+- mint-3dbe94f53d02e40f1c866ae1: https://packages.ubuntu.com/noble/libgssapi-krb5-2 — “MIT Kerberos runtime libraries - krb5 GSS-API Mechanism”.
+- mint-d2fd8055df12740634b57a59: https://packages.ubuntu.com/noble/libgstreamer-gl1.0-0 — “GStreamer GL libraries”.
+- mint-995746a182909d8463137eef: https://packages.ubuntu.com/noble/libgstreamer-plugins-base1.0-0 — “GStreamer libraries from the "base" set”.
+- mint-ff1ed548198957ef2e795371: https://packages.ubuntu.com/noble/libgstreamer-plugins-good1.0-0 — “GStreamer development files for libraries from the "good" set”.
+- mint-3b5cba6cabe151e5d4747661: https://packages.ubuntu.com/noble/libgstreamer1.0-0 — “Core GStreamer libraries and elements”.
+- mint-d4fffe320fc58d39634f76ac: https://packages.ubuntu.com/noble/libgtk-3-0t64 — “GTK graphical user interface library”.
+- mint-b71d22a2c5e0f9fa974aea9e: https://packages.ubuntu.com/noble/libgtk-3-bin — “programs for the GTK graphical user interface library”.
+- mint-b072fe21a5941e5b70717d4e: https://packages.ubuntu.com/noble/libgtk-3-common — “common files for the GTK graphical user interface library”.
+- mint-63d1ffd9e93fced619a43681: https://packages.ubuntu.com/noble/libgtk-4-1 — “GTK graphical user interface library”.
+- mint-7f2adcdd0c00a776b9a34c94: https://packages.ubuntu.com/noble/libgtk-4-common — “common files for the GTK graphical user interface library”.
+- mint-5410f469d9d3ece1d9c4b918: https://packages.ubuntu.com/noble/libgtk-layer-shell0 — “Wayland Layer Shell protocol desktop component library”.
+- mint-8e169b6261f3869ca604e24d: https://packages.ubuntu.com/noble/libgtk2.0-0t64 — “GTK graphical user interface library - old version”.
+- mint-f4f144611089d4ac217ef330: https://packages.ubuntu.com/noble/libgtk2.0-bin — “programs for the GTK graphical user interface library”.
+- mint-7e6749af2823cec1035a835c: https://packages.ubuntu.com/noble/libgtk2.0-common — “common files for the GTK graphical user interface library”.
+- mint-d6a5252dd06ccb3790962c3a: https://packages.ubuntu.com/noble/libgtk3-perl — “Perl bindings for the GTK+ graphical user interface library”.
+- mint-7bb705bd14867baeeb2d0108: https://packages.ubuntu.com/noble/libgtkmm-3.0-1t64 — “C++ wrappers for GTK+ (shared libraries)”.
+- mint-5176d72898ca181f8e2476f2: https://packages.ubuntu.com/noble/libgtkmm-4.0-0 — “C++ wrappers for GTK4 (shared libraries)”.
+- mint-a863f1cffd728707812b8e8f: https://packages.ubuntu.com/noble/libgtksourceview-3.0-1 — “shared libraries for the GTK+ syntax highlighting widget”.
+- mint-46b5afb6397df38a0f147efa: https://packages.ubuntu.com/noble/libgtksourceview-3.0-common — “common files for the GTK+ syntax highlighting widget”.
+- mint-f6093bdc4479ead6d5ed6283: https://packages.ubuntu.com/noble/libgtksourceview-4-0 — “shared libraries for the GTK+ syntax highlighting widget”.
+- mint-49cb633f87d41791fab91e45: https://packages.ubuntu.com/noble/libgtksourceview-4-common — “common files for the GTK+ syntax highlighting widget”.
+- mint-f01335af188b182884d423cc: https://packages.ubuntu.com/noble/libgtop-2.0-11 — “gtop system monitoring library (shared)”.
+- mint-45bddac5da5b1c0ea8eeda3b: https://packages.ubuntu.com/noble/libgtop2-common — “gtop system monitoring library (common)”.
+- mint-7aa4c59ec718540c4a92c0c1: https://packages.ubuntu.com/noble/libgucharmap-2-90-7 — “Unicode browser widget library (shared library)”.
+- mint-bd26a25aed7c9d7280e4c69d: https://packages.ubuntu.com/noble/libgudev-1.0-0 — “GObject-based wrapper library for libudev”.
+- mint-6d46ad96ad1a8c7d10c6bf20: https://packages.ubuntu.com/noble/libgusb2 — “GLib wrapper around libusb1”.
+- mint-8da217ac5f3e7316e94fc8d7: https://packages.ubuntu.com/noble/libgutenprint-common — “support files for the Gutenprint printer driver library”.
+- mint-6316b93f1e4b35d7f88c7bc8: https://packages.ubuntu.com/noble/libgutenprint9 — “runtime for the Gutenprint printer driver library”.
+- mint-e47c1078329c6a5b2ed38ac3: https://packages.ubuntu.com/noble/libgweather-4-0t64 — “GWeather shared library”.
+- mint-42af36e99ac3c7f718a68789: https://packages.ubuntu.com/noble/libgweather-4-common — “GWeather common files”.
+- mint-e1beb866ebbbd3970153bd42: https://packages.ubuntu.com/noble/libgxps2t64 — “handling and rendering XPS documents (library)”.
+- mint-8a02e709116805673c953672: https://packages.ubuntu.com/noble/libhandy-1-0 — “Library with GTK widgets for mobile phones”.
+- mint-d7f85a255526d0cea77446d8: https://packages.ubuntu.com/noble/libharfbuzz-gobject0 — “OpenType text shaping engine ICU backend (GObject library)”.
+- mint-9abc64f3d705308ff8f1009d: https://packages.ubuntu.com/noble/libharfbuzz-icu0 — “OpenType text shaping engine ICU backend”.
+- mint-e7a6f09480a8833751f15f6f: https://packages.ubuntu.com/noble/libharfbuzz0b — “OpenType text shaping engine (shared library)”.
+- mint-92449971c0f42c7a032e2ad0: https://packages.ubuntu.com/noble/libheif-plugin-aomdec — “ISO/IEC 23008-12:2017 HEIF file format decoder - aomdec plugin”.
+- mint-447679a870980290c648d50a: https://packages.ubuntu.com/noble/libheif-plugin-libde265 — “ISO/IEC 23008-12:2017 HEIF file format decoder - libde265 plugin”.
+- mint-8929cb723198fc635ddd14d1: https://packages.ubuntu.com/noble/libheif1 — “ISO/IEC 23008-12:2017 HEIF file format decoder - shared library”.
+- mint-80b2b73afd661ab67f785c9d: https://packages.ubuntu.com/noble/libhogweed6t64 — “low level cryptographic library (public-key cryptos)”.
+- mint-ba6d6a3026d90c1277d6c3a9: https://packages.ubuntu.com/noble/libhpmud0 — “HP Multi-Point Transport Driver (hpmud) run-time libraries”.
+- mint-82633dca0996a30cdd461227: https://packages.ubuntu.com/noble/libhtml-form-perl — “module that represents an HTML form element”.
+- mint-07f0a4a3a86c7f5dd0f54f29: https://packages.ubuntu.com/noble/libhtml-format-perl — “module for transforming HTML into various formats”.
+- mint-8ca88d7a39bdb0e942483697: https://packages.ubuntu.com/noble/libhtml-parser-perl — “collection of modules that parse HTML text documents”.
+- mint-4c012665c72203edb1c59ed6: https://packages.ubuntu.com/noble/libhtml-tagset-perl — “data tables pertaining to HTML”.
+- mint-b19b492128d29fe52de7cedf: https://packages.ubuntu.com/noble/libhtml-tree-perl — “Perl module to represent and create HTML syntax trees”.
+- mint-ea4f1a66388e5af28e0121e1: https://packages.ubuntu.com/noble/libhttp-cookies-perl — “HTTP cookie jars”.
+- mint-88be8ddbc2a99d420d5f3524: https://packages.ubuntu.com/noble/libhttp-daemon-perl — “simple http server class”.
+- mint-1808089e3c88e91c0a910d7f: https://packages.ubuntu.com/noble/libhttp-date-perl — “module of date conversion routines”.
+- mint-874be7ef9d4173e78d5844c3: https://packages.ubuntu.com/noble/libhttp-message-perl — “perl interface to HTTP style messages”.
+- mint-81ed493fce9c3a68bf27595b: https://packages.ubuntu.com/noble/libhttp-negotiate-perl — “implementation of content negotiation”.
+- mint-37a7439630a110f0236ef403: https://packages.ubuntu.com/noble/libhunspell-1.7-0 — “spell checker and morphological analyzer (shared library)”.
+- mint-f6cb1c9818b10f15296df4ae: https://packages.ubuntu.com/noble/libhwasan0 — “AddressSanitizer -- a fast memory error detector”.
+- mint-97c5486cec105a00e80891bb: https://packages.ubuntu.com/noble/libhwy1t64 — “Efficient and performance-portable SIMD wrapper (runtime files)”.
+- mint-ca8de94a1b1600ca3436a935: https://packages.ubuntu.com/noble/libhyphen0 — “ALTLinux hyphenation library - shared library”.
+- mint-d58bf53bcfda0ea6dee2c743: https://packages.ubuntu.com/noble/libibus-1.0-5 — “Intelligent Input Bus - shared library”.
+- mint-69540213faf620f00135fbce: https://packages.ubuntu.com/noble/libibverbs1 — “Library for direct userspace use of RDMA (InfiniBand/iWARP)”.
+- mint-fa585afdb9c58920a83596fd: https://packages.ubuntu.com/noble/libical3t64 — “iCalendar library implementation in C (runtime)”.
+- mint-58048f9c9d1c84b1d60c76af: https://packages.ubuntu.com/noble/libice6 — “X11 Inter-Client Exchange library”.
+- mint-357cfa5b74c0fd02ce9cf2da: https://packages.ubuntu.com/noble/libicu74 — “International Components for Unicode”.
+- mint-eb18943026362ac02c473d61: https://packages.ubuntu.com/noble/libidn12 — “GNU Libidn library, implementation of IETF IDN specifications”.
+- mint-32318603adf6a93c34ae9a95: https://packages.ubuntu.com/noble/libidn2-0 — “Internationalized domain names (IDNA2008/TR46) library”.
+- mint-20d074a0442046f798a31aef: https://packages.ubuntu.com/noble/libiec61883-0 — “partial implementation of IEC 61883 (shared lib)”.
+- mint-1db7165eec0b534632624409: https://packages.ubuntu.com/noble/libieee1284-3t64 — “cross-platform library for parallel port access”.
+- mint-171945c3031192cf9b1f5506: https://packages.ubuntu.com/noble/libigdgmm12 — “Intel Graphics Memory Management Library -- shared library”.
+- mint-188dfe2a91644f8956e5faf9: https://packages.ubuntu.com/noble/libijs-0.35 — “IJS raster image transport protocol: shared library”.
+- mint-457b64ed8bb94314ab8835b0: https://packages.ubuntu.com/noble/libimagequant0 — “palette quantization library”.
+- mint-6252d283a3df0571f91f11a8: https://packages.ubuntu.com/noble/libimath-3-1-29t64 — “Utility libraries from ASF used by OpenEXR - runtime”.
+- mint-8c847ebe1d9ec1bd20f74d0f: https://packages.ubuntu.com/noble/libimobiledevice-utils — “Utitilies for communicating with iPhone and other Apple devices”.
+- mint-b2fb13a75e4ce6fc1cfc6454: https://packages.ubuntu.com/noble/libimobiledevice6 — “Library for communicating with iPhone and other Apple devices”.
+- mint-66a36ad26f916d5749aa920d: https://packages.ubuntu.com/noble/libinih1 — “simple .INI file parser”.
+- mint-8a2f27d9c1c911fdb92fa3fb: https://packages.ubuntu.com/noble/libinput-bin — “input device management and event handling library - udev quirks”.
+- mint-571a1cc7b52244acb71be4d3: https://packages.ubuntu.com/noble/libinput10 — “input device management and event handling library - shared library”.
+- mint-6eaebfbdcccfccaee848e986: https://packages.ubuntu.com/noble/libio-html-perl — “open an HTML file with automatic charset detection”.
+- mint-9ed68bc0ec1bf64b70d6370a: https://packages.ubuntu.com/noble/libio-socket-ssl-perl — “Perl module implementing object oriented interface to SSL sockets”.
+- mint-c72a90decdda8fda77f95528: https://packages.ubuntu.com/noble/libip4tc2 — “netfilter libip4tc library”.
+- mint-12034b5eb515f515ee234f9f: https://packages.ubuntu.com/noble/libip6tc2 — “netfilter libip6tc library”.
+- mint-dd75de689ce95b14b09833b3: https://packages.ubuntu.com/noble/libipc-system-simple-perl — “Perl module to run commands simply, with detailed diagnostics”.
+- mint-4b35b74c7b6adb97f50a2f3e: https://packages.ubuntu.com/noble/libipt2 — “Intel Processor Trace Decoder Library”.
+- mint-3554c85b80f6e3c225dd5d4a: https://packages.ubuntu.com/noble/libisl23 — “manipulating sets and relations of integer points bounded by linear constraints”.
+- mint-0629a76391b1ca627431ba94: https://packages.ubuntu.com/noble/libisofs6t64 — “library to create ISO 9660 images”.
+- mint-1c8ecb261e7c89df55bdd4c4: https://packages.ubuntu.com/noble/libitm1 — “GNU Transactional Memory Library”.
+- mint-d12f60b5a5046320476cdca3: https://packages.ubuntu.com/noble/libiw30t64 — “Wireless tools - library”.
+- mint-601c3823475203f9482cc95b: https://packages.ubuntu.com/noble/libjack-jackd2-0 — “JACK Audio Connection Kit (libraries)”.
+- mint-37ae51307a189345ce64a866: https://packages.ubuntu.com/noble/libjansson4 — “C library for encoding, decoding and manipulating JSON data”.
+- mint-e1c3ef40ee73950e8770ef62: https://packages.ubuntu.com/noble/libjavascriptcoregtk-4.1-0 — “JavaScript engine library from WebKitGTK”.
+- mint-fdbdd37ada711cbee68327d5: https://packages.ubuntu.com/noble/libjavascriptcoregtk-6.0-1 — “JavaScript engine library from WebKitGTK”.
+- mint-829815141b7fc4dc5970201d: https://packages.ubuntu.com/noble/libjbig0 — “JBIGkit libraries”.
+- mint-63805265b0a0284075720bb2: https://packages.ubuntu.com/noble/libjbig2dec0 — “JBIG2 decoder library - shared libraries”.
+- mint-ad1622132a15fd46c12e540a: https://packages.ubuntu.com/noble/libjcat1 — “JSON catalog library”.
+- mint-5a77382df1239ed210339a5f: https://packages.ubuntu.com/noble/libjpeg-turbo8 — “libjpeg-turbo JPEG runtime library”.
+- mint-bffd30fd970d239f8e671e3d: https://packages.ubuntu.com/noble/libjpeg8 — “Independent JPEG Group's JPEG runtime library (dependency package)”.
+- mint-07398272b8b4d6e2452d1f7c: https://packages.ubuntu.com/noble/libjs-mathjax — “JavaScript display engine for LaTeX and MathML”.
+- mint-251724e04271790652d9e793: https://packages.ubuntu.com/noble/libjson-c5 — “JSON manipulation library - shared library”.
+- mint-8512750b97a4b2385a891334: https://packages.ubuntu.com/noble/libjson-glib-1.0-0 — “GLib JSON manipulation library”.
+- mint-91cee78b097d42b2ce3643bd: https://packages.ubuntu.com/noble/libjson-glib-1.0-common — “GLib JSON manipulation library (common files)”.
+- mint-65d864714e2c68fc8f692f53: https://packages.ubuntu.com/noble/libjxl-tools — “JPEG XL Image Coding System - "JXL" (command line utility)”.
+- mint-2bf94ea0475eb23cf378811c: https://packages.ubuntu.com/noble/libjxl0.7 — “JPEG XL Image Coding System - "JXL" (shared libraries)”.
+- mint-297490712ae744457e12b705: https://packages.ubuntu.com/noble/libk5crypto3 — “MIT Kerberos runtime libraries - Crypto Library”.
+- mint-68c36c2f3f3068161b9bc135: https://packages.ubuntu.com/noble/libkeybinder-3.0-0 — “registers global key bindings for applications - Gtk+3”.
+- mint-9cff017826d6d72265b1c616: https://packages.ubuntu.com/noble/libkeyutils1 — “Linux Key Management Utilities (library)”.
+- mint-4616ec8b0cc3eb3071c1bc5d: https://packages.ubuntu.com/noble/libklibc — “minimal libc subset for use with initramfs”.
+- mint-493f20c0d56f5b6556dd8104: https://packages.ubuntu.com/noble/libkmod2 — “libkmod shared library”.
+- mint-0639cd04b33742397b62a0e2: https://packages.ubuntu.com/noble/libkpathsea6 — “TeX Live: path search library for TeX (runtime part)”.
+- mint-5b117d1f3063d45725ca6f0c: https://packages.ubuntu.com/noble/libkrb5-3 — “MIT Kerberos runtime libraries”.
+- mint-39ea67cf20efe6189fb55604: https://packages.ubuntu.com/noble/libkrb5support0 — “MIT Kerberos runtime libraries - Support library”.
+- mint-683e09637f0394b87d5d5194: https://packages.ubuntu.com/noble/libksba8 — “X.509 and CMS support library”.
+- mint-a282c662d65102e813baff88: https://packages.ubuntu.com/noble/liblangtag-common — “library to access tags for identifying languages -- data”.
+- mint-ec77fa265353efe082e5676a: https://packages.ubuntu.com/noble/liblangtag1 — “library to access tags for identifying languages”.
+- mint-e4fc5ab320c315fdb5327e97: https://packages.ubuntu.com/noble/liblapack3 — “Library of linear algebra routines 3 - shared version”.
+- mint-f45fcc9a5ee8bf08ed97eaac: https://packages.ubuntu.com/noble/liblc3-1 — “Low Complexity Communication Codec (shared library)”.
+- mint-a92aab4a900b49eb3a494d19: https://packages.ubuntu.com/noble/liblcms2-2 — “Little CMS 2 color management library”.
+- mint-689927c041802fb13115b920: https://packages.ubuntu.com/noble/liblcms2-utils — “Little CMS 2 color management library (utilities)”.
+- mint-baf228edf39222cb6f01dab8: https://packages.ubuntu.com/noble/libldacbt-abr2 — “LDAC Bluetooth ABR library (shared library)”.
+- mint-92a0d75b20fd88b9afc20a79: https://packages.ubuntu.com/noble/libldacbt-enc2 — “LDAC Bluetooth encoder library (shared library)”.
+- mint-c3d9dea0c0408bcb95f87809: https://packages.ubuntu.com/noble/libldap2 — “OpenLDAP libraries”.
+- mint-f381720595bd5fdf1e51b4ef: https://packages.ubuntu.com/noble/libldb2 — “LDAP-like embedded database - shared library”.
+- mint-26dfba72d3cad4775b8cc269: https://packages.ubuntu.com/noble/liblerc4 — “Limited Error Raster Compression library”.
+- mint-93df7b64419253e4b8269294: https://packages.ubuntu.com/noble/liblightdm-gobject-1-0 — “LightDM GObject client library”.
+- mint-d1f9d5892ba4b38c12596f2a: https://packages.ubuntu.com/noble/liblilv-0-0 — “library for simple use of LV2 plugins”.
+- mint-9584283651ca860f89a6a068: https://packages.ubuntu.com/noble/liblirc-client0t64 — “infra-red remote control support - client library”.
+- mint-84c03f79f13ae2de77d10430: https://packages.ubuntu.com/noble-updates/libllvm20 — “Modular compiler and toolchain technologies, runtime library”.
+- mint-ec0e44e14d9762b6857d25b4: https://packages.ubuntu.com/noble/liblmdb0 — “Lightning Memory-Mapped Database shared library”.
+- mint-3888578474ccc5a7a7f37976: https://packages.ubuntu.com/noble/liblocale-gettext-perl — “module using libc functions for internationalization in Perl”.
+- mint-d91138aecb724ed87b5a3f1d: https://packages.ubuntu.com/noble/liblouis-data — “Braille translation library - data”.
+- mint-53527ae2886cfb433eb2edc9: https://packages.ubuntu.com/noble/liblouis20 — “Braille translation library - shared libs”.
+- mint-aabf4685386e95940b474978: https://packages.ubuntu.com/noble/liblouisutdml-bin — “Braille UTDML translation utilities”.
+- mint-82b76eb7cd94a92667d29af3: https://packages.ubuntu.com/noble/liblouisutdml-data — “Braille UTDML translation library - data”.
+- mint-032cf720038ed45e5c1a610b: https://packages.ubuntu.com/noble/liblouisutdml9t64 — “Braille UTDML translation library - shared libs”.
+- mint-a1d89a9b68cc3918cdfaa051: https://packages.ubuntu.com/noble/liblsan0 — “LeakSanitizer -- a memory leak detector (runtime)”.
+- mint-b7ec2256466f10aff447e5ba: https://packages.ubuntu.com/noble/libltdl7 — “System independent dlopen wrapper for GNU libtool”.
+- mint-020d757dc024dd8731e71a77: https://packages.ubuntu.com/noble/liblua5.2-0 — “Shared library for the Lua interpreter version 5.2”.
+- mint-798c08264f8172add12afd6a: https://packages.ubuntu.com/noble/liblua5.4-0 — “Shared library for the Lua interpreter version 5.4”.
+- mint-7a3fe236ae1d629b5f84cfdd: https://packages.ubuntu.com/noble/liblvm2cmd2.03 — “LVM2 command library”.
+- mint-f5f769a0898566458ac533e1: https://packages.ubuntu.com/noble/liblwp-mediatypes-perl — “module to guess media type for a file or a URL”.
+- mint-26b758aacf1ac70d6aba54f2: https://packages.ubuntu.com/noble/liblwp-protocol-https-perl — “HTTPS driver for LWP::UserAgent”.
+- mint-a2b62d060ede5a5eae6760c6: https://packages.ubuntu.com/noble/liblz4-1 — “Fast LZ compression algorithm library - runtime”.
+- mint-3855bc8de6e4579a41cd9779: https://packages.ubuntu.com/noble/liblzma5 — “XZ-format compression library”.
+- mint-32a35b2b5d5ec29c0f741a6a: https://packages.ubuntu.com/noble/liblzo2-2 — “data compression library”.
+- mint-d08abb4b5a6de9256af74302: https://packages.ubuntu.com/noble/libmagic-mgc — “File type determination library using "magic" numbers (compiled magic file)”.
+- mint-c2672f0c98a3e8e65bbe6152: https://packages.ubuntu.com/noble/libmagic1t64 — “Recognize the type of data in a file using "magic" numbers - library”.
+- mint-bc28c31e88c969ce0328e657: https://packages.ubuntu.com/noble/libmalcontent-0-0 — “library for parental control of applications”.
+- mint-01428ec1ae4cc8ec25cde72a: https://packages.ubuntu.com/noble/libmanette-0.2-0 — “Simple GObject game controller library”.
+- mint-56ff6ee1169ba807eb8730f9: https://packages.ubuntu.com/noble/libmate-desktop-2-17t64 — “Library with common API for various MATE modules (library)”.
+- mint-4fcf9f75ec88f8f1d42a8447: https://packages.ubuntu.com/noble/libmate-menu2 — “implementation of the freedesktop menu specification for MATE (library)”.
+- mint-7b200a8322616c8e2777d2ee: https://packages.ubuntu.com/noble/libmate-panel-applet-4-1 — “library for MATE Panel applets”.
+- mint-b47c33a97bcc8cb6c0f83166: https://packages.ubuntu.com/noble/libmateweather-common — “MateWeather shared library (common files)”.
+- mint-11d436e5ac0ca8b54cbab709: https://packages.ubuntu.com/noble/libmateweather1t64 — “MateWeather shared library”.
+- mint-6ea9d843d83025598606bcea: https://packages.ubuntu.com/noble/libmaxminddb0 — “IP geolocation database library”.
+- mint-e21c3c1085ca41d4904ea235: https://packages.ubuntu.com/noble/libmbedcrypto7t64 — “lightweight crypto and SSL/TLS library - crypto library”.
+- mint-7a76b7763a2eb8292999d7d1: https://packages.ubuntu.com/noble/libmbim-glib4 — “Support library to use the MBIM protocol”.
+- mint-afc65ac44abc739197f16cf9: https://packages.ubuntu.com/noble/libmbim-proxy — “Proxy to communicate with MBIM ports”.
+- mint-679456f9cf9198a826358775: https://packages.ubuntu.com/noble/libmd0 — “message digest functions from BSD systems - shared library”.
+- mint-6c4b5cdb4bfd61a7255294f0: https://packages.ubuntu.com/noble/libmd4c0 — “Markdown for C”.
+- mint-c563cd760bf135c62bad4a9f: https://packages.ubuntu.com/noble/libmetacity3 — “library for the Metacity window manager”.
+- mint-5900ba7bba2b6416ba109ae0: https://packages.ubuntu.com/noble/libmhash2 — “Library for cryptographic hashing and message authentication”.
+- mint-d6be1f10c49586c8c9df7a8f: https://packages.ubuntu.com/noble/libminiupnpc17 — “UPnP IGD client lightweight library”.
+- mint-c5344678292255fe582fb6ae: https://packages.ubuntu.com/noble/libmm-glib0 — “D-Bus service for managing modems - shared libraries”.
+- mint-bd5c259a64e9a9190d49b5ed: https://packages.ubuntu.com/noble/libmnl0 — “minimalistic Netlink communication library”.
+- mint-82dc1aa91bcd1046bdfe431a: https://packages.ubuntu.com/noble/libmount1 — “device mounting library”.
+- mint-6115acce0c75755b965b4f3e: https://packages.ubuntu.com/noble/libmozjs-115-0t64 — “SpiderMonkey JavaScript library”.
+- mint-21baa94ff063d2b3458df708: https://packages.ubuntu.com/noble/libmp3lame0 — “MP3 encoding library”.
+- mint-8d845a0a108ff39abfdb001a: https://packages.ubuntu.com/noble/libmpc3 — “multiple precision complex floating-point library”.
+- mint-3a719a83127b9f97d06300ed: https://packages.ubuntu.com/noble/libmpfr6 — “multiple precision floating-point computation”.
+- mint-7542a5d33cb473a613cb92a5: https://packages.ubuntu.com/noble/libmpg123-0t64 — “MPEG layer 1/2/3 audio decoder (shared library)”.
+- mint-39e6385786e7ba3cadb2eedb: https://packages.ubuntu.com/noble/libmpv2 — “video player based on MPlayer/mplayer2 (client library)”.
+- mint-2f360e4d1ef5c1b7bac88ed9: https://packages.ubuntu.com/noble/libmsgraph-0-1 — “library for accessing the Microsoft Graph API”.
+- mint-1ad906e4ac328e9dcd7c77d4: https://packages.ubuntu.com/noble/libmspub-0.1-1 — “library for parsing the mspub file structure”.
+- mint-06085030697713f3fb2179c5: https://packages.ubuntu.com/noble/libmtdev1t64 — “Multitouch Protocol Translation Library - shared library”.
+- mint-1a0754df8cfbdeb1f7840808: https://packages.ubuntu.com/noble/libmtp-common — “Media Transfer Protocol (MTP) common files”.
+- mint-4c695759c77f7b71645140bd: https://packages.ubuntu.com/noble/libmtp-runtime — “Media Transfer Protocol (MTP) runtime tools”.
+- mint-d95a587fe05a94e58adc5cfb: https://packages.ubuntu.com/noble/libmtp9t64 — “Media Transfer Protocol (MTP) library”.
+- mint-df51292bd765230816381683: https://raw.githubusercontent.com/linuxmint/muffin/master/debian/control — “window and compositing manager (shared library)”.
+- mint-ce199f909931e3130d05f6ce: https://packages.ubuntu.com/noble/libmujs3 — “Lightweight JavaScript interpreter library”.
+- mint-ea86e5758b66e87f68cca0bc: https://packages.ubuntu.com/noble/libmusicbrainz5-2 — “Library to access the MusicBrainz.org database (C wrapper functions)”.
+- mint-6a7a2a0529d4a35c3cfca2cf: https://packages.ubuntu.com/noble/libmusicbrainz5cc2v5 — “Library to access the MusicBrainz.org database”.
+- mint-448eeddc2d2baeadd07a9669: https://packages.ubuntu.com/noble/libmwaw-0.3-3 — “import library for some old Mac text documents”.
+- mint-43362c7392ccaca1114115cf: https://packages.ubuntu.com/noble/libmysofa1 — “library to read HRTFs stored in the AES69-2015 SOFA format”.
+- mint-0f34e57d491cf6717a9d196d: https://packages.ubuntu.com/noble/libmythes-1.2-0 — “simple thesaurus library”.
+- mint-76a2e06075a4dcead088518d: https://packages.ubuntu.com/noble/libnatpmp1t64 — “portable and fully compliant implementation of NAT-PMP”.
+- mint-4e75571462f4a5a43b09fe01: https://packages.ubuntu.com/noble/libnautilus-extension4 — “libraries for nautilus components - runtime version”.
+- mint-be69d22dfba5e2a4329a81df: https://packages.ubuntu.com/noble/libncurses6 — “shared libraries for terminal handling”.
+- mint-48fb104cfb9ac283f432c92a: https://packages.ubuntu.com/noble/libncursesw6 — “shared libraries for terminal handling (wide character support)”.
+- mint-030ab82ffda8efb94b17a55a: https://packages.ubuntu.com/noble/libndp0 — “Library for Neighbor Discovery Protocol”.
+- mint-f0c3be3d599e21da875324dd: https://packages.ubuntu.com/noble/libnemo-extension1 — “Nemo component system facilities”.
+- mint-c777b3e0d7b0711dcb435e9d: https://packages.ubuntu.com/noble/libneon27t64-gnutls — “HTTP and WebDAV client library (GnuTLS enabled)”.
+- mint-4d94910b4911072fcd628aec: https://packages.ubuntu.com/noble/libnet-dbus-perl — “Perl extension for the DBus bindings”.
+- mint-7a5c3026b9da8afe21673b7a: https://packages.ubuntu.com/noble/libnet-http-perl — “module providing low-level HTTP connection client”.
+- mint-9c5b2702543bb3cd09fbd186: https://packages.ubuntu.com/noble/libnet-libidn-perl — “Perl bindings for GNU Libidn”.
+- mint-5a534899850183611b7792ae: https://packages.ubuntu.com/noble/libnet-ssleay-perl — “Perl module for Secure Sockets Layer (SSL)”.
+- mint-cbc17c0ac42128f74895d3ed: https://packages.ubuntu.com/noble/libnetfilter-conntrack3 — “Netfilter netlink-conntrack library”.
+- mint-a1d8fab252e1186a7a94df1e: https://packages.ubuntu.com/noble/libnetplan1 — “Declarative network configuration runtime library”.
+- mint-b811fccd669d677f39c6c9c7: https://packages.ubuntu.com/noble/libnettle8t64 — “low level cryptographic library (symmetric and one-way cryptos)”.
+- mint-6dc870074c36af28cd935af5: https://packages.ubuntu.com/noble/libnewt0.52 — “text mode windowing with slang”.
+- mint-d6794c8b917a75af56918c8c: https://packages.ubuntu.com/noble/libnfnetlink0 — “Netfilter netlink library”.
+- mint-4f2603edec7b0640298611af: https://packages.ubuntu.com/noble/libnfs14 — “NFS client library (shared library)”.
+- mint-dc99cfca67e04dc9a463e60a: https://packages.ubuntu.com/noble/libnftables1 — “Netfilter nftables high level userspace API library”.
+- mint-5c431045418c54deeded4b21: https://packages.ubuntu.com/noble/libnftnl11 — “Netfilter nftables userspace API library”.
+- mint-008f9132e5bdf9904a6ea169: https://packages.ubuntu.com/noble/libnghttp2-14 — “library implementing HTTP/2 protocol (shared library)”.
+- mint-d74f56f2a0a466c9f6c45743: https://packages.ubuntu.com/noble/libnl-3-200 — “library for dealing with netlink sockets”.
+- mint-654ee0ce76d3c20042f6f9c0: https://packages.ubuntu.com/noble/libnl-genl-3-200 — “library for dealing with netlink sockets - generic netlink”.
+- mint-b854b82721f32750f64a384f: https://packages.ubuntu.com/noble/libnl-route-3-200 — “library for dealing with netlink sockets - route interface”.
+- mint-6fec576cd2533c892c042694: https://packages.ubuntu.com/noble/libnm0 — “GObject-based client library for NetworkManager”.
+- mint-0abdd0ecc4d167f671611a4a: https://packages.ubuntu.com/noble/libnma-common — “NetworkManager GUI library - translations”.
+- mint-02f1f4ad6ae6f3f3c8b2aff7: https://packages.ubuntu.com/noble/libnma-gtk4-0 — “NetworkManager GUI GTK4 library”.
+- mint-aa48c9f8e0086b7c697e4000: https://packages.ubuntu.com/noble/libnma0 — “NetworkManager GUI library”.
+- mint-322dd5d4ebd5d8a2e7eb7c5a: https://packages.ubuntu.com/noble/libnorm1t64 — “NACK-Oriented Reliable Multicast (NORM) library”.
+- mint-9f5dc1d80382eae9fef304cd: https://packages.ubuntu.com/noble/libnotify-bin — “sends desktop notifications to a notification daemon (Utilities)”.
+- mint-dffa303dcb97d2e6f9c82d8c: https://packages.ubuntu.com/noble/libnotify4 — “sends desktop notifications to a notification daemon”.
+- mint-f07899fe21c6fbc0e94fcaa9: https://packages.ubuntu.com/noble/libnpth0t64 — “replacement for GNU Pth using system threads”.
+- mint-859e5e8d981ba31836b9207e: https://packages.ubuntu.com/noble/libnspr4 — “NetScape Portable Runtime Library”.
+- mint-63e879ba5ee8c49695c94ea9: https://packages.ubuntu.com/noble/libnss-mdns — “NSS module for Multicast DNS name resolution”.
+- mint-3e0953fc8a356ef023ac8006: https://packages.ubuntu.com/noble/libnss-myhostname — “nss module providing fallback resolution for the current hostname”.
+- mint-e161c421d5159f531ad448b5: https://packages.ubuntu.com/noble/libnss-systemd — “nss module providing dynamic user and group name resolution”.
+- mint-50fa406764c8bfe7716b1f8a: https://packages.ubuntu.com/noble/libnss3 — “Network Security Service libraries”.
+- mint-ea04caddfd5f3533173495ba: https://packages.ubuntu.com/noble/libntfs-3g89t64 — “read/write NTFS driver for FUSE (runtime library)”.
+- mint-aba347c793f8465e8a6cb4bc: https://packages.ubuntu.com/noble/libnuma1 — “Libraries for controlling NUMA policy”.
+- mint-c13d2ddd80a801407099cb60: https://packages.ubuntu.com/noble/libnvme1t64 — “NVMe management library (library)”.
+- mint-705af05b3cc7379b8e4adae6: https://packages.ubuntu.com/noble/libodfgen-0.1-1 — “library to generate ODF documents”.
+- mint-ee0fff993a334b2c1f3d8ac3: https://packages.ubuntu.com/noble/libogg0 — “Ogg bitstream library”.
+- mint-30733059fb89dae7514595f5: https://packages.ubuntu.com/noble/libopenal-data — “Software implementation of the OpenAL audio API (data files)”.
+- mint-f51a08c3ef112b24caafd88a: https://packages.ubuntu.com/noble/libopenal1 — “Software implementation of the OpenAL audio API (shared library)”.
+- mint-2cafdd51c08be3bbe7329679: https://packages.ubuntu.com/noble/libopenexr-3-1-30 — “runtime files for the OpenEXR image library”.
+- mint-d53340e53394251e4b8a5ed3: https://packages.ubuntu.com/noble/libopengl0 — “Vendor neutral GL dispatch library -- OpenGL support”.
+- mint-a1770139aeeb28e0a5278e37: https://packages.ubuntu.com/noble/libopenjp2-7 — “JPEG 2000 image compression/decompression library”.
+- mint-4236d691049c03832119e768: https://packages.ubuntu.com/noble/libopenmpt0t64 — “module music library based on OpenMPT -- shared library”.
+- mint-35567007f5d02a1218dcabc1: https://packages.ubuntu.com/noble/libopus0 — “Opus codec runtime library”.
+- mint-17d8368add1013e4028041d4: https://packages.ubuntu.com/noble/liborc-0.4-0t64 — “Library of Optimized Inner Loops Runtime Compiler”.
+- mint-e82129880c36dd099009ea3d: https://packages.ubuntu.com/noble/liborcus-0.18-0 — “library for processing spreadsheet documents”.
+- mint-644bd92766d752c7a63be3e6: https://packages.ubuntu.com/noble/liborcus-parser-0.18-0 — “library for processing spreadsheet documents - parser library”.
+- mint-ab8065704b3b331a6c21034b: https://packages.ubuntu.com/noble/libostree-1-1 — “content-addressed filesystem for operating system binaries (library)”.
+- mint-25e088fddf92f988adf7411a: https://packages.ubuntu.com/noble/libp11-kit0 — “library for loading and coordinating access to PKCS#11 modules - runtime”.
+- mint-9c1ff1caf1e412e9560325e2: https://packages.ubuntu.com/noble/libpackagekit-glib2-18 — “Library for accessing PackageKit using GLib”.
+- mint-7e624bb165a1f21c2d258cb9: https://packages.ubuntu.com/noble/libpagemaker-0.0-0 — “Library for importing and converting PageMaker Documents”.
+- mint-077cc3f84053ff9b6f1dcdee: https://packages.ubuntu.com/noble/libpam-cap — “POSIX 1003.1e capabilities (PAM module)”.
+- mint-ace650ef7d15cb498511d260: https://github.com/xapp-project/fingwit — “Fingwit uses two PAM modules:”.
+- mint-68e0f1596556c0dc06370a31: https://packages.ubuntu.com/noble/libpam-fprintd — “PAM module for fingerprint authentication through fprintd”.
+- mint-84d29be334f8d774d263a9c2: https://packages.ubuntu.com/noble/libpam-gnome-keyring — “PAM module to unlock the GNOME keyring upon login”.
+- mint-96b512f632b1a357067ad984: https://packages.ubuntu.com/noble/libpam-modules — “Pluggable Authentication Modules for PAM”.
+- mint-424a3e2205a2664bdf1e0ba0: https://packages.ubuntu.com/noble/libpam-modules-bin — “Pluggable Authentication Modules for PAM - helper binaries”.
+- mint-aa0e81ea3d43187befdb7bb4: https://packages.ubuntu.com/noble/libpam-runtime — “Runtime support for the PAM library”.
+- mint-b89417b62fb6dfde8881a62c: https://packages.ubuntu.com/noble/libpam-systemd — “system and service manager - PAM module”.
+- mint-cfbdc29a0f396e2858a73509: https://packages.ubuntu.com/noble/libpam0g — “Pluggable Authentication Modules library”.
+- mint-9d21fcc5b187c6f3c8c045f6: https://packages.ubuntu.com/noble/libpango-1.0-0 — “Layout and rendering of internationalized text”.
+- mint-2c7fa490349c9646a30536bd: https://packages.ubuntu.com/noble/libpangocairo-1.0-0 — “Layout and rendering of internationalized text”.
+- mint-b45dce10b5d02fcc97b9a005: https://packages.ubuntu.com/noble/libpangoft2-1.0-0 — “Layout and rendering of internationalized text”.
+- mint-4c54b33f402962bafca966ef: https://packages.ubuntu.com/noble/libpangomm-1.4-1v5 — “C++ Wrapper for pango (shared libraries)”.
+- mint-e2cb49b63209b01fd54a560e: https://packages.ubuntu.com/noble/libpangomm-2.48-1t64 — “C++ Wrapper for pango (shared libraries)”.
+- mint-8d364a0afe256183b7542feb: https://packages.ubuntu.com/noble/libpangoxft-1.0-0 — “Layout and rendering of internationalized text”.
+- mint-1388e5c7adfe16d4f9c04e1b: https://packages.ubuntu.com/noble/libpaper-utils — “library for handling paper characteristics (utilities)”.
+- mint-f4a13b2d34ea8d8a0ebcd5b5: https://packages.ubuntu.com/noble/libpaper1 — “library for handling paper characteristics”.
+- mint-c2cd2575da9057142c6c02c6: https://packages.ubuntu.com/noble/libparted2t64 — “disk partition manipulator - shared library”.
+- mint-b50583656a9e8716ee472d1a: https://packages.ubuntu.com/noble/libpcap0.8t64 — “system interface for user-level packet capture”.
+- mint-7339c134079cb09e87c994a9: https://packages.ubuntu.com/noble/libpcaudio0 — “C API to different audio devices - shared library”.
+- mint-e148a2445bbbc75670391df1: https://packages.ubuntu.com/noble/libpci3 — “PCI utilities (shared library)”.
+- mint-91a7c835966da583e7da26b0: https://packages.ubuntu.com/noble/libpciaccess0 — “Generic PCI access library for X”.
+- mint-3e72faa102f2738ebf4fe506: https://packages.ubuntu.com/noble/libpcre2-16-0 — “New Perl Compatible Regular Expression Library - 16 bit runtime files”.
+- mint-ed6789b21dde4e53d2099193: https://packages.ubuntu.com/noble/libpcre2-32-0 — “New Perl Compatible Regular Expression Library - 32 bit runtime files”.
+- mint-3f615b6c99a1205183b7fb4d: https://packages.ubuntu.com/noble/libpcre2-8-0 — “New Perl Compatible Regular Expression Library- 8 bit runtime files”.
+- mint-272ca2b2e7d4e9290f9f7cc4: https://packages.ubuntu.com/noble/libpcsclite1 — “Middleware to access a smart card using PC/SC (library)”.
+- mint-550334f9e8e50982657972b8: https://packages.ubuntu.com/noble/libpeas-1.0-0 — “Application plugin library”.
+- mint-d26ce339ea8777f96a700d2c: https://packages.ubuntu.com/noble/libpeas-common — “Application plugin library (common files)”.
+- mint-e8e17a12ca9103842cf946ff: https://packages.ubuntu.com/noble/libperl5.38t64 — “shared Perl library”.
+- mint-07bfd77b9b72fbfece1ee24d: https://packages.ubuntu.com/noble/libperlio-gzip-perl — “module providing a PerlIO layer to gzip/gunzip”.
+- mint-4cf34e3d02dbeb5a2ae06c33: https://packages.ubuntu.com/noble/libpgm-5.3-0t64 — “OpenPGM shared library”.
+- mint-cb31fb237799a021eb3ed976: https://packages.ubuntu.com/noble/libphonenumber8 — “parsing/formatting/validating phone numbers”.
+- mint-4554990d2fc018ed7ff6ec86: https://packages.ubuntu.com/noble/libpipeline1 — “Unix process pipeline manipulation library”.
+- mint-fb7d61c00e873b49a7c82c42: https://packages.ubuntu.com/noble/libpipewire-0.3-0t64 — “libraries for the PipeWire multimedia server”.
+- mint-6ed13e629fe419561a6aeab0: https://packages.ubuntu.com/noble/libpipewire-0.3-modules — “libraries for the PipeWire multimedia server - modules”.
+- mint-d9bf728a8e8010abb04b9bb9: https://packages.ubuntu.com/noble/libpixman-1-0 — “pixel-manipulation library for X and cairo”.
+- mint-b989bc66a213f8f3501280a8: https://packages.ubuntu.com/noble/libpkcs11-helper1t64 — “library that simplifies the interaction with PKCS#11”.
+- mint-5e3980b7fe483915962e8c88: https://packages.ubuntu.com/noble/libpkgconf3 — “shared library for pkgconf”.
+- mint-cd77fe4619d6f827ae0a2e39: https://packages.ubuntu.com/noble/libplacebo338 — “GPU-accelerated video/image rendering primitives (shared library)”.
+- mint-aacbf45a963382af169ff79c: https://packages.ubuntu.com/noble/libplist-2.0-4 — “Library for handling Apple binary and XML property lists”.
+- mint-e8c8c1273a01b3e3610b5e81: https://packages.ubuntu.com/noble/libplymouth5 — “graphical boot animation and logger - shared libraries”.
+- mint-93c245db7213450527814d58: https://packages.ubuntu.com/noble/libpng16-16t64 — “PNG library - runtime (version 1.6)”.
+- mint-381cd864bb775ddbd8828556: https://packages.ubuntu.com/noble/libpocketsphinx3 — “Speech recognition tool - front-end library”.
+- mint-47f79e53bf7ddfdb58364178: https://packages.ubuntu.com/noble/libpolkit-agent-1-0 — “polkit Authentication Agent API”.
+- mint-beb3db2783cbb0f86dd97c23: https://packages.ubuntu.com/noble/libpolkit-gobject-1-0 — “polkit Authorization API”.
+- mint-b15850b7f2f2086f6b720162: https://packages.ubuntu.com/noble/libpoppler-cpp0t64 — “PDF rendering library (CPP shared library)”.
+- mint-7d1b937976c4c82dbf6e7f81: https://packages.ubuntu.com/noble/libpoppler-glib8t64 — “PDF rendering library (GLib-based shared library)”.
+- mint-9e3c9bdc5dc8db60ad19f26a: https://packages.ubuntu.com/noble/libpoppler134 — “PDF rendering library”.
+- mint-3991def5a13bcb38427c6f2f: https://packages.ubuntu.com/noble/libpopt0 — “lib for parsing cmdline parameters”.
+- mint-b3cbc9d90751981501dfc8a1: https://packages.ubuntu.com/noble/libportaudio2 — “Portable audio I/O - shared library”.
+- mint-519c6ed9c7449698571b2ce2: https://packages.ubuntu.com/noble/libpostproc57 — “FFmpeg library for post processing - runtime files”.
+- mint-b5a6d83db15c7855ae3ac5e1: https://packages.ubuntu.com/noble/libppd2 — “OpenPrinting libppd - Shared library”.
+- mint-52f095f05ca53fba848d19b8: https://packages.ubuntu.com/noble/libppd2-common — “OpenPrinting libppd - Auxiliary files”.
+- mint-bf5a98d77e8c7005a34163de: https://packages.ubuntu.com/noble/libproc2-0 — “library for accessing process information from /proc”.
+- mint-d77a076e0943da600a97c47d: https://packages.ubuntu.com/noble/libprotobuf-c1 — “Protocol Buffers C shared library (protobuf-c)”.
+- mint-2cadd1d705a0e7967e1941d2: https://packages.ubuntu.com/noble/libprotobuf32t64 — “protocol buffers C++ library”.
+- mint-733875e389a687498d4e2634: https://packages.ubuntu.com/noble/libproxy1-plugin-gsettings — “transitional package for libproxy GSettings plugin”.
+- mint-532486c3efcfce3b07649c2f: https://packages.ubuntu.com/noble/libproxy1-plugin-networkmanager — “transitional package for libproxy NetworkManager plugin”.
+- mint-ee5519186176b3d1dabbd63b: https://packages.ubuntu.com/noble/libproxy1v5 — “automatic proxy configuration management library (shared)”.
+- mint-d50f48d92626e9ecd76840d3: https://packages.ubuntu.com/noble/libpsl5t64 — “Library for Public Suffix List (shared libraries)”.
+- mint-6ae62969dfc62a2d79de62cf: https://packages.ubuntu.com/noble/libpugixml1v5 — “Light-weight C++ XML processing library”.
+- mint-588ab066a2653ddaaa7fefe5: https://packages.ubuntu.com/noble/libpulse-mainloop-glib0 — “PulseAudio client libraries (glib support)”.
+- mint-f8b817c374acda207d29745d: https://packages.ubuntu.com/noble/libpulse0 — “PulseAudio client libraries”.
+- mint-faf613bbc932d574906aa6db: https://packages.ubuntu.com/noble/libpwquality-common — “library for password quality checking and generation (data files)”.
+- mint-45f00b686f9f5b16c1c8c3ff: https://packages.ubuntu.com/noble/libpwquality1 — “library for password quality checking and generation”.
+- mint-d0cf3bfc0f782be651893767: https://packages.ubuntu.com/noble/libpython3-stdlib — “interactive high-level object-oriented language (default python3 version)”.
+- mint-3cddf7fd77c89451ea91b65c: https://packages.ubuntu.com/noble/libpython3.12-minimal — “Minimal subset of the Python language (version 3.12)”.
+- mint-497e083a2dae8763c380735c: https://packages.ubuntu.com/noble/libpython3.12-stdlib — “Interactive high-level object-oriented language (standard library, version 3.12)”.
+- mint-52e7b8ce86423a6e2125d60c: https://packages.ubuntu.com/noble/libpython3.12t64 — “Shared Python runtime library (version 3.12)”.
+- mint-8d4ed0de6fa557f7a146e6da: https://packages.ubuntu.com/noble/libqmi-glib5 — “Support library to use the Qualcomm MSM Interface (QMI) protocol”.
+- mint-da55e568b5f7f22a3f137b3c: https://packages.ubuntu.com/noble/libqmi-proxy — “Proxy to communicate with QMI ports”.
+- mint-efbacfda9d1c1c7672f7901d: https://packages.ubuntu.com/noble/libqpdf29t64 — “runtime library for PDF transformation/inspection software”.
+- mint-46d2171cc3950919cc1b752f: https://packages.ubuntu.com/noble/libqrtr-glib0 — “Support library to use the QRTR protocol”.
+- mint-eb910b49dca53723f9bd65b2: https://packages.ubuntu.com/noble/libqt5core5t64 — “Qt 5 core module”.
+- mint-71326e528a9c1fbcf5dcdf53: https://packages.ubuntu.com/noble/libqt5dbus5t64 — “Qt 5 D-Bus module”.
+- mint-f1440c1f98a2b3e35cc739c6: https://packages.ubuntu.com/noble/libqt5gui5t64 — “Qt 5 GUI module”.
+- mint-bb4011a7a0a4d24560287d28: https://packages.ubuntu.com/noble/libqt5network5t64 — “Qt 5 network module”.
+- mint-afb9e74edb23338067fc954a: https://packages.ubuntu.com/noble/libqt5svg5 — “Qt 5 SVG module”.
+- mint-e909a770346c7e950823061b: https://packages.ubuntu.com/noble/libqt5widgets5t64 — “Qt 5 widgets module”.
+- mint-6031e90d50f2710cae0068b6: https://packages.ubuntu.com/noble/libquadmath0 — “GCC Quad-Precision Math Library”.
+- mint-94541352e783272a7fbc90d4: https://packages.ubuntu.com/noble/librabbitmq4 — “AMQP client library written in C”.
+- mint-61feed6c955b3704b43c5cc5: https://packages.ubuntu.com/noble/libraptor2-0 — “Raptor 2 RDF syntax library”.
+- mint-99c5a7b06dbc8273974f3b30: https://packages.ubuntu.com/noble/libraqm0 — “Library for complex text layout”.
+- mint-cf0921dcf0b038a10cf6f4b7: https://packages.ubuntu.com/noble/librasqal3t64 — “Rasqal RDF query library”.
+- mint-cf5686b7ddddd63735b03e88: https://packages.ubuntu.com/noble/librav1e0 — “Fastest and safest AV1 encoder - shared library”.
+- mint-f8346fbb7c9d18d6a6ce01e5: https://packages.ubuntu.com/noble/libraw1394-11 — “library for direct access to IEEE 1394 bus (aka FireWire)”.
+- mint-a92ea68fc23f21e4d16cb968: https://packages.ubuntu.com/noble/libraw23t64 — “raw image decoder library”.
+- mint-76e392db70d39d833ae72908: https://packages.ubuntu.com/noble/librda-common — “Remote Desktop Awareness (common files)”.
+- mint-2aff7043722a8be6d9caf151: https://packages.ubuntu.com/noble/librda0 — “Remote Desktop Awareness (shared library)”.
+- mint-faefc8eec11f14104e9c768b: https://packages.ubuntu.com/noble/librdf0t64 — “Redland Resource Description Framework (RDF) library”.
+- mint-af4f9e1986fd7a33c52e0bec: https://packages.ubuntu.com/noble/libreadline8t64 — “GNU readline and history libraries, run-time libraries”.
+- mint-3412cacb539927a303b49df8: https://packages.ubuntu.com/noble/libreiserfscore0t64 — “ReiserFS core library”.
+- mint-5dbd0e22eb48a9fdcec6777b: https://packages.ubuntu.com/noble/libreoffice-base-core — “office productivity suite -- shared library”.
+- mint-f2d38b07b8d37cb79ec25fd5: https://packages.ubuntu.com/noble/libreoffice-calc — “office productivity suite -- spreadsheet”.
+- mint-e3bcf64cf309bedddb22d4fd: https://packages.ubuntu.com/noble/libreoffice-common — “office productivity suite -- arch-independent files”.
+- mint-1a420a2eeb3dbc2c011ca0eb: https://packages.ubuntu.com/noble/libreoffice-core — “office productivity suite -- arch-dependent files”.
+- mint-47a0da6634298243888e32cf: https://packages.ubuntu.com/noble/libreoffice-draw — “office productivity suite -- drawing”.
+- mint-acb273c03159784933ff217f: https://packages.ubuntu.com/noble/libreoffice-gnome — “office productivity suite -- GNOME integration”.
+- mint-7818ff3154f8cc1098de64b3: https://packages.ubuntu.com/noble/libreoffice-gtk3 — “office productivity suite -- GTK+ 3 integration”.
+- mint-2f6aa703da9fafd44daec271: https://packages.ubuntu.com/noble/libreoffice-help-common — “office productivity suite -- common files for LibreOffice help”.
+- mint-bb5504062eb6b3dc716be62d: https://packages.ubuntu.com/noble/libreoffice-help-en-us — “office productivity suite -- English_american help”.
+- mint-413854f71d5ed74377a4f75e: https://packages.ubuntu.com/noble/libreoffice-impress — “office productivity suite -- presentation”.
+- mint-17cfe851192ecea13111cb1a: https://packages.ubuntu.com/noble/libreoffice-style-colibre — “office productivity suite -- colibre symbol style”.
+- mint-f0792203cfac5c896f5acde5: https://packages.ubuntu.com/noble/libreoffice-uiconfig-calc — “UI data ("config") for LibreOffice Calc”.
+- mint-488c9c6152f9a5f984d35271: https://packages.ubuntu.com/noble/libreoffice-uiconfig-common — “UI data ("config") for LibreOffice ("common" set)”.
+- mint-c09b84ff3052885b9e908970: https://packages.ubuntu.com/noble/libreoffice-uiconfig-draw — “UI data ("config") for LibreOffice Draw”.
+- mint-2f697d16e5c6412108030251: https://packages.ubuntu.com/noble/libreoffice-uiconfig-impress — “UI data ("config") for LibreOffice Impress”.
+- mint-f7c8cbe48c2d0e2049d5d92c: https://packages.ubuntu.com/noble/libreoffice-uiconfig-writer — “UI data ("config") for LibreOffice Writer”.
+- mint-aa8a8692f4cbac3703851f3d: https://packages.ubuntu.com/noble/libreoffice-writer — “office productivity suite -- word processor”.
+- mint-11f3387c13ddd7bcb26b729d: https://packages.ubuntu.com/noble/librest-1.0-0 — “REST service access library”.
+- mint-fee6b1f92bd0978663694780: https://packages.ubuntu.com/noble/librevenge-0.0-0 — “Base Library for writing document interface filters”.
+- mint-1865b5e0986289b574fd6141: https://packages.ubuntu.com/noble/librhythmbox-core10 — “support library for the rhythmbox music player”.
+- mint-21b8b102e882a8f5db70a14f: https://packages.ubuntu.com/noble/librist4 — “Reliable Internet Stream Transport -- shared library”.
+- mint-064c97ed44814cfe56147600: https://packages.ubuntu.com/noble/libroc0.3 — “real-time audio streaming over the network (shared library)”.
+- mint-b015d63cfb25f38c7ecdbdd5: https://packages.ubuntu.com/noble/librsvg2-2 — “SAX-based renderer library for SVG files (runtime)”.
+- mint-25cba3f3f64f39fb77d2d18d: https://packages.ubuntu.com/noble/librsvg2-common — “SAX-based renderer library for SVG files (extra runtime)”.
+- mint-400ef7e6d28aca272d4b0d20: https://packages.ubuntu.com/noble/librtmp1 — “toolkit for RTMP streams (shared library)”.
+- mint-b67f497692d4230016e674c6: https://packages.ubuntu.com/noble/librubberband2 — “audio time-stretching and pitch-shifting library”.
+- mint-7d8c7fbc623ace5e44ccbc26: https://packages.ubuntu.com/noble/libsamplerate0 — “Audio sample rate conversion library”.
+- mint-969c0d0a7ab22f765397a4fe: https://packages.ubuntu.com/noble/libsane-common — “API library for scanners -- documentation and support files”.
+- mint-01ef9712b6765311b5a88439: https://packages.ubuntu.com/noble/libsane-hpaio — “HP SANE backend for multi-function peripherals”.
+- mint-0f95f632fc6ba607e13998ce: https://packages.ubuntu.com/noble/libsane1 — “API library for scanners”.
+- mint-5b97ac99709d189dc4fdf737: https://packages.ubuntu.com/noble/libsasl2-2 — “Cyrus SASL - authentication abstraction library”.
+- mint-fb94560f49822e5d31ed40d5: https://packages.ubuntu.com/noble/libsasl2-modules — “Cyrus SASL - pluggable authentication modules”.
+- mint-d07cd0af52a6927d6950af8d: https://packages.ubuntu.com/noble/libsasl2-modules-db — “Cyrus SASL - pluggable authentication modules (DB)”.
+- mint-736a84236c9e7af1339282e3: https://packages.ubuntu.com/noble/libsasl2-modules-gssapi-mit — “Cyrus SASL - pluggable authentication modules (GSSAPI)”.
+- mint-fd60df32210d201eeed287e0: https://packages.ubuntu.com/noble/libsbc1 — “Sub Band CODEC library - runtime”.
+- mint-0bb576df17fbbe7dc65a99ce: https://packages.ubuntu.com/noble/libsdl2-2.0-0 — “Simple DirectMedia Layer”.
+- mint-5eb3a96981831774f984c02f: https://packages.ubuntu.com/noble/libseccomp2 — “high level interface to Linux seccomp filter”.
+- mint-5b458327ceabc882e9bda08d: https://packages.ubuntu.com/noble/libsecret-1-0 — “Secret store”.
+- mint-f5128acc01919b6ea714f7d1: https://packages.ubuntu.com/noble/libsecret-common — “Secret store (common files)”.
+- mint-d30df01facb26d99c6830535: https://packages.ubuntu.com/noble/libselinux1 — “SELinux runtime shared libraries”.
+- mint-81531ef6d83130e53c064a6b: https://packages.ubuntu.com/noble/libsemanage-common — “Common files for SELinux policy management libraries”.
+- mint-9c36d412fcbe42376feb3f8a: https://packages.ubuntu.com/noble/libsemanage2 — “SELinux policy management library”.
+- mint-7e1d554495ea2538edd6bce3: https://packages.ubuntu.com/noble/libsensors-config — “lm-sensors configuration files”.
+- mint-1ea8ea8187aa08becec889ec: https://packages.ubuntu.com/noble/libsensors5 — “library to read temperature/voltage/fan sensors”.
+- mint-494739e6b579775c4a7ec79b: https://packages.ubuntu.com/noble/libsepol2 — “SELinux library for manipulating binary security policies”.
+- mint-ea09c435505e0ba1d0460a5d: https://packages.ubuntu.com/noble/libserd-0-0 — “lightweight RDF syntax library”.
+- mint-a91bf1ff9fe31f8d37422ffa: https://packages.ubuntu.com/noble/libsframe1 — “Library to handle the SFrame format (runtime library)”.
+- mint-07fbe5027ac92c4f854ea9fb: https://packages.ubuntu.com/noble/libsgutils2-1.46-2 — “utilities for devices using the SCSI command set (shared libraries)”.
+- mint-e83605623c96a288822ea2d5: https://packages.ubuntu.com/noble/libsharpyuv0 — “Library for sharp RGB to YUV conversion”.
+- mint-7ce0d92df429f452aa5ec78c: https://packages.ubuntu.com/noble/libshine3 — “Fixed-point MP3 encoding library - runtime files”.
+- mint-60fc1ad4a337194ccb63e978: https://packages.ubuntu.com/noble/libshout3 — “MP3/Ogg Vorbis broadcast streaming library”.
+- mint-2f05dfff749d29c830ea383e: https://packages.ubuntu.com/noble/libsigc++-2.0-0v5 — “type-safe Signal Framework for C++ - runtime”.
+- mint-ad906a2382eb943f164ae8f5: https://packages.ubuntu.com/noble/libsigc++-3.0-0 — “type-safe Signal Framework for C++ - runtime”.
+- mint-796eb775466547ef46087a1a: https://packages.ubuntu.com/noble/libsixel1 — “DEC SIXEL graphics codec implementation (runtime)”.
+- mint-ee335fbcd32f6db6029ac871: https://packages.ubuntu.com/noble/libslang2 — “S-Lang programming library - runtime version”.
+- mint-6e67bbc7b9ff50cdf02ef453: https://packages.ubuntu.com/noble/libslirp0 — “General purpose TCP-IP emulator library”.
+- mint-a9d65167a14ad7cf9e1301cc: https://packages.ubuntu.com/noble/libsm6 — “X11 Session Management library”.
+- mint-789f475adef69009207ef83d: https://packages.ubuntu.com/noble/libsmartcols1 — “smart column output alignment library”.
+- mint-2d52f802ceb7d8079b38b3d3: https://packages.ubuntu.com/noble/libsmbclient0 — “shared library for communication with SMB/CIFS servers”.
+- mint-af828dfc3e4a24a12f8698c2: https://packages.ubuntu.com/noble/libsnapd-glib-2-1 — “GLib snapd library”.
+- mint-e4a75deb1bd361a7bad20246: https://packages.ubuntu.com/noble/libsnappy1v5 — “fast compression/decompression library”.
+- mint-31a59cb74a8f6a2e160467e2: https://packages.ubuntu.com/noble/libsndfile1 — “Library for reading/writing audio files”.
+- mint-b32b4790ace7c43038cb3de8: https://packages.ubuntu.com/noble/libsndio7.0 — “Small audio and MIDI framework from OpenBSD, runtime libraries”.
+- mint-c5095a8e093bb7ef63c31a8d: https://packages.ubuntu.com/noble/libsnmp-base — “SNMP configuration script, MIBs and documentation”.
+- mint-9a6161554cd145f40ecb9aa0: https://packages.ubuntu.com/noble/libsnmp40t64 — “SNMP (Simple Network Management Protocol) library”.
+- mint-0bd22b5a9d79130dd51df177: https://packages.ubuntu.com/noble/libsodium23 — “Network communication, cryptography and signaturing library”.
+- mint-40fa0d4c2b89833e46209e6c: https://packages.ubuntu.com/noble/libsonic0 — “Simple library to speed up or slow down speech”.
+- mint-918b9edff0751d498be96988: https://packages.ubuntu.com/noble/libsord-0-0 — “library for storing RDF data in memory”.
+- mint-2034944553145201eb479604: https://packages.ubuntu.com/noble/libsoup-2.4-1 — “HTTP library implementation in C -- Shared library”.
+- mint-77a102aabbbbedae32817b21: https://packages.ubuntu.com/noble/libsoup-3.0-0 — “HTTP library implementation in C -- Shared library”.
+- mint-f19e0145c3f8f8ba45ccda10: https://packages.ubuntu.com/noble/libsoup-3.0-common — “HTTP library implementation in C -- Common files”.
+- mint-661e8b3ba52c91b0b877783b: https://packages.ubuntu.com/noble/libsoup-gnome-2.4-1 — “HTTP library implementation in C -- GNOME support library”.
+- mint-e6484050258a37353a53125e: https://packages.ubuntu.com/noble/libsoup2.4-common — “HTTP library implementation in C -- Common files”.
+- mint-f3a27734d1c9e9356a0e2c91: https://packages.ubuntu.com/noble/libsource-highlight-common — “architecture-independent files for source highlighting library”.
+- mint-ad77f495098e46b926c97869: https://packages.ubuntu.com/noble/libsource-highlight4t64 — “source highlighting library”.
+- mint-847ce165703c5779cb3a9c3c: https://packages.ubuntu.com/noble/libsoxr0 — “High quality 1D sample-rate conversion library”.
+- mint-503fb04e196a9eabacaea453: https://packages.ubuntu.com/noble/libspa-0.2-bluetooth — “libraries for the PipeWire multimedia server - bluetooth plugins”.
+- mint-6ae7c864928f8fa18c5a51d4: https://packages.ubuntu.com/noble/libspa-0.2-modules — “libraries for the PipeWire multimedia server Simple Plugin API - modules”.
+- mint-c5805c4a16ae8dbb6a66dea7: https://packages.ubuntu.com/noble/libspectre1 — “Library for rendering PostScript documents”.
+- mint-8fc2d9cdebb2ce8830192888: https://packages.ubuntu.com/noble/libspeechd2 — “Speech Dispatcher: Shared libraries”.
+- mint-490f7a3542dd0d019813dc91: https://packages.ubuntu.com/noble/libspeex1 — “The Speex codec runtime library”.
+- mint-9b54294b921b0e7907954141: https://packages.ubuntu.com/noble/libspeexdsp1 — “DSP library derived from speex”.
+- mint-8bb54dbbb53a3c3d811451a6: https://packages.ubuntu.com/noble/libsphinxbase3t64 — “Speech recognition tool - shared library”.
+- mint-e6879089850288fa46ac1809: https://packages.ubuntu.com/noble/libsqlite3-0 — “SQLite 3 shared library”.
+- mint-089342beb207f70063e3e79a: https://packages.ubuntu.com/noble/libsratom-0-0 — “library for serialising LV2 atoms to/from Turtle”.
+- mint-eabd5f60ddb1e970a7c582c5: https://packages.ubuntu.com/noble/libsrt1.5-gnutls — “Secure Reliable Transport UDP streaming library (GnuTLS flavour)”.
+- mint-1bf0009d1cc3054ec97cf5ac: https://packages.ubuntu.com/noble/libss2 — “command-line interface parsing library”.
+- mint-305219228853767f2de3d7e2: https://packages.ubuntu.com/noble/libssh-4 — “tiny C SSH library (OpenSSL flavor)”.
+- mint-c3fe77974827885a1032464c: https://packages.ubuntu.com/noble/libssh-gcrypt-4 — “tiny C SSH library (gcrypt flavor)”.
+- mint-cc6d90e9abcf014cd7a173a4: https://packages.ubuntu.com/noble/libssl3t64 — “Secure Sockets Layer toolkit - shared libraries”.
+- mint-15dc0ec0800b5b6437d17503: https://packages.ubuntu.com/noble/libstartup-notification0 — “library for program launch feedback (shared library)”.
+- mint-bdf8f6d772ec2e8c8641b3ee: https://packages.ubuntu.com/noble/libstdc++-13-dev — “GNU Standard C++ Library v3 (development files)”.
+- mint-c6fe68a10cfe96e265200a9e: https://packages.ubuntu.com/noble/libstdc++6 — “GNU Standard C++ Library v3”.
+- mint-ffe6eab780cf04ebbc9b91a0: https://packages.ubuntu.com/noble/libstemmer0d — “Snowball stemming algorithms for use in Information Retrieval”.
+- mint-0b1dbeae492b495e9bb93bb0: https://packages.ubuntu.com/noble/libsubid4 — “subordinate id handling library -- shared library”.
+- mint-488e196e1addbc87b6578108: https://packages.ubuntu.com/noble/libsuitesparseconfig7 — “configuration routines for all SuiteSparse modules”.
+- mint-2bd09fc8978f6d9f71d97b46: https://packages.ubuntu.com/noble/libsvtav1enc1d1 — “Scalable Video Technology for AV1 (libsvtav1enc shared library)”.
+- mint-a7a247d394008f5fbecc6e44: https://packages.ubuntu.com/noble/libswresample4 — “FFmpeg library for audio resampling, rematrixing etc. - runtime files”.
+- mint-73c32ee1cd91796503ec85f9: https://packages.ubuntu.com/noble/libswscale7 — “FFmpeg library for image scaling and various conversions - runtime files”.
+- mint-37ab8f48cdc25ff1a13c3e65: https://packages.ubuntu.com/noble/libsystemd-shared — “systemd shared private library”.
+- mint-dbfa434f23ea19b6241686ef: https://packages.ubuntu.com/noble/libsystemd0 — “systemd utility library”.
+- mint-7588ce4f54fd792c9bd42dd5: https://packages.ubuntu.com/noble/libtag1v5 — “audio meta-data library”.
+- mint-69504cfae45843edca55e431: https://packages.ubuntu.com/noble/libtag1v5-vanilla — “audio meta-data library - vanilla flavour”.
+- mint-405359acf0cf63a2169cd519: https://packages.ubuntu.com/noble/libtalloc2 — “hierarchical pool based memory allocator”.
+- mint-2cd78129113487db5c19d4f0: https://packages.ubuntu.com/noble/libtasn1-6 — “Manage ASN.1 structures (runtime)”.
+- mint-3b140876178364173ece7617: https://packages.ubuntu.com/noble/libtcl8.6 — “Tcl (the Tool Command Language) v8.6 - run-time library files”.
+- mint-9d64b10aa5bb947674dac12e: https://packages.ubuntu.com/noble/libtcmalloc-minimal4t64 — “efficient thread-caching malloc”.
+- mint-68a19f8268b14060b2525def: https://packages.ubuntu.com/noble/libtdb1 — “Trivial Database - shared library”.
+- mint-236e1c8234798d39beb26721: https://packages.ubuntu.com/noble/libteamdctl0 — “library for communication with `teamd` process”.
+- mint-9c72e6f895c58b49ed7a204a: https://packages.ubuntu.com/noble/libtevent0t64 — “talloc-based event loop library - shared library”.
+- mint-3941bf98a1ab3d45f2e628d0: https://packages.ubuntu.com/noble/libtext-charwidth-perl — “get display widths of characters on the terminal”.
+- mint-7bcd4f937205135373b2a3bc: https://packages.ubuntu.com/noble/libtext-iconv-perl — “module to convert between character sets in Perl”.
+- mint-36eb4e4c4e4eb48c17985111: https://packages.ubuntu.com/noble/libtext-wrapi18n-perl — “internationalized substitute of Text::Wrap”.
+- mint-a5f5ff7e91db3d3684bcf0d8: https://packages.ubuntu.com/noble/libthai-data — “Data files for Thai language support library”.
+- mint-7ae0c9f4c3aca34f81b0661c: https://packages.ubuntu.com/noble/libthai0 — “Thai language support library”.
+- mint-3c659bb14e8affcf15147c8d: https://packages.ubuntu.com/noble/libtheora0 — “Theora Video Compression Codec”.
+- mint-d33297e633bc0f0a775ccf11: https://packages.ubuntu.com/noble/libtie-ixhash-perl — “Perl module to order associative arrays”.
+- mint-3e44addcf712af26092f7b8b: https://packages.ubuntu.com/noble/libtiff6 — “Tag Image File Format (TIFF) library”.
+- mint-bf1107e4812fb5082125689c: https://packages.ubuntu.com/noble/libtimedate-perl — “collection of modules to manipulate date/time information”.
+- mint-29bb86e1f410b4e9273b2a6c: https://packages.ubuntu.com/noble/libtimezonemap-data — “GTK+3 timezone map widget - data files”.
+- mint-d30b69af2b980f39329c5896: https://packages.ubuntu.com/noble/libtimezonemap1 — “GTK+3 timezone map widget”.
+- mint-85ce0120d49cc826b322ddca: https://packages.ubuntu.com/noble/libtinfo6 — “shared low-level terminfo library for terminal handling”.
+- mint-ef80a80feb7709633f6d40e4: https://packages.ubuntu.com/noble/libtirpc-common — “transport-independent RPC library - common files”.
+- mint-e9a990c6c59c0c9cafa76572: https://packages.ubuntu.com/noble/libtirpc3t64 — “transport-independent RPC library”.
+- mint-0e8a7e18e99acc29322752a8: https://packages.ubuntu.com/noble/libtotem-plparser-common — “Totem Playlist Parser library - common files”.
+- mint-c351ca95c29037b2f79d1993: https://packages.ubuntu.com/noble/libtotem-plparser18 — “Totem Playlist Parser library - runtime files”.
+- mint-3809023013bafa3422693414: https://packages.ubuntu.com/noble/libtry-tiny-perl — “module providing minimalistic try/catch”.
+- mint-1ec4738805ce37d9a42a9252: https://packages.ubuntu.com/noble/libtsan2 — “ThreadSanitizer -- a Valgrind-based detector of data races (runtime)”.
+- mint-2fa33c3a711f0e97179c8698: https://packages.ubuntu.com/noble/libtspi1 — “open-source TCG Software Stack (library)”.
+- mint-e9e0ae0e4ba417afc25d7f29: https://packages.ubuntu.com/noble/libtss2-esys-3.0.2-0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-f4a20baca7175b290e11c0bc: https://packages.ubuntu.com/noble/libtss2-mu-4.0.1-0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-dd1d43b42b53e0f1cd3e1ef6: https://packages.ubuntu.com/noble/libtss2-sys1t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-3136bfd84c88897a87d4f5fc: https://packages.ubuntu.com/noble/libtss2-tcti-cmd0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-559b4166c0b461441c211195: https://packages.ubuntu.com/noble/libtss2-tcti-device0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-6ae717eb1f74ec48c2651cfc: https://packages.ubuntu.com/noble/libtss2-tcti-mssim0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-97d892645fa3fd659a7b079e: https://packages.ubuntu.com/noble/libtss2-tcti-swtpm0t64 — “TPM2 Software stack library - TSS and TCTI libraries”.
+- mint-71d97985adb80d184a6a8b50: https://packages.ubuntu.com/noble/libtwolame0 — “MPEG Audio Layer 2 encoding library”.
+- mint-22ce3deba3269cc6fd5ab825: https://packages.ubuntu.com/noble/libubsan1 — “UBSan -- undefined behaviour sanitizer (runtime)”.
+- mint-8870b5941ef66cc09f30a443: https://packages.ubuntu.com/noble/libuchardet0 — “universal charset detection library - shared library”.
+- mint-db603f6468f1861a7340539c: https://packages.ubuntu.com/noble/libudev1 — “libudev shared library”.
+- mint-88ae52fe36c99d33134c8dc1: https://packages.ubuntu.com/noble/libudfread0 — “UDF reader library”.
+- mint-0531b220a25e16bc37c3d62f: https://packages.ubuntu.com/noble/libudisks2-0 — “GObject based library to access udisks2”.
+- mint-7c14c3bdb8b7cc507f0bb95c: https://packages.ubuntu.com/noble/libunibreak5 — “line breaking library for Unicode (shared library)”.
+- mint-995f1bf3ce632592e771bf62: https://packages.ubuntu.com/noble/libunistring5 — “Unicode string library for C”.
+- mint-a7b59b21ce3db47b23c2d93d: https://packages.ubuntu.com/noble/libuno-cppu3t64 — “LibreOffice UNO runtime environment -- CPPU public library”.
+- mint-03e68abfec9b0459b53f38bb: https://packages.ubuntu.com/noble/libuno-cppuhelpergcc3-3t64 — “LibreOffice UNO runtime environment -- CPPU helper library”.
+- mint-6855337293eaa3e8d4cf0cc8: https://packages.ubuntu.com/noble/libuno-purpenvhelpergcc3-3t64 — “LibreOffice UNO runtime environment -- "purpose environment" helper”.
+- mint-cee9362bc9481842f62bf81f: https://packages.ubuntu.com/noble/libuno-sal3t64 — “LibreOffice UNO runtime environment -- SAL public library”.
+- mint-7dbfcf85d95851a4b5990107: https://packages.ubuntu.com/noble/libuno-salhelpergcc3-3t64 — “LibreOffice UNO runtime environment -- SAL helpers for C++ library”.
+- mint-638deddfb420d124d2e13906: https://packages.ubuntu.com/noble/libunwind8 — “library to determine the call-chain of a program - runtime”.
+- mint-68f4d1b0169a4e50e27c4676: https://packages.ubuntu.com/noble/libupower-glib3 — “abstraction for power management - shared library”.
+- mint-da7df9c43fe2bf6b9d6550cd: https://packages.ubuntu.com/noble/liburcu8t64 — “userspace RCU (read-copy-update) library”.
+- mint-d45638d03e6d97b372a9be3a: https://packages.ubuntu.com/noble/liburi-perl — “module to manipulate and access URI strings”.
+- mint-fbe3932b89bc149a5b9f99f1: https://packages.ubuntu.com/noble/liburing2 — “Linux kernel io_uring access library - shared library”.
+- mint-62c9db2169e2fc3bf2e9152a: https://packages.ubuntu.com/noble/libusb-1.0-0 — “userspace USB programming library”.
+- mint-1e6163eb9a9fab1f1478868c: https://packages.ubuntu.com/noble/libusbmuxd6 — “USB multiplexor daemon for iPhone and iPod Touch devices - library”.
+- mint-6a62045db8c7330a1c88d5d9: https://packages.ubuntu.com/noble/libuuid1 — “Universally Unique ID library”.
+- mint-fff6fb352a3edcefdeef7893: https://packages.ubuntu.com/noble/libuv1t64 — “asynchronous event notification library - runtime library”.
+- mint-41abbdab5255a457477e9802: https://packages.ubuntu.com/noble/libv4l-0t64 — “Collection of video4linux support libraries”.
+- mint-35e8c231bf9dfb9b54b84d68: https://packages.ubuntu.com/noble/libv4lconvert0t64 — “Video4linux frame format conversion library”.
+- mint-f76414d6d3802cd7057f0502: https://packages.ubuntu.com/noble/libva-drm2 — “Video Acceleration (VA) API for Linux -- DRM runtime”.
+- mint-880c0e5a898a4a5fbdfc4314: https://packages.ubuntu.com/noble/libva-wayland2 — “Video Acceleration (VA) API for Linux -- Wayland runtime”.
+- mint-f63db37939c2670c6b1c8411: https://packages.ubuntu.com/noble/libva-x11-2 — “Video Acceleration (VA) API for Linux -- X11 runtime”.
+- mint-e9ba9f0109f90c659bde10ee: https://packages.ubuntu.com/noble/libva2 — “Video Acceleration (VA) API for Linux -- runtime”.
+- mint-ae066d4d6075493c9d50aa5f: https://packages.ubuntu.com/noble/libvdpau1 — “Video Decode and Presentation API for Unix (libraries)”.
+- mint-4905aefb789a35b6b57351be: https://packages.ubuntu.com/noble/libvidstab1.1 — “video stabilization library (shared library)”.
+- mint-2ad23bb13b611fdb528ddaa0: https://packages.ubuntu.com/noble/libvisio-0.1-1 — “library for parsing the visio file structure”.
+- mint-58a93efdf1c84f581f36133a: https://packages.ubuntu.com/noble/libvisual-0.4-0 — “audio visualization framework”.
+- mint-56694454eec3c637692736fe: https://packages.ubuntu.com/noble/libvisual-0.4-plugins — “audio visualization framework plugins”.
+- mint-d146fa0997bd7eb8dc4a104b: https://packages.ubuntu.com/noble/libvolume-key1 — “Library for manipulating storage encryption keys and passphrases”.
+- mint-f990d8adbaaa8205dffe0a6d: https://packages.ubuntu.com/noble/libvorbis0a — “decoder library for Vorbis General Audio Compression Codec”.
+- mint-b98703bb1123153267b8fe86: https://packages.ubuntu.com/noble/libvorbisenc2 — “encoder library for Vorbis General Audio Compression Codec”.
+- mint-fe54d23dadad7ed4e4876443: https://packages.ubuntu.com/noble/libvorbisfile3 — “high-level API for Vorbis General Audio Compression Codec”.
+- mint-84ee33598c51154e544d5498: https://packages.ubuntu.com/noble/libvpl2 — “oneAPI Video Processing Library -- shared library”.
+- mint-c41e7865ae15c30b0b8fb012: https://packages.ubuntu.com/noble/libvpx9 — “VP8 and VP9 video codec (shared library)”.
+- mint-a8f8a9b35e2f233c518cab24: https://packages.ubuntu.com/noble/libvte-2.91-0 — “Terminal emulator widget for GTK+ 3.0 - runtime files”.
+- mint-f1de460c4c30e051eff71e46: https://packages.ubuntu.com/noble/libvte-2.91-common — “Terminal emulator widget for GTK+ 3.0 - common files”.
+- mint-4a2191140a7153e12006a698: https://packages.ubuntu.com/noble/libvulkan1 — “Vulkan loader library”.
+
+## Mechanical verification
+
+Exactly 635 assigned ids, each once; no additions or omissions; all decisions valid; field word limits verified.
+
+MUST: 601, NOT: 29, HOLE: 3, UNKNOWN: 2, MIXED: 0.

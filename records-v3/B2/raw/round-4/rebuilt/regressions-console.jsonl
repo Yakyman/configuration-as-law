@@ -1,0 +1,37 @@
+{"log": "bc3-bc4-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T13:39:34Z"}
+{"log": "bc3-bc4-rebuilt-copy-round3-selftest.py.log", "rc": 0, "utc": "2026-11-22T13:39:34Z"}
+{"log": "round3.jsonl", "rc": 0, "utc": "2026-11-22T13:56:33Z"}
+{"expected": "delayed replay prevents all successful ordinary SSH commands until replay completion", "id": "BOOT-SESSION-GATE", "phase": "expected", "source": "S3-5; systemd unit ordering; B2/build/round3-driver.py", "utc": "2026-11-22T13:56:33Z"}
+{"log": "boot-delay-setup.log", "rc": 0, "utc": "2026-11-22T13:56:34Z"}
+{"log": "boot-gate-stop.log", "rc": 0, "utc": "2026-11-22T13:56:35Z"}
+{"id": "BOOT-SESSION-GATE", "passed": true, "phase": "result", "pre_ready_ordinary_attempts": 175, "pre_ready_ordinary_successes": 0, "premature_operator_session": false, "utc": "2026-11-22T13:57:19Z"}
+{"log": "boot-order.jsonl", "rc": 0, "utc": "2026-11-22T13:57:19Z"}
+{"log": "boot-delay-cleanup.log", "rc": 0, "utc": "2026-11-22T13:57:19Z"}
+{"log": "powercuts.jsonl", "rc": 0, "utc": "2026-11-22T14:08:22Z"}
+{"log": "bc3-bc4-rebuilt-destroy.log", "rc": 0, "utc": "2026-11-22T14:08:23Z"}
+{"log": "bc3-inventory-bc4-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T14:08:59Z"}
+{"log": "bc3-inventory-bc4-rebuilt-copy-round3-inventory-test.py.log", "rc": 0, "utc": "2026-11-22T14:08:59Z"}
+{"log": "inventory.jsonl", "rc": 0, "utc": "2026-11-22T14:09:07Z"}
+{"log": "bc3-inventory-bc4-rebuilt-destroy.log", "rc": 0, "utc": "2026-11-22T14:09:10Z"}
+{"log": "original-console.log", "rc": 0, "utc": "2026-11-22T14:20:57Z"}
+{"log": "bc3-regression1-bc4-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T14:21:33Z"}
+{"log": "bc3-regression1-bc4-rebuilt-copy-round1-selftest.py.log", "rc": 0, "utc": "2026-11-22T14:21:33Z"}
+{"log": "round1.jsonl", "rc": 0, "utc": "2026-11-22T14:32:54Z"}
+{"log": "bc3-regression1-bc4-rebuilt-destroy.log", "rc": 0, "utc": "2026-11-22T14:32:56Z"}
+{"log": "bc3-regression2-bc4-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T14:33:33Z"}
+{"log": "bc3-regression2-bc4-rebuilt-copy-round2-selftest.py.log", "rc": 0, "utc": "2026-11-22T14:33:33Z"}
+{"log": "bc3-regression2-bc4-rebuilt-copy-round2-probe.c.log", "rc": 0, "utc": "2026-11-22T14:33:34Z"}
+{"log": "round2.jsonl", "rc": 0, "utc": "2026-11-22T14:42:36Z"}
+{"log": "bc3-regression2-bc4-rebuilt-destroy.log", "rc": 0, "utc": "2026-11-22T14:42:38Z"}
+{"expected": "byte-identical complete declaration and equal every-line values on separately rebuilt images", "id": "INDEPENDENT-RECIPE-COMPARE", "phase": "expected", "utc": "2026-11-22T14:42:38Z"}
+{"log": "bc3-peer-a-new.log", "rc": 0, "utc": "2026-11-22T14:43:14Z"}
+{"log": "peer-a-apply.log", "rc": 0, "utc": "2026-11-22T14:44:05Z"}
+{"log": "peer-a-snapshot-export.log", "rc": 0, "utc": "2026-11-22T14:44:05Z"}
+{"log": "peer-a-declaration-export.log", "rc": 0, "utc": "2026-11-22T14:44:06Z"}
+{"log": "bc3-peer-a-destroy.log", "rc": 0, "utc": "2026-11-22T14:44:10Z"}
+{"log": "bc3-peer-b-new.log", "rc": 0, "utc": "2026-11-22T14:44:46Z"}
+{"log": "peer-b-apply.log", "rc": 0, "utc": "2026-11-22T14:45:36Z"}
+{"log": "peer-b-snapshot-export.log", "rc": 0, "utc": "2026-11-22T14:45:37Z"}
+{"log": "peer-b-declaration-export.log", "rc": 0, "utc": "2026-11-22T14:45:37Z"}
+{"log": "independent-stand-compare.jsonl", "rc": 0, "utc": "2026-11-22T14:45:38Z"}
+{"log": "bc3-peer-b-destroy.log", "rc": 0, "utc": "2026-11-22T14:45:42Z"}

@@ -1,11 +1,18 @@
-# Configuration as Law: evidence for the first test cycle
+# Configuration as Law: evidence for the test cycles
 
-This repository holds the evidence records behind the second paper on the *Configuration as Law*
-hypothesis, «Testing the “Configuration as Law” Hypothesis: Results of the First Cycle and a Second
-Version». The second paper is published at <https://yakyman.com/configuration-as-law-v2.pdf> (page
-<https://yakyman.com/research-v2>). The first paper, which stated version 1 of the hypothesis and fixed
-five checks and their failure conditions before any check was run, is published at
-<https://yakyman.com/configuration-as-law-v1.pdf>.
+This repository holds the evidence records behind the papers on the *Configuration as Law* hypothesis.
+The records of the first cycle stand behind the second paper, «Testing the “Configuration as Law”
+Hypothesis: Results of the First Cycle and a Second Version», published at
+<https://yakyman.com/configuration-as-law-v2.pdf> (page <https://yakyman.com/research-v2>). The first
+paper, which stated version 1 of the hypothesis and fixed five checks and their failure conditions
+before any check was run, is published at <https://yakyman.com/configuration-as-law-v1.pdf>. The records
+of the second cycle stand behind the fourth paper and are described in the section «Version 3: results
+of its checks, and version 4» below.
+
+The records of the first cycle were produced on 19 November 2026 (UTC). The experiments ran on
+disposable virtual machines: clean installations of existing systems and a disposable Linux prototype
+(the *stand*, called the *testbed* in the paper) built only to test the properties. The records in
+`definitions-analysis/` analyse documentation and the written definitions without running machines.
 
 ## Version 3: fixed before its checks
 
@@ -14,15 +21,82 @@ Hypothesis, Version 3: Hypothesis, Checks, and Failure Conditions Fixed Before t
 (21 November 2026): version 3 of the hypothesis, its four checks and their failure conditions,
 published before any of these checks is run. `prereg-en.md` is the text; `configuration-as-law-v3.pdf`
 is the same text as published at <https://yakyman.com/configuration-as-law-v3.pdf> (page
-<https://yakyman.com/research>).
+<https://yakyman.com/research-v3>).
 
 The folder `check-inputs-v3/` holds the concrete inputs of the checks of version 3, committed before the
 first observation of each check, as Section 4.1 of the third paper requires.
 
-The records were produced on 19 November 2026 (UTC). The experiments ran on disposable virtual
-machines: clean installations of existing systems and a disposable Linux prototype (the *stand*, called
-the *testbed* in the paper) built only to test the properties. The records in `definitions-analysis/`
-analyse documentation and the written definitions without running machines.
+## Version 3: results of its checks, and version 4
+
+The folder `fourth-paper/` holds the fourth paper, «The “Configuration as Law” Hypothesis: Results of
+the Checks of Version 3, and Version 4» (22 November 2026). Part I reports the outcomes of the checks of
+version 3 strictly under the conditions fixed in the third paper; Part II, formulated after the results,
+fixes version 4 of the hypothesis and the failure conditions of its checks before these checks begin.
+`paper4-en.md` is the text; `configuration-as-law-v4.pdf` is the same text as published at
+<https://yakyman.com/configuration-as-law-v4.pdf> (page <https://yakyman.com/research>).
+
+The folder `records-v3/` holds the dated records of the second cycle: the trial of the wording of
+version 3 on objects from the first cycle, the checks conducted under its fixed plan, and the further
+investigations reported in the fourth paper. The folder `trial-v4/` holds both rounds of the trial of the
+wording of version 4, including the instructions, inputs, decisions, rules, gaps, unknown facts and
+reviews. The records are dated 22 November 2026 (UTC). Earlier decisions, corrections and completed
+reviews are retained together with their outcomes.
+
+Check 1 yielded **0** and check 4 yielded **1**. Checks 2 and 3 were **not conducted**. In the order of
+the four checks, the outcome vector is **0 / not conducted / not conducted / 1**. An unperformed check
+is not an observation with outcome ?. Check 4 succeeded in assessing the existing systems; this does not
+mean that either system has the properties. The trials of the wording are not checks on new objects.
+
+| Folder | Contents | Fourth-paper sections |
+|---|---|---|
+| `records-v3/TEXT.md`, `records-v3/SENTENCES.md` | Version 3 and the sentence numbering used in the checks. | §2, §3 |
+| `check-inputs-v3/` | Inputs committed before the first observation. | §3, §4.1, §4.4 |
+| `records-v3/A1/` | First-cycle objects: inventories, two classifications with notes, comparison, adjudication, verification, corrections and reviews. | §3 |
+| `records-v3/D1/` | Check 1: the same evidence chain, collection coverage and the termination of the Talos collection. | §4.1 |
+| `records-v3/D4/` | Check 4: two independent assessments, the raw experiments and documentary evidence, and review. | §4.4 |
+| `records-v3/A2/`, `records-v3/A3R/`, `records-v3/A3/BUILD.md`, `records-v3/B1/` | Further analysis of the wording, the lived-in disposable machine, and 88 installation/configuration channels. | §4.5 |
+| `records-v3/B2/` | Partial testbed, four construction rounds, acceptance records and the small direct evidence they cite. | §4.2 |
+| `trial-v4/round-1/`, `trial-v4/round-2/` | Both wording trials, including intermediate decision tables and corrections retained alongside final tables. | §9.6 |
+| `MANIFEST.md`, section 5 | Evidence keys, records, claims and hashes of the records of the second cycle. | |
+
+To verify a number, find the fourth-paper section in section 5 of `MANIFEST.md`, open its result and
+review, and follow the corresponding comparison, adjudication or correction table. In `A1/` and `D1/`,
+`in/` contains the inventories as collected; `c1/` and `c2/` contain the two independent
+classifications; `compare/` joins them; `adjudication/` records the disputes. `RESULT.md` and the final
+numbered review identify which correction round supplies the current count. Earlier rounds are
+historical evidence, not additional observations to add to the final count. For the version-4 trials,
+count the `status` column in each final `out/rows-<set>.tsv` and compare its identifiers with
+`in/rows-<set>.tsv`. Other `rows-*.tsv` files record intermediate decisions and must not be added to the
+final population.
+
+The second trial has 4,934 final rows against 4,937 inputs. Its three missing rows and the 3,320
+decisions dependent on unknown facts are retained as reported, not repaired during preparation. Source
+hashes inside historical verification records describe the original inputs at the time of that
+verification; section 5 of `MANIFEST.md` gives hashes of the cleaned public copies.
+
+Nothing in the measurements was changed. No number, count, outcome or decision was changed in preparing
+these folders. Tables retain their source row counts, including intermediate tables. The three console
+images show disposable virtual machines and are retained unchanged.
+
+Operational scheduling, task briefs of the second cycle, logs of the trial execution, plans, budgets,
+temporary working directories and adjudication scratch are omitted. The two version-4 `TASK.md` files
+are retained as the trial instructions. Trial helper scripts and intermediate fact-finding downloads are
+omitted. Copies of distribution package metadata downloaded for fact-finding—package file lists,
+repository indexes, package control/header records and package API responses—are omitted; these are
+available from the distributions. Inventories actually collected on the test machines are retained. Some
+citations in the first-cycle input tables point to older raw records that are not part of these folders;
+these are marked “(not published: first-cycle raw record)”. For investigations beyond the plan and the
+testbed, direct evidence is included only where the individual file is under 2 MB; no individual file
+over 20 MB is included. This limits reconstruction of the larger testbed snapshots and some
+lived-in-machine aggregates. An unavailable local reference is marked “(not published: category)”.
+
+Privacy substitutions cover host names, host home paths and account names, network addresses outside the
+virtual-machine networks, hardware addresses, wireless network names, machine identifiers, host-key
+fingerprints, access keys, tokens and e-mail addresses. Virtual-machine names, test users and guest
+filesystem paths remain. Internal labels of those carrying out the classification and review are
+rewritten neutrally; the independence and scope of reviews are preserved. Names of third-party programs
+found in an inventory remain part of the observation. Host local timestamps, where present, are
+expressed in UTC; UTC guest records and names of timezone data files remain as collected.
 
 ## Outcome of the first cycle
 
@@ -55,6 +129,8 @@ definitions does not resolve).
 | `definitions-analysis/` | Analysis of the written definitions on documented object types (`documented-objects/`), the finite formal analysis and the comparison with documented rules of existing systems (`formal-and-literature/`). | §4.1, §5.2, §9 |
 | `open-problems/` | Records cited for open problem O14 (`apply-crash/`). | §9 |
 | `preregistration-v3/` | The third paper: version 3 of the hypothesis with its checks and failure conditions, published before the checks (`prereg-en.md`, `configuration-as-law-v3.pdf`). | |
+| `check-inputs-v3/` | Inputs of the checks of version 3, committed before the first observation of each check. | third paper §4.1 |
+| `fourth-paper/`, `records-v3/`, `trial-v4/` | The fourth paper and the records of the second cycle; see «Version 3: results of its checks, and version 4» above. | fourth paper |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record

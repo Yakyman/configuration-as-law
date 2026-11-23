@@ -1,0 +1,1 @@
+runuser -u root -- env HOME=/root XDG_RUNTIME_DIR=/run/user/0 sh -c 'command -v dpkg-query >/dev/null 2>&1 || exit 127; dpkg-query -W -f='"'"'${binary:Package}\t${Version}\t${db:Status-Abbrev}\n'"'"''

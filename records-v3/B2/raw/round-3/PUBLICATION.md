@@ -1,0 +1,5 @@
+# Round 3 publication handling
+
+The raw evidence is copied from the server laboratory. Only host-local path prefixes in diagnostic tracebacks and process commands are replaced with `[host-home]`, `[workspace]`, `<stand-root>` or `<workspace>`; guest fixture paths and outputs are retained. This is path redaction, not a change of test outcomes. Source/declaration/snapshot contents used for comparison are not rewritten. Public source checksums in `recipe.sha256` and installed source checks in `factory-info.json` identify the final recipe. The private guest access and host identity key inputs remain server-local; public declarations contain authorized public keys and file digests, never the private key payloads.
+
+Failed and partial development runs are retained separately from `rebuilt/`. `ITERATIONS.md` explains why each changed implementation was rerun. Final acceptance uses the full `rebuilt/` run, the separate final-image ordinary inventory frontend check in `cli/`, and the final provenance/cleanup records. Earlier images and partial checks are not substituted for that complete run.

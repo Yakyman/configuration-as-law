@@ -1,0 +1,706 @@
+[
+  {
+    "variant": "C1.1 Repository install, upgrade, downgrade, reinstall and remove through CLI",
+    "requirement": "R; S3-6; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Transaction broker translates requested changes into declaration; backend has only inactive tree access; activate only declared artifacts; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E1,E2,E10,E11](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: System updating remains possible; application may require a restart or reboot; retained operation not established"
+  },
+  {
+    "variant": "C1.2 Direct low-level manager or library/API/GUI frontend bypassing CLI wrapper",
+    "requirement": "R; S3-6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Deny backend active-tree write authority by domain, not executable name/PATH; all frontends use broker; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Extra frontend integration; unrestricted stock manager command unavailable; retained operation not established"
+  },
+  {
+    "variant": "C1.3 Alternate root, alternate database, package extraction into writable directory",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Stored artifacts remain nonstartable until broker admission; all native execution outside active tree denied; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E1,E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Archives can be inspected; executing extracted files needs declaration"
+  },
+  {
+    "variant": "C1.4 Maintainer scripts, triggers, hooks and post-install service activation",
+    "requirement": "R; S2.2-10; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Record hook code before execution or execute in recorded VM; constrain effects and generate service/account/rule lines before active changes; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Some packages require adapted installation; installer arbitrary host effects denied; retained operation not established"
+  },
+  {
+    "variant": "C1.5 Hook disable/config override, backend flag or environment bypass",
+    "requirement": "R; S2.3-7; S3-6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Hooks are optional convenience only; mandatory writer/execute policy remains effective when hooks skipped; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Customizing backend cannot grant active-tree authority; retained operation not established"
+  },
+  {
+    "variant": "C1.6 Old generations, package cache copies, rollback paths after removal",
+    "requirement": "R; S2.4-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Authorize current-generation objects only; retained cache/rollback bytes not executable until a new declaration application; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E10,E18](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Rollback becomes an explicit declaration transition; retention itself allowed by S2.5-1"
+  },
+  {
+    "variant": "C2.1 pip system, --user, virtualenv, --target/--prefix installs",
+    "requirement": "R; S3-6; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Managed environments and broker-created immutable import closure; ordinary writable directories cannot become import/code sources; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E4,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Project dependencies work through declaration; direct mutable environment installation denied; retained operation not established"
+  },
+  {
+    "variant": "C2.2 npm local, global, prefix/workspace installs and executable links",
+    "requirement": "R; S3-6; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Register complete resolved dependency closure and entrypoints; gate module loads as code, not only native exec; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E6,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Managed project environments; lock information alone insufficient without exact content; retained operation not established"
+  },
+  {
+    "variant": "C2.3 Local archives, VCS URLs and package indexes selected by flags",
+    "requirement": "R; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Resolve exact content and record it before activation; source transport does not bypass admission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E4,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Offline/local packages supported after import"
+  },
+  {
+    "variant": "C2.4 Editable pip installs, npm links, mutable source and dependency replacement",
+    "requirement": "R; S2.2-10; S2.4-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Snapshot each admitted code version; edits remain data until applied; prevent imports from mutable original directory; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E4,E5,E10 plus C7](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Edit–apply–run instead of unrestricted edit–run"
+  },
+  {
+    "variant": "C2.5 Build backend, lifecycle script, npm run/start/test and dependency hook execution",
+    "requirement": "R; S2.2-10; S3-6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Record script/backend closure before execution or use recorded build VM; `ignore-scripts` alone not sufficient; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E5,E6](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Build/hook workflows need admission; ordinary program install retained; retained operation not established"
+  },
+  {
+    "variant": "C2.6 Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+    "requirement": "R; S2.2-10; S2.2-13",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E5,E7,E10,E12 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C3.1 Flatpak system install/update and graphical or D-Bus frontend",
+    "requirement": "R; S3-6; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Broker owns deployments; record app and runtime commits and permissions, then activate; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E8,E9,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Desktop apps work; extra broker integration; retained operation not established"
+  },
+  {
+    "variant": "C3.2 Flatpak --user install, extra installation roots/remotes, local bundles",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Ordinary user cannot authorize new executable tree; every deployment admitted through declaration; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E8,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Per-user applications remain possible as declaration entries; retained operation not established"
+  },
+  {
+    "variant": "C3.3 Flatpak runtime/extension updates, override permissions, alternate commands and development mode",
+    "requirement": "R; S2.2-9; S2.2-10; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Runtime/extension code closure and host-affecting permissions recorded; alternate command cannot introduce unrecorded code; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E8,E9,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Debug/SDK commands require declarations; portals preserve document access; retained operation not established"
+  },
+  {
+    "variant": "C3.4 AppImage directly executed and self-mounted via FUSE",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Record image content and mounted executable closure; deny unadmitted image runtime and executable mount authority; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E13,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Import image before first run; download remains possible"
+  },
+  {
+    "variant": "C3.5 AppImage extracted/mounted externally, AppDir launch or self-update",
+    "requirement": "R; S2.2-9; S2.4-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Same execute/map policy on extracted artifacts; self-updater submits new declaration content; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E3,E13,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: No unrestricted self-update; managed update retained; retained operation not established"
+  },
+  {
+    "variant": "C4.1 Download a native executable and chmod/run it",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Writable trees noexec plus mandatory execute/map denial; importer records code into active tree; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Download and document editing unaffected; launch requires admission"
+  },
+  {
+    "variant": "C4.2 Download and extract archive, including nested archives and renamed files",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Gate actual execution/read-as-code independent of suffix and extraction route; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E7,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Archive extraction allowed as data; run requires admission"
+  },
+  {
+    "variant": "C4.3 Download by browser, curl, copier, sync client or application self-updater",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: The final code boundary, not downloader executable, controls activation; self-updater broker required; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E3,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Browser download retained; automatic native updates mediated; retained operation not established"
+  },
+  {
+    "variant": "C4.4 Downloaded script or library passed to existing interpreter/loader",
+    "requirement": "R; S2.2-10; S2.2-13",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E7,E10,E12,E14 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C4.5 Stream download directly into interpreter or process substitution",
+    "requirement": "R; S2.2-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Depends on the same unevidenced stream refusal/admission integration as C7.04; noexec or D file-open policy alone does not mediate inherited stdin",
+    "evidence": "[I ledger: E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "`curl ... \\| sh` becomes import–apply–run; browser content exception unchanged"
+  },
+  {
+    "variant": "C5.1 Compile/link native program in home, then execute output",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Compiler may write inert output; publish output digest through declaration before execute permission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Programming requires an apply between build and run"
+  },
+  {
+    "variant": "C5.2 Build-system commands, configure probes, generators and test binaries",
+    "requirement": "R; S2.2-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Record build code and generated executable before each host launch, or recorded VM builds; host output still admitted separately; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Conventional host builds need orchestration; build VM avoids repeated host admissions; retained operation not established"
+  },
+  {
+    "variant": "C5.3 Install target copying to user prefix, changing PATH or creating symlinks",
+    "requirement": "R; S2.2-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Paths and links cannot grant execution; active-tree broker controls resulting artifact closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "User prefix may hold inert artifacts; managed activation retained"
+  },
+  {
+    "variant": "C5.4 Rebuild/replace an already recorded binary or library in place",
+    "requirement": "R; S2.3-5; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Immutable active version; rebuild enters new version, application atomically changes active closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E10,E11,E12](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Hot mutation denied; restart/reapplication may be needed"
+  },
+  {
+    "variant": "C5.5 Compilers embedding plugins or build processes loading generated code",
+    "requirement": "R; S2.2-10; S2.2-13",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Code imports require admission; alternatively do computation inside recorded VM and admit output; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Plugins and generators recorded; unrestricted host compiler plugins denied; retained operation not established"
+  },
+  {
+    "variant": "C6.1 Persistent user units and drop-ins, aliases, template instances and symlinks",
+    "requirement": "R; S2.1-3; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Manager reads protected declaration-generated unit tree; writable user search paths disabled/ignored by policy; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E15,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: User service definitions submitted through broker; retained operation not established"
+  },
+  {
+    "variant": "C6.2 Direct manager API/CLI start, enable, reload, set-property or link",
+    "requirement": "R; S2.3-7; S3-6; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Gate manager control socket/API and mutation authority, not only systemctl wrapper; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E15,E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Start allowed when existing line permits; configuration change needs declaration; retained operation not established"
+  },
+  {
+    "variant": "C6.3 Transient service/scope/timer/path/socket created through systemd-run or D-Bus",
+    "requirement": "R; S2.1-3; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Broker records transient unit semantics before creation; deny bypass API access; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Ephemeral scheduling possible through declaration; expiry/removal is another application; retained operation not established"
+  },
+  {
+    "variant": "C6.4 User cron entries, @reboot and crontab replacement",
+    "requirement": "R; S2.1-3; S2.2-10; S3-10",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Protect spool; crontab tool writes declaration; recorded commands only; cron user identity cannot overwrite admitted code; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E17,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Scheduled work available through broker; retained operation not established"
+  },
+  {
+    "variant": "C6.5 Generated units, user environment generators and cron command text loading more code",
+    "requirement": "R; S2.2-10; S2.2-13",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Record generator/command code and generated effective units; deny unrecorded mutable input that changes effective required configuration; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E15,E17,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Generator outputs need a declaration-described result; ordinary desktop retained; retained operation not established"
+  },
+  {
+    "variant": "C6.6 Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+    "requirement": "R; S2.4-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Withdraw every activation edge; kill and verify former processes; revoke executable authorization unless remaining lines cover it; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[I ledger: E15,E16,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Application must quiesce related tasks before success"
+  },
+  {
+    "variant": "C7.01 Script file passed as interpreter argument",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C7.02 Executable shebang script",
+    "requirement": "R; S2.2-9,10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: N gates direct execve of the shebang script; interpreter-argument/file-read and other input routes remain C7.01/03–08 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E3,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "No direct launch of undeclared writable script; declared scripts retained"
+  },
+  {
+    "variant": "C7.03 Code supplied as -c or -e argument",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "evidence": "[T1,T2,T17](raw/c7-sources.md); [P01](raw/python-securebits-output.txt); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Equivalent declared-file workflow is a proposal; P01 demonstrates stock argument-code execution under locked bits"
+  },
+  {
+    "variant": "C7.04 Code piped into stdin, FIFO, socket, here-document or process substitution",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Piped scripting unavailable; ordinary data pipelines through non-interpreting tools retained"
+  },
+  {
+    "variant": "C7.05 Code from regular file redirected to stdin or /proc/self/fd/N",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "D can deny a new file open only after domain entry; mandatory launch coverage and inherited stdin/FD mediation are not evidenced",
+    "evidence": "[T ledger: E1,E2,E12,E16](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Path-open case loses unrecorded file reads; retained redirected-input support is unestablished"
+  },
+  {
+    "variant": "C7.06 Interactive REPL with language statements",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "REPL programming lost; declaration-mediated script execution can remain"
+  },
+  {
+    "variant": "C7.07 Recorded script sources another file",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C7.08 exec(open(file).read()), eval of read data, custom import loader",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E6–8,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C7.09 Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E6,E8,E12](raw/c7-sources.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C7.10 Embedded interpreter in editor, awk, make, debugger or database program",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Every evaluator entry and data-to-code conversion needs mediation; shell escape switches do not prove this",
+    "evidence": "[T ledger: E1,E7,E9,E14](raw/c7-sources.md)",
+    "cost": "Removing all programmable applications is a possible conservative restriction, but not proven necessary"
+  },
+  {
+    "variant": "C7.11 Helper process launch: find -exec, editor shell escape, make recipe child",
+    "requirement": "R; S2.2-9,12; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "N closes native child launch, but shell-command child code depends on unevidenced F/I input mediation",
+    "evidence": "[T ledger: E1,E3,E11](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Helpers and scripts declared; ordinary editing can retain safe helpers"
+  },
+  {
+    "variant": "C7.12 Git hook program in writable project",
+    "requirement": "R; S2.2-9,10,12; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: N gates direct execve of native/shebang hooks; invoking a recorded interpreter on a hook file instead inherits C7.01 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E3,E12,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Hooks require declaration; ordinary file editing unaffected"
+  },
+  {
+    "variant": "C7.13 Direct dynamic loader invocation",
+    "requirement": "R; S2.2-9,10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: N covers executable file mappings as well as execve; trusting loader alone fails; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Libraries and binaries need trust policy derived from declaration"
+  },
+  {
+    "variant": "C7.14 LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: N denies unrecorded native library mappings; environment sanitization alone insufficient; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Plugins/FFI libraries must be declared; normal recorded linkage remains"
+  },
+  {
+    "variant": "C7.15 Native executable memfd, fexecve/execveat of memory file",
+    "requirement": "R; S2.2-9,10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Enforced memfd noexec plus N; close permitted creation and inherited descriptor routes; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E4,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Software depending on executable memfd needs adaptation; text reads still require C7.04–08"
+  },
+  {
+    "variant": "C7.16 Anonymous machine code, JIT, writable/executable aliases",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: N plus MemoryDenyWriteExecute, deny memfd and writable executable filesystems, native ABI restriction; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E3,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Host-native JIT/FFI trampolines disabled in this domain; browser exemption requires separate analysis"
+  },
+  {
+    "variant": "C7.17 Shell command line, including invocation of a declared program",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Denying all interactive input removes the interactive shell; record-before-interpret has no cited implementation",
+    "evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Removal option loses all interactive shell use; retained mediated shell is UNKNOWN"
+  },
+  {
+    "variant": "C7.18 Regenerable executable bytecode/JIT cache with same-rights execution",
+    "requirement": "R; S2.2-5 versus S2.2-10",
+    "verdict": "TEXT-OPEN",
+    "mechanism": "Cache exemption and same-rights code requirement both fit a cache whose removal only slows execution",
+    "evidence": "[Text](../SENTENCES.md); [T3,T6](raw/c7-sources.md); card T1 below",
+    "cost": "Cache-priority reading permits unrecorded rebuild; code-priority reading requires recording before execution"
+  },
+  {
+    "variant": "C7.19 Browser web code and JIT confined inside recorded renderer/helper programs",
+    "requirement": "R; S2.2-11,12",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Record each browser component program; genuinely interface-confined webpage code retains explicit exemption; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: S2.2-11,12; E1](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Browsing remains possible; exemption is conditional on actual confinement, not merely process name"
+  },
+  {
+    "variant": "C7.20 Code-bearing serialized input (pickle, macro-bearing document)",
+    "requirement": "R; S2.2-10; S2.2-13 decides code/settings classification",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Deny code-bearing deserialization/macro evaluation before reading payload as code; retain values-only parser; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: E15; S2.2-13](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Some document/state formats lose active content; ordinary passive document editing remains"
+  },
+  {
+    "variant": "C7.21 WASI module with a preopened host directory and partial runtime rights",
+    "requirement": "R; S2.2-1,10–13",
+    "verdict": "TEXT-OPEN",
+    "mechanism": "T3: text does not operationally delimit own interface or partial authority",
+    "evidence": "[Text](../SENTENCES.md); [O12,O13](raw/ordinary-sources.md)",
+    "cost": "Reading determines whether code must be admitted; no automatic sandbox exemption"
+  },
+  {
+    "variant": "C7.22 Debugger/interpreter writing another process memory or injecting code",
+    "requirement": "R; S2.2-9,10; S2.3-6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Deny ptrace, process_vm_writev and proc memory writes through mandatory policy and syscall restrictions; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[O7](raw/ordinary-sources.md); [I10,I25](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Host debugging/injection and some crash handlers restricted; ordinary tasks retained"
+  },
+  {
+    "variant": "C7.23 binfmt_misc handlers and user-mode foreign-binary interpreters",
+    "requirement": "R; S2.2-9–12",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[O8,O9](raw/ordinary-sources.md); [T1,T12](raw/c7-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C7.24 Recorded custom dispatcher: file-open route and non-file instruction input without eval/import",
+    "requirement": "R; S2.2-10; S2.2-13; Q1 capability premise",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: File-open route: D only after domain entry, mandatory coverage unevidenced; non-file route: stdin, argv/environment, inherited FDs and socket/IPC bytes unmediated by D, UNKNOWN; conventional F/I entries miss custom dispatch; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Q1 textual audit](fix-b1-1/text-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "File-open denial loses unrecorded data reads; receiving own-rights instructions through other inputs still permits Q1 conditional failure"
+  },
+  {
+    "variant": "C7.25 Runtime-selected TCP listening port (also C2/C3/C5/C9.2)",
+    "requirement": "R; S2.2-15; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Landlock BIND_TCP closes explicit unauthorized bind only; complete listener policy including implicit bind and inherited sockets is not evidenced",
+    "evidence": "[Network evidence](fix-b1-1/evidence-addendum.md)",
+    "cost": "Declared port/service/rule and matching lifecycle required; arbitrary runtime listeners unavailable; exact retained networking integration unresolved"
+  },
+  {
+    "variant": "C8.01 Shell startup profiles and rc files",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E9,E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C8.02 Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+    "cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+  },
+  {
+    "variant": "C8.03 Environment-imported shell functions and command substitutions",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "evidence": "[T ledger: E2,E10](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Exported functions require recorded replacement"
+  },
+  {
+    "variant": "C8.04 Editor executable configuration, plugins, modelines executing code",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Startup flags and restricted mode alone do not mediate later eval/source or all editor code paths",
+    "evidence": "[T ledger: E14,E1](raw/c7-sources.md)",
+    "cost": "Programmable configuration needs audited integration; ordinary editing can use non-programmable editor"
+  },
+  {
+    "variant": "C8.05 Project-local executable settings: Git !alias, external filter, build recipe",
+    "requirement": "R; S2.2-10,13; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "D gates configuration file opens and N gates native children; shell snippets/helper arguments still require unevidenced F/I mediation",
+    "evidence": "[T ledger: E1,E11,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Project settings become declaration inputs before execution"
+  },
+  {
+    "variant": "C8.06 Runtime own-rights code definitions: shell functions, aliases, editor commands",
+    "requirement": "R; S2.2-10; S2.3-4,6",
+    "verdict": "UNKNOWN",
+    "mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+    "evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Spontaneous definitions require mediation; ordinary value-only settings stay exempt"
+  },
+  {
+    "variant": "C8.07 Browser extension executing with browser-equivalent rights",
+    "requirement": "R; S2.2-10; S2.2-13 decides code/settings classification",
+    "verdict": "UNKNOWN",
+    "mechanism": "Privileged API implementation is own-rights code and must be recorded; complete admission/update/load control not evidenced",
+    "evidence": "[O10](raw/ordinary-sources.md); [extension evidence](fix-b1-1/evidence-addendum.md)",
+    "cost": "Recorded extension workflow needs integration; ordinary browsing need not include this extension"
+  },
+  {
+    "variant": "C8.08 Settings only read as values, such as theme or home page",
+    "requirement": "R; S2.2-7,13",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate subcontrol: No required-to-record object for genuinely local values; retain values-only parser and prevent code reinterpretation; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+    "evidence": "[T ledger: S2.2-7,13; E9](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+    "cost": "Ordinary preferences retained; cannot relabel executable settings as values"
+  },
+  {
+    "variant": "C9.1 Rootful image pull/run, mutable tags and manager API",
+    "requirement": "R; S2.2-12; S3-9",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Broker records immutable image closure and container configuration; manager cannot accept arbitrary active-state mutation; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Declared containers available; tag must resolve to pinned content; retained operation not established"
+  },
+  {
+    "variant": "C9.2 Rootless containers, user namespaces, alternative OCI runtime invocation",
+    "requirement": "R; S2.2-9; S2.2-12",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Policy applies to every process/namespace; ordinary users lack authority to create executable mounts outside admitted closure; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Managed rootless workloads possible; direct arbitrary runtime calls denied; retained operation not established"
+  },
+  {
+    "variant": "C9.3 Bind-mounted executable/script, writable overlay, exec into container and package install inside",
+    "requirement": "R; S2.2-10; S2.2-12",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Deny new code in writable layer/mounts; broker records changes and rebuilds admitted image; apply C7 within container; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Writable data preserved; ad-hoc container software installation mediated; retained operation not established"
+  },
+  {
+    "variant": "C9.4 Image build RUN/hooks, import/load archive and commit modified container",
+    "requirement": "R; S2.2-9; S2.2-10; S2.2-12",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Execute recorded build closure or VM; resulting image inactive until declaration includes exact content; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Build requires orchestration or VM; container artifact format retained; retained operation not established"
+  },
+  {
+    "variant": "C9.5 Privileged/host-namespace/device/runtime-hook options",
+    "requirement": "R; S2.3-7; S2.2-15",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Declaration broker validates capabilities, mounts, ports, hooks; built-in manager root domain cannot disable its own controls; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Unsafe options not accepted as implicit grants; explicit declared services may be supported; retained operation not established"
+  },
+  {
+    "variant": "C9.6 Removed image/container restarted through old name, daemon state, API or retained layers",
+    "requirement": "R; S2.4-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Revoke current allow-set and activation references, stop processes, retain layers only as inert content; no evidenced complete declaration-only integration",
+    "evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Restart after removal requires fresh declaration application; retained operation not established"
+  },
+  {
+    "variant": "C10.1 Documented privileged package/service/account/network/firewall administration",
+    "requirement": "R; S2.1-7; S3-6,7",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Mandatory broker authority at mutation sink, including daemon APIs and direct backend paths; no evidenced complete declaration-only integration",
+    "evidence": "[M9–12](raw/mechanics-sources.md); [I10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Admin interfaces need integration; the six ordinary actions retain mediated routes; retained operation not established"
+  },
+  {
+    "variant": "C10.2 Built-in privileged tool changes guards, permissions, mounts or execution policy",
+    "requirement": "R; S2.3-7; S3-6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Candidate only: Tool cannot alter active policy except as an applied declaration change; root CLI is not an exemption; no evidenced complete declaration-only integration",
+    "evidence": "[M12](raw/mechanics-sources.md); [I10,I23](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+    "cost": "Proposed workflow: Arbitrary administrative options may be refused; declared administration remains; retained operation not established"
+  },
+  {
+    "variant": "C10.3 Retained arbitrary privileged hooks and multi-resource live side effects",
+    "requirement": "R; S2.2-10; S3-3–6",
+    "verdict": "UNKNOWN",
+    "mechanism": "Staging/denial closes bounded hooks; no general rollback and complete mediation proof for unrestricted retained hooks",
+    "evidence": "[Mechanics](MECHANICS-research.md); [I1,I5,I6](raw/install-sources.md)",
+    "cost": "Unsupported hooks rejected or moved to build VM; arbitrary package compatibility unestablished"
+  },
+  {
+    "variant": "C10.4 Root editor with documented package installer",
+    "requirement": "R; S2.2-10; S3-6 versus S3-7; S3-8",
+    "verdict": "TEXT-OPEN",
+    "mechanism": "Documented installer purpose and explicit editor exclusion decide built-in/breaking both ways; card T4",
+    "evidence": "[Original C10.4 analysis](MECHANICS-research.md); [O6](raw/ordinary-sources.md); [text audit](fix-b1-1/text-audit.md)",
+    "cost": "Installer reading requires declaration mediation; editor-exclusion reading treats privileged bypass as breaking"
+  },
+  {
+    "variant": "M1.01 All C1–C10: successful inactive preparation versus actual application report",
+    "requirement": "S2.1-5; S2.3-4–7; S3-3",
+    "verdict": "CLOSABLE",
+    "mechanism": "Keep candidate inaccessible; package/download/build success is preparation, not applied-state success",
+    "evidence": "[M3,M4](raw/mechanics-sources.md)",
+    "cost": "Updates may wait for activation or reboot"
+  },
+  {
+    "variant": "M1.02 All C1–C10: complete live activation and success report across all objects",
+    "requirement": "S2.3-4–7; S3-3",
+    "verdict": "UNKNOWN",
+    "mechanism": "Need concrete serialized multi-resource activation protocol and readback; existing staging primitives do not prove it",
+    "evidence": "[Mechanics](MECHANICS-research.md)",
+    "cost": "Potential reboot/session interruption; no proved loss of ordinary actions"
+  },
+  {
+    "variant": "M2.01 All C1–C10: durable exact file generation and boot selection after report",
+    "requirement": "S2.3-5; S3-3,5",
+    "verdict": "CLOSABLE",
+    "mechanism": "Immutable generation plus checked file/directory fsync and durable report-linked boot selector",
+    "evidence": "[M1–4](raw/mechanics-sources.md)",
+    "cost": "Storage flush and reboot cost; report protocol must choose this exact generation"
+  },
+  {
+    "variant": "M2.02 All C1–C10: add/change/remove power cut with complete runtime/device replay",
+    "requirement": "S2.3-5; S3-5",
+    "verdict": "UNKNOWN",
+    "mechanism": "Old-or-new crash safety is insufficient; all line requirements must hold for the reported generation",
+    "evidence": "[M1–4](raw/mechanics-sources.md); [O1–3](raw/ordinary-sources.md)",
+    "cost": "Boot reconciliation required; actual adapter and complete state replay untested"
+  },
+  {
+    "variant": "M3.01 All C1–C10: explicit failure or timeout while only inert preparation changed",
+    "requirement": "S2.3-4,5; S3-4",
+    "verdict": "CLOSABLE",
+    "mechanism": "Leave active generation and authorities intact; isolate/cancel candidate workers",
+    "evidence": "[M3,M4](raw/mechanics-sources.md)",
+    "cost": "Discard work; retry needs a new application"
+  },
+  {
+    "variant": "M3.02 All C1–C10: partial activation failure, stalled worker, or no report at one hour",
+    "requirement": "S2.3-4,5; S3-4",
+    "verdict": "UNKNOWN",
+    "mechanism": "Need old declaration fully restored/enforced by deadline; snapshot of files alone does not restore live/device effects",
+    "evidence": "[Mechanics](MECHANICS-research.md)",
+    "cost": "Watchdog/recovery design required; stalled application cannot count as success"
+  },
+  {
+    "variant": "M4.01 All C1–C10: running code, descendants, open FDs and mapped/injected copies",
+    "requirement": "S2.1-3; S2.3-4,6; S2.4-4",
+    "verdict": "CLOSABLE",
+    "mechanism": "Revoke every launch authority; terminate/restart all holders and wait for absence, or reboot affected generation",
+    "evidence": "[M5–8](raw/mechanics-sources.md)",
+    "cost": "Programs/sessions stop; unlink and SIGTERM alone insufficient"
+  },
+  {
+    "variant": "M4.02 All C1–C10: executable aliases, copied cache/store/image content, old generations",
+    "requirement": "S2.3-4,6; S2.4-4; S2.5-1",
+    "verdict": "CLOSABLE",
+    "mechanism": "Current-declaration membership authorizes execution, not old signature or surviving pathname",
+    "evidence": "[I3,I10,I18](raw/install-sources.md); [M7,M8](raw/mechanics-sources.md)",
+    "cost": "Retained bytes permitted only as inert content; rollback requires application"
+  },
+  {
+    "variant": "M4.03 All C1–C10: service activators, timers, restart policy and effective rules",
+    "requirement": "S2.1-3; S2.4-4",
+    "verdict": "CLOSABLE",
+    "mechanism": "Remove uncovered activation edges and rule state, stop tasks, prevent reactivation through broker policy",
+    "evidence": "[I15–17,I20](raw/install-sources.md); [M9,M11](raw/mechanics-sources.md)",
+    "cost": "Services interrupt; relevant client state may need restart"
+  },
+  {
+    "variant": "M4.04 All C1–C10: contributions shared with remaining declaration lines",
+    "requirement": "S2.4-4",
+    "verdict": "CLOSABLE",
+    "mechanism": "Compute residual declared dependency closure and remove only uncovered contributions",
+    "evidence": "[Text](../SENTENCES.md); [Mechanics](MECHANICS-research.md)",
+    "cost": "Shared dependencies remain available; provenance/coverage map needed"
+  },
+  {
+    "variant": "M5.01 All C1–C10: finite typed lines, exact content, permissions and documented defaults",
+    "requirement": "S2.1-4; S2.3-4,5; S3-9,10",
+    "verdict": "CLOSABLE",
+    "mechanism": "Compare each realized object and effective permission with line; separately inventory extras for P1",
+    "evidence": "[M9–11](raw/mechanics-sources.md); [I15,I20](raw/install-sources.md)",
+    "cost": "Admitted line types need validators; package DB alone insufficient"
+  },
+  {
+    "variant": "M5.02 All C1–C10: unrestricted algorithmic requirements and semantic effects",
+    "requirement": "S2.1-4; S2.3-5; S2.4-1; S2.5-3",
+    "verdict": "UNKNOWN",
+    "mechanism": "No complete validator established for unrestricted semantic requirements; admissibility and Understanding readings are left open in Q2",
+    "evidence": "[Q2 below](#q2--an-algorithm-reads-every-script-in-directory-d-from-computer-state); [text audit](fix-b1-1/text-audit.md)",
+    "cost": "Finite validators are bounded evidence; no admissibility rule is added to the published text"
+  }
+]

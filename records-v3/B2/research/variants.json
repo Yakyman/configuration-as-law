@@ -1,0 +1,1889 @@
+{
+  "scope": "B1 input and partial builder disposition; no hypothesis verdict",
+  "variants": [
+    {
+      "id": "C1.1",
+      "title": "Repository install, upgrade, downgrade, reinstall and remove through CLI",
+      "requirement": "R; S3-6; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Transaction broker translates requested changes into declaration; backend has only inactive tree access; activate only declared artifacts; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E1,E2,E10,E11](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: System updating remains possible; application may require a restart or reboot; retained operation not established",
+      "source": "B1/CHANNELS.md:5",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,T",
+      "builder_remaining_obstacle": "Pinned payload install/update works; repository/system update is absent and original apt/dpkg bypass the wrapper.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C1.2",
+      "title": "Direct low-level manager or library/API/GUI frontend bypassing CLI wrapper",
+      "requirement": "R; S3-6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Deny backend active-tree write authority by domain, not executable name/PATH; all frontends use broker; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Extra frontend integration; unrestricted stock manager command unavailable; retained operation not established",
+      "source": "B1/CHANNELS.md:6",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "No mandatory backend domain or API authorization was installed; direct manager/library paths remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C1.3",
+      "title": "Alternate root, alternate database, package extraction into writable directory",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Stored artifacts remain nonstartable until broker admission; all native execution outside active tree denied; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E1,E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Archives can be inspected; executing extracted files needs declaration",
+      "source": "B1/CHANNELS.md:7",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "Noexec covers five data trees only; alternate roots, executable mounts and interpreted extracted files remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C1.4",
+      "title": "Maintainer scripts, triggers, hooks and post-install service activation",
+      "requirement": "R; S2.2-10; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Record hook code before execution or execute in recorded VM; constrain effects and generate service/account/rule lines before active changes; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E1,E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Some packages require adapted installation; installer arbitrary host effects denied; retained operation not established",
+      "source": "B1/CHANNELS.md:8",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "Factory scripts are inventoried; arbitrary package hooks are neither transactionally staged nor input-mediated.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C1.5",
+      "title": "Hook disable/config override, backend flag or environment bypass",
+      "requirement": "R; S2.3-7; S3-6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Hooks are optional convenience only; mandatory writer/execute policy remains effective when hooks skipped; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E2,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Customizing backend cannot grant active-tree authority; retained operation not established",
+      "source": "B1/CHANNELS.md:9",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "Frontend rejects options, but original backend flags/environment are outside the broker.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C1.6",
+      "title": "Old generations, package cache copies, rollback paths after removal",
+      "requirement": "R; S2.4-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Authorize current-generation objects only; retained cache/rollback bytes not executable until a new declaration application; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E10,E18](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Rollback becomes an explicit declaration transition; retention itself allowed by S2.5-1",
+      "source": "B1/CHANNELS.md:10",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F,R",
+      "builder_remaining_obstacle": "Managed native paths can be removed; retained package/generation bytes can feed unrestricted interpreters.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.1",
+      "title": "pip system, --user, virtualenv, --target/--prefix installs",
+      "requirement": "R; S3-6; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Managed environments and broker-created immutable import closure; ordinary writable directories cannot become import/code sources; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E4,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Project dependencies work through declaration; direct mutable environment installation denied; retained operation not established",
+      "source": "B1/CHANNELS.md:11",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "pip frontend refuses; Python package APIs and source imports have no mandatory code boundary.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.2",
+      "title": "npm local, global, prefix/workspace installs and executable links",
+      "requirement": "R; S3-6; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Register complete resolved dependency closure and entrypoints; gate module loads as code, not only native exec; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E6,E10 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Managed project environments; lock information alone insufficient without exact content; retained operation not established",
+      "source": "B1/CHANNELS.md:12",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "npm frontend refuses; no complete runtime/prefix/link domain was installed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.3",
+      "title": "Local archives, VCS URLs and package indexes selected by flags",
+      "requirement": "R; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Resolve exact content and record it before activation; source transport does not bypass admission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E4,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Offline/local packages supported after import",
+      "source": "B1/CHANNELS.md:13",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "Frontend refusal does not control interpreters reading local/VCS/index content through another path.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.4",
+      "title": "Editable pip installs, npm links, mutable source and dependency replacement",
+      "requirement": "R; S2.2-10; S2.4-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Snapshot each admitted code version; edits remain data until applied; prevent imports from mutable original directory; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E4,E5,E10 plus C7](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Edit–apply–run instead of unrestricted edit–run",
+      "source": "B1/CHANNELS.md:14",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F,I",
+      "builder_remaining_obstacle": "Exact managed bytes are checked; editable modules and source links in writable data remain readable as code.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.5",
+      "title": "Build backend, lifecycle script, npm run/start/test and dependency hook execution",
+      "requirement": "R; S2.2-10; S3-6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Record script/backend closure before execution or use recorded build VM; `ignore-scripts` alone not sufficient; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E5,E6](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Build/hook workflows need admission; ordinary program install retained; retained operation not established",
+      "source": "B1/CHANNELS.md:15",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "No lifecycle-hook/non-file code mediation; wrapper refusal is only one entry point.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C2.6",
+      "title": "Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+      "requirement": "R; S2.2-10; S2.2-13",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E5,E7,E10,E12 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:16",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Noexec bounds native mapping on listed mounts; imported .pth/source and other executable mappings remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C3.1",
+      "title": "Flatpak system install/update and graphical or D-Bus frontend",
+      "requirement": "R; S3-6; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Broker owns deployments; record app and runtime commits and permissions, then activate; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E8,E9,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Desktop apps work; extra broker integration; retained operation not established",
+      "source": "B1/CHANNELS.md:17",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "Flatpak frontend refuses and backend is absent initially; no mandatory future backend/API domain exists.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C3.2",
+      "title": "Flatpak --user install, extra installation roots/remotes, local bundles",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Ordinary user cannot authorize new executable tree; every deployment admitted through declaration; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E8,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Per-user applications remain possible as declaration entries; retained operation not established",
+      "source": "B1/CHANNELS.md:18",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "Initial backend absence and noexec are bounded; alternate mount roots and interpreter input remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C3.3",
+      "title": "Flatpak runtime/extension updates, override permissions, alternate commands and development mode",
+      "requirement": "R; S2.2-9; S2.2-10; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Runtime/extension code closure and host-affecting permissions recorded; alternate command cannot introduce unrecorded code; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E8,E9,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Debug/SDK commands require declarations; portals preserve document access; retained operation not established",
+      "source": "B1/CHANNELS.md:19",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "No Flatpak runtime/permission transaction or override mediation was implemented.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C3.4",
+      "title": "AppImage directly executed and self-mounted via FUSE",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Record image content and mounted executable closure; deny unadmitted image runtime and executable mount authority; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E13,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Import image before first run; download remains possible",
+      "source": "B1/CHANNELS.md:20",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Noexec blocks a native file in covered trees; no global FUSE/new-mount execution boundary exists.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C3.5",
+      "title": "AppImage extracted/mounted externally, AppDir launch or self-update",
+      "requirement": "R; S2.2-9; S2.4-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Same execute/map policy on extracted artifacts; self-updater submits new declaration content; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E3,E13,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: No unrestricted self-update; managed update retained; retained operation not established",
+      "source": "B1/CHANNELS.md:21",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F,R",
+      "builder_remaining_obstacle": "Extraction does not authorize native entry on covered mounts, but interpreted AppDir code remains possible.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C4.1",
+      "title": "Download a native executable and chmod/run it",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Writable trees noexec plus mandatory execute/map denial; importer records code into active tree; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Download and document editing unaffected; launch requires admission",
+      "source": "B1/CHANNELS.md:22",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Covered-tree native entry denial is measured; other writable execution locations and full lifecycle remain unclosed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C4.2",
+      "title": "Download and extract archive, including nested archives and renamed files",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Gate actual execution/read-as-code independent of suffix and extraction route; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E7,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Archive extraction allowed as data; run requires admission",
+      "source": "B1/CHANNELS.md:23",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Mount gate is independent of archive nesting/name, but does not gate interpreter reads or every mount.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C4.3",
+      "title": "Download by browser, curl, copier, sync client or application self-updater",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: The final code boundary, not downloader executable, controls activation; self-updater broker required; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E3,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Browser download retained; automatic native updates mediated; retained operation not established",
+      "source": "B1/CHANNELS.md:24",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Same bounded gate applies regardless of downloader; self-update/API and interpreted code routes remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C4.4",
+      "title": "Downloaded script or library passed to existing interpreter/loader",
+      "requirement": "R; S2.2-10; S2.2-13",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E7,E10,E12,E14 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:25",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Measured direct loader denial does not close script-file reads or all library mappings.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C4.5",
+      "title": "Stream download directly into interpreter or process substitution",
+      "requirement": "R; S2.2-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Depends on the same unevidenced stream refusal/admission integration as C7.04; noexec or D file-open policy alone does not mediate inherited stdin",
+      "b1_evidence": "[I ledger: E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "`curl ... | sh` becomes import–apply–run; browser content exception unchanged",
+      "source": "B1/CHANNELS.md:26",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "The failed file-open candidate and final mount gate do not mediate stdin/process-substitution code.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C5.1",
+      "title": "Compile/link native program in home, then execute output",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Compiler may write inert output; publish output digest through declaration before execute permission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Programming requires an apply between build and run",
+      "source": "B1/CHANNELS.md:27",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Compiler output under a noexec tree has a bounded native barrier; anonymous/in-memory execution remains.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C5.2",
+      "title": "Build-system commands, configure probes, generators and test binaries",
+      "requirement": "R; S2.2-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Record build code and generated executable before each host launch, or recorded VM builds; host output still admitted separately; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Conventional host builds need orchestration; build VM avoids repeated host admissions; retained operation not established",
+      "source": "B1/CHANNELS.md:28",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "No complete build-command/generator/test mediation; read-interpreted recipes remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C5.3",
+      "title": "Install target copying to user prefix, changing PATH or creating symlinks",
+      "requirement": "R; S2.2-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Paths and links cannot grant execution; active-tree broker controls resulting artifact closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "User prefix may hold inert artifacts; managed activation retained",
+      "source": "B1/CHANNELS.md:29",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Path changes do not remove mount flags, but other executable mounts and script interpretation remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C5.4",
+      "title": "Rebuild/replace an already recorded binary or library in place",
+      "requirement": "R; S2.3-5; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Immutable active version; rebuild enters new version, application atomically changes active closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E10,E11,E12](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Hot mutation denied; restart/reapplication may be needed",
+      "source": "B1/CHANNELS.md:30",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "I,F",
+      "builder_remaining_obstacle": "Root-owned managed files limit ordinary replacement; no complete alias/mutable-module/API enforcement exists.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C5.5",
+      "title": "Compilers embedding plugins or build processes loading generated code",
+      "requirement": "R; S2.2-10; S2.2-13",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Code imports require admission; alternatively do computation inside recorded VM and admit output; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E10,E14 plus C7](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Plugins and generators recorded; unrestricted host compiler plugins denied; retained operation not established",
+      "source": "B1/CHANNELS.md:31",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Declaration-generated fapolicyd native execution/ELF-open policy; interpreter, anonymous memory, ports and full lifecycle remain separate.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Plugin and generated-code loading is not covered by a mandatory interpreter/memory domain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.1",
+      "title": "Persistent user units and drop-ins, aliases, template instances and symlinks",
+      "requirement": "R; S2.1-3; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Manager reads protected declaration-generated unit tree; writable user search paths disabled/ignored by policy; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E15,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: User service definitions submitted through broker; retained operation not established",
+      "source": "B1/CHANNELS.md:32",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,I",
+      "builder_remaining_obstacle": "Global user units are inventoried; per-account unit paths/aliases/drop-ins and user manager APIs remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.2",
+      "title": "Direct manager API/CLI start, enable, reload, set-property or link",
+      "requirement": "R; S2.3-7; S3-6; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Gate manager control socket/API and mutation authority, not only systemctl wrapper; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E15,E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Start allowed when existing line permits; configuration change needs declaration; retained operation not established",
+      "source": "B1/CHANNELS.md:33",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "systemctl frontend refuses, but the original systemctl and manager D-Bus remain callable.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.3",
+      "title": "Transient service/scope/timer/path/socket created through systemd-run or D-Bus",
+      "requirement": "R; S2.1-3; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Broker records transient unit semantics before creation; deny bypass API access; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E16,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Ephemeral scheduling possible through declaration; expiry/removal is another application; retained operation not established",
+      "source": "B1/CHANNELS.md:34",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "systemd-run frontend refuses; transient manager APIs and arbitrary inherited scopes are not mediated.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.4",
+      "title": "User cron entries, @reboot and crontab replacement",
+      "requirement": "R; S2.1-3; S2.2-10; S3-10",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Protect spool; crontab tool writes declaration; recorded commands only; cron user identity cannot overwrite admitted code; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E17,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Scheduled work available through broker; retained operation not established",
+      "source": "B1/CHANNELS.md:35",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,I",
+      "builder_remaining_obstacle": "crontab frontend refuses; no comprehensive cron/scheduler domain or per-account inventory was implemented.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.5",
+      "title": "Generated units, user environment generators and cron command text loading more code",
+      "requirement": "R; S2.2-10; S2.2-13",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Record generator/command code and generated effective units; deny unrecorded mutable input that changes effective required configuration; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E15,E17,E10 plus C7/C8](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Generator outputs need a declaration-described result; ordinary desktop retained; retained operation not established",
+      "source": "B1/CHANNELS.md:36",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "I,F",
+      "builder_remaining_obstacle": "Recognized factory code is recorded; generator/cron command input and further interpreted files remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C6.6",
+      "title": "Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+      "requirement": "R; S2.4-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Withdraw every activation edge; kill and verify former processes; revoke executable authorization unless remaining lines cover it; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[I ledger: E15,E16,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Application must quiesce related tasks before success",
+      "source": "B1/CHANNELS.md:37",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "R,B",
+      "builder_remaining_obstacle": "The fixture service is stopped/disabled; undeclared activation edges and backend recreation remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.01",
+      "title": "Script file passed as interpreter argument",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:38",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Unrestricted interpreter reads remain; noexec does not mediate a script argument.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.02",
+      "title": "Executable shebang script",
+      "requirement": "R; S2.2-9,10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: N gates direct execve of the shebang script; interpreter-argument/file-read and other input routes remain C7.01/03–08 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E3,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "No direct launch of undeclared writable script; declared scripts retained",
+      "source": "B1/CHANNELS.md:39",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Direct covered-tree shebang entry is bounded; explicit interpreter invocation remains.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.03",
+      "title": "Code supplied as -c or -e argument",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+      "b1_evidence": "[T1,T2,T17](raw/c7-sources.md); [P01](raw/python-securebits-output.txt); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Equivalent declared-file workflow is a proposal; P01 demonstrates stock argument-code execution under locked bits",
+      "source": "B1/CHANNELS.md:40",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No argv-code admission; file policy cannot mediate arbitrary -c/-e input.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.04",
+      "title": "Code piped into stdin, FIFO, socket, here-document or process substitution",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+      "b1_evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Piped scripting unavailable; ordinary data pipelines through non-interpreting tools retained",
+      "source": "B1/CHANNELS.md:41",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No stdin/FIFO/socket/heredoc code admission was installed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.05",
+      "title": "Code from regular file redirected to stdin or /proc/self/fd/N",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "D can deny a new file open only after domain entry; mandatory launch coverage and inherited stdin/FD mediation are not evidenced",
+      "b1_evidence": "[T ledger: E1,E2,E12,E16](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Path-open case loses unrecorded file reads; retained redirected-input support is unestablished",
+      "source": "B1/CHANNELS.md:42",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Readable file descriptors can feed an interpreter; mount noexec is not a read barrier.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.06",
+      "title": "Interactive REPL with language statements",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+      "b1_evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "REPL programming lost; declaration-mediated script execution can remain",
+      "source": "B1/CHANNELS.md:43",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Interactive evaluator inputs are unrestricted; removal would require a different ordinary-command interface.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.07",
+      "title": "Recorded script sources another file",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:44",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,I",
+      "builder_remaining_obstacle": "Recorded entry scripts may source writable unrecorded files; no transitive input mediation.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.08",
+      "title": "exec(open(file).read()), eval of read data, custom import loader",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E6–8,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:45",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Content read/eval and custom loaders are not identified or confined by the final mechanism.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.09",
+      "title": "Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E6,E8,E12](raw/c7-sources.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:46",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,I",
+      "builder_remaining_obstacle": "Module files may be inventoried but writable import paths/bytecode/zip content are not mediated.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.10",
+      "title": "Embedded interpreter in editor, awk, make, debugger or database program",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Every evaluator entry and data-to-code conversion needs mediation; shell escape switches do not prove this",
+      "b1_evidence": "[T ledger: E1,E7,E9,E14](raw/c7-sources.md)",
+      "b1_cost": "Removing all programmable applications is a possible conservative restriction, but not proven necessary",
+      "source": "B1/CHANNELS.md:47",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No complete policy for embedded evaluators, make recipes, debugger or database-language inputs.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.11",
+      "title": "Helper process launch: find -exec, editor shell escape, make recipe child",
+      "requirement": "R; S2.2-9,12; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "N closes native child launch, but shell-command child code depends on unevidenced F/I input mediation",
+      "b1_evidence": "[T ledger: E1,E3,E11](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Helpers and scripts declared; ordinary editing can retain safe helpers",
+      "source": "B1/CHANNELS.md:48",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "A helper native path on a covered mount is bounded; code input/children through admitted tools remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.12",
+      "title": "Git hook program in writable project",
+      "requirement": "R; S2.2-9,10,12; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: N gates direct execve of native/shebang hooks; invoking a recorded interpreter on a hook file instead inherits C7.01 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E3,E12,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Hooks require declaration; ordinary file editing unaffected",
+      "source": "B1/CHANNELS.md:49",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Hook native entry is bounded only on covered mounts; interpreted hooks and alternate locations remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.13",
+      "title": "Direct dynamic loader invocation",
+      "requirement": "R; S2.2-9,10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: N covers executable file mappings as well as execve; trusting loader alone fails; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Libraries and binaries need trust policy derived from declaration",
+      "source": "B1/CHANNELS.md:50",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Direct dynamic-loader use on the home copy is denied in D04; all sources/mounts and full R remain unclosed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.14",
+      "title": "LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: N denies unrecorded native library mappings; environment sanitization alone insufficient; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Plugins/FFI libraries must be declared; normal recorded linkage remains",
+      "source": "B1/CHANNELS.md:51",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Covered-tree executable mapping has a kernel barrier; alternate library paths and anonymous/other mappings remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.15",
+      "title": "Native executable memfd, fexecve/execveat of memory file",
+      "requirement": "R; S2.2-9,10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Enforced memfd noexec plus N; close permitted creation and inherited descriptor routes; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E4,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Software depending on executable memfd needs adaptation; text reads still require C7.04–08",
+      "source": "B1/CHANNELS.md:52",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No global executable-memfd/fexecve/execveat restriction was installed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.16",
+      "title": "Anonymous machine code, JIT, writable/executable aliases",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: N plus MemoryDenyWriteExecute, deny memfd and writable executable filesystems, native ABI restriction; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E3,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Host-native JIT/FFI trampolines disabled in this domain; browser exemption requires separate analysis",
+      "source": "B1/CHANNELS.md:53",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No mandatory W^X/alias/JIT restriction across all sessions and children.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.17",
+      "title": "Shell command line, including invocation of a declared program",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Denying all interactive input removes the interactive shell; record-before-interpret has no cited implementation",
+      "b1_evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Removal option loses all interactive shell use; retained mediated shell is UNKNOWN",
+      "source": "B1/CHANNELS.md:54",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "Ordinary shell command text is used by the lab; it is not admitted as declaration code.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.18",
+      "title": "Regenerable executable bytecode/JIT cache with same-rights execution",
+      "requirement": "R; S2.2-5 versus S2.2-10",
+      "b1_verdict": "TEXT-OPEN",
+      "b1_mechanism": "Cache exemption and same-rights code requirement both fit a cache whose removal only slows execution",
+      "b1_evidence": "[Text](../SENTENCES.md); [T3,T6](raw/c7-sources.md); card T1 below",
+      "b1_cost": "Cache-priority reading permits unrecorded rebuild; code-priority reading requires recording before execution",
+      "source": "B1/CHANNELS.md:55",
+      "unsettled_review": [],
+      "effective_research_status": "TEXT-OPEN",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,I",
+      "builder_remaining_obstacle": "Stricter target treats own-rights executable cache as code; general Python/JIT cache suppression/admission is not implemented.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.19",
+      "title": "Browser web code and JIT confined inside recorded renderer/helper programs",
+      "requirement": "R; S2.2-11,12",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Record each browser component program; genuinely interface-confined webpage code retains explicit exemption; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: S2.2-11,12; E1](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Browsing remains possible; exemption is conditional on actual confinement, not merely process name",
+      "source": "B1/CHANNELS.md:56",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "I,F",
+      "builder_remaining_obstacle": "Recorded w3m renders passive HTML; no general renderer/JIT confinement experiment or mandatory future-browser policy.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.20",
+      "title": "Code-bearing serialized input (pickle, macro-bearing document)",
+      "requirement": "R; S2.2-10; S2.2-13 decides code/settings classification",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Deny code-bearing deserialization/macro evaluation before reading payload as code; retain values-only parser; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: E15; S2.2-13](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Some document/state formats lose active content; ordinary passive document editing remains",
+      "source": "B1/CHANNELS.md:57",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Readable serialized/macro content can carry own-rights instructions; no semantic input boundary.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.21",
+      "title": "WASI module with a preopened host directory and partial runtime rights",
+      "requirement": "R; S2.2-1,10–13",
+      "b1_verdict": "TEXT-OPEN",
+      "b1_mechanism": "T3: text does not operationally delimit own interface or partial authority",
+      "b1_evidence": "[Text](../SENTENCES.md); [O12,O13](raw/ordinary-sources.md)",
+      "b1_cost": "Reading determines whether code must be admitted; no automatic sandbox exemption",
+      "source": "B1/CHANNELS.md:58",
+      "unsettled_review": [],
+      "effective_research_status": "TEXT-OPEN",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "Stricter target records partial-rights modules; no WASI admission backend was implemented, and generic runtimes remain installable.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.22",
+      "title": "Debugger/interpreter writing another process memory or injecting code",
+      "requirement": "R; S2.2-9,10; S2.3-6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Deny ptrace, process_vm_writev and proc memory writes through mandatory policy and syscall restrictions; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[O7](raw/ordinary-sources.md); [I10,I25](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Host debugging/injection and some crash handlers restricted; ordinary tasks retained",
+      "source": "B1/CHANNELS.md:59",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No whole-session ptrace/process-memory/injection restriction was installed.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.23",
+      "title": "binfmt_misc handlers and user-mode foreign-binary interpreters",
+      "requirement": "R; S2.2-9–12",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[O8,O9](raw/ordinary-sources.md); [T1,T12](raw/c7-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:60",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "No complete binfmt/foreign-interpreter admission policy; filesystem gate alone is insufficient.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.24",
+      "title": "Recorded custom dispatcher: file-open route and non-file instruction input without eval/import",
+      "requirement": "R; S2.2-10; S2.2-13; Q1 capability premise",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: File-open route: D only after domain entry, mandatory coverage unevidenced; non-file route: stdin, argv/environment, inherited FDs and socket/IPC bytes unmediated by D, UNKNOWN; conventional F/I entries miss custom dispatch; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Q1 textual audit](fix-b1-1/text-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "File-open denial loses unrecorded data reads; receiving own-rights instructions through other inputs still permits Q1 conditional failure",
+      "source": "B1/CHANNELS.md:61",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "A recorded dispatcher can consume non-file instructions with its own rights; no generic selective mediation was built.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C7.25",
+      "title": "Runtime-selected TCP listening port (also C2/C3/C5/C9.2)",
+      "requirement": "R; S2.2-15; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Landlock BIND_TCP closes explicit unauthorized bind only; complete listener policy including implicit bind and inherited sockets is not evidenced",
+      "b1_evidence": "[Network evidence](fix-b1-1/evidence-addendum.md)",
+      "b1_cost": "Declared port/service/rule and matching lifecycle required; arbitrary runtime listeners unavailable; exact retained networking integration unresolved",
+      "source": "B1/CHANNELS.md:62",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "I,B",
+      "builder_remaining_obstacle": "Factory listeners are read back, but arbitrary workload bind/listen and inherited listening FDs are not mediated.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.01",
+      "title": "Shell startup profiles and rc files",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E9,E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:63",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "I,F",
+      "builder_remaining_obstacle": "Factory shell rc/profile files are recorded; subsequent interpreted startup-code changes are not prevented.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.02",
+      "title": "Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved",
+      "source": "B1/CHANNELS.md:64",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "BASH_ENV/ENV/PYTHONSTARTUP input selection is not controlled by the final policy.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.03",
+      "title": "Environment-imported shell functions and command substitutions",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+      "b1_evidence": "[T ledger: E2,E10](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Exported functions require recorded replacement",
+      "source": "B1/CHANNELS.md:65",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No admission for environment functions/substitution code.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.04",
+      "title": "Editor executable configuration, plugins, modelines executing code",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Startup flags and restricted mode alone do not mediate later eval/source or all editor code paths",
+      "b1_evidence": "[T ledger: E14,E1](raw/c7-sources.md)",
+      "b1_cost": "Programmable configuration needs audited integration; ordinary editing can use non-programmable editor",
+      "source": "B1/CHANNELS.md:66",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "I,F",
+      "builder_remaining_obstacle": "ed editing works; executable settings/plugins in arbitrary editors are not comprehensively classified or mediated.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.05",
+      "title": "Project-local executable settings: Git !alias, external filter, build recipe",
+      "requirement": "R; S2.2-10,13; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "D gates configuration file opens and N gates native children; shell snippets/helper arguments still require unevidenced F/I mediation",
+      "b1_evidence": "[T ledger: E1,E11,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Project settings become declaration inputs before execution",
+      "source": "B1/CHANNELS.md:67",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "No boundary for project-local aliases, external filters and interpreter-read build recipes.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.06",
+      "title": "Runtime own-rights code definitions: shell functions, aliases, editor commands",
+      "requirement": "R; S2.2-10; S2.3-4,6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "F/I cooperation for this own-rights input route has no evidenced adopter; D does not mediate arguments, inherited input or environment",
+      "b1_evidence": "[T ledger: E1,E2](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Spontaneous definitions require mediation; ordinary value-only settings stay exempt",
+      "source": "B1/CHANNELS.md:68",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F",
+      "builder_remaining_obstacle": "Runtime functions/aliases/editor commands bypass a file-only admission scheme.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.07",
+      "title": "Browser extension executing with browser-equivalent rights",
+      "requirement": "R; S2.2-10; S2.2-13 decides code/settings classification",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Privileged API implementation is own-rights code and must be recorded; complete admission/update/load control not evidenced",
+      "b1_evidence": "[O10](raw/ordinary-sources.md); [extension evidence](fix-b1-1/evidence-addendum.md)",
+      "b1_cost": "Recorded extension workflow needs integration; ordinary browsing need not include this extension",
+      "source": "B1/CHANNELS.md:69",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "F,I",
+      "builder_remaining_obstacle": "No general same-rights extension admission; using w3m does not constrain future installed browsers.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C8.08",
+      "title": "Settings only read as values, such as theme or home page",
+      "requirement": "R; S2.2-7,13",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate subcontrol: No required-to-record object for genuinely local values; retain values-only parser and prevent code reinterpretation; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "b1_evidence": "[T ledger: S2.2-7,13; E9](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "b1_cost": "Ordinary preferences retained; cannot relabel executable settings as values",
+      "source": "B1/CHANNELS.md:70",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Interpreter-subject file-open rules where implemented; no claim for non-file own-rights input, custom dispatch, anonymous memory or whole-session coverage.",
+      "builder_attempt": "I",
+      "builder_remaining_obstacle": "Value settings are not automatically code, but a general semantic discriminator/full R coverage is absent.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.1",
+      "title": "Rootful image pull/run, mutable tags and manager API",
+      "requirement": "R; S2.2-12; S3-9",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Broker records immutable image closure and container configuration; manager cannot accept arbitrary active-state mutation; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Declared containers available; tag must resolve to pinned content; retained operation not established",
+      "source": "B1/CHANNELS.md:71",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "podman frontend refuses; rootful container lifecycle/image contents are not integrated into the broker.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.2",
+      "title": "Rootless containers, user namespaces, alternative OCI runtime invocation",
+      "requirement": "R; S2.2-9; S2.2-12",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Policy applies to every process/namespace; ordinary users lack authority to create executable mounts outside admitted closure; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Managed rootless workloads possible; direct arbitrary runtime calls denied; retained operation not established",
+      "source": "B1/CHANNELS.md:72",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "No mandatory user-namespace/runtime/syscall domain for rootless containers or runtime-selected ports.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.3",
+      "title": "Bind-mounted executable/script, writable overlay, exec into container and package install inside",
+      "requirement": "R; S2.2-10; S2.2-12",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Deny new code in writable layer/mounts; broker records changes and rebuilds admitted image; apply C7 within container; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Writable data preserved; ad-hoc container software installation mediated; retained operation not established",
+      "source": "B1/CHANNELS.md:73",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "F,B",
+      "builder_remaining_obstacle": "Covered host mounts are bounded; arbitrary container mounts, overlays and interpreters are not admitted.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.4",
+      "title": "Image build RUN/hooks, import/load archive and commit modified container",
+      "requirement": "R; S2.2-9; S2.2-10; S2.2-12",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Execute recorded build closure or VM; resulting image inactive until declaration includes exact content; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Build requires orchestration or VM; container artifact format retained; retained operation not established",
+      "source": "B1/CHANNELS.md:74",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "No recorded transaction for build RUN/hooks/import/commit; frontend refusal alone is insufficient.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.5",
+      "title": "Privileged/host-namespace/device/runtime-hook options",
+      "requirement": "R; S2.3-7; S2.2-15",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Declaration broker validates capabilities, mounts, ports, hooks; built-in manager root domain cannot disable its own controls; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Unsafe options not accepted as implicit grants; explicit declared services may be supported; retained operation not established",
+      "source": "B1/CHANNELS.md:75",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "No mandatory domain prevents privileged namespaces/devices/runtime hooks through an installed backend.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C9.6",
+      "title": "Removed image/container restarted through old name, daemon state, API or retained layers",
+      "requirement": "R; S2.4-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Revoke current allow-set and activation references, stop processes, retain layers only as inert content; no evidenced complete declaration-only integration",
+      "b1_evidence": "[I ledger: E19,E20,E10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Restart after removal requires fresh declaration application; retained operation not established",
+      "source": "B1/CHANNELS.md:76",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "R,B",
+      "builder_remaining_obstacle": "No container graph/daemon-state/layer revocation implementation; file cleanup is not that lifecycle.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C10.1",
+      "title": "Documented privileged package/service/account/network/firewall administration",
+      "requirement": "R; S2.1-7; S3-6,7",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Mandatory broker authority at mutation sink, including daemon APIs and direct backend paths; no evidenced complete declaration-only integration",
+      "b1_evidence": "[M9–12](raw/mechanics-sources.md); [I10](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Admin interfaces need integration; the six ordinary actions retain mediated routes; retained operation not established",
+      "source": "B1/CHANNELS.md:77",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "Original privileged apt/dpkg/account/systemctl/network/firewall APIs remain; these are built-in paths, not breaking.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C10.2",
+      "title": "Built-in privileged tool changes guards, permissions, mounts or execution policy",
+      "requirement": "R; S2.3-7; S3-6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Candidate only: Tool cannot alter active policy except as an applied declaration change; root CLI is not an exemption; no evidenced complete declaration-only integration",
+      "b1_evidence": "[M12](raw/mechanics-sources.md); [I10,I23](raw/install-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "b1_cost": "Proposed workflow: Arbitrary administrative options may be refused; declared administration remains; retained operation not established",
+      "source": "B1/CHANNELS.md:78",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,F",
+      "builder_remaining_obstacle": "Root mount/permission/policy backends are not constrained to the broker; disabling guards through such tools remains.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C10.3",
+      "title": "Retained arbitrary privileged hooks and multi-resource live side effects",
+      "requirement": "R; S2.2-10; S3-3–6",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Staging/denial closes bounded hooks; no general rollback and complete mediation proof for unrestricted retained hooks",
+      "b1_evidence": "[Mechanics](MECHANICS-research.md); [I1,I5,I6](raw/install-sources.md)",
+      "b1_cost": "Unsupported hooks rejected or moved to build VM; arbitrary package compatibility unestablished",
+      "source": "B1/CHANNELS.md:79",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B,T",
+      "builder_remaining_obstacle": "Arbitrary privileged hooks and cross-resource side effects have no complete rollback/activation boundary.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "C10.4",
+      "title": "Root editor with documented package installer",
+      "requirement": "R; S2.2-10; S3-6 versus S3-7; S3-8",
+      "b1_verdict": "TEXT-OPEN",
+      "b1_mechanism": "Documented installer purpose and explicit editor exclusion decide built-in/breaking both ways; card T4",
+      "b1_evidence": "[Original C10.4 analysis](MECHANICS-research.md); [O6](raw/ordinary-sources.md); [text audit](fix-b1-1/text-audit.md)",
+      "b1_cost": "Installer reading requires declaration mediation; editor-exclusion reading treats privileged bypass as breaking",
+      "source": "B1/CHANNELS.md:80",
+      "unsettled_review": [],
+      "effective_research_status": "TEXT-OPEN",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Broker translation/refusal on supplied frontends; retained direct backends/APIs and full lifecycle remain open unless evidenced.",
+      "builder_attempt": "B",
+      "builder_remaining_obstacle": "Stricter target treats an editor installer as built-in under root. ed has no such installer, but arbitrary editor installation is not mediated fully.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M1.01",
+      "title": "All C1–C10: successful inactive preparation versus actual application report",
+      "requirement": "S2.1-5; S2.3-4–7; S3-3",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Keep candidate inaccessible; package/download/build success is preparation, not applied-state success",
+      "b1_evidence": "[M3,M4](raw/mechanics-sources.md)",
+      "b1_cost": "Updates may wait for activation or reboot",
+      "source": "B1/CHANNELS.md:81",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T",
+      "builder_remaining_obstacle": "Preparation is never reported successful; live completion, session exclusion and full object coverage remain unestablished under the stricter review.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M1.02",
+      "title": "All C1–C10: complete live activation and success report across all objects",
+      "requirement": "S2.3-4–7; S3-3",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Need concrete serialized multi-resource activation protocol and readback; existing staging primitives do not prove it",
+      "b1_evidence": "[Mechanics](MECHANICS-research.md)",
+      "b1_cost": "Potential reboot/session interruption; no proved loss of ordinary actions",
+      "source": "B1/CHANNELS.md:82",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T,B",
+      "builder_remaining_obstacle": "Finite readback does not atomically activate all runtime/device state or eliminate direct backends.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M2.01",
+      "title": "All C1–C10: durable exact file generation and boot selection after report",
+      "requirement": "S2.3-5; S3-3,5",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Immutable generation plus checked file/directory fsync and durable report-linked boot selector",
+      "b1_evidence": "[M1–4](raw/mechanics-sources.md)",
+      "b1_cost": "Storage flush and reboot cost; report protocol must choose this exact generation",
+      "source": "B1/CHANNELS.md:83",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T",
+      "builder_remaining_obstacle": "Files/selectors are fsynced; the report-observation gap, early SSH interval and full replay coverage remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M2.02",
+      "title": "All C1–C10: add/change/remove power cut with complete runtime/device replay",
+      "requirement": "S2.3-5; S3-5",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Old-or-new crash safety is insufficient; all line requirements must hold for the reported generation",
+      "b1_evidence": "[M1–4](raw/mechanics-sources.md); [O1–3](raw/ordinary-sources.md)",
+      "b1_cost": "Boot reconciliation required; actual adapter and complete state replay untested",
+      "source": "B1/CHANNELS.md:84",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T",
+      "builder_remaining_obstacle": "Three finite post-replay cuts are observations only; complete device/runtime/early-session replay is absent.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M3.01",
+      "title": "All C1–C10: explicit failure or timeout while only inert preparation changed",
+      "requirement": "S2.3-4,5; S3-4",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Leave active generation and authorities intact; isolate/cancel candidate workers",
+      "b1_evidence": "[M3,M4](raw/mechanics-sources.md)",
+      "b1_cost": "Discard work; retry needs a new application",
+      "source": "B1/CHANNELS.md:85",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T",
+      "builder_remaining_obstacle": "Invalid-payload preparation leaves previous generation unchanged; no one-hour worker cancellation/global restoration proof.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M3.02",
+      "title": "All C1–C10: partial activation failure, stalled worker, or no report at one hour",
+      "requirement": "S2.3-4,5; S3-4",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "Need old declaration fully restored/enforced by deadline; snapshot of files alone does not restore live/device effects",
+      "b1_evidence": "[Mechanics](MECHANICS-research.md)",
+      "b1_cost": "Watchdog/recovery design required; stalled application cannot count as success",
+      "source": "B1/CHANNELS.md:86",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "T",
+      "builder_remaining_obstacle": "Live rollback is best effort; arbitrary effects, failed restoration and stalled/no-report cases remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M4.01",
+      "title": "All C1–C10: running code, descendants, open FDs and mapped/injected copies",
+      "requirement": "S2.1-3; S2.3-4,6; S2.4-4",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Revoke every launch authority; terminate/restart all holders and wait for absence, or reboot affected generation",
+      "b1_evidence": "[M5–8](raw/mechanics-sources.md)",
+      "b1_cost": "Programs/sessions stop; unlink and SIGTERM alone insufficient",
+      "source": "B1/CHANNELS.md:87",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this.",
+        "REVIEW-B1-3 finding 1: retained interpreted-code restart routes unresolved; native revocation is only a subcontrol."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "R,F",
+      "builder_remaining_obstacle": "Managed cgroup/native holders are terminated; escaped, copied, interpreted or injected code is not fully revoked.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M4.02",
+      "title": "All C1–C10: executable aliases, copied cache/store/image content, old generations",
+      "requirement": "S2.3-4,6; S2.4-4; S2.5-1",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Current-declaration membership authorizes execution, not old signature or surviving pathname",
+      "b1_evidence": "[I3,I10,I18](raw/install-sources.md); [M7,M8](raw/mechanics-sources.md)",
+      "b1_cost": "Retained bytes permitted only as inert content; rollback requires application",
+      "source": "B1/CHANNELS.md:88",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this.",
+        "REVIEW-B1-3 finding 1: retained interpreted-code restart routes unresolved; native revocation is only a subcontrol."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "R,F",
+      "builder_remaining_obstacle": "Managed path removal/home native-copy denial are bounded; retained script bytes and other executable authorities remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M4.03",
+      "title": "All C1–C10: service activators, timers, restart policy and effective rules",
+      "requirement": "S2.1-3; S2.4-4",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Remove uncovered activation edges and rule state, stop tasks, prevent reactivation through broker policy",
+      "b1_evidence": "[I15–17,I20](raw/install-sources.md); [M9,M11](raw/mechanics-sources.md)",
+      "b1_cost": "Services interrupt; relevant client state may need restart",
+      "source": "B1/CHANNELS.md:89",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this.",
+        "REVIEW-B1-3 finding 2: withdrawal of a fixed activation graph does not prevent recreation through an unbuilt broker."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "R,B",
+      "builder_remaining_obstacle": "Fixed managed service/rule edges are withdrawn; independent activators and original backend recreation remain.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M4.04",
+      "title": "All C1–C10: contributions shared with remaining declaration lines",
+      "requirement": "S2.4-4",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Compute residual declared dependency closure and remove only uncovered contributions",
+      "b1_evidence": "[Text](../SENTENCES.md); [Mechanics](MECHANICS-research.md)",
+      "b1_cost": "Shared dependencies remain available; provenance/coverage map needed",
+      "source": "B1/CHANNELS.md:90",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "R",
+      "builder_remaining_obstacle": "Residual file coverage is computed; shared processes, activators, aliases and effective rule coverage are not generally modeled.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M5.01",
+      "title": "All C1–C10: finite typed lines, exact content, permissions and documented defaults",
+      "requirement": "S2.1-4; S2.3-4,5; S3-9,10",
+      "b1_verdict": "CLOSABLE",
+      "b1_mechanism": "Compare each realized object and effective permission with line; separately inventory extras for P1",
+      "b1_evidence": "[M9–11](raw/mechanics-sources.md); [I15,I20](raw/install-sources.md)",
+      "b1_cost": "Admitted line types need validators; package DB alone insufficient",
+      "source": "B1/CHANNELS.md:91",
+      "unsettled_review": [
+        "REVIEW-B1-3 finding 3: whole-property sentence references do not establish a bounded obligation; no later fix settles this."
+      ],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "I,T",
+      "builder_remaining_obstacle": "Finite exact-field comparisons exist; incomplete schemas, semantic classification and extra-object inventory prevent full-scope closure.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    },
+    {
+      "id": "M5.02",
+      "title": "All C1–C10: unrestricted algorithmic requirements and semantic effects",
+      "requirement": "S2.1-4; S2.3-5; S2.4-1; S2.5-3",
+      "b1_verdict": "UNKNOWN",
+      "b1_mechanism": "No complete validator established for unrestricted semantic requirements; admissibility and Understanding readings are left open in Q2",
+      "b1_evidence": "[Q2 below](#q2--an-algorithm-reads-every-script-in-directory-d-from-computer-state); [text audit](fix-b1-1/text-audit.md)",
+      "b1_cost": "Finite validators are bounded evidence; no admissibility rule is added to the published text",
+      "source": "B1/CHANNELS.md:92",
+      "unsettled_review": [],
+      "effective_research_status": "UNESTABLISHED",
+      "builder_status": "NOT CLOSED",
+      "builder_evidence": [
+        "B2/STAND.md",
+        "B2/SELFTEST.md"
+      ],
+      "selected_candidate_control": "Finite transaction, durable current selector, effective-state verification and controlled process cleanup; heed unsettled mechanics review.",
+      "builder_attempt": "I",
+      "builder_remaining_obstacle": "Only explicit finite JSON rows are implemented; unrestricted algorithmic semantic requirements are not analyzed or decided.",
+      "builder_grounds": "Specific to this testbed; no universal-impossibility conclusion"
+    }
+  ],
+  "recorded_utc": "2026-11-22",
+  "b1_counts": {
+    "CLOSABLE": 8,
+    "UNKNOWN": 77,
+    "TEXT-OPEN": 3
+  },
+  "strict_review_note": "Unsettled REVIEW-B1-3 applied to all full-scope claims; bounded primitive success is not channel closure.",
+  "sources": [
+    "B1/CHANNELS.md",
+    "B1/DESIGN-INPUT.md",
+    "B1/REVIEW.md",
+    "B1/REVIEW-B1-internal.md",
+    "B1/REVIEW-B1-2.md",
+    "B1/REVIEW-B1-3.md",
+    "B1/FIX-B1-1.md",
+    "B1/FIX-B1-2.md"
+  ]
+}

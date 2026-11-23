@@ -1,0 +1,29 @@
+liburcu
+(synopsis "User-space RCU data synchronisation library")
+    (description "liburcu is a user-space @dfn{Read-Copy-Update} (RCU) data
+synchronisation library.  It provides read-side access that scales linearly
+with the number of cores.  liburcu-cds provides efficient data structures
+based on RCU and lock-free algorithms.  These structures include hash tables,
+queues, stacks, and doubly-linked lists.")
+    (license (list license:lgpl2.1 license:expat))))
+
+
+zix
+(synopsis "C library of portability wrappers and data structures")
+    (description
+     "Zix is a C library of portability wrappers and data structures.  It
+provides the following components:
+@table @code
+@item ZixAllocator A customizable allocator.
+@item ZixBumpAllocator A simple realtime-safe bump-pointer allocator.
+@item ZixBTree A page-allocated B-tree.
+@item ZixHash An open-addressing hash table.
+@item ZixRing A lock-free realtime-safe ring buffer.
+@item ZixSem A portable semaphore wrapper.
+@item ZixThread A portable thread wrapper.
+@item ZixTree A binary search tree.
+@item zixgest.h Digest functions suitable for hashing arbitrary data.
+zix/filesystem.h Functions for working with filesystems.
+@item zix/path.h Functions for working with filesystem paths lexically.
+@end table")
+    (license license:isc)))

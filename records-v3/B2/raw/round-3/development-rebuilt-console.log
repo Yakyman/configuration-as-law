@@ -1,0 +1,10 @@
+{"log": "bc3-rebuilt-new.log", "rc": 0, "utc": "2026-11-22T08:31:59Z"}
+{"log": "bc3-rebuilt-copy-round3-selftest.py.log", "rc": 0, "utc": "2026-11-22T08:32:00Z"}
+{"log": "round3.jsonl", "rc": 1, "utc": "2026-11-22T08:33:47Z"}
+{"expected": "delayed replay prevents all successful ordinary SSH commands until replay completion", "id": "BOOT-SESSION-GATE", "phase": "expected", "source": "S3-5; systemd unit ordering; B2/build/round3-driver.py", "utc": "2026-11-22T08:33:47Z"}
+{"log": "boot-delay-setup.log", "rc": 255, "utc": "2026-11-22T08:33:47Z"}
+{"log": "boot-gate-stop.log", "rc": 0, "utc": "2026-11-22T08:33:48Z"}
+{"id": "BOOT-SESSION-GATE", "passed": true, "phase": "result", "pre_ready_ordinary_attempts": 824, "pre_ready_ordinary_successes": 0, "premature_operator_session": false, "utc": "2026-11-22T08:36:49Z"}
+{"log": "boot-order.jsonl", "rc": 255, "utc": "2026-11-22T08:36:49Z"}
+{"log": "boot-delay-cleanup.log", "rc": 255, "utc": "2026-11-22T08:36:49Z"}
+{"log": "powercuts.jsonl", "rc": 1, "utc": "2026-11-22T08:36:49Z"}

@@ -1,0 +1,1 @@
+readlink -m -- /var/lib/containers/storage/overlay/536bef33de77becdf87b37d4a23872077b30722a6f6671e07d08a97a0be7772d/diff

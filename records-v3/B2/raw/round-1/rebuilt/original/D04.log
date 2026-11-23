@@ -1,0 +1,15 @@
+UTC 2026-11-22T06:30:11Z OP admission
+$ sudo -u stand cp /opt/stand/pkgs/dev-worker/bin/worker /home/stand/undeclared-worker
+EXIT 0
+$ sudo -u stand /home/stand/undeclared-worker
+sudo: unable to execute /home/stand/undeclared-worker: Permission denied
+EXIT 1
+$ sudo -u stand /lib64/ld-linux-x86-64.so.2 /home/stand/undeclared-worker
+/home/stand/undeclared-worker: error while loading shared libraries: /home/stand/undeclared-worker: failed to map segment from shared object
+EXIT 127
+$ /opt/stand/pkgs/dev-worker/bin/worker
+development-version-1
+EXIT 0
+$ /usr/bin/findmnt -n -o OPTIONS --target /home/stand
+rw,nosuid,nodev,noexec,relatime,discard,errors=remount-ro
+EXIT 0

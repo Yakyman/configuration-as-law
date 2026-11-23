@@ -1,0 +1,15 @@
+/home/user/go/bin/hey: go1.24.4
+	path	github.com/rakyll/hey
+	mod	github.com/rakyll/hey	v0.1.5	h1:oc3QhpT8ETXcr5xIE2xgWYNSNA/Z52XA20ku9hWCchY=
+	dep	golang.org/x/net	v0.48.0	h1:zyQRTTrjc33Lhh0fBgT/H3oZq9WuvRR5gPC70xpDiQU=
+	dep	golang.org/x/text	v0.33.0	h1:B3njUFyqtHDUI5jMn1YIr5B0IE2U0qck04r6d4KPAxE=
+	build	-buildmode=exe
+	build	-compiler=gc
+	build	CGO_ENABLED=1
+	build	CGO_CFLAGS=
+	build	CGO_CPPFLAGS=
+	build	CGO_CXXFLAGS=
+	build	CGO_LDFLAGS=
+	build	GOARCH=amd64
+	build	GOOS=linux
+	build	GOAMD64=v1

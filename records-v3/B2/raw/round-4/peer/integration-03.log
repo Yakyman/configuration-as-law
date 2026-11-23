@@ -1,0 +1,24 @@
+NATIVE_WHEEL_READY sha256=a745c8245b3993c5f9dc7ed54e8d3f311cf7e2a6db877cdd13e30b250b5ed096 module_sha256=03d72a4d9ef7ade86971407b45790bf4aa66050f18f496b0c039b7af1689c4e2
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/stand: parsed OK
+Broker authority, backend DAC, bus policy and scheduler removal installed
+Declaration frontends, inactive parser domain and fixed compiler domain installed
+/tmp/session.c: In function ‘main’:
+/tmp/session.c:103:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |   ^~
+/tmp/session.c:103:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |                                                                  ^~~~~
+/tmp/session.c:151:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  151 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |   ^~
+/tmp/session.c:151:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  151 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |                                                                  ^~~~~
+usermod: no changes
+kernel.yama.ptrace_scope = 2
+Shellless login, syscall filter and declaration-generated code policy installed
+FACTORY rows=547 files=31247
+SUCCESS cba3c369ba26ff1904dd0e8f799bc6b04cbe4140547fae662d723fc81e4a4fae

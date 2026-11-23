@@ -1,0 +1,272 @@
+aardvark-dns	CODE	DNS server program for podman container networks
+adwaita-icon-theme	APPEAR	Default GNOME icon theme read by GTK programs
+alsa-ucm-conf	FUNC	ALSA Use Case Manager profiles that set up sound hardware routing	sound on hardware needing UCM profiles
+app-install-data	UNK	Desktop entries and icons of installable applications for software installers	which installed program reads these files is not established, so the effect of removal is unknown
+aptdaemon-data	APPEAR	Icons shown by aptdaemon client widgets
+aspell-en	FUNC	English dictionary for the GNU Aspell spell checker	English spell checking through Aspell
+at-spi2-common	EMPTY	Empty common package of the accessibility bus, copyright only
+bluetooth	META	Metapackage depending on bluez
+bluez-cups	CODE	CUPS backend program for printing to Bluetooth printers
+brasero-common	ONEFUNC	Brasero icons, help, settings schema and MIME definition
+build-essential	META	Informational package list and dependencies on compiler and make
+busybox-initramfs	CODE	Busybox shell and hook copied into the initramfs for early boot
+cinnamon-control-center-dbg	DBG	Debugging symbols of cinnamon-control-center
+cinnamon-control-center-data	ONEFUNC	UI files, panel entries and schema of the Cinnamon control center
+cinnamon-dbg	DBG	Debugging symbols of the Cinnamon desktop
+cinnamon-desktop-data	SCHEMA	GSettings schemas org.cinnamon.desktop.* shared by Cinnamon programs
+cinnamon-l10n	APPEAR	Message translations of several Cinnamon desktop programs
+cinnamon-session-common	XCODE	Xsession.d shell fragment run at X session start, plus icons
+circle-flags-svg	APPEAR	Flag images shown by desktop programs
+colord-data	FUNC	ICC profiles and colorimetry data used by the colord colour service	standard profile assignment and colour calibration by colord
+command-not-found	CODE	Python program suggesting packages for unknown shell commands
+cpdb-backend-cups	CODE	Print dialog backend program for CUPS printers
+cron-daemon-common	XCODE	System crontab whose lines cron runs as commands, plus sysusers and tmpfiles entries
+cryptsetup-initramfs	CODE	Initramfs hooks and scripts that unlock encrypted disks at boot
+cups-common	FUNC	CUPS message catalogs and ppdc include files for driver compilation	generating PPDs from .drv driver files
+cups-core-drivers	CODE	CUPS filter programs for driverless printing
+cups-pk-helper	CODE	Privileged helper program letting desktop tools configure CUPS
+cups-server-common	FUNC	CUPS web interface templates and USB printer quirks file	CUPS web administration and printing to USB printers with quirks
+dbus-session-bus-common	FUNC	session.conf: configuration of the D-Bus session bus daemon	starting the session bus used by all desktop programs
+debconf-i18n	ONEPROG	Translations and translated manual pages of debconf
+distro-info-data	FUNC	Release data files read by distro-info tools and libraries	answering distribution release queries
+dmz-cursor-theme	APPEAR	DMZ mouse cursor themes
+dns-root-data	UNK	DNS root hints and DNSSEC root trust anchor files	no installed program is established to read these files, so the effect of removal is unknown
+docbook-xml	FUNC	DocBook XML DTDs registered in the system XML catalogs	validating and processing DocBook documents through catalog lookup
+dracut-install	CODE	dracut-install program used to build initramfs images
+espeak-ng-data	FUNC	Voice and dictionary data of the espeak-ng speech synthesizer	speech synthesis through espeak-ng and speech-dispatcher
+evolution-data-server-common	FUNC	Schemas and D-Bus service files that start Evolution Data Server services	activation of address book and calendar services used by desktop programs
+firefox-locale-en	EXT	Firefox language pack extensions (en-CA, en-GB)
+fontconfig-config	FUNC	fontconfig main configuration naming font directories and rendering rules	font discovery by fontconfig and thus text rendering
+fonts-dejavu-core	APPEAR	DejaVu fonts with fontconfig rules
+fonts-dejavu-mono	APPEAR	DejaVu monospace fonts with fontconfig rules
+fonts-droid-fallback	APPEAR	Droid Sans Fallback font with fontconfig rule
+fonts-liberation	APPEAR	Liberation fonts
+fonts-mathjax	APPEAR	MathJax fonts, also linked into the system font directory
+fonts-noto-cjk	APPEAR	Noto CJK fonts with fontconfig rule
+fonts-noto-color-emoji	APPEAR	Noto colour emoji font
+fonts-noto-core	APPEAR	Noto core font families
+fonts-noto-mono	APPEAR	Noto monospace font
+fonts-opensymbol	APPEAR	OpenSymbol font
+fonts-ubuntu	APPEAR	Ubuntu font family with fontconfig rule
+fonts-urw-base35	APPEAR	URW base 35 PostScript fonts with fontconfig and Ghostscript font maps
+ftp	META	Transitional package depending on tnftp
+gcc-13-base	EMPTY	Empty base package of GCC 13, copyright and changelog only
+gcc-14-base	EMPTY	Empty base package of GCC 14, copyright and changelog only
+geocode-glib-common	APPEAR	Place icons of the geocode-glib library
+geoip-database	DB	GeoIP country database read by GeoIP library users	IP-to-country lookups
+glib-networking-common	EMPTY	Empty common package of glib-networking, copyright only
+gnome-accessibility-themes	APPEAR	High Contrast GTK theme and icons
+gnome-desktop3-data	DOC	Licence texts as help documents
+gnome-terminal-data	DOC	Help pages of GNOME Terminal
+gnome-themes-extra-data	APPEAR	Adwaita GTK2 and Adwaita-dark GTK3 theme files
+gnupg	META	Metapackage depending on gpg, gpg-agent, dirmngr; holds only manuals
+golang-github-containers-common	FUNC	/etc/containers/policy.json, containers.conf and short-name aliases for podman	pulling container images (podman requires policy.json)
+golang-github-containers-image	FUNC	/etc/containers/registries.conf read by podman and other container tools	resolving unqualified container image names
+gvfs-common	UNK	tmpfiles rule for the gvfs FUSE directory, plus manual pages	what systemd-tmpfiles does differently without the rule is not established
+hicolor-icon-theme	APPEAR	index.theme of the fallback hicolor icon theme
+humanity-icon-theme	APPEAR	Humanity icon theme
+hunspell-en-us	FUNC	US English dictionary for the Hunspell spell checker	US English spell checking through Hunspell
+hwdata	DB	PCI, USB and PnP ID databases	naming hardware by ID in tools reading these files
+hyphen-en-us	ONEFUNC	English hyphenation patterns for LibreOffice
+ibus-data	FUNC	IBus component definitions, keymaps, emoji dictionaries and schema	starting IBus input method engines and emoji input
+init	META	Metapackage ensuring an init system is installed
+initramfs-tools-bin	CODE	Helper programs used inside the initramfs
+isc-dhcp-common	DOC	Manual pages of ISC DHCP
+iso-codes	FUNC	ISO language, country, currency and script code lists with translations	listing languages and countries in programs reading these lists
+iso-flag-png	APPEAR	Country flag images
+klibc-utils	CODE	Small klibc utilities for early boot in the initramfs
+kpartx-boot	CODE	Initramfs hook script adding kpartx to early boot
+krb5-locales	EMPTY	Empty Kerberos locale package, copyright only
+language-pack-en	META	Translation update package depending on language-pack-en-base
+language-pack-en-base	APPEAR	English message translations for all programs
+language-pack-gnome-en	META	Translation update package depending on language-pack-gnome-en-base
+language-pack-gnome-en-base	APPEAR	English GNOME message translations and translated help
+libaio1t64	CODE	Linux kernel AIO shared library
+libao-common	UNK	/etc/libao.conf with the default libao output driver	whether libao behaves differently without this file is not established
+libasound2-data	FUNC	alsa.conf and card profiles read by the ALSA library	opening sound devices through the ALSA library
+libaudit-common	UNK	/etc/libaudit.conf for the audit library	whether libaudit behaves differently without this file is not established
+libavahi-common-data	DB	service-types.db: database of DNS-SD service type names	naming discovered network service types
+libbytesize-common	EMPTY	Empty translations package of libbytesize, copyright only
+libc6-dbg	DBG	Detached debugging symbols of the GNU C library
+libcaribou-common	FUNC	On-screen keyboard layouts of the caribou library	showing the caribou on-screen keyboard
+libcinnamon-desktop-dbg	DBG	Debugging symbols of libcinnamon-desktop
+libcinnamon-menu-3-0-dbg	DBG	Debugging symbols of the Cinnamon menu library
+libcjs-dbg	DBG	Debugging symbols of cjs
+libclutter-1.0-common	APPEAR	Message translations of the Clutter library
+libcogl-common	APPEAR	Message translations of the Cogl library
+libcvc-dbg	DBG	Debugging symbols of libcvc
+libdjvulibre-text	APPEAR	Message texts of the DjVuLibre library
+libdmraid1.0.0.rc16	CODE	Device-mapper software RAID shared library
+libdrm-common	DB	amdgpu.ids: table of AMD GPU IDs and names	naming AMD GPUs
+libexttextcat-data	FUNC	Language models of the libexttextcat language guesser	guessing the language of text
+libgdata-common	EMPTY	Empty common package of libgdata, copyright only
+libgdk-pixbuf2.0-common	EMPTY	Empty common package of gdk-pixbuf, copyright only
+libglib2.0-data	EMPTY	Empty data package of GLib, copyright only
+libgnomekbd-common	SCHEMA	Schemas, UI file and icons of the libgnomekbd keyboard library
+libgoa-1.0-common	SCHEMA	GSettings schema of the GNOME Online Accounts library
+libgphoto2-l10n	EMPTY	Empty translations package of libgphoto2, copyright only
+libgs-common	FUNC	ICC colour profiles used by Ghostscript	colour conversion in Ghostscript rendering
+libgs10-common	FUNC	Ghostscript resources: init files, fonts, CMaps	PostScript and PDF rendering by Ghostscript, used by print filters
+libgsf-1-common	EMPTY	Empty common package of libgsf, copyright only
+libgspell-1-common	EMPTY	Empty common package of gspell, copyright only
+libgtk-3-common	SCHEMA	GTK 3 settings schemas, emoji data and key themes
+libgtk-4-common	SCHEMA	GTK 4 settings schemas and emoji data
+libgtk2.0-bin	META	Only manual pages plus dependencies on GTK 2 runtime packages
+libgtk2.0-common	APPEAR	GTK 2 key themes, Raleigh theme and multipress input configuration
+libgtksourceview-3.0-common	APPEAR	Syntax highlighting definitions and style schemes of GtkSourceView 3
+libgtksourceview-4-common	APPEAR	Syntax highlighting definitions and style schemes of GtkSourceView 4
+libgtop2-common	EMPTY	Empty common package of libgtop, copyright only
+libgutenprint-common	FUNC	Printer model and paper data of the Gutenprint driver library	printing through Gutenprint drivers
+libgweather-4-common	SCHEMA	Locations data and schema enums of libgweather
+libinput-bin	CODE	udev helper programs and device quirks of libinput
+libjpeg8	META	Dependency package pointing to libjpeg-turbo8
+libjs-mathjax	WEB	MathJax JavaScript library run inside web pages
+libjson-glib-1.0-common	EMPTY	Empty common package of json-glib, copyright only
+liblangtag-common	FUNC	Language tag registry data of liblangtag	parsing and validating language tags
+liblouis-data	FUNC	Braille translation tables of liblouis	braille translation for braille displays
+liblouisutdml-data	FUNC	Braille formatting files of liblouisutdml	braille document formatting
+libmagic-mgc	DB	Compiled magic database used by file and libmagic	identifying file types by content
+libmateweather-common	SCHEMA	Locations data, schema and icons of libmateweather
+libmtp-runtime	CODE	mtp-probe udev helper program for MTP devices
+libmusicbrainz5cc2v5	CODE	MusicBrainz client shared library
+libnma-common	SCHEMA	GSettings schema and translations of libnma
+libopenal-data	FUNC	OpenAL Soft configuration, HRTF data and presets	HRTF 3D audio rendering with OpenAL Soft
+libpeas-common	APPEAR	Icons of the libpeas plugin manager
+libppd2-common	FUNC	ppdc include files of libppd	generating PPDs from driver information files
+libproxy1-plugin-gsettings	META	Transitional package depending on libproxy1v5
+libproxy1-plugin-networkmanager	META	Transitional package depending on libproxy1v5
+libpwquality-common	UNK	/etc/security/pwquality.conf password quality settings	whether the file changes password checks or only repeats defaults is not established
+libpython3-stdlib	META	Dependency package pointing to libpython3.12-stdlib
+librda-common	APPEAR	Message translations of librda
+libreoffice-help-common	DOC	Common files of LibreOffice help
+libreoffice-help-en-us	DOC	LibreOffice help in US English
+libreoffice-style-colibre	ONEPROG	Colibre icon style of LibreOffice
+libreoffice-uiconfig-calc	ONEFUNC	UI definition files of LibreOffice Calc
+libreoffice-uiconfig-common	ONEFUNC	Common UI definition files of LibreOffice
+libreoffice-uiconfig-draw	ONEFUNC	UI definition files of LibreOffice Draw
+libreoffice-uiconfig-impress	ONEFUNC	UI definition files of LibreOffice Impress
+libreoffice-uiconfig-writer	ONEFUNC	UI definition files of LibreOffice Writer
+libsane-common	FUNC	SANE backend configuration (dll.conf and per-backend files)	finding scanners through SANE backends
+libsecret-common	EMPTY	Empty common package of libsecret, copyright only
+libsemanage-common	UNK	/etc/selinux/semanage.conf for SELinux policy tools	no SELinux policy tools are established on the machine, so the effect of removal is unknown
+libsensors-config	UNK	/etc/sensors3.conf chip labels and scaling for lm-sensors	whether libsensors behaves differently without this file is not established
+libsnmp-base	UNK	Net-SNMP MIB files and client configuration	which installed program reads these files is not established
+libsoup-3.0-common	EMPTY	Empty common package of libsoup 3, copyright only
+libsoup2.4-common	EMPTY	Empty common package of libsoup 2.4, copyright only
+libstemmer0d	CODE	Snowball stemming shared library
+libtag1v5	META	Dependency package pointing to libtag1v5-vanilla
+libthai-data	FUNC	Thai dictionary used by libthai for word breaking	breaking Thai text into words
+libtimezonemap-data	FUNC	Map images and region data of the timezone map widget library	showing the timezone map widget
+libtirpc-common	DB	/etc/netconfig network configuration database read by libtirpc	selecting RPC transports
+libtotem-plparser-common	EMPTY	Empty common package of totem-plparser, copyright only
+libwacom-common	FUNC	Tablet description files, udev rules and hwdb entries of libwacom	recognising graphics tablets and their features
+libwmf0.2-7-gtk	META	Transitional package depending on libwmf-0.2-7-gtk
+libwnck-3-common	EMPTY	Empty common package of libwnck, copyright only
+libx11-data	FUNC	Xlib locale and compose data	Compose key and locale-dependent input in X programs
+libzvbi-common	APPEAR	Message translations of libzvbi
+linux-generic-hwe-24.04	META	Kernel metapackage depending on current HWE kernel image and headers
+linux-headers-generic-hwe-24.04	META	Metapackage depending on current HWE kernel headers
+linux-image-generic-hwe-24.04	META	Metapackage depending on current HWE kernel image and modules
+linux-libc-dev	FUNC	Linux kernel headers used when compiling programs	compiling programs that include kernel headers
+linux-sound-base	UNK	modprobe files blacklisting OSS or ALSA modules	the /etc/modprobe.d link is made by a maintainer script; whether it exists is not established
+linuxmint-keyring	TRUST	Signing key of the Linux Mint repository for apt
+localechooser-data	UNK	Lists of locales supported by the installer	which installed program reads these files is not established
+lto-disabled-list	UNK	List of packages built without LTO, read by dpkg-buildflags	what dpkg-buildflags does differently without the list is not established
+manpages	DOC	Manual pages about the system
+mate-desktop-common	SCHEMA	Schemas and data of the libmate-desktop library
+mate-panel-common	DOC	Icons and help pages of the MATE panel
+mate-polkit-common	UNK	Autostart entry of the MATE polkit agent, plus translations	whether the running session honours this entry (OnlyShowIn) is not established
+media-player-info	FUNC	udev rules and hwdb entries describing portable media players	recognising portable media players
+media-types	FUNC	/etc/mime.types mapping file extensions to media types	determining media types by file extension in many programs
+metacity-common	ONEFUNC	Schemas, keybinding descriptions and translations of Metacity
+mint-backgrounds-wallpapers	PHOTO	Desktop wallpaper photographs
+mint-cursor-themes	APPEAR	Linux Mint mouse cursor themes
+mint-info-cinnamon	FUNC	/etc/linuxmint/info edition data and LightDM configuration fragment	identifying the edition in Mint tools and LightDM greeter selection
+mint-l-icons	APPEAR	Mint-L icon theme
+mint-l-theme	APPEAR	Mint-L GTK and Cinnamon themes
+mint-meta-cinnamon	META	Metapackage depending on the Cinnamon edition packages
+mint-meta-core	META	Metapackage depending on core Linux Mint packages
+mint-mirrors	FUNC	Mirror list and python-apt mirror templates for Linux Mint	choosing repository mirrors in software-sources tools
+mint-themes	APPEAR	Mint-Y GTK and Cinnamon themes
+mint-translations	APPEAR	Message translations of Linux Mint tools
+mint-upgrade-info	ONEFUNC	Upgrade path information read by the Mint update manager
+mint-x-icons	APPEAR	Mint-X icon theme
+mint-y-icons	APPEAR	Mint-Y icon theme
+mobile-broadband-provider-info	DB	Database of mobile broadband service providers	setting up mobile broadband connections by provider
+muffin-common	ONEFUNC	GSettings schema and translations of the Muffin window manager
+muffin-dbg	DBG	Debugging symbols of Muffin
+mythes-en-us	ONEFUNC	English thesaurus for LibreOffice
+nautilus-data	ONEFUNC	Schema, search provider and ontology files of Nautilus
+ncurses-base	DB	Basic terminfo terminal capability database entries	driving common terminals from terminal programs
+nemo-dbg	DBG	Debugging symbols of Nemo
+netavark	CODE	Network stack program for podman containers
+netbase	FUNC	/etc/services, /etc/protocols, /etc/rpc, /etc/ethertypes	resolving service and protocol names by programs
+network-manager-config-connectivity-ubuntu	FUNC	NetworkManager configuration enabling connectivity checking	NetworkManager connectivity and captive-portal checks
+openprinting-ppds	CODE	PostScript PPD files with a CUPS driver program listing them
+p7zip	META	Transitional package depending on 7zip
+p7zip-full	META	Transitional package depending on 7zip
+papirus-icon-theme	APPEAR	Papirus icon theme
+pci.ids	DB	PCI ID repository database	naming PCI devices by ID
+pipewire-audio	META	Metapackage depending on PipeWire audio packages
+pix-data	ONEFUNC	UI files, icons, themes, schema and help of the Pix image viewer
+pix-dbg	DBG	Debugging symbols of Pix
+pkg-config	META	Transitional package depending on pkgconf
+policykit-1	META	Transitional package depending on polkitd and pkexec
+policykit-1-gnome	CODE	GNOME polkit authentication agent program and autostart entry
+policykit-desktop-privileges	RIGHTS	polkit rules letting desktop users perform common actions without password
+poppler-data	FUNC	Encoding data and CMaps for poppler and Ghostscript	rendering PDFs using CJK and other encodings
+printer-driver-brlaser	CODE	CUPS filter program for some Brother laser printers
+printer-driver-hpcups	CODE	HP CUPS raster driver filter programs and PPDs
+printer-driver-postscript-hp	CODE	HP PostScript PPDs with CUPS driver and filter programs
+printer-driver-ptouch	CODE	CUPS driver and filter programs for Brother P-touch label printers
+publicsuffix	UNK	Public suffix list files read by libpsl	whether libpsl falls back to built-in data without these files is not established
+python-apt-common	FUNC	python-apt distribution templates	recognising distributions and repositories in software-sources tools
+python-babel-localedata	FUNC	CLDR locale data of Python Babel	locale formatting of dates and numbers through Babel
+qt5-style-plugins	META	Metapackage depending on Qt 5 style plugins
+qttranslations5-l10n	APPEAR	Message translations of the Qt 5 libraries
+readline-common	UNK	Sample inputrc and readline user manual	which program reads usr/share/readline/inputrc is not established
+samba-common	XCODE	Samba configuration template, PAM file and helper scripts
+sound-theme-freedesktop	APPEAR	freedesktop.org event sound theme
+speech-dispatcher-espeak-ng	CODE	Speech Dispatcher output module programs for espeak-ng
+syslinux-common	CODE	Syslinux boot loader modules and MBR boot code
+systemd-dev	FUNC	systemd D-Bus interface descriptions and pkg-config files	building software against systemd
+systemd-hwe-hwdb	FUNC	udev hwdb entries for hardware enablement	hardware-specific device settings applied by udev
+telnet	META	Transitional package depending on inetutils-telnet
+thunderbird-locale-en	EXT	Thunderbird language pack extensions
+thunderbird-locale-en-us	META	Transitional package depending on thunderbird
+tzdata	DB	Time zone database	converting between UTC and local time
+tzdata-legacy	DB	Legacy and right/ time zone database entries	using legacy time zone names
+ubuntu-dbgsym-keyring	TRUST	Signing keys of the Ubuntu debug symbol archive for apt
+ubuntu-keyring	TRUST	Signing keys of the Ubuntu archive for apt
+ubuntu-mono	APPEAR	Ubuntu Mono icon themes
+usb-modeswitch-data	FUNC	udev rules and data for switching USB modems out of storage mode	using USB modems that need mode switching
+usb.ids	DB	USB ID repository database	naming USB devices by ID
+va-driver-all	META	Metapackage depending on VA-API drivers
+wamerican	FUNC	American English word list in /usr/share/dict	programs using the system word list
+wbritish	FUNC	British English word list in /usr/share/dict	programs using the system word list
+xbitmaps	FUNC	Standard X bitmaps as C headers	compiling programs and setting bitmaps that use the standard X bitmaps
+xed-common	ONEFUNC	Schemas, plugin UI files and help of the xed editor
+xed-dbg	DBG	Debugging symbols of xed
+xfonts-base	APPEAR	Standard X bitmap fonts
+xfonts-encodings	APPEAR	Font encoding files for X fonts
+xfonts-scalable	APPEAR	Scalable X fonts
+xkb-data	FUNC	XKB keyboard layout and model data	compiling keyboard layouts for keyboard input
+xorg	META	Metapackage depending on the X.Org system
+xorg-docs-core	DOC	Core X.Org manual pages
+xreader-common	FUNC	Xreader icons, help and thumbnailer entry read by file managers	generating document thumbnails in file managers
+xreader-dbg	DBG	Debugging symbols of Xreader
+xserver-common	APPEAR	X protocol request names for error messages
+xserver-xorg-input-all	META	Metapackage depending on X input drivers
+xserver-xorg-legacy	CODE	setuid Xorg wrapper program
+xserver-xorg-video-all	META	Metapackage depending on X video drivers
+xviewer-dbg	DBG	Debugging symbols of Xviewer
+yaru-theme-icon	APPEAR	Yaru icon theme
+yelp-xsl	UNK	XSLT stylesheets and JavaScript used by the yelp help browser	whether yelp confines the stylesheet code (S2.2-11) or runs it with full rights (S2.2-10) is not established
+zenity-common	ONEFUNC	UI file, images and help of zenity
+binutils-common	ONEPROG	gprofng settings file and documentation
+transmission-common	WEB	Transmission web interface pages and icons
+gir1.2-meta-muffin-0.0	ONEFUNC	Private Muffin typelibs in a Muffin-only directory, loaded by Cinnamon
+gir1.2-xviewer-3.0	ONEFUNC	Private Xviewer typelib in an Xviewer-only directory, for its plugins
+gir1.2-rb-3.0	ONEFUNC	Rhythmbox typelib used by Rhythmbox plugins
+gir1.2-nemo-3.0	ONEFUNC	Nemo typelib used by Nemo extensions inside Nemo
+gir1.2-xreader	ONEFUNC	Xreader typelibs used by Xreader plugins

@@ -1,0 +1,181 @@
+
+ACTION 01 BEGIN
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+For security reasons, the password you type will not be visible.
+
+[sudo] password for root: Loading repository data...
+Reading installed packages...
+'flatpak' is already installed.
+No update candidate for 'flatpak-1.18.4-1.1.x86_64'. The highest available version is already installed.
+Resolving package dependencies...
+
+The following 2 recommended packages were automatically selected:
+  criu gvisor-tap-vsock
+
+The following 18 NEW packages are going to be installed:
+  aardvark-dns catatonit conmon criu fuse-overlayfs gvisor-tap-vsock hello libcontainers-common libcontainers-default-policy libnet9 libpathrs0 netavark passt passt-selinux podman python313-protobuf registries-conf-default runc
+
+18 new packages to install.
+
+Package download size:    34.0 MiB
+
+Package install size change:
+              |     113.1 MiB  required by packages that will be installed
+   113.1 MiB  |  -      0 B    released by packages that will be removed
+
+Backend:  classic_rpmtrans
+Continue? [y/n/v/...? shows all options] (y): y
+Preloading Packages [.
+Preloading: runc-1.5.3-1.1.x86_64.rpm [Error: "The requested URL returned error: 404", trying next mirror.]
+.
+Preloading: podman-6.2.0-1.1.x86_64.rpm [Error: "The requested URL returned error: 404", trying next mirror.]
+.
+Preloading: podman-6.2.0-1.1.x86_64.rpm [Error: "The requested URL returned error: 404", trying next mirror.]
+.
+Preloading: libcontainers-common-20260915-1.1.noarch.rpm [done]
+.
+Preloading: criu-4.2.1-1.1.x86_64.rpm [done]
+.
+Preloading: passt-20261002.cba3570-1.1.x86_64.rpm [done]
+.
+Preloading: registries-conf-default-20260915-1.1.noarch.rpm [done]
+.
+Preloading: passt-selinux-20261002.cba3570-1.1.noarch.rpm [done]
+..
+Preloading: aardvark-dns-2.1.0-1.1.x86_64.rpm [done]
+.
+Preloading: libpathrs0-0.2.6-1.1.x86_64.rpm [done]
+.
+Preloading: python313-protobuf-7.36.2-1.1.x86_64.rpm [done]
+.
+Preloading: libnet9-1.3-1.9.x86_64.rpm [done]
+.
+Preloading: hello-2.12.3-1.4.x86_64.rpm [done]
+.
+Preloading: runc-1.5.3-1.1.x86_64.rpm [done]
+.
+Preloading: libcontainers-default-policy-20260915-1.1.noarch.rpm [done]
+.
+Preloading: fuse-overlayfs-1.18-1.1.x86_64.rpm [done]
+..
+Preloading: gvisor-tap-vsock-0.9.0-1.1.x86_64.rpm [done]
+.
+Preloading: catatonit-0.2.1-1.7.x86_64.rpm [done]
+.
+Preloading: conmon-2.2.1-1.5.x86_64.rpm [done]
+.......
+Preloading: netavark-2.1.0-1.1.x86_64.rpm [done]
+.
+Preloading: podman-6.2.0-1.1.x86_64.rpm [done]
+.done]
+Retrieving: aardvark-dns-2.1.0-1.1.x86_64 (Main Repository (OSS)) (1/18), 850.5 KiB    
+Retrieving: catatonit-0.2.1-1.7.x86_64 (Main Repository (OSS)) (2/18), 316.7 KiB    
+Retrieving: conmon-2.2.1-1.5.x86_64 (Main Repository (OSS)) (3/18),  65.2 KiB    
+Retrieving: fuse-overlayfs-1.18-1.1.x86_64 (Main Repository (OSS)) (4/18),  65.8 KiB    
+Retrieving: gvisor-tap-vsock-0.9.0-1.1.x86_64 (Main Repository (OSS)) (5/18),   6.5 MiB    
+Retrieving: hello-2.12.3-1.4.x86_64 (Main Repository (OSS)) (6/18),  60.7 KiB    
+Retrieving: libcontainers-default-policy-20260915-1.1.noarch (Main Repository (OSS)) (7/18),  23.8 KiB    
+Retrieving: libnet9-1.3-1.9.x86_64 (Main Repository (OSS)) (8/18),  53.9 KiB    
+Retrieving: libpathrs0-0.2.6-1.1.x86_64 (Main Repository (OSS)) (9/18), 272.2 KiB    
+Retrieving: passt-20261002.cba3570-1.1.x86_64 (Main Repository (OSS)) (10/18), 420.2 KiB    
+Retrieving: passt-selinux-20261002.cba3570-1.1.noarch (Main Repository (OSS)) (11/18), 133.0 KiB    
+Retrieving: python313-protobuf-7.36.2-1.1.x86_64 (Main Repository (OSS)) (12/18), 532.9 KiB    
+Retrieving: registries-conf-default-20260915-1.1.noarch (Main Repository (OSS)) (13/18),  23.9 KiB    
+Retrieving: netavark-2.1.0-1.1.x86_64 (Main Repository (OSS)) (14/18),   3.2 MiB    
+Retrieving: criu-4.2.1-1.1.x86_64 (Main Repository (OSS)) (15/18), 748.0 KiB    
+Retrieving: libcontainers-common-20260915-1.1.noarch (Main Repository (OSS)) (16/18), 121.2 KiB    
+Retrieving: runc-1.5.3-1.1.x86_64 (Main Repository (OSS)) (17/18),   2.9 MiB    
+Retrieving: podman-6.2.0-1.1.x86_64 (Main Repository (OSS)) (18/18),  17.8 MiB    
+
+Checking for file conflicts: [...done]
+( 1/18) Installing: aardvark-dns-2.1.0-1.1.x86_64 [..done]
+( 2/18) Installing: catatonit-0.2.1-1.7.x86_64 [..done]
+( 3/18) Installing: conmon-2.2.1-1.5.x86_64 [..done]
+( 4/18) Installing: fuse-overlayfs-1.18-1.1.x86_64 [..done]
+( 5/18) Installing: gvisor-tap-vsock-0.9.0-1.1.x86_64 [...done]
+( 6/18) Installing: hello-2.12.3-1.4.x86_64 [..done]
+( 7/18) Installing: libcontainers-default-policy-20260915-1.1.noarch [..done]
+( 8/18) Installing: libnet9-1.3-1.9.x86_64 [..done]
+( 9/18) Installing: libpathrs0-0.2.6-1.1.x86_64 [..done]
+(10/18) Installing: passt-20261002.cba3570-1.1.x86_64 [..done]
+(11/18) Installing: passt-selinux-20261002.cba3570-1.1.noarch [..done]
+(12/18) Installing: python313-protobuf-7.36.2-1.1.x86_64 [..done]
+(13/18) Installing: registries-conf-default-20260915-1.1.noarch [..done]
+(14/18) Installing: netavark-2.1.0-1.1.x86_64 [..done]
+(15/18) Installing: criu-4.2.1-1.1.x86_64 [..done]
+(16/18) Installing: libcontainers-common-20260915-1.1.noarch [..done]
+(17/18) Installing: runc-1.5.3-1.1.x86_64 [..done]
+(18/18) Installing: podman-6.2.0-1.1.x86_64 [....done]
+Running post-transaction scripts [..
+%posttrans(passt-selinux-20261002.cba3570-1.1.noarch) script output:
+++ SELINUX=enforcing
+++ SELINUXTYPE=targeted
+.....done]
+ACTION 01 EXIT 0
+
+ACTION 02 BEGIN
+ACTION 02 EXIT 0
+
+ACTION 03 BEGIN
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+Installing runtime/org.gnome.Calculator.Locale/x86_64/stable
+Installing runtime/org.gnome.Platform.Locale/x86_64/51
+Installing runtime/org.gtk.Gtk3theme.Breeze/x86_64/3.22
+Installing runtime/org.gnome.Platform/x86_64/51
+Installing app/org.gnome.Calculator/x86_64/stable
+ACTION 03 EXIT 0
+
+ACTION 04 BEGIN
+Connection 'cal-secondary' (<REDACTED>) successfully added.
+ACTION 04 EXIT 0
+
+ACTION 05 BEGIN
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/4)
+ACTION 05 EXIT 0
+
+ACTION 06 BEGIN
+Connection '<SSID>' (<REDACTED>) successfully added.
+ACTION 06 EXIT 0
+
+ACTION 07 BEGIN
+ACTION 07 EXIT 0
+
+ACTION 08 BEGIN
+ACTION 08 EXIT 0
+
+ACTION 09 BEGIN
+ACTION 09 EXIT 0
+
+ACTION 10 BEGIN
+ACTION 10 EXIT 0
+
+ACTION 11 BEGIN
+ACTION 11 EXIT 0
+
+ACTION 12 BEGIN
+ACTION 12 EXIT 0
+
+ACTION 13 BEGIN
+ACTION 13 EXIT 0
+
+ACTION 14 BEGIN
+Created symlink '/home/user/.config/systemd/user/timers.target.wants/cal-hello.timer' → '/home/user/.config/systemd/user/cal-hello.timer'.
+ACTION 14 EXIT 0
+
+ACTION 15 BEGIN
+Trying to pull docker.io/library/alpine:3.22...
+Getting image source signatures
+Copying blob sha256:710f3da1112f360bed5d2908205aeee86b9d04ecd471354cf7049a2f0bdb5c72
+Copying config sha256:812e99317af7009fea987b5ad913e63f8494c2d6e596b59b6ac8b8f91f7766e8
+Writing manifest to image destination
+cal-test
+ACTION 15 EXIT 0

@@ -1,0 +1,90 @@
+id	machine	kind	name	source
+fedora-36738aab58a509e65b3265e9	fedora	L1:package:rpm	root:shim-x64	adjudication
+fedora-b50ee29aa5280784885a8963	fedora	L1:package:rpm	root:shim-ia32	adjudication
+fedora-3a0f36b0c728e861443e4f5b	fedora	L1:package:rpm	root:grub2-efi-ia32-cdboot	adjudication
+fedora-4d55c3cc62987e326d5eed90	fedora	L1:package:rpm	root:grub2-efi-x64-cdboot	adjudication
+fedora-831543ea9963b468a6ce516c	fedora	L1:package:rpm	user:shim-x64	adjudication
+fedora-387df71f4025d35f64bed868	fedora	L1:package:rpm	user:shim-ia32	adjudication
+fedora-f7fffa6851c64a66fe8733e6	fedora	L1:package:rpm	user:grub2-efi-ia32-cdboot	adjudication
+fedora-9dc06dc5a6985ea85fafd8c0	fedora	L1:package:rpm	user:grub2-efi-x64-cdboot	adjudication
+fedora-1609b9cd08e3588897613050	fedora	L1:package:flatpak	user:org.freedesktop.Platform.GL.default/x86_64/26.08	adjudication
+fedora-56acab57a09e62c57b2c4933	fedora	L1:package:flatpak	user:org.freedesktop.Platform.GL.default/x86_64/26.08-extra	adjudication
+fedora-37429f62a7af35199ad08b31	fedora	L1:package:flatpak	user:org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra	adjudication
+mint-183fe54bb88d761c24d4f814	mint	L1:package:dpkg-query	root:app-install-data	adjudication
+mint-b15c1998a84609fb2c469839	mint	L1:package:dpkg-query	root:dns-root-data	adjudication
+mint-3d3894cc019bd86c2579e778	mint	L1:package:dpkg-query	root:gvfs-common	adjudication
+mint-51a0d615cf5d1320bf36e727	mint	L1:package:dpkg-query	root:libao-common	adjudication
+mint-9fdd4a5218a3044204c2f903	mint	L1:package:dpkg-query	root:libaudit-common	adjudication
+mint-faf613bbc932d574906aa6db	mint	L1:package:dpkg-query	root:libpwquality-common	adjudication
+mint-81531ef6d83130e53c064a6b	mint	L1:package:dpkg-query	root:libsemanage-common	adjudication
+mint-7e1d554495ea2538edd6bce3	mint	L1:package:dpkg-query	root:libsensors-config	adjudication
+mint-368aa34030d7588701e94635	mint	L1:package:dpkg-query	root:linux-sound-base	adjudication
+mint-251662c577f62ba582110911	mint	L1:package:dpkg-query	root:localechooser-data	adjudication
+mint-b7005b2d4632f34851d9501e	mint	L1:package:dpkg-query	root:mate-polkit-common	adjudication
+mint-f8dd8a8684649a0247de6294	mint	L1:package:dpkg-query	root:readline-common	adjudication
+mint-d2b5ce4a3bf501bc717a298a	mint	L1:package:dpkg-query	root:yelp-xsl	agreed UNKNOWN
+flatcar-06462aa9434fec4fc20c04f0	flatcar	L1:process	28	agreed UNKNOWN
+flatcar-951b553096c1e610a18c4f64	flatcar	L2:stored-outside-packages	/etc/.systemd-confext	agreed UNKNOWN
+flatcar-e20b758d51ecb8b4bc396bfb	flatcar	L2:stored-outside-packages	/etc/audit	adjudication
+flatcar-edd410f53ad82b545c6cbaec	flatcar	L2:stored-outside-packages	/etc/audit/plugins.d	agreed UNKNOWN
+flatcar-3e3328fa5aa3c0625e5e872a	flatcar	L2:stored-outside-packages	/etc/audit/rules.d	adjudication
+flatcar-22416accca64e4b931c92595	flatcar	L2:stored-outside-packages	/etc/cni	agreed UNKNOWN
+flatcar-6fc85bea7b96d0e846daafd8	flatcar	L2:stored-outside-packages	/etc/conntrackd	agreed UNKNOWN
+flatcar-9819c93184a45e4a39a4f9db	flatcar	L2:stored-outside-packages	/etc/extension-release.d	adjudication
+flatcar-d22dba56c59c775c8a4a0b8f	flatcar	L2:stored-outside-packages	/etc/flatcar	adjudication
+flatcar-8ab92d58c9a88869f7e5408d	flatcar	L2:stored-outside-packages	/etc/iscsi	adjudication
+flatcar-97da7e9a7446b01ab0527beb	flatcar	L2:stored-outside-packages	/etc/isns	agreed UNKNOWN
+flatcar-f8f1ba7caa62bbbaeb021d2e	flatcar	L2:stored-outside-packages	/etc/nvme	agreed UNKNOWN
+flatcar-f9ff8d878016884d80dadb98	flatcar	L2:stored-outside-packages	/etc/openldap	adjudication
+flatcar-9b050666c7fde58493d0b7aa	flatcar	L2:stored-outside-packages	/etc/runlevels	agreed UNKNOWN
+flatcar-b3531e524e85d4c2cc907fb8	flatcar	L2:stored-outside-packages	/etc/sssd	adjudication
+flatcar-85d846e3e15e4d4de14cbf71	flatcar	L2:stored-outside-packages	/etc/sysconfig	agreed UNKNOWN
+flatcar-dced43826d0f199e2155a49d	flatcar	L2:stored-outside-packages	/etc/tpm2-tss	agreed UNKNOWN
+flatcar-0b6a5f2e459c622d4a6ba71a	flatcar	L2:stored-outside-packages	/etc/tpm2-tss/fapi-profiles	agreed UNKNOWN
+flatcar-e25481968473168cc22e8706	flatcar	L2:stored-outside-packages	/home/core	agreed UNKNOWN
+flatcar-46948d944b4b9f277ba9160a	flatcar	L2:stored-outside-packages	/opt	agreed UNKNOWN
+flatcar-8fc401b61df78cd48cf7576f	flatcar	L2:stored-outside-packages	/opt/containerd	agreed UNKNOWN
+flatcar-b2dfa5ffc28d20cdb552d5d5	flatcar	L2:stored-outside-packages	/root	agreed UNKNOWN
+flatcar-a84a90ba528176eaff60a1f4	flatcar	L2:stored-outside-packages	/run/containerd/io.containerd.mount-manager.v1.bolt	agreed UNKNOWN
+flatcar-6878a08f79d8b5b730328993	flatcar	L2:stored-outside-packages	/run/credentials	agreed UNKNOWN
+flatcar-27ce8039f4d6120d5f0760a7	flatcar	L2:stored-outside-packages	/run/lock	agreed UNKNOWN
+flatcar-a3d57b02fe50c72a9c20d458	flatcar	L2:stored-outside-packages	/run/sudo	agreed UNKNOWN
+flatcar-fcd3497f0b45fcfe2704fe33	flatcar	L2:stored-outside-packages	/run/systemd/journal/streams	agreed UNKNOWN
+flatcar-2bdf7b831ac843d500fc21af	flatcar	L2:stored-outside-packages	/run/systemd/network	adjudication
+flatcar-6bf0a06a3d6e34d726ca2a30	flatcar	L2:stored-outside-packages	/run/systemd/nspawn	agreed UNKNOWN
+flatcar-d9c634c4fc96b737c46ada4a	flatcar	L2:stored-outside-packages	/run/systemd/nsresource	agreed UNKNOWN
+flatcar-b335c2820bf0a7f49b215d36	flatcar	L2:stored-outside-packages	/run/systemd/seats	agreed UNKNOWN
+flatcar-cd256882bacb106a12605c36	flatcar	L2:stored-outside-packages	/run/systemd/sessions	agreed UNKNOWN
+flatcar-52981734422767472eb7f74d	flatcar	L2:stored-outside-packages	/run/systemd/units	agreed UNKNOWN
+flatcar-adb9be6eddf298f6aceb63d6	flatcar	L2:stored-outside-packages	/run/systemd/users	agreed UNKNOWN
+flatcar-2b7875115c24b1cc55181e9f	flatcar	L2:stored-outside-packages	/run/update-engine	agreed UNKNOWN
+flatcar-2593cfc74a5e9c830ff2a777	flatcar	L2:stored-outside-packages	/run/user/1000/systemd/units	agreed UNKNOWN
+flatcar-4a2c77261b3fff3edafa59f0	flatcar	L2:stored-outside-packages	/var/db	agreed UNKNOWN
+flatcar-4481ac6de3bba9b6bfb431b6	flatcar	L2:stored-outside-packages	/var/db/sudo	agreed UNKNOWN
+flatcar-0522e4911c3140c3edd9a3db	flatcar	L2:stored-outside-packages	/var/kubernetes	agreed UNKNOWN
+flatcar-b1be942f5db3ae8254e43b54	flatcar	L2:stored-outside-packages	/var/kubernetes/kubelet-plugins	agreed UNKNOWN
+flatcar-f0da0e3b310254ea82483042	flatcar	L2:stored-outside-packages	/var/kubernetes/kubelet-plugins/volume	agreed UNKNOWN
+flatcar-3b7df81a243c2065bb7ea015	flatcar	L2:stored-outside-packages	/var/lib/containerd	agreed UNKNOWN
+flatcar-7ebbf2ec9547781d2345189f	flatcar	L2:stored-outside-packages	/var/lib/containerd/io.containerd.metadata.v1.bolt	agreed UNKNOWN
+flatcar-7901b2bcc5a2f8fe5283a890	flatcar	L2:stored-outside-packages	/var/lib/containerd/io.containerd.snapshotter.v1.erofs	agreed UNKNOWN
+flatcar-5877d1e84685a72e29cabb4c	flatcar	L2:stored-outside-packages	/var/lib/containerd/io.containerd.snapshotter.v1.native	agreed UNKNOWN
+flatcar-e7c9da229e774ef4ad9bf246	flatcar	L2:stored-outside-packages	/var/lib/containerd/io.containerd.snapshotter.v1.overlayfs	agreed UNKNOWN
+flatcar-712ca82eb9403737ece899da	flatcar	L2:stored-outside-packages	/var/lib/docker	agreed UNKNOWN
+flatcar-afe025d36900f6d7432810b6	flatcar	L2:stored-outside-packages	/var/lib/docker/image	agreed UNKNOWN
+flatcar-4a6aa53f8c603a7c864c4d03	flatcar	L2:stored-outside-packages	/var/lib/docker/image/overlay2	agreed UNKNOWN
+flatcar-074948d5b9c7235b83038913	flatcar	L2:stored-outside-packages	/var/lib/docker/image/overlay2/imagedb	agreed UNKNOWN
+flatcar-40553754532ce9f72c352a85	flatcar	L2:stored-outside-packages	/var/lib/docker/image/overlay2/imagedb/content	agreed UNKNOWN
+flatcar-c2d1e72d60694a302ad0e9da	flatcar	L2:stored-outside-packages	/var/lib/docker/image/overlay2/imagedb/metadata	agreed UNKNOWN
+flatcar-53a06d180bf969c004bac205	flatcar	L2:stored-outside-packages	/var/lib/docker/network	agreed UNKNOWN
+flatcar-330ef680cb1f7479b028a9e6	flatcar	L2:stored-outside-packages	/var/lib/docker/network/files	agreed UNKNOWN
+flatcar-65bb19d9fc51322865d36b68	flatcar	L2:stored-outside-packages	/var/lib/docker/overlay2	agreed UNKNOWN
+flatcar-c0eb1df705d6ff5d520282ca	flatcar	L2:stored-outside-packages	/var/lib/docker/plugins	agreed UNKNOWN
+flatcar-391b22d0ab73b506db6247a6	flatcar	L2:stored-outside-packages	/var/lib/iscsi	agreed UNKNOWN
+flatcar-60eb60be5134cc761ae8a805	flatcar	L2:stored-outside-packages	/var/lib/lib	agreed UNKNOWN
+flatcar-c51c5a6e9d057105271edc58	flatcar	L2:stored-outside-packages	/var/lib/nfs	agreed UNKNOWN
+flatcar-0c3d05eb64b4b1b3f5f66680	flatcar	L2:stored-outside-packages	/var/lib/sss	agreed UNKNOWN
+flatcar-d37900b0f0575331cefa8d59	flatcar	L2:stored-outside-packages	/var/lib/sss/pipes	agreed UNKNOWN
+flatcar-53a056093c5464aabbd0aeeb	flatcar	L2:stored-outside-packages	/var/lib/sss/pubconf	agreed UNKNOWN
+flatcar-3caab64e728ff5790a075305	flatcar	L2:stored-outside-packages	/var/lib/tpm	agreed UNKNOWN
+flatcar-266e9d2c4f1f32bc155c74b6	flatcar	L2:stored-outside-packages	/var/lib/tpm2-tss	agreed UNKNOWN
+flatcar-f1d8623c076d7bb4fe44e3f9	flatcar	L2:stored-outside-packages	/var/lib/tpm2-tss/system	agreed UNKNOWN

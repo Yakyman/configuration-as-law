@@ -1,0 +1,40 @@
+{
+  "machine": "tumbleweed",
+  "system": "opensuse",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "started_utc": "2026-11-22T06:31:40.586091+00:00",
+  "steps": [
+    {
+      "stage": "new",
+      "started_utc": "2026-11-22T06:31:40.586571+00:00",
+      "finished_utc": "2026-11-22T06:32:09.454090+00:00",
+      "exit_code": 0,
+      "log": "control/tumbleweed/new.log"
+    },
+    {
+      "stage": "actions",
+      "started_utc": "2026-11-22T06:32:09.454489+00:00",
+      "finished_utc": "2026-11-22T06:33:03.105567+00:00",
+      "exit_code": 0,
+      "log": "control/tumbleweed/actions.log"
+    },
+    {
+      "stage": "collector",
+      "started_utc": "2026-11-22T06:33:03.106103+00:00",
+      "finished_utc": "2026-11-22T09:05:27.226879+00:00",
+      "exit_code": 0,
+      "log": "control/tumbleweed/collector.log"
+    },
+    {
+      "stage": "destroy",
+      "started_utc": "2026-11-22T09:05:27.227388+00:00",
+      "finished_utc": "2026-11-22T09:05:32.142656+00:00",
+      "exit_code": 0,
+      "log": "control/tumbleweed/destroy.log"
+    }
+  ],
+  "stage": "finished",
+  "vm_directory_removed": true,
+  "inventory_present": true,
+  "finished_utc": "2026-11-22T09:05:32.142996+00:00"
+}

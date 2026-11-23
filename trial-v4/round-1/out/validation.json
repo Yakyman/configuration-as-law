@@ -1,0 +1,104 @@
+{
+  "validation": "PASS",
+  "checks": [
+    "exact headers",
+    "equal ID sets and counts",
+    "one occurrence per input/output ID",
+    "allowed enums",
+    "PAGE sentence IDs",
+    "basis syntax and raw roots",
+    "15/30-word limits",
+    "ten valid unique samples per rule",
+    "gap index exact partition",
+    "all fifteen cases and 60-word limit",
+    "summary status counters"
+  ],
+  "script_rules": 41,
+  "case_situations": 24,
+  "hole_rows": 600,
+  "tables": {
+    "d1": {
+      "rows": 1843,
+      "status": {
+        "DECIDED": 847,
+        "NOT_DECIDED": 20,
+        "TWO_WAYS": 271,
+        "FACT_UNKNOWN": 352,
+        "MIXED": 353
+      },
+      "kind": {
+        "NONE": 993,
+        "MATERIAL": 491,
+        "PROGRAM": 106,
+        "SETTING": 225,
+        "PROGRAM_RECORD": 15,
+        "BUILT": 13
+      },
+      "record": {
+        "NA": 795,
+        "NO": 709,
+        "YES": 326,
+        "COVERED": 13
+      },
+      "sha256": "acfe7d74036b25977468174b67b50cf1f19d2b9d09ca41a8fe50fe3b7b494aca"
+    },
+    "a1": {
+      "rows": 1084,
+      "status": {
+        "DECIDED": 398,
+        "NOT_DECIDED": 38,
+        "TWO_WAYS": 194,
+        "FACT_UNKNOWN": 389,
+        "MIXED": 65
+      },
+      "kind": {
+        "NONE": 686,
+        "MATERIAL": 16,
+        "PROGRAM": 28,
+        "PACKAGE_PART": 61,
+        "BUILT": 266,
+        "SETTING": 27
+      },
+      "record": {
+        "NA": 584,
+        "NO": 118,
+        "YES": 55,
+        "COVERED": 327
+      },
+      "sha256": "2c650f4a452a9a0e1154187f87e01c638a3f6d26948fc8f334c8c6b39a132fdd"
+    },
+    "a3r": {
+      "rows": 2010,
+      "status": {
+        "DECIDED": 1272,
+        "NOT_DECIDED": 0,
+        "TWO_WAYS": 77,
+        "FACT_UNKNOWN": 174,
+        "MIXED": 487
+      },
+      "kind": {
+        "SETTING": 115,
+        "PROGRAM": 82,
+        "NONE": 738,
+        "PACKAGE_PART": 948,
+        "MATERIAL": 5,
+        "BUILT": 110,
+        "PROGRAM_RECORD": 12
+      },
+      "record": {
+        "YES": 197,
+        "NA": 677,
+        "COVERED": 1058,
+        "NO": 78
+      },
+      "sha256": "2c37d238e522717ea191ce54f7848f50a0e63cddac0694f3ccd6419fdf96a423"
+    }
+  },
+  "artifact_sha256": {
+    "RULES.md": "433849c8af310ee3f4fb743d46c279202ccac29c8f1a22a77a2b185ed42e677f",
+    "CASES-ANSWERS.md": "35a233715b211b717122223ab6a22bbb7548e1cf5d806d4518740dfbfd0e473b",
+    "HOLES.md": "f34366deb12895f59544f4b027c2bae2c711827e30e7c539189ca026a39a27db",
+    "SUMMARY.md": "463e74c412a0f3a06e06c2bebe809a44e8d82cb68709ab31754d15de8c2c06ea",
+    "holes-members.tsv": "72b90347df55ec49ad727c82005d6aa8ae913c32a50fd6532d1704f45da562f0"
+  }
+}

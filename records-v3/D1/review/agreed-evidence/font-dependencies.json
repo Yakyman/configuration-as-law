@@ -1,0 +1,41 @@
+{
+  "default-fonts-syr": {
+    "name": "default-fonts-syr",
+    "arch": "noarch",
+    "ver": "4.3-3.fc45",
+    "req": [
+      "google-noto-sans-syriac-vf-fonts"
+    ],
+    "prov": [
+      "default-fonts-syr",
+      "font(:lang=syr)",
+      "langpacks-core-font-syr",
+      "metainfo()",
+      "metainfo(org.fedoraproject.default-fonts-syr.metainfo.xml)"
+    ],
+    "rec": [],
+    "files": [],
+    "summary": "Metapackage to install default fonts for Syriac",
+    "desc": ""
+  },
+  "default-fonts-el": {
+    "name": "default-fonts-el",
+    "arch": "noarch",
+    "ver": "4.3-3.fc45",
+    "req": [
+      "abattis-cantarell-vf-fonts",
+      "google-noto-sans-vf-fonts"
+    ],
+    "prov": [
+      "default-fonts-el",
+      "font(:lang=el)",
+      "langpacks-core-font-el",
+      "metainfo()",
+      "metainfo(org.fedoraproject.default-fonts-el.metainfo.xml)"
+    ],
+    "rec": [],
+    "files": [],
+    "summary": "Metapackage to install default fonts for Greek",
+    "desc": ""
+  }
+}

@@ -1,0 +1,68 @@
+Source: https://sources.debian.org/data/main/i/init-system-helpers/1.69~deb13u1/script/deb-systemd-helper
+Retrieved 2026-11-22T08:00:35.035645+00:00; selected implementation lines only.
+100: use constant {
+101:      SYSTEM_INSTANCE_ENABLED_STATE_DIR => '/var/lib/systemd/deb-systemd-helper-enabled',
+102:      USER_INSTANCE_ENABLED_STATE_DIR   => '/var/lib/systemd/deb-systemd-user-helper-enabled',
+103:      SYSTEM_INSTANCE_MASKED_STATE_DIR  => '/var/lib/systemd/deb-systemd-helper-masked',
+104:      USER_INSTANCE_MASKED_STATE_DIR    => '/var/lib/systemd/deb-systemd-user-helper-masked',
+105: };
+106: 
+107: my $quiet = 0;
+108: my $instance = 'system';
+109: my $enabled_state_dir = $dpkg_root . SYSTEM_INSTANCE_ENABLED_STATE_DIR;
+110: my $masked_state_dir = $dpkg_root . SYSTEM_INSTANCE_MASKED_STATE_DIR;
+111: 
+112: # Globals are bad, but in this specific case, it really makes things much
+113: # easier to write and understand.
+341: sub make_systemd_links {
+342:     my ($scriptname, $service_path, %opts) = @_;
+343:     $opts{'create_links'} //= 1;
+344: 
+345:     my $dsh_state = dsh_state_path($scriptname);
+346: 
+347:     my @links = get_link_closure($scriptname, $service_path);
+348:     for my $link (@links) {
+349:         my $service_path = $link->{dest};
+350:         my $service_link = $link->{src};
+351: 
+352:         record_in_statefile($dsh_state, $service_link);
+353: 
+354:         my $statefile = $service_link;
+355:         $statefile =~ s,^/etc/systemd/$instance/,$enabled_state_dir/,;
+356:         $service_link = "$dpkg_root$service_link";
+357:         assertdpkgroot($statefile, "make_systemd_links");
+358:         assertdpkgroot($service_link, "make_systemd_links");
+359:         assertnotdpkgroot($service_path, "make_systemd_links");
+360:         next if -e $statefile;
+361: 
+362:         if ($opts{'create_links'} && ! -l $service_link) {
+363:             make_path(dirname($service_link));
+364:             symlink($service_path, $service_link) or
+365:                 error("unable to link $service_link to $service_path: $!");
+366:             $changed_sth = 1;
+367:         }
+368: 
+369:         # Store the fact that we ran enable for this service_path,
+370:         # so that we can skip enable the next time.
+371:         # This allows us to call deb-systemd-helper unconditionally
+372:         # and still only enable unit files on the initial installation
+373:         # of a package.
+374:         make_path(dirname($statefile));
+375:         open(my $fh, '>>', $statefile) or error("Failed to create/touch $statefile");
+376:         close($fh) or error("Failed to create/touch $statefile");
+377:     }
+378: 
+379: }
+568: }
+569: 
+570: my $result = GetOptions(
+571:     "quiet" => \$quiet,
+572:     "user" => sub { $instance = 'user'; },
+573:     "system" => sub { $instance = 'system'; }, # default
+574: );
+575: 
+576: if ($instance eq 'user') {
+577:     debug "is user unit = yes";
+578:     $enabled_state_dir = $dpkg_root . USER_INSTANCE_ENABLED_STATE_DIR;
+579:     $masked_state_dir = $dpkg_root . USER_INSTANCE_MASKED_STATE_DIR;
+580: }

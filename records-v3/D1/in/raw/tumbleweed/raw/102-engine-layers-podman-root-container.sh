@@ -1,0 +1,1 @@
+runuser -u root -- env HOME=/root XDG_RUNTIME_DIR=/run/user/0 sh -c 'ids=$(podman ps -aq --no-trunc) || exit $?; test -n "$ids" || exit 0; podman container inspect --format '"'"'{{json .GraphDriver.Data}}'"'"' $ids'

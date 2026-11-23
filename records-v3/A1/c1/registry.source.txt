@@ -1,0 +1,6 @@
+Source: https://raw.githubusercontent.com/coreos/fedora-coreos-config/testing-devel/overlay.d/17fcos-container-signing/etc/containers/registries.d/fedora-coreos.yaml
+# Configuration to verify container pulls of Fedora CoreOS with signatures
+# fetched from the CoreOS builds bucket.
+docker:
+  quay.io/fedora/fedora-coreos:
+    lookaside: https://builds.coreos.fedoraproject.org/prod/signatures/oci

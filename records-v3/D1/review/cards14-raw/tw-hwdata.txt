@@ -1,0 +1,16 @@
+Source: https://api.opensuse.org/public/source/openSUSE:Factory/hwdata/hwdata.spec
+%files
+%license LICENSE COPYING
+%{_bindir}/merge-pciids
+%{_datadir}/pkgconfig/hwdata.pc
+%dir %{_datadir}/%{name}
+%{_datadir}/hwdata/iab.txt
+%{_datadir}/hwdata/oui.txt
+%{_datadir}/hwdata/pci.ids
+%{_datadir}/hwdata/pnp.ids
+%{_datadir}/hwdata/usb.ids
+%dir %{_datadir}/pci.ids.d
+%{_datadir}/pci.ids.d/pci.ids.dist
+%ghost %{_datadir}/pci.ids
+
+%changelog

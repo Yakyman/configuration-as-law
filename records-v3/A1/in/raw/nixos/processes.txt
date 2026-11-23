@@ -1,0 +1,104 @@
+    PID    PPID USER     COMMAND         COMMAND
+      1       0 root     systemd         /run/current-system/systemd/lib/systemd/systemd --switched-root --system --deserialize=41
+      2       0 root     kthreadd        [kthreadd]
+      3       2 root     pool_workqueue_ [pool_workqueue_release]
+      4       2 root     kworker/R-rcu_g [kworker/R-rcu_gp]
+      5       2 root     kworker/R-sync_ [kworker/R-sync_wq]
+      6       2 root     kworker/R-kvfre [kworker/R-kvfree_rcu_reclaim]
+      7       2 root     kworker/R-slub_ [kworker/R-slub_flushwq]
+      8       2 root     kworker/R-netns [kworker/R-netns]
+      9       2 root     kworker/0:0-eve [kworker/0:0-events]
+     10       2 root     kworker/0:0H-kb [kworker/0:0H-kblockd]
+     11       2 root     kworker/0:1-cgr [kworker/0:1-cgroup_free]
+     12       2 root     kworker/u8:0-ev [kworker/u8:0-events_unbound]
+     13       2 root     kworker/R-mm_pe [kworker/R-mm_percpu_wq]
+     14       2 root     ksoftirqd/0     [ksoftirqd/0]
+     15       2 root     kworker/u8:1-fl [kworker/u8:1-flush-253:0]
+     16       2 root     rcu_preempt     [rcu_preempt]
+     17       2 root     rcu_exp_par_gp_ [rcu_exp_par_gp_kthread_worker/0]
+     18       2 root     rcu_exp_gp_kthr [rcu_exp_gp_kthread_worker]
+     19       2 root     migration/0     [migration/0]
+     20       2 root     idle_inject/0   [idle_inject/0]
+     21       2 root     cpuhp/0         [cpuhp/0]
+     22       2 root     cpuhp/1         [cpuhp/1]
+     23       2 root     idle_inject/1   [idle_inject/1]
+     24       2 root     migration/1     [migration/1]
+     25       2 root     ksoftirqd/1     [ksoftirqd/1]
+     26       2 root     kworker/1:0-eve [kworker/1:0-events]
+     27       2 root     kworker/1:0H-ev [kworker/1:0H-events_highpri]
+     28       2 root     kdevtmpfs       [kdevtmpfs]
+     29       2 root     kworker/R-inet_ [kworker/R-inet_frag_wq]
+     30       2 root     rcu_tasks_kthre [rcu_tasks_kthread]
+     31       2 root     rcu_tasks_rude_ [rcu_tasks_rude_kthread]
+     32       2 root     rcu_tasks_trace [rcu_tasks_trace_kthread]
+     33       2 root     kauditd         [kauditd]
+     34       2 root     khungtaskd      [khungtaskd]
+     35       2 root     oom_reaper      [oom_reaper]
+     36       2 root     kworker/u8:2-fl [kworker/u8:2-flush-253:0]
+     37       2 root     kworker/R-write [kworker/R-writeback]
+     38       2 root     kcompactd0      [kcompactd0]
+     39       2 root     ksmd            [ksmd]
+     40       2 root     khugepaged      [khugepaged]
+     41       2 root     kworker/R-kbloc [kworker/R-kblockd]
+     42       2 root     kworker/R-blkcg [kworker/R-blkcg_punt_bio]
+     43       2 root     kworker/R-kinte [kworker/R-kintegrityd]
+     44       2 root     irq/9-acpi      [irq/9-acpi]
+     45       2 root     kworker/1:1-eve [kworker/1:1-events]
+     46       2 root     kworker/R-tpm_d [kworker/R-tpm_dev_wq]
+     47       2 root     kworker/R-devfr [kworker/R-devfreq_wq]
+     48       2 root     kworker/R-quota [kworker/R-quota_events_unbound]
+     49       2 root     kworker/1:1H-kb [kworker/1:1H-kblockd]
+     50       2 root     kswapd0         [kswapd0]
+     51       2 root     kdamond.0       [kdamond.0]
+     52       2 root     kworker/R-kthro [kworker/R-kthrotld]
+     53       2 root     kworker/R-mld   [kworker/R-mld]
+     54       2 root     kworker/R-ipv6_ [kworker/R-ipv6_addrconf]
+     55       2 root     kworker/R-kstrp [kworker/R-kstrp]
+     56       2 root     kworker/u9:0    [kworker/u9:0]
+     57       2 root     kworker/0:1H-kb [kworker/0:1H-kblockd]
+     58       2 root     kworker/1:2-eve [kworker/1:2-events]
+     78       2 root     kworker/0:2-cgr [kworker/0:2-cgroup_free]
+     84       2 root     kworker/1:3-eve [kworker/1:3-events]
+     85       2 root     kworker/1:4-eve [kworker/1:4-events]
+     88       2 root     kworker/u8:3-ev [kworker/u8:3-events_power_efficient]
+    115       2 root     kworker/0:3-cgr [kworker/0:3-cgroup_free]
+    116       2 root     kworker/R-ata_s [kworker/R-ata_sff]
+    118       2 root     scsi_eh_0       [scsi_eh_0]
+    119       2 root     kworker/R-scsi_ [kworker/R-scsi_tmf_0]
+    120       2 root     scsi_eh_1       [scsi_eh_1]
+    121       2 root     kworker/R-scsi_ [kworker/R-scsi_tmf_1]
+    122       2 root     kworker/u8:4-fl [kworker/u8:4-flush-253:0]
+    138       2 root     jbd2/vda2-8     [jbd2/vda2-8]
+    139       2 root     kworker/R-ext4- [kworker/R-ext4-rsv-conversion]
+    238       2 root     kworker/1:5-eve [kworker/1:5-events]
+    239       2 root     kworker/1:6-ino [kworker/1:6-inode_switch_wbs]
+    240       2 root     kworker/1:7-eve [kworker/1:7-events]
+    241       2 root     kworker/1:8-ino [kworker/1:8-inode_switch_wbs]
+    272       1 root     systemd-journal /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd-journald
+    274       1 systemd+ systemd-oomd    /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd-oomd
+    291       1 systemd+ systemd-timesyn /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd-timesyncd
+    303       1 root     systemd-udevd   /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd-udevd
+    318       2 root     psimon          [psimon]
+    434       2 root     kworker/0:2H-kb [kworker/0:2H-kblockd]
+    439       2 root     kworker/R-edac- [kworker/R-edac-poller]
+    544       1 message+ dbus-broker-lau /nix/store/2pc66jgygz9gs9c8ymkz619qyrrqm1an-dbus-broker-37/bin/dbus-broker-launch --scope system --audit
+    545       2 root     kworker/0:4     [kworker/0:4]
+    547       1 root     systemd-logind  /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd-logind
+    591     544 message+ dbus-broker     dbus-broker --log 10 --controller 9 --machine-id <REDACTED-4> --max-bytes 536870912 --max-fds 4096 --max-matches 16384 --audit
+    607       1 nscd     nsncd           /nix/store/1h45csjp6rfdaf6card6m36i696axmh5-nsncd-1.5.3/bin/nsncd
+    669       1 dhcpcd   dhcpcd          dhcpcd: [manager] [ip4] [ip6]
+    687       1 root     agetty          /nix/store/kcihriicx768wp1g5mn06rnqjylidj46-util-linux-2.42.4-bin/bin/agetty --login-program /nix/store/5v9mnw4iwps50scgnycji3jkf8qgryqd-shadow-4.19.4/bin/login --issue-file /etc/issue:/etc/issue.d:/run/issue:/run/issue.d --noclear --keep-baud tty1 115200,38400,9600 linux
+    688       1 root     agetty          /nix/store/kcihriicx768wp1g5mn06rnqjylidj46-util-linux-2.42.4-bin/bin/agetty --login-program /nix/store/5v9mnw4iwps50scgnycji3jkf8qgryqd-shadow-4.19.4/bin/login --issue-file /etc/issue:/etc/issue.d:/run/issue:/run/issue.d ttyS0 --keep-baud vt220
+    692       2 root     kworker/R-cfg80 [kworker/R-cfg80211]
+    707       1 root     sshd            sshd: /nix/store/0dm1lgbfbv3hx6qpsjfflnkhjnj1ha5i-openssh-10.6p2/bin/sshd -D -f /etc/ssh/sshd_config [listener] 0 of 10-100 startups
+    781       2 root     psimon          [psimon]
+    783       1 census   systemd         /nix/store/c07lnqjmlanqigp5g007i561n0gmb95l-systemd-260.5/lib/systemd/systemd --user
+    785     783 census   (sd-pam)        (sd-pam)
+    820       1 root     nix-daemon      nix-daemon --daemon
+    853       2 root     kworker/u8:5    [kworker/u8:5]
+    854       2 root     kworker/u8:6-ex [kworker/u8:6-ext4-rsv-conversion]
+    858     707 root     sshd-session    sshd-session: census [postauth]
+    861     858 census   sshd-session    sshd-session: census@notty
+    862     861 root     sudo            /nix/store/9nr4qsadjwcv9fxzqxw1hf78nzvvzypj-sudo-1.9.17p2/bin/sudo bash -s
+    864     862 root     bash            bash -s
+    874     864 root     ps              ps -ww -eo pid,ppid,user,comm,args

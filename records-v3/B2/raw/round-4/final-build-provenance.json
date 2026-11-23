@@ -1,0 +1,205 @@
+{
+  "builds": {
+    "round-4": {
+      "build_result": "success",
+      "image": {
+        "actual-size": 1496977408,
+        "children": [
+          {
+            "info": {
+              "actual-size": 1496977408,
+              "children": [],
+              "dirty-flag": false,
+              "filename": "stand/round-4/base/stand.qcow2",
+              "format": "file",
+              "format-specific": {
+                "data": {},
+                "type": "file"
+              },
+              "virtual-size": 1496711168
+            },
+            "name": "file"
+          }
+        ],
+        "cluster-size": 65536,
+        "dirty-flag": false,
+        "filename": "stand/round-4/base/stand.qcow2",
+        "format": "qcow2",
+        "format-specific": {
+          "data": {
+            "compat": "1.1",
+            "compression-type": "zlib",
+            "corrupt": false,
+            "extended-l2": false,
+            "lazy-refcounts": false,
+            "refcount-bits": 16
+          },
+          "type": "qcow2"
+        },
+        "virtual-size": 3221225472
+      },
+      "image_sha256": "6626fded301318907dc841d6dc5118e2eea36d075d2d1824f6a4f289f38e7fc1",
+      "recipe_files_sha256": {
+        "app-fixtures.py": "bd5d077fa88c49bee8c84e49548a2dcdf6d8927486dbdc00634a1610656cc334",
+        "app-selftest.py": "ce0074b2329e0aa9554a4187ceed46890113a4eb4264a9281f930eb6be6cc41f",
+        "app_channels.py": "9f759f5bc8f288b9224c4113a10f9e5d5175133821d01800743cafac40e0c8df",
+        "assemble-channel-examples.py": "be7f47876d1156d11d0ba8bce96f10ea9a22aedaf96415bf358bd483478d1510",
+        "bootstrap.sh": "44f52b1743029eebabdd9f70b0b29611374bdc0075f90e70de7f8a4be91fdc22",
+        "build.py": "fbd11d359e7d4f738e1d91df4240b6a9c79ea0c77e88cd0737d2468859d3e239",
+        "capture.py": "c7d2a2ed78987236dfb1f892dc9c75f4ddc984e01310ce0eda7bb7f9257dd735",
+        "codeboundary.py": "3185ffa5c3fd5eff3ed26e49a215ad918964a4ff78397a3c4a66d32bd4861ef2",
+        "codeverify.py": "800a618494af1899c38500a723d455a1e8518603ddb82a03d332bb8f09358a08",
+        "combined-selftest.py": "3074ca5e62b8b77c584e4627d148481f63bf0502fcdc943e4f37a5421d760dc7",
+        "deploy.py": "55f3af0dffb3ff8df5cf34717fa91f925abb7f24163fcf952882d3b939d24bab",
+        "dev-inputs.py": "590b8c051a3be3222b415e4d937c89909da389f1d6fcdb02e269f1f14620938e",
+        "development.py": "e1323980cf9bfebbc68b04c8d74f1de9f776be825462045649b6285420daeea3",
+        "fetch.sh": "747b425144d54aab3ce0eb994f292f42ca6c0d1f3ecbc950cfe3641fa9348876",
+        "guard.py": "a382b2a9e613b0e8ef3d7e0abcd1c5baadaea1800696f38b3b04102de927d897",
+        "import_channels.py": "cfa7b671113bab8b6454ff66e3c22fdf47ca91cb43c5abb78868032bd0cd9cd2",
+        "install-channels.py": "6aa5288371b5adfc9337df395987a257098efe1ad588afd1179dc05e7c6f6499",
+        "install-code-boundary.py": "fa32e08bfbb055b062747104e84ead0d412df2c388dee54c70789df3e4ec615d",
+        "install-guard.py": "6ae8c502ae05cb83e4be2dedc2cd7c433460264e42a9b85e889713c9bdd13a2b",
+        "install-noexec.sh": "2147904e0c81acaed3eed8696dd1db0096a20268c19f720ec14ea99e82ed2dd8",
+        "install-transactions.py": "2691a8763d35c36777b00af7c54aeae33cd1012d80b1fb5f75ea019c13b92441",
+        "install.sh": "70e4cdad0c5b018f6f84358b562b13cc394cfd3d07098de5aa397aff17233385",
+        "integrate-round4.sh": "74c4f4ce0e84e64e80e038a9904bc28b668f627cf394e093fadc76c1332de3b9",
+        "inventory.py": "ecb2d1723cae1fbba15a62e991be0971f69fd42d980b05f32dfaaf7a46be208e",
+        "job_channels.py": "107078eeba18183b9f964ad0c9209a10bf7268ed23a37033902fddfe859af8de",
+        "lab.py": "d83e7576539582909b93b8dcd819a41b42413b4d88e68f6df7f0ba380da152d1",
+        "language-fixtures.py": "0869ef4199f73faf6d994145d6dbc79aa246ee9e1c092c343f9df096cd98636d",
+        "language-native-fixture.py": "1118b42036220caebfa5cf37f1f805e73f796b06b6033f6972bc21cf993e8940",
+        "language-selftest.py": "449bb3426a80cb5c569c5c53cf2b6260359c7fd9d2230666bdbc635afe170dc5",
+        "language_channels.py": "19c0141627a231fc186be4726f358b23008f44af88472b437b1918900dc72269",
+        "noexec.py": "24d40afb83f3d53c1da34349c15904a2b2b698aba0d83abb45c9faa8ceceb7c4",
+        "normalize.py": "3e35f7905b53a83ffb65e1c10402847035345b05dcd43db77ac759b6f499ceca",
+        "packages.sha256": "ea3d541dea0cf1a75bed4a7fd9b670bf21a5aa723fa6d53c683215fc62aa3acb",
+        "policy.py": "511b28cf319115c94b09d5d6ad1bfd845ec191e644fb8731671c7cc46f738c72",
+        "powercut.py": "ed1916d2d108a23bfe8c1e48439d06b4ae4f9e6f466b096b31b92080d85f6af8",
+        "round1-cut.py": "8be5a56c72216819fb2dc025ac9794f1aaee8e6b1a2bc2c61e2c55409c07f749",
+        "round1-driver.py": "3b2ce8144031f0163281e0c8b6668a933c912cd3cb0e97f16537cfaa1df42724",
+        "round1-selftest.py": "ce1d8684c9152c93bb0ca9be8fe39c334f5a7e42fac93f9d88d4639d81a8de5f",
+        "round2-driver.py": "dbf6cfa6d0b70fe1a08a594fa682587b6fe18acc2925280002e1356933def740",
+        "round2-probe.c": "c5dbf0731413097ab45af227b6c89ba78de8a4389842430f597dc08f30402f83",
+        "round2-selftest.py": "70097e1e9ab373d95f081acb0b0d835575a3b9b5c64498397e933800a9bbb119",
+        "round3-cut.py": "bde09c084cdb57a9d58ec08465d5216a4654b245c5d89bbb0dee77b9134632d5",
+        "round3-driver.py": "55f9d4eaad5bc9d1fbfe090493c428ee91be460a422d045bcaf480726368c710",
+        "round3-inventory-test.py": "cfa50a149b258a1e0e66faee859415f8fc007cb0baec59d4249c53be768c7f1d",
+        "round3-selftest.py": "f3fdc22a55051d19d7859b1f3cd3a8a19d8228496e055b9f432c2d07d24e81f2",
+        "round4-driver.py": "b3596e3f6d84e505454a33ee930344115afb9d049213ff3e3bda369b07ec55a0",
+        "round4-selftest.py": "e72ef3e2d88a29f42127bf9979774a9067543365509843bec76e513ce74be9b7",
+        "seed.py": "ff31f3464ae1dee681d08017ad1f95989db8e8f3825b21854b2f40354d05cd2c",
+        "selftest.py": "122409be0047fa074e145bc50f5e86ef18d210f3bf892b3959aa91402483c66b",
+        "session.c": "10b3507d4caa5da66f3611224a6679b3ba8a7d632addacd760980173ffbba92d",
+        "sha256.h": "90f0659119c93339477a30ed55b4c920ef7c6afdf43448b87b8be849bd6a0cbf",
+        "stand.py": "bd26630148ff9da05b6fe6aba2effe90e4a7460d9016e7e554565672077d5666",
+        "system-fixtures.py": "c20bd12370890419bc1d9e50defbdc3d7316fb3b18cd032fda29bb8ad0df3afa",
+        "system-selftest.py": "3fe2e7526fcac25a59748ef9aec9b060b224d76fc98ded862b81681b7ed718de",
+        "system_channels.py": "ed01142455c27190cb7064e1fb06bea116035606e0cde1f8b639d2af544b9f61",
+        "transactions.py": "9f2226384895fff35d542f881331f2102da397edda3cc7d03f3ad35af70adcb0"
+      },
+      "recipe_log_sha256": "1298afd44878c86e48c944dc6e05d23945a734a2193902126d0496893846efe7"
+    },
+    "round-4-peer": {
+      "build_result": "success",
+      "image": {
+        "actual-size": 1507356672,
+        "children": [
+          {
+            "info": {
+              "actual-size": 1507356672,
+              "children": [],
+              "dirty-flag": false,
+              "filename": "stand/round-4-peer/base/stand.qcow2",
+              "format": "file",
+              "format-specific": {
+                "data": {},
+                "type": "file"
+              },
+              "virtual-size": 1507131392
+            },
+            "name": "file"
+          }
+        ],
+        "cluster-size": 65536,
+        "dirty-flag": false,
+        "filename": "stand/round-4-peer/base/stand.qcow2",
+        "format": "qcow2",
+        "format-specific": {
+          "data": {
+            "compat": "1.1",
+            "compression-type": "zlib",
+            "corrupt": false,
+            "extended-l2": false,
+            "lazy-refcounts": false,
+            "refcount-bits": 16
+          },
+          "type": "qcow2"
+        },
+        "virtual-size": 3221225472
+      },
+      "image_sha256": "62adffae74c1d95b0fc289c418420457d75c38306e1a456c8cc494950cf8b0eb",
+      "recipe_files_sha256": {
+        "app-fixtures.py": "bd5d077fa88c49bee8c84e49548a2dcdf6d8927486dbdc00634a1610656cc334",
+        "app-selftest.py": "ce0074b2329e0aa9554a4187ceed46890113a4eb4264a9281f930eb6be6cc41f",
+        "app_channels.py": "9f759f5bc8f288b9224c4113a10f9e5d5175133821d01800743cafac40e0c8df",
+        "assemble-channel-examples.py": "be7f47876d1156d11d0ba8bce96f10ea9a22aedaf96415bf358bd483478d1510",
+        "bootstrap.sh": "44f52b1743029eebabdd9f70b0b29611374bdc0075f90e70de7f8a4be91fdc22",
+        "build.py": "fbd11d359e7d4f738e1d91df4240b6a9c79ea0c77e88cd0737d2468859d3e239",
+        "capture.py": "c7d2a2ed78987236dfb1f892dc9c75f4ddc984e01310ce0eda7bb7f9257dd735",
+        "codeboundary.py": "3185ffa5c3fd5eff3ed26e49a215ad918964a4ff78397a3c4a66d32bd4861ef2",
+        "codeverify.py": "800a618494af1899c38500a723d455a1e8518603ddb82a03d332bb8f09358a08",
+        "combined-selftest.py": "3074ca5e62b8b77c584e4627d148481f63bf0502fcdc943e4f37a5421d760dc7",
+        "deploy.py": "55f3af0dffb3ff8df5cf34717fa91f925abb7f24163fcf952882d3b939d24bab",
+        "dev-inputs.py": "590b8c051a3be3222b415e4d937c89909da389f1d6fcdb02e269f1f14620938e",
+        "development.py": "e1323980cf9bfebbc68b04c8d74f1de9f776be825462045649b6285420daeea3",
+        "fetch.sh": "747b425144d54aab3ce0eb994f292f42ca6c0d1f3ecbc950cfe3641fa9348876",
+        "guard.py": "a382b2a9e613b0e8ef3d7e0abcd1c5baadaea1800696f38b3b04102de927d897",
+        "import_channels.py": "cfa7b671113bab8b6454ff66e3c22fdf47ca91cb43c5abb78868032bd0cd9cd2",
+        "install-channels.py": "6aa5288371b5adfc9337df395987a257098efe1ad588afd1179dc05e7c6f6499",
+        "install-code-boundary.py": "fa32e08bfbb055b062747104e84ead0d412df2c388dee54c70789df3e4ec615d",
+        "install-guard.py": "6ae8c502ae05cb83e4be2dedc2cd7c433460264e42a9b85e889713c9bdd13a2b",
+        "install-noexec.sh": "2147904e0c81acaed3eed8696dd1db0096a20268c19f720ec14ea99e82ed2dd8",
+        "install-transactions.py": "2691a8763d35c36777b00af7c54aeae33cd1012d80b1fb5f75ea019c13b92441",
+        "install.sh": "70e4cdad0c5b018f6f84358b562b13cc394cfd3d07098de5aa397aff17233385",
+        "integrate-round4.sh": "74c4f4ce0e84e64e80e038a9904bc28b668f627cf394e093fadc76c1332de3b9",
+        "inventory.py": "ecb2d1723cae1fbba15a62e991be0971f69fd42d980b05f32dfaaf7a46be208e",
+        "job_channels.py": "107078eeba18183b9f964ad0c9209a10bf7268ed23a37033902fddfe859af8de",
+        "lab.py": "d83e7576539582909b93b8dcd819a41b42413b4d88e68f6df7f0ba380da152d1",
+        "language-fixtures.py": "0869ef4199f73faf6d994145d6dbc79aa246ee9e1c092c343f9df096cd98636d",
+        "language-native-fixture.py": "1118b42036220caebfa5cf37f1f805e73f796b06b6033f6972bc21cf993e8940",
+        "language-selftest.py": "449bb3426a80cb5c569c5c53cf2b6260359c7fd9d2230666bdbc635afe170dc5",
+        "language_channels.py": "19c0141627a231fc186be4726f358b23008f44af88472b437b1918900dc72269",
+        "noexec.py": "24d40afb83f3d53c1da34349c15904a2b2b698aba0d83abb45c9faa8ceceb7c4",
+        "normalize.py": "3e35f7905b53a83ffb65e1c10402847035345b05dcd43db77ac759b6f499ceca",
+        "packages.sha256": "ea3d541dea0cf1a75bed4a7fd9b670bf21a5aa723fa6d53c683215fc62aa3acb",
+        "policy.py": "511b28cf319115c94b09d5d6ad1bfd845ec191e644fb8731671c7cc46f738c72",
+        "powercut.py": "ed1916d2d108a23bfe8c1e48439d06b4ae4f9e6f466b096b31b92080d85f6af8",
+        "round1-cut.py": "8be5a56c72216819fb2dc025ac9794f1aaee8e6b1a2bc2c61e2c55409c07f749",
+        "round1-driver.py": "3b2ce8144031f0163281e0c8b6668a933c912cd3cb0e97f16537cfaa1df42724",
+        "round1-selftest.py": "ce1d8684c9152c93bb0ca9be8fe39c334f5a7e42fac93f9d88d4639d81a8de5f",
+        "round2-driver.py": "dbf6cfa6d0b70fe1a08a594fa682587b6fe18acc2925280002e1356933def740",
+        "round2-probe.c": "c5dbf0731413097ab45af227b6c89ba78de8a4389842430f597dc08f30402f83",
+        "round2-selftest.py": "70097e1e9ab373d95f081acb0b0d835575a3b9b5c64498397e933800a9bbb119",
+        "round3-cut.py": "bde09c084cdb57a9d58ec08465d5216a4654b245c5d89bbb0dee77b9134632d5",
+        "round3-driver.py": "55f9d4eaad5bc9d1fbfe090493c428ee91be460a422d045bcaf480726368c710",
+        "round3-inventory-test.py": "cfa50a149b258a1e0e66faee859415f8fc007cb0baec59d4249c53be768c7f1d",
+        "round3-selftest.py": "f3fdc22a55051d19d7859b1f3cd3a8a19d8228496e055b9f432c2d07d24e81f2",
+        "round4-driver.py": "b3596e3f6d84e505454a33ee930344115afb9d049213ff3e3bda369b07ec55a0",
+        "round4-selftest.py": "e72ef3e2d88a29f42127bf9979774a9067543365509843bec76e513ce74be9b7",
+        "seed.py": "ff31f3464ae1dee681d08017ad1f95989db8e8f3825b21854b2f40354d05cd2c",
+        "selftest.py": "122409be0047fa074e145bc50f5e86ef18d210f3bf892b3959aa91402483c66b",
+        "session.c": "10b3507d4caa5da66f3611224a6679b3ba8a7d632addacd760980173ffbba92d",
+        "sha256.h": "90f0659119c93339477a30ed55b4c920ef7c6afdf43448b87b8be849bd6a0cbf",
+        "stand.py": "bd26630148ff9da05b6fe6aba2effe90e4a7460d9016e7e554565672077d5666",
+        "system-fixtures.py": "c20bd12370890419bc1d9e50defbdc3d7316fb3b18cd032fda29bb8ad0df3afa",
+        "system-selftest.py": "3fe2e7526fcac25a59748ef9aec9b060b224d76fc98ded862b81681b7ed718de",
+        "system_channels.py": "ed01142455c27190cb7064e1fb06bea116035606e0cde1f8b639d2af544b9f61",
+        "transactions.py": "9f2226384895fff35d542f881331f2102da397edda3cc7d03f3ad35af70adcb0"
+      },
+      "recipe_log_sha256": "47c52d49995adcbc50a2773afa80e8567f8757855e574be533ca7e51b2d4d9d6"
+    }
+  },
+  "recipe_files_equal": true,
+  "source_date_epoch": 1794787200,
+  "utc": "2026-11-22T13:08:29Z"
+}

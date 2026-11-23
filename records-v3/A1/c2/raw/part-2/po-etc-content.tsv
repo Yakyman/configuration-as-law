@@ -1,0 +1,184 @@
+/etc/NetworkManager/dispatcher.d/cloud-init-hook-network-manager	cloud-init,	active=17	#!	is_azure() {     local dmi_path="/sys/class/dmi/id/board_vendor" vendor=""     if [ -e "$dmi_path" ] && read vendor < "$dmi_path"; then 
+/etc/adduser.conf	adduser,	active=0	# 	
+/etc/alternatives/README	dpkg,	active=2	Pl	Please read the update-alternatives(1) man page for information on this directory and its contents. 
+/etc/apparmor/parser.conf	apparmor,	active=1	# 	policy-features=/usr/share/apparmor-features/features 
+/etc/apt/apt.conf.d/01autoremove	apt,	active=27	AP	APT {   NeverAutoRemove 
+/etc/apt/apt.conf.d/20listchanges	apt-listchanges,	active=5	DP	DPkg::Pre-Install-Pkgs { "/usr/bin/apt-listchanges --apt || test $? -lt 10"; }; DPkg::Tools::Options::/usr/bin/apt-listchanges::Version "2"; DPkg::Tools::Option
+/etc/apt/apt.conf.d/70debconf	debconf,	active=3	//	// Pre-configure all packages with debconf before they are installed. // If you don't like it, comment it out. DPkg::Pre-Install-Pkgs {"/usr/sbin/dpkg-preconfig
+/etc/apt/trusted.gpg.d/debian-archive-bookworm-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGPL0BUBEADmW5NdOOHwPIJlgPu6JDcKw/NZJPR8lsD3K87ZM18gzyQZJD+w ns6TSXOsx+BmpouHZgvh3FQADj/hhLjpNSqH5IH0xY7nic9BuSeyKx2Wvf
+/etc/apt/trusted.gpg.d/debian-archive-bookworm-security-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGPL0F0BEAC8s6aFGXEkW0xvN5FSZKaM+rp9FX4EhWNfkKi7PaHEpZcjzC6J gIwSwJP7o9L/LLtLYr68Df9sv+AktdzhY50T4zBQouEl6ps/ZaaiVoTsH8
+/etc/apt/trusted.gpg.d/debian-archive-bookworm-stable.asc	debian-archive-keyring,	active=9	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mDMEY865UxYJKwYBBAHaRw8BAQdAd7Z0srwuhlB6JKFkcf4HU4SSS/xcRfwEQWzr crf6AEq0SURlYmlhbiBTdGFibGUgUmVsZWFzZSBLZXkgKDEyL2Jvb2t3b3
+/etc/apt/trusted.gpg.d/debian-archive-bullseye-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGAEHQwBEAC7MhpIQlLicwR8tmMH0yFkMIsqIbfudnBCuV043sSSSdUT/XjA XKdsdOCpfb6Tfiau1uY9Yb8gWLM8JxmSuaIa1jKlYiRZ5G79D7NOVIcqBr
+/etc/apt/trusted.gpg.d/debian-archive-bullseye-security-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGAEHLABEACob9fgQVEt9lqNWKPyzMdenmg+sIE+1ZXwUn6QzJhGedE42FY6 ov6NAzYh08DOPYZsxpU7C5vX9nuM2Fp1tKgGXIfQZmc6EpLsYmPsKpAFOH
+/etc/apt/trusted.gpg.d/debian-archive-bullseye-stable.asc	debian-archive-keyring,	active=55	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGAoEk4BEADG6NQ0Ex5gy0OlnGlFZsTpiZV2LiUhACFj6ZHVEYQQNWgEgRnZ uZeAXbTnFywzrJUYhx51pNjxfoViN/4Jyn2oMrmaBEuDxEwhVZDsMTzb9d
+/etc/apt/trusted.gpg.d/debian-archive-trixie-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGfpPhUBEACnIlNQO4hEcoTe6/fkasYBgsIYoZvKfOemGKVAO+v+wQJ8X8DM 4ffT3QrmO291LPwsmR+sGfMStf9Zbuv/reWsY8NCOTDt98RFQWG5OZw0g1
+/etc/apt/trusted.gpg.d/debian-archive-trixie-security-automatic.asc	debian-archive-keyring,	active=185	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mQINBGfpPl0BEACyof6b+LAkxSHiTZc0RAjilNtshxhqOSr5hrApjAdyLDnUWMf4 mp/UytFKHCbzU9H9QkYXLyr2mCltknX5+A28iYHZzS0eX5XMAmaWdqvd4I
+/etc/apt/trusted.gpg.d/debian-archive-trixie-stable.asc	debian-archive-keyring,	active=24	--	-----BEGIN PGP PUBLIC KEY BLOCK----- mDMEZ+Gq1RYJKwYBBAHaRw8BAQdARlh1OX84KPJRedAP/M7WxPFEthWypAp8nved FhqaX0q0R0RlYmlhbiBTdGFibGUgUmVsZWFzZSBLZXkgKDEzL3RyaXhpZS
+/etc/bash.bashrc	bash,	active=22	# 	[ -z "$PS1" ] && return shopt -s checkwinsize if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then 
+/etc/bash_completion	bash-completion,	active=1	. 	. /usr/share/bash-completion/bash_completion 
+/etc/bindresvport.blacklist	libc-bin,	active=9	#	631 # cups 636 # ldaps 655 # tinc 
+/etc/cron.d/e2scrub_all	e2fsprogs,	active=2	30	30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron 10 3 * * * root test -e /run/systemd/system |
+/etc/cron.daily/apt-compat	apt,	active=31	#!	set -e if [ -d /run/systemd/system ]; then     exit 0 
+/etc/cron.daily/dpkg	dpkg,	active=4	#!	if [ -d /run/systemd/system ]; then   exit 0 fi 
+/etc/cron.daily/man-db	man-db,	active=27	#!	set -e if [ -d /run/systemd/system ]; then     exit 0 
+/etc/cron.weekly/man-db	man-db,	active=20	#!	set -e if [ -d /run/systemd/system ]; then     exit 0 
+/etc/debconf.conf	debconf,	active=21	# 	Config: configdb Templates: templatedb Name: config 
+/etc/debian_version	base-files,	active=1	12	12.15 
+/etc/default/dbus	dbus,	active=1	# 	PARAMS="" 
+/etc/default/grub	grub-cloud-amd64,	active=7	# 	GRUB_DEFAULT=0 GRUB_TIMEOUT=5 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian` 
+/etc/default/grub.d/init-select.cfg	grub-common,	active=0	# 	
+/etc/default/hwclock	util-linux-extra,	active=0	# 	
+/etc/default/nss	libc-bin,	active=1	# 	ADJUNCT_AS_SHADOW=TRUE 
+/etc/default/ssh	openssh-server,	active=1	# 	SSHD_OPTS= 
+/etc/default/useradd	passwd,	active=1	# 	SHELL=/bin/sh 
+/etc/deluser.conf	adduser,	active=0	# 	
+/etc/dhcp/debug	isc-dhcp-client,	active=23	#	RUN="no" if [ "$RUN" = "yes" ]; then  echo "$(date): entering ${1%/*}, dumping variables." \ 
+/etc/dhcp/dhclient-exit-hooks.d/hook-dhclient	cloud-init,	active=18	#!	is_azure() {     local dmi_path="/sys/class/dmi/id/board_vendor" vendor=""     if [ -e "$dmi_path" ] && read vendor < "$dmi_path"; then 
+/etc/dhcp/dhclient-exit-hooks.d/rfc3442-classless-routes	isc-dhcp-client,	active=62	# 	RUN="yes" if [ "$RUN" = "yes" ]; then  if [ -n "$new_rfc3442_classless_static_routes" ]; then 
+/etc/dhcp/dhclient-exit-hooks.d/timesyncd	systemd-timesyncd,	active=43	TI	TIMESYNCD_CONF=/run/systemd/timesyncd.conf.d/01-dhclient.conf timesyncd_servers_setup_remove() {         if [ ! -d /run/systemd/system ]; then 
+/etc/dhcp/dhclient.conf	isc-dhcp-client,	active=7	# 	option rfc3442-classless-static-routes code 121 = array of unsigned integer 8; send host-name = gethostname(); request subnet-mask, broadcast-address, time-offs
+/etc/dpkg/dpkg.cfg	dpkg,	active=2	# 	no-debsig log /var/log/dpkg.log 
+/etc/dpkg/origins/debian	base-files,	active=3	Ve	Vendor: Debian Vendor-URL: https://www.debian.org/ Bugs: debbugs://bugs.debian.org 
+/etc/e2scrub.conf	e2fsprogs,	active=0	# 	
+/etc/ethertypes	netbase,	active=35	# 	IPv4  0800 ip ip4 # IP (IPv4) X25  0805 ARP  0806 ether-arp # Address Resolution Protocol 
+/etc/gai.conf	libc-bin,	active=0	# 	
+/etc/groff/man.local	groff-base,	active=45	.\	.\" -*- nroff -*- .\" .\" This file is loaded after an-old.tmac. 
+/etc/groff/mdoc.local	groff-base,	active=33	.\	.\" -*- nroff -*- .\" .\" This file is loaded after doc.tmac. 
+/etc/grub.d/00_header	grub-common,	active=350	#!	set -e prefix="/usr" exec_prefix="/usr" 
+/etc/grub.d/05_debian_theme	grub-common,	active=124	#!	set -e . /usr/share/grub/grub-mkconfig_lib test -d /boot/grub; cd /boot/grub 
+/etc/grub.d/10_linux	grub-common,	active=335	#!	set -e prefix="/usr" exec_prefix="/usr" 
+/etc/grub.d/20_linux_xen	grub-common,	active=302	#!	set -e prefix="/usr" exec_prefix="/usr" 
+/etc/grub.d/30_os-prober	grub-common,	active=324	#!	set -e prefix="/usr" exec_prefix="/usr" 
+/etc/grub.d/30_uefi-firmware	grub-common,	active=20	#!	set -e prefix="/usr" exec_prefix="/usr" 
+/etc/grub.d/40_custom	grub-common,	active=1	#!	exec tail -n +3 $0 
+/etc/grub.d/41_custom	grub-common,	active=7	#!	cat <<EOF if [ -f  \${config_directory}/custom.cfg ]; then   source \${config_directory}/custom.cfg 
+/etc/grub.d/README	grub-common,	active=8	
+A	All executable files in this directory are processed in shell expansion order.   00_*: Reserved for 00_header.   10_*: Native boot entries. 
+/etc/host.conf	base-files,	active=1	mu	multi on 
+/etc/init.d/apparmor	apparmor,	active=96	#!	APPARMOR_FUNCTIONS=/lib/apparmor/rc.apparmor.functions . /lib/lsb/init-functions aa_action() { 
+/etc/init.d/cloud-config	cloud-init,	active=38	#!	PATH=/sbin:/usr/sbin:/bin:/usr/bin DESC="Cloud service" NAME=cloud-init 
+/etc/init.d/cloud-final	cloud-init,	active=38	#!	PATH=/sbin:/usr/sbin:/bin:/usr/bin DESC="Cloud service" NAME=cloud-init 
+/etc/init.d/cloud-init	cloud-init,	active=38	#!	PATH=/sbin:/usr/sbin:/bin:/usr/bin DESC="Cloud service" NAME=cloud-init 
+/etc/init.d/cloud-init-local	cloud-init,	active=38	#!	PATH=/sbin:/usr/sbin:/bin:/usr/bin DESC="Cloud service" NAME=cloud-init 
+/etc/init.d/dbus	dbus,	active=86	#!	set -e DAEMON=/usr/bin/dbus-daemon UUIDGEN=/usr/bin/dbus-uuidgen 
+/etc/init.d/hwclock.sh	util-linux-extra,	active=33	#!	if [ -e /run/systemd/system ] ; then     exit 0 fi 
+/etc/init.d/kmod	kmod,	active=64	#!	[ -f /proc/modules ] || exit 0 [ -x /sbin/modprobe  ] || exit 0 [ -f /etc/default/rcS ] && . /etc/default/rcS 
+/etc/init.d/procps	procps,	active=15	#!	if [ true != "$INIT_D_SCRIPT_SOURCED" ] ; then     set "$0" "$@"; INIT_D_SCRIPT_SOURCED=true . /lib/init/init-d-script fi 
+/etc/init.d/screen-cleanup	screen,	active=25	#!	set -e test -f /usr/bin/screen || exit 0 SCREENDIR=/run/screen 
+/etc/init.d/ssh	openssh-server,	active=125	#!	set -e test -x /usr/sbin/sshd || exit 0 ( /usr/sbin/sshd -\? 2>&1 | grep -q OpenSSH ) 2>/dev/null || exit 0 
+/etc/init.d/sudo	sudo,	active=26	#!	. /lib/lsb/init-functions N=/etc/init.d/sudo set -e 
+/etc/init.d/udev	udev,	active=187	#!	PATH="/sbin:/bin" NAME="systemd-udevd" DAEMON="/lib/systemd/systemd-udevd" 
+/etc/init.d/unattended-upgrades	unattended-upgrades,	active=29	#!	set -e PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin NAME="unattended-upgrades-shutdown" 
+/etc/init.d/uuidd	uuid-runtime,	active=44	#!	set -e PATH=/bin:/usr/bin:/sbin:/usr/sbin DAEMON=/usr/sbin/uuidd 
+/etc/initramfs-tools/initramfs.conf	initramfs-tools-core,	active=8	#	MODULES=most BUSYBOX=auto KEYMAP=n 
+/etc/initramfs-tools/update-initramfs.conf	initramfs-tools,	active=2	#	update_initramfs=yes backup_initramfs=no 
+/etc/iproute2/bpf_pinning	iproute2,	active=0	#	
+/etc/iproute2/ematch_map	iproute2,	active=7	# 	1 cmp 2 nbyte 3 u32 
+/etc/iproute2/group	iproute2,	active=1	# 	0 default 
+/etc/iproute2/nl_protos	iproute2,	active=21	# 	0   rtnl 1   unused 2   usersock 
+/etc/iproute2/rt_dsfield	iproute2,	active=21	# 	0x0 default 0x28 AF11 0x30 AF12 
+/etc/iproute2/rt_protos	iproute2,	active=22	#	0 unspec 1 redirect 2 kernel 
+/etc/iproute2/rt_protos.d/README	iproute2,	active=2	Ea	Each file in this directory is an rt_protos configuration file. iproute2 commands scan this directory processing all files that end in '.conf'. 
+/etc/iproute2/rt_realms	iproute2,	active=1	#	0 cosmos 
+/etc/iproute2/rt_scopes	iproute2,	active=5	#	0 global 255 nowhere 254 host 
+/etc/iproute2/rt_tables	iproute2,	active=4	#	255 local 254 main 253 default 
+/etc/iproute2/rt_tables.d/README	iproute2,	active=2	Ea	Each file in this directory is an rt_tables configuration file. iproute2 commands scan this directory processing all files that end in '.conf'. 
+/etc/issue	base-files,	active=1	De	Debian GNU/Linux 12 \n \l 
+/etc/issue.net	base-files,	active=1	De	Debian GNU/Linux 12 
+/etc/kernel/postinst.d/initramfs-tools	initramfs-tools,	active=21	#!	version="$1" bootopt="" command -v update-initramfs >/dev/null 2>&1 || exit 0 
+/etc/kernel/postinst.d/unattended-upgrades	unattended-upgrades,	active=10	#!	case "$DPKG_MAINTSCRIPT_PACKAGE::$DPKG_MAINTSCRIPT_NAME" in    linux-image-extra*::postrm)       exit 0;; 
+/etc/kernel/postinst.d/zz-update-grub	grub2-common,	active=17	#!	set -e command -v update-grub >/dev/null || exit 0 if type systemd-detect-virt >/dev/null 2>&1 && 
+/etc/kernel/postrm.d/initramfs-tools	initramfs-tools,	active=21	#!	version="$1" bootopt="" [ -x /usr/sbin/update-initramfs ] || exit 0 
+/etc/kernel/postrm.d/zz-update-grub	grub2-common,	active=17	#!	set -e command -v update-grub >/dev/null || exit 0 if type systemd-detect-virt >/dev/null 2>&1 && 
+/etc/ld.so.conf	libc-bin,	active=1	in	include /etc/ld.so.conf.d/*.conf 
+/etc/ld.so.conf.d/libc.conf	libc-bin,	active=1	# 	/usr/local/lib 
+/etc/ld.so.conf.d/x86_64-linux-gnu.conf	libc6,	active=3	# 	/usr/local/lib/x86_64-linux-gnu /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu 
+/etc/libaudit.conf	libaudit-common,	active=1	# 	failure_action = ignore 
+/etc/locale.alias	locales,	active=45	# 	bokmal  nb_NO.ISO-8859-1 catalan  ca_ES.ISO-8859-1 croatian hr_HR.ISO-8859-2 
+/etc/login.defs	login,	active=37	#	MAIL_DIR        /var/mail FAILLOG_ENAB  yes LOG_UNKFAIL_ENAB no 
+/etc/logrotate.d/alternatives	dpkg,	active=9	/v	/var/log/alternatives.log {  monthly  rotate 12 
+/etc/logrotate.d/apt	apt,	active=14	/v	/var/log/apt/term.log {   rotate 12   monthly 
+/etc/logrotate.d/dpkg	dpkg,	active=9	/v	/var/log/dpkg.log {  monthly  rotate 12 
+/etc/logrotate.d/unattended-upgrades	unattended-upgrades,	active=10	/v	/var/log/unattended-upgrades/unattended-upgrades.log  /var/log/unattended-upgrades/unattended-upgrades-dpkg.log /var/log/unattended-upgrades/unattended-upgrades
+/etc/magic	libmagic1,	active=0	# 	
+/etc/magic.mime	libmagic1,	active=0	# 	
+/etc/manpath.config	man-db,	active=24	# 	MANDATORY_MANPATH   /usr/man MANDATORY_MANPATH   /usr/share/man MANDATORY_MANPATH   /usr/local/share/man 
+/etc/mime.types	media-types,	active=2250	##	application/1d-interleaved-parityfec application/3gpdash-qoe-report+xml application/3gpp-ims+xml 
+/etc/mke2fs.conf	e2fsprogs,	active=44	[d	[defaults]  base_features = sparse_super,large_file,filetype,resize_inode,dir_index,ext_attr  default_mntopts = acl,user_xattr 
+/etc/nanorc	nano,	active=4	##	set historylog set locking set stateflags 
+/etc/netconfig	libtirpc-common,	active=7	#	udp        tpi_clts      v     inet     udp     -       - tcp        tpi_cots_ord  v     inet     tcp     -       - udp6       tpi_clts      v     inet6    udp 
+/etc/network/if-pre-up.d/ethtool	ethtool,	active=8	#!	ETHTOOL=/sbin/ethtool test -x $ETHTOOL || exit 0 [ "$IFACE" != "lo" ] || exit 0 
+/etc/network/if-up.d/ethtool	ethtool,	active=35	#!	ETHTOOL=/sbin/ethtool test -x $ETHTOOL || exit 0 [ "$IFACE" != "lo" ] || exit 0 
+/etc/pam.conf	libpam-runtime,	active=0	# 	
+/etc/pam.d/chfn	passwd,	active=4	#	auth  sufficient pam_rootok.so @include common-auth @include common-account 
+/etc/pam.d/chpasswd	passwd,	active=1	# 	@include common-password 
+/etc/pam.d/chsh	passwd,	active=5	#	auth       required   pam_shells.so auth  sufficient pam_rootok.so @include common-auth 
+/etc/pam.d/login	login,	active=18	#	auth       optional   pam_faildelay.so  delay=3000000 auth       requisite  pam_nologin.so session [success=ok ignore=ignore module_unknown=ignore default=bad] 
+/etc/pam.d/newusers	passwd,	active=1	# 	@include common-password 
+/etc/pam.d/other	libpam-runtime,	active=4	#	@include common-auth @include common-account @include common-password 
+/etc/pam.d/passwd	passwd,	active=1	#	@include common-password 
+/etc/pam.d/runuser	util-linux,	active=4	#%	auth  sufficient pam_rootok.so session  optional pam_keyinit.so revoke session  required pam_limits.so 
+/etc/pam.d/runuser-l	util-linux,	active=4	#%	auth  include  runuser session  optional pam_keyinit.so force revoke -session optional pam_systemd.so 
+/etc/pam.d/sshd	openssh-server,	active=15	# 	@include common-auth account    required     pam_nologin.so @include common-account 
+/etc/pam.d/su	util-linux,	active=8	#	auth       sufficient pam_rootok.so session       required   pam_env.so readenv=1 session       required   pam_env.so readenv=1 envfile=/etc/default/locale 
+/etc/pam.d/su-l	util-linux,	active=5	#%	auth  include  su account  include  su password include  su 
+/etc/pam.d/sudo	sudo,	active=4	#%	session    required   pam_limits.so @include common-auth @include common-account 
+/etc/pam.d/sudo-i	sudo,	active=4	#%	session    required   pam_limits.so @include common-auth @include common-account 
+/etc/pm/sleep.d/10_unattended-upgrades-hibernate	unattended-upgrades,	active=19	#!	PATH=/sbin:/usr/sbin:/bin:/usr/bin SHUTDOWN_HELPER=/usr/share/unattended-upgrades/unattended-upgrade-shutdown if [ -x /usr/bin/python3 ]; then 
+/etc/profile.d/Z99-cloud-locale-test.sh	cloud-init,	active=47	#!	locale_warn() {     command -v local >/dev/null && local _local="local" ||         typeset _local="typeset" 
+/etc/profile.d/bash_completion.sh	bash-completion,	active=10	# 	if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then     if [ "${BASH_VERSINFO[0]}" -gt 4 ] ||         [ "${BASH_VERS
+/etc/protocols	netbase,	active=57	# 	ip 0 IP  # internet protocol, pseudo protocol number hopopt 0 HOPOPT  # IPv6 Hop-by-Hop Option [RFC1883] icmp 1 ICMP  # internet control message protocol 
+/etc/python3.11/sitecustomize.py	libpython3.11-minimal,	active=6	# 	try:     import apport_python_hook except ImportError: 
+/etc/reportbug.conf	reportbug,	active=6	# 	submit query-bts cc 
+/etc/rpc	netbase,	active=38	# 	portmapper 100000 portmap sunrpc rpcbind rstatd  100001 rstat rstat_svc rup perfmeter rusersd  100002 rusers 
+/etc/screenrc	screen,	active=18	# 	deflogin on vbell on vbell_msg "   Wuff  ----  Wuff!!  " 
+/etc/security/access.conf	libpam-modules,	active=0	# 	
+/etc/security/faillock.conf	libpam-modules,	active=0	# 	
+/etc/security/group.conf	libpam-modules,	active=0	#	
+/etc/security/limits.conf	libpam-modules,	active=0	# 	
+/etc/security/namespace.conf	libpam-modules,	active=0	# 	
+/etc/security/namespace.init	libpam-modules,	active=16	#!	if [ "$3" = 1 ]; then         [ -x /sbin/restorecon ] && /sbin/restorecon "$1"         user="$4" 
+/etc/security/pam_env.conf	libpam-modules,	active=0	#	
+/etc/security/sepermit.conf	libpam-modules,	active=0	# 	
+/etc/security/time.conf	libpam-modules,	active=0	# 	
+/etc/selinux/semanage.conf	libsemanage-common,	active=2	# 	module-store = direct expand-check=0 
+/etc/services	netbase,	active=318	# 	tcpmux  1/tcp    # TCP port service multiplexer echo  7/tcp echo  7/udp 
+/etc/sgml/xml-core.cat	xml-core,	active=1	CA	CATALOG /usr/share/sgml/dtd/xml-core/catalog 
+/etc/skel/.bash_logout	bash,	active=3	# 	if [ "$SHLVL" = 1 ]; then     [ -x /usr/bin/clear_console ] && /usr/bin/clear_console -q fi 
+/etc/skel/.bashrc	bash,	active=49	# 	case $- in     *i*) ;;       *) return;; 
+/etc/skel/.profile	bash,	active=11	# 	if [ -n "$BASH_VERSION" ]; then     if [ -f "$HOME/.bashrc" ]; then  . "$HOME/.bashrc" 
+/etc/ssh/moduli	openssh-server,	active=423	# 	20220714110357 2 6 100 2047 2 E98F2A209BA9F4C8C1FFB02490E599A99FBE28F6A053E240A4BD5FEDE80B23FEA8A1476E9EF6605A4B4B41CC74CB945C7E168A91DB112424480A85CBF5853234B9
+/etc/ssh/ssh_config	openssh-client,	active=5	
+#	Include /etc/ssh/ssh_config.d/*.conf Host *     SendEnv LANG LC_* 
+/etc/ssh/ssh_import_id	ssh-import-id,	active=4	{	{    "_comment_": "This file is JSON syntax and will be loaded by ssh-import-id to obtain the URL string, which defaults to launchpad.net.  The following URL *m
+/etc/ssl/openssl.cnf	openssl,	active=141	#	HOME   = . openssl_conf = openssl_init config_diagnostics = 1 
+/etc/sudo.conf	sudo,	active=0	#	
+/etc/sudo_logsrvd.conf	sudo,	active=6	#	[server] [relay] [iolog] 
+/etc/sudoers	sudo,	active=7	#	Defaults env_reset Defaults mail_badpass Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" 
+/etc/sudoers.d/README	sudo,	active=0	#	
+/etc/sv/ssh/.meta/installed	openssh-server,	active=0		
+/etc/sv/ssh/finish	openssh-server,	active=8	#!	set -e NAME=ssh [ "$1" = -1 ] && echo "runsv: ERROR in $NAME: unexpected error or wrong sh syntax" 
+/etc/sv/ssh/log/run	openssh-server,	active=3	#!	chown _runit-log:adm '/var/log/runit/ssh' chmod 750 '/var/log/runit/ssh' exec chpst -u _runit-log svlogd -tt '/var/log/runit/ssh' 
+/etc/sv/ssh/run	openssh-server,	active=9	#!	set -e NAME="ssh" sv start auditd  || sv check auditd || true 
+/etc/sysctl.conf	procps,	active=0	#	
+/etc/sysctl.d/README.sysctl	procps,	active=12	Ke	Kernel system variables configuration files Files found under the /etc/sysctl.d directory that end with .conf are parsed within sysctl(8) at boot time.  If you 
+/etc/systemd/journald.conf	systemd,	active=1	# 	[Journal] 
+/etc/systemd/logind.conf	systemd,	active=1	# 	[Login] 
+/etc/systemd/networkd.conf	systemd,	active=3	# 	[Network] [DHCPv4] [DHCPv6] 
+/etc/systemd/pstore.conf	systemd,	active=1	# 	[PStore] 
+/etc/systemd/resolved.conf	systemd-resolved,	active=1	# 	[Resolve] 
+/etc/systemd/sleep.conf	systemd,	active=1	# 	[Sleep] 
+/etc/systemd/system.conf	systemd,	active=1	# 	[Manager] 
+/etc/systemd/system/sshd-keygen@.service.d/disable-sshd-keygen-if-cloud-init-active.conf	cloud-init,	active=2	# 	[Unit] ConditionPathExists=!/run/systemd/generator.early/multi-user.target.wants/cloud-init.target 
+/etc/systemd/timesyncd.conf	systemd-timesyncd,	active=1	# 	[Time] 
+/etc/systemd/user.conf	systemd,	active=1	# 	[Manager] 
+/etc/terminfo/README	ncurses-base,	active=3	Th	This directory is for system-local terminfo descriptions. By default, ncurses will search ${HOME}/.terminfo first, then /etc/terminfo (this directory), then /li
+/etc/ucf.conf	ucf,	active=0	#	
+/etc/udev/udev.conf	udev,	active=0	# 	
+/etc/ufw/applications.d/openssh-server	openssh-server,	active=4	[O	[OpenSSH] title=Secure shell server, an rshd replacement description=OpenSSH is a free implementation of the Secure Shell protocol. 
+/etc/update-motd.d/10-uname	base-files,	active=1	#!	uname -snrvm 
+/etc/update-motd.d/92-unattended-upgrades	unattended-upgrades,	active=3	#!	if [ -x /usr/share/unattended-upgrades/update-motd-unattended-upgrades ]; then     exec /usr/share/unattended-upgrades/update-motd-unattended-upgrades fi 
+/etc/vim/vimrc	vim-common,	active=52	" 	" $VIMRUNTIME refers to the versioned system directory where Vim stores its " system runtime files -- /usr/share/vim/vim<version>. " 
+/etc/vim/vimrc.tiny	vim-tiny,	active=10	" 	" Vim configuration file, in effect when invoked as "vi". The aim of this " configuration file is to provide a Vim environment as compatible with the " original
+/etc/wgetrc	wget,	active=1	##	passive_ftp = on 
+/etc/xattr.conf	libattr1,	active=13	# 	system.nfs4_acl   permissions system.nfs4acl   permissions system.posix_acl_access  permissions 

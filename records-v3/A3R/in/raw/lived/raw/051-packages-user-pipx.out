@@ -1,0 +1,159 @@
+{
+    "pipx_spec_version": "0.1",
+    "venvs": {
+        "httpie": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/http",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/httpie",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/https",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "charset-normalizer": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/normalizer",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "idna": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/idna",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "markdown-it-py": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/markdown-it",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "pygments": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/httpie/bin/pygmentize",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "http",
+                        "httpie",
+                        "https"
+                    ],
+                    "apps_of_dependencies": [
+                        "normalizer",
+                        "idna",
+                        "pygmentize",
+                        "markdown-it"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [
+                        "man1/http.1",
+                        "man1/httpie.1",
+                        "man1/https.1"
+                    ],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/share/man/man1/http.1",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/share/man/man1/httpie.1",
+                            "__type__": "Path"
+                        },
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/httpie/share/man/man1/https.1",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "man_paths_of_dependencies": {},
+                    "package": "httpie",
+                    "package_or_url": "httpie",
+                    "package_version": "3.2.4",
+                    "pinned": false,
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.5",
+                "python_version": "Python 3.13.5",
+                "source_interpreter": {
+                    "__Path__": "/usr/bin/python3.13",
+                    "__type__": "Path"
+                },
+                "venv_args": []
+            }
+        },
+        "pre-commit": {
+            "metadata": {
+                "injected_packages": {},
+                "main_package": {
+                    "app_paths": [
+                        {
+                            "__Path__": "/home/user/.local/share/pipx/venvs/pre-commit/bin/pre-commit",
+                            "__type__": "Path"
+                        }
+                    ],
+                    "app_paths_of_dependencies": {
+                        "identify": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/pre-commit/bin/identify-cli",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "nodeenv": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/pre-commit/bin/nodeenv",
+                                "__type__": "Path"
+                            }
+                        ],
+                        "virtualenv": [
+                            {
+                                "__Path__": "/home/user/.local/share/pipx/venvs/pre-commit/bin/virtualenv",
+                                "__type__": "Path"
+                            }
+                        ]
+                    },
+                    "apps": [
+                        "pre-commit"
+                    ],
+                    "apps_of_dependencies": [
+                        "identify-cli",
+                        "nodeenv",
+                        "virtualenv"
+                    ],
+                    "include_apps": true,
+                    "include_dependencies": false,
+                    "man_pages": [],
+                    "man_pages_of_dependencies": [],
+                    "man_paths": [],
+                    "man_paths_of_dependencies": {},
+                    "package": "pre-commit",
+                    "package_or_url": "pre-commit",
+                    "package_version": "4.7.0",
+                    "pinned": false,
+                    "pip_args": [],
+                    "suffix": ""
+                },
+                "pipx_metadata_version": "0.5",
+                "python_version": "Python 3.13.5",
+                "source_interpreter": {
+                    "__Path__": "/usr/bin/python3.13",
+                    "__type__": "Path"
+                },
+                "venv_args": []
+            }
+        }
+    }
+}

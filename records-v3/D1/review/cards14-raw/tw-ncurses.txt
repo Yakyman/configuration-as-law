@@ -1,0 +1,104 @@
+Source: https://api.opensuse.org/public/source/openSUSE:Factory/ncurses/ncurses.spec
+%files -n terminfo-base -f default.list
+%{_sysconfdir}/termcap
+%config %{_miscdir}/termcap
+%{_bindir}/termerase
+%dir %{_sysconfdir}/terminfo
+%dir %{_datadir}/tabset/
+%dir %{_datadir}/terminfo/
+%dir %{_datadir}/terminfo/*/
+%doc %{_mandir}/man1/termerase.1%{ext_man}
+
+%files -n terminfo-screen -f screen.list
+%dir %{_datadir}/terminfo/
+
+%files -n terminfo-iterm -f iterm.list
+%dir %{_datadir}/terminfo/
+
+%files -n ncurses-utils
+%{_bindir}/clear
+%{_bindir}/infocmp
+%{_bindir}/reset
+%{_bindir}/tabs
+%{_bindir}/toe
+%{_bindir}/tput
+%{_bindir}/tset
+%doc %{_mandir}/man1/clear.1%{ext_man}
+%doc %{_mandir}/man1/infocmp.1%{ext_man}
+%doc %{_mandir}/man1/reset.1%{ext_man}
+%doc %{_mandir}/man1/tabs.1%{ext_man}
+%doc %{_mandir}/man1/toe.1%{ext_man}
+%doc %{_mandir}/man1/tput.1%{ext_man}
+%doc %{_mandir}/man1/tset.1%{ext_man}
+%doc %{_mandir}/man5/*%{ext_man}
+%doc AUTHORS
+
+%files -n ncurses-examples
+%{_bindir}/ncurses-examples
+%dir %{_libexecdir}/ncurses-examples/
+%{_libexecdir}/ncurses-examples/*
+%dir %{_datadir}/ncurses/
+%{_datadir}/ncurses/*
+%doc %{_mandir}/man6/*%{ext_man}
+
+%files -n libncurses5
+%{_libdir}/lib*.so.5*
+%exclude %{_libdir}/libncurses++.so.5*
+%exclude %{_libdir}/libncurses++w.so.5*
+
+%files -n libncurses_c++5
+%{_libdir}/libncurses++.so.5*
+%{_libdir}/libncurses++w.so.5*
+
+%files -n libncurses6
+%{_libdir}/lib*.so.6*
+%exclude %{_libdir}/libncurses++.so.6*
+%exclude %{_libdir}/libncurses++w.so.6*
+
+%files -n libncurses_c++6
+%{_libdir}/libncurses++.so.6*
+%{_libdir}/libncurses++w.so.6*
+
+%files -n libncurses6-compat
+%{_bindir}/ncursesnt
+%dir %{_libdir}/ncurses6nt/
+%{_libdir}/ncurses6nt/lib*.so.6*
+%exclude %{_libdir}/ncurses6nt/libncurses++.so.6*
+%exclude %{_libdir}/ncurses6nt/libncurses++w.so.6*
+
+%files -n libncurses_c++6-compat
+%dir %{_libdir}/ncurses6nt/
+%{_libdir}/ncurses6nt/libncurses++.so.6*
+%{_libdir}/ncurses6nt/libncurses++w.so.6*
+
+%files -n ncurses-devel
+%dir %{_defaultdocdir}/ncurses/
+%doc %{_defaultdocdir}/ncurses/*
+%{_bindir}/ncurses*6-config
+%{_bindir}/captoinfo
+%{_bindir}/infotocap
+%{_bindir}/tic
+%dir %{_incdir}/ncurses/
+%dir %{_incdir}/ncursesw/
+%{_incdir}/*.h
+%{_incdir}/ncurses/*.h
+%{_incdir}/ncursesw/*.h
+%{_libdir}/lib*.so
+%{_libdir}/pkgconfig/*[clmosuw\+].pc
+%doc %{_mandir}/man1/ncurses*6-config.1%{ext_man}
+%doc %{_mandir}/man1/captoinfo.1%{ext_man}
+%doc %{_mandir}/man1/infotocap.1%{ext_man}
+%doc %{_mandir}/man1/tic.1%{ext_man}
+%doc %{_mandir}/man3/*%{ext_man}
+%doc %{_mandir}/man7/*%{ext_man}
+
+%files -n ncurses-devel-static
+%{_libdir}/lib*.a
+
+%files -n tack
+%{_bindir}/tack
+%doc %{_mandir}/man1/tack.1%{ext_man}
+
+%files -f extension.list -n terminfo
+
+%changelog

@@ -1,0 +1,20 @@
+{
+  "source": "C1/actions/opensuse.sh",
+  "commands": [
+    "as_root zypper --non-interactive install hello podman flatpak\n",
+    "flatpak --user remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo\n",
+    "flatpak --user install --noninteractive -y flathub org.gnome.Calculator\n",
+    "as_root nmcli connection add type ethernet con-name cal-secondary ifname '*' 802-3-ethernet.mac-address <MAC> ipv4.method auto ipv4.never-default yes ipv6.method disabled\n",
+    "as_root nmcli --wait 60 connection up cal-secondary\n",
+    "as_root nmcli connection add type wifi con-name <SSID> ifname '*' ssid <SSID> connection.autoconnect no wifi-sec.key-mgmt wpa-psk wifi-sec.psk <REDACTED>\n",
+    "mkdir -p \"$HOME/.local/bin\" \"$HOME/.config/systemd/user\"\n",
+    "cat > \"$HOME/.local/bin/cal-hello\" <<'SCRIPT'\n#!/bin/sh\nprintf '%s\\n' 'cal-test' >> \"$HOME/cal-test.log\"\nSCRIPT\n",
+    "chmod 755 \"$HOME/.local/bin/cal-hello\"\n",
+    "\"$HOME/.local/bin/cal-hello\"\n",
+    "cat > \"$HOME/.config/systemd/user/cal-hello.service\" <<'UNIT'\n[Unit]\nDescription=Write the laboratory greeting\n[Service]\nType=oneshot\nExecStart=%h/.local/bin/cal-hello\nUNIT\n",
+    "cat > \"$HOME/.config/systemd/user/cal-hello.timer\" <<'UNIT'\n[Unit]\nDescription=Schedule the laboratory greeting\n[Timer]\nOnBootSec=5min\nOnUnitActiveSec=1h\n[Install]\nWantedBy=timers.target\nUNIT\n",
+    "systemctl --user daemon-reload\n",
+    "systemctl --user enable --now cal-hello.timer\n",
+    "podman run --name cal-container docker.io/library/alpine:3.22 /bin/echo cal-test\n"
+  ]
+}

@@ -1,0 +1,91 @@
+term	sentences using it	boundary object	does the text place it
+declaration; collection of files	S2.1-1; S2.1-2	A deployment description split among several included text files	yes: S2.1-1; S2.1-2 explicitly admit many files
+person designated; primary description	S2.1-1	A generated configuration file versus the file a person designated as authoritative	yes: S2.1-1 uses designation, not merely configuration syntax
+one source of truth	S2.1-2; S2.3-7	Two included files assigning different SSH password-login values	no: one description is asserted, but no coherence criterion; do not infer a particular file format
+computer; system	S2.1-1; S2.1-3; S2.2-1; S2.2-9; S2.2-12; S2.4-2	A physical host containing a full guest OS and rootless containers	no: S2.2-11 exempts the guest and S2.2-12 includes containers, but no general system boundary is defined
+object	S2.1-3; S2.2-2; S3-1	A file containing both executable material and ordinary content; its individual records versus the whole file	no: no granularity criterion selects which entity is the object
+must be recorded	S2.1-3; S2.2-1; S2.3-4; S3-1	A running Flatpak application	yes: S2.2-9 explicitly requires it
+recorded	S2.1-4; S2.3-4; S2.3-5	A declaration naming a package whose dependency contains an executable	yes for this boundary: S2.1-4 requires the object’s required state to be stated; merely pinning a package does not state a separately created account’s required state
+in force	S2.1-3; S2.3-4; S2.4-1	A mounted filesystem or active timezone not named among S2.1-3 categories	no: S2.1-3 supplies selected type predicates without a general predicate for all mandatory objects
+program	S2.1-3; S2.2-9; S2.2-12	A browser composed of browser, renderer, utility and extension processes	no: no criterion fixes program identity across processes
+code	S2.1-3; S2.2-10; S2.2-11; S2.2-13	A compiled Python module in __pycache__	no: S2.2-13 puts it in code but S2.2-5 also exempts a regenerated cache
+runs	S2.1-3; S2.2-9	A sleeping or stopped but resumable process	no: no time/state threshold for running; no installation-channel claim is made
+can be started	S2.1-3; S2.4-4	A program currently accessible only from a disconnected removable device	no: immediate versus possible future accessibility is unspecified
+service	S2.1-3; S2.4-4; S3-10	A socket-activated systemd service with no process yet	yes: S2.1-3 supplies enabled predicate, though meaning of enabled needs its own row
+enabled	S2.1-3; S2.4-4	A static systemd unit activated as a dependency but never enabled with installation links	no: startability, dependency activation and installation enablement are not distinguished
+account; exists	S2.1-3; S2.2-15	A PostgreSQL login role or an NSS account supplied by a remote directory	no: local OS, application and remote account scope are not delimited
+rule; applied	S2.1-3; S2.2-15; S3-10	An OpenSSH PasswordAuthentication option evaluated for a connection	yes: S2.2-15 explicitly includes the password-login rule; overlap with one-program settings remains
+saved network	S2.1-3; S2.2-14	A persistent Wi-Fi profile currently outside radio range	yes: S2.1-3 requires availability to its program, not connection to the access point
+login key; available	S2.1-3; S2.2-15	A private key represented by an agent socket or hardware-token handle	no: availability with a locked agent, absent token or required touch is not delimited
+firmware; set on device	S2.1-3; S2.2-16	A firmware blob installed on disk but uploaded to a peripheral only at driver load	no: installed blob, device-resident image and volatile uploaded image are not identified
+boot order	S2.1-3; S2.2-16	GRUB saved_entry selects a menu entry; UEFI BootOrder selects a boot option	no: sequence of firmware boot options versus bootloader default is not delimited
+line	S2.1-4; S2.3-5; S2.4-4; S3-9; S3-10	A single source-language statement generates many package records	no: source line versus evaluated record is unspecified; algorithm format alone is excluded by S2.5-3
+required state	S2.1-4; S2.3-5	An installed service whose line does not require it to run	yes: S2.1-4 distinguishes recorded requirement from current program execution
+application; conformity	S2.1-5; S2.3-1; S3-3	A deployment reports success while one required account is absent	yes: S3-3 completes reported application; S2.3-5 identifies failed guarantee rather than merely incomplete observation
+built-in tool; program of the system	S2.1-6; S2.1-7; S3-6	Emacs provides both file editing and its own package installer	no: S3-6 positive purpose test and S3-7 explicit editor exclusion overlap
+purpose includes; according to documentation	S2.1-6; S3-6; S3-8	A shell documented as a command interpreter and also providing a loadable-builtin installer	no: multiple documented purposes have no priority against general-purpose exclusion
+breaking	S2.1-7; S2.1-8; S2.3-1	An ordinary user directly changes a file affecting a required setting	yes: S2.1-7 requires superuser privilege, so this is not breaking merely because it bypasses a tool
+past the declaration; through the declaration	S2.1-7; S2.3-6; S2.3-7	A package installer writes a declared entry and applies it as one operation	yes: S2.3-7 explicitly contrasts adding the program to the declaration with installing past it
+outside built-in tools	S2.1-7; S3-7	A general editor and package manager share one Emacs process	no: mixed-purpose tool boundary is unresolved by S3-6/7
+superuser privileges; right to become superuser	S2.1-7; S2.2-15; S3-7	UID 0 inside a rootless user namespace; a nonzero UID with CAP_NET_ADMIN	no: namespace-relative root and partial capabilities are not delimited
+writing directly; deleting; disabling mechanisms	S2.1-7	A privileged raw write to an access-rule file through an ordinary editor	yes: S2.1-7 and S3-7 explicitly cover it
+behaviour; does; can be done	S2.2-1; S2.2-2; S2.2-4; S2.2-5	A font adds one script to text rendering; removal preserves rendering in other scripts	no: no equivalence level fixes same behaviour versus loss of particular content
+depends on	S2.2-1	Two interchangeable routes or executable copies provide redundancy	no: individual removal can leave capability unchanged while joint removal removes it
+removal; removed	S2.2-2; S3-1	Unlinking an executing binary leaves its mapped image and open descriptor	no: deleting path, deleting object and disabling live effect are not distinguished
+something becomes impossible	S2.2-2	A cache miss crosses a real-time deadline while eventual output remains identical	no: no distinction between timing-defined capability and only slower is supplied
+content; documents; photographs	S2.2-4	An ordinary photograph whose deletion only removes that photograph	yes: S2.2-4 explicitly exempts this case
+contents of databases	S2.2-4	A database table stores login accounts alongside ordinary user records	yes for operational account records: S2.2-15 requires accounts; S2.2-4’s unchanged-behavior condition excludes a merely nominal database exemption
+same; only content unavailable	S2.2-4; S2.2-14	Deleting a trained recognition model removes recognition of one class of inputs	no: result differences versus unavailable content are not delimited
+cache; more slowly	S2.2-5	Python bytecode cache whose source exists and can regenerate it	no: fits cache exemption and executable-code requirement simultaneously
+records of the past; logs; history	S2.2-6	An authentication log consumed by Fail2Ban	yes: S2.2-6 names logs; the resulting firewall rule is another object under S2.2-15
+setting	S2.2-7; S2.2-13	An sshd_config keyword/value entry	yes: S2.2-13 defines read-as-values as setting
+only inside one program	S2.2-7	Firefox handlers.json preference selects an external PDF reader; the initial sshd password-login example was rejected as already decided	no: CARDS.md uses a browser external-handler preference; the initial PasswordAuthentication example is decided by S2.2-15
+home page; theme; browser extension	S2.2-7	A plain browser color theme	yes: S2.2-7 explicitly exempts it
+browser extension	S2.2-7; S2.2-10; S2.2-11	A Firefox privileged extension implementing an experimental API	yes: S2.2-13 classifies executed settings as code; S2.2-10 requires the full-rights privileged implementation
+installed; regardless how	S2.2-9	A Flatpak or home-directory application launched as its own process	yes: S2.2-9 explicitly includes both
+container	S2.2-9; S2.2-12	A rootless container with isolated process and user namespaces	yes: S2.2-12 expressly includes its independent program processes
+executes; own rights	S2.2-10	An interpreter with some operations restricted by host APIs but other native facilities exposed	no: equality of rights versus direct and mediated access has no criterion
+can do whatever program can do	S2.2-10	A plugin may access files but cannot manipulate its host's private memory	no: literal all-capability equality versus practical operating-system authority is unspecified
+scripts; shell startup; editor configuration	S2.2-10	An Emacs Lisp initialization file	yes: S2.2-10 expressly includes executable editor configuration; S2.2-13 resolves setting label
+confines to its own interface	S2.2-11	A VM guest uses passed-through devices or shared host folders	yes for the capability-limited example: S2.2-11 permits confinement through a restricted interface; no requirement that every effect remain in private storage is stated
+web page; guest system in virtual machine	S2.2-11	An ordinary web page executed in a sandboxed renderer	yes: S2.2-11 gives an explicit exemption for page, requiring browser
+inside executing program; own process	S2.2-12	Browser page code in a renderer process separate from browser UI process	no: logical program boundary and operating-system process boundary are not equated or separated
+file executed as code; reads as values	S2.2-13	Compiled module versus a plain keyword/value configuration file	yes: S2.2-13 explicitly supplies this classification; excluded data-as-code scenarios are not cards
+Wi-Fi network; network password	S2.2-14	A saved WPA-Personal network and its passphrase	yes: S2.2-14 explicitly separates profile and password
+password; login key	S2.2-14; S2.2-15	A stored pre-shared key or token serves as an account authentication secret	no: no test separates password from key for overlapping credential kinds
+keys used to log in to an account	S2.2-15	SSH authorized public key versus a TLS server trust anchor	yes: S2.2-15 explicitly covers former; latter needs general removal rule and account scope
+firewall rule	S2.2-15	A kernel packet-filter rule versus an application's request-filter rule	no: firewall scope across application and transport layers is not delimited
+port open for connection	S2.2-15	A UDP socket, Unix-domain listener or port blocked by an external firewall	no: connection, port and openness scope are not delimited
+password login allowed	S2.2-15	sshd PasswordAuthentication yes	yes: S2.2-15 explicitly requires the permission rule; its specific consequence decides the initial setting overlap
+where system is able to change	S2.2-16	Firmware update available only after reboot, physical jumper or external management service	no: current ability versus eventual privileged or physical procedure is not specified
+after completed application	S2.3-1; S3-3; S3-4	A successful deployment followed by a later in-progress deployment	yes: S3-3; S3-4 retain the last successful declaration during a later unreported application
+all three properties; no degrees	S2.3-2	P1 and P2 hold while P4 fails	yes: S2.3-2 says the combined condition fails
+completeness; everything in force recorded	S2.3-4	A running container executable absent from the declaration	yes: S2.2-9 and S2.3-4 identify failed completeness
+guarantee; as its line requires	S2.3-5	A declaration explicitly requires a stopped service but it is running	yes: S2.1-4 and S2.3-5 use required state
+no path for changing	S2.3-6	A superuser deliberately disables the enforcement mechanism outside tools	yes: S2.1-7; S2.3-1 exclude breaking; channel feasibility is outside this task
+built-in tools with superuser privileges	S2.3-7; S2.1-7	A privileged package manager changes a required object	yes: S2.3-7 still requires declaration mediation, unlike breaking
+understanding; read from declaration alone	S2.4-1	A declaration omits a service-enabled state by relying on the system's documented default	no independent conflict established: S2.1-3; S2.1-4 delimit in force; S3-10 permits documented defaults, but varying the fully recorded system to force disagreement is unsupported
+same declaration	S2.4-2	Identical declaration bytes applied with different documented system defaults	yes for the stated attack: S3-9 pins recorded installed system content; varying a fully recorded system’s version does not preserve the same unambiguous declaration
+another computer; exactly result	S2.4-2	Identical package content installed with different file permissions from environment defaults	yes for the stated attack: S2.4-2 promises the described result; S3-9’s content criterion does not itself require unspecified installed permissions to match
+unambiguous description	S2.4-2; S3-9; S3-10	A fully stated boot order or saved Wi-Fi profile with no installation action	no: indicator covers installation, account, service and rule but not expressly all named mandatory kinds
+hardware differences	S2.4-3	Different clock rates versus missing device-specific firmware	no in Sections 2–3: S2.4-3 is broad; Section 4.4 narrows acceptable explanation for the published reproducibility check
+line removed; remaining lines cover	S2.4-4	Two packages share a dependency and one package line is removed	no: dependency contribution and coverage have no declared test; cleanup mechanisms themselves are design questions
+nothing line contributed	S2.4-4	A package line installed several executables also obtainable through another line	no: causal contribution versus dependency ownership is not delimited
+program stopped and cannot start	S2.4-4	A removed program's process remains alive	yes: S2.4-4 explicitly prohibits it unless remaining lines cover it
+service not run and not enabled	S2.4-4	A disabled service still running after line removal	yes: S2.4-4 requires both conditions, not just disabled status
+information about what object does	S3-1; S3-2	A documented authentication rule with unknown empirical behaviour on one installation	yes: S3-1 permits documentation as evidence; actual unresolved facts may still yield ? under S3-2
+documentation; observation; removal	S3-1	A documented firmware blob need not be destructively removed to learn its role	yes: S3-1 allows documentation, observation or removal
+in disputed case; disposable copy	S3-1	TPM-bound credential or firmware state cannot be reproduced on a disposable machine copy	no: no indicator branch explains how known function but unavailable faithful removal decides a disputed scope
+unknown	S3-2	An opaque undocumented device buffer with no observation available	yes: S3-2 yields ? when its function remains unknown
+last application; successful report	S3-3	Two concurrent deployments finish and send success reports in different orders	yes: S3-3 uses the last application reported successful; the stated case supplies identifiable success reports
+failed report; no report within one hour	S3-4	Success arrives after sixty-one minutes	yes: S3-4 retains the previous declaration at the one-hour timeout; S3-3 identifies a later successfully reported application; no permanent cutoff is stated
+previous declaration	S3-4	The first-ever attempted application fails before any success report	yes: S2.3-1; S3-3; S3-4 establish no successfully applied declaration after a failed first attempt; the post-completion property check has not begun
+power cut; new boot; state differs	S3-5	A line deliberately requires a volatile rule only until reboot	yes: S2.1-4; S3-5 compare the post-boot state with the actual temporal requirement of the line
+program documentation states purpose	S3-6; S3-8	A documented editor also documents installation of packages	no: documented mixed purpose remains both included by S3-6 and excluded by S3-7
+general-purpose program	S3-7	Emacs editor and package manager in one executable	no: examples are categorical while positive purpose test is inclusive
+counterexample; 0	S3-8	Purpose known but built-in/general-purpose classification unresolved	yes: S3-8 explicitly assigns 0 rather than ?
+installs something	S3-9	A saved network entry configures access without installing bytes	no: no boundary says whether all configuration creation counts as installation
+version; source; uniquely determined content	S3-9	A version number and mutable download URL versus a verified archive digest	yes: S3-9 demands uniquely determined content, not merely version syntax
+checksum	S3-9	A checksum fixes archive bytes but not destination permissions	no: S3-9 fixes content, not every installed object's resulting attributes
+every value of object	S3-10	Account includes timestamps, dynamically calculated groups and password state	no: no finite schema identifies which values belong to an account, service or rule
+fixed by system; documented default	S3-10	A service option default depends on system version or machine policy	no: documentation can describe a conditional default without fixing identical resulting values

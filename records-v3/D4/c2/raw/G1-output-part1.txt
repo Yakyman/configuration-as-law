@@ -1,0 +1,31 @@
+2026-11-22T06:52:49Z
+In ice-9/boot-9.scm:
+  1752:10 13 (with-exception-handler _ _ #:unwind? _ # _)
+In guix/store.scm:
+   690:37 12 (thunk)
+   1331:8 11 (call-with-build-handler #<procedure 7f3c70b41750 at g…> …)
+  2212:25 10 (run-with-store #<store-connection 256.100 7f3c7051af00> …)
+In guix/scripts/system.scm:
+  1359:15  9 (_ _)
+    847:5  8 (perform-action reconfigure #<<image> name: #f format:…> …)
+In srfi/srfi-1.scm:
+    634:9  7 (for-each #<procedure 7f3c717c4700 at guix/scripts/sys…> …)
+In ice-9/boot-9.scm:
+  1685:16  6 (raise-exception _ #:continuable? _)
+  1685:16  5 (raise-exception _ #:continuable? _)
+In guix/ui.scm:
+   903:16  4 (_ _)
+   346:42  3 (display-hint "Use @option{--allow-downgrades} to fo…" . #)
+In ice-9/boot-9.scm:
+  1747:15  2 (with-exception-handler #<procedure 7f3c6aeba3c0 at ic…> …)
+In guix/build/syscalls.scm:
+  2514:35  1 (_)
+   2503:8  0 (terminal-window-size _)
+
+guix/build/syscalls.scm:2503:8: In procedure terminal-window-size:
+In procedure terminal-window-size: Inappropriate ioctl for device
+guix system reconfigure exit=1
+2026-11-22T07:02:19Z
+run-apply rc=0
+kill rc=0 at 2026-11-22T07:02:18Z
+start rc=0 at 2026-11-22T07:02:28Z

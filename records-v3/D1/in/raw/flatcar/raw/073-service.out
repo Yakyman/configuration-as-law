@@ -1,0 +1,132 @@
+  addon-config@oem.service                                      loaded    inactive dead    Configure Addon /oem
+  addon-run@oem.service                                         loaded    inactive dead    Run Addon /oem
+  audit-rules.service                                           loaded    inactive dead    Load Audit Rules
+  auditd.service                                                loaded    inactive dead    Security Audit Logging Service
+  clean-ca-certificates.service                                 loaded    active   exited  Clean up broken links in /etc/ssl/certs
+  clevis-luks-askpass.service                                   loaded    inactive dead    Forward Password Requests to Clevis
+  containerd.service                                            loaded    active   running containerd container runtime
+  dbus.service                                                  loaded    active   running D-Bus System Message Bus
+  docker.service                                                loaded    inactive dead    Docker Application Container Engine
+  dracut-cmdline.service                                        loaded    inactive dead    dracut cmdline hook
+  dracut-initqueue.service                                      loaded    inactive dead    dracut initqueue hook
+  dracut-mount.service                                          loaded    inactive dead    dracut mount hook
+  dracut-pre-mount.service                                      loaded    inactive dead    dracut pre-mount hook
+  dracut-pre-pivot.service                                      loaded    inactive dead    dracut pre-pivot and cleanup hook
+  dracut-pre-trigger.service                                    loaded    inactive dead    dracut pre-trigger hook
+  dracut-pre-udev.service                                       loaded    inactive dead    dracut pre-udev hook
+  dracut-shutdown-onfailure.service                             loaded    inactive dead    Service executing upon dracut-shutdown failure to perform cleanup
+  dracut-shutdown.service                                       loaded    active   exited  Restore /run/initramfs on shutdown
+  emergency.service                                             loaded    inactive dead    Emergency Shell
+  enable-oem-cloudinit.service                                  loaded    inactive dead    Enable cloudinit
+  extend-filesystems.service                                    loaded    inactive dead    Extend Filesystems
+  flatcar-setup-environment.service                             loaded    inactive dead    Modifies /etc/environment for CoreOS
+  flatcar-tmpfiles.service                                      loaded    active   exited  Create missing system files
+  getty@tty1.service                                            loaded    active   running Getty on tty1
+  google-oslogin-cache.service                                  loaded    inactive dead    NSS cache refresh
+  ignition-delete-config.service                                loaded    inactive dead    Ignition (delete config)
+  initrd-cleanup.service                                        loaded    inactive dead    Cleaning Up and Shutting Down Daemons
+  initrd-parse-etc.service                                      loaded    inactive dead    Mountpoints Configured in the Real Root
+  initrd-switch-root.service                                    loaded    inactive dead    Switch Root
+  initrd-udevadm-cleanup-db.service                             loaded    inactive dead    Cleanup udev Database
+  issuegen.service                                              loaded    inactive dead    Generate /run/issue
+  kmod-static-nodes.service                                     loaded    active   exited  Create List of Static Device Nodes
+  ldconfig.service                                              loaded    active   exited  Rebuild Dynamic Linker Cache
+  locksmithd.service                                            loaded    active   running Cluster reboot manager
+  logrotate.service                                             loaded    inactive dead    Rotate log files
+  mdadm.service                                                 loaded    inactive dead    Initiates a check run of an MD array's redundancy information.
+  modprobe@configfs.service                                     loaded    inactive dead    Load Kernel Module configfs
+  modprobe@dm_mod.service                                       loaded    inactive dead    Load Kernel Module dm_mod
+  modprobe@drm.service                                          loaded    inactive dead    Load Kernel Module drm
+  modprobe@efi_pstore.service                                   loaded    inactive dead    Load Kernel Module efi_pstore
+  modprobe@fuse.service                                         loaded    inactive dead    Load Kernel Module fuse
+  modprobe@loop.service                                         loaded    inactive dead    Load Kernel Module loop
+  modprobe@tun.service                                          loaded    inactive dead    Load Kernel Module tun
+  motdgen.service                                               loaded    inactive dead    Generate /run/flatcar/motd
+  nvidia.service                                                loaded    active   exited  NVIDIA Configure Service
+* plymouth-quit-wait.service                                    not-found inactive dead    plymouth-quit-wait.service
+* plymouth-start.service                                        not-found inactive dead    plymouth-start.service
+  remount-root.service                                          loaded    inactive dead    Remount Root File System
+  rescue.service                                                loaded    inactive dead    Rescue Shell
+  serial-getty@ttyS0.service                                    loaded    active   running Serial Getty on ttyS0
+  setup-nsswitch.service                                        loaded    inactive dead    Create /etc/nsswitch.conf
+  ssh-key-proc-cmdline.service                                  loaded    inactive dead    Install an ssh key from /proc/cmdline
+  sshd-keygen.service                                           loaded    active   exited  Generate sshd host keys
+  sshd.service                                                  loaded    inactive dead    OpenSSH server daemon
+  sshd@75-4124-10.0.2.15:22-10.0.2.2:43088.service              loaded    active   running OpenSSH per-connection server daemon (10.0.2.2:43088)
+  sshkeys.service                                               loaded    inactive dead    sshkeys.service
+* syslog.service                                                not-found inactive dead    syslog.service
+  system-cloudinit@usr-share-coreos-cloud\x2dconfig.yml.service loaded    inactive dead    Load cloud-config from /usr/share/coreos/cloud-config.yml
+  systemd-ask-password-console.service                          loaded    inactive dead    Dispatch Password Requests to Console
+  systemd-ask-password-wall.service                             loaded    inactive dead    Forward Password Requests to Wall
+  systemd-battery-check.service                                 loaded    inactive dead    Early Battery Level Check
+  systemd-binfmt.service                                        loaded    inactive dead    Set Up Additional Binary Formats
+  systemd-confext-initrd.service                                loaded    inactive dead    Merge System Configuration Images into /etc/
+  systemd-confext.service                                       loaded    active   exited  Merge System Configuration Images into /etc/
+  systemd-factory-reset-complete.service                        loaded    inactive dead    Mark the Factory Reset as Completed
+  systemd-fsck-root.service                                     loaded    inactive dead    File System Check on Root Device
+  systemd-fsck@dev-disk-by\x2dlabel-EFI\x2dSYSTEM.service       loaded    inactive dead    File System Check on /dev/disk/by-label/EFI-SYSTEM
+  systemd-fsck@dev-disk-by\x2dlabel-OEM.service                 loaded    active   exited  File System Check on /dev/disk/by-label/OEM
+  systemd-halt.service                                          loaded    inactive dead    System Halt
+  systemd-hibernate-clear.service                               loaded    inactive dead    Clear Stale Hibernate Storage Info
+  systemd-hibernate-resume.service                              loaded    inactive dead    Resume from hibernation
+  systemd-hostnamed.service                                     loaded    inactive dead    Hostname Service
+  systemd-hwdb-update.service                                   loaded    active   exited  Rebuild Hardware Database
+  systemd-importd.service                                       loaded    inactive dead    Disk Image Download Service
+  systemd-journal-catalog-update.service                        loaded    active   exited  Rebuild Journal Catalog
+  systemd-journal-flush.service                                 loaded    active   exited  Flush Journal to Persistent Storage
+  systemd-journald.service                                      loaded    active   running Journal Service
+  systemd-kexec.service                                         loaded    inactive dead    Reboot via kexec
+  systemd-logind.service                                        loaded    active   running User Login Management
+  systemd-machine-id-commit.service                             loaded    inactive dead    Save Transient machine-id to Disk
+  systemd-machined.service                                      loaded    inactive dead    Virtual Machine and Container Registration Service
+  systemd-modules-load.service                                  loaded    active   exited  Load Kernel Modules
+  systemd-mountfsd.service                                      loaded    inactive dead    DDI File System Mounter
+  systemd-network-generator.service                             loaded    active   exited  Generate Network Units from Kernel Command Line
+  systemd-networkd-persistent-storage.service                   loaded    active   exited  Enable Persistent Storage in systemd-networkd
+  systemd-networkd-wait-online.service                          loaded    active   exited  Wait for Network to be Online
+  systemd-networkd.service                                      loaded    active   running Network Management
+  systemd-nsresourced.service                                   loaded    active   running Namespace Resource Manager
+  systemd-oomd.service                                          loaded    active   running Userspace Out-Of-Memory (OOM) Killer
+  systemd-poweroff.service                                      loaded    inactive dead    System Power Off
+  systemd-pstore.service                                        loaded    inactive dead    Platform Persistent Storage Archival
+  systemd-quotacheck-root.service                               loaded    inactive dead    Root File System Quota Check
+* systemd-quotacheck.service                                    not-found inactive dead    systemd-quotacheck.service
+  systemd-random-seed.service                                   loaded    active   exited  Load/Save OS Random Seed
+  systemd-reboot.service                                        loaded    inactive dead    System Reboot
+  systemd-remount-fs.service                                    loaded    active   exited  Remount Root and Kernel File Systems
+  systemd-repart.service                                        loaded    inactive dead    Repartition Root Disk
+  systemd-resolved.service                                      loaded    active   running Network Name Resolution
+  systemd-soft-reboot.service                                   loaded    inactive dead    Reboot System Userspace
+  systemd-sysctl.service                                        loaded    active   exited  Apply Kernel Variables
+  systemd-sysext-initrd.service                                 loaded    inactive dead    Merge System Extension Images into /usr/ and /opt/
+  systemd-sysext.service                                        loaded    active   exited  Merge System Extension Images into /usr/ and /opt/
+  systemd-sysupdate-reboot.service                              loaded    inactive dead    Reboot Automatically After System Update
+  systemd-sysupdate.service                                     loaded    inactive dead    Automatic System Update
+  systemd-sysusers.service                                      loaded    active   exited  Create System Users
+  systemd-timesyncd.service                                     loaded    active   running Network Time Synchronization
+  systemd-tmpfiles-clean.service                                loaded    inactive dead    Cleanup of Temporary Directories
+  systemd-tmpfiles-setup-dev-early.service                      loaded    active   exited  Create Static Device Nodes in /dev gracefully
+  systemd-tmpfiles-setup-dev.service                            loaded    active   exited  Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                                loaded    active   exited  Create System Files and Directories
+* systemd-tpm2-setup-early.service                              not-found inactive dead    systemd-tpm2-setup-early.service
+  systemd-udev-load-credentials.service                         loaded    active   exited  Load udev Rules from Credentials
+  systemd-udev-settle.service                                   loaded    inactive dead    Wait for udev To Complete Device Initialization
+  systemd-udev-trigger.service                                  loaded    active   exited  Coldplug All udev Devices
+  systemd-udevd.service                                         loaded    active   running Rule-based Manager for Device Events and Files
+  systemd-update-done.service                                   loaded    active   exited  Update is Completed
+  systemd-update-utmp.service                                   loaded    active   exited  Record System Boot/Shutdown in UTMP
+  systemd-user-sessions.service                                 loaded    active   exited  Permit User Sessions
+  systemd-userdb-load-credentials.service                       loaded    active   exited  Load JSON user/group Records from Credentials
+  systemd-userdbd.service                                       loaded    active   running User Database Manager
+  systemd-vconsole-setup.service                                loaded    active   exited  Virtual Console Setup
+  tcsd.service                                                  loaded    inactive dead    TCG Core Services Daemon
+  update-ca-certificates.service                                loaded    inactive dead    Update CA bundle at /etc/ssl/certs/ca-certificates.crt
+  update-engine-stub.service                                    loaded    inactive dead    Update Engine Stub
+  update-engine.service                                         loaded    active   running Update Engine
+  update-ssh-keys-after-ignition.service                        loaded    inactive dead    Run update-ssh-keys once after Ignition
+  user-cloudinit-proc-cmdline.service                           loaded    inactive dead    Load cloud-config from url defined in /proc/cmdline
+  user-cloudinit@var-lib-flatcar\x2dinstall-user_data.service   loaded    inactive dead    Load cloud-config from /var/lib/flatcar-install/user_data
+  user-runtime-dir@1000.service                                 loaded    active   exited  User Runtime Directory /run/user/1000
+  user-runtime-dir@500.service                                  loaded    active   exited  User Runtime Directory /run/user/500
+  user@1000.service                                             loaded    active   running User Manager for UID 1000
+  xenserver-pv-version.service                                  loaded    inactive dead    Set fake PV driver version for XenServer

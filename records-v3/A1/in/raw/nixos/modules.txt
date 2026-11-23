@@ -1,0 +1,93 @@
+Module                  Size  Used by
+af_packet              69632  2
+cfg80211             1474560  0
+rfkill                 45056  2 cfg80211
+8021q                  53248  0
+joydev                 28672  0
+mousedev               28672  0
+intel_rapl_msr         20480  0
+ppdev                  24576  0
+edac_core             114688  0
+intel_rapl_common      53248  1 intel_rapl_msr
+polyval_clmulni        12288  0
+ghash_clmulni_intel    12288  0
+vga16fb                28672  0
+aesni_intel            98304  0
+tiny_power_button      12288  0
+bochs                  24576  0
+evdev                  32768  2
+psmouse               225280  0
+vgastate               20480  1 vga16fb
+parport_pc             49152  0
+i2c_piix4              36864  0
+parport                53248  2 parport_pc,ppdev
+i2c_smbus              20480  1 i2c_piix4
+input_leds             16384  0
+led_class              24576  1 input_leds
+mac_hid                16384  0
+intel_agp              24576  0
+intel_gtt              32768  1 intel_agp
+button                 28672  0
+rtc_cmos               28672  1
+serio_raw              20480  0
+xt_conntrack           12288  2
+nf_conntrack          196608  1 xt_conntrack
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         12288  1 nf_conntrack
+ata_generic            12288  0
+pata_acpi              12288  0
+xt_tcpudp              16384  3
+ip6t_rpfilter          12288  1
+ipt_rpfilter           12288  1
+xt_pkttype             12288  2
+nft_compat             28672  9
+x_tables               53248  6 xt_conntrack,ip6t_rpfilter,nft_compat,xt_tcpudp,ipt_rpfilter,xt_pkttype
+nf_tables             393216  101 nft_compat
+nfnetlink              24576  2 nft_compat,nf_tables
+sch_fq_codel           28672  2
+kvm_amd               249856  0
+ccp                   192512  1 kvm_amd
+kvm                  1421312  1 kvm_amd
+irqbypass              16384  1 kvm
+loop                   49152  0
+configfs               69632  1
+dmi_sysfs              28672  0
+qemu_fw_cfg            24576  0
+vsock_loopback         16384  0
+vmw_vsock_virtio_transport    24576  0
+vmw_vsock_virtio_transport_common    61440  2 vsock_loopback,vmw_vsock_virtio_transport
+vsock                  73728  3 vmw_vsock_virtio_transport_common,vsock_loopback,vmw_vsock_virtio_transport
+ext4                 1175552  1
+crc16                  12288  1 ext4
+mbcache                20480  1 ext4
+jbd2                  204800  1 ext4
+sr_mod                 36864  0
+cdrom                  81920  1 sr_mod
+atkbd                  40960  0
+libps2                 24576  2 atkbd,psmouse
+vivaldi_fmap           12288  1 atkbd
+floppy                126976  0
+ata_piix               45056  0
+libata                499712  3 ata_piix,pata_acpi,ata_generic
+virtio_net            131072  0
+i8042                  57344  0
+serio                  32768  6 serio_raw,atkbd,psmouse,i8042
+net_failover           24576  1 virtio_net
+virtio_blk             40960  1
+failover               16384  1 net_failover
+scsi_mod              339968  2 libata,sr_mod
+scsi_common            16384  3 scsi_mod,libata,sr_mod
+virtio_rng             16384  0
+dm_mod                241664  0
+virtio_gpu            118784  0
+virtio_dma_buf         12288  1 virtio_gpu
+virtio_balloon         32768  0
+virtio_pci             61440  0
+virtio_pci_legacy_dev    16384  1 virtio_pci
+virtio_pci_modern_dev    24576  1 virtio_pci
+virtiofs               40960  0
+fuse                  282624  2 virtiofs
+virtio_console         49152  0
+virtio                 32768  9 virtio_rng,virtio_console,virtio_balloon,virtiofs,vmw_vsock_virtio_transport,virtio_gpu,virtio_pci,virtio_blk,virtio_net
+virtio_ring            61440  10 virtio_rng,virtio_console,virtio_balloon,virtiofs,vmw_vsock_virtio_transport,virtio_gpu,virtio_pci,virtio_blk,virtio,virtio_net
+autofs4                65536  0

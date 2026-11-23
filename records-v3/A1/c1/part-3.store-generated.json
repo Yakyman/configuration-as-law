@@ -1,0 +1,38 @@
+{
+  "grub-config.xml": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/system/boot/loader/grub/grub.nix",
+    "quote": "    efiSysMountPoint' = replaceStrings [ \"/\" ] [ \"-\" ] efiSysMountPoint;\n    in\n    pkgs.writeText \"grub-config.xml\" (\n      builtins.toXML {\n        splashImage = f cfg.splashImage;\n        splashMode = f cfg.splashMode;\n        backgroundColor = f cfg.backgroundColor;\n        entryOptions = f cfg.entryOptions;\n        subEntryOptions = f cfg.subE"
+  },
+  "nixos-version": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/system/activation/top-level.nix",
+    "quote": "g.systemd.package.interfaceVersion}\" > $out/init-interface-version\n    echo -n \"$nixosLabel\" > $out/nixos-version\n    echo -n \"${config.boot.kernelPackages.stdenv.hostPlatform.system}\" > $out/system\n\n    ${config.system.systemBuilderCommands}\n\n    printf \"%s \" \"''${extraDependencies[@]}\" > \"$out/extra-dependencies\"\n\n    ${optionalString (!config.bo"
+  },
+  "switch-inhibitors": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/system/activation/switchable-system.nix",
+    "quote": "      '';\n\n      systemBuilderCommands = ''\n        ln -s ${config.system.build.inhibitSwitch} $out/switch-inhibitors\n      '';\n\n      build.inhibitSwitch = pkgs.writers.writeJSON \"switch-inhibitors\" config.system.switch.inhibitors;\n\n      preSwitchChecks.switchInhibitors =\n        let\n          jq = lib.getExe pkgs.jq;\n          empty = pkgs.write"
+  },
+  "empty-inhibitors": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/system/activation/switchable-system.nix",
+    "quote": "switchInhibitors =\n        let\n          jq = lib.getExe pkgs.jq;\n          empty = pkgs.writeText \"empty-inhibitors\" \"{}\";\n        in\n        # bash\n        ''\n          incoming=\"''${1-}\"\n          action=\"''${2-}\"\n\n          case \"$action\" in\n            boot|dry-activate)\n              echo \"Not checking switch inhibitors (action = $action)\"\n  "
+  },
+  "migrate-dhcpcd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/services/networking/dhcpcd.nix",
+    "quote": "hcpcd\";\n          RuntimeDirectory = \"dhcpcd\";\n\n          ExecStartPre = \"+${pkgs.writeShellScript \"migrate-dhcpcd\" ''\n            # migrate from old database directory\n            if test -f /var/db/dhcpcd/duid; then\n              echo 'migrating DHCP leases from /var/db/dhcpcd to /var/lib/dhcpcd ...'\n              mv /var/db/dhcpcd/* -t /var/lib/"
+  },
+  "systemd-generator-environment": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/system/boot/systemd.nix",
+    "quote": "gnore *\n        '';\n\n        \"systemd/generator-environment.json\".source =\n          json.generate \"systemd-generator-environment.json\" cfg.generatorEnvironment;\n\n        \"systemd/system-environment-generators/env-generator\".source =\n          \"${config.system.nixos-init.package}/bin/env-generator\";\n\n        \"sysctl.d/50-default.conf\".source = \"${c"
+  },
+  "nixos-help": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/misc/documentation.nix",
+    "quote": "   exit 1\n            } >&2\n        '';\n\n    inherit (cfg.nixos.options) warningsAreErrors;\n  };\n\n  nixos-help =\n    let\n      helpScript = pkgs.writeShellScriptBin \"nixos-help\" ''\n        # Finds first executable browser in a colon-separated list.\n        # (see how xdg-open defines BROWSER)\n        browser=\"$(\n          IFS=: ; for b in $BROWSER;"
+  },
+  "getty": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/services/ttys/getty.nix",
+    "quote": "{\n  config,\n  lib,\n  pkgs,\n  ...\n}:\n\nwith lib;\n\nlet\n  cfg = config.services.getty;\n\n  baseArgs = [\n    \"--login-program\"\n    \"${cfg.loginProgram}\"\n    \"--issue-file\"\n    \"/etc/issue:/etc/issue.d:/run/issue:/run/issue.d\"\n  ]\n  ++ optionals (cfg.autologinUser != null && !cfg.autologinOnce) [\n    \"--autologin\"\n    cfg.autologin"
+  },
+  "system-path": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/nixos/modules/misc/documentation.nix",
+    "quote": "{\n  imports = [\n    ./man-db.nix\n    ./mandoc.nix\n    ./assertions.nix\n    ./meta.nix\n    ../config/system-path.nix\n    ../system/etc/etc.nix\n    (mkRenamedOptionModule [ \"programs\" \"info\" \"enable\" ] [ \"documentation\" \"info\" \"enable\" ])\n    (mkRenamedOptionModule [ \"programs\" \"man\" \"enable\" ] [ \"documentation\" \"man\" \"enable\" ])\n    (mkRenamedOption"
+  }
+}

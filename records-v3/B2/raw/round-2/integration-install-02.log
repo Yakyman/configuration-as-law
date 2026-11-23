@@ -1,0 +1,29 @@
+usermod: no changes
+kernel.yama.ptrace_scope = 2
+Shellless login, syscall filter and declaration-generated code policy installed
+Unit /etc/systemd/system/fapolicyd.service is masked, ignoring.
+The unit files have no installation config (WantedBy=, RequiredBy=, UpheldBy=,
+Also=, or Alias= settings in the [Install] section, and DefaultInstance= for
+template units). This means they are not meant to be enabled or disabled using systemctl.
+ 
+Possible reasons for having these kinds of units are:
+• A unit may be statically enabled by being symlinked from another unit's
+  .wants/, .requires/, or .upholds/ directory.
+• A unit's purpose may be to act as a helper for some other unit which has
+  a requirement dependency on it.
+• A unit may be started when needed via activation (socket, path, timer,
+  D-Bus, udev, scripted systemctl call, ...).
+• In case of template units, the unit is meant to be enabled with some
+  instance name specified.
+FACTORY rows=486 files=28828
+SUCCESS 416ab22a6463a115d7f76859944a0c5e99da37423f8709464a650ce0c0310f36
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.7
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"

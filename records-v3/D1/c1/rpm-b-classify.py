@@ -1,0 +1,36 @@
+import csv,json,re,collections,pathlib
+rows=[x for x in csv.DictReader(open('D1/in/part-tumbleweed.tsv'),delimiter='\t') if x['kind']=='L1:package:rpm'][2390:]
+meta=json.load(open('D1/c1/rpm-b-metadata.json'));m=meta['packages']
+# Only descriptions establish package function; name suffixes identify documented subpackage roles.
+known_code=set('Mesa Mesa-dri Mesa-libEGL1 Mesa-libva Mesa-vulkan-device-select akonadi-calendar akonadi-mime at-spi2-core aurorae6 bash-loadables bluez-cups dbus-1 dolphin-part glib-networking gsettings-backend-dconf gstreamer gvfs gvfs-backend-afc gvfs-backend-samba gvfs-backends gvfs-fuse java-25-openjdk kaccounts-integration kactivitymanagerd6 kconf_update5 kconf_update6 kcoreaddons kde-gtk-config6 kde-gtk-config6-gtk3 kdegraphics-thumbnailers kdeplasma6-addons kernel-default kf6-karchive kf6-kauth kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfigwidgets kf6-kcontacts kf6-kcoreaddons kf6-kcrash kf6-kdav kf6-kdbusaddons kf6-kdesu kf6-kglobalaccel kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kidletime-plugins kf6-kitemviews kf6-kjobwidgets kf6-knotifications kf6-knotifyconfig kf6-kparts kf6-kpty kf6-kquickcharts kf6-krunner kf6-kstatusnotifieritem kf6-ksvg kf6-kunitconversion kf6-kuserfeedback kf6-kwallet kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kf6-modemmanager-qt kf6-networkmanager-qt kf6-purpose kf6-qqc2-desktop-style kf6-solid kglobalacceld6 kio-extras kio-fuse kio_audiocd kirigami-addons6 kitinerary konsole-part krb5 mailimporter markdownpart milou6 mozilla-nspr mozilla-nss mpg123-openal netavark notification-daemon openssh openssh-askpass-gnome openssl p11-kit-server pam_kwallet6 pam_pwquality phonon-vlc-qt5 phonon-vlc-qt6 pipewire-alsa pipewire-jack plasma5support6 plasma6-activities plasma6-activities-stats plasma6-disks plasma6-nm plasma6-nm-openconnect plasma6-nm-openvpn plasma6-nm-pptp plasma6-pa plasma6-thunderbolt plasma6-workspace-libs plymouth-dracut polkit-kde-agent-6 powerdevil6 python313 qca-qt6 qt6-network-tls qt6-networkinformation-connman qt6-networkinformation-glib qt6-networkinformation-nm qt6-virtualkeyboard qt6-webengine samba-dcerpc samba-libs-python3 selinux-autorelabel shared-python-startup signond-libs solid-imports sqlite3-tcl suse-module-tools suse-module-tools-scriptlets svgpart system-config-printer-common trash_kcm udev-configure-printer union6 vim-data vim-data-common xterm'.split())
+settings=set('ImageMagick-config-7-SUSE MozillaFirefox-branding-openSUSE NetworkManager-branding-openSUSE PackageKit-branding-openSUSE alsa-ucm-conf chrony-pool-openSUSE dbus-broker-block-restart flatpak-remote-flathub freecell-solver-presets libnl-config libsemanage-conf libtirpc-netconfig openal-soft-data registries-conf-default rpm-config-SUSE gtk3-branding-openSUSE gtk4-branding-openSUSE libreoffice-branding-openSUSE'.split())
+security=set('crypto-policies container-selinux flatpak-selinux passt-selinux selinux-policy selinux-policy-targeted tigervnc-selinux permissions permissions-config polkit-default-privs btrfsprogs-udev-rules ddcutil-i2c-udev-rules sane-backends-autoconfig libmtp-udev systemd-presets-common-SUSE systemd-presets-branding-openSUSE login_defs'.split())
+result=[];unresolved=[]
+for r in rows:
+ k=r['name'].split(':',1)[1]; v=m.get(k,{});s=v.get('summary','');d=v.get('description','');body=s+' '+d
+ decision=sent=reason=rule=None
+ if k=='gpg-pubkey':
+  decision='NOT';sent='S2.2-7,S2.2-13';reason='Package verification trust keys are values used inside the package manager; they are not account login keys.';rule='trust';s='Stores package-signature verification keys'
+ elif k.startswith('system-user-') or k.startswith('system-group-'):
+  decision='MUST';sent='S2.2-1,S2.2-15';reason='Defines system accounts or groups controlling access; removing them changes account availability or rights.';rule='accounts'
+ elif k.startswith('kernel-firmware-') and k!='kernel-firmware-all' or k=='ucode-amd':
+  decision='MUST';sent='S2.2-2,S2.2-16';reason='Supplies device firmware loaded by the system; removal makes the supplied device functionality unavailable.';rule='firmware'
+ elif k in settings:
+  decision='NOT';sent='S2.2-7,S2.2-13';reason='Supplies values configuring one program; the explicit exception exempts settings confined to that program.';rule='settings'
+ elif k in security:
+  decision='MUST';sent='S2.2-1,S2.2-2,S2.2-15';reason='Controls system access, service activation, or device handling; removal changes system-wide behavior or permissions.';rule='systemrules'
+ elif k=='xorg-x11-libX11-ccache':
+  decision='NOT';sent='S2.2-5';reason='Precomputed compose-file cache accelerates processing; removing it leaves the underlying functionality available.';rule='cache'
+ elif re.search(r'Documentation|Manualpages|Manual Pages|License|info pages',s,re.I):
+  decision='NOT';sent='S2.2-4';reason='Supplies explanatory documents; removal removes their contents without removing the documented program capability.';rule='docs'
+ elif re.search(r'Translations|Languages for package',s,re.I) or k.endswith('-lang') or re.search(r'\b(fonts?|typeface|wallpapers?|icons?|logos?|dictionar(?:y|ies)|database|data ?files|data files|locale data|encoding files|character entit|card decks|sound theme)\b',s,re.I) or k in {'libexttextcat','gnome-tour-data','xbitmaps','snmp-mibs','iso-codes','libicu78-ledata','libthai-data','libnumbertext-data'}:
+  decision='HOLE';sent='S2.2-2,S2.2-4';reason='Removal loses supplied text, artwork, or reference data; the text does not distinguish unavailable content from lost rendering, language, or recognition capability.';rule='data'
+ elif k.startswith(('patterns-','typelib-')) or k in {'kernel-firmware-all','xorg-x11-driver-video','qtdeclarative-imports-provides-qt6','filesystem','javapackages-filesystem','branding-openSUSE','openSUSE-release','openSUSE-release-ftp'}:
+  decision='HOLE';sent='S2.2-1,S2.2-2,S2.2-4,S2.2-13';reason='Supplies structural or descriptive metadata; the text does not determine whether its downstream use is behavior, content, or settings.';rule='metadata'
+ elif any('/bin/' in p or '/sbin/' in p for p in v.get('files',[])) or k in known_code or re.search(r'\blibrar(?:y|ies)\b|\bplug-?ins?\b|\bdaemon\b|\bscripts?\b|\bserver\b|\bbindings?\b|\bimplementation\b|\bengine\b|\bloaders?\b|\bbackend\b',s,re.I) or k.startswith(('python313-','perl-','ruby')) or k.endswith(('-bash-completion','-imports')) or k=='bash-completion' or (k.startswith('yast2-') and not any(t in k for t in ['theme','branding','data','stats'])):
+  decision='MUST';sent='S2.2-9,S2.2-10';reason='Supplies executable program or library/interpreter code running with the executing program rights; removal removes that implementation.';rule='code'
+ else:unresolved.append((k,s,d))
+ if decision:result.append(dict(id=r['id'],decision=decision,sentences=sent,what_it_does=' '.join(s.replace('\\n',' ').split()[:15]),basis='doc:'+meta['source'],reason=reason,rule=rule,name=k))
+json.dump(result,open('D1/c1/rpm-b-preliminary.json','w'),indent=2)
+json.dump(unresolved,open('D1/c1/rpm-b-unresolved.json','w'),indent=2)
+print('Classified',len(result),'rules',collections.Counter(x['rule'] for x in result));print('Unresolved',len(unresolved));print('\n'.join(k+' | '+s+' | '+d[:180] for k,s,d in unresolved))

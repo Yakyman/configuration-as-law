@@ -1,0 +1,4 @@
+Documentation: https://raw.githubusercontent.com/Millak/guix/master/guix/self.scm
+Exact excerpt: "that provide Guile modules."
+Exact excerpt: (program-file "guix-command"
+Observation: source and compiled module directories are combined under the Guile site and site-ccache paths; scheme-node builds cli-core, extra, system, and system-tests module sets; program-file builds the command entry point. The quiet-guile builder compiles guile-launcher.c to its bin/guile wrapper.

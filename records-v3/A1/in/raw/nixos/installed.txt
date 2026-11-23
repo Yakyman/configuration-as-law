@@ -1,0 +1,42 @@
+ANSI_COLOR="0;38;2;126;186;228"
+BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+BUILD_ID="26.05.14630.f68407657ad2"
+CPE_NAME="cpe:/o:nixos:nixos:26.05"
+DEFAULT_HOSTNAME=nixos
+DOCUMENTATION_URL="https://nixos.org/learn.html"
+HOME_URL="https://nixos.org/"
+ID=nixos
+ID_LIKE=""
+IMAGE_ID=""
+IMAGE_VERSION=""
+LOGO="nix-snowflake"
+NAME=NixOS
+PRETTY_NAME="NixOS 26.05 (Yarara)"
+SUPPORT_END="2026-12-31"
+SUPPORT_URL="https://nixos.org/community.html"
+VARIANT=""
+VARIANT_ID=""
+VENDOR_NAME=NixOS
+VENDOR_URL="https://nixos.org/"
+VERSION="26.05 (Yarara)"
+VERSION_CODENAME=yarara
+VERSION_ID="26.05"
+{ config, pkgs, ... }:
+{
+  imports = [ ./hardware-configuration.nix ];
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.kernelParams = [ "console=ttyS0,115200n8" ];
+  networking.hostName = "v1-nixos";
+  networking.useDHCP = true;
+  services.openssh.enable = true;
+  users.users.census = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [ "<REDACTED-6>" ];
+  };
+  security.sudo.wheelNeedsPassword = false;
+  nix.settings.max-jobs = 2;
+  nix.settings.cores = 2;
+  system.stateVersion = "26.05";
+}

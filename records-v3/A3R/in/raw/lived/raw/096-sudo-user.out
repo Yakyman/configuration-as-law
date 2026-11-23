@@ -1,0 +1,7 @@
+Matching Defaults entries for user on lived-workstation:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty
+
+User user may run the following commands on lived-workstation:
+    (ALL : ALL) ALL
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/bin/journalctl --disk-usage

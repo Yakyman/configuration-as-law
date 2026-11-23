@@ -1,0 +1,44 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+<REDACTED-5>.
+Please contact your system administrator.
+Add correct host key in <WORKDIR>/v1/known_hosts to get rid of this message.
+Offending ED25519 key in <WORKDIR>/v1/known_hosts:3
+  remove with:
+  ssh-keygen -f '<WORKDIR>/v1/known_hosts' -R '[127.0.0.1]:22133'
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
++ id
+uid=1000(census) gid=100(users) groups=100(users),1(wheel)
++ date -u --iso-8601=seconds
+2026-11-19T06:30:27+00:00
++ sha256sum /etc/nixos/configuration.nix /etc/nixos/hardware-configuration.nix
+556209b7269727a6058ea1d2f790e4246cb1f84b6e9e72fe062654baa4b653c6  /etc/nixos/configuration.nix
+68d9c33e354bc957f708b6b310a3b6376743d47cf9e98505f9eed8bf9d38e304  /etc/nixos/hardware-configuration.nix
++ nix-env -f /nix/var/nix/profiles/per-user/root/channels/nixos -iA hello
+installing 'hello-2.12.3'
+this path will be fetched (73.6 KiB download, 273.1 KiB unpacked):
+  /nix/store/vmg6xkpgylls4kmzd2di3w4886c34bwp-hello-2.12.3
+copying path '/nix/store/vmg6xkpgylls4kmzd2di3w4886c34bwp-hello-2.12.3' from 'https://cache.nixos.org'...
+building '/nix/store/qvmqwc6zik1zb22j9mknq7m4y0bmpp4g-user-environment.drv'...
++ /home/census/.nix-profile/bin/hello
+Hello, world!
++ mkdir -p /home/census/Documents
++ printf 'set number\n'
++ printf '# Work note\n\nInstalled and ran hello from my user profile. Reviewed editor settings.\n'
++ nix-env -q --installed --out-path
+hello-2.12.3  /nix/store/vmg6xkpgylls4kmzd2di3w4886c34bwp-hello-2.12.3
++ sha256sum /etc/nixos/configuration.nix /etc/nixos/hardware-configuration.nix
+556209b7269727a6058ea1d2f790e4246cb1f84b6e9e72fe062654baa4b653c6  /etc/nixos/configuration.nix
+68d9c33e354bc957f708b6b310a3b6376743d47cf9e98505f9eed8bf9d38e304  /etc/nixos/hardware-configuration.nix
++ sudo loginctl enable-linger census
++ date -u --iso-8601=seconds
+2026-11-19T06:30:28+00:00
++ sleep 120
++ date -u --iso-8601=seconds
+2026-11-19T06:32:28+00:00

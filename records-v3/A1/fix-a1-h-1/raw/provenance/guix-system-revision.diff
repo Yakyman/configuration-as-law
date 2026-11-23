@@ -1,0 +1,31 @@
+--- saved-guix-self.scm
++++ system-revision-guix-self.scm
+@@ -53,7 +53,6 @@
+                               `(gnu packages ,module))
+                              variable)))))
+     `(("guile"              . ,(ref 'guile 'guile-3.0-latest))
+-      ("libgc"              . ,(ref 'bdw-gc 'libgc))
+       ("guile-avahi"        . ,(ref 'guile-xyz 'guile-avahi))
+       ("guile-json"         . ,(ref 'guile 'guile-json-4))
+       ("guile-ssh"          . ,(ref 'ssh   'guile-ssh))
+@@ -567,9 +566,6 @@
+   (define gcc
+     (specification->package "gcc-toolchain"))
+ 
+-  (define libgc
+-    (specification->package "libgc"))
+-
+   (define source
+     (search-path %load-path
+                  "gnu/packages/aux-files/guile-launcher.c"))
+@@ -603,10 +599,6 @@
+                   "-L" #$(file-append guile "/lib")
+                   "-Wl,-rpath" #$(file-append guile "/lib")
+                   #$(string-append "-lguile-" effective)
+-                  ;; On the Hurd guile-launcher.c uses libgc symbols directly
+-                  "-L" #$(file-append libgc "/lib")
+-                  "-Wl,-rpath" #$(file-append libgc "/lib")
+-                  "-lgc"
+                   "-o" (string-append #$output "/bin/guile")))))
+ 
+   (computed-file "guile-wrapper" build))

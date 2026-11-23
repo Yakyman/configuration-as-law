@@ -1,0 +1,19 @@
+{"expected": "artifact source matches predeclared SHA-256", "id": "flatpak-SOURCE", "phase": "expected", "sha256": "658bf156a55bb90214eaa6ae65b520c34ec05efc6a1b51a70eca444bf0994159", "source": "B1/CHANNELS.md; B1/raw/install-sources.md E8,E13,E19,E20; B2/raw/round-4/app-notes.md", "utc": "2026-11-22T10:42:41Z", "variants": ["C3.1", "C3.2", "C3.3"]}
+{"id": "flatpak-SOURCE", "passed": true, "phase": "result", "utc": "2026-11-22T10:42:41Z"}
+{"expected": "pinned import and exact reconstructed declaration validate", "id": "flatpak-PARSE", "phase": "expected", "source": "B1/CHANNELS.md; B1/raw/install-sources.md E8,E13,E19,E20; B2/raw/round-4/app-notes.md", "utc": "2026-11-22T10:42:41Z", "variants": ["C3.1", "C3.2", "C3.3"]}
+Traceback (most recent call last):
+  File "/usr/local/lib/stand/app-selftest.py", line 32, in <module>
+    rows=a.import_rows(channel,spec);a.validate(rows,p);result(channel+'-PARSE',True,entry=rows[-1]['application_entry'])
+  File "/usr/local/lib/stand/app_channels.py", line 126, in import_rows
+    return build_rows(channel,spec,blob)
+  File "/usr/local/lib/stand/app_channels.py", line 113, in build_rows
+    payload,entry=unpack(channel,spec,blob);prefix='/opt/stand/pkgs/'+ident
+                  ~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/stand/app_channels.py", line 85, in unpack
+    command('/usr/local/lib/stand/format-tools/ostree','--repo='+str(repo),'fsck','--quiet')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/stand/app_channels.py", line 37, in command
+    if p.returncode:raise ValueError('artifact parser refused: '+p.stderr.decode(errors='replace')[:500])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: artifact parser refused: error: opening repo: Failed to open file ?/proc/sys/kernel/random/boot_id?: Permission denied
+

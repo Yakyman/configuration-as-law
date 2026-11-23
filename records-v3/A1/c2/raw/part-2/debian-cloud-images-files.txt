@@ -1,0 +1,60 @@
+== modprobe.d/blacklist.conf/CLOUD 34
+blacklist pcspkr
+blacklist floppy
+== kernel-img.conf/SYSTEM_BOOT 17
+do_symlinks = no
+== grub.d/enable_cloud/AMD64 0
+== default/grub.d/10_cloud.cfg/SYSTEM_BOOT 99
+# Use PARTUUID instead of UUID for root=
+GRUB_DISABLE_LINUX_UUID=true
+GRUB_DISABLE_LINUX_PARTUUID=
+== default/grub.d/15_timeout.cfg/CLOUD 15
+GRUB_TIMEOUT=0
+cc29a4adc3366b4739b388dc862fd17bad6c2835 2026-11-04
+config_space/12/files/etc/apt/sources.list
+config_space/12/files/etc/apt/sources.list/DEBIAN
+config_space/12/files/etc/apt/sources.list.d
+config_space/12/files/etc/apt/sources.list.d/gce_sdk.list
+config_space/12/files/etc/apt/sources.list.d/gce_sdk.list/file_modes
+config_space/12/files/etc/apt/sources.list.d/gce_sdk.list/GCE_SDK
+config_space/12/files/etc/apt/sources.list.d/debian.sources
+config_space/12/files/etc/apt/sources.list.d/debian.sources/DEBIAN
+config_space/12/files/etc/apt/sources.list.d/debian.sources/SID
+config_space/12/files/etc/apt/sources.list.d/localdebs.list
+apt
+chrony
+cloud
+cloud-release
+default
+fstab
+grub.d
+initramfs-tools
+kernel-img.conf
+modprobe.d
+netplan
+systemd
+45 apt/sources.list/DEBIAN
+# See /etc/apt/sources.list.d/debian.sources
+01_debian_cloud.cfg
+10_azure.cfg
+./cloud/cloud.cfg.d/01_debian_cloud.cfg
+479 ./cloud/cloud.cfg.d/01_debian_cloud.cfg/AZURE
+apt:
+  generate_mirrorlists: true
+
+system_info:
+  default_user:
+    name: debian
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: True
+    gecos: Debian
+    groups: [adm, audio, cdrom, dialout, dip, floppy, plugdev, sudo, video]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+
+  package_mirrors:
+  - arches: [default]
+    failsafe:
+      primary: http://azure.deb.debian.cloud/debian
+      security: http://azure.deb.debian.cloud/debian-security

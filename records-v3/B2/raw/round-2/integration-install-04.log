@@ -1,0 +1,34 @@
+usermod: no changes
+kernel.yama.ptrace_scope = 2
+Shellless login, syscall filter and declaration-generated code policy installed
+Unit /etc/systemd/system/fapolicyd.service is masked, ignoring.
+The unit files have no installation config (WantedBy=, RequiredBy=, UpheldBy=,
+Also=, or Alias= settings in the [Install] section, and DefaultInstance= for
+template units). This means they are not meant to be enabled or disabled using systemctl.
+ 
+Possible reasons for having these kinds of units are:
+• A unit may be statically enabled by being symlinked from another unit's
+  .wants/, .requires/, or .upholds/ directory.
+• A unit's purpose may be to act as a helper for some other unit which has
+  a requirement dependency on it.
+• A unit may be started when needed via activation (socket, path, timer,
+  D-Bus, udev, scripted systemctl call, ...).
+• In case of template units, the unit is meant to be enabled with some
+  instance name specified.
+FACTORY rows=486 files=28830
+SUCCESS d1808b9ee2e5d58b4b8c1c90437bf72c47cb303df6b0636668dee3e39307cfb9
+UTC 2026-11-22T06:55:04Z OP add
+$ stand-apply /var/lib/stand/dev-add
+FAILED restored previous declaration: readback mismatch: dev-service
+EXIT 1
+Traceback (most recent call last):
+  File "/usr/local/lib/stand/selftest.py", line 89, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/usr/local/lib/stand/selftest.py", line 30, in main
+    cmd(['stand-apply',d]);cmd(['stand-verify']);cmd(['/opt/stand/pkgs/dev-worker/bin/worker'])
+    ~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/stand/selftest.py", line 12, in cmd
+    if expected is not None and p.returncode!=expected:raise RuntimeError('unexpected return status')
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: unexpected return status

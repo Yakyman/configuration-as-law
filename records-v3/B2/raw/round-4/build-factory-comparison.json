@@ -1,0 +1,18 @@
+{
+  "expected": "both clean builds emit identical complete factory and initramfs hashes",
+  "files_sha256": {
+    "round-4": {
+      "/boot/initrd.img-6.12.117+deb13-amd64": "668563d9966420710c09b8826e1ccbcc9112ccbcc449782994cdb0b5321c4aac",
+      "/etc/stand/factory/base-files.json": "389ef31925caf6029db0629fcc5073d5a2b45520113c45820a14480a1e9da1fc",
+      "/etc/stand/factory/machine.jsonl": "0cccc17c3d5ef98f37b90ecff4665711b4a99e2cd79571dd3688f124a4395b27"
+    },
+    "round-4-peer": {
+      "/boot/initrd.img-6.12.117+deb13-amd64": "668563d9966420710c09b8826e1ccbcc9112ccbcc449782994cdb0b5321c4aac",
+      "/etc/stand/factory/base-files.json": "389ef31925caf6029db0629fcc5073d5a2b45520113c45820a14480a1e9da1fc",
+      "/etc/stand/factory/machine.jsonl": "0cccc17c3d5ef98f37b90ecff4665711b4a99e2cd79571dd3688f124a4395b27"
+    }
+  },
+  "passed": true,
+  "recipe_files_equal": true,
+  "source_date_epoch": 1794787200
+}

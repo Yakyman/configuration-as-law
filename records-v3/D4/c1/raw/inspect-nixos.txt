@@ -1,0 +1,40 @@
+UTC=2026-11-22T06:32:29Z
+26.05.14979.94c3211b0ee8 (Yarara)
+nix (Nix) 2.34.9
+45f4f0c5de2b4bb4e49b6870915e7a66053f4feac30102d695778bc8737c9901  /etc/nixos/configuration.nix
+cebc3637167ab8ece0fd8cd18dac47522548b8e2cb47968f2d246bde04fbd7d5  /etc/nixos/hardware-configuration.nix
+/run/current-system/sw/bin/nixos-rebuild
+/run/current-system/sw/bin/nix-env
+/run/current-system/sw/bin/useradd
+/run/current-system/sw/bin/usermod
+account uid/gid/shell: user:1000:100:/run/current-system/sw/bin/bash
+users:100
+wheel:1
+mutableUsers=true
+declared primary group="users"
+NAME
+     usermod - modify a user account
+
+SYNOPSIS
+     usermod [options] LOGIN
+
+DESCRIPTION
+     The usermod command modifies the system account files.
+
+OPTIONS
+     -g, --gid GROUP
+	 The name or numerical ID of the user's new primary  group.  The  group
+	 must exist.
+
+	 Any  file from the user's home directory owned by the previous primary
+	 group of the user will be owned by this new group.
+
+	 The group ownership of files outside of the user's home directory must
+	 be fixed manually.
+
+	 The change of the group ownership of files inside of the  user's  home
+	 directory is also not done if the home dir owner uid is different from
+	 the  current or new user id. This is a safety measure for special home
+	 directories such as /.
+
+     -G, --groups GROUP1[,GROUP2,...[,GROUPN]]]

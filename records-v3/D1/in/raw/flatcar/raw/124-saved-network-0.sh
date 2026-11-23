@@ -1,0 +1,1 @@
+awk 'BEGIN{IGNORECASE=1} /^[[:space:]]*($|#|;)/ {next} /^[[:space:]]*\[/ {print;next} /^[[:space:]]*(id|uuid|type|interface-name|ssid|key-mgmt|autoconnect|Name|MACAddress|DHCP|Address|Gateway|DNS|NamePolicy|auto|iface)[[:space:]=]/ {print}' /etc/systemd/network/.keep_sys-apps_systemd-0

@@ -1,0 +1,38 @@
+{
+  "recorded_utc": "2026-11-22T05:23:27.353371+00:00",
+  "scope": "Changed report consistency and input preservation; no empirical rerun",
+  "status": "FAIL",
+  "errors": [
+    "Broken local link: B1/FIX-B1-2.md -> fix-b1-2/validation.json",
+    "Broken local link: B1/FIX-B1-2.md -> fix-b1-2/validation.json",
+    "Broken local link: B1/FIX-B1-2.md -> fix-b1-2/validation.json",
+    "Broken local link: B1/FIX-B1-2.md -> fix-b1-2/validation.json",
+    "Broken local link: B1/FIX-B1-2.md -> fix-b1-2/REVIEW.md",
+    "Missing record: B1/fix-b1-2/REVIEW.md",
+    "Separate review not AGREE"
+  ],
+  "row_count": 88,
+  "counts": {
+    "UNKNOWN": 77,
+    "TEXT-OPEN": 3,
+    "CLOSABLE": 8
+  },
+  "header": "CHANNELS: 8 closable, 0 closable only by removal, 0 not closable, 3 text-open, 77 unknown",
+  "verdict_change_count": 31,
+  "changed_row_count": 32,
+  "requirements_unchanged": true,
+  "design_nonclosable_count": 80,
+  "exact_sentence_quotes_checked": 20,
+  "local_links_checked": 212,
+  "original_files_changed": [
+    "B1/CHANNELS.md",
+    "B1/DESIGN-INPUT.md"
+  ],
+  "frozen_original_files_unchanged": 90,
+  "fixed_text_sha256": {
+    "TEXT.md": "b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532",
+    "SENTENCES.md": "e3bf0facbc37ccdc9de9c36f0b5909bb81690deb8ee07cf6f666e80009a2018c"
+  },
+  "empirical_reruns": 0,
+  "independent_review": "pending"
+}

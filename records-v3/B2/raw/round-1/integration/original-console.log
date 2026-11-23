@@ -1,0 +1,53 @@
+2026-11-22T06:19:14Z create-dev
+create-dev EXIT 0
+2026-11-22T06:19:28Z D01
+D01 EXIT 0
+2026-11-22T06:19:40Z D02
+D02 EXIT 0
+2026-11-22T06:20:00Z D03
+D03 EXIT 0
+2026-11-22T06:20:07Z D04
+D04 EXIT 0
+2026-11-22T06:20:07Z D05
+D05 EXIT 0
+2026-11-22T06:20:09Z D08
+D08 EXIT 0
+2026-11-22T06:20:23Z D09
+D09 EXIT 0
+2026-11-22T06:20:37Z D06
+D06 EXIT 0
+2026-11-22T06:20:51Z export-dev
+export-dev EXIT 0
+2026-11-22T06:20:52Z export-example
+export-example EXIT 0
+2026-11-22T06:20:52Z destroy-dev
+destroy-dev EXIT 0
+2026-11-22T06:20:53Z create-peer-a
+create-peer-a EXIT 0
+2026-11-22T06:21:07Z D10-peer-a
+D10-peer-a EXIT 0
+2026-11-22T06:21:27Z export-peer-a
+export-peer-a EXIT 0
+2026-11-22T06:21:28Z export-declaration-peer-a
+export-declaration-peer-a EXIT 0
+2026-11-22T06:21:28Z destroy-peer-a
+destroy-peer-a EXIT 0
+2026-11-22T06:21:30Z create-peer-b
+create-peer-b EXIT 0
+2026-11-22T06:21:43Z D10-peer-b
+D10-peer-b EXIT 0
+2026-11-22T06:22:03Z export-peer-b
+export-peer-b EXIT 0
+2026-11-22T06:22:03Z export-declaration-peer-b
+export-declaration-peer-b EXIT 0
+2026-11-22T06:22:03Z destroy-peer-b
+destroy-peer-b EXIT 0
+DISPOSABLE VM CLEANUP COMPLETE
+Traceback (most recent call last):
+  File "[host-home]/VMs/cal-1122/stand/round-1/build/development.py", line 53, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "[host-home]/VMs/cal-1122/stand/round-1/build/development.py", line 41, in main
+    if status or not identical:raise RuntimeError('D10 comparison differs')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: D10 comparison differs

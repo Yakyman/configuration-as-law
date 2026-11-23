@@ -1,0 +1,22 @@
+{
+  "source": "C1/fix-c1-1/actions/mint.sh",
+  "commands": [
+    "sudo env DEBIAN_FRONTEND=noninteractive apt-get update\n",
+    "sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y hello podman\n",
+    "flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo\n",
+    "flatpak --user install --noninteractive -y flathub org.gnome.Calculator\n",
+    "sudo nmcli connection add type ethernet ifname '*' 802-3-ethernet.mac-address <MAC> con-name cal-wired ipv4.method auto ipv4.never-default yes ipv6.method disabled\n",
+    "sudo nmcli connection up cal-wired\n",
+    "sudo nmcli connection add type wifi ifname '*' con-name <SSID> ssid <SSID> connection.autoconnect no ipv4.method auto ipv6.method disabled\n",
+    "sudo nmcli connection modify <SSID> wifi-sec.key-mgmt wpa-psk wifi-sec.psk <REDACTED>\n",
+    "mkdir -p \"$HOME/.local/bin\" \"$HOME/.config/systemd/user\"\n",
+    "cat > \"$HOME/.local/bin/cal-user-script\" <<'EOF'\n#!/bin/sh\nprintf 'ordinary-action\\n' >> \"$HOME/cal-user-script.log\"\nEOF\n",
+    "chmod 755 \"$HOME/.local/bin/cal-user-script\"\n",
+    "\"$HOME/.local/bin/cal-user-script\"\n",
+    "cat > \"$HOME/.config/systemd/user/cal-user-script.service\" <<'EOF'\n[Unit]\nDescription=Ordinary user script\n[Service]\nType=oneshot\nExecStart=%h/.local/bin/cal-user-script\nEOF\n",
+    "cat > \"$HOME/.config/systemd/user/cal-user-script.timer\" <<'EOF'\n[Unit]\nDescription=Ordinary user timer\n[Timer]\nOnBootSec=10min\nOnUnitActiveSec=1h\n[Install]\nWantedBy=timers.target\nEOF\n",
+    "systemctl --user daemon-reload\n",
+    "systemctl --user enable --now cal-user-script.timer\n",
+    "podman run --name cal-container docker.io/library/busybox:1.37.0 /bin/sh -c 'printf \"ordinary-container\\n\"'\n"
+  ]
+}

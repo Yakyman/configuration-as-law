@@ -1,0 +1,249 @@
+## 296 L1:unit-file MUST | defines a unit that is enabled, startable, an alias or a dependency; removal makes startin
+   flatcar-0a0dfc33687671373fd47b13 systemd-sysext.service | unit file systemd-sysext.service state disabled
+   flatcar-1d1466ff8c794cfd61be10ca containerd.service | unit file containerd.service state disabled
+   flatcar-c89d41fe75cf8c6fbccfb055 rescue.service | unit file rescue.service state static
+   flatcar-5cda9747a42854a1a038b854 sssd.service | unit file sssd.service state disabled
+   flatcar-10e165df73846611af0fbb39 systemd-sysupdate.timer | unit file systemd-sysupdate.timer state disabled
+   flatcar-0e0e6cd7c41d5d32c774d55d iptables-restore.service | unit file iptables-restore.service state disabled
+   flatcar-68bf92f16f8d9e204b5aa17c nfs-idmapd.service | unit file nfs-idmapd.service state static
+   flatcar-ad47dc9104503759d20170b2 systemd-networkd-wait-online@.service | unit file systemd-networkd-wait-online@.service state disabl
+   flatcar-9a5e78d5df470fc79bf0ee37 mdmon@.service | unit file mdmon@.service state static
+   flatcar-144f3a873b61c0334ea852e9 dbus.service | unit file dbus.service state static
+## 246 L2 MUST | BIOS GRUB (this boot) executes it with full machine rights (insmod/autoload, prefix /flatc
+   flatcar-4b4e4471cf5a703812ea458d /boot/flatcar/grub/i386-pc/cbmemc.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-c6184643cea67dae3139d142 /boot/flatcar/grub/i386-pc/usbms.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-671910952676415f63149e08 /boot/flatcar/grub/i386-pc/testload.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-28ade5ddfd33bf1d62f088a6 /boot/flatcar/grub/i386-pc/search_part_uuid.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-53e45b8aeadd239a7b149bb9 /boot/flatcar/grub/i386-pc/part_sunpc.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-91648cf8bc33bfac3e62751d /boot/flatcar/grub/i386-pc/gcry_camellia.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-f6ede53e5ed5b770cbb6aada /boot/flatcar/grub/i386-pc/setjmp.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-77a646d272b3493e5a5e255d /boot/flatcar/grub/i386-pc/video_fb.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-40d6712c5b383ea03ed7c8f9 /boot/flatcar/grub/i386-pc/gptrepair.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+   flatcar-b63524de6eeaa857f3aaf7d5 /boot/flatcar/grub/i386-pc/f2fs.mod | GRUB module loaded and executed by BIOS GRUB from its prefix
+## 191 L2 NOT | read or executed only by the Xen PV GRUB; this machine is a QEMU/KVM guest, so removal cha
+   flatcar-914fc60e5e35c78a1f863970 /boot/flatcar/grub/x86_64-xen/ufs1.mod | GRUB module or list for the Xen PV platform
+   flatcar-34ad325e95cb675633917d4f /boot/flatcar/grub/x86_64-xen/memrw.mod | GRUB module or list for the Xen PV platform
+   flatcar-6c8e3d47615b70755164e735 /boot/flatcar/grub/x86_64-xen/gcry_blowfish.mod | GRUB module or list for the Xen PV platform
+   flatcar-8dfa5dc29481add1c8427b0e /boot/flatcar/grub/x86_64-xen/exfat.mod | GRUB module or list for the Xen PV platform
+   flatcar-c31f2b878480cef9a39ed1c6 /boot/flatcar/grub/x86_64-xen/squash4.mod | GRUB module or list for the Xen PV platform
+   flatcar-b9514664b1b532dcb0be1a22 /boot/flatcar/grub/x86_64-xen/lzopio.mod | GRUB module or list for the Xen PV platform
+   flatcar-7884a74be5ede6d288711bd1 /boot/flatcar/grub/x86_64-xen/minix_be.mod | GRUB module or list for the Xen PV platform
+   flatcar-bc9cd5e0582c2cd3c73a01bb /boot/flatcar/grub/x86_64-xen/part_msdos.mod | GRUB module or list for the Xen PV platform
+   flatcar-9561934f5c0219f7cfc9ae15 /boot/flatcar/grub/x86_64-xen/cat.mod | GRUB module or list for the Xen PV platform
+   flatcar-a7800400f790c43f9639d085 /boot/flatcar/grub/x86_64-xen/msdospart.mod | GRUB module or list for the Xen PV platform
+## 136 L1:polkit-actions MUST | polkit refuses authorization for unregistered actions, so removal makes the action impossi
+   flatcar-f177842f241084c0fc74e7d7 org.freedesktop.machine1.host-login | registered polkit action org.freedesktop.machine1.host-login
+   flatcar-e0997af04e629723b140d669 org.freedesktop.locale1.set-locale | registered polkit action org.freedesktop.locale1.set-locale
+   flatcar-b8f6fbf337e4613292e46fea io.systemd.credentials.decrypt | registered polkit action io.systemd.credentials.decrypt
+   flatcar-3e98ad3ff39e98db542af611 org.freedesktop.import1.export | registered polkit action org.freedesktop.import1.export
+   flatcar-5a2bce5064afe99fabfee054 org.freedesktop.resolve1.set-default-route | registered polkit action org.freedesktop.resolve1.set-defaul
+   flatcar-04a3439853aa9599bd9df690 io.systemd.mount-file-system.mount-untrusted-directory-privately | registered polkit action io.systemd.mount-file-system.mount-
+   flatcar-2fa8190bd3f76f168878c9d5 org.freedesktop.machine1.open-pty | registered polkit action org.freedesktop.machine1.open-pty
+   flatcar-5fffb0162f0ed61366c27a77 org.freedesktop.login1.reboot | registered polkit action org.freedesktop.login1.reboot
+   flatcar-3285ba8050719fbaf821ec88 org.freedesktop.login1.inhibit-handle-reboot-key | registered polkit action org.freedesktop.login1.inhibit-hand
+   flatcar-4ca6628617b60a596dca2c2a org.freedesktop.login1.manage | registered polkit action org.freedesktop.login1.manage
+## 132 L1:service MUST | loaded service unit: it runs or can be started; removal makes starting it impossible
+   flatcar-91a5501fe59caaf866234d6c serial-getty@ttyS0.service | service unit serial-getty@ttyS0.service (loaded active)
+   flatcar-c4b49de6aacd7b5df43159ca modprobe@tun.service | service unit modprobe@tun.service (loaded inactive)
+   flatcar-f5db6b07b72c1baecc961894 systemd-fsck-root.service | service unit systemd-fsck-root.service (loaded inactive)
+   flatcar-7ca566af22562d99a36c1a77 kmod-static-nodes.service | service unit kmod-static-nodes.service (loaded active)
+   flatcar-3be3ebc66a02328cbc1974fa systemd-update-utmp.service | service unit systemd-update-utmp.service (loaded active)
+   flatcar-5d63c2f4f2c84aa622b62f10 systemd-soft-reboot.service | service unit systemd-soft-reboot.service (loaded inactive)
+   flatcar-12e7e5f8483fd20111e0f61b systemd-udevd.service | service unit systemd-udevd.service (loaded active)
+   flatcar-9ecfe389f9eb39cd9410385f systemd-hostnamed.service | service unit systemd-hostnamed.service (loaded inactive)
+   flatcar-82b438e9061c3a944e1c771f dracut-initqueue.service | service unit dracut-initqueue.service (loaded inactive)
+   flatcar-f5e74028b54e6d6b25966e36 systemd-battery-check.service | service unit systemd-battery-check.service (loaded inactive)
+## 73 L1:module MUST | code the kernel executes with kernel rights; removal stops what it provides
+   flatcar-7f1899fa1bffaf94112e7ce8 binfmt_misc | loaded kernel module binfmt_misc
+   flatcar-e9b69f245750fd6e3417fa44 vmw_vsock_virtio_transport_common | loaded kernel module vmw_vsock_virtio_transport_common
+   flatcar-e7c7810e23180e2e4c4621b1 sch_fq_codel | loaded kernel module sch_fq_codel
+   flatcar-cd1afe2cf8a66a0bc2e7d8fc kvm_amd | loaded kernel module kvm_amd
+   flatcar-c43c1adce6ddc40a62f534c2 crc32c_generic | loaded kernel module crc32c_generic
+   flatcar-e230a69fbbc051a901faa6d5 ata_piix | loaded kernel module ata_piix
+   flatcar-5c43b8075926c3cc3bc53f18 bridge | loaded kernel module bridge
+   flatcar-24cff6cc66e677cae7e467dc loop | loaded kernel module loop
+   flatcar-9a9bfa09927e65bccee92bc0 llc | loaded kernel module llc
+   flatcar-7b8afdbe189c8b2d81d9b6a7 scsi_transport_iscsi | loaded kernel module scsi_transport_iscsi
+## 54 L1:access-rule HOLE | read only by sshd (S2.2-7) yet it decides what can be done on the computer through sshd (S
+   flatcar-bb00b6291ec9cf7304e52e97 ssh-access:X11UseLocalhost | sshd setting governing what can be done via sshd: X11UseLoca
+   flatcar-0bdf73041c7a3ae7fca3aeb0 ssh-access:pubkeyauthoptions | sshd setting governing what can be done via sshd: pubkeyauth
+   flatcar-8b8029cbafe7ea635a895b25 ssh-access:CASignatureAlgorithms | sshd setting governing what can be done via sshd: CASignatur
+   flatcar-f7c7fedce0e2f18bdceec831 ssh-access:RefuseConnection | sshd setting governing what can be done via sshd: RefuseConn
+   flatcar-c2ecb15cf6b0b94511e9a53b ssh-access:IgnoreRhosts | sshd setting governing what can be done via sshd: IgnoreRhos
+   flatcar-e11dc946353e182416f820ab ssh-access:AcceptEnv | sshd setting governing what can be done via sshd: AcceptEnv
+   flatcar-155c77b5a3f4cbe62a885b35 ssh-access:HostKey | sshd setting governing what can be done via sshd: HostKey
+   flatcar-c488b0dd3a035637e0c2c96d ssh-access:HostKey | sshd setting governing what can be done via sshd: HostKey
+   flatcar-c7cd4ec65c79b30667e89512 ssh-access:AcceptEnv | sshd setting governing what can be done via sshd: AcceptEnv
+   flatcar-faa0d984fc169a0430fedf1e ssh-access:AcceptEnv | sshd setting governing what can be done via sshd: AcceptEnv
+## 45 L1:group UNKNOWN | no members; whether a unit, device rule or file grant depends on the group name is not in 
+   flatcar-cfc75235c662052fb431b2e4-occurrence-2 shadow | group shadow with no members
+   flatcar-cfc75235c662052fb431b2e4 shadow | group shadow with no members
+   flatcar-8d7d3d230bf2e7ac07fcb476 users | group users with no members
+   flatcar-5444af82cd728dc8663d5fb9 mem | group mem with no members
+   flatcar-24624e77c6b9861313861ae8 tcpdump | group tcpdump with no members
+   flatcar-29f1259c13068e383ee9e66a dhcp | group dhcp with no members
+   flatcar-bdb33c58f9ef84b3eda8bb79 render | group render with no members
+   flatcar-c242b201a2284a2bacd4a5eb systemd-coredump | group systemd-coredump with no members
+   flatcar-42b94f5513549dd2f613cc26 messagebus | group messagebus with no members
+   flatcar-319d7cfc624b3cd6ffe82242 nogroup | group nogroup with no members
+## 41 L1:access-rule NOT | shapes only how sshd itself runs its protocol, logs or limits; settings in force only insi
+   flatcar-55ce7a4c373a37e87f1c5ecb ssh-access:VersionAddendum | sshd internal setting: VersionAddendum
+   flatcar-cde34ae0a06e9c836b514587 ssh-access:persourcenetblocksize | sshd internal setting: persourcenetblocksize
+   flatcar-27deb26d2fe4af2f7297e996 ssh-access:StreamLocalBindMask | sshd internal setting: StreamLocalBindMask
+   flatcar-f659cb06ab962a0351f51a9a ssh-access:TCPKeepAlive | sshd internal setting: TCPKeepAlive
+   flatcar-227f50458b0ebd69dc62a385 ssh-access:ClientAliveCountMax | sshd internal setting: ClientAliveCountMax
+   flatcar-b0129c4b9296d9b55bc5be05 ssh-access:Ciphers | sshd internal setting: Ciphers
+   flatcar-70171fb23917b95641bb05b4 ssh-access:ChannelTimeout | sshd internal setting: ChannelTimeout
+   flatcar-d9080f1b18cd7b9d52ee5bf4 ssh-access:X11DisplayOffset | sshd internal setting: X11DisplayOffset
+   flatcar-27668ef22c0c53aded70245e ssh-access:PidFile | sshd internal setting: PidFile
+   flatcar-9a331615508f9e7abf819565 ssh-access:GSSAPICleanupCredentials | sshd internal setting: GSSAPICleanupCredentials
+## 39 L1:account MUST | accounts must be recorded
+   flatcar-9446ea4c2ea6643ef119fe94-occurrence-2 root | local account root
+   flatcar-ac20110ce769e4192a4a6be3 tlsdate | local account tlsdate
+   flatcar-b0f10a67b85e66452010f1cb sssd | local account sssd
+   flatcar-14982f6f26c34ac0ccfc61dc man | local account man
+   flatcar-7e5392f811c152a212b09b9e uucp | local account uucp
+   flatcar-a40c56482ad628e59ed33432 systemd-resolve | local account systemd-resolve
+   flatcar-1ec43cfe3b1053c5baa53feb core | local account core
+   flatcar-1ec43cfe3b1053c5baa53feb-occurrence-2 core | local account core
+   flatcar-767928423e022addf55bffa7 news | local account news
+   flatcar-30782725c151193b416611bc netperf | local account netperf
+## 32 L1:process MUST | a program that runs on the computer must be recorded
+   flatcar-55032763f65826e491b088f3 25 | running program /usr/lib/systemd/systemd-userwork
+   flatcar-64633c534f8105437f520998 2671 | running program /usr/lib/systemd/systemd-userwork
+   flatcar-284cd771182864c383eb7a85 157 | running program /usr/bin/bash
+   flatcar-f05ee8f3e8364b10957df1b9 1275 | running program /usr/lib/systemd/systemd-resolved
+   flatcar-d0784996137a79baac0fb07a 1489 | running program /usr/lib/systemd/systemd-logind
+   flatcar-97c34088c0761cda1d40a1f8 1644 | running program /usr/lib/systemd/systemd-executor
+   flatcar-a9acca8e8575bf93b0a201bf 1280 | running program /usr/lib/systemd/systemd-userdbd
+   flatcar-8185176747a03f9fcad21155 27 | running program /usr/lib64/misc/sshd-session
+   flatcar-c492be43fae992e473e5ae06 1283 | running program /usr/lib/systemd/systemd-nsresourced
+   flatcar-ba8d8237dfa44ef3a053444c 165 | running program /usr/lib/systemd/systemd-nsresourcework
+## 29 L1:driver MUST | driver code runs with kernel rights; unbinding or removing it stops the device working
+   flatcar-44bd92356b91b0b47cf8277a /sys/devices/platform/reg-dummy/driver | kernel driver reg-dummy bound to a device
+   flatcar-541edec51d6ad87c14a2bfdd /sys/devices/system/cpu/cpu1/driver | kernel driver processor bound to a device
+   flatcar-e9f177838b9a761d15cf452b /sys/devices/platform/i8042/serio0/driver | kernel driver atkbd bound to a device
+   flatcar-bc8c732576c2b08f4d089545 /sys/devices/pci0000:00/0000:00:01.1/driver | kernel driver ata_piix bound to a device
+   flatcar-ccb25ba2988673ebec8ccad2 /sys/devices/platform/i8042/serio1/driver | kernel driver psmouse bound to a device
+   flatcar-3ec540466dde50c24e4e6a58 /sys/devices/pnp0/00:01/driver | kernel driver i8042 aux bound to a device
+   flatcar-3d0421dd3fe9ece92d5747d4 /sys/devices/platform/serial8250/serial8250:0/serial8250:0.1/driver | kernel driver port bound to a device
+   flatcar-38e53d99da881f7e44f46688 /sys/devices/pci0000:00/0000:00:05.0/virtio2/driver | kernel driver virtio_blk bound to a device
+   flatcar-f680f2ced5cbbbb98c0f7e6e /sys/devices/pnp0/00:05/driver | kernel driver rtc_cmos bound to a device
+   flatcar-df01bcfe563b4d2806ab81ed /sys/devices/system/cpu/cpu0/driver | kernel driver processor bound to a device
+## 18 L1:user-unit-file MUST | defines a unit that is enabled, startable, an alias or a dependency; removal makes startin
+   flatcar-f3eeea78985d3ac16b60ca20 user:dirmngr.service | unit file dirmngr.service state static
+   flatcar-194640cbe88827831ab4807e user:p11-kit-server.service | unit file p11-kit-server.service state disabled
+   flatcar-2e7f92f7feef2b1b03e25a0a user:systemd-importd.service | unit file systemd-importd.service state static
+   flatcar-540adbe06f7170c7e7d89301 user:dbus-org.freedesktop.portable1.service | unit file dbus-org.freedesktop.portable1.service state alias
+   flatcar-a8ce43c79b814f572b275c08 user:gpg-agent.service | unit file gpg-agent.service state static
+   flatcar-cfe7cce48a6426db75fd76a1 user:dbus-org.freedesktop.machine1.service | unit file dbus-org.freedesktop.machine1.service state alias
+   flatcar-19a0e1d4f8287374c6f606d3 user:systemd-tmpfiles-clean.timer | unit file systemd-tmpfiles-clean.timer state disabled
+   flatcar-641c726f1b5678e738183893 user:systemd-journalctl@.service | unit file systemd-journalctl@.service state static
+   flatcar-2db3435e61f3b7410b61dfcc user:dbus-org.freedesktop.import1.service | unit file dbus-org.freedesktop.import1.service state alias
+   flatcar-4f99893a5673bd026ad1ab6c user:systemd-vmspawn@.service | unit file systemd-vmspawn@.service state disabled
+## 17 L1:access-rule MUST | S2.2-15 names open ports, login keys, the right to become superuser and the rule that pass
+   flatcar-110d66925baf0a6a1a4bd6f7 ssh-access:port | sshd: port open for connection
+   flatcar-a907f4e61106ab3b830ee0c4 ssh-access:AuthorizedKeysFile | sshd: where login keys of accounts are read
+   flatcar-b861218844402b2dfa2ca967 ssh-access:KerberosOrLocalPasswd | sshd: fallback to local password check
+   flatcar-e04ac31632b8fb0ca58fa72c ssh-access:KbdInteractiveAuthentication | sshd: keyboard-interactive (PAM password) login rule
+   flatcar-44c137335a4d9727246bae27 ssh-access:TrustedUserCAKeys | sshd: CA keys accepted for login certificates
+   flatcar-0918da7edd64a48b206ff7dd ssh-access:AddressFamily | sshd: address families of the open SSH port
+   flatcar-944dcf74467877c671f6168f ssh-access:PermitEmptyPasswords | sshd: rule whether empty-password login is allowed
+   flatcar-c188897f093c5117ff868a85 ssh-access:UsePAM | sshd: PAM authentication including passwords
+   flatcar-5fbfdeb2e75c8a8fd2ae6155 ssh-access:AuthorizedKeysCommandUser | sshd: account running the login-key program
+   flatcar-4ef274c21fc9bb60b53020d4 ssh-access:listenaddress | sshd: addresses where the SSH port is open
+## 15 L1:group UNKNOWN | members are root (unaffected by group permissions) or system accounts, or no listed file i
+   flatcar-02ebf59a3162d26c558a50df daemon | group daemon with members root bin daemon
+   flatcar-9d5f35ad72bf396d264cc47d uucp | group uucp with members uucp
+   flatcar-3e7acd7861265a9c89184e3b root | group root with members root
+   flatcar-0e24d84385923800dea83498 tape | group tape with members root
+   flatcar-a7245c0c58caf4e0f270123e sys | group sys with members root bin adm
+   flatcar-b6f99fb03eecfbb41312f1c9 floppy | group floppy with members root
+   flatcar-5660feb17732bd3e2d11db19 man | group man with members man
+   flatcar-986b4afdeaabbb2011c3a071 news | group news with members news
+   flatcar-f7c3c15c9088a1e93c85517b adm | group adm with members root adm daemon
+   flatcar-6d011a00027adadf3a3b9238 lp | group lp with members lp
+## 8 L1:port MUST | ports open for connection must be recorded; closing it stops the service (DNS, DHCP, SSH, 
+   flatcar-c6a37f7ad7eadbc4acd5dd16 udp UNCONN 0 0 127.0.0.54:53 | socket open for incoming traffic
+   flatcar-c1abfa56a8f1dc6a7b63a838 udp UNCONN 0 0 127.0.0.53%lo:53 | socket open for incoming traffic
+   flatcar-eb410f8eb72c484b4f3618a1 udp UNCONN 0 0 10.0.2.15%eth0:68 | socket open for incoming traffic
+   flatcar-2fffc9fd766184f8c9779733 udp UNCONN 0 0 10.0.3.15%eth1:68 | socket open for incoming traffic
+   flatcar-763cd0d8c894d815f66a35c8 tcp LISTEN 0 4096 127.0.0.54:53 | socket open for incoming traffic
+   flatcar-70ed69761e61ccd609f70d98 tcp LISTEN 0 4096 127.0.0.53%lo:53 | socket open for incoming traffic
+   flatcar-d0a1622131831c067e683bd5 tcp LISTEN 0 4096 127.0.0.1:45621 | socket open for incoming traffic
+   flatcar-95580f2aa9160e767f2e07af tcp LISTEN 0 4096 *:22 | socket open for incoming traffic
+## 7 L1:timer MUST | scheduled start of a service; removal stops those runs
+   flatcar-b1eda66d7e67081774f8ceb0 systemd-tmpfiles-clean.timer | active timer systemd-tmpfiles-clean.timer
+   flatcar-6d3caa2905268b8d64ed1a07 systemd-sysupdate.timer | active timer systemd-sysupdate.timer
+   flatcar-6e8dcd63de37fa0391b40c06 google-oslogin-cache.timer | active timer google-oslogin-cache.timer
+   flatcar-ee1581dc1254fdbe37316bc4 mdadm.timer | active timer mdadm.timer
+   flatcar-dacbb4dd9598455c3c0e8887 logrotate.timer | active timer logrotate.timer
+   flatcar-ffe62ef38bd1a2097c86a56e systemd-sysupdate-reboot.timer | active timer systemd-sysupdate-reboot.timer
+   flatcar-ad654aeb87b83c1471f2bee4 update-engine-stub.timer | active timer update-engine-stub.timer
+## 5 L1:user-service MUST | loaded service unit: it runs or can be started; removal makes starting it impossible
+   flatcar-36902b7d91efb89edf0757e2 user:dbus.service | service unit dbus.service (loaded inactive)
+   flatcar-9a7760bb9fcb1500a8579345 user:systemd-importd.service | service unit systemd-importd.service (loaded inactive)
+   flatcar-25d332624af38f3b7a12f31c user:systemd-machined.service | service unit systemd-machined.service (loaded inactive)
+   flatcar-70b2e39fdff6d3dda69ee69f user:systemd-tmpfiles-clean.service | service unit systemd-tmpfiles-clean.service (loaded inactive
+   flatcar-905e902eefa63160a0ddd48c user:systemd-tmpfiles-setup.service | service unit systemd-tmpfiles-setup.service (loaded active)
+## 5 L2 HOLE | read as values by GRUB only (setting); removal breaks autoload, e.g. of linux, so booting 
+   flatcar-e5869975107dd1606ec51809 /boot/flatcar/grub/i386-pc/command.lst | autoload list GRUB reads at boot to find modules for command
+   flatcar-1d509ff72f6ebda06a74f24b /boot/flatcar/grub/i386-pc/crypto.lst | autoload list GRUB reads at boot to find modules for command
+   flatcar-7904e536689dfb4920c065e2 /boot/flatcar/grub/i386-pc/fs.lst | autoload list GRUB reads at boot to find modules for command
+   flatcar-0e6c4297e1c7ee27ea640213 /boot/flatcar/grub/i386-pc/parttool.lst | autoload list GRUB reads at boot to find modules for command
+   flatcar-cbb532e843582afa0c475968 /boot/flatcar/grub/i386-pc/terminal.lst | autoload list GRUB reads at boot to find modules for command
+## 5 L1:access-rule MUST | polkitd executes the file as JavaScript code; it decides who may perform privileged action
+   flatcar-00a172f9be4f7fb57422e3c0 /usr/share/polkit-1/rules.d/empower.rules | polkit JavaScript rules deciding authorizations
+   flatcar-d53111470b3a1e4a5d1bc7b1 /usr/share/polkit-1/rules.d/systemd-networkd.rules | polkit JavaScript rules deciding authorizations
+   flatcar-15ba5068cd79ebbb2cbfa7c6 /usr/share/polkit-1/rules.d/sssd-realmd.rules | polkit JavaScript rules deciding authorizations
+   flatcar-29b1443a7d9cde03252e5b0e /usr/share/polkit-1/rules.d/sssd-pcsc.rules | polkit JavaScript rules deciding authorizations
+   flatcar-77c4aad4b1ed58435970beb1 /usr/share/polkit-1/rules.d/50-default.rules | polkit JavaScript rules deciding authorizations
+## 4 L1:group MUST | removal drops the login members from the group, so access to the group-owned objects becom
+   flatcar-4f9bee274fd71767025c64e9 docker | grants core group access, e.g. /run/docker.sock
+   flatcar-99dccc2b5ae11e3bbbc90ae6 systemd-journal | grants core group access, e.g. /var/log/journal
+   flatcar-4f9bee274fd71767025c64e9-occurrence-2 docker | grants core group access, e.g. /run/docker.sock
+   flatcar-99dccc2b5ae11e3bbbc90ae6-occurrence-2 systemd-journal | grants core group access, e.g. /var/log/journal
+## 4 L1:access-rule MUST | the right to become superuser must be recorded
+   flatcar-480b364e0b40b0d8496c9960 sudo-access:5 | sudo rule granting full superuser rights
+   flatcar-13853be1586d85a3431f6d8d sudo-root:5 | sudo rule granting full superuser rights
+   flatcar-d0def0f9090d3e5e462a0e09 sudo-root:6 | sudo rule granting full superuser rights
+   flatcar-eac163ea2bf938616e4c57fc sudo-user:5 | sudo rule granting full superuser rights
+## 4 L2 NOT | no runtime GRUB code reads it (only grub-core build files reference it), so removal change
+   flatcar-a57831f044e17b543418e523 /boot/flatcar/grub/i386-pc/fdt.lst | list used only by GRUB build and install tools
+   flatcar-85dcb992af130d2188c69228 /boot/flatcar/grub/i386-pc/moddep.lst | list used only by GRUB build and install tools
+   flatcar-0a3e3cfe3ac4624ab107909d /boot/flatcar/grub/i386-pc/partmap.lst | list used only by GRUB build and install tools
+   flatcar-772bb06922e0fe319ced9341 /boot/flatcar/grub/i386-pc/video.lst | list used only by GRUB build and install tools
+## 3 L1:group MUST | membership gives the right to become superuser, which must be recorded
+   flatcar-0f70a3390c41fa2b59c6884e wheel | group granting its members sudo rights
+   flatcar-a0f0da27341af53b58df6bd9 sudo | group granting its members sudo rights
+   flatcar-0f70a3390c41fa2b59c6884e-occurrence-2 wheel | group granting its members sudo rights
+## 3 L1:network-link MUST | removing the interface or its configuration stops networking over it (lo carries the local
+   flatcar-c6a67a3b1893eff325db70bb networkd:1 | network interface state lo
+   flatcar-09fca72ff3a5c7f7c8db554c networkd:2 | network interface state eth0
+   flatcar-03af7fc8fc60f58774afa3ed networkd:3 | network interface state eth1
+## 3 L2 MUST | shell startup files are code the shell runs with its own rights
+   flatcar-27a9bbed5ceb9ff7953cd293 /home/user/.bash_logout | bash startup file of user, executed by bash
+   flatcar-198385181ff22d0d558e1c21 /home/user/.bash_profile | bash startup file of user, executed by bash
+   flatcar-ea39cc839176e502604c2907 /home/user/.bashrc | bash startup file of user, executed by bash
+## 3 L2 NOT | grub-bios-setup wrote it to the MBR and BIOS-BOOT partition; firmware runs those copies, s
+   flatcar-334558d67d5b17a1a48f6580 /boot/flatcar/grub/i386-pc/core.img | copy of BIOS boot code already written to MBR and BIOS-BOOT 
+   flatcar-fdce05a11eb6580b746ee991 /boot/flatcar/grub/i386-pc/boot.img | copy of BIOS boot code already written to MBR and BIOS-BOOT 
+   flatcar-14a05bb2f57c924ebf089310 /boot/flatcar/grub/i386-pc/mbr.bin | copy of BIOS boot code already written to MBR and BIOS-BOOT 
+## 3 L2 NOT | machine booted via BIOS (kernel registered vga-framebuffer, a VGA text-mode boot); the UEF
+   flatcar-b59146c6ef774b9d1e7896fc /boot/EFI/boot/grubx64.efi | UEFI loader (shim, GRUB, MokManager); runs only on UEFI firm
+   flatcar-a9f169a0287b9bcda5746db1 /boot/EFI/boot/mmx64.efi | UEFI loader (shim, GRUB, MokManager); runs only on UEFI firm
+   flatcar-a4945760c4931e2ae3f22053 /boot/EFI/boot/bootx64.efi | UEFI loader (shim, GRUB, MokManager); runs only on UEFI firm
+## 3 L2 HOLE | not executed in place, only copied by useradd (S2.2-7 setting); removal stops useradd plac
+   flatcar-e99d01540d33e0f07a650d86 /etc/skel/.bash_logout | template copied by useradd into new home directories
+   flatcar-20ac2453d5813a360f4d5a48 /etc/skel/.bash_profile | template copied by useradd into new home directories
+   flatcar-b7763493bf96dc9f0d8a962a /etc/skel/.bashrc | template copied by useradd into new home directories
+## 3 L1:access-rule NOT | sudo skips names with a dot, PAM and polkit read only service or .rules names; removal cha
+   flatcar-2988e2c9c125829707f86771 /etc/pam.d/.keep_sys-libs_pam-0 | empty Gentoo placeholder in a configuration directory
+   flatcar-95a29987a00d50b5e0c6efdb /etc/polkit-1/rules.d/.keep_sys-auth_polkit-0 | empty Gentoo placeholder in a configuration directory
+   flatcar-37f513275dbc89536b67600d /etc/sudoers.d/.keep_app-admin_sudo-0 | empty Gentoo placeholder in a configuration directory
+## 2 L2 NOT | passed to grub-mkimage --config at image build; GRUB uses the embedded copy, so removing t
+   flatcar-37041f258c25177429d46e43 /boot/flatcar/grub/i386-pc/load.cfg | build input: early config embedded into the GRUB core image
+   flatcar-f0f44dff73a1ee2661dd6c9b /boot/flatcar/grub/x86_64-efi/load.cfg | build input: early config embedded into the GRUB core image
+## 2 L2 MUST | sourced by bash login shells; shell startup files are code executed with the shell rights
+   flatcar-39b74ce4ac43077561ded8b6 /etc/profile.d/00-prompt-command.sh | shell code sourced by /etc/profile for login shells
+   flatcar-d7a371cb24bd93a5b6087625 /etc/profile.d/gawk.sh | shell code sourced by /etc/profile for login shells

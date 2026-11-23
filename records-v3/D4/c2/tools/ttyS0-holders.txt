@@ -1,0 +1,1 @@
+sudo sh -c 'for p in /proc/[0-9]*; do ls -l $p/fd 2>/dev/null | grep -q ttyS0 && echo ${p#/proc/} $(cat $p/comm) $(stat -c %U $p); done'

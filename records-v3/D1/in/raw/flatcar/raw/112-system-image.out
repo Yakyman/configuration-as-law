@@ -1,0 +1,18 @@
+NAME="Flatcar Container Linux by Kinvolk"
+ID="flatcar"
+ID_LIKE="coreos"
+VERSION="4757.2.3"
+VERSION_ID="4757.2.3"
+BUILD_ID="2026-10-27-1008"
+SYSEXT_LEVEL="1.0"
+PRETTY_NAME="Flatcar Container Linux by Kinvolk 4757.2.3"
+ANSI_COLOR="38;5;75"
+HOME_URL="https://flatcar.org"
+BUG_REPORT_URL="https://issues.flatcar.org"
+SUPPORT_URL="https://groups.google.com/forum/#!forum/flatcar-linux-user"
+FLATCAR_BOARD="amd64-usr"
+CPE_NAME="cpe:2.3:o:flatcar-linux:flatcar_linux:4757.2.3:*:*:*:*:*:*:*"
+
+MOUNTS
+/usr ro,relatime,seclabel,rescue=nologreplay,space_cache=v2,subvolid=5,subvol=/
+/usr ro,nodev,relatime,seclabel,lowerdir=/run/systemd/sysext/meta/usr:/run/systemd/sysext/extensions/oem-qemu/usr:/run/systemd/sysext/extensions/docker-flatcar/usr:/run/systemd/sysext/extensions/containerd-flatcar/usr:/sysroot/usr

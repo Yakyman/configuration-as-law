@@ -1,0 +1,130 @@
+2026-11-22T06:25:14Z
+Matching Defaults entries for stand on stand:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty, env_reset, !setenv, secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin
+
+User stand may run the following commands on stand:
+    (root) NOSETENV: NOPASSWD: /usr/local/bin/stand-apply, /usr/local/bin/stand-verify, /usr/local/bin/stand-compare, /usr/local/bin/stand-pkg, /usr/local/bin/stand-line, /usr/local/bin/apt, /usr/local/bin/apt-get, /usr/local/bin/pip, /usr/local/bin/pip3, /usr/local/bin/npm, /usr/local/bin/flatpak, /usr/local/bin/podman, /usr/local/bin/crontab, /usr/local/bin/at, /usr/local/bin/systemd-run, /usr/local/bin/systemctl, /usr/local/bin/nmcli, /usr/local/bin/nft, /usr/local/bin/useradd, /usr/local/bin/usermod, /usr/local/bin/userdel, /usr/local/bin/groupadd, /usr/local/bin/groupdel, /usr/local/bin/bluetoothctl
+[
+  "/usr/bin/apt",
+  "/usr/bin/apt-cache",
+  "/usr/bin/apt-config",
+  "/usr/bin/apt-get",
+  "/usr/bin/apt-mark",
+  "/usr/bin/bluetoothctl",
+  "/usr/bin/btmgmt",
+  "/usr/bin/chage",
+  "/usr/bin/chfn",
+  "/usr/bin/chsh",
+  "/usr/bin/dpkg",
+  "/usr/bin/dpkg-deb",
+  "/usr/bin/dpkg-divert",
+  "/usr/bin/dpkg-maintscript-helper",
+  "/usr/bin/dpkg-realpath",
+  "/usr/bin/dpkg-split",
+  "/usr/bin/dpkg-statoverride",
+  "/usr/bin/dpkg-trigger",
+  "/usr/bin/gpasswd",
+  "/usr/bin/hciconfig",
+  "/usr/bin/hcitool",
+  "/usr/bin/loginctl",
+  "/usr/bin/mount",
+  "/usr/bin/newgrp",
+  "/usr/bin/nmcli",
+  "/usr/bin/nmtui",
+  "/usr/bin/passwd",
+  "/usr/bin/rfcomm",
+  "/usr/bin/su",
+  "/usr/bin/systemctl",
+  "/usr/bin/systemd-analyze",
+  "/usr/bin/systemd-mount",
+  "/usr/bin/systemd-run",
+  "/usr/bin/umount",
+  "/usr/bin/update-alternatives",
+  "/usr/lib/apt/methods/cdrom",
+  "/usr/lib/apt/methods/copy",
+  "/usr/lib/apt/methods/file",
+  "/usr/lib/apt/methods/gpgv",
+  "/usr/lib/apt/methods/http",
+  "/usr/lib/apt/methods/mirror",
+  "/usr/lib/apt/methods/rred",
+  "/usr/lib/apt/methods/sqv",
+  "/usr/lib/apt/methods/store",
+  "/usr/lib/dpkg/methods",
+  "/usr/lib/python3/dist-packages/apt",
+  "/usr/lib/python3/dist-packages/apt_inst-stubs",
+  "/usr/lib/python3/dist-packages/apt_inst.cpython-313-x86_64-linux-gnu.so",
+  "/usr/lib/python3/dist-packages/apt_listchanges",
+  "/usr/lib/python3/dist-packages/apt_listchanges-4.8.dist-info",
+  "/usr/lib/python3/dist-packages/apt_pkg-stubs",
+  "/usr/lib/python3/dist-packages/apt_pkg.cpython-313-x86_64-linux-gnu.so",
+  "/usr/lib/python3/dist-packages/aptsources",
+  "/usr/lib/systemd/systemd",
+  "/usr/lib/x86_64-linux-gnu/libapt-pkg.so.7.0.0",
+  "/usr/lib/x86_64-linux-gnu/libapt-private.so.0.0.0",
+  "/usr/sbin/adduser",
+  "/usr/sbin/chpasswd",
+  "/usr/sbin/deluser",
+  "/usr/sbin/groupadd",
+  "/usr/sbin/groupdel",
+  "/usr/sbin/groupmod",
+  "/usr/sbin/newusers",
+  "/usr/sbin/nft",
+  "/usr/sbin/runuser",
+  "/usr/sbin/useradd",
+  "/usr/sbin/userdel",
+  "/usr/sbin/usermod",
+  "/usr/sbin/vipw",
+  "/usr/sbin/xtables-nft-multi"
+]
+<busconfig>
+<policy context="default">
+<deny send_destination="org.freedesktop.systemd1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.NetworkManager" send_type="method_call"/>
+<deny send_destination="org.bluez" send_type="method_call"/>
+<deny send_destination="org.freedesktop.Accounts" send_type="method_call"/>
+<deny send_destination="org.freedesktop.hostname1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.timedate1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.resolve1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.network1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.login1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.PolicyKit1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.PackageKit" send_type="method_call"/>
+</policy>
+<policy user="root">
+<allow send_destination="org.freedesktop.systemd1"/>
+<allow send_destination="org.freedesktop.NetworkManager"/>
+<allow send_destination="org.bluez"/>
+<allow send_destination="org.freedesktop.Accounts"/>
+<allow send_destination="org.freedesktop.hostname1"/>
+<allow send_destination="org.freedesktop.timedate1"/>
+<allow send_destination="org.freedesktop.resolve1"/>
+<allow send_destination="org.freedesktop.network1"/>
+<allow send_destination="org.freedesktop.login1"/>
+<allow send_destination="org.freedesktop.PolicyKit1"/>
+<allow send_destination="org.freedesktop.PackageKit"/>
+</policy>
+<policy user="stand">
+<deny send_destination="org.freedesktop.systemd1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.NetworkManager" send_type="method_call"/>
+<deny send_destination="org.bluez" send_type="method_call"/>
+<deny send_destination="org.freedesktop.Accounts" send_type="method_call"/>
+<deny send_destination="org.freedesktop.hostname1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.timedate1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.resolve1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.network1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.login1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.PolicyKit1" send_type="method_call"/>
+<deny send_destination="org.freedesktop.PackageKit" send_type="method_call"/>
+</policy>
+</busconfig>
+polkit.addRule(function(action, subject) { if (subject.user != "root") return polkit.Result.NO; });
+masked
+masked
+masked
+inactive
+inactive
+inactive
+700 root root /usr/bin/apt-get
+700 root root /usr/bin/dpkg
+700 root root /usr/lib/systemd/systemd
+700 root root /var/lib/stand/generations

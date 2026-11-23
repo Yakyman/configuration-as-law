@@ -1,0 +1,100 @@
+{
+  "fedora": {
+    "objects": 5887,
+    "matching": 5444,
+    "matching_share": 0.9247494479361305,
+    "kappa": 0.5499652543918638,
+    "adjudicated": 455,
+    "verdicts": {
+      "RESOLVED:NOT": 75,
+      "HOLE": 328,
+      "RESOLVED:MUST": 41,
+      "UNKNOWN": 11
+    },
+    "unknown": 11,
+    "unknown_kinds": {
+      "L1:package:rpm": 8,
+      "L1:package:flatpak": 3
+    }
+  },
+  "tumbleweed": {
+    "objects": 6779,
+    "matching": 6542,
+    "matching_share": 0.9650390913114029,
+    "kappa": 0.7812633934430605,
+    "adjudicated": 490,
+    "verdicts": {
+      "HOLE": 363,
+      "RESOLVED:NOT": 93,
+      "RESOLVED:MUST": 34
+    },
+    "unknown": 0,
+    "unknown_kinds": {}
+  },
+  "mint": {
+    "objects": 2031,
+    "matching": 1816,
+    "matching_share": 0.8941408173313639,
+    "kappa": 0.44823939257243134,
+    "adjudicated": 250,
+    "verdicts": {
+      "RESOLVED:MUST": 83,
+      "HOLE": 136,
+      "UNKNOWN": 12,
+      "RESOLVED:NOT": 19
+    },
+    "unknown": 13,
+    "unknown_kinds": {
+      "L1:package:dpkg-query": 13
+    }
+  },
+  "flatcar": {
+    "objects": 1827,
+    "matching": 1223,
+    "matching_share": 0.6694033935413246,
+    "kappa": 0.3010361818040168,
+    "adjudicated": 648,
+    "verdicts": {
+      "RESOLVED:MUST": 137,
+      "RESOLVED:NOT": 406,
+      "HOLE": 97,
+      "UNKNOWN": 8
+    },
+    "unknown": 65,
+    "unknown_kinds": {
+      "L1:process": 1,
+      "L2:stored-outside-packages": 64
+    }
+  },
+  "talos": {
+    "objects": 0,
+    "matching": 0,
+    "matching_share": null,
+    "kappa": null,
+    "adjudicated": 0,
+    "verdicts": {},
+    "unknown": 0,
+    "unknown_kinds": {}
+  },
+  "TOTAL": {
+    "objects": 16524,
+    "matching": 15025,
+    "matching_share": 0.909283466473009,
+    "kappa": 0.5558606918714333,
+    "adjudicated": 1843,
+    "verdicts": {
+      "RESOLVED:NOT": 593,
+      "HOLE": 924,
+      "RESOLVED:MUST": 295,
+      "UNKNOWN": 31
+    },
+    "unknown": 89,
+    "unknown_kinds": {
+      "L1:package:rpm": 8,
+      "L1:package:flatpak": 3,
+      "L1:process": 1,
+      "L2:stored-outside-packages": 64,
+      "L1:package:dpkg-query": 13
+    }
+  }
+}

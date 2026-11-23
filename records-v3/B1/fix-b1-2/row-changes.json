@@ -1,0 +1,610 @@
+[
+  {
+    "id": "C1.3",
+    "before": [
+      "C1.3 Alternate root, alternate database, package extraction into writable directory",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Stored artifacts remain nonstartable until broker admission; all native execution outside active tree denied",
+      "[I ledger: E1,E3,E10](raw/install-sources.md)",
+      "Archives can be inspected; executing extracted files needs declaration"
+    ],
+    "after": [
+      "C1.3 Alternate root, alternate database, package extraction into writable directory",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Stored artifacts remain nonstartable until broker admission; all native execution outside active tree denied; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E1,E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Archives can be inspected; executing extracted files needs declaration"
+    ]
+  },
+  {
+    "id": "C1.6",
+    "before": [
+      "C1.6 Old generations, package cache copies, rollback paths after removal",
+      "R; S2.4-4",
+      "CLOSABLE",
+      "Authorize current-generation objects only; retained cache/rollback bytes not executable until a new declaration application",
+      "[I ledger: E3,E10,E18](raw/install-sources.md)",
+      "Rollback becomes an explicit declaration transition; retention itself allowed by S2.5-1"
+    ],
+    "after": [
+      "C1.6 Old generations, package cache copies, rollback paths after removal",
+      "R; S2.4-4",
+      "UNKNOWN",
+      "Candidate subcontrol: Authorize current-generation objects only; retained cache/rollback bytes not executable until a new declaration application; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E10,E18](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Rollback becomes an explicit declaration transition; retention itself allowed by S2.5-1"
+    ]
+  },
+  {
+    "id": "C2.3",
+    "before": [
+      "C2.3 Local archives, VCS URLs and package indexes selected by flags",
+      "R; S3-9",
+      "CLOSABLE",
+      "Resolve exact content and record it before activation; source transport does not bypass admission",
+      "[I ledger: E4,E10](raw/install-sources.md)",
+      "Offline/local packages supported after import"
+    ],
+    "after": [
+      "C2.3 Local archives, VCS URLs and package indexes selected by flags",
+      "R; S3-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Resolve exact content and record it before activation; source transport does not bypass admission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E4,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Offline/local packages supported after import"
+    ]
+  },
+  {
+    "id": "C2.4",
+    "before": [
+      "C2.4 Editable pip installs, npm links, mutable source and dependency replacement",
+      "R; S2.2-10; S2.4-4",
+      "CLOSABLE",
+      "Snapshot each admitted code version; edits remain data until applied; prevent imports from mutable original directory",
+      "[I ledger: E4,E5,E10 plus C7](raw/install-sources.md)",
+      "Edit–apply–run instead of unrestricted edit–run"
+    ],
+    "after": [
+      "C2.4 Editable pip installs, npm links, mutable source and dependency replacement",
+      "R; S2.2-10; S2.4-4",
+      "UNKNOWN",
+      "Candidate subcontrol: Snapshot each admitted code version; edits remain data until applied; prevent imports from mutable original directory; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E4,E5,E10 plus C7](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Edit–apply–run instead of unrestricted edit–run"
+    ]
+  },
+  {
+    "id": "C2.6",
+    "before": [
+      "C2.6 Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+      "R; S2.2-10; S2.2-13",
+      "CLOSABLE",
+      "N gates native mappings; D gates module/.pth file reads including custom dispatch; no F/I completeness assumed",
+      "[I ledger: E5,E7,E10,E12 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+      "Immutable admitted code only; D removes unrecorded document/project-data reads; caches remain C7.18"
+    ],
+    "after": [
+      "C2.6 Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+      "R; S2.2-10; S2.2-13",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E5,E7,E10,E12 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C3.4",
+    "before": [
+      "C3.4 AppImage directly executed and self-mounted via FUSE",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Record image content and mounted executable closure; deny unadmitted image runtime and executable mount authority",
+      "[I ledger: E3,E13,E10](raw/install-sources.md)",
+      "Import image before first run; download remains possible"
+    ],
+    "after": [
+      "C3.4 AppImage directly executed and self-mounted via FUSE",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Record image content and mounted executable closure; deny unadmitted image runtime and executable mount authority; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E13,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Import image before first run; download remains possible"
+    ]
+  },
+  {
+    "id": "C4.1",
+    "before": [
+      "C4.1 Download a native executable and chmod/run it",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Writable trees noexec plus mandatory execute/map denial; importer records code into active tree",
+      "[I ledger: E3,E10,E11](raw/install-sources.md)",
+      "Download and document editing unaffected; launch requires admission"
+    ],
+    "after": [
+      "C4.1 Download a native executable and chmod/run it",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Writable trees noexec plus mandatory execute/map denial; importer records code into active tree; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Download and document editing unaffected; launch requires admission"
+    ]
+  },
+  {
+    "id": "C4.2",
+    "before": [
+      "C4.2 Download and extract archive, including nested archives and renamed files",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Gate actual execution/read-as-code independent of suffix and extraction route",
+      "[I ledger: E3,E7,E10](raw/install-sources.md)",
+      "Archive extraction allowed as data; run requires admission"
+    ],
+    "after": [
+      "C4.2 Download and extract archive, including nested archives and renamed files",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Gate actual execution/read-as-code independent of suffix and extraction route; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E7,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Archive extraction allowed as data; run requires admission"
+    ]
+  },
+  {
+    "id": "C4.4",
+    "before": [
+      "C4.4 Downloaded script or library passed to existing interpreter/loader",
+      "R; S2.2-10; S2.2-13",
+      "CLOSABLE",
+      "N gates native library mapping; D denies downloaded script/data file opens, including custom dispatch; noexec alone insufficient",
+      "[I ledger: E7,E10,E12,E14 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+      "Declared files remain usable; interpreter loses unrecorded document/project-data reads"
+    ],
+    "after": [
+      "C4.4 Downloaded script or library passed to existing interpreter/loader",
+      "R; S2.2-10; S2.2-13",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E7,E10,E12,E14 plus C7](raw/install-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C5.1",
+    "before": [
+      "C5.1 Compile/link native program in home, then execute output",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Compiler may write inert output; publish output digest through declaration before execute permission",
+      "[I ledger: E3,E10,E11](raw/install-sources.md)",
+      "Programming requires an apply between build and run"
+    ],
+    "after": [
+      "C5.1 Compile/link native program in home, then execute output",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Compiler may write inert output; publish output digest through declaration before execute permission; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E10,E11](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Programming requires an apply between build and run"
+    ]
+  },
+  {
+    "id": "C5.3",
+    "before": [
+      "C5.3 Install target copying to user prefix, changing PATH or creating symlinks",
+      "R; S2.2-9",
+      "CLOSABLE",
+      "Paths and links cannot grant execution; active-tree broker controls resulting artifact closure",
+      "[I ledger: E3,E10](raw/install-sources.md)",
+      "User prefix may hold inert artifacts; managed activation retained"
+    ],
+    "after": [
+      "C5.3 Install target copying to user prefix, changing PATH or creating symlinks",
+      "R; S2.2-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Paths and links cannot grant execution; active-tree broker controls resulting artifact closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E3,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "User prefix may hold inert artifacts; managed activation retained"
+    ]
+  },
+  {
+    "id": "C5.4",
+    "before": [
+      "C5.4 Rebuild/replace an already recorded binary or library in place",
+      "R; S2.3-5; S3-9",
+      "CLOSABLE",
+      "Immutable active version; rebuild enters new version, application atomically changes active closure",
+      "[I ledger: E10,E11,E12](raw/install-sources.md)",
+      "Hot mutation denied; restart/reapplication may be needed"
+    ],
+    "after": [
+      "C5.4 Rebuild/replace an already recorded binary or library in place",
+      "R; S2.3-5; S3-9",
+      "UNKNOWN",
+      "Candidate subcontrol: Immutable active version; rebuild enters new version, application atomically changes active closure; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E10,E11,E12](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Hot mutation denied; restart/reapplication may be needed"
+    ]
+  },
+  {
+    "id": "C6.6",
+    "before": [
+      "C6.6 Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+      "R; S2.4-4",
+      "CLOSABLE",
+      "Withdraw every activation edge; kill and verify former processes; revoke executable authorization unless remaining lines cover it",
+      "[I ledger: E15,E16,E10](raw/install-sources.md)",
+      "Application must quiesce related tasks before success"
+    ],
+    "after": [
+      "C6.6 Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+      "R; S2.4-4",
+      "UNKNOWN",
+      "Candidate subcontrol: Withdraw every activation edge; kill and verify former processes; revoke executable authorization unless remaining lines cover it; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[I ledger: E15,E16,E10](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Application must quiesce related tasks before success"
+    ]
+  },
+  {
+    "id": "C7.01",
+    "before": [
+      "C7.01 Script file passed as interpreter argument",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "D denies opening unrecorded script files; declared immutable file remains readable; F is not established",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+      "File execution retained only in restricted read domain; no unrecorded user-document/project-data reads"
+    ],
+    "after": [
+      "C7.01 Script file passed as interpreter argument",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C7.02",
+    "before": [
+      "C7.02 Executable shebang script",
+      "R; S2.2-9,10; S2.3-4,6",
+      "CLOSABLE",
+      "Kernel execute policy plus D for interpreter file reads; no F adopter assumed",
+      "[T E3,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "No direct launch of undeclared writable script; declared scripts retained"
+    ],
+    "after": [
+      "C7.02 Executable shebang script",
+      "R; S2.2-9,10; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: N gates direct execve of the shebang script; interpreter-argument/file-read and other input routes remain C7.01/03–08 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E3,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "No direct launch of undeclared writable script; declared scripts retained"
+    ]
+  },
+  {
+    "id": "C7.05",
+    "before": [
+      "C7.05 Code from regular file redirected to stdin or /proc/self/fd/N",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "D covers a new file open only; inherited stdin/FD route lacks evidenced F integration",
+      "[T ledger: E1,E2,E16](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Path-open case loses unrecorded file reads; retained redirected-input support is unestablished"
+    ],
+    "after": [
+      "C7.05 Code from regular file redirected to stdin or /proc/self/fd/N",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "D can deny a new file open only after domain entry; mandatory launch coverage and inherited stdin/FD mediation are not evidenced",
+      "[T ledger: E1,E2,E12,E16](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Path-open case loses unrecorded file reads; retained redirected-input support is unestablished"
+    ]
+  },
+  {
+    "id": "C7.07",
+    "before": [
+      "C7.07 Recorded script sources another file",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "D denies opening the unrecorded sourced file; an F-only alternative does not cover arbitrary data-to-code dispatch",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+      "No unrecorded document/project-data file reads in this domain; inherited inputs separately unresolved"
+    ],
+    "after": [
+      "C7.07 Recorded script sources another file",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C7.08",
+    "before": [
+      "C7.08 exec(open(file).read()), eval of read data, custom import loader",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "D denies the unrecorded file open, independent of eval/import/custom-dispatch semantics; only this bounded file route is closed",
+      "[T E6–8,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Arbitrary admitted scripts lose unrecorded data-file reads; keeping both capabilities permits the Q1 conditional failure"
+    ],
+    "after": [
+      "C7.08 exec(open(file).read()), eval of read data, custom import loader",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E6–8,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C7.09",
+    "before": [
+      "C7.09 Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "D confines readable module sources to declared immutable dependency closure; custom loaders fall under C7.08",
+      "[T ledger: E6,E8,E12](raw/c7-sources.md)",
+      "Project dependencies/import paths must be declared; writable project source cannot be imported before application"
+    ],
+    "after": [
+      "C7.09 Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E6,E8,E12](raw/c7-sources.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C7.12",
+    "before": [
+      "C7.12 Git hook program in writable project",
+      "R; S2.2-9,10,12; S2.3-4,6",
+      "CLOSABLE",
+      "N authorizes native hooks; D denies opening undeclared script hooks; hook execution via other input routes inherits their UNKNOWNs",
+      "[T E3,E12,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Hooks require declaration; ordinary file editing unaffected"
+    ],
+    "after": [
+      "C7.12 Git hook program in writable project",
+      "R; S2.2-9,10,12; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: N gates direct execve of native/shebang hooks; invoking a recorded interpreter on a hook file instead inherits C7.01 UNKNOWN; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E3,E12,E13](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Hooks require declaration; ordinary file editing unaffected"
+    ]
+  },
+  {
+    "id": "C7.13",
+    "before": [
+      "C7.13 Direct dynamic loader invocation",
+      "R; S2.2-9,10; S2.3-4,6",
+      "CLOSABLE",
+      "N covers executable file mappings as well as execve; trusting loader alone fails",
+      "[T ledger: E3,E11](raw/c7-sources.md)",
+      "Libraries and binaries need trust policy derived from declaration"
+    ],
+    "after": [
+      "C7.13 Direct dynamic loader invocation",
+      "R; S2.2-9,10; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: N covers executable file mappings as well as execve; trusting loader alone fails; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Libraries and binaries need trust policy derived from declaration"
+    ]
+  },
+  {
+    "id": "C7.14",
+    "before": [
+      "C7.14 LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+      "R; S2.2-10; S2.3-4,6",
+      "CLOSABLE",
+      "N denies unrecorded native library mappings; environment sanitization alone insufficient",
+      "[T ledger: E3,E11](raw/c7-sources.md)",
+      "Plugins/FFI libraries must be declared; normal recorded linkage remains"
+    ],
+    "after": [
+      "C7.14 LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+      "R; S2.2-10; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: N denies unrecorded native library mappings; environment sanitization alone insufficient; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E3,E11](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Plugins/FFI libraries must be declared; normal recorded linkage remains"
+    ]
+  },
+  {
+    "id": "C7.15",
+    "before": [
+      "C7.15 Native executable memfd, fexecve/execveat of memory file",
+      "R; S2.2-9,10; S2.3-4,6",
+      "CLOSABLE",
+      "Enforced memfd noexec plus N; close permitted creation and inherited descriptor routes",
+      "[T ledger: E4,E5](raw/c7-sources.md)",
+      "Software depending on executable memfd needs adaptation; text reads still require C7.04–08"
+    ],
+    "after": [
+      "C7.15 Native executable memfd, fexecve/execveat of memory file",
+      "R; S2.2-9,10; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Enforced memfd noexec plus N; close permitted creation and inherited descriptor routes; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E4,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Software depending on executable memfd needs adaptation; text reads still require C7.04–08"
+    ]
+  },
+  {
+    "id": "C7.16",
+    "before": [
+      "C7.16 Anonymous machine code, JIT, writable/executable aliases",
+      "R; S2.2-10; S2.3-4,6",
+      "CLOSABLE",
+      "N plus MemoryDenyWriteExecute, deny memfd and writable executable filesystems, native ABI restriction",
+      "[T ledger: E3,E5](raw/c7-sources.md)",
+      "Host-native JIT/FFI trampolines disabled in this domain; browser exemption requires separate analysis"
+    ],
+    "after": [
+      "C7.16 Anonymous machine code, JIT, writable/executable aliases",
+      "R; S2.2-10; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: N plus MemoryDenyWriteExecute, deny memfd and writable executable filesystems, native ABI restriction; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E3,E5](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Host-native JIT/FFI trampolines disabled in this domain; browser exemption requires separate analysis"
+    ]
+  },
+  {
+    "id": "C7.19",
+    "before": [
+      "C7.19 Browser web code and JIT confined inside recorded renderer/helper programs",
+      "R; S2.2-11,12",
+      "CLOSABLE",
+      "Record each browser component program; genuinely interface-confined webpage code retains explicit exemption",
+      "[T ledger: S2.2-11,12; E1](raw/c7-sources.md)",
+      "Browsing remains possible; exemption is conditional on actual confinement, not merely process name"
+    ],
+    "after": [
+      "C7.19 Browser web code and JIT confined inside recorded renderer/helper programs",
+      "R; S2.2-11,12",
+      "UNKNOWN",
+      "Candidate subcontrol: Record each browser component program; genuinely interface-confined webpage code retains explicit exemption; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: S2.2-11,12; E1](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Browsing remains possible; exemption is conditional on actual confinement, not merely process name"
+    ]
+  },
+  {
+    "id": "C7.20",
+    "before": [
+      "C7.20 Code-bearing serialized input (pickle, macro-bearing document)",
+      "R; S2.2-10; S2.2-13 decides code/settings classification",
+      "CLOSABLE",
+      "Deny code-bearing deserialization/macro evaluation before reading payload as code; retain values-only parser",
+      "[T ledger: E15; S2.2-13](raw/c7-sources.md)",
+      "Some document/state formats lose active content; ordinary passive document editing remains"
+    ],
+    "after": [
+      "C7.20 Code-bearing serialized input (pickle, macro-bearing document)",
+      "R; S2.2-10; S2.2-13 decides code/settings classification",
+      "UNKNOWN",
+      "Candidate subcontrol: Deny code-bearing deserialization/macro evaluation before reading payload as code; retain values-only parser; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: E15; S2.2-13](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Some document/state formats lose active content; ordinary passive document editing remains"
+    ]
+  },
+  {
+    "id": "C7.22",
+    "before": [
+      "C7.22 Debugger/interpreter writing another process memory or injecting code",
+      "R; S2.2-9,10; S2.3-6",
+      "CLOSABLE",
+      "Deny ptrace, process_vm_writev and proc memory writes through mandatory policy and syscall restrictions",
+      "[O7](raw/ordinary-sources.md); [I10,I25](raw/install-sources.md)",
+      "Host debugging/injection and some crash handlers restricted; ordinary tasks retained"
+    ],
+    "after": [
+      "C7.22 Debugger/interpreter writing another process memory or injecting code",
+      "R; S2.2-9,10; S2.3-6",
+      "UNKNOWN",
+      "Candidate subcontrol: Deny ptrace, process_vm_writev and proc memory writes through mandatory policy and syscall restrictions; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[O7](raw/ordinary-sources.md); [I10,I25](raw/install-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Host debugging/injection and some crash handlers restricted; ordinary tasks retained"
+    ]
+  },
+  {
+    "id": "C7.23",
+    "before": [
+      "C7.23 binfmt_misc handlers and user-mode foreign-binary interpreters",
+      "R; S2.2-9–12",
+      "CLOSABLE",
+      "Control handler registrations; N gates native binaries and D gates foreign-binary file reads; this is not full evaluator input mediation",
+      "[O8,O9](raw/ordinary-sources.md); [T1,T12](raw/c7-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md)",
+      "Foreign programs need admission; unrestricted user-mode emulator data/code conversion inherits C7.08"
+    ],
+    "after": [
+      "C7.23 binfmt_misc handlers and user-mode foreign-binary interpreters",
+      "R; S2.2-9–12",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[O8,O9](raw/ordinary-sources.md); [T1,T12](raw/c7-sources.md); [T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C7.24",
+    "before": [
+      "C7.24 Recorded custom dispatcher interprets unrecorded command file without eval/import",
+      "R; S2.2-10; S2.2-13; Q1 capability premise",
+      "CLOSABLE",
+      "D denies the file open; F/I evaluator-entry checks alone miss dispatch implemented by admitted script",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Q1 textual audit](fix-b1-1/text-audit.md)",
+      "Lose unrecorded document/project-data reads; retaining both arbitrary admitted same-rights interpretation and those reads admits the Q1 conditional failure"
+    ],
+    "after": [
+      "C7.24 Recorded custom dispatcher: file-open route and non-file instruction input without eval/import",
+      "R; S2.2-10; S2.2-13; Q1 capability premise",
+      "UNKNOWN",
+      "Candidate subcontrol: File-open route: D only after domain entry, mandatory coverage unevidenced; non-file route: stdin, argv/environment, inherited FDs and socket/IPC bytes unmediated by D, UNKNOWN; conventional F/I entries miss custom dispatch; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E12](raw/c7-sources.md); [D limits](fix-b1-1/control-audit.md); [Q1 textual audit](fix-b1-1/text-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "File-open denial loses unrecorded data reads; receiving own-rights instructions through other inputs still permits Q1 conditional failure"
+    ]
+  },
+  {
+    "id": "C8.01",
+    "before": [
+      "C8.01 Shell startup profiles and rc files",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "Declared immutable startup files and D deny unrecorded startup file opens; F cooperation not established",
+      "[T E9,E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Shell customization moves to declaration"
+    ],
+    "after": [
+      "C8.01 Shell startup profiles and rc files",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E9,E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C8.02",
+    "before": [
+      "C8.02 Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+      "R; S2.2-10,13; S2.3-4,6",
+      "CLOSABLE",
+      "D denies opening environment-selected unrecorded startup files; environment code itself remains C8.03 UNKNOWN",
+      "[T E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md)",
+      "Arbitrary environment-selected initialization disallowed"
+    ],
+    "after": [
+      "C8.02 Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+      "R; S2.2-10,13; S2.3-4,6",
+      "UNKNOWN",
+      "Candidate subcontrol: Conditional file-open primitive only: D can deny the unrecorded open after self-restriction/inheritance; mandatory placement of every interpreter start in D is not evidenced; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T E10,E12](raw/c7-sources.md); [Fix evidence and limits](fix-b1-1/control-audit.md); [Round 2 evidence](fix-b1-2/evidence-audit.md)",
+      "If imposed, D denies unrecorded document/project-data file reads; whole-session inheritance also restricts shell and descendant editors; non-file inputs remain unresolved"
+    ]
+  },
+  {
+    "id": "C8.08",
+    "before": [
+      "C8.08 Settings only read as values, such as theme or home page",
+      "R; S2.2-7,13",
+      "CLOSABLE",
+      "No required-to-record object for genuinely local values; retain values-only parser and prevent code reinterpretation",
+      "[T ledger: S2.2-7,13; E9](raw/c7-sources.md)",
+      "Ordinary preferences retained; cannot relabel executable settings as values"
+    ],
+    "after": [
+      "C8.08 Settings only read as values, such as theme or home page",
+      "R; S2.2-7,13",
+      "UNKNOWN",
+      "Candidate subcontrol: No required-to-record object for genuinely local values; retain values-only parser and prevent code reinterpretation; full R remains unestablished (M1.02/M2.02/M3.02; runtime ports C7.25)",
+      "[T ledger: S2.2-7,13; E9](raw/c7-sources.md); [Full R audit](fix-b1-2/evidence-audit.md)",
+      "Ordinary preferences retained; cannot relabel executable settings as values"
+    ]
+  }
+]

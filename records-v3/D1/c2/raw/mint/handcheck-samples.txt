@@ -1,0 +1,64 @@
+== R1-account
+mint-c9f690bf9826de648b8baf01 nm-openvpn | MUST | Account nm-openvpn in the account database, login shell /usr/sbin/nologin | ["nm-openvpn:x:112:116:NetworkManager OpenVPN,,,:/var/lib/openvpn/chro
+mint-3e6ff6afc6238d7f8abecc07 kernoops | MUST | Account kernoops in the account database, login shell /usr/sbin/nologin | ["kernoops:x:109:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nolo
+mint-fb4db94e9917016c40645a0f irc | MUST | Account irc in the account database, login shell /usr/sbin/nologin | ["irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin"]
+mint-098c1b13c73785adbd792921 fwupd-refresh | MUST | Account fwupd-refresh in the account database, login shell /usr/sbin/nologin | ["fwupd-refresh:x:988:988:Firmware update daemon:/var/lib/fwupd:/usr/s
+mint-811bb0167d5526ddfc928ec0 polkitd | MUST | Account polkitd in the account database, login shell /usr/sbin/nologin | ["polkitd:x:990:990:User for polkitd:/:/usr/sbin/nologin"]
+mint-11dbd70973c9f5b21ea7580a cups-browsed | MUST | Account cups-browsed in the account database, login shell /usr/sbin/nologin | ["cups-browsed:x:117:105::/nonexistent:/usr/sbin/nologin"]
+mint-f9dd740c06843ced4c93e8b7 speech-dispatcher | MUST | Account speech-dispatcher in the account database, login shell /bin/false | ["speech-dispatcher:x:115:29:Speech Dispatcher,,,:/run/speech-dispatch
+mint-3aae329f99ecb850d1bbf6c1 bin | MUST | Account bin in the account database, login shell /usr/sbin/nologin | ["bin:x:2:2:bin:/bin:/usr/sbin/nologin"]
+mint-e7ca7271a4ae59d0f37673c2 sys | MUST | Account sys in the account database, login shell /usr/sbin/nologin | ["sys:x:3:3:sys:/dev:/usr/sbin/nologin"]
+mint-20f5b68601112a9237416757 saned | MUST | Account saned in the account database, login shell /usr/sbin/nologin | ["saned:x:118:123::/var/lib/saned:/usr/sbin/nologin"]
+== R4-group-no-members
+mint-42152dfde33260586ffb999f bin | UNKNOWN | Group bin (gid 2) without listed members; names a gid for name lookups | ["bin:x:2:"]
+mint-b966d498b90e318e0e6977bb operator | UNKNOWN | Group operator (gid 37) without listed members; names a gid for name lookups | ["operator:x:37:"]
+mint-d06b02b4460fd7dbcc735106 rdma | UNKNOWN | Group rdma (gid 114) without listed members; names a gid for name lookups | ["rdma:x:114:"]
+mint-f44f658acc0af5772b584cbc pipewire | UNKNOWN | Group pipewire (gid 121) without listed members; names a gid for name lookups | ["pipewire:x:121:"]
+mint-64463c67fca26847c353780a colord | UNKNOWN | Group colord (gid 124) without listed members; names a gid for name lookups | ["colord:x:124:"]
+mint-fe618e3d57a5eb7fc041b503 staff | UNKNOWN | Group staff (gid 50) without listed members; names a gid for name lookups | ["staff:x:50:"]
+mint-fed793d380c59af7dbc9cfc8 messagebus | UNKNOWN | Group messagebus (gid 101) without listed members; names a gid for name lookups | ["messagebus:x:101:"]
+mint-531494b94b66c14f935ffa8e irc | UNKNOWN | Group irc (gid 39) without listed members; names a gid for name lookups | ["irc:x:39:"]
+mint-2a697ae47f7d42128a6612ce www-data | UNKNOWN | Group www-data (gid 33) without listed members; names a gid for name lookups | ["www-data:x:33:"]
+mint-adbd53098b0f8d759d2d6631 shadow | UNKNOWN | Group shadow (gid 42) without listed members; names a gid for name lookups | ["shadow:x:42:"]
+== R2-code
+mint-b33b146b526f68f0a1a33f54 root:libxcb-present0:amd64 | MUST | X C Binding, present extension; code e.g. /usr/lib/x86_64-linux-gnu/libxcb-present.so.0 | ["libxcb-present0:amd64\t1.15-1ubuntu2\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/libxcb-present.so.0 usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0
+mint-20c3a6dd2ca94224d2828338 root:libgdbm6t64:amd64 | MUST | GNU dbm database routines (runtime version); code e.g. /usr/lib/x86_64-linux-gnu/libgdbm.so.6 | ["libgdbm6t64:amd64\t1.23-5.1build1\tii "]
+    files: 3 usr/lib/x86_64-linux-gnu/libgdbm.so.6 usr/lib/x86_64-linux-gnu/libgdbm.so.6.0.0 usr/share/lintian/overrides/libgdbm6t64
+mint-a823e8cb31c60e632e06d5db root:rhythmbox | MUST | music player and organizer for GNOME; code e.g. /usr/bin/rhythmbox | ["rhythmbox\t3.4.7-2ubuntu6\tii "]
+    files: 9 usr/bin/rhythmbox usr/bin/rhythmbox-client usr/lib/mime/packages/rhythmbox usr/libexec/rhythmbox-metadata usr/share/applications/org.gnome.Rhythmbox3.desktop usr/share/applications/org.gnome.Rhythmbox3.device.desktop
+mint-790c3516e883cd0981ea48d9 root:slirp4netns | MUST | User-mode networking for unprivileged network namespaces; code e.g. /usr/bin/slirp4netns | ["slirp4netns\t1.2.1-1build2\tii "]
+    files: 2 usr/bin/slirp4netns usr/share/man/man1/slirp4netns.1.gz
+mint-dd3affb0527b721839bcbda3 root:libwpg-0.3-3:amd64 | MUST | WordPerfect graphics import/convert library (shared library); code e.g. /usr/lib/x86_64-linux-gnu/libwpg-0.3.so.3 | ["libwpg-0.3-3:amd64\t0.3.4-3build1\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/libwpg-0.3.so.3 usr/lib/x86_64-linux-gnu/libwpg-0.3.so.3.0.4
+mint-dbfa434f23ea19b6241686ef root:libsystemd0:amd64 | MUST | systemd utility library; code e.g. /usr/lib/x86_64-linux-gnu/libsystemd.so.0 | ["libsystemd0:amd64\t255.4-1ubuntu8.19\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/libsystemd.so.0 usr/lib/x86_64-linux-gnu/libsystemd.so.0.38.0
+mint-a45246537561af70202f912f root:libgs10:amd64 | MUST | interpreter for the PostScript language and for PDF; code e.g. /usr/lib/x86_64-linux-gnu/libgs.so.10 | ["libgs10:amd64\t10.02.1~dfsg1-0ubuntu7.8\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/libgs.so.10 usr/lib/x86_64-linux-gnu/libgs.so.10.02
+mint-d1f9d5892ba4b38c12596f2a root:liblilv-0-0:amd64 | MUST | library for simple use of LV2 plugins; code e.g. /usr/lib/x86_64-linux-gnu/liblilv-0.so.0 | ["liblilv-0-0:amd64\t0.24.22-1build1\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/liblilv-0.so.0 usr/lib/x86_64-linux-gnu/liblilv-0.so.0.24.22
+mint-2ba6a194b244a3386c326c52 root:libabw-0.1-1:amd64 | MUST | library for reading and writing AbiWord(tm) documents; code e.g. /usr/lib/x86_64-linux-gnu/libabw-0.1.so.1 | ["libabw-0.1-1:amd64\t0.1.3-1build4\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/libabw-0.1.so.1 usr/lib/x86_64-linux-gnu/libabw-0.1.so.1.0.3
+mint-424a3e2205a2664bdf1e0ba0 root:libpam-modules-bin | MUST | Pluggable Authentication Modules for PAM - helper binaries; code e.g. /usr/lib/systemd/system/pam_namespace.service | ["libpam-modules-bin\t1.5.3-5ubuntu5.5\tii "]
+    files: 19 usr/lib/systemd/system/pam_namespace.service usr/sbin/faillock usr/sbin/mkhomedir_helper usr/sbin/pam_extrausers_chkpwd usr/sbin/pam_extrausers_update usr/sbin/pam_namespace_helper
+== R3-typelib
+mint-12f4b10e579860c608a27e59 root:gir1.2-nm-1.0:amd64 | MUST | GObject introspection typelib: GObject introspection data for the libnm library | ["gir1.2-nm-1.0:amd64\t1.46.0-1ubuntu2.4\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/NM-1.0.typelib
+mint-3b60abb072e8489221d50f7e root:gir1.2-soup-2.4:amd64 | MUST | GObject introspection typelib: GObject introspection data for the libsoup HTTP library | ["gir1.2-soup-2.4:amd64\t2.74.3-6ubuntu1.6\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/girepository-1.0/Soup-2.4.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/SoupGNOME-2.4.typelib
+mint-038b4193155dc3c5ea298c71 root:gir1.2-harfbuzz-0.0:amd64 | MUST | GObject introspection typelib: OpenType text shaping engine (GObject introspection data) | ["gir1.2-harfbuzz-0.0:amd64\t8.3.0-2build2\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/HarfBuzz-0.0.typelib
+mint-82cf7afa6839da2780d967e6 root:gir1.2-ecal-2.0:amd64 | MUST | GObject introspection typelib: GObject introspection for the ECal library | ["gir1.2-ecal-2.0:amd64\t3.52.3-0ubuntu1.1\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/ECal-2.0.typelib
+mint-3b1bdbfc5e75ed274fc0af28 root:gir1.2-notify-0.7:amd64 | MUST | GObject introspection typelib: sends desktop notifications to a notification daemon (Introspection files) | ["gir1.2-notify-0.7:amd64\t0.8.3-1build2\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/Notify-0.7.typelib
+mint-9667bb0c93739b60ba28765d root:gir1.2-ical-3.0:amd64 | MUST | GObject introspection typelib: iCalendar library implementation in C (GObject Introspection) | ["gir1.2-ical-3.0:amd64\t3.0.17-1.1build3\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/girepository-1.0/ICal-3.0.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/ICalGLib-3.0.typelib
+mint-16829ea269a2c04e57fee085 root:gir1.2-gtop-2.0:amd64 | MUST | GObject introspection typelib: gtop system monitoring library (gir bindings) | ["gir1.2-gtop-2.0:amd64\t2.41.3-1ubuntu0.24.04.1\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/GTop-2.0.typelib
+mint-b92c7475329fa4a19130e933 root:gir1.2-freedesktop:amd64 | MUST | GObject introspection typelib: Introspection data for some FreeDesktop components | ["gir1.2-freedesktop:amd64\t1.80.1-1\tii "]
+    files: 12 usr/lib/x86_64-linux-gnu/girepository-1.0/DBus-1.0.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/DBusGLib-1.0.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/GL-1.0.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/Vulkan-1.0.typelib usr/lib/x86_64-linux
+mint-4e5b7714216ce80aca95d489 root:gir1.2-handy-1:amd64 | MUST | GObject introspection typelib: GObject introspection files for libhandy | ["gir1.2-handy-1:amd64\t1.8.3-1build2\tii "]
+    files: 1 usr/lib/x86_64-linux-gnu/girepository-1.0/Handy-1.typelib
+mint-a2add8db0e28a2d396cd9fda root:gir1.2-webkit2-4.1:amd64 | MUST | GObject introspection typelib: Web content engine library for GTK - GObject introspection data | ["gir1.2-webkit2-4.1:amd64\t2.50.3-0ubuntu0.24.04.1\tii "]
+    files: 2 usr/lib/x86_64-linux-gnu/girepository-1.0/WebKit2-4.1.typelib usr/lib/x86_64-linux-gnu/girepository-1.0/WebKit2WebExtension-4.1.typelib

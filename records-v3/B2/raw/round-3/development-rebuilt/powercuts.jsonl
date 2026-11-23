@@ -1,0 +1,12 @@
+{"expected": "SIGKILL at first SUCCESS marker; selected generation and every required line survive boot", "id": "POWER-ADD-1", "phase": "expected", "source": "S3-5; B1/raw/mechanics-sources.md", "utc": "2026-11-22T08:36:49Z"}
+Traceback (most recent call last):
+  File "<stand-root>/round-3/build/round3-cut.py", line 15, in <module>
+    guest('python3 -B /usr/local/lib/stand/selftest.py prepare-'+phase+'\n')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<stand-root>/round-3/build/round3-cut.py", line 10, in guest
+    subprocess.run([sys.executable,str(ROOT/'lab.py'),'run',vm.name,'--root'],input=script.encode(),check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '<stand-root>/round-3/lab.py', 'run', 'bc3-rebuilt', '--root']' returned non-zero exit status 255.

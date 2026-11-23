@@ -1,0 +1,327 @@
+adduser	71	bin=4 pm=1 etc=2 doc=41	etc/adduser.conf | etc/deluser.conf | usr/sbin/addgroup | usr/sbin/adduser	add and remove users and groups
+apparmor	255	bin=8 py=1 unit=1 etc=149 doc=15	etc/apparmor.d/abi/3.0 | etc/apparmor.d/abi/kernel-5.4-outoftree-network | etc/apparmor.d/abi/kernel-5.4-vanilla | etc/apparmor.d/abstractions/X	user-space parser utility for AppArmor
+apt	201	bin=7 lib_so=2 libexec=24 unit=4 etc=3 doc=113	etc/apt/apt.conf.d/01autoremove | etc/cron.daily/apt-compat | etc/logrotate.d/apt | lib/systemd/system/apt-daily-upgrade.service	commandline package manager
+apt-listchanges	44	bin=1 py=8 etc=1 doc=10	etc/apt/apt.conf.d/20listchanges | usr/bin/apt-listchanges | usr/share/apt-listchanges/ALCApt.py | usr/share/apt-listchanges/ALCConfig.py	package change history notification tool
+apt-utils	79	bin=3 libexec=2 doc=31	usr/bin/apt-extracttemplates | usr/bin/apt-ftparchive | usr/bin/apt-sortpkgs | usr/lib/apt/planners/apt	package management related utility programs
+base-files	39	etc=7 doc=5	etc/debian_version | etc/dpkg/origins/debian | etc/host.conf | etc/issue	Debian base system miscellaneous files
+base-passwd	17	bin=1 doc=12	usr/sbin/update-passwd | usr/share/base-passwd/group.master | usr/share/base-passwd/passwd.master | usr/share/doc-base/base-passwd.users-and-groups	Debian base system master password and group files
+bash	70	bin=4 etc=4 doc=20	bin/bash | bin/rbash | etc/bash.bashrc | etc/skel/.bash_logout	GNU Bourne Again SHell
+bash-completion	760	bin=1 py=4 pm=1 etc=2 doc=8	etc/bash_completion | etc/profile.d/bash_completion.sh | usr/bin/dh_bash-completion | usr/share/bash-completion/bash_completion	programmable completion for the bash shell
+bind9-host	5	bin=1 doc=4	usr/bin/host	DNS Lookup Utility
+bind9-libs	11	lib_so=7 doc=3	usr/lib/x86_64-linux-gnu/libbind9-9.18.49-1~deb12u1-Debian.so | usr/lib/x86_64-linux-gnu/libdns-9.18.49-1~deb12u1-Debian.so | usr/lib/x86_64-linux-gnu/libirs-9.18.49-1~deb12u1-Debian.so | usr/lib/x86_64-linux-gnu/libisc-9.18.49-1~deb12u1-Debian.so	Shared Libraries used by BIND 9
+bsdextrautils	30	bin=9 doc=12	usr/bin/col | usr/bin/colcrt | usr/bin/colrm | usr/bin/column	extra utilities from 4.4BSD-Lite
+bsdutils	22	bin=6 doc=9	usr/bin/logger | usr/bin/renice | usr/bin/script | usr/bin/scriptlive	basic utilities from 4.4BSD-Lite
+ca-certificates	159	bin=1 doc=16	usr/sbin/update-ca-certificates | usr/share/ca-certificates/mozilla/ACCVRAIZ1.crt | usr/share/ca-certificates/mozilla/AC_RAIZ_FNMT-RCM.crt | usr/share/ca-certificates/mozilla/AC_RAIZ_FNMT-RCM_SERVIDORES_SEGUROS.crt	Common CA certificates
+cloud-guest-utils	8	bin=3 doc=5	usr/bin/ec2metadata | usr/bin/growpart | usr/bin/vcs-run	cloud guest utilities
+cloud-image-utils	12	bin=5 doc=7	usr/bin/cloud-localds | usr/bin/mount-image-callback | usr/bin/resize-part-image | usr/bin/ubuntu-cloudimg-query	cloud image management utilities
+cloud-init	366	bin=3 libexec=5 py=243 unit=8 etc=48 doc=49	etc/NetworkManager/dispatcher.d/cloud-init-hook-network-manager | etc/cloud/clean.d/README | etc/cloud/cloud.cfg | etc/cloud/cloud.cfg.d/05_logging.cfg	initialization system for infrastructure cloud instances
+cloud-initramfs-growroot	4	doc=2	usr/share/initramfs-tools/hooks/growroot | usr/share/initramfs-tools/scripts/local-bottom/growroot	automatically resize the root partition on first boot
+cloud-utils	4	doc=4		metapackage for installation of upstream cloud-utils source
+coreutils	310	bin=106 lib_so=1 doc=117	bin/cat | bin/chgrp | bin/chmod | bin/chown	GNU core utilities
+cpio	35	bin=2 doc=7	bin/cpio | bin/mt-gnu | usr/share/locale/da/LC_MESSAGES/cpio.mo | usr/share/locale/de/LC_MESSAGES/cpio.mo	GNU cpio -- a program to manage archives of files
+curl	6	bin=1 doc=4	usr/bin/curl | usr/share/zsh/vendor-completions/_curl	command line tool for transferring data with URL syntax
+dash	13	bin=2 doc=8	bin/dash | bin/sh | usr/share/debianutils/shells.d/dash | usr/share/lintian/overrides/dash	POSIX-compliant shell
+dbus	13	libexec=1 unit=1 etc=2 doc=6	etc/default/dbus | etc/init.d/dbus | lib/systemd/system/dbus.service | lib/systemd/system/multi-user.target.wants/dbus.service	simple interprocess messaging system (system message bus)
+dbus-bin	15	bin=5 doc=10	usr/bin/dbus-cleanup-sockets | usr/bin/dbus-monitor | usr/bin/dbus-send | usr/bin/dbus-update-activation-environment	simple interprocess messaging system (command line utilities)
+dbus-daemon	10	bin=2 doc=7	usr/bin/dbus-daemon | usr/bin/dbus-run-session | usr/lib/tmpfiles.d/dbus.conf	simple interprocess messaging system (reference message bus)
+dbus-session-bus-common	7	doc=5	usr/share/dbus-1/session.conf | usr/share/lintian/overrides/dbus-session-bus-common	simple interprocess messaging system (session bus configuration)
+dbus-system-bus-common	10	unit=1 doc=5	lib/systemd/system/dbus.socket | lib/systemd/system/sockets.target.wants/dbus.socket | usr/lib/sysusers.d/dbus.conf | usr/share/dbus-1/system.conf	simple interprocess messaging system (system bus configuration)
+debconf	135	bin=9 pm=102 etc=2 doc=13	etc/apt/apt.conf.d/70debconf | etc/debconf.conf | usr/bin/debconf | usr/bin/debconf-apt-progress	Debian configuration management system
+debian-archive-keyring	23	etc=9 doc=3	etc/apt/trusted.gpg.d/debian-archive-bookworm-automatic.asc | etc/apt/trusted.gpg.d/debian-archive-bookworm-security-automatic.asc | etc/apt/trusted.gpg.d/debian-archive-bookworm-stable.asc | etc/apt/trusted.gpg.d/debian-archive-bullseye-automatic.asc	GnuPG archive keys of the Debian archive
+debianutils	71	bin=9 doc=61	bin/run-parts | bin/tempfile | sbin/installkernel | usr/bin/ischroot	Miscellaneous utilities specific to Debian
+diffutils	47	bin=4 doc=9	usr/bin/cmp | usr/bin/diff | usr/bin/diff3 | usr/bin/sdiff	File comparison utilities
+distro-info-data	5	doc=3	usr/share/distro-info/debian.csv | usr/share/distro-info/ubuntu.csv	information about the distributions' releases (data files)
+dmsetup	13	bin=3 doc=6	lib/udev/rules.d/55-dm.rules | lib/udev/rules.d/60-persistent-storage-dm.rules | lib/udev/rules.d/95-dm-notify.rules | sbin/blkdeactivate	Linux Kernel Device Mapper userspace library
+dpkg	165	bin=12 libexec=1 unit=2 etc=5 doc=94	etc/alternatives/README | etc/cron.daily/dpkg | etc/dpkg/dpkg.cfg | etc/logrotate.d/alternatives	Debian package management system
+e2fsprogs	74	bin=26 libexec=2 unit=5 etc=3 doc=36	etc/cron.d/e2scrub_all | etc/e2scrub.conf | etc/mke2fs.conf | lib/systemd/system/e2scrub@.service	ext2/ext3/ext4 file system utilities
+eject	6	bin=1 doc=4	usr/bin/eject | usr/share/bash-completion/completions/eject	ejects CDs and operates CD-Changers under Linux
+ethtool	11	bin=1 etc=2 doc=7	etc/network/if-pre-up.d/ethtool | etc/network/if-up.d/ethtool | sbin/ethtool | usr/share/bash-completion/completions/ethtool	display or change Ethernet device settings
+fdisk	12	bin=3 doc=6	sbin/cfdisk | sbin/fdisk | sbin/sfdisk | usr/share/bash-completion/completions/cfdisk	collection of partitioning utilities
+file	8	bin=1 doc=5	usr/bin/file | usr/share/bug/file/control | usr/share/bug/file/presubj	Recognize the type of data in a file using "magic" numbers
+findutils	55	bin=2 doc=13	usr/bin/find | usr/bin/xargs | usr/share/doc-base/findutils.findutils | usr/share/locale/be/LC_MESSAGES/findutils.mo	utilities for finding files--find, xargs
+gcc-12-base	4	doc=4		GCC, the GNU Compiler Collection (base package)
+gdisk	19	bin=4 doc=13	sbin/cgdisk | sbin/fixparts | sbin/gdisk | sbin/sgdisk	GPT fdisk text-mode partitioning tool
+genisoimage	23	bin=9 doc=14	usr/bin/devdump | usr/bin/dirsplit | usr/bin/genisoimage | usr/bin/geteltorito	Creates ISO-9660 CD-ROM filesystem images
+gettext-base	68	bin=4 doc=16	usr/bin/envsubst | usr/bin/gettext | usr/bin/gettext.sh | usr/bin/ngettext	GNU Internationalization utilities for the base system
+gpgv	6	bin=1 doc=5	usr/bin/gpgv	GNU privacy guard - signature verification tool
+grep	63	bin=4 doc=14	bin/egrep | bin/fgrep | bin/grep | usr/bin/rgrep	GNU grep, egrep and fgrep
+groff-base	171	bin=15 libexec=1 etc=2 doc=26	etc/groff/man.local | etc/groff/mdoc.local | usr/bin/eqn | usr/bin/geqn	GNU troff text-formatting system (base system components)
+grub-cloud-amd64	3	etc=1 doc=2	etc/default/grub	GRand Unified Bootloader (cloud setup)
+grub-common	124	bin=22 libexec=1 py=1 etc=10 doc=32	etc/default/grub.d/init-select.cfg | etc/grub.d/00_header | etc/grub.d/05_debian_theme | etc/grub.d/10_linux	GRand Unified Bootloader (common files)
+grub-efi-amd64-bin	286	efi=270 doc=1	usr/lib/grub/x86_64-efi/acpi.mod | usr/lib/grub/x86_64-efi/adler32.mod | usr/lib/grub/x86_64-efi/affs.mod | usr/lib/grub/x86_64-efi/afs.mod	GRand Unified Bootloader, version 2 (EFI-AMD64 modules)
+grub-efi-amd64-signed	7	efi=4 doc=2	usr/lib/grub/x86_64-efi-signed/gcdx64.efi.signed | usr/lib/grub/x86_64-efi-signed/grubnetx64-installer.efi.signed | usr/lib/grub/x86_64-efi-signed/grubnetx64.efi.signed | usr/lib/grub/x86_64-efi-signed/grubx64.efi.signed	GRand Unified Bootloader, version 2 (amd64 UEFI signed by Debian)
+grub-pc-bin	307	libexec=2 efi=275 doc=1	usr/lib/grub/i386-pc/915resolution.mod | usr/lib/grub/i386-pc/acpi.mod | usr/lib/grub/i386-pc/adler32.mod | usr/lib/grub/i386-pc/affs.mod	GRand Unified Bootloader, version 2 (PC/BIOS modules)
+grub2-common	24	bin=5 etc=2 doc=10	etc/kernel/postinst.d/zz-update-grub | etc/kernel/postrm.d/zz-update-grub | usr/sbin/grub-install | usr/sbin/grub-reboot	GRand Unified Bootloader (common files for version 2)
+gzip	35	bin=14 doc=21	bin/gunzip | bin/gzexe | bin/gzip | bin/uncompress	GNU compression utilities
+hostname	12	bin=5 doc=7	bin/dnsdomainname | bin/domainname | bin/hostname | bin/nisdomainname	utility to set/show the host name or domain name
+init	2	doc=2		metapackage ensuring an init system is installed
+init-system-helpers	16	bin=5 doc=9	usr/bin/deb-systemd-helper | usr/bin/deb-systemd-invoke | usr/sbin/invoke-rc.d | usr/sbin/service	helper tools for all init systems
+initramfs-tools	13	bin=1 etc=3 doc=6	etc/initramfs-tools/update-initramfs.conf | etc/kernel/postinst.d/initramfs-tools | etc/kernel/postrm.d/initramfs-tools | usr/sbin/update-initramfs	generic modular initramfs generator (automation)
+initramfs-tools-core	31	bin=3 etc=1 doc=12	etc/initramfs-tools/initramfs.conf | usr/bin/lsinitramfs | usr/bin/unmkinitramfs | usr/sbin/mkinitramfs	generic modular initramfs generator (core tools)
+iproute2	179	bin=19 lib_so=3 etc=11 doc=138	bin/ip | bin/ss | etc/iproute2/bpf_pinning | etc/iproute2/ematch_map	networking and traffic control tools
+iptables	197	bin=30 lib_so=122 doc=44	usr/bin/iptables-xml | usr/lib/x86_64-linux-gnu/xtables/libarpt_mangle.so | usr/lib/x86_64-linux-gnu/xtables/libebt_802_3.so | usr/lib/x86_64-linux-gnu/xtables/libebt_among.so	administration tools for packet filtering and NAT
+iputils-ping	10	bin=3 doc=7	bin/ping | bin/ping4 | bin/ping6	Tools to test the reachability of network hosts
+isc-dhcp-client	18	bin=2 etc=6 doc=10	etc/apparmor.d/sbin.dhclient | etc/dhcp/debug | etc/dhcp/dhclient-enter-hooks.d/debug | etc/dhcp/dhclient-exit-hooks.d/debug	DHCP client for automatically obtaining an IP address
+jq	7	bin=1 doc=6	usr/bin/jq	lightweight and flexible command-line JSON processor
+klibc-utils	41	libexec=38 doc=1	usr/lib/klibc/bin/cat | usr/lib/klibc/bin/chroot | usr/lib/klibc/bin/cpio | usr/lib/klibc/bin/dd	small utilities built with klibc for early boot
+kmod	28	bin=8 etc=1 doc=16	bin/kmod | bin/lsmod | etc/init.d/kmod | lib/modprobe.d/aliases.conf	tools for managing Linux kernel modules
+less	16	bin=5 libexec=1 doc=10	usr/bin/less | usr/bin/lessecho | usr/bin/lessfile | usr/bin/lesskey	pager program similar to more
+libacl1	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libacl.so.1 | usr/lib/x86_64-linux-gnu/libacl.so.1.1.2301 | usr/share/lintian/overrides/libacl1	access control list - shared library
+libaio1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libaio.so.1 | usr/lib/x86_64-linux-gnu/libaio.so.1.0.2	Linux kernel AIO access library - shared library
+libapparmor1	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libapparmor.so.1 | usr/lib/x86_64-linux-gnu/libapparmor.so.1.8.4	changehat AppArmor library
+libapt-pkg6.0	48	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libapt-pkg.so.6.0 | usr/lib/x86_64-linux-gnu/libapt-pkg.so.6.0.0 | usr/share/locale/ar/LC_MESSAGES/libapt-pkg6.0.mo | usr/share/locale/ast/LC_MESSAGES/libapt-pkg6.0.mo	package management runtime library
+libargon2-1	4	lib_so=1 doc=3	usr/lib/x86_64-linux-gnu/libargon2.so.1	memory-hard hashing function - runtime library
+libattr1	7	lib_so=2 etc=1 doc=3	etc/xattr.conf | usr/lib/x86_64-linux-gnu/libattr.so.1 | usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501 | usr/share/lintian/overrides/libattr1	extended attribute handling - shared library
+libaudit-common	5	etc=1 doc=4	etc/libaudit.conf	Dynamic library for security auditing - common files
+libaudit1	5	lib_so=2 doc=3	lib/x86_64-linux-gnu/libaudit.so.1 | lib/x86_64-linux-gnu/libaudit.so.1.0.0	Dynamic library for security auditing
+libblkid1	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libblkid.so.1 | usr/lib/x86_64-linux-gnu/libblkid.so.1.1.0 | usr/share/lintian/overrides/libblkid1	block device ID library
+libbpf1	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libbpf.so.1 | usr/lib/x86_64-linux-gnu/libbpf.so.1.1.2	eBPF helper library (shared library)
+libbrotli1	10	lib_so=6 doc=3	usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1 | usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.0.9 | usr/lib/x86_64-linux-gnu/libbrotlidec.so.1 | usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.0.9	library implementing brotli encoder and decoder (shared libraries)
+libbsd0	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libbsd.so.0 | usr/lib/x86_64-linux-gnu/libbsd.so.0.11.7 | usr/share/lintian/overrides/libbsd0	utility functions from BSD systems - shared library
+libbz2-1.0	7	lib_so=3 doc=4	lib/x86_64-linux-gnu/libbz2.so.1 | lib/x86_64-linux-gnu/libbz2.so.1.0 | lib/x86_64-linux-gnu/libbz2.so.1.0.4	high-quality block-sorting file compressor library - runtime
+libc-bin	37	bin=13 lib_so=1 libexec=12 etc=5 doc=5	etc/bindresvport.blacklist | etc/default/nss | etc/gai.conf | etc/ld.so.conf	GNU C Library: Binaries
+libc-l10n	40	doc=3	usr/share/locale/be/LC_MESSAGES/libc.mo | usr/share/locale/bg/LC_MESSAGES/libc.mo | usr/share/locale/ca/LC_MESSAGES/libc.mo | usr/share/locale/cs/LC_MESSAGES/libc.mo	GNU C Library: localization files
+libc6	286	lib_so=274 libexec=1 etc=1 doc=7	etc/ld.so.conf.d/x86_64-linux-gnu.conf | lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 | lib/x86_64-linux-gnu/libBrokenLocale.so.1 | lib/x86_64-linux-gnu/libanl.so.1	GNU C Library: Shared libraries
+libcap-ng0	8	lib_so=4 doc=4	lib/x86_64-linux-gnu/libcap-ng.so.0 | lib/x86_64-linux-gnu/libcap-ng.so.0.0.0 | lib/x86_64-linux-gnu/libdrop_ambient.so.0 | lib/x86_64-linux-gnu/libdrop_ambient.so.0.0.0	alternate POSIX capabilities library
+libcap2-bin	15	bin=4 doc=10	sbin/capsh | sbin/getcap | sbin/getpcaps | sbin/setcap	POSIX 1003.1e capabilities (utilities)
+libcap2	8	lib_so=4 doc=4	lib/x86_64-linux-gnu/libcap.so.2 | lib/x86_64-linux-gnu/libcap.so.2.66 | lib/x86_64-linux-gnu/libpsx.so.2 | lib/x86_64-linux-gnu/libpsx.so.2.66	POSIX 1003.1e capabilities (library)
+libcbor0.8	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libcbor.so.0.8 | usr/lib/x86_64-linux-gnu/libcbor.so.0.8.0	library for parsing and generating CBOR (RFC 7049)
+libcom-err2	5	lib_so=2 doc=3	lib/x86_64-linux-gnu/libcom_err.so.2 | lib/x86_64-linux-gnu/libcom_err.so.2.1	common error description library
+libcrypt1	5	lib_so=2 doc=3	lib/x86_64-linux-gnu/libcrypt.so.1 | lib/x86_64-linux-gnu/libcrypt.so.1.1.0	libcrypt shared library
+libcryptsetup12	7	lib_so=2 doc=3	lib/x86_64-linux-gnu/libcryptsetup.so.12 | lib/x86_64-linux-gnu/libcryptsetup.so.12.9.0 | usr/share/bug/libcryptsetup12 | usr/share/lintian/overrides/libcryptsetup12	disk encryption support - shared library
+libcurl3-gnutls	7	lib_so=3 doc=3	usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.3 | usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4 | usr/lib/x86_64-linux-gnu/libcurl-gnutls.so.4.8.0 | usr/share/lintian/overrides/libcurl3-gnutls	easy-to-use client-side URL transfer library (GnuTLS flavour)
+libcurl4	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libcurl.so.4 | usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0	easy-to-use client-side URL transfer library (OpenSSL flavour)
+libdb5.3	5	lib_so=1 doc=3	usr/lib/x86_64-linux-gnu/libdb-5.3.so | usr/share/lintian/overrides/libdb5.3	Berkeley v5.3 Database Libraries [runtime]
+libdbus-1-3	7	lib_so=2 doc=5	lib/x86_64-linux-gnu/libdbus-1.so.3 | lib/x86_64-linux-gnu/libdbus-1.so.3.32.4	simple interprocess messaging system (library)
+libdebconfclient0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libdebconfclient.so.0 | usr/lib/x86_64-linux-gnu/libdebconfclient.so.0.0.0	Debian Configuration Management System (C-implementation library)
+libdevmapper1.02.1	4	lib_so=1 doc=3	lib/x86_64-linux-gnu/libdevmapper.so.1.02.1	Linux Kernel Device Mapper userspace library
+libduktape207	3	lib_so=1 doc=2	usr/lib/x86_64-linux-gnu/libduktape.so.207	embeddable Javascript engine, library
+libedit2	9	lib_so=2 doc=6	usr/lib/x86_64-linux-gnu/libedit.so.2 | usr/lib/x86_64-linux-gnu/libedit.so.2.0.70 | usr/share/lintian/overrides/libedit2	BSD editline and history libraries
+libefiboot1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libefiboot.so.1 | usr/lib/x86_64-linux-gnu/libefiboot.so.1.37	Library to manage UEFI variables
+libefivar1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libefivar.so.1 | usr/lib/x86_64-linux-gnu/libefivar.so.1.37	Library to manage UEFI variables
+libelf1	12	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libelf-0.188.so | usr/lib/x86_64-linux-gnu/libelf.so.1 | usr/share/locale/de/LC_MESSAGES/elfutils.mo | usr/share/locale/en@boldquot/LC_MESSAGES/elfutils.mo	library to read and write ELF files
+libexpat1	8	lib_so=4 doc=4	lib/x86_64-linux-gnu/libexpat.so.1 | lib/x86_64-linux-gnu/libexpat.so.1.8.10 | usr/lib/x86_64-linux-gnu/libexpatw.so.1 | usr/lib/x86_64-linux-gnu/libexpatw.so.1.8.10	XML parsing C library - runtime library
+libext2fs2	7	lib_so=4 doc=3	lib/x86_64-linux-gnu/libe2p.so.2 | lib/x86_64-linux-gnu/libe2p.so.2.3 | lib/x86_64-linux-gnu/libext2fs.so.2 | lib/x86_64-linux-gnu/libext2fs.so.2.4	ext2/ext3/ext4 file system libraries
+libfdisk1	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libfdisk.so.1 | usr/lib/x86_64-linux-gnu/libfdisk.so.1.1.0 | usr/share/lintian/overrides/libfdisk1	fdisk partitioning library
+libffi8	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libffi.so.8 | usr/lib/x86_64-linux-gnu/libffi.so.8.1.2	Foreign Function Interface library runtime
+libfido2-1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libfido2.so.1 | usr/lib/x86_64-linux-gnu/libfido2.so.1.12.0	library for generating and verifying FIDO 2.0 objects
+libfreetype6	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libfreetype.so.6 | usr/lib/x86_64-linux-gnu/libfreetype.so.6.18.3	FreeType 2 font engine, shared library files
+libfstrm0	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libfstrm.so.0 | usr/lib/x86_64-linux-gnu/libfstrm.so.0.1.0	Frame Streams (fstrm) library
+libfuse2	13	lib_so=4 doc=9	lib/x86_64-linux-gnu/libfuse.so.2 | lib/x86_64-linux-gnu/libfuse.so.2.9.9 | lib/x86_64-linux-gnu/libulockmgr.so.1 | lib/x86_64-linux-gnu/libulockmgr.so.1.0.1	Filesystem in Userspace (library)
+libfuse3-3	8	lib_so=2 doc=6	lib/x86_64-linux-gnu/libfuse3.so.3 | lib/x86_64-linux-gnu/libfuse3.so.3.14.0	Filesystem in Userspace (library) (3.x version)
+libgcc-s1	3	lib_so=1 doc=1	lib/x86_64-linux-gnu/libgcc_s.so.1 | usr/share/lintian/overrides/libgcc-s1	GCC support library
+libgcrypt20	10	lib_so=2 doc=7	usr/lib/x86_64-linux-gnu/libgcrypt.so.20 | usr/lib/x86_64-linux-gnu/libgcrypt.so.20.4.1 | usr/share/libgcrypt20/clean-up-unmanaged-libraries	LGPL Crypto library - runtime library
+libgdbm6	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libgdbm.so.6 | usr/lib/x86_64-linux-gnu/libgdbm.so.6.0.0	GNU dbm database routines (runtime version)
+libglib2.0-0	18	lib_so=10 libexec=3 doc=4	usr/lib/x86_64-linux-gnu/glib-2.0/gio-launch-desktop | usr/lib/x86_64-linux-gnu/glib-2.0/gio-querymodules | usr/lib/x86_64-linux-gnu/glib-2.0/glib-compile-schemas | usr/lib/x86_64-linux-gnu/libgio-2.0.so.0	GLib library of C routines
+libgmp10	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libgmp.so.10 | usr/lib/x86_64-linux-gnu/libgmp.so.10.4.1	Multiprecision arithmetic library
+libgnutls30	28	lib_so=2 doc=8	usr/lib/x86_64-linux-gnu/libgnutls.so.30 | usr/lib/x86_64-linux-gnu/libgnutls.so.30.34.3 | usr/share/locale/cs/LC_MESSAGES/gnutls30.mo | usr/share/locale/de/LC_MESSAGES/gnutls30.mo	GNU TLS library - main runtime library
+libgpg-error0	6	lib_so=2 doc=4	lib/x86_64-linux-gnu/libgpg-error.so.0 | lib/x86_64-linux-gnu/libgpg-error.so.0.33.1	GnuPG development runtime library
+libgpm2	5	lib_so=1 doc=4	usr/lib/x86_64-linux-gnu/libgpm.so.2	General Purpose Mouse - shared library
+libgssapi-krb5-2	5	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2 | usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2 | usr/share/lintian/overrides/libgssapi-krb5-2	MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
+libhogweed6	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libhogweed.so.6 | usr/lib/x86_64-linux-gnu/libhogweed.so.6.6	low level cryptographic library (public-key cryptos)
+libicu72	15	lib_so=12 doc=2	usr/lib/x86_64-linux-gnu/libicudata.so.72 | usr/lib/x86_64-linux-gnu/libicudata.so.72.1 | usr/lib/x86_64-linux-gnu/libicui18n.so.72 | usr/lib/x86_64-linux-gnu/libicui18n.so.72.1	International Components for Unicode
+libidn2-0	34	lib_so=2 doc=7	usr/lib/x86_64-linux-gnu/libidn2.so.0 | usr/lib/x86_64-linux-gnu/libidn2.so.0.3.8 | usr/share/lintian/overrides/libidn2-0 | usr/share/locale/cs/LC_MESSAGES/libidn2.mo	Internationalized domain names (IDNA2008/TR46) library
+libip4tc2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libip4tc.so.2 | usr/lib/x86_64-linux-gnu/libip4tc.so.2.0.0	netfilter libip4tc library
+libip6tc2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libip6tc.so.2 | usr/lib/x86_64-linux-gnu/libip6tc.so.2.0.0	netfilter libip6tc library
+libjemalloc2	5	lib_so=1 doc=4	usr/lib/x86_64-linux-gnu/libjemalloc.so.2	general-purpose scalable concurrent malloc(3) implementation
+libjq1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libjq.so.1 | usr/lib/x86_64-linux-gnu/libjq.so.1.0.4	lightweight and flexible command-line JSON processor - shared library
+libjson-c5	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libjson-c.so.5 | usr/lib/x86_64-linux-gnu/libjson-c.so.5.2.0	JSON manipulation library - shared library
+libk5crypto3	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libk5crypto.so.3 | usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1	MIT Kerberos runtime libraries - Crypto Library
+libkeyutils1	4	lib_so=2 doc=2	lib/x86_64-linux-gnu/libkeyutils.so.1 | lib/x86_64-linux-gnu/libkeyutils.so.1.10	Linux Key Management Utilities (library)
+libklibc	8	lib_so=1 doc=6	lib/klibc-XX6cASCB7KZyJWpIJW79y94XHBY.so | usr/share/lintian/overrides/libklibc	minimal libc subset for use with initramfs
+libkmod2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libkmod.so.2 | usr/lib/x86_64-linux-gnu/libkmod.so.2.4.0	libkmod shared library
+libkrb5-3	8	lib_so=3 doc=4	usr/lib/x86_64-linux-gnu/krb5/plugins/preauth/spake.so | usr/lib/x86_64-linux-gnu/libkrb5.so.3 | usr/lib/x86_64-linux-gnu/libkrb5.so.3.3 | usr/share/lintian/overrides/libkrb5-3	MIT Kerberos runtime libraries
+libkrb5support0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libkrb5support.so.0 | usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1	MIT Kerberos runtime libraries - Support library
+libldap-2.5-0	9	lib_so=4 doc=4	usr/lib/x86_64-linux-gnu/liblber-2.5.so.0 | usr/lib/x86_64-linux-gnu/liblber-2.5.so.0.1.8 | usr/lib/x86_64-linux-gnu/libldap-2.5.so.0 | usr/lib/x86_64-linux-gnu/libldap-2.5.so.0.1.8	OpenLDAP libraries
+liblmdb0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/liblmdb.so.0 | usr/lib/x86_64-linux-gnu/liblmdb.so.0.0.0	Lightning Memory-Mapped Database shared library
+liblz4-1	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/liblz4.so.1 | usr/lib/x86_64-linux-gnu/liblz4.so.1.9.4	Fast LZ compression algorithm library - runtime
+liblzma5	8	lib_so=2 doc=6	lib/x86_64-linux-gnu/liblzma.so.5 | lib/x86_64-linux-gnu/liblzma.so.5.4.1	XZ-format compression library
+libmagic-mgc	7	doc=4	usr/lib/file/magic.mgc | usr/share/file/magic.mgc | usr/share/misc/magic.mgc	File type determination library using "magic" numbers (compiled magic file)
+libmagic1	11	lib_so=2 etc=2 doc=4	etc/magic | etc/magic.mime | usr/lib/x86_64-linux-gnu/libmagic.so.1 | usr/lib/x86_64-linux-gnu/libmagic.so.1.0.0	Recognize the type of data in a file using "magic" numbers - library
+libmaxminddb0	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libmaxminddb.so.0 | usr/lib/x86_64-linux-gnu/libmaxminddb.so.0.0.7	IP geolocation database library
+libmd0	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libmd.so.0 | usr/lib/x86_64-linux-gnu/libmd.so.0.0.5	message digest functions from BSD systems - shared library
+libmnl0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libmnl.so.0 | usr/lib/x86_64-linux-gnu/libmnl.so.0.2.0	minimalistic Netlink communication library
+libmount1	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libmount.so.1 | usr/lib/x86_64-linux-gnu/libmount.so.1.1.0 | usr/share/lintian/overrides/libmount1	device mounting library
+libncursesw6	9	lib_so=8 doc=1	lib/x86_64-linux-gnu/libncursesw.so.6 | lib/x86_64-linux-gnu/libncursesw.so.6.4 | usr/lib/x86_64-linux-gnu/libformw.so.6 | usr/lib/x86_64-linux-gnu/libformw.so.6.4	shared libraries for terminal handling (wide character support)
+libnetfilter-conntrack3	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libnetfilter_conntrack.so.3 | usr/lib/x86_64-linux-gnu/libnetfilter_conntrack.so.3.8.0	Netfilter netlink-conntrack library
+libnetplan0	3	lib_so=1 doc=2	usr/lib/x86_64-linux-gnu/libnetplan.so.0.0	YAML network configuration abstraction runtime library
+libnettle8	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libnettle.so.8 | usr/lib/x86_64-linux-gnu/libnettle.so.8.6	low level cryptographic library (symmetric and one-way cryptos)
+libnewt0.52	85	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libnewt.so.0.52 | usr/lib/x86_64-linux-gnu/libnewt.so.0.52.23 | usr/share/locale/ar/LC_MESSAGES/newt.mo | usr/share/locale/as/LC_MESSAGES/newt.mo	Not Erik's Windowing Toolkit - text mode windowing with slang
+libnfnetlink0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libnfnetlink.so.0 | usr/lib/x86_64-linux-gnu/libnfnetlink.so.0.2.0	Netfilter netlink library
+libnftnl11	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libnftnl.so.11 | usr/lib/x86_64-linux-gnu/libnftnl.so.11.6.0	Netfilter nftables userspace API library
+libnghttp2-14	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libnghttp2.so.14 | usr/lib/x86_64-linux-gnu/libnghttp2.so.14.24.1	library implementing HTTP/2 protocol (shared library)
+libnsl2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libnsl.so.2 | usr/lib/x86_64-linux-gnu/libnsl.so.2.0.1	Public client interface for NIS(YP) and NIS+
+libnss-myhostname	7	lib_so=1 doc=5	usr/lib/x86_64-linux-gnu/libnss_myhostname.so.2 | usr/share/lintian/overrides/libnss-myhostname	nss module providing fallback resolution for the current hostname
+libnuma1	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libnuma.so.1 | usr/lib/x86_64-linux-gnu/libnuma.so.1.0.0	Libraries for controlling NUMA policy
+libonig5	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libonig.so.5 | usr/lib/x86_64-linux-gnu/libonig.so.5.3.0	regular expressions library
+libp11-kit0	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libp11-kit.so.0 | usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0	library for loading and coordinating access to PKCS#11 modules - runtime
+libpam-modules-bin	21	bin=7 unit=1 doc=12	sbin/mkhomedir_helper | sbin/pam_namespace_helper | sbin/pwhistory_helper | sbin/unix_chkpwd	Pluggable Authentication Modules for PAM - helper binaries
+libpam-modules	112	lib_so=44 etc=9 doc=57	etc/security/access.conf | etc/security/faillock.conf | etc/security/group.conf | etc/security/limits.conf	Pluggable Authentication Modules for PAM
+libpam-runtime	108	bin=2 etc=2 doc=10	etc/pam.conf | etc/pam.d/other | usr/sbin/pam-auth-update | usr/sbin/pam_getenv	Runtime support for the PAM library
+libpam-systemd	7	lib_so=1 doc=4	lib/x86_64-linux-gnu/security/pam_systemd.so | usr/share/lintian/overrides/libpam-systemd | usr/share/pam-configs/systemd	system and service manager - PAM module
+libpam0g	15	lib_so=6 doc=8	lib/x86_64-linux-gnu/libpam.so.0 | lib/x86_64-linux-gnu/libpam.so.0.85.1 | lib/x86_64-linux-gnu/libpam_misc.so.0 | lib/x86_64-linux-gnu/libpam_misc.so.0.82.1	Pluggable Authentication Modules library
+libpcap0.8	9	lib_so=2 doc=7	usr/lib/x86_64-linux-gnu/libpcap.so.0.8 | usr/lib/x86_64-linux-gnu/libpcap.so.1.10.3	system interface for user-level packet capture
+libpci3	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libpci.so.3 | usr/lib/x86_64-linux-gnu/libpci.so.3.9.0 | usr/share/lintian/overrides/libpci3	PCI utilities (shared library)
+libpcre2-8-0	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libpcre2-8.so.0 | usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2	New Perl Compatible Regular Expression Library- 8 bit runtime files
+libpipeline1	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libpipeline.so.1 | usr/lib/x86_64-linux-gnu/libpipeline.so.1.5.7	Unix process pipeline manipulation library
+libpng16-16	10	lib_so=2 doc=7	usr/lib/x86_64-linux-gnu/libpng16.so.16 | usr/lib/x86_64-linux-gnu/libpng16.so.16.39.0 | usr/share/doc-base/libpng16-16.libpng16	PNG library - runtime (version 1.6)
+libpolkit-agent-1-0	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libpolkit-agent-1.so.0 | usr/lib/x86_64-linux-gnu/libpolkit-agent-1.so.0.0.0	polkit Authentication Agent API
+libpolkit-gobject-1-0	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0 | usr/lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0.0.0	polkit Authorization API
+libpopt0	41	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libpopt.so.0 | usr/lib/x86_64-linux-gnu/libpopt.so.0.0.2 | usr/share/locale/ca/LC_MESSAGES/popt.mo | usr/share/locale/cs/LC_MESSAGES/popt.mo	lib for parsing cmdline parameters
+libproc2-0	6	lib_so=2 doc=4	lib/x86_64-linux-gnu/libproc2.so.0 | lib/x86_64-linux-gnu/libproc2.so.0.0.1	library for accessing process information from /proc
+libprotobuf-c1	6	lib_so=2 doc=4	usr/lib/x86_64-linux-gnu/libprotobuf-c.so.1 | usr/lib/x86_64-linux-gnu/libprotobuf-c.so.1.0.0	Protocol Buffers C shared library (protobuf-c)
+libpsl5	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libpsl.so.5 | usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4	Library for Public Suffix List (shared libraries)
+libpython3-stdlib	4	doc=4		interactive high-level object-oriented language (default python3 version)
+libpython3.11-minimal	282	lib_so=2 py=275 etc=1 doc=3	etc/python3.11/sitecustomize.py | usr/lib/python3.11/__future__.py | usr/lib/python3.11/_collections_abc.py | usr/lib/python3.11/_compat_pickle.py	Minimal subset of the Python language (version 3.11)
+libpython3.11-stdlib	323	lib_so=44 libexec=2 py=270 doc=1	usr/lib/python3.11/EXTERNALLY-MANAGED | usr/lib/python3.11/LICENSE.txt | usr/lib/python3.11/__hello__.py | usr/lib/python3.11/__phello__/__init__.py	Interactive high-level object-oriented language (standard library, version 3.11)
+libreadline8	11	lib_so=4 doc=7	lib/x86_64-linux-gnu/libhistory.so.8 | lib/x86_64-linux-gnu/libhistory.so.8.2 | lib/x86_64-linux-gnu/libreadline.so.8 | lib/x86_64-linux-gnu/libreadline.so.8.2	GNU readline and history libraries, run-time libraries
+librtmp1	5	lib_so=1 doc=4	usr/lib/x86_64-linux-gnu/librtmp.so.1	toolkit for RTMP streams (shared library)
+libsasl2-2	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libsasl2.so.2 | usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25	Cyrus SASL - authentication abstraction library
+libsasl2-modules-db	6	lib_so=3 doc=3	usr/lib/x86_64-linux-gnu/sasl2/libsasldb.so | usr/lib/x86_64-linux-gnu/sasl2/libsasldb.so.2 | usr/lib/x86_64-linux-gnu/sasl2/libsasldb.so.2.0.25	Cyrus SASL - pluggable authentication modules (DB)
+libseccomp2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libseccomp.so.2 | usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.4	high level interface to Linux seccomp filter
+libselinux1	4	lib_so=1 doc=3	lib/x86_64-linux-gnu/libselinux.so.1	SELinux runtime shared libraries
+libsemanage-common	5	etc=1 doc=4	etc/selinux/semanage.conf	Common files for SELinux policy management libraries
+libsemanage2	4	lib_so=1 doc=3	usr/lib/x86_64-linux-gnu/libsemanage.so.2	SELinux policy management library
+libsepol2	3	lib_so=1 doc=2	lib/x86_64-linux-gnu/libsepol.so.2	SELinux library for manipulating binary security policies
+libslang2	10	lib_so=2 doc=7	usr/lib/x86_64-linux-gnu/libslang.so.2 | usr/lib/x86_64-linux-gnu/libslang.so.2.3.3 | usr/share/lintian/overrides/libslang2	S-Lang programming library - runtime version
+libsmartcols1	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libsmartcols.so.1 | usr/lib/x86_64-linux-gnu/libsmartcols.so.1.1.0 | usr/share/lintian/overrides/libsmartcols1	smart column output alignment library
+libsodium23	8	lib_so=2 doc=6	usr/lib/x86_64-linux-gnu/libsodium.so.23 | usr/lib/x86_64-linux-gnu/libsodium.so.23.3.0	Network communication, cryptography and signaturing library
+libsqlite3-0	7	lib_so=2 doc=5	usr/lib/x86_64-linux-gnu/libsqlite3.so.0 | usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6	SQLite 3 shared library
+libss2	5	lib_so=2 doc=3	lib/x86_64-linux-gnu/libss.so.2 | lib/x86_64-linux-gnu/libss.so.2.0	command-line interface parsing library
+libssh2-1	8	lib_so=2 doc=6	usr/lib/x86_64-linux-gnu/libssh2.so.1 | usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1	SSH2 client-side library
+libssl3	9	lib_so=6 doc=3	usr/lib/x86_64-linux-gnu/engines-3/afalg.so | usr/lib/x86_64-linux-gnu/engines-3/loader_attic.so | usr/lib/x86_64-linux-gnu/engines-3/padlock.so | usr/lib/x86_64-linux-gnu/libcrypto.so.3	Secure Sockets Layer toolkit - shared libraries
+libstdc++6	8	lib_so=2 py=5 doc=1	usr/lib/x86_64-linux-gnu/libstdc++.so.6 | usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 | usr/share/gcc/python/libstdcxx/__init__.py | usr/share/gcc/python/libstdcxx/v6/__init__.py	GNU Standard C++ Library v3
+libsystemd-shared	6	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/systemd/libsystemd-core-252.so | usr/lib/x86_64-linux-gnu/systemd/libsystemd-shared-252.so | usr/share/lintian/overrides/libsystemd-shared	systemd shared private library
+libsystemd0	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libsystemd.so.0 | usr/lib/x86_64-linux-gnu/libsystemd.so.0.35.0	systemd utility library
+libtasn1-6	8	lib_so=2 doc=6	usr/lib/x86_64-linux-gnu/libtasn1.so.6 | usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.3	Manage ASN.1 structures (runtime)
+libtinfo6	7	lib_so=4 doc=3	lib/x86_64-linux-gnu/libtinfo.so.6 | lib/x86_64-linux-gnu/libtinfo.so.6.4 | usr/lib/x86_64-linux-gnu/libtic.so.6 | usr/lib/x86_64-linux-gnu/libtic.so.6.4	shared low-level terminfo library for terminal handling
+libtirpc-common	6	etc=1 doc=5	etc/netconfig	transport-independent RPC library - common files
+libtirpc3	6	lib_so=2 doc=4	lib/x86_64-linux-gnu/libtirpc.so.3 | lib/x86_64-linux-gnu/libtirpc.so.3.0.0	transport-independent RPC library
+libuchardet0	4	lib_so=2 doc=2	usr/lib/x86_64-linux-gnu/libuchardet.so.0 | usr/lib/x86_64-linux-gnu/libuchardet.so.0.0.7	universal charset detection library - shared library
+libudev1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libudev.so.1 | usr/lib/x86_64-linux-gnu/libudev.so.1.7.5	libudev shared library
+libunistring2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libunistring.so.2 | usr/lib/x86_64-linux-gnu/libunistring.so.2.2.0	Unicode string library for C
+liburing2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/liburing.so.2 | usr/lib/x86_64-linux-gnu/liburing.so.2.3	Linux kernel io_uring access library - shared library
+libutempter0	6	lib_so=2 libexec=1 doc=2	usr/lib/x86_64-linux-gnu/libutempter.so.0 | usr/lib/x86_64-linux-gnu/libutempter.so.1.2.1 | usr/lib/x86_64-linux-gnu/utempter/utempter | usr/share/lintian/overrides/libutempter0	privileged helper for utmp/wtmp updates (runtime)
+libuuid1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libuuid.so.1 | usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0	Universally Unique ID library
+libuv1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libuv.so.1 | usr/lib/x86_64-linux-gnu/libuv.so.1.0.0	asynchronous event notification library - runtime library
+libwrap0	11	lib_so=2 doc=9	usr/lib/x86_64-linux-gnu/libwrap.so.0 | usr/lib/x86_64-linux-gnu/libwrap.so.0.7.6	Wietse Venema's TCP wrappers library
+libxml2	9	lib_so=2 doc=6	usr/lib/x86_64-linux-gnu/libxml2.so.2 | usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14 | usr/share/lintian/overrides/libxml2	GNOME XML library
+libxtables12	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libxtables.so.12 | usr/lib/x86_64-linux-gnu/libxtables.so.12.7.0	netfilter xtables library
+libxxhash0	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libxxhash.so.0 | usr/lib/x86_64-linux-gnu/libxxhash.so.0.8.1	shared library for xxhash
+libyaml-0-2	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libyaml-0.so.2 | usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.9	Fast YAML 1.1 parser and emitter library
+libzstd1	5	lib_so=2 doc=3	usr/lib/x86_64-linux-gnu/libzstd.so.1 | usr/lib/x86_64-linux-gnu/libzstd.so.1.5.4	fast lossless compression algorithm
+linux-base	15	bin=4 pm=1 doc=9	usr/bin/linux-check-removal | usr/bin/linux-run-hooks | usr/bin/linux-update-symlinks | usr/bin/linux-version	Linux image base package
+linux-image-6.1.0-56-cloud-amd64	0			NO-DESCRIPTION
+linux-image-cloud-amd64	2	doc=1	usr/share/bug/linux-image-cloud-amd64/presubj	Linux for x86-64 cloud (meta-package)
+locales	613	bin=3 etc=1 doc=13	etc/locale.alias | usr/sbin/locale-gen | usr/sbin/update-locale | usr/sbin/validlocale	GNU C Library: National Language (locale) data [support]
+login	141	bin=6 etc=2 doc=93	bin/login | etc/login.defs | etc/pam.d/login | usr/bin/faillog	system login tools
+logsave	5	bin=1 doc=4	sbin/logsave	save the output of a command in a log file
+lsb-release	4	bin=1 doc=3	usr/bin/lsb_release	Linux Standard Base version reporting utility (minimal implementation)
+man-db	335	bin=9 lib_so=4 libexec=6 unit=2 etc=4 doc=241	etc/apparmor.d/usr.bin.man | etc/cron.daily/man-db | etc/cron.weekly/man-db | etc/manpath.config	tools for reading manual pages
+manpages	289	doc=288	usr/share/lintian/overrides/manpages	Manual pages about using a GNU/Linux system
+mawk	17	bin=1 doc=16	usr/bin/mawk	Pattern scanning and text processing language
+media-types	4	etc=1 doc=2	etc/mime.types | usr/share/bug/media-types/presubj	List of standard media types and their usual file extension
+mokutil	5	bin=1 doc=3	usr/bin/mokutil | usr/share/bash-completion/completions/mokutil	tools for manipulating machine owner keys
+mount	24	bin=5 doc=13	bin/mount | bin/umount | sbin/losetup | sbin/swapoff	tools for mounting and manipulating filesystems
+nano	107	bin=2 etc=1 doc=16	bin/nano | bin/rnano | etc/nanorc | usr/share/doc-base/nano.nano	small, friendly text editor inspired by Pico
+ncurses-base	56	etc=1 doc=5	etc/terminfo/README | lib/terminfo/E/Eterm | lib/terminfo/E/Eterm-color | lib/terminfo/a/ansi	basic terminal type definitions
+ncurses-bin	28	bin=10 doc=18	usr/bin/captoinfo | usr/bin/clear | usr/bin/infocmp | usr/bin/infotocap	terminal-related programs and man pages
+netbase	6	etc=4 doc=2	etc/ethertypes | etc/protocols | etc/rpc | etc/services	Basic TCP/IP networking system
+netplan.io	70	bin=1 libexec=2 py=21 doc=39	lib/netplan/generate | lib/systemd/system-generators/netplan | usr/libexec/netplan/generate | usr/libexec/netplan/netplan-dbus	YAML network configuration abstraction for various backends
+openssh-client	42	bin=10 libexec=4 py=1 etc=1 doc=23	etc/ssh/ssh_config | usr/bin/scp | usr/bin/sftp | usr/bin/slogin	secure shell (SSH) client, for secure access to remote machines
+openssh-server	25	bin=1 libexec=1 py=1 unit=3 etc=9 doc=6	etc/default/ssh | etc/init.d/ssh | etc/pam.d/sshd | etc/ssh/moduli	secure shell (SSH) server, for secure access from remote machines
+openssh-sftp-server	4	libexec=1 doc=2	usr/lib/openssh/sftp-server | usr/lib/sftp-server	secure shell (SSH) sftp server module, for SFTP access from remote machines
+openssl	301	bin=2 libexec=3 etc=1 doc=290	etc/ssl/openssl.cnf | usr/bin/c_rehash | usr/bin/openssl | usr/lib/ssl/cert.pem	Secure Sockets Layer toolkit - cryptographic utility
+passwd	343	bin=27 etc=6 doc=308	etc/default/useradd | etc/pam.d/chfn | etc/pam.d/chpasswd | etc/pam.d/chsh	change and administer password and group data
+pci.ids	3	doc=2	usr/share/misc/pci.ids	PCI ID Repository
+pciutils	12	bin=3 doc=9	usr/bin/lspci | usr/bin/setpci | usr/sbin/update-pciids	PCI utilities
+perl-base	621	bin=2 lib_so=10 pm=61 doc=7	usr/bin/perl | usr/bin/perl5.36.0 | usr/lib/x86_64-linux-gnu/perl-base/AutoLoader.pm | usr/lib/x86_64-linux-gnu/perl-base/Carp.pm	minimal Perl system
+polkitd	53	bin=3 libexec=4 unit=1 doc=12	lib/systemd/system/polkit.service | usr/bin/pkaction | usr/bin/pkcheck | usr/bin/pkttyagent	framework for managing administrative policies and privileges
+procps	154	bin=18 etc=3 doc=118	bin/kill | bin/ps | etc/init.d/procps | etc/sysctl.conf	/proc file system utilities
+psmisc	113	bin=7 doc=74	bin/fuser | usr/bin/killall | usr/bin/peekfd | usr/bin/prtstat	utilities that use the proc file system
+python-apt-common	65	doc=2	usr/share/locale/ar/LC_MESSAGES/python-apt.mo | usr/share/locale/be/LC_MESSAGES/python-apt.mo | usr/share/locale/bg/LC_MESSAGES/python-apt.mo | usr/share/locale/bn/LC_MESSAGES/python-apt.mo	Python interface to libapt-pkg (locales)
+python3	19	bin=3 doc=9	usr/bin/pdb3 | usr/bin/pydoc3 | usr/bin/pygettext3 | usr/lib/valgrind/python3.supp	interactive high-level object-oriented language (default python3 version)
+python3-apt	26	lib_so=2 libexec=1 py=15 doc=2	usr/lib/python3/dist-packages/apt/__init__.py | usr/lib/python3/dist-packages/apt/auth.py | usr/lib/python3/dist-packages/apt/cache.py | usr/lib/python3/dist-packages/apt/cdrom.py	Python 3 interface to libapt-pkg
+python3-attr	38	libexec=3 py=19 doc=3	usr/lib/python3/dist-packages/attr/__init__.py | usr/lib/python3/dist-packages/attr/__init__.pyi | usr/lib/python3/dist-packages/attr/_cmp.py | usr/lib/python3/dist-packages/attr/_cmp.pyi	Attributes without boilerplate (Python 3)
+python3-blinker	11	libexec=3 py=4 doc=3	usr/lib/python3/dist-packages/blinker-1.5.dist-info/METADATA | usr/lib/python3/dist-packages/blinker-1.5.dist-info/RECORD | usr/lib/python3/dist-packages/blinker-1.5.dist-info/WHEEL | usr/lib/python3/dist-packages/blinker-1.5.dist-info/top_level.txt	Fast, simple object-to-object and broadcast signaling (Python3)
+python3-certifi	13	libexec=2 py=3 doc=3	usr/lib/python3/dist-packages/certifi-2022.9.24.egg-info/PKG-INFO | usr/lib/python3/dist-packages/certifi-2022.9.24.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/certifi-2022.9.24.egg-info/not-zip-safe | usr/lib/python3/dist-packages/certifi-2022.9.24.egg-info/top_level.txt	root certificates for validating SSL certs and verifying TLS hosts (python3)
+python3-cffi-backend	5	lib_so=1 doc=4	usr/lib/python3/dist-packages/_cffi_backend.cpython-311-x86_64-linux-gnu.so	Foreign Function Interface for Python 3 calling C code - runtime
+python3-chardet	61	bin=2 libexec=3 py=48 doc=5	usr/bin/chardet | usr/bin/chardetect | usr/lib/python3/dist-packages/chardet-5.1.0.dist-info/METADATA | usr/lib/python3/dist-packages/chardet-5.1.0.dist-info/RECORD	Universal Character Encoding Detector (Python3)
+python3-charset-normalizer	22	bin=1 libexec=3 py=12 doc=3	usr/bin/normalizer | usr/lib/python3/dist-packages/charset_normalizer-3.0.1.dist-info/METADATA | usr/lib/python3/dist-packages/charset_normalizer-3.0.1.dist-info/RECORD | usr/lib/python3/dist-packages/charset_normalizer-3.0.1.dist-info/WHEEL	charset, encoding and language detection (Python 3)
+python3-configobj	11	libexec=3 py=4 doc=3	usr/lib/python3/dist-packages/configobj-5.0.8.dist-info/METADATA | usr/lib/python3/dist-packages/configobj-5.0.8.dist-info/RECORD | usr/lib/python3/dist-packages/configobj-5.0.8.dist-info/WHEEL | usr/lib/python3/dist-packages/configobj-5.0.8.dist-info/top_level.txt	simple but powerful config file reader and writer for Python 3
+python3-cryptography	103	lib_so=2 libexec=5 py=82 doc=3	usr/lib/python3/dist-packages/cryptography-38.0.4.dist-info/METADATA | usr/lib/python3/dist-packages/cryptography-38.0.4.dist-info/RECORD | usr/lib/python3/dist-packages/cryptography-38.0.4.dist-info/WHEEL | usr/lib/python3/dist-packages/cryptography-38.0.4.dist-info/top_level.txt	Python library exposing cryptographic recipes and primitives (Python 3)
+python3-dbus	29	lib_so=2 libexec=2 py=17 doc=5	usr/lib/python3/dist-packages/_dbus_bindings.cpython-311-x86_64-linux-gnu.so | usr/lib/python3/dist-packages/_dbus_glib_bindings.cpython-311-x86_64-linux-gnu.so | usr/lib/python3/dist-packages/dbus/__init__.py | usr/lib/python3/dist-packages/dbus/_compat.py	simple interprocess messaging system (Python 3 interface)
+python3-debconf	2	py=1 doc=1	usr/lib/python3/dist-packages/debconf.py	interact with debconf from Python 3
+python3-debian	49	libexec=1 py=24 doc=21	usr/lib/python3/dist-packages/deb822.py | usr/lib/python3/dist-packages/debian/__init__.py | usr/lib/python3/dist-packages/debian/_arch_table.py | usr/lib/python3/dist-packages/debian/_deb822_repro/__init__.py	Python 3 modules to work with Debian-related data formats
+python3-debianbts	14	bin=1 libexec=3 py=4 doc=4	usr/bin/debianbts | usr/lib/python3/dist-packages/debianbts/__init__.py | usr/lib/python3/dist-packages/debianbts/__main__.py | usr/lib/python3/dist-packages/debianbts/debianbts.py	Python interface to Debian's Bug Tracking System
+python3-distro	12	libexec=3 py=3 doc=3	usr/lib/python3/dist-packages/distro-1.8.0.dist-info/METADATA | usr/lib/python3/dist-packages/distro-1.8.0.dist-info/RECORD | usr/lib/python3/dist-packages/distro-1.8.0.dist-info/WHEEL | usr/lib/python3/dist-packages/distro-1.8.0.dist-info/entry_points.txt	Linux OS platform information API
+python3-distro-info	6	libexec=1 py=1 doc=2	usr/lib/python3/dist-packages/distro_info-1.5+deb12u1.egg-info/PKG-INFO | usr/lib/python3/dist-packages/distro_info-1.5+deb12u1.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/distro_info-1.5+deb12u1.egg-info/top_level.txt | usr/lib/python3/dist-packages/distro_info.py	information about distributions' releases (Python 3 module)
+python3-httplib2	14	libexec=3 py=6 doc=4	usr/lib/python3/dist-packages/httplib2-0.20.4.dist-info/METADATA | usr/lib/python3/dist-packages/httplib2-0.20.4.dist-info/RECORD | usr/lib/python3/dist-packages/httplib2-0.20.4.dist-info/WHEEL | usr/lib/python3/dist-packages/httplib2-0.20.4.dist-info/top_level.txt	comprehensive HTTP client library written for Python3
+python3-idna	15	libexec=1 py=8 doc=3	usr/lib/python3/dist-packages/idna-3.3.egg-info/PKG-INFO | usr/lib/python3/dist-packages/idna-3.3.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/idna-3.3.egg-info/top_level.txt | usr/lib/python3/dist-packages/idna/__init__.py	Python IDNA2008 (RFC 5891) handling (Python 3)
+python3-jinja2	37	libexec=1 py=25 doc=3	usr/lib/python3/dist-packages/Jinja2-3.1.2.egg-info/PKG-INFO | usr/lib/python3/dist-packages/Jinja2-3.1.2.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/Jinja2-3.1.2.egg-info/entry_points.txt | usr/lib/python3/dist-packages/Jinja2-3.1.2.egg-info/requires.txt	small but fast and easy to use stand-alone template engine
+python3-json-pointer	9	bin=1 libexec=1 py=1 doc=4	usr/bin/jsonpointer | usr/lib/python3/dist-packages/jsonpointer-2.3.egg-info/PKG-INFO | usr/lib/python3/dist-packages/jsonpointer-2.3.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/jsonpointer-2.3.egg-info/top_level.txt	resolve JSON pointers - Python 3.x
+python3-jsonpatch	10	bin=2 libexec=1 py=1 doc=3	usr/bin/json-patch-jsondiff | usr/bin/jsonpatch | usr/lib/python3/dist-packages/jsonpatch-1.32.egg-info/PKG-INFO | usr/lib/python3/dist-packages/jsonpatch-1.32.egg-info/dependency_links.txt	library to apply JSON patches - Python 3.x
+python3-jsonschema	42	bin=1 libexec=3 py=26 doc=3	usr/bin/jsonschema | usr/lib/python3/dist-packages/jsonschema-4.10.3.dist-info/METADATA | usr/lib/python3/dist-packages/jsonschema-4.10.3.dist-info/RECORD | usr/lib/python3/dist-packages/jsonschema-4.10.3.dist-info/WHEEL	An(other) implementation of JSON Schema (Draft 3, 4, 6, 7)
+python3-jwt	22	libexec=2 py=11 doc=5	usr/lib/python3/dist-packages/PyJWT-2.6.0.egg-info/PKG-INFO | usr/lib/python3/dist-packages/PyJWT-2.6.0.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/PyJWT-2.6.0.egg-info/not-zip-safe | usr/lib/python3/dist-packages/PyJWT-2.6.0.egg-info/requires.txt	Python 3 implementation of JSON Web Token
+python3-markdown-it	75	bin=1 libexec=3 py=64 doc=4	usr/bin/markdown-it | usr/lib/python3/dist-packages/markdown_it/__init__.py | usr/lib/python3/dist-packages/markdown_it/_compat.py | usr/lib/python3/dist-packages/markdown_it/_punycode.py	Python port of markdown-it and some its associated plugins
+python3-markupsafe	12	lib_so=1 libexec=1 py=2 doc=4	usr/lib/python3/dist-packages/MarkupSafe-2.1.2.egg-info/PKG-INFO | usr/lib/python3/dist-packages/MarkupSafe-2.1.2.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/MarkupSafe-2.1.2.egg-info/top_level.txt | usr/lib/python3/dist-packages/markupsafe/__init__.py	HTML/XHTML/XML string library
+python3-mdurl	12	libexec=3 py=6 doc=2	usr/lib/python3/dist-packages/mdurl-0.1.2.dist-info/METADATA | usr/lib/python3/dist-packages/mdurl-0.1.2.dist-info/RECORD | usr/lib/python3/dist-packages/mdurl-0.1.2.dist-info/WHEEL | usr/lib/python3/dist-packages/mdurl/__init__.py	Python port of the JavaScript mdurl package
+python3-minimal	19	bin=4 py=6 doc=8	usr/bin/py3clean | usr/bin/py3compile | usr/bin/py3versions | usr/bin/python3	minimal subset of the Python language (default python3 version)
+python3-netifaces	9	lib_so=1 libexec=2 doc=4	usr/lib/python3/dist-packages/netifaces-0.11.0.egg-info/PKG-INFO | usr/lib/python3/dist-packages/netifaces-0.11.0.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/netifaces-0.11.0.egg-info/top_level.txt | usr/lib/python3/dist-packages/netifaces-0.11.0.egg-info/zip-safe	portable network interface information - Python 3.x
+python3-oauthlib	76	libexec=1 py=68 doc=4	usr/lib/python3/dist-packages/oauthlib-3.2.2.egg-info/PKG-INFO | usr/lib/python3/dist-packages/oauthlib-3.2.2.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/oauthlib-3.2.2.egg-info/requires.txt | usr/lib/python3/dist-packages/oauthlib-3.2.2.egg-info/top_level.txt	generic, spec-compliant implementation of OAuth for Python3
+python3-pkg-resources	55	py=51 doc=4	usr/lib/python3/dist-packages/pkg_resources/__init__.py | usr/lib/python3/dist-packages/pkg_resources/_vendor/__init__.py | usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/__init__.py | usr/lib/python3/dist-packages/pkg_resources/_vendor/importlib_resources/_adapters.py	Package Discovery and Resource Access using pkg_resources
+python3-pycurl	9	lib_so=1 libexec=1 py=1 doc=4	usr/lib/python3/dist-packages/curl/__init__.py | usr/lib/python3/dist-packages/pycurl-7.45.2.egg-info/PKG-INFO | usr/lib/python3/dist-packages/pycurl-7.45.2.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/pycurl-7.45.2.egg-info/top_level.txt	Python bindings to libcurl (Python 3)
+python3-pygments	311	bin=1 libexec=2 py=299 doc=4	usr/bin/pygmentize | usr/lib/python3/dist-packages/Pygments-2.14.0.egg-info/PKG-INFO | usr/lib/python3/dist-packages/Pygments-2.14.0.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/Pygments-2.14.0.egg-info/entry_points.txt	syntax highlighting package written in Python 3
+python3-pyparsing	18	libexec=3 py=11 doc=3	usr/lib/python3/dist-packages/pyparsing-3.0.9.dist-info/METADATA | usr/lib/python3/dist-packages/pyparsing-3.0.9.dist-info/RECORD | usr/lib/python3/dist-packages/pyparsing-3.0.9.dist-info/WHEEL | usr/lib/python3/dist-packages/pyparsing/__init__.py	alternative to creating and executing simple grammars - Python 3.x
+python3-pyrsistent	28	lib_so=1 libexec=1 py=17 doc=4	usr/lib/python3/dist-packages/_pyrsistent_version.py | usr/lib/python3/dist-packages/pvectorc.cpython-311-x86_64-linux-gnu.so | usr/lib/python3/dist-packages/pyrsistent-0.18.1.egg-info/PKG-INFO | usr/lib/python3/dist-packages/pyrsistent-0.18.1.egg-info/dependency_links.txt	persistent/functional/immutable data structures for Python
+python3-pysimplesoap	14	py=10 doc=4	usr/lib/python3/dist-packages/PySimpleSOAP-1.16.2.egg-info | usr/lib/python3/dist-packages/pysimplesoap/__init__.py | usr/lib/python3/dist-packages/pysimplesoap/c14n.py | usr/lib/python3/dist-packages/pysimplesoap/client.py	simple and lightweight SOAP Library (Python 3)
+python3-reportbug	22	libexec=1 py=16 doc=3	usr/lib/python3/dist-packages/reportbug-12.0.0.egg-info/PKG-INFO | usr/lib/python3/dist-packages/reportbug-12.0.0.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/reportbug-12.0.0.egg-info/top_level.txt | usr/lib/python3/dist-packages/reportbug/__init__.py	Python modules for interacting with bug tracking systems
+python3-requests	27	libexec=2 py=18 doc=4	usr/lib/python3/dist-packages/requests-2.28.1.egg-info/PKG-INFO | usr/lib/python3/dist-packages/requests-2.28.1.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/requests-2.28.1.egg-info/not-zip-safe | usr/lib/python3/dist-packages/requests-2.28.1.egg-info/requires.txt	elegant and simple HTTP library for Python3, built for human beings
+python3-rich	123	libexec=3 py=114 doc=41	usr/lib/python3/dist-packages/rich-13.3.1.dist-info/METADATA | usr/lib/python3/dist-packages/rich-13.3.1.dist-info/RECORD | usr/lib/python3/dist-packages/rich-13.3.1.dist-info/WHEEL | usr/lib/python3/dist-packages/rich/__init__.py	render rich text, tables, progress bars, syntax highlighting, markdown and more
+python3-serial	51	bin=2 libexec=1 py=37 doc=16	usr/bin/pyserial-miniterm | usr/bin/pyserial-ports | usr/lib/python3/dist-packages/pyserial-3.5.egg-info/PKG-INFO | usr/lib/python3/dist-packages/pyserial-3.5.egg-info/dependency_links.txt	pyserial - module encapsulating access for the serial port
+python3-six	8	libexec=1 py=1 doc=3	usr/lib/python3/dist-packages/six-1.16.0.egg-info/PKG-INFO | usr/lib/python3/dist-packages/six-1.16.0.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/six-1.16.0.egg-info/top_level.txt | usr/lib/python3/dist-packages/six.py	Python 2 and 3 compatibility library
+python3-urllib3	44	libexec=1 py=37 doc=3	usr/lib/python3/dist-packages/urllib3-1.26.12.egg-info/PKG-INFO | usr/lib/python3/dist-packages/urllib3-1.26.12.egg-info/dependency_links.txt | usr/lib/python3/dist-packages/urllib3-1.26.12.egg-info/requires.txt | usr/lib/python3/dist-packages/urllib3-1.26.12.egg-info/top_level.txt	HTTP library with thread-safe connection pooling for Python3
+python3-yaml	32	lib_so=1 libexec=3 py=20 doc=9	usr/lib/python3/dist-packages/PyYAML-6.0.dist-info/METADATA | usr/lib/python3/dist-packages/PyYAML-6.0.dist-info/RECORD | usr/lib/python3/dist-packages/PyYAML-6.0.dist-info/WHEEL | usr/lib/python3/dist-packages/PyYAML-6.0.dist-info/top_level.txt	YAML parser and emitter for Python3
+python3.11	18	bin=3 doc=12	usr/bin/pdb3.11 | usr/bin/pydoc3.11 | usr/bin/pygettext3.11 | usr/share/applications/python3.11.desktop	Interactive high-level object-oriented language (version 3.11)
+python3.11-minimal	8	bin=1 doc=4	usr/bin/python3.11 | usr/lib/binfmt.d/python3.11.conf | usr/share/binfmts/python3.11 | usr/share/lintian/overrides/python3.11-minimal	Minimal subset of the Python language (version 3.11)
+qemu-utils	10	bin=3 doc=7	usr/bin/qemu-img | usr/bin/qemu-io | usr/bin/qemu-nbd	QEMU utilities
+readline-common	9	doc=7	usr/share/lintian/overrides/readline-common | usr/share/readline/inputrc	GNU readline and history libraries, common files
+reportbug	18	bin=2 etc=1 doc=10	etc/reportbug.conf | usr/bin/querybts | usr/bin/reportbug | usr/share/bug/reportbug/control	reports bugs in the Debian distribution
+runit-helper	3	doc=2	lib/runit-helper/runit-helper	dh-runit implementation detail
+screen	57	bin=1 etc=2 doc=33	etc/init.d/screen-cleanup | etc/screenrc | usr/bin/screen | usr/lib/tmpfiles.d/screen-cleanup.conf	terminal multiplexer with VT100/ANSI terminal emulation
+sed	53	bin=1 doc=12	bin/sed | usr/share/locale/af/LC_MESSAGES/sed.mo | usr/share/locale/ast/LC_MESSAGES/sed.mo | usr/share/locale/bg/LC_MESSAGES/sed.mo	GNU stream editor for filtering/transforming text
+sensible-utils	24	bin=4 libexec=1 doc=18	usr/bin/select-editor | usr/bin/sensible-browser | usr/bin/sensible-editor | usr/bin/sensible-pager	Utilities for sensible alternative selection
+sgml-base	16	bin=2 doc=10	usr/sbin/install-sgmlcatalog | usr/sbin/update-catalog | usr/share/lintian/overrides/sgml-base | usr/share/sgml-base/catalog.centralized	SGML infrastructure and SGML catalog file support
+shim-helpers-amd64-signed	4	efi=2 doc=2	usr/lib/shim/fbx64.efi.signed | usr/lib/shim/mmx64.efi.signed	boot loader to chain-load signed boot loaders (signed by Debian)
+shim-signed-common	4	bin=1 doc=2	usr/sbin/update-secureboot-policy | usr/share/lintian/overrides/shim-signed-common	Secure Boot chain-loading bootloader (common helper scripts)
+shim-signed	3	efi=1 doc=2	usr/lib/shim/shimx64.efi.signed	Secure Boot chain-loading bootloader (Microsoft-signed binary)
+shim-unsigned	7	efi=3 doc=2	usr/lib/shim/BOOTX64.CSV | usr/lib/shim/fbx64.efi | usr/lib/shim/mmx64.efi | usr/lib/shim/shimx64.efi	boot loader to chain-load signed boot loaders under Secure Boot
+socat	39	bin=3 doc=34	usr/bin/filan | usr/bin/procan | usr/bin/socat | usr/share/doc-base/socat.socat	multipurpose relay for bidirectional data transfer
+ssh-import-id	17	bin=3 libexec=1 py=3 etc=1 doc=5	etc/ssh/ssh_import_id | usr/bin/ssh-import-id | usr/bin/ssh-import-id-gh | usr/bin/ssh-import-id-lp	securely retrieve an SSH public key and install it locally
+sudo	135	bin=7 lib_so=9 libexec=1 py=1 unit=1 etc=7 doc=34	etc/init.d/sudo | etc/pam.d/sudo | etc/pam.d/sudo-i | etc/sudo.conf	Provide limited super user privileges to specific users
+systemd	784	bin=36 lib_so=3 libexec=3 unit=178 etc=10 doc=259	bin/journalctl | bin/loginctl | bin/networkctl | bin/systemctl	system and service manager
+systemd-resolved	24	bin=2 unit=1 etc=1 doc=10	etc/systemd/resolved.conf | lib/systemd/system/systemd-resolved.service | lib/systemd/systemd-resolved | sbin/resolvconf	systemd DNS resolver
+systemd-sysv	17	bin=7 doc=10	sbin/halt | sbin/init | sbin/poweroff | sbin/reboot	system and service manager - SysV compatibility symlinks
+systemd-timesyncd	16	unit=1 etc=2 doc=7	etc/dhcp/dhclient-exit-hooks.d/timesyncd | etc/systemd/timesyncd.conf | lib/systemd/ntp-units.d/80-systemd-timesync.list | lib/systemd/system/systemd-timesyncd.service	minimalistic service to synchronize local time with NTP servers
+sysvinit-utils	13	bin=3 doc=6	bin/pidof | lib/init/init-d-script | lib/init/vars.sh | lib/lsb/init-functions	System-V-like utilities
+tar	54	bin=3 libexec=1 etc=1 doc=11	bin/tar | etc/rmt | usr/lib/mime/packages/tar | usr/sbin/rmt-tar	GNU version of the tar archiving utility
+tcpdump	13	bin=1 etc=1 doc=11	etc/apparmor.d/usr.bin.tcpdump | usr/bin/tcpdump	command-line network traffic analyzer
+traceroute	20	bin=6 doc=12	usr/bin/lft.db | usr/bin/traceproto.db | usr/bin/traceroute-nanog | usr/bin/traceroute.db	Traces the route taken by packets over an IPv4/IPv6 network
+tzdata	1270	doc=4	usr/share/lintian/overrides/tzdata | usr/share/zoneinfo/Africa/Abidjan | usr/share/zoneinfo/Africa/Accra | usr/share/zoneinfo/Africa/Addis_Ababa	time zone and daylight-saving time data
+ucf	42	bin=4 etc=1 doc=35	etc/ucf.conf | usr/bin/lcf | usr/bin/ucf | usr/bin/ucfq	Update Configuration File(s): preserve user changes to config files
+udev	113	bin=2 unit=6 etc=2 doc=14	bin/systemd-hwdb | bin/udevadm | etc/init.d/udev | etc/udev/udev.conf	/dev/ and hotplug management daemon
+unattended-upgrades	39	bin=2 libexec=1 py=1 unit=1 etc=5 doc=6	etc/init.d/unattended-upgrades | etc/kernel/postinst.d/unattended-upgrades | etc/logrotate.d/unattended-upgrades | etc/pm/sleep.d/10_unattended-upgrades-hibernate	automatic installation of security upgrades
+usr-is-merged	2	doc=2		Transitional package to assert a merged-/usr system
+util-linux	298	bin=80 libexec=1 unit=2 etc=4 doc=139	bin/dmesg | bin/findmnt | bin/lsblk | bin/more	miscellaneous system utilities
+util-linux-extra	19	bin=4 libexec=1 etc=2 doc=8	etc/default/hwclock | etc/init.d/hwclock.sh | sbin/hwclock | usr/bin/fincore	interactive login tools
+uuid-runtime	15	bin=3 unit=2 etc=1 doc=6	etc/init.d/uuidd | lib/systemd/system/uuidd.service | lib/systemd/system/uuidd.socket | usr/bin/uuidgen	runtime components for the Universally Unique ID library
+vim	8	bin=1 doc=4	usr/bin/vim.basic | usr/share/bug/vim/presubj | usr/share/bug/vim/script | usr/share/lintian/overrides/vim	Vi IMproved - enhanced vi editor
+vim-common	49	bin=1 libexec=1 etc=1 doc=39	etc/vim/vimrc | usr/bin/helpztags | usr/lib/mime/packages/vim-common | usr/share/applications/vim.desktop	Vi IMproved - Common files
+vim-runtime	1928	bin=1 ko=1 doc=12	usr/bin/vimtutor | usr/share/lintian/overrides/vim-runtime | usr/share/vim/vim90/autoload/RstFold.vim | usr/share/vim/vim90/autoload/ada.vim	Vi IMproved - Runtime files
+vim-tiny	12	bin=1 etc=1 doc=4	etc/vim/vimrc.tiny | usr/bin/vim.tiny | usr/share/bug/vim-tiny/presubj | usr/share/bug/vim-tiny/script	Vi IMproved - enhanced vi editor - compact version
+wget	89	bin=1 etc=1 doc=9	etc/wgetrc | usr/bin/wget | usr/share/locale/af/LC_MESSAGES/wget-gnulib.mo | usr/share/locale/be/LC_MESSAGES/wget-gnulib.mo	retrieves files from the web
+whiptail	9	bin=1 doc=7	usr/bin/whiptail | usr/share/bash-completion/completions/whiptail	Displays user-friendly dialog boxes from shell scripts
+xml-core	25	bin=2 pm=1 etc=1 doc=10	etc/sgml/xml-core.cat | usr/bin/dh_installxmlcatalogs | usr/sbin/update-xmlcatalog | usr/share/debhelper/autoscripts/postinst-xmlcatalog	XML infrastructure and XML catalog file support
+xz-utils	177	bin=11 doc=143	usr/bin/lzmainfo | usr/bin/unxz | usr/bin/xz | usr/bin/xzcat	XZ-format compression utilities
+zlib1g	5	lib_so=2 doc=3	lib/x86_64-linux-gnu/libz.so.1 | lib/x86_64-linux-gnu/libz.so.1.2.13	compression library - runtime
+zstd	21	bin=7 doc=14	usr/bin/pzstd | usr/bin/unzstd | usr/bin/zstd | usr/bin/zstdcat	fast lossless compression algorithm -- CLI tool

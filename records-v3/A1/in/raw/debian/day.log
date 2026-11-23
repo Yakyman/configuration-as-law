@@ -1,0 +1,88 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ED25519 key sent by the remote host is
+<REDACTED-3>.
+Please contact your system administrator.
+Add correct host key in <WORKDIR>/v1/known_hosts to get rid of this message.
+Offending ED25519 key in <WORKDIR>/v1/known_hosts:1
+  remove with:
+  ssh-keygen -f '<WORKDIR>/v1/known_hosts' -R '[127.0.0.1]:22131'
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
++ id
+uid=1000(census) gid=1000(census) groups=1000(census),27(sudo)
++ date -u --iso-8601=seconds
+2026-11-19T06:30:39+00:00
++ sudo cloud-init status --wait
+
+status: done
++ sudo apt-get update
+Get:1 file:/etc/apt/mirrors/debian.list Mirrorlist [30 B]
+Get:5 file:/etc/apt/mirrors/debian-security.list Mirrorlist [39 B]
+Get:2 https://deb.debian.org/debian bookworm InRelease [151 kB]
+Get:3 https://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:4 https://deb.debian.org/debian bookworm-backports InRelease [59.4 kB]
+Get:6 https://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]
+Get:7 https://deb.debian.org/debian bookworm/main Sources [9492 kB]
+Get:8 https://deb.debian.org/debian bookworm/main amd64 Packages [8790 kB]
+Get:9 https://deb.debian.org/debian bookworm/main Translation-en [6107 kB]
+Get:10 https://deb.debian.org/debian bookworm-updates/main Sources [3288 B]
+Get:11 https://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+Get:12 https://deb.debian.org/debian bookworm-updates/main Translation-en [5448 B]
+Get:13 https://deb.debian.org/debian bookworm-backports/main Sources [319 kB]
+Get:14 https://deb.debian.org/debian bookworm-backports/main amd64 Packages [300 kB]
+Get:15 https://deb.debian.org/debian bookworm-backports/main Translation-en [252 kB]
+Get:16 https://deb.debian.org/debian-security bookworm-security/main Sources [298 kB]
+Get:17 https://deb.debian.org/debian-security bookworm-security/main amd64 Packages [376 kB]
+Get:18 https://deb.debian.org/debian-security bookworm-security/main Translation-en [235 kB]
+Fetched 26.5 MB in 32s (823 kB/s)
+Reading package lists...
++ sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y jq
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libjq1 libonig5
+The following NEW packages will be installed:
+  jq libjq1 libonig5
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 389 kB of archives.
+After this operation, 1170 kB of additional disk space will be used.
+Get:1 file:/etc/apt/mirrors/debian.list Mirrorlist [30 B]
+Get:2 file:/etc/apt/mirrors/debian-security.list Mirrorlist [39 B]
+Get:3 https://deb.debian.org/debian bookworm/main amd64 libonig5 amd64 6.9.8-1 [188 kB]
+Get:4 https://deb.debian.org/debian-security bookworm-security/main amd64 libjq1 amd64 1.6-2.1+deb12u3 [136 kB]
+Get:5 https://deb.debian.org/debian-security bookworm-security/main amd64 jq amd64 1.6-2.1+deb12u3 [64.4 kB]
+Fetched 389 kB in 0s (1192 kB/s)
+Selecting previously unselected package libonig5:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 20803 files and directories currently installed.)
+Preparing to unpack .../libonig5_6.9.8-1_amd64.deb ...
+Unpacking libonig5:amd64 (6.9.8-1) ...
+Selecting previously unselected package libjq1:amd64.
+Preparing to unpack .../libjq1_1.6-2.1+deb12u3_amd64.deb ...
+Unpacking libjq1:amd64 (1.6-2.1+deb12u3) ...
+Selecting previously unselected package jq.
+Preparing to unpack .../jq_1.6-2.1+deb12u3_amd64.deb ...
+Unpacking jq (1.6-2.1+deb12u3) ...
+Setting up libonig5:amd64 (6.9.8-1) ...
+Setting up libjq1:amd64 (1.6-2.1+deb12u3) ...
+Setting up jq (1.6-2.1+deb12u3) ...
+Processing triggers for man-db (2.11.2-2) ...
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
++ mkdir -p /home/census/Documents /home/census/.config/nano
++ printf 'set tabsize 4\n'
++ printf '# A day of work\n\nPrepared a short inventory note and reviewed a JSON task list.\n'
++ printf '{"tasks":["write note","review configuration"]}\n'
++ jq '.tasks[]' /home/census/Documents/tasks.json
+"write note"
+"review configuration"
++ sudo loginctl enable-linger census
++ date -u --iso-8601=seconds
+2026-11-19T06:31:13+00:00
++ sleep 120
++ date -u --iso-8601=seconds
+2026-11-19T06:33:13+00:00

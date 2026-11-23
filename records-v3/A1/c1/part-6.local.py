@@ -1,0 +1,40 @@
+import csv
+from pathlib import Path
+p=Path('A1/c1/part-6.tsv')
+hdr=['id','decision','sentences','what_it_does','basis','reason']
+rows={}
+def add(id,d,s,w,b,r):
+ assert len(w.split())<=15,(id,w)
+ assert len(r.split())<=30,(id,r)
+ rows[id]=[id,d,s,w,b,r]
+add('debian-desktop-89ce5c5668','MUST','S2.2-1,S2.2-10','Executes kernel functions in kernel threads.','doc:https://docs.kernel.org/driver-api/basics.html','These threads execute kernel code with kernel privileges; removing that execution removes kernel operations.')
+add('freebsd-89ce5c5668','MUST','S2.2-1,S2.2-10','Executes internal kernel daemons and functions.','doc:https://raw.githubusercontent.com/freebsd/freebsd-src/main/share/man/man9/kproc.9','Internal kernel processes execute privileged operating-system code, not code confined to an application interface.')
+add('freebsd-37b2c0497b','MUST','S2.2-1,S2.2-10','Processes sound sequencer events through a kernel process.','doc:https://raw.githubusercontent.com/freebsd/freebsd-src/stable/14/sys/dev/sound/midi/sequencer.c','The sequencer event loop is kernel code launched by kproc_create; removing it removes event processing.')
+add('debian-desktop-64f62c6553','UNKNOWN','S3-1,S3-2','Contains directory structures whose individual uses are unspecified.','evidence','The 46 directory groups are unnamed and their inventory is unavailable; directory emptiness alone does not establish whether programs require them.')
+add('freebsd-64f62c6553','UNKNOWN','S3-1,S3-2','Contains directory structures whose individual uses are unspecified.','evidence','The 60 directory groups are unnamed and their inventory is unavailable; directory emptiness alone does not establish whether programs require them.')
+add('freebsd-cb4d60b1b8','UNKNOWN','S3-1,S3-2','Unspecified cron and periodic scheduler objects.','evidence','Only an inventory filename is provided; actual scheduled jobs, configuration and enabled actions are unavailable.')
+add('freebsd-953e11ba17','MUST','S2.2-1,S2.2-2,S2.2-10','Implements the PIIX4-compatible SMBus controller driver in the kernel.','doc:https://man.freebsd.org/cgi/man.cgi?manpath=freebsd-release-ports&query=intpm&sektion=4','Loaded driver code executes with kernel privileges; removing it removes controller support.')
+add('freebsd-732855b3ca','MUST','S2.2-1,S2.2-2,S2.2-9','Runs the operating-system kernel.','evidence','The inventory identifies the loaded kernel; removing it prevents the operating system from running.')
+add('freebsd-c0409bf956','MUST','S2.2-1,S2.2-2,S2.2-10','Provides kernel SMBus device and controller support.','doc:https://raw.githubusercontent.com/freebsd/freebsd-src/main/share/man/man4/smbus.4','Loaded kernel code supplies SMBus operations; removing it removes this device-support capability.')
+add('debian-desktop-96787848d5','MUST','S2.2-1,S2.2-2','Defines a service that performs OpenVSwitch cleanup.','evidence','Removing this loaded service removes its startable cleanup action; effects concern network configuration beyond the service manager.')
+add('debian-desktop-0758efc3b0','MUST','S2.2-1,S2.2-2','Defines a service that grows the root filesystem.','evidence','Removing this loaded service removes its filesystem-growth action, whose effects extend beyond the service manager.')
+add('debian-desktop-53d095e912','MUST','S2.2-1,S2.2-2','Starts and supervises a running workload shell script.','evidence','The service launches an external shell program; removing the service removes its configured execution and supervision.')
+add('debian-desktop-fdb6cb41a8','MUST','S2.2-1,S2.2-2','Defines a retained service for executing a shell script.','evidence','This loaded service retains an executable shell command; completed execution does not turn the service definition into a historical log.')
+add('debian-desktop-ba3d3e02a2','MUST','S2.2-1,S2.2-2','Defines a retained service for executing an application-launch shell script.','evidence','This loaded service retains an executable shell command; removing it removes this configured launch action.')
+add('debian-desktop-7218a536a4','MUST','S2.2-1,S2.2-2','Defines a retained service for executing a desktop-repair shell script.','evidence','This loaded service retains an executable shell command; removing it removes this configured repair action.')
+add('debian-desktop-a3f2270221','MUST','S2.2-1,S2.2-2','Represents devices for dependency management of system services and mounts.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.device.html','Device units connect device availability to dependent system operations; removing them removes those dependency relationships.')
+add('debian-desktop-88335c6c87','MUST','S2.2-1,S2.2-2','Represents devices for dependency management of user services.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.device.html','Device units expose availability to dependent user services; their role extends to starting other programs.')
+add('debian-desktop-18fb2985ed','MUST','S2.2-1,S2.2-2','Controls or tracks mounted filesystems, including root and service credential mounts.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.mount.html','Mount objects make filesystems available to programs; removing these mounts removes filesystem access and associated operations.')
+add('debian-desktop-565df89b5f','MUST','S2.2-1,S2.2-2','Tracks mounted filesystems, including root, runtime and kernel-interface mounts.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.mount.html','These mount objects expose filesystems and kernel interfaces to programs; their removal changes available operations beyond the manager.')
+add('debian-desktop-9994d7ebc4','NOT','S2.2-1,S2.2-2','Lists referenced system unit names with no unit definitions found.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemctl.html','These entries denote absent unit definitions; there is no corresponding configured service or mount to remove. Referring dependency rules are separate objects.')
+add('debian-desktop-97fdaec6aa','NOT','S2.2-1,S2.2-2','Lists referenced user unit names with no unit definitions found.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemctl.html','These entries denote absent unit definitions; there is no corresponding configured service or socket to remove. Referring dependency rules are separate objects.')
+add('debian-desktop-0ff15b2741','MUST','S2.2-1,S2.2-2','Groups system and login-session processes for lifecycle and resource management.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.scope.html','Scopes manage actual processes and their resources; removing their management changes system process control beyond one application interface.')
+add('debian-desktop-3bc8c8458c','MUST','S2.2-1,S2.2-2','Groups application and user-manager processes for lifecycle and resource management.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.scope.html','Scopes manage external processes, including the application; their effects are not confined to settings inside the manager.')
+add('debian-desktop-253d752b01','MUST','S2.2-1,S2.2-2','Organizes system and user processes into a hierarchical resource-control tree.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.slice.html','Slices structure resource management and dependencies of other services and processes; removing them removes that system control structure.')
+add('debian-desktop-b855166ba5','MUST','S2.2-1,S2.2-2','Provides the root of the user-manager resource-control hierarchy.','doc:https://www.freedesktop.org/software/systemd/man/latest/systemd.slice.html','The root slice anchors the control-group hierarchy for user processes; its function extends beyond settings inside one program.')
+existing={r['id'] for r in csv.DictReader(p.open(),delimiter='\t')}
+with p.open('a') as f:
+ w=csv.writer(f,delimiter='\t',lineterminator='\n')
+ for row in rows.values():
+  if row[0] not in existing:w.writerow(row);f.flush()
+print('Local rows:',sum(1 for _ in p.open())-1)

@@ -1,0 +1,9 @@
+URL: https://raw.githubusercontent.com/NixOS/nixpkgs/94c3211b0ee8/nixos/modules/config/users-groups.nix
+Retrieved 2026-11-22 UTC; option descriptions at selected release commit.
+This automatically sets {option}`group` to `users`,
+The user's primary group.
+with the ordinary `useradd` and
+        `groupadd` commands.
+Context (paraphrase): users.mutableUsers defaults to true. It permits additional
+users/groups and merges the existing account databases with generated entries
+on activation. isNormalUser supplies the primary-group default `users`.

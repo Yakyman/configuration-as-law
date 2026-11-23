@@ -1,0 +1,2 @@
+- part 2: S2.2-7 "in force only inside one program": read where the setting takes effect (applied) or which program reads it? Daemon settings with system-wide effect get opposite answers.
+- part 2: program state whose removal breaks something (dpkg status, cloud-init semaphores): S2.2-2 says MUST, S2.5-1 puts program state outside the definition; decided NOT by S2.5-1 per COMMON.md, author to confirm.

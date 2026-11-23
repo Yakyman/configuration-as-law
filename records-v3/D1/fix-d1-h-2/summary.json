@@ -1,0 +1,114 @@
+{
+  "confirmed_cards": [
+    "1",
+    "2",
+    "3",
+    "5",
+    "6"
+  ],
+  "confirmed_unique_rows_lower_bound": 1028,
+  "by_card": {
+    "1": {
+      "fedora": 168,
+      "mint": 43,
+      "tumbleweed": 92
+    },
+    "2": {
+      "fedora": 46,
+      "mint": 37,
+      "tumbleweed": 48
+    },
+    "3": {
+      "fedora": 196,
+      "mint": 35,
+      "tumbleweed": 88
+    },
+    "5": {
+      "fedora": 56,
+      "flatcar": 193,
+      "tumbleweed": 6
+    },
+    "6": {
+      "flatcar": 13,
+      "tumbleweed": 7
+    }
+  },
+  "confirmed_by_machine_lower_bound": {
+    "fedora": 466,
+    "flatcar": 206,
+    "mint": 115,
+    "tumbleweed": 241
+  },
+  "unresolved_memberships_by_card": {
+    "1": 466,
+    "2": 226,
+    "3": 46,
+    "5": 309,
+    "6": 21
+  },
+  "unresolved_memberships_by_machine": {
+    "fedora": 425,
+    "flatcar": 47,
+    "mint": 154,
+    "tumbleweed": 442
+  },
+  "extent_search": {
+    "UNRESOLVED_MEMBERSHIP": 1068,
+    "CONFIRMED": 1028,
+    "EXCLUDED": 513
+  },
+  "unknown_total": 224,
+  "unknown_by_machine": {
+    "fedora": 41,
+    "flatcar": 68,
+    "mint": 30,
+    "tumbleweed": 85
+  },
+  "unknown_by_kind": {
+    "L1:package:rpm": 122,
+    "L1:package:flatpak": 3,
+    "L1:process": 2,
+    "L2:stored-outside-packages": 67,
+    "L1:package:dpkg-query": 30
+  },
+  "changed_script_memberships_by_card_machine": {
+    "1": {
+      "fedora": 28,
+      "tumbleweed": 74,
+      "mint": 5
+    },
+    "2": {
+      "fedora": 2,
+      "tumbleweed": 6,
+      "mint": 12
+    }
+  },
+  "samples": {
+    "resolved": {
+      "counts": {
+        "OUTSIDE": 7,
+        "CONFIRMED": 20,
+        "UPHELD": 10,
+        "UNKNOWN": 3
+      },
+      "ordered_ids_unchanged": true,
+      "source": "D1/fix-d1-h-1/resolved-sample.tsv"
+    },
+    "agreed": {
+      "counts": {
+        "UPHELD": 57,
+        "CONFIRMED": 3
+      },
+      "ordered_ids_unchanged": true,
+      "source": "D1/fix-d1-h-1/agreed-sample.tsv"
+    }
+  },
+  "outcomes": {
+    "fedora": "0",
+    "tumbleweed": "0",
+    "mint": "0",
+    "flatcar": "0",
+    "talos": "?"
+  },
+  "frozen_input_files": 1688
+}

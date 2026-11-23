@@ -1,0 +1,1 @@
+podman images --no-trunc

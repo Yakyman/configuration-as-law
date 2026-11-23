@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-22T08:43:53.503065+00:00",
+  "machine": "d1-fedora",
+  "system": "fedora",
+  "mode": "--observe",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "filesystem_status": 1,
+  "engine_graph_roots": [
+    {
+      "engine": "podman",
+      "user": "root",
+      "path": "/var/lib/containers/storage",
+      "evidence": "raw/100-engine-root-podman-root.out"
+    },
+    {
+      "engine": "podman",
+      "user": "user",
+      "path": "/home/user/.local/share/containers/storage",
+      "evidence": "raw/103-engine-root-podman-user.out"
+    }
+  ],
+  "opaque_storage_paths": [
+    "/home/user/.local/share/containers/storage/overlay/ce47b8d801ebdc83f9c5f76d3a17351c637ae75c2ab4673637203b1d605d85c1/diff",
+    "/home/user/.local/share/containers/storage/overlay/ce47b8d801ebdc83f9c5f76d3a17351c637ae75c2ab4673637203b1d605d85c1/work",
+    "/home/user/.local/share/containers/storage/overlay/fdc5834cb53a4bde074c41b5baf85f9d5cece29df379fecafea8c396ba8c29d9/diff",
+    "/home/user/.local/share/containers/storage/overlay/fdc5834cb53a4bde074c41b5baf85f9d5cece29df379fecafea8c396ba8c29d9/work"
+  ],
+  "container_boundary_gaps": [],
+  "ownership_queries_complete": false,
+  "package_parse_gaps": [],
+  "unsupported_ownership_managers": [],
+  "limitations": [
+    "Ownership not established by any queried record is listed as belonging to no package, per the binding input decision.",
+    "Failed queries and inaccessible paths are coverage gaps, not evidence of absence.",
+    "Container and VM image contents are not expanded."
+  ]
+}

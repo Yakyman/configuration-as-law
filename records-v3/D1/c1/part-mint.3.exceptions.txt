@@ -1,0 +1,140 @@
+1|MUST|Identifies tablet capabilities and installs device rules|Device rules and capability mappings alter hardware handling across programs.
+18|NOT|Depends on renamed library package during upgrades|Documentation explicitly permits removal; actual runtime library remains independently installed.
+21|NOT|Supplies translated library messages|Only translated message content becomes unavailable; executable operations remain.
+30|MUST|Supplies locale mappings for X11 clients|Removing locale mappings removes supported text input and encoding behavior across X11 clients.
+119|NOT|Supplies translated VBI library messages|Only translated messages disappear; decoder operations remain.
+125|HOLE|Tracks latest kernel and headers through package dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+126|HOLE|Supplies kernel development headers|Headers are source content, but removal also prevents dependent compilation; text does not distinguish unavailable source content from lost build capability.
+127|HOLE|Tracks newest kernel header package|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+128|HOLE|Supplies kernel development header files|Headers are source content, but removal also prevents dependent compilation; text does not distinguish unavailable source content from lost build capability.
+129|MUST|Provides signed executable operating-system kernel|Removing executable kernel removes that system boot capability.
+130|HOLE|Tracks latest kernel image through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+131|HOLE|Provides kernel interfaces for compiling system libraries|Headers are source content, but removal also prevents dependent compilation; text does not distinguish unavailable source content from lost build capability.
+134|MUST|Selects system sound implementation|Selection controls system sound support rather than an internal application preference.
+135|MUST|Authenticates signed distribution repository metadata|Removing trust keys prevents authenticated acceptance of repository packages; this changes installation capability.
+137|HOLE|Lists installer-supported languages countries and locales|Lists are database content, but constrain generated installation choices; text does not distinguish content loss from capability loss here.
+138|MUST|Generates locale definitions and supports internationalization|Package explicitly includes executable locale-generation tools.
+146|MUST|Disables link-time optimization for listed package builds|Build policy changes generated programs across packages, rather than only displaying content.
+152|NOT|Provides system reference manual pages|Removing reference documents removes their content, not executable system operations.
+154|MUST|Defines desktop-wide settings and application defaults|Schemas configure multiple desktop components and application choices, so the single-program setting exemption does not apply.
+157|NOT|Provides panel documentation icons and translations|File listing establishes documentation, icons and translated content only.
+159|MUST|Registers authentication-agent session startup|Autostart entry makes an authentication-agent process available automatically; removal changes session behavior.
+162|MUST|Identifies media-player capabilities through udev rules|Device rules change hardware identification and supported handling across programs.
+163|MUST|Maps file extensions to media types systemwide|Removing shared mappings changes content identification in multiple programs.
+164|MUST|Provides shared executable infrastructure for graphics drivers|Graphics drivers execute this shared library; removal removes their implementation capability.
+171|HOLE|Defines window-manager settings and keybindings|Single-program setting exemption suggests NOT; removal changes desktop-wide keybindings under the behavior test. Text does not define the boundary of inside.
+172|MUST|Provides desktop artwork and executable session helpers|Package includes executable helpers and session code; these are explicitly recordable despite accompanying artwork.
+173|NOT|Supplies desktop wallpaper images|Only the supplied pictures become unavailable; wallpaper-display capability remains.
+174|MUST|Provides scripts used by distribution utilities|Scripts execute with interpreter rights and enable other system tools.
+175|NOT|Supplies cursor theme images|Only cursor artwork becomes unavailable; cursor rendering capability remains.
+176|MUST|Identifies distribution edition and release to system tools|Multiple tools require this identity information to choose system behavior.
+177|NOT|Provides desktop icon artwork|Removing artwork removes the supplied visual content; icon-display capability remains.
+178|HOLE|Provides desktop theme definitions|Theme exemption refers to settings inside one program; text does not decide whether desktop-wide theme definitions qualify.
+179|HOLE|Selects default desktop packages through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+180|HOLE|Selects core distribution packages through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+181|HOLE|Lists distribution repository mirrors|Database content exemption and loss of configured source-selection choices both fit; text does not distinguish these readings.
+182|HOLE|Provides desktop theme definitions|Theme exemption refers to settings inside one program; text does not decide whether desktop-wide theme definitions qualify.
+183|NOT|Provides translated distribution messages|Only translated text content becomes unavailable; executable operations remain.
+184|HOLE|Describes distribution upgrade paths to update manager|Internal program values suggest exemption, but removing upgrade instructions removes upgrade capability; text does not resolve the boundary.
+185|NOT|Provides desktop icon artwork|Removing artwork removes the supplied visual content; icon-display capability remains.
+186|NOT|Provides desktop icon artwork|Removing artwork removes the supplied visual content; icon-display capability remains.
+200|HOLE|Supplies mobile-provider access-point settings|Database content and single-program values suggest exemption; automatic network setup depends on them. Text does not resolve that boundary.
+209|HOLE|Defines compositor settings and translations|Settings act in one compositor but control desktop-wide behavior; text does not define inside one program sufficiently.
+210|HOLE|Provides debugger symbols for compositor binaries|Symbols are descriptive content, yet removal loses symbolic debugging; text does not distinguish these two removal readings.
+211|HOLE|Provides office thesaurus vocabulary|Database content exemption suggests NOT; loss of thesaurus lookup suggests MUST. Text does not distinguish vocabulary loss from capability loss.
+213|MUST|Defines file-manager settings and desktop search registration|Search-provider registration integrates separate desktop programs and changes available search behavior.
+214|MUST|Describes terminal control capabilities|Removing terminal definitions removes correct control of supported terminal types across programs.
+217|MUST|Provides file-manager actions and executable helper scripts|File listing includes Python action and layout-editor code; interpreter-rights code must be recorded.
+218|MUST|Provides unstripped executable file-manager binaries for debugging|Documentation explicitly identifies executable binaries, rather than only passive debugging symbols.
+219|MUST|Implements file-manager emblem editing|Extension performs filesystem emblem operations using the file manager's privileges.
+226|MUST|Maps protocol service and RPC names to numbers|Shared network mappings determine supported name-based networking behavior across applications.
+231|HOLE|Enables network connectivity checks inside NetworkManager|Single-program settings exemption suggests NOT; enabling network requests changes computer behavior under removal. Text gives no scope boundary or priority.
+243|MUST|Registers keyboard service and supplies keyboard layouts|D-Bus service registration enables on-screen keyboard activation; removal changes service availability.
+244|HOLE|Describes PostScript printer capabilities and options|Printer descriptions are read as values inside printing software, yet removal loses device-specific printing; text does not resolve this setting boundary.
+252|NOT|Provides removable transition dependency for archive tools|Documentation explicitly states safe removal; executable archive tool remains separately installed.
+253|NOT|Provides removable transition dependency for archive tools|Documentation explicitly states safe removal; executable archive tool remains separately installed.
+256|NOT|Supplies desktop icon artwork|Removing artwork removes supplied visual content; icon-display capability remains.
+262|HOLE|Maps numeric PCI identifiers to readable device names|Database-content exemption suggests NOT; loss of named identification suggests MUST. Text does not distinguish these readings.
+268|MUST|Generates compatibility dependencies for cryptographic Perl modules|Documentation explicitly includes dependency-generation tools, which are executable programs.
+273|HOLE|Selects recommended multimedia packages through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+277|HOLE|Defines image-viewer settings and web-album templates|Internal settings and templates suggest exemption; required presentation functionality depends on them. Text does not establish the capability/content boundary.
+278|HOLE|Provides symbolic debugging information for image viewer|Symbols are descriptive content, yet removal loses symbolic debugging; text does not distinguish these two removal readings.
+280|NOT|Provides removable transition dependency for compiler-flag tools|Documentation says this package only supplies a dependency link and can safely be removed.
+286|HOLE|Defines boot-animation theme|Theme exemption suggests NOT; boot display behavior depends on theme. Text does not define whether boot display is inside one program.
+287|HOLE|Defines textual boot-display theme|Theme exemption suggests NOT; boot display behavior depends on theme. Text does not define whether boot display is inside one program.
+290|NOT|Provides transition dependencies for privilege-management programs|Transitional package delegates executable operations to separately installed programs; removing this object leaves those programs available.
+292|MUST|Grants administrative actions without password prompts|Privilege rules change permitted actions across system services and must be recorded.
+294|MUST|Maps CJK character encodings for PDF rendering|Documentation states these tables are required to display CJK PDFs without embedded fonts; removal loses that rendering capability.
+303|MUST|Provides executable printer wrapper scripts and filters|Public file listing identifies printer wrapper programs and driver code, beyond passive descriptions.
+309|MUST|Provides printer descriptions and executable PostScript filter|Documentation identifies the hpps filter; removing executable printing code removes printer functionality.
+316|MUST|Defines public-domain boundaries used in security decisions|Shared suffix mappings control cookie grouping and same-origin policy; they affect behavior rather than only displayed content.
+318|NOT|Provides translated package-library messages|Only translated message content disappears; library operations remain.
+319|HOLE|Supplies locale display names and formatting data|Locale names are content but formatting rules determine behavior; text does not distinguish these within the package.
+321|NOT|Supplies CSS parser test input data|Test fixtures are input content; parser remains executable with other input.
+333|MUST|Returns system certificate-store location to Python callers|Documentation identifies executable Python behavior selecting certificate locations, rather than merely a stored certificate collection.
+433|MUST|Implements shared native GTK integration for Qt applications|Executable platform plugin supplies dialogs and integration across applications; it is not merely theme values inside one program.
+434|MUST|Implements shared GTK integration for Qt applications|Executable platform plugin supplies integration across applications; it is not merely theme values inside one program.
+435|MUST|Implements shared widget-rendering style plugin|Native plugin code executes with application rights across Qt applications.
+436|MUST|Implements shared widget-rendering style plugin|Native plugin code executes with application rights across Qt applications.
+437|MUST|Implements shared widget-rendering style plugin|Native plugin code executes with application rights across Qt applications.
+438|HOLE|Selects widget-style plugins through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+439|NOT|Supplies translated Qt messages|Only translated text content becomes unavailable; executable operations remain.
+441|MUST|Defines shared command-line editing keybindings|Readline defaults govern interactive editing in multiple programs; the single-program exemption does not apply.
+446|MUST|Registers music-player service and provides executable crash hook|File listing includes Python hook code and service activation, beyond content and internal preferences.
+447|MUST|Adds music-player tray interaction code|Plugin executes application functionality with application rights; code is explicitly recordable.
+448|MUST|Adds playback sharing and automation plugin code|Plugins include unrestricted Python console and external sharing operations; they supply executable capabilities.
+453|MUST|Provides shared network-service configuration and helper scripts|Package includes executable panic-action and configuration helpers, not merely content.
+460|MUST|Updates firmware secure-boot trust databases|Package changes device firmware trust state; changeable firmware must be recorded.
+465|HOLE|Provides document-type and character-entity definitions|Definitions are document content but enable validation and entity interpretation; text does not distinguish these removal readings.
+466|MUST|Provides shared content-type identification database|Multiple desktop programs require these mappings for content-type handling; removal changes shared operation.
+472|NOT|Supplies audio recordings for desktop events|Only supplied sound recordings become unavailable; audio playback capability remains.
+484|MUST|Provides bootloader modules and boot-sector code|File listing contains executable boot modules and boot records; removal removes boot implementations.
+487|MUST|Implements printer-configuration backend with translations|Documented backend is executable Python code despite accompanying translations.
+492|HOLE|Describes system-service installation paths for build tools|Build metadata are read as values, but missing them prevents dependent configuration; text does not distinguish content loss from build capability loss.
+493|MUST|Defines hardware-specific device rules|Rules change system hardware handling, beyond settings confined inside one application.
+495|MUST|Connects system initialization command to service manager|Init symlink selects the program executed during system startup; removal changes boot behavior.
+503|NOT|Provides removable transition dependency for telnet implementation|Documentation explicitly states safe removal after upgrade; actual client remains separately installed.
+507|NOT|Supplies English mail-client language text|Only translated interface content becomes unavailable; mail operations remain.
+508|NOT|Provides empty removable language-pack transition package|Documentation explicitly identifies an empty package that can safely be removed.
+513|MUST|Sets permissions on trusted-platform-module devices|Device permission rules control access to hardware; removal changes permitted operations.
+514|NOT|Provides browser-based torrent-management frontend assets|File listing identifies HTML and JavaScript web content, executed inside browser interface and explicitly exempted.
+516|MUST|Defines system time-zone and daylight-saving conversion rules|Shared conversion rules determine local-time behavior across programs.
+517|MUST|Defines legacy and atomic-time conversion rules|Additional shared time conversions and aliases become unavailable on removal.
+518|MUST|Authenticates debugging-symbol repository metadata|Removing trust keys prevents authenticated acceptance from this repository; this changes installation capability.
+520|MUST|Authenticates distribution repository metadata|Removing trust keys prevents authenticated acceptance of repository packages; this changes installation capability.
+521|NOT|Provides desktop panel icon artwork|Only supplied icon content becomes unavailable; icon rendering remains possible.
+522|MUST|Changes system policies and runs distribution adjustment helpers|Public file listing includes service definitions, executable helpers, restore hooks and system-wide access policies.
+535|MUST|Specifies commands switching USB devices into operational modes|Command data determine whether devices expose working interfaces, not merely displayed content.
+536|HOLE|Maps numeric USB identifiers to readable device names|Database-content exemption suggests NOT; loss of named identification suggests MUST. Text does not distinguish these readings.
+542|NOT|Provides removable dependencies for hardware-acceleration drivers|Documentation says it provides no drivers itself and may be removed while chosen drivers remain.
+543|MUST|Provides editor configuration code and help-tag program|File listing includes Vim-language configuration and executable helpztags; both are code under the explicit rule.
+546|HOLE|Supplies dictionary words for spelling checks and lookup|Word list is content but determines available spelling checks; text does not distinguish these removal readings.
+548|HOLE|Supplies dictionary words for spelling checks and lookup|Word list is content but determines available spelling checks; text does not distinguish these removal readings.
+553|MUST|Defines legally permitted radio operation parameters|Database constrains hardware frequencies and power; removal changes wireless device behavior.
+559|MUST|Runs graphical-session initialization scripts|Shell session scripts execute with interpreter rights and change session startup.
+570|NOT|Provides symbolic application icon artwork|Only supplied images become unavailable; icon rendering remains possible.
+571|MUST|Provides shared Python thumbnail-generation helpers|File listing identifies an importable Python module executed with interpreter rights.
+572|MUST|Defines shared application schemas and translated messages|Schemas affect multiple applications; the single-program setting exemption does not apply.
+575|NOT|Provides bitmap artwork for graphical clients|Only supplied images become unavailable; bitmap display capability remains.
+586|HOLE|Defines editor settings interfaces and plugin resources|Internal settings and interface content suggest exemption; removing required interfaces prevents editing operations. Text does not resolve this boundary.
+587|HOLE|Provides editor symbols for debugger interpretation|Symbols are descriptive content, yet removal loses symbolic debugging; text does not distinguish these two removal readings.
+588|HOLE|Provides bitmap fonts for graphical text rendering|Fonts can be content whose glyphs disappear or prerequisites for rendering those glyphs; text does not distinguish the readings.
+589|MUST|Maps font encodings to characters|Encoding mappings control text interpretation across graphical applications; removal loses supported character mapping.
+590|HOLE|Provides scalable fonts for graphical text rendering|Fonts can be content whose glyphs disappear or prerequisites for rendering those glyphs; text does not distinguish the readings.
+595|MUST|Defines shared graphical keyboard layouts|Removing mappings removes supported keyboard input layouts across applications.
+597|HOLE|Selects graphical-system components through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+598|NOT|Provides graphical-system reference documentation|Only documentation content becomes unavailable; executable graphical operations remain.
+600|MUST|Registers document thumbnail generation and supplies viewer resources|Thumbnail registration enables document rendering in other applications; removal changes cross-program integration.
+601|HOLE|Provides document-viewer symbols for debugging|Symbols are descriptive content, yet removal loses symbolic debugging; text does not distinguish these two removal readings.
+602|NOT|Supplies server protocol documentation and directory placeholders|Public file listing contains documents and empty-directory support, not executable server implementation.
+604|HOLE|Selects server and graphics drivers through dependencies|Text does not specify whether dependency-driven future updates count when removal leaves installed executable capabilities unchanged.
+606|NOT|Provides removable dependencies for graphical input drivers|Documentation says it provides no drivers itself and may be removed while chosen drivers remain.
+610|NOT|Provides removable dependencies for graphical output drivers|Documentation says it provides no drivers itself and may be removed while chosen drivers remain.
+621|HOLE|Provides image-viewer symbols for debugging|Symbols are descriptive content, yet removal loses symbolic debugging; text does not distinguish these two removal readings.
+622|MUST|Adds image-viewer scripting sharing and file operations|Plugins include Python console and filesystem operations, executed with program rights.
+626|NOT|Provides desktop icon artwork|Only supplied images become unavailable; icon rendering remains possible.
+628|HOLE|Transforms help-document markup using stylesheets|Stylesheets execute transformations but may be confined to renderer interface; documentation does not establish the rights boundary needed by the text.
+631|HOLE|Defines dialog interfaces and supplies translations and images|Internal interface content suggests exemption; required dialog definitions enable program operations. Text does not resolve this content/capability boundary.
+132|MUST|Provides executable operating-system kernel modules|Kernel executes these modules to implement hardware and system capabilities.
+133|MUST|Provides additional executable kernel device modules|Kernel executes these modules to implement additional hardware capabilities.
+196|MUST|Provides system administration application|Documented administration tool is an executable program, so it must be recorded.

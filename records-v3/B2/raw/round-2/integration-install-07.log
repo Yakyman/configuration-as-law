@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/tmp/install-code-boundary.py", line 8, in <module>
+    shutil.copy2('/usr/local/bin/stand-session','/usr/local/lib/stand/service-launch')
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/shutil.py", line 468, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/shutil.py", line 262, in copyfile
+    with open(dst, 'wb') as fdst:
+         ~~~~^^^^^^^^^^^
+OSError: [Errno 26] Text file busy: '/usr/local/lib/stand/service-launch'

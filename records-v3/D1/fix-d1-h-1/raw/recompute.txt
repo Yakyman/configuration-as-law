@@ -1,0 +1,85 @@
+{
+  "confirmed_cards": [
+    "1",
+    "2",
+    "3",
+    "5"
+  ],
+  "confirmed_unique_rows": 1135,
+  "by_card": {
+    "1": {
+      "fedora": 196,
+      "mint": 48,
+      "tumbleweed": 166
+    },
+    "2": {
+      "fedora": 48,
+      "mint": 49,
+      "tumbleweed": 54
+    },
+    "3": {
+      "fedora": 196,
+      "mint": 35,
+      "tumbleweed": 88
+    },
+    "5": {
+      "fedora": 56,
+      "flatcar": 193,
+      "tumbleweed": 6
+    }
+  },
+  "confirmed_by_machine": {
+    "tumbleweed": 314,
+    "flatcar": 193,
+    "fedora": 496,
+    "mint": 132
+  },
+  "extent_search": {
+    "UNRESOLVED_MEMBERSHIP": 920,
+    "CONFIRMED": 1135,
+    "EXCLUDED": 393
+  },
+  "unknown_total": 97,
+  "unknown_by_machine": {
+    "fedora": 11,
+    "flatcar": 68,
+    "mint": 13,
+    "tumbleweed": 5
+  },
+  "unknown_by_kind": {
+    "L1:package:rpm": 12,
+    "L1:package:flatpak": 3,
+    "L1:process": 2,
+    "L2:stored-outside-packages": 67,
+    "L1:package:dpkg-query": 13
+  },
+  "samples": {
+    "resolved": {
+      "population": 888,
+      "seed": 2026112201,
+      "counts": {
+        "OUTSIDE": 7,
+        "CONFIRMED": 20,
+        "UPHELD": 10,
+        "UNKNOWN": 3
+      }
+    },
+    "agreed": {
+      "population": 14681,
+      "seed": 2026112202,
+      "counts": {
+        "UPHELD": 57,
+        "CONFIRMED": 3
+      }
+    }
+  },
+  "outcomes": {
+    "fedora": "0",
+    "tumbleweed": "0",
+    "mint": "0",
+    "flatcar": "0",
+    "talos": "?"
+  }
+}
+Frozen input hashes unchanged: 1668
+Ordered samples unchanged; no new inventory/removal probe.

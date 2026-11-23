@@ -1,0 +1,485 @@
+{
+  "libexttextcat-data": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies language models used to identify text languages.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libexttextcat-data/filelist",
+    "Removing the language models removes the detector’s recognition capability."
+  ],
+  "libgail-common": [
+    "MUST",
+    "S2.2-10",
+    "Loads native accessibility modules into graphical applications.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgail-common/filelist",
+    "Native accessibility modules execute with the application’s own rights."
+  ],
+  "libgcc-13-dev": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies compiler startup objects, headers, and linkable support libraries.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgcc-13-dev/filelist",
+    "Removing these objects prevents compiling and linking supported programs."
+  ],
+  "libgdata-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgdata-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgdk-pixbuf2.0-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgdk-pixbuf2.0-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libglib2.0-data": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libglib2.0-data/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgphoto2-l10n": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgphoto2-l10n/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgsf-1-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgsf-1-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgspell-1-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgspell-1-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgtop2-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtop2-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libjson-glib-1.0-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libjson-glib-1.0-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libsecret-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsecret-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libsoup-3.0-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsoup-3.0-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libsoup2.4-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsoup2.4-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libtotem-plparser-common": [
+    "NOT",
+    "S2.2-4",
+    "Contains package documentation in the published file list.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libtotem-plparser-common/filelist",
+    "Only packaged documentation becomes unavailable; no executable or operational settings appear in its file list."
+  ],
+  "libgnomekbd-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared keyboard configuration schemas and layout interface resources.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgnomekbd-common/filelist",
+    "These shared keyboard facilities affect multiple applications; removing their schemas removes configuration capabilities."
+  ],
+  "libgoa-1.0-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Defines shared online-account configuration schemas.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgoa-1.0-common/filelist",
+    "Shared account-service configuration affects applications using that service, beyond one program."
+  ],
+  "libgpod-common": [
+    "MUST",
+    "S2.2-9",
+    "Runs device-information and synchronization helpers for portable media devices.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgpod-common/filelist",
+    "Its independently executable helpers supply operations lost on removal."
+  ],
+  "libgs-common": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Supplies default color profiles to the document interpreter.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgs-common/filelist",
+    "These profiles are values configuring color rendering within the interpreter."
+  ],
+  "libgs10-common": [
+    "UNKNOWN",
+    "S2.2-10,S2.2-11,S3-2",
+    "Supplies interpreter initialization programs, fonts, and document-processing resources.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgs10-common/filelist",
+    "Documentation shows executable interpreter resources, but available evidence does not establish their execution rights or confinement."
+  ],
+  "libgtk-3-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared graphical-toolkit schemas, input configuration, and emoji resources.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtk-3-common/filelist",
+    "Toolkit settings apply across applications; removing resources removes shared interface capabilities."
+  ],
+  "libgtk-4-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared graphical-toolkit schemas and emoji resources.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtk-4-common/filelist",
+    "Toolkit settings apply across applications; removing resources removes shared interface capabilities."
+  ],
+  "libgtk2.0-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared toolkit keyboard themes and input-method configuration.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtk2.0-common/filelist",
+    "Toolkit input and theme settings are used across applications, outside the one-program exemption."
+  ],
+  "libgtksourceview-3.0-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies language grammars and styles for shared syntax-highlighting widgets.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtksourceview-3.0-common/filelist",
+    "Removing grammars removes language-specific highlighting across applications using the widget."
+  ],
+  "libgtksourceview-4-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies language grammars and styles for shared syntax-highlighting widgets.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgtksourceview-4-common/filelist",
+    "Removing grammars removes language-specific highlighting across applications using the widget."
+  ],
+  "libgutenprint-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies printer-model, ink, and dithering definitions to printing drivers.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgutenprint-common/filelist",
+    "Removing model definitions removes supported printing capabilities across programs."
+  ],
+  "libgweather-4-common": [
+    "HOLE",
+    "S2.2-2,S2.2-4",
+    "Supplies weather-location database and shared weather settings.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libgweather-4-common/filelist",
+    "The location database is exempt content or operational recognition data; the text does not distinguish those readings."
+  ],
+  "libhtml-tagset-perl": [
+    "MUST",
+    "S2.2-10,S2.2-13",
+    "Loads HTML tag classifications as an executable language module.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libhtml-tagset-perl/filelist",
+    "The interpreter loads the module as code with its own rights."
+  ],
+  "libinput-bin": [
+    "MUST",
+    "S2.2-2,S2.2-9",
+    "Runs input-device grouping helpers and supplies device rules.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libinput-bin/filelist",
+    "Removing executable helpers and system device rules removes input-device handling capabilities."
+  ],
+  "libjpeg8": [
+    "NOT",
+    "S2.2-2,S2.2-4",
+    "Provides dependency metadata and package documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libjpeg8/filelist",
+    "The dependency package has no executable payload; its removal leaves the separately packaged implementation available."
+  ],
+  "libjs-mathjax": [
+    "UNKNOWN",
+    "S2.2-10,S2.2-11,S3-2",
+    "Renders mathematical notation using executable JavaScript.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libjs-mathjax/filelist",
+    "Browser-confined and interpreter execution are documented; inventory does not establish which execution rights apply here."
+  ],
+  "liblangtag-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies language-tag definitions for shared tag-processing routines.",
+    "doc:https://packages.ubuntu.com/noble/amd64/liblangtag-common/filelist",
+    "Removing tag definitions removes recognition of supported language identifiers across dependent programs."
+  ],
+  "liblouis-data": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies translation tables enabling text-to-braille conversions.",
+    "doc:https://packages.ubuntu.com/noble/amd64/liblouis-data/filelist",
+    "Removing translation tables prevents the supported braille conversions."
+  ],
+  "liblouisutdml-data": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies document semantics and braille translation configuration.",
+    "doc:https://packages.ubuntu.com/noble/amd64/liblouisutdml-data/filelist",
+    "Removing semantics and translation definitions prevents supported document-to-braille conversions."
+  ],
+  "libmagic-mgc": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies compiled signature rules identifying file formats.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libmagic-mgc/filelist",
+    "Removing signature rules removes file-type recognition across programs; they are operational rules rather than a speed-only cache."
+  ],
+  "libmateweather-common": [
+    "HOLE",
+    "S2.2-2,S2.2-4",
+    "Supplies weather-location data, settings, and weather icons.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libmateweather-common/filelist",
+    "Weather locations can be read as exempt database content or capability-defining data; the text does not distinguish them."
+  ],
+  "libmtp-common": [
+    "MUST",
+    "S2.2-2,S2.2-10",
+    "Supplies device-access rules and executable diagnostic hooks.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libmtp-common/filelist",
+    "Its device rules and executable hook affect system access and run beyond one program’s interface."
+  ],
+  "libnma-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies authentication configuration schemas shared by network interfaces.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libnma-common/filelist",
+    "Network authentication configuration is shared across users of the library, beyond one program."
+  ],
+  "libopenal-data": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared audio-library configuration and spatial-rendering profiles.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libopenal-data/filelist",
+    "Audio configuration and profiles affect applications using the shared library; removal removes spatial-rendering capabilities."
+  ],
+  "libpam-runtime": [
+    "MUST",
+    "S2.2-9,S2.2-15",
+    "Runs authentication-configuration utilities and supplies system authentication rules.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libpam-runtime/filelist",
+    "Authentication helpers are programs and their shared access rules govern system login."
+  ],
+  "libpeas-common": [
+    "NOT",
+    "S2.2-4",
+    "Supplies plugin icons for graphical interfaces.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libpeas-common/filelist",
+    "Only image content becomes unavailable; the file list contains no executable plugin implementation."
+  ],
+  "libpkcs11-helper1t64": [
+    "MUST",
+    "S2.2-10",
+    "Loads native routines simplifying cryptographic-token access.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libpkcs11-helper1t64/filelist",
+    "The shared library executes with the calling program’s own rights."
+  ],
+  "libppd2-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies printer-description compiler headers and media definitions.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libppd2-common/filelist",
+    "Removing headers and format definitions prevents supported printer-description compilation."
+  ],
+  "libproxy1-plugin-gsettings": [
+    "NOT",
+    "S2.2-2,S2.2-4",
+    "Provides transitional dependency metadata and documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libproxy1-plugin-gsettings/filelist",
+    "The transitional package contains no plugin implementation; removing it leaves the replacement implementation available."
+  ],
+  "libproxy1-plugin-networkmanager": [
+    "NOT",
+    "S2.2-2,S2.2-4",
+    "Provides transitional dependency metadata and documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libproxy1-plugin-networkmanager/filelist",
+    "The transitional package contains no plugin implementation; removing it leaves the replacement implementation available."
+  ],
+  "libpwquality-common": [
+    "MUST",
+    "S2.2-1,S2.2-2,S2.2-15",
+    "Supplies shared password-quality policy configuration.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libpwquality-common/filelist",
+    "The policy configures shared authentication facilities rather than settings confined to one program."
+  ],
+  "libpython3-stdlib": [
+    "NOT",
+    "S2.2-2,S2.2-4",
+    "Provides default-version dependency metadata and package documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libpython3-stdlib/filelist",
+    "This dependency package contains no standard-library implementation; removing it leaves separately packaged library code available."
+  ],
+  "librda-common": [
+    "NOT",
+    "S2.2-4",
+    "Supplies translated interface messages.",
+    "doc:https://packages.ubuntu.com/noble/amd64/librda-common/filelist",
+    "The translated message content disappears; executable remote-desktop functions remain."
+  ],
+  "libreoffice-common": [
+    "MUST",
+    "S2.2-9,S2.2-10",
+    "Runs office launchers and supplies shared office runtime resources.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-common/filelist",
+    "The package includes executable launchers and scripts required to start and operate the suite."
+  ],
+  "libreoffice-help-common": [
+    "NOT",
+    "S2.2-4,S2.2-11",
+    "Supplies browser-based help pages, scripts, styles, and images.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-help-common/filelist",
+    "Help content and its browser-interface scripts are explicitly exempt."
+  ],
+  "libreoffice-help-en-us": [
+    "NOT",
+    "S2.2-4,S2.2-11",
+    "Supplies English help documents and browser navigation scripts.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-help-en-us/filelist",
+    "Help documents are content; navigation scripts remain within the browser interface."
+  ],
+  "libreoffice-style-colibre": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Supplies office-interface icon themes.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-style-colibre/filelist",
+    "Theme values affect only the office program’s interface and are expressly exempt."
+  ],
+  "libreoffice-uiconfig-calc": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Defines office-program menus, dialogs, and toolbar layouts as interface values.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-calc/filelist",
+    "These interface values are settings confined to the office program; the explicit setting exemption applies."
+  ],
+  "libreoffice-uiconfig-common": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Defines office-program menus, dialogs, and toolbar layouts as interface values.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-common/filelist",
+    "These interface values are settings confined to the office program; the explicit setting exemption applies."
+  ],
+  "libreoffice-uiconfig-draw": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Defines office-program menus, dialogs, and toolbar layouts as interface values.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-draw/filelist",
+    "These interface values are settings confined to the office program; the explicit setting exemption applies."
+  ],
+  "libreoffice-uiconfig-impress": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Defines office-program menus, dialogs, and toolbar layouts as interface values.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-impress/filelist",
+    "These interface values are settings confined to the office program; the explicit setting exemption applies."
+  ],
+  "libreoffice-uiconfig-writer": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Defines office-program menus, dialogs, and toolbar layouts as interface values.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libreoffice-uiconfig-writer/filelist",
+    "These interface values are settings confined to the office program; the explicit setting exemption applies."
+  ],
+  "librsvg2-common": [
+    "MUST",
+    "S2.2-10",
+    "Loads native SVG image-loader code into image-consuming programs.",
+    "doc:https://packages.ubuntu.com/noble/amd64/librsvg2-common/filelist",
+    "The image-loader module executes with its calling program’s own rights."
+  ],
+  "libsane-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared scanner-backend configuration and scanning documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsane-common/filelist",
+    "Backend selection and device settings govern scanning through multiple applications; removing them removes supported access."
+  ],
+  "libsemanage-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Configures shared mandatory-access-control policy management.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsemanage-common/filelist",
+    "System access-policy settings affect multiple programs, beyond the one-program exemption."
+  ],
+  "libsensors-config": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Configures shared hardware-sensor interpretation and labels.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsensors-config/filelist",
+    "Sensor values are interpreted by multiple consumers of the shared library, beyond one program."
+  ],
+  "libsnmp-base": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared network-management configuration and code-generation templates.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsnmp-base/filelist",
+    "Removing these definitions removes management and code-generation capabilities across the tool suite."
+  ],
+  "libsource-highlight-common": [
+    "NOT",
+    "S2.2-7,S2.2-13",
+    "Supplies syntax grammars and output styles for source highlighting.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libsource-highlight-common/filelist",
+    "Grammar and style values configure highlighting inside the program; the setting exemption applies."
+  ],
+  "libstdc++-13-dev": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies headers and linkable libraries for building compiled programs.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libstdc++-13-dev/filelist",
+    "Removing these development objects prevents supported compilation and linking."
+  ],
+  "libtag1v5": [
+    "NOT",
+    "S2.2-2,S2.2-4",
+    "Provides dependency metadata and package documentation.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libtag1v5/filelist",
+    "The package has no library implementation; removing it leaves the separately packaged implementation available."
+  ],
+  "libthai-data": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies a word-break dictionary used by shared text-processing routines.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libthai-data/filelist",
+    "Removing the dictionary removes language-specific word segmentation across dependent programs."
+  ],
+  "libtimezonemap-data": [
+    "HOLE",
+    "S2.2-2,S2.2-4",
+    "Supplies geographical database entries and timezone-map images.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libtimezonemap-data/filelist",
+    "Geographical entries can be exempt content or operational timezone-selection data; the text does not distinguish the readings."
+  ],
+  "libtirpc-common": [
+    "MUST",
+    "S2.2-1,S2.2-2",
+    "Supplies shared network-transport configuration for remote procedure calls.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libtirpc-common/filelist",
+    "Network transport definitions govern multiple RPC consumers; removal removes configured transport capabilities."
+  ],
+  "libvte-2.91-common": [
+    "MUST",
+    "S2.2-9,S2.2-10",
+    "Executes shell startup integration and terminal-location helpers.",
+    "doc:https://packages.ubuntu.com/noble/amd64/libvte-2.91-common/filelist",
+    "Shell startup code and helper programs run with their executing programs’ rights."
+  ]
+}

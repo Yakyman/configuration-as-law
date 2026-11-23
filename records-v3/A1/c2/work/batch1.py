@@ -1,0 +1,33 @@
+from common import *
+NA='S2.2-1,S2.2-2'
+rows=[
+('coreos-3cd182c07b','MUST',NA,'Mount point directory of the /boot partition','raw:raw/coreos/mounts.txt','Without it /boot cannot be mounted, so bootloader and kernel files become unreachable (S2.2-2).'),
+('coreos-827c5914e9','NOT',NA,'Empty directory /boot/efi on the boot partition; ESP is not mounted here','doc:https://raw.githubusercontent.com/coreos/bootupd/main/src/efi.rs','bootupd mounts the ESP on a temporary mount when none is mounted; removing the empty directory changes nothing.'),
+('coreos-1d70ce548d','MIXED','S2.2-10,S2.2-13,S2.2-7,S2.2-2','GRUB files: grub.cfg script, grubenv variables, unicode.pf2 font','doc:https://www.gnu.org/software/grub/manual/grub/grub.html','grub.cfg MUST (GRUB executes it as code, S2.2-13, S2.2-10); grubenv HOLE (values only GRUB reads, S2.2-2 vs S2.2-7); unicode.pf2 NOT (display font inside GRUB, S2.2-7).'),
+('coreos-037231a728','MUST','S2.2-2','The /etc directory itself','raw:raw/coreos/files.tsv','Removing /etc removes the system configuration directory; the system stops working (S2.2-2).'),
+('coreos-0738d52777','NOT','S2.2-7','Colour definitions for ls output, read by dircolors',MAN+'man5/dir_colors.5.html','Colours of ls output are settings in force only inside one program, like a browser theme (S2.2-7).'),
+('coreos-b2d3d5d989','NOT','S2.2-7','Alternative ls colour definitions for light backgrounds',MAN+'man5/dir_colors.5.html','Colours of ls output are settings in force only inside one program, like a browser theme (S2.2-7).'),
+('coreos-cc15017ada','NOT','S2.2-7','Colour settings for grep match highlighting',MAN+'man1/grep.1.html','Colours of grep output are settings in force only inside one program (S2.2-7).'),
+('coreos-9945c88deb','MIXED','S2.2-10,S2.2-1,S2.2-2','NetworkManager.conf, dispatcher script, empty config directories',DIST+'NetworkManager__NetworkManager.conf','Dispatcher script MUST (code NetworkManager-dispatcher runs as root, S2.2-10); NetworkManager.conf has only section headers and empty directories hold nothing: NOT.'),
+('coreos-0a38e83850','NOT','S2.2-1,S2.2-2,S2.2-10','xinitrc.d script and X11 directories',OWN,'No X server or xinit is installed, so no program runs the script (S2.2-10 condition unmet); removal changes nothing.'),
+('coreos-d20d960ea0','UNKNOWN','S3-2','/etc/adjtime: hardware clock drift and UTC/LOCAL mode, 12 bytes',MAN+'man5/adjtime_config.5.html','Removal effect depends on whether it states LOCAL or UTC; the content is not in the inventory, so what it does stays unknown (S3-2).'),
+('coreos-341d2df2d9','NOT',NA,'Mail aliases for a mail transfer agent',MAN+'man5/aliases.5.html','No mail transfer agent is installed to read it; removal changes nothing the computer does.'),
+('coreos-d3d071d2ba','MUST','S2.2-2','Directory /etc/alternatives through which alternatives links resolve',MAN+'man8/alternatives.8.html','Commands such as iptables resolve through links in this directory; without it they cannot be run (S2.2-2).'),
+('coreos-a4c2c16ae9','MIXED','S2.2-1,S2.2-2,S2.2-7,S2.2-13','Audit rules loaded into the kernel and auditd.conf daemon settings',MAN+'man8/augenrules.8.html','Rule files MUST: kernel audit rules apply system-wide (S2.2-2); auditd.conf HOLE: values read only by auditd, S2.2-2 vs S2.2-7.'),
+('coreos-e2885ad43a','MIXED','S2.2-15,S2.2-2,S2.2-7','authselect output: PAM stacks, nsswitch.conf, dconf files, authselect.conf','doc:https://github.com/authselect/authselect','PAM stacks and nsswitch.conf MUST (login rules, S2.2-15; many programs); dconf files NOT (no dconf installed); authselect.conf HOLE (read only by authselect).'),
+('coreos-f536dafd04','NOT',NA,'Settings for Azure ephemeral disk setup service','doc:https://github.com/Azure/azure-vm-utils','The setup only runs on Azure; on this QEMU machine nothing uses it, so removal changes nothing.'),
+('coreos-47cc2958ff','MUST','S2.2-10','Bash completion scripts sourced by interactive bash',OWN,'Scripts executed by bash with its own rights (S2.2-10).'),
+('coreos-3605e4ff0b','MUST','S2.2-10','System-wide bash startup file /etc/bashrc',MAN+'man1/bash.1.html','S2.2-10 names shell startup files as code that must be recorded.'),
+('coreos-d68859230e','MUST','S2.2-2','Ports bindresvport() must avoid, read by libtirpc in RPC programs',MAN+'man3/bindresvport.3.html','Read by several RPC programs; removal lets them take ports reserved for other services (S2.2-2).'),
+('coreos-c0faa16997','NOT',NA,'Empty binfmt.d configuration directory',FD+'binfmt.d.html','Empty: systemd-binfmt finds no entries with or without it; removal changes nothing.'),
+('coreos-4e5cdc2024','HOLE',H7S,'chronyd configuration: time sources, clock stepping, RTC sync',MAN+'man5/chrony.conf.5.html',h7('chronyd')),
+('coreos-8ff1651d76','MUST','S2.2-10','Link choosing the ID-mapping plugin library loaded by cifs.idmap',MAN+'man8/cifs.idmap.8.html','The link selects plugin code that cifs.idmap loads and runs with its own rights (S2.2-10).'),
+('coreos-3a7a7fb965','HOLE',H7S,'containerd daemon configuration config.toml','doc:https://github.com/containerd/containerd/blob/main/docs/man/containerd-config.toml.5.md',h7('containerd')),
+('coreos-c2d2685965','MIXED','S2.2-2,S2.2-1','Container signature policy, registries, short names; toolbox.conf',DIST+'containers-toolbox__toolbox.conf','policy.json, registries files MUST: read by podman, skopeo, toolbox, removal stops pulls (S2.2-2); toolbox.conf has only a section header: NOT.'),
+('coreos-43399114f3','NOT',NA,'Empty system credential store directory',FD+'systemd.exec.html','Empty: services find no credentials here with or without it; removal changes nothing.'),
+('coreos-edd98ae366','NOT',NA,'Empty encrypted credential store directory',FD+'systemd.exec.html','Empty: services find no credentials here with or without it; removal changes nothing.'),
+('coreos-96885714dc','MUST','S2.2-2','System-wide crypto policy and back-end links for TLS/SSH libraries',MAN+'man7/crypto-policies.7.html','Read by OpenSSL, GnuTLS, NSS, OpenSSH, krb5; removal changes allowed ciphers and can stop TLS/SSH connections (S2.2-2).'),
+('coreos-1ba66236e5','NOT','S2.2-1,S2.2-2,S2.2-10','C shell startup file',OWN,'No csh or tcsh is installed, so no program runs it (S2.2-10 condition unmet); removal changes nothing.'),
+('coreos-e381aefda5','NOT','S2.2-1,S2.2-2,S2.2-10','C shell login startup file',OWN,'No csh or tcsh is installed, so no program runs it (S2.2-10 condition unmet); removal changes nothing.'),
+]
+run(rows)

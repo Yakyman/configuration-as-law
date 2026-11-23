@@ -1,0 +1,20 @@
+# Current-run corrections after detailed payload inspection.
+for n,r in list(rule.items()):
+ if r=='fonts':put(n,'fonts','NOT','S2.2-4','Supplies typeface and glyph-shape content for text rendering.','Removal makes these typeface designs unavailable; the text-rendering machinery and its operations remain, satisfying the content exemption.')
+ elif r=='meta':put(n,'meta','NOT','S2.2-1,S2.2-2','Selects dependencies without supplying executable runtime operations.','Removing this dependency-selection package leaves separately installed dependencies in place, so no runtime operation is removed.')
+ elif r=='translations':put(n,'translations','NOT','S2.2-4','Supplies translated messages or localized document content.','Programs retain their operations; only these translated strings and localized content become unavailable.')
+ elif r=='directories':put(n,'directories','UNKNOWN','S3-2','Owns directories used by other packages.','Directory layout is documented, but current occupancy and dependence on removable empty directories are not established by the inventory.')
+case('git','MUST','S2.2-9,S2.2-10','Supplies executable version-control helper scripts as well as dependencies.','Despite its metapackage description, the payload contains executable helper scripts; scripts must be recorded.')
+case('grub2-common','MUST','S2.2-10','Supplies bootloader kernel-install scripts and shared directories.','Kernel-install scripts execute with interpreter rights, so the directory-layout description does not exempt this package.')
+case('httpd-filesystem','MUST','S2.2-1,S2.2-15','Supplies web-server directories and a system-account creation rule.','The payload includes a sysusers account rule; accounts and their governing system configuration must be recorded.')
+case('filesystem','MUST','S2.2-1,S2.2-2','Provides essential system directory layout and compatibility paths.','Removing essential paths such as the standard command and library locations prevents system programs finding required files.')
+for n in ['color-filesystem','firewalld-filesystem','javapackages-filesystem','qt6-qtbase-common']:
+ case(n,'UNKNOWN','S3-2','Supplies packaging macros, with expansion behavior unestablished.','The file lists establish macro files, but their content is unavailable; command execution versus value-only substitution cannot be established.')
+case('glibc-all-langpacks','MUST','S2.2-1,S2.2-2','Supplies locale rules for collation, character handling, and numeric interpretation.','The locale archive determines parsing, conversion, and sorting operations across programs; it is not merely translated display content.')
+a=list(result['glibc-all-langpacks']);a[3]='doc:https://man7.org/linux/man-pages/man7/locale.7.html';result['glibc-all-langpacks']=tuple(a)
+case('iso-codes','NOT','S2.2-4','Supplies country, language, and currency code lists and translations.','These are reference lists and translated labels; removal makes that reference content unavailable.')
+case('gnome-shell-extension-common','NOT','S2.2-4','Supplies extension translations, documentation, and licensing text.','The payload contains messages and documents rather than extension code; only that content is lost.')
+case('fedora-chromium-config','NOT','S2.2-1,S2.2-2,S2.2-4','Provides a package dependency target and licensing text.','The documented payload is licensing text; removing this package does not remove separately installed customization dependencies.')
+case('fedora-release-workstation','NOT','S2.2-1,S2.2-2','Provides an empty-payload dependency target for edition configuration.','Removing the empty-payload dependency target leaves separately installed configuration packages and their operations unchanged.')
+case('yelp-xsl','UNKNOWN','S3-2','Supplies help-rendering stylesheets and browser-side scripts.','Transformation stylesheets are documented, but execution confinement and rights are not established; the code exemption cannot be applied confidently.')
+case('rdma-core-common','UNKNOWN','S3-2','Owns device-subsystem configuration directories.','The directories are known, but their occupancy and operational necessity on this machine are not established.')

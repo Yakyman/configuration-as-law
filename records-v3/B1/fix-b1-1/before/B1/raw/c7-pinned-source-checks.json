@@ -1,0 +1,88 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/torvalds/linux/v6.14/Documentation/userspace-api/check_exec.rst",
+    "retrieved_utc": "2026-11-22T04:30:18.587369+00:00",
+    "status": "retrieved",
+    "scope": "Single pinned upstream source file; absence is not an exhaustive source-tree proof.",
+    "matches": {
+      "AT_EXECVE_CHECK": [
+        8,
+        25,
+        33,
+        36,
+        61,
+        69,
+        93,
+        111
+      ],
+      "SECBIT_EXEC_RESTRICT_FILE": [
+        9,
+        30,
+        45,
+        64,
+        67,
+        73,
+        105,
+        116,
+        125,
+        134
+      ]
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/torvalds/linux/v6.14/samples/check-exec/inc.c",
+    "retrieved_utc": "2026-11-22T04:30:18.741719+00:00",
+    "status": "retrieved",
+    "scope": "Single pinned upstream source file; absence is not an exhaustive source-tree proof.",
+    "matches": {
+      "AT_EMPTY_PATH | AT_EXECVE_CHECK": [
+        89
+      ],
+      "SECBIT_EXEC_DENY_INTERACTIVE": [
+        129,
+        186
+      ],
+      "SECBIT_EXEC_RESTRICT_FILE": [
+        130,
+        204
+      ]
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/python/cpython/v3.15.0/Modules/_io/_iomodule.c",
+    "retrieved_utc": "2026-11-22T04:30:18.991646+00:00",
+    "status": "retrieved",
+    "scope": "Single pinned upstream source file; absence is not an exhaustive source-tree proof.",
+    "matches": {
+      "AT_EXECVE_CHECK": [],
+      "SECBIT_EXEC_RESTRICT_FILE": [],
+      "_io_open_code_impl": [
+        514
+      ]
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/python/cpython/v3.15.0/Modules/main.c",
+    "retrieved_utc": "2026-11-22T04:30:19.190784+00:00",
+    "status": "retrieved",
+    "scope": "Single pinned upstream source file; absence is not an exhaustive source-tree proof.",
+    "matches": {
+      "AT_EXECVE_CHECK": [],
+      "SECBIT_EXEC_DENY_INTERACTIVE": [],
+      "pymain_run_command": [
+        246,
+        741
+      ]
+    }
+  },
+  {
+    "url": "https://raw.githubusercontent.com/bminor/glibc/glibc-2.42/elf/dl-load.c",
+    "retrieved_utc": "2026-11-22T04:30:19.453873+00:00",
+    "status": "retrieved",
+    "scope": "Single pinned upstream source file; absence is not an exhaustive source-tree proof.",
+    "matches": {
+      "AT_EXECVE_CHECK": [],
+      "SECBIT_EXEC_RESTRICT_FILE": []
+    }
+  }
+]

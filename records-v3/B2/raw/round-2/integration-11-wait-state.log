@@ -1,0 +1,16 @@
+   9559       2 worker kworker/1:3-eve [kworker/1:3-events]
+   9580       2 worker kworker/0:2-eve [kworker/0:2-events]
+  10160       2 worker kworker/u8:0-wr [kworker/u8:0-writeback]
+  10742       2 worker kworker/0:1-eve [kworker/0:1-events]
+  10958       1 do_sys sshd-session    sshd-session: root [priv]
+  10966   10958 do_sys sshd-session    sshd-session: root@notty
+  10967   10966 do_wai sh              sh
+  10982       1 do_sys sshd            sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+  11483   10967 -      stand-apply     /usr/bin/python3 -I /usr/local/bin/stand-apply /etc/stand/factory
+  11515       2 psi_rt psimon          [psimon]
+  11521   10982 do_sys sshd-session    sshd-session: root [priv]
+  11529   11521 do_sys sshd-session    sshd-session: root@notty
+  11530   11529 do_wai bash            bash -c ps -eo pid,ppid,wchan,comm,args | tail -n 15; /usr/bin/systemctl list-jobs --no-pager
+  11531   11530 -      ps              ps -eo pid,ppid,wchan,comm,args
+  11532   11530 pipe_r tail            tail -n 15
+No jobs running.

@@ -1,0 +1,23 @@
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/stand: parsed OK
+Broker authority, backend DAC, bus policy and scheduler removal installed
+Declaration frontends, inactive parser domain and fixed compiler domain installed
+/tmp/session.c: In function ‘main’:
+/tmp/session.c:103:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |   ^~
+/tmp/session.c:103:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |                                                                  ^~~~~
+/tmp/session.c:146:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  146 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |   ^~
+/tmp/session.c:146:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  146 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |                                                                  ^~~~~
+usermod: no changes
+kernel.yama.ptrace_scope = 2
+Shellless login, syscall filter and declaration-generated code policy installed
+FACTORY rows=548 files=31246
+SUCCESS 1201b6b66e91ad356a9b3a908a120e0b7d105889de5fa33e6cacb24956771dce

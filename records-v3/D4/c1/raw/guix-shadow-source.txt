@@ -1,0 +1,85 @@
+URL: https://codeberg.org/guix/guix/raw/tag/v1.5.0/gnu/packages/admin.scm
+Retrieved 2026-11-22 UTC
+(define-public shadow
+  (package
+    (name "shadow")
+    (version "4.13")
+    (source (origin
+              (method url-fetch)
+              (uri (string-append
+                    "https://github.com/shadow-maint/shadow/releases/"
+                    "download/" version "/shadow-" version ".tar.xz"))
+              (sha256
+               (base32
+                "0b6xz415b4y3y5nk3pw9xibv05kln4cjbmhybyncmrx2g5fj9zls"))))
+    (build-system gnu-build-system)
+    (arguments
+     `(;; Assume System V `setpgrp (void)', which is the default on GNU
+       ;; variants (`AC_FUNC_SETPGRP' is not cross-compilation capable.)
+       #:configure-flags
+       '(,@(if (target-hurd?)
+             '()
+             '("--with-libpam"))
+          "shadow_cv_logdir=/var/log"
+          "ac_cv_func_setpgrp_void=yes")
+       #:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-linking-to-pam
+           (lambda _
+             ;; There's a build system problem in 4.9 that causes link
+             ;; failures with the pam libraries (see:
+             ;; https://github.com/shadow-maint/shadow/issues/407).
+             (substitute* "libsubid/Makefile.in"
+               (("\\$\\(LIBTCB\\)" all)
+                (string-append all " $(LIBPAM)")))))
+         ,@(if (%current-target-system)
+               '((add-before 'configure 'set-runtime-shell
+                   (lambda* (#:key inputs #:allow-other-keys)
+                     (let ((shell (search-input-file inputs "/bin/bash")))
+                       (setenv "RUNTIME_SHELL" shell)
+                       (substitute* "configure.ac"
+                         (("\\$SHELL")
+                          "$RUNTIME_SHELL"))))))
+               '())
+         (add-before 'build 'set-nscd-file-name
+           (lambda* (#:key inputs #:allow-other-keys)
+             ;; Use the right file name for nscd.
+             (let ((libc (assoc-ref inputs
+                                    ,(if (%current-target-system)
+                                         "cross-libc"
+                                         "libc"))))
+               (substitute* "lib/nscd.c"
+                 (("/usr/sbin/nscd")
+                  (string-append libc "/sbin/nscd"))))))
+         (add-after 'install 'install-man-pages
+           (lambda _
+             ;; The top-level Makefile.am wrongfully has "SUBDIRS += man"
+             ;; under "if ENABLE_REGENERATE_MAN", even though prebuilt man
+             ;; pages are available.  Thus, install them manually.
+             (invoke "make" "-C" "man" "install")))
+         (add-after 'install-man-pages 'remove-groups
+           (lambda* (#:key outputs #:allow-other-keys)
+             ;; Remove `groups', which is already provided by Coreutils.
+             (let* ((out (assoc-ref outputs "out"))
+                    (bin (string-append out "/bin"))
+                    (man (string-append out "/share/man")))
+               (delete-file (string-append bin "/groups"))
+               (for-each delete-file (find-files man "^groups\\."))))))))
+    (inputs
+     (append (if (target-hurd?)
+                 '()
+                 (list linux-pam))
+             (if (%current-target-system)
+                 (list bash-minimal)
+                 '())
+             (list libxcrypt)))
+    (home-page "https://github.com/shadow-maint/shadow")
+    (synopsis "Authentication-related tools such as passwd, su, and login")
+    (description
+     "Shadow provides a number of authentication-related tools, including:
+login, passwd, su, groupadd, and useradd.")
+
+    ;; The `vipw' program is GPLv2+.
+    ;; libmisc/salt.c is public domain.
+    (license license:bsd-3)))
+

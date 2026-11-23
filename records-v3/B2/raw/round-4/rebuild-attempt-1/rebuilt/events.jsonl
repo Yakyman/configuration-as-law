@@ -1,0 +1,36 @@
+{"expected": "four independent clean VMs; every suite exits zero after positive declaration paths and refusal attempts", "id": "BC4-SUITES", "phase": "expected", "source": "B2/build/language-selftest.py; app-selftest.py; system-selftest.py; round4-selftest.py", "utc": "2026-11-22T11:23:57Z"}
+{"expected": "fresh VM, installed test suite exit zero, then every-line verification", "guest_command": "python3 -B /usr/local/lib/stand/language-selftest.py /usr/local/share/stand/language /var/lib/stand/language-selftest.jsonl", "id": "SUITE-language", "phase": "expected", "utc": "2026-11-22T11:23:57Z"}
+{"log": "language-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:24:33Z"}
+{"log": "language.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:30:38Z"}
+{"log": "language-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:30:52Z"}
+{"log": "language-examples-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:30:52Z"}
+{"log": "factory-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:30:52Z"}
+{"expected": "owned disposable VM stopped and removed", "id": "CLEANUP-bc4-rebuilt-language", "phase": "expected", "utc": "2026-11-22T11:30:52Z"}
+{"log": "bc4-rebuilt-language-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:30:57Z"}
+{"expected": "fresh VM, installed test suite exit zero, then every-line verification", "guest_command": "python3 -B /usr/local/lib/stand/app-selftest.py --output /var/lib/stand/app-selftest.jsonl", "id": "SUITE-applications", "phase": "expected", "utc": "2026-11-22T11:30:57Z"}
+{"log": "applications-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:31:33Z"}
+{"log": "applications.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:39:24Z"}
+{"expected": "both native helper paths absent and system helper unit masked; saved beside the D-Bus refusal", "id": "FLATPAK-HELPER-AVAILABILITY", "phase": "expected", "utc": "2026-11-22T11:39:24Z"}
+{"log": "applications-helper-availability.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:39:24Z"}
+{"log": "applications-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:39:37Z"}
+{"log": "applications-examples-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:39:38Z"}
+{"expected": "owned disposable VM stopped and removed", "id": "CLEANUP-bc4-rebuilt-applications", "phase": "expected", "utc": "2026-11-22T11:39:38Z"}
+{"log": "bc4-rebuilt-applications-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:39:41Z"}
+{"expected": "fresh VM, installed test suite exit zero, then every-line verification", "guest_command": "python3 -B /usr/local/lib/stand/system-selftest.py /var/lib/stand/system-selftest.jsonl", "id": "SUITE-system", "phase": "expected", "utc": "2026-11-22T11:39:41Z"}
+{"log": "system-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:40:18Z"}
+{"log": "system.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:43:50Z"}
+{"log": "system-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:44:03Z"}
+{"log": "system-examples-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:44:03Z"}
+{"log": "system-state-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:44:04Z"}
+{"expected": "owned disposable VM stopped and removed", "id": "CLEANUP-bc4-rebuilt-system", "phase": "expected", "utc": "2026-11-22T11:44:04Z"}
+{"log": "bc4-rebuilt-system-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:44:07Z"}
+{"expected": "fresh VM, installed test suite exit zero, then every-line verification", "guest_command": "python3 -B /usr/local/lib/stand/round4-selftest.py", "id": "SUITE-ordinary", "phase": "expected", "utc": "2026-11-22T11:44:07Z"}
+{"log": "ordinary-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:44:44Z"}
+{"log": "ordinary.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:54:14Z"}
+{"log": "ordinary-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T11:54:27Z"}
+{"log": "ordinary-examples-export.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:54:27Z"}
+{"expected": "owned disposable VM stopped and removed", "id": "CLEANUP-bc4-rebuilt-ordinary", "phase": "expected", "utc": "2026-11-22T11:54:27Z"}
+{"log": "bc4-rebuilt-ordinary-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T11:54:31Z"}
+{"expected": "complete existing BC3 controller including prior suites, boot gate, power cuts and independent peer comparison", "id": "PRIOR-SUITES", "independent_peer_requested": true, "missing_peer_disposition": "not tested; existing controller returns nonzero", "phase": "expected", "utc": "2026-11-22T11:54:31Z"}
+{"log": "regressions-console.jsonl", "phase": "result", "rc": 1, "utc": "2026-11-22T13:01:24Z"}
+{"image_sha256": "35b3f8becc1a684b5401f1abfba5054da1cb7abd83158cff046261b00f7adcdc", "independent_peer_requested": true, "owned_vms_remaining": [], "phase": "summary", "regressions_requested": true, "suite_exit": 1, "suites": {"applications": {"example_export_exit": 0, "metadata_exit": 0, "suite_exit": 0, "tested": true, "verify_exit": 0}, "language": {"example_export_exit": 0, "metadata_exit": 0, "suite_exit": 0, "tested": true, "verify_exit": 0}, "ordinary": {"example_export_exit": 0, "metadata_exit": 0, "suite_exit": 0, "tested": true, "verify_exit": 0}, "regressions": {"controller_exit": 1, "independent_peer_requested": true, "tested": true}, "system": {"example_export_exit": 0, "metadata_exit": 0, "suite_exit": 0, "tested": true, "verify_exit": 0}}, "utc": "2026-11-22T13:01:25Z"}

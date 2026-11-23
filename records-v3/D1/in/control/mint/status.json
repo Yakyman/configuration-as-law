@@ -1,0 +1,40 @@
+{
+  "machine": "mint",
+  "system": "mint",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "started_utc": "2026-11-22T06:31:40.586277+00:00",
+  "steps": [
+    {
+      "stage": "new",
+      "started_utc": "2026-11-22T06:31:40.586671+00:00",
+      "finished_utc": "2026-11-22T06:31:50.173260+00:00",
+      "exit_code": 0,
+      "log": "control/mint/new.log"
+    },
+    {
+      "stage": "actions",
+      "started_utc": "2026-11-22T06:31:50.173560+00:00",
+      "finished_utc": "2026-11-22T06:32:31.440014+00:00",
+      "exit_code": 0,
+      "log": "control/mint/actions.log"
+    },
+    {
+      "stage": "collector",
+      "started_utc": "2026-11-22T06:32:31.442541+00:00",
+      "finished_utc": "2026-11-22T07:45:09.407537+00:00",
+      "exit_code": 0,
+      "log": "control/mint/collector.log"
+    },
+    {
+      "stage": "destroy",
+      "started_utc": "2026-11-22T07:45:09.407989+00:00",
+      "finished_utc": "2026-11-22T07:45:10.795538+00:00",
+      "exit_code": 0,
+      "log": "control/mint/destroy.log"
+    }
+  ],
+  "stage": "finished",
+  "vm_directory_removed": true,
+  "inventory_present": true,
+  "finished_utc": "2026-11-22T07:45:10.795890+00:00"
+}

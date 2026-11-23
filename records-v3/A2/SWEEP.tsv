@@ -1,0 +1,193 @@
+type	system	source URL	decision	sentence IDs	reason	source evidence
+Native command executable	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-9	Runs directly.	hierarchy: /usr/bin/
+Shared library loaded by native program	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-10	Executes with process rights.	hierarchy: Libraries, system programs, and program assets
+C compilation header	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Removing required definitions prevents compilation; content exemption condition fails.	hierarchy: /usr/include/
+Installed manual page	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-4	Documentation content.	hierarchy: /usr/share/doc/
+Unused factory configuration example	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-4	Documentation example not used as effective configuration.	hierarchy: /usr/share/factory/etc/
+System log archive	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-6	Past record without live consumer.	hierarchy: /var/log/
+Rebuildable thumbnail cache	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-5	Only rendering speed changes.	hierarchy: /var/cache/
+Device node	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Removing device access prevents operations.	hierarchy: /dev/
+Shared-memory IPC segment	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Live communication becomes impossible.	hierarchy: /dev/shm/
+Executable compatibility symlink	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Required command pathname disappears.	hierarchy: Compatibility Symlinks
+Filesystem root directory	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Namespace access depends on it.	hierarchy: /
+Personal photograph	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-4	Only the photograph is unavailable.	hierarchy: Home Directory
+Temporary document draft	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	NOT	S2.2-4,S2.5-1	Content; persistence irrelevant.	hierarchy: /tmp/
+Boot kernel image	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-9	Executed system code.	hierarchy: /boot/
+EFI system partition	Linux	https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/	MUST	S2.2-1,S2.2-2	Booting depends on stored loader.	hierarchy: /efi/
+Service activation definition	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Enables managed execution.	units: systemd.service(5)
+Socket activation endpoint	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-15	Listening connection port.	units: systemd.socket(5)
+Device dependency unit	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Controls device-triggered dependencies.	units: systemd.device(5)
+Filesystem mount unit	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Makes filesystem accessible.	units: systemd.mount(5)
+Automount trigger	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Enables demand mounting.	units: systemd.automount(5)
+Swap activation unit	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Controls available swap.	units: systemd.swap(5)
+Boot target dependency set	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Determines boot services.	units: systemd.target(5)
+Filesystem path watcher	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Starts work on path changes.	units: systemd.path(5)
+Calendar timer	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Enables scheduled execution.	units: systemd.timer(5)
+Resource slice	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Resource governance changes behavior.	units: systemd.slice(5)
+Externally created process scope	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Groups processes for management.	units: systemd.scope(5)
+Service enablement dependency symlink	Linux	https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html	MUST	S2.2-1,S2.2-2	Enables startup dependency.	units: Description: .wants/ and .requires/
+Desktop application launcher	Linux desktop	https://specifications.freedesktop.org/desktop-entry/latest/recognized-keys.html	MUST	S2.2-1,S2.2-2	Provides graphical launch route.	desktop: Exec
+Desktop URL shortcut	Linux desktop	https://specifications.freedesktop.org/desktop-entry/latest/recognized-keys.html	NOT	S2.2-4	Saved address content.	desktop: URL
+Shared application icon	Linux desktop	https://specifications.freedesktop.org/desktop-entry/latest/recognized-keys.html	NOT	S2.2-4	Only image content disappears.	desktop: Icon
+Application MIME-handler registration	Linux desktop	https://specifications.freedesktop.org/desktop-entry/latest/recognized-keys.html	MUST	S2.2-1,S2.2-2	Multiple programs dispatch through association.	desktop: MimeType
+Desktop visibility override	Linux desktop	https://specifications.freedesktop.org/desktop-entry/latest/recognized-keys.html	HOLE	S2.2-1,S2.2-7	One desktop program or shared environment?	desktop: OnlyShowIn / NotShowIn
+Configuration search-path environment variable	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	MUST	S2.2-1,S2.2-2	Changes configuration used by multiple programs.	xdg: XDG_CONFIG_DIRS
+Application data search-path ordering	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	MUST	S2.2-1,S2.2-2	Selects shared resources.	xdg: XDG_DATA_DIRS
+Unix-domain IPC socket	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	MUST	S2.2-1,S2.2-2	Communication endpoint.	xdg: XDG_RUNTIME_DIR: sockets
+Named pipe	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	MUST	S2.2-1,S2.2-2	Communication channel.	xdg: XDG_RUNTIME_DIR: named pipes
+File synchronization lock	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	MUST	S2.2-1,S2.2-2	Prevents simultaneous operation.	xdg: XDG_RUNTIME_DIR: file locking
+Recent-file history list	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	NOT	S2.2-6	Past record.	xdg: XDG_STATE_HOME: history
+Application window layout state	Linux desktop	https://specifications.freedesktop.org/basedir/latest/	NOT	S2.2-7,S2.5-1	Local state design choice.	xdg: XDG_STATE_HOME: layout
+System hostname	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1	Affects system network identity.	sysctl: domainname & hostname
+Core-dump destination policy	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1	Controls crash dump handling.	sysctl: core_pattern
+Kernel module-loading prohibition	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1,S2.2-2	Changes loadable capabilities.	sysctl: modules_disabled
+Address-space randomization policy	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1	Changes process address layout.	sysctl: randomize_va_space
+System process-count limit	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1,S2.2-2	Restricts process creation.	sysctl: threads-max
+SysRq permitted-operation mask	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1,S2.2-2	Enables emergency operations.	sysctl: sysrq
+Kernel panic restart delay	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1	Changes crash recovery behavior.	sysctl: panic
+Kernel taint status record	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	NOT	S2.2-6	Reports past kernel events.	sysctl: tainted
+IPC message-size ceiling	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1,S2.2-2	Restricts possible IPC messages.	sysctl: msgmax, msgmnb, and msgmni
+Unprivileged BPF permission	Linux	https://docs.kernel.org/admin-guide/sysctl/kernel.html	MUST	S2.2-1,S2.2-2	Controls permitted kernel operations.	sysctl: unprivileged_bpf_disabled
+CPU execution quota	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1	Limits execution budget.	cgroup: CPU: cpu.max
+Memory allocation ceiling	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1,S2.2-2	Can make allocations impossible.	cgroup: Memory: memory.max
+Block-I/O bandwidth controller	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1	Controls I/O performance.	cgroup: IO: io.max
+Allowed CPU affinity set	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1,S2.2-2	Restricts execution placement.	cgroup: Cpuset: cpuset.cpus
+Huge-page allocation limit	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1,S2.2-2	Restricts large-page allocation.	cgroup: HugeTLB
+Cgroup process membership	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1	Determines applicable resource controls.	cgroup: cgroup.procs
+Cgroup resource-usage counter	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	NOT	S2.2-6	Measurement of past usage.	cgroup: cpu.stat / memory.events
+Cgroup freeze switch	Linux	https://docs.kernel.org/admin-guide/cgroup-v2.html	MUST	S2.2-1,S2.2-2	Stops execution of group.	cgroup: cgroup.freeze
+Browser homepage preference	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-7	Explicit example.	browser: Profile introduction: home page
+Browser theme	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-7	Explicit example.	browser: Extensions
+Browser extension confined to browser interface	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-7,S2.2-11	Express extension and confinement exemption.	browser: Extensions
+Bookmark database	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-4	Saved link content.	browser: Bookmarks, Downloads and Browsing History
+Web browsing history	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-6	Explicit history exemption.	browser: Bookmarks, Downloads and Browsing History
+Website cookie	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.5-1	Program state treatment outside definition.	browser: Cookies
+Browser session restore state	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.5-1	State treatment outside definition.	browser: Stored session
+Browser-only certificate trust setting	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-7	Confined to browser.	browser: Security certificate settings
+Browser external-handler preference	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	HOLE	S2.2-1,S2.2-7	Read by one program but launches another.	browser: Download actions
+Browser security-module configuration	Firefox	https://support.mozilla.org/en-US/kb/profiles-where-firefox-stores-user-data	NOT	S2.2-7,S2.2-13	Values used inside browser; module code separate.	browser: Security device settings
+Installed-package ownership database	Linux	https://man.archlinux.org/man/pacman.8.en	MUST	S2.2-1,S2.2-2	Controls removal; content-only exemption condition fails.	pacman: Query operation
+Dependency install-reason flag	Linux	https://man.archlinux.org/man/pacman.8.en	NOT	S2.2-6	Past installation reason; explicit history exemption.	pacman: Database options: --asdeps / --asexplicit
+Package install hook script	Linux	https://man.archlinux.org/man/pacman.8.en	MUST	S2.2-10	Executed with installer's rights.	pacman: Description: install and uninstall scripts
+Removed-program saved configuration	Linux	https://man.archlinux.org/man/pacman.8.en	NOT	S2.5-1	Remains explicitly outside definition.	pacman: Remove operation: .pacsave
+Package repository metadata index without replacement available	Linux	https://man.archlinux.org/man/pacman.8.en	MUST	S2.2-1,S2.2-2	Loss prevents dependency resolution; cache-speed condition fails.	pacman: Sync operation
+Package repository endpoint	Linux	https://man.archlinux.org/man/pacman.conf.5.en	HOLE	S2.2-1,S2.2-7	One-program value controls system installation.	pacmanconf: Server
+Package upgrade hold list	Linux	https://man.archlinux.org/man/pacman.conf.5.en	HOLE	S2.2-1,S2.2-7	One-program setting changes available upgrades.	pacmanconf: IgnorePkg
+Package signing-key trust database	Linux	https://man.archlinux.org/man/pacman.conf.5.en	HOLE	S2.2-1,S2.2-7	Installer-only trust setting with system installation effects.	pacmanconf: GPGDir
+Cached package archive with remote copy available	Linux	https://man.archlinux.org/man/pacman.conf.5.en	NOT	S2.2-5	Replacement download only costs time.	pacmanconf: CacheDir
+Package file-extraction exclusion	Linux	https://man.archlinux.org/man/pacman.conf.5.en	HOLE	S2.2-1,S2.2-7	Installer-only setting changes installed system.	pacmanconf: NoExtract
+Shell login startup file	Unix-like	https://man.archlinux.org/man/bash.1.en	MUST	S2.2-10	Explicit code example.	shell: FILES: /etc/profile
+Shell logout cleanup file	Unix-like	https://man.archlinux.org/man/bash.1.en	MUST	S2.2-10	Code executed with shell rights.	shell: FILES: .bash_logout
+Shell command history file	Unix-like	https://man.archlinux.org/man/bash.1.en	NOT	S2.2-6	Past record; replay cases excluded from this task.	shell: HISTFILE
+Exported executable search path	Unix-like	https://man.archlinux.org/man/bash.1.en	MUST	S2.2-1,S2.2-2	Used by shell and descendants.	shell: PATH
+Shell-local prompt string	Unix-like	https://man.archlinux.org/man/bash.1.en	NOT	S2.2-7	Only shell presentation.	shell: PS1
+Shell file-creation umask	Unix-like	https://man.archlinux.org/man/bash.1.en	MUST	S2.2-1,S2.2-2	Inherited access effect across processes.	shell: umask
+Readline keybinding configuration	Unix-like	https://man.archlinux.org/man/bash.1.en	NOT	S2.2-7	Input-interface setting only.	shell: FILES: .inputrc
+Editor indent-width option	Vim	https://vimhelp.org/options.txt.html	NOT	S2.2-7	Editor-only value.	editor: shiftwidth
+Editor display line-number option	Vim	https://vimhelp.org/options.txt.html	NOT	S2.2-7	Editor-only value.	editor: number
+Editor persistent undo file	Vim	https://vimhelp.org/options.txt.html	NOT	S2.5-1	State treatment excluded.	editor: undofile
+Editor swap recovery file	Vim	https://vimhelp.org/options.txt.html	NOT	S2.5-1	State treatment excluded.	editor: swapfile
+Editor runtime script	Vim	https://vimhelp.org/options.txt.html	MUST	S2.2-10	Editor programming-language configuration.	editor: runtimepath
+Editor spell dictionary	Vim	https://vimhelp.org/options.txt.html	NOT	S2.2-7,S2.2-13	Values controlling one editor.	editor: spellfile / spelllang
+Saved Wi-Fi connection profile	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	MUST	S2.2-14	Explicit requirement.	network: connection type and profile
+Saved wired connection profile	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	MUST	S2.2-1,S2.2-2	Restores system connectivity.	network: connection type and profile
+Connection last-used timestamp	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	NOT	S2.2-6	Explicit past-record exemption, although autoconnection consumes it.	network: timestamp / autoconnect-priority
+Network autoconnection priority	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	MUST	S2.2-1,S2.2-14	Controls system connection selection.	network: autoconnect-priority
+DNS transport encryption requirement	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	MUST	S2.2-1,S2.2-2	Controls acceptable resolver transport.	network: dns-over-tls
+DNSSEC validation requirement	Linux	https://networkmanager.dev/docs/api/latest/settings-connection.html	MUST	S2.2-1,S2.2-2	Rejects unacceptable answers.	network: dnssec
+Wi-Fi network password	Linux	https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html	NOT	S2.2-14	Express exemption.	wifi: psk
+Wi-Fi authentication protocol selection	Linux	https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html	MUST	S2.2-14	Part of saved network.	wifi: key-mgmt
+Wi-Fi protected-management-frame requirement	Linux	https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html	MUST	S2.2-14	Part of saved network.	wifi: pmf
+Wi-Fi raw pre-shared key	Linux	https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html	MUST	S2.2-1,S2.2-14	Primary documentation distinguishes raw key from passphrase; general behavior rule applies, with no established password exemption.	wifi: psk
+Static interface address	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1,S2.2-2	Controls host addressing.	ipv4: address-data
+Static route	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1,S2.2-2	Controls reachability.	ipv4: routes / route-data
+DNS resolver address	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1,S2.2-2	Controls name resolution.	ipv4: dns
+DNS search domain	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1	Changes unqualified name resolution.	ipv4: dns-search
+DHCP client identifier	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1	Controls network lease identity.	ipv4: dhcp-client-id
+Policy-routing selection rule	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1,S2.2-2	Selects routing table.	ipv4: routing-rules
+Network address-translation policy	Linux	https://networkmanager.dev/docs/api/latest/settings-ipv4.html	MUST	S2.2-1,S2.2-2	Enables address-family connectivity.	ipv4: clat / method=shared
+Running container application	Linux containers	https://docs.docker.com/engine/storage/	MUST	S2.2-9,S2.2-12	Explicit container requirement.	containers: Container layer basics
+Container bind-mount mapping	Linux containers	https://docs.docker.com/engine/storage/	MUST	S2.2-1,S2.2-2	Enables access to host files.	containers: Bind mounts
+Named persistent data volume	Linux containers	https://docs.docker.com/engine/storage/	NOT	S2.5-1	Treatment of data outside definition.	containers: Volumes
+Container tmpfs mount	Linux containers	https://docs.docker.com/engine/storage/	MUST	S2.2-1,S2.2-2	Defines available memory-backed filesystem.	containers: tmpfs mounts
+Container immutable executable image layer	Linux containers	https://docs.docker.com/engine/storage/	MUST	S2.2-9	Contains running program.	containers: Container layer basics
+Container mutable document layer	Linux containers	https://docs.docker.com/engine/storage/	NOT	S2.2-4,S2.5-1	Content and state only.	containers: Container layer basics
+Confined guest operating system code	QEMU	https://www.qemu.org/docs/master/system/invocation.html	NOT	S2.2-11	Explicit guest exemption.	vm: disk_image / Standard options
+Host virtual-machine emulator	QEMU	https://www.qemu.org/docs/master/system/invocation.html	MUST	S2.2-11	Executing program must be recorded.	vm: Synopsis
+Virtual CPU model setting	QEMU	https://www.qemu.org/docs/master/system/invocation.html	HOLE	S2.2-1,S2.2-7	One-program configuration changes guest capabilities.	vm: -cpu model
+Guest RAM allocation setting	QEMU	https://www.qemu.org/docs/master/system/invocation.html	HOLE	S2.2-1,S2.2-7	One-program versus host allocation boundary.	vm: -m
+Host-to-guest network port forwarding	QEMU	https://www.qemu.org/docs/master/system/invocation.html	MUST	S2.2-15	Host port open for connection.	vm: hostfwd
+Virtual-machine shared directory	QEMU	https://www.qemu.org/docs/master/system/invocation.html	HOLE	S2.2-1,S2.2-7,S2.2-11	The host sharing preference has a one-program ownership/effect boundary; the confined guest code itself is explicitly exempt.	vm: -virtfs
+Virtual-machine monitor endpoint	QEMU	https://www.qemu.org/docs/master/system/invocation.html	MUST	S2.2-1,S2.2-2	Controls running emulator.	vm: -monitor
+Guest memory snapshot	QEMU	https://www.qemu.org/docs/master/system/invocation.html	NOT	S2.5-1	Accumulated state transfer excluded.	vm: -loadvm
+Periodic maintenance executable	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	MUST	S2.2-9,S2.2-10	Scheduled system code.	bsdconfig: 14.4.3 Periodic
+Syslog routing configuration	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	HOLE	S2.2-1,S2.2-7	One daemon controls external log delivery.	bsdconfig: 14.5 syslog
+Log-rotation policy	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	HOLE	S2.2-1,S2.2-7	One utility controls shared files and daemon signals.	bsdconfig: 14.5.5 Log Management and Rotation
+Boot-time kernel tunable	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	MUST	S2.2-1,S2.2-2	Sets system behavior before runtime.	bsdconfig: Tuning with sysctl
+ACPI power-management configuration	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	MUST	S2.2-1	Controls hardware power behavior.	bsdconfig: Power and Resource Management
+Saved entropy seed	FreeBSD	https://docs.freebsd.org/en/books/handbook/config/	NOT	S2.5-1	Treatment of accumulated program state excluded.	bsdconfig: Example crontab: save-entropy
+Jail filesystem root assignment	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-2	Defines accessible filesystem.	jails: jail.conf: path
+Virtual network stack namespace	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-2	Defines isolated communication domain.	jails: 17.6 VNET Jails
+Ethernet bridge membership	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-2	Changes packet reachability.	jails: bridge addm
+Virtual Ethernet pair	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-2	Connects isolated network stacks.	jails: epair
+Device visibility ruleset	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-2	Controls device accessibility.	jails: Devfs Rulesets
+Linux syscall compatibility layer	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-1,S2.2-9	Enables foreign native binaries.	jails: 17.7 Linux Jails
+Packet-filter firewall rule	FreeBSD	https://docs.freebsd.org/en/books/handbook/jails/	MUST	S2.2-15	Explicit firewall requirement.	jails: 17.6.3 Running a Firewall and DHCP inside a VNET Jail
+Authorized account login public key	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-15	Explicit login-key requirement.	auth: AuthorizedKeysFile
+Password-login permission	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-15	Explicit requirement.	auth: PasswordAuthentication
+Login group allowlist	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-1,S2.2-2	Limits accessible accounts.	auth: AllowGroups
+Mandatory multifactor-authentication sequence	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-1,S2.2-2	Controls login prerequisites.	auth: AuthenticationMethods
+SSH server identity key	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-1,S2.2-2	Authenticates server rather than merely configuring internal presentation.	auth: HostKey
+SSH certificate authority trust	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-1,S2.2-2	Determines accepted account credentials.	auth: TrustedUserCAKeys
+SSH agent forwarding permission	OpenBSD / OpenSSH	https://man.openbsd.org/sshd_config	MUST	S2.2-1,S2.2-2	Changes credential access across processes.	auth: AllowAgentForwarding
+Local user account record	OpenBSD	https://man.openbsd.org/passwd.5	MUST	S2.2-15	Express account requirement.	accounts: name / uid
+Account password verifier	OpenBSD	https://man.openbsd.org/passwd.5	NOT	S2.2-15	Password credential exemption; allowance rule separate.	accounts: password
+Account expiration deadline	OpenBSD	https://man.openbsd.org/passwd.5	MUST	S2.2-15	Account attribute controls login availability.	accounts: expire
+Account primary-group assignment	OpenBSD	https://man.openbsd.org/passwd.5	MUST	S2.2-15	Account attribute controls access.	accounts: gid
+Right to execute as superuser	OpenBSD	https://man.openbsd.org/doas.conf.5	MUST	S2.2-15	Express superuser-right requirement.	privilege: permit / as target
+System-wide Registry configuration value	Windows	https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry	MUST	S2.2-1,S2.2-2	Changes system behavior; content-only exemption condition fails.	windowsregistry: Registry overview: configuration data
+Application-private Registry preference	Windows	https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry	NOT	S2.2-7	Confined preference.	windowsregistry: Registry overview: applications
+Registry database recovery copy	Windows	https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry	NOT	S2.5-1	Rollback/state treatment excluded.	windowsregistry: Registry overview: restore
+Discretionary object access-control list	Windows	https://learn.microsoft.com/en-us/windows/win32/secauthz/access-control-model	MUST	S2.2-1,S2.2-2	Determines permitted access.	windowsaccess: DACLs and ACEs
+Explicit anonymous-access permission	Windows	https://learn.microsoft.com/en-us/windows/win32/secauthz/access-control-model	MUST	S2.2-1,S2.2-2	Allows otherwise denied access.	windowsaccess: Allowing Anonymous Access
+Event-triggered scheduled task	Windows	https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page	MUST	S2.2-1,S2.2-2	Event causes action.	windowstasks: specific system event
+Idle-triggered maintenance task	Windows	https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page	MUST	S2.2-1,S2.2-2	Idle condition causes action.	windowstasks: idle state
+Login-triggered task	Windows	https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page	MUST	S2.2-1,S2.2-2	Login causes action.	windowstasks: user logs on
+Launchd keep-alive policy	macOS	https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html	MUST	S2.2-1,S2.2-2	Restarts managed process.	maclaunch: KeepAlive
+Per-user login agent	macOS	https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html	MUST	S2.2-9	Runs for logged-in user.	maclaunch: launchd Startup Process: per-user agents
+Global preferences domain value	macOS	https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html	MUST	S2.2-1	Applies across applications.	macdefaults: The Global Domain
+Command-line preference override	macOS	https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html	NOT	S2.2-7	App-only temporary preference.	macdefaults: The Argument Domain
+Privileged-app permission allowlist	Android	https://source.android.com/docs/core/permissions	MUST	S2.2-1,S2.2-2	Boot and app access depend on it.	androidpermissions: Allowlists and access: privileged
+Default application role assignment	Android	https://source.android.com/docs/core/permissions	MUST	S2.2-1,S2.2-2	Grants purpose-specific privileges.	androidpermissions: role
+Native-library visibility namespace	Android	https://source.android.com/docs/core/permissions	MUST	S2.2-1,S2.2-2	Restricts library access.	androidpermissions: Namespaces for Native Libraries
+Screen-capture user-consent grant	Android	https://source.android.com/docs/core/permissions	MUST	S2.2-1,S2.2-2	Enables capture.	androidpermissions: screen content
+Background location access permission	Android	https://source.android.com/docs/core/permissions	MUST	S2.2-1,S2.2-2	Enables location in background.	androidpermissions: background access location
+Verified-boot trust anchor	Android	https://source.android.com/docs/security/features/verifiedboot	MUST	S2.2-1,S2.2-2	Determines accepted boot code.	androidboot: hardware-protected root of trust
+Anti-rollback version threshold	Android	https://source.android.com/docs/security/features/verifiedboot	MUST	S2.2-1,S2.2-2	Prohibits older executable versions.	androidboot: rollback protection
+Partition verification metadata	Android	https://source.android.com/docs/security/features/verifiedboot	MUST	S2.2-1,S2.2-2	Required integrity verification.	androidboot: verified partitions
+Persistent boot order	Linux EFI	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html	MUST	S2.2-16	Explicit requirement where writable.	bootctl: set-default
+One-shot boot selection	Linux EFI	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html	MUST	S2.2-16	Boot order for next boot.	bootctl: set-oneshot
+Firmware-setup next-boot flag	Linux EFI	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html	MUST	S2.2-1,S2.2-2	Changes next boot destination.	bootctl: reboot-to-firmware
+Boot menu timeout	Linux EFI	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html	HOLE	S2.2-1,S2.2-7	Bootloader-only setting changes boot interaction.	bootctl: set-timeout
+Boot-attempt counter	Linux EFI	https://www.freedesktop.org/software/systemd/man/latest/bootctl.html	NOT	S2.2-6	Explicit history exemption despite future selection effect.	bootctl: set-preferred: tries-left
+Loadable device firmware blob	Linux	https://docs.kernel.org/driver-api/firmware/fw_search_path.html	MUST	S2.2-16	System can change device firmware.	firmware: Firmware search paths
+Firmware search-path override	Linux	https://docs.kernel.org/driver-api/firmware/fw_search_path.html	MUST	S2.2-1,S2.2-2	Selects device code.	firmware: firmware_class.path
+Device permission assignment rule	Linux	https://www.freedesktop.org/software/systemd/man/latest/udev.html	MUST	S2.2-1,S2.2-2	Changes device accessibility.	udev: Description: device permissions
+Persistent network-interface naming rule	Linux	https://www.freedesktop.org/software/systemd/man/latest/udev.html	MUST	S2.2-1,S2.2-2	Determines usable interface name.	udev: Description: network interface names
+Hotplug program-execution rule	Linux	https://www.freedesktop.org/software/systemd/man/latest/udev.html	MUST	S2.2-1,S2.2-2	Triggers program on device event.	udev: Rules Files: run a specified program
+Device property database	Linux	https://www.freedesktop.org/software/systemd/man/latest/udev.html	MUST	S2.2-1,S2.2-2	Shared device lookup; content-only exemption condition fails.	udev: Description: udev database
+CPU frequency governor selection	Linux	https://docs.kernel.org/admin-guide/pm/cpufreq.html	MUST	S2.2-1	Determines power/performance algorithm.	power: Scaling governors
+CPU frequency policy ceiling	Linux	https://docs.kernel.org/admin-guide/pm/cpufreq.html	MUST	S2.2-1	Restricts achievable clock frequency.	power: CPUFreq Policy Objects: maximum frequencies
+Current CPU performance state	Linux	https://docs.kernel.org/admin-guide/pm/cpufreq.html	MUST	S2.2-1	Computer behavior depends on hardware state; removal is unnecessary under first rule.	power: The Concept of CPU Performance Scaling: P-states
+Mandatory access-control policy	Linux	https://docs.kernel.org/admin-guide/LSM/index.html	MUST	S2.2-1,S2.2-2	Controls permitted operations.	security: Mandatory Access Control
+Security-module execution order	Linux	https://docs.kernel.org/admin-guide/LSM/index.html	MUST	S2.2-1	Determines order of security checks.	security: CONFIG_LSM / lsm=
+Process security-domain label	Linux	https://docs.kernel.org/admin-guide/LSM/index.html	MUST	S2.2-1,S2.2-2	Selects effective restrictions.	security: Process attributes
+System timezone selection	Linux	https://www.freedesktop.org/software/systemd/man/latest/localtime.html	MUST	S2.2-1	Shared time interpretation.	localtime: Description: /etc/localtime
+Timezone transition data file	Linux	https://www.freedesktop.org/software/systemd/man/latest/localtime.html	MUST	S2.2-1,S2.2-2	Changes time interpretation; content-only exemption condition fails.	localtime: Description: binary timezone data
+Single-process timezone override	Linux	https://www.freedesktop.org/software/systemd/man/latest/localtime.html	NOT	S2.2-7	One-program setting.	localtime: TZ
+System language and locale selection	Linux	https://www.freedesktop.org/software/systemd/man/latest/locale.conf.html	MUST	S2.2-1	Shared text and formatting behavior.	locale: LANG / LANGUAGE
+System collation-order setting	Linux	https://www.freedesktop.org/software/systemd/man/latest/locale.conf.html	MUST	S2.2-1	Changes sorting across programs.	locale: LC_COLLATE
+System monetary-format setting	Linux	https://www.freedesktop.org/software/systemd/man/latest/locale.conf.html	MUST	S2.2-1	Changes shared currency formatting.	locale: LC_MONETARY
+Executed source-regenerable bytecode cache	CPython	https://docs.python.org/3/tutorial/modules.html#compiled-python-files	HOLE	S2.2-5,S2.2-10,S2.2-13	Same object is executable code and removable performance cache; CARDS.md card 3.	Compiled Python files; execution supported by import specification cited in card 3
+Directory-backed account identity used for local login	Linux / SSSD	https://sssd.io/docs/introduction.html	MUST	S2.2-15	Mandatory account class; which directory identities are locally in force is separately unresolved in card 6.	Introduction and Access control
+Agent-held login key with per-use confirmation	OpenBSD / OpenSSH	https://man.openbsd.org/ssh-add	MUST	S2.2-15	Mandatory login-key class; conditional availability for P1 is unresolved in card 7.	-c, -L and -T

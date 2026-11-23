@@ -1,0 +1,111 @@
+{
+  "utc": "2026-11-22T09:06:14.608894+00:00",
+  "machines": {
+    "mint": {
+      "inventory_present": true,
+      "objects": 2031,
+      "counts_by_kind": {
+        "L1:account": 48,
+        "L1:group": 78,
+        "L1:package:dpkg-query": 1905
+      },
+      "duplicate_source_id_occurrences": 0
+    },
+    "flatcar": {
+      "inventory_present": true,
+      "objects": 1827,
+      "counts_by_kind": {
+        "L1:access-rule": 125,
+        "L1:account": 39,
+        "L1:driver": 29,
+        "L1:group": 67,
+        "L1:login-key": 1,
+        "L1:module": 73,
+        "L1:network-link": 3,
+        "L1:package:system-image": 1,
+        "L1:polkit-actions": 136,
+        "L1:port": 8,
+        "L1:process": 33,
+        "L1:saved-network": 1,
+        "L1:service": 132,
+        "L1:timer": 7,
+        "L1:unit-file": 296,
+        "L1:user-service": 5,
+        "L1:user-timer": 1,
+        "L1:user-unit-file": 18,
+        "L2:executable-code-outside-packages": 466,
+        "L2:stored-outside-packages": 386
+      },
+      "duplicate_source_id_occurrences": 8
+    },
+    "talos": {
+      "inventory_present": false,
+      "objects": 0,
+      "counts_by_kind": {},
+      "duplicate_source_id_occurrences": 0
+    },
+    "fedora": {
+      "inventory_present": true,
+      "objects": 5887,
+      "counts_by_kind": {
+        "L1:access-rule": 3,
+        "L1:account": 54,
+        "L1:container": 1,
+        "L1:container-image": 1,
+        "L1:driver": 61,
+        "L1:firewall-chain": 84,
+        "L1:firewall-ct helper": 1,
+        "L1:firewall-rule": 136,
+        "L1:firewall-table": 1,
+        "L1:group": 83,
+        "L1:module": 51,
+        "L1:network": 5,
+        "L1:network-link": 3,
+        "L1:package:flatpak": 7,
+        "L1:package:rpm": 3954,
+        "L1:polkit-actions": 542,
+        "L1:port": 12,
+        "L1:process": 50,
+        "L1:service": 216,
+        "L1:timer": 7,
+        "L1:unit-file": 474,
+        "L1:user-service": 13,
+        "L1:user-timer": 3,
+        "L1:user-unit-file": 125
+      },
+      "duplicate_source_id_occurrences": 0
+    },
+    "tumbleweed": {
+      "inventory_present": true,
+      "objects": 6779,
+      "counts_by_kind": {
+        "L1:access-rule": 4,
+        "L1:account": 27,
+        "L1:container": 1,
+        "L1:container-image": 1,
+        "L1:driver": 62,
+        "L1:firewall-chain": 139,
+        "L1:firewall-rule": 207,
+        "L1:firewall-table": 1,
+        "L1:group": 50,
+        "L1:module": 84,
+        "L1:network": 5,
+        "L1:package:flatpak": 8,
+        "L1:package:gem": 190,
+        "L1:package:pip": 90,
+        "L1:package:pip3": 90,
+        "L1:package:rpm": 4780,
+        "L1:polkit-actions": 304,
+        "L1:port": 6,
+        "L1:process": 83,
+        "L1:service": 174,
+        "L1:timer": 14,
+        "L1:unit-file": 319,
+        "L1:user-service": 47,
+        "L1:user-timer": 4,
+        "L1:user-unit-file": 89
+      },
+      "duplicate_source_id_occurrences": 0
+    }
+  }
+}

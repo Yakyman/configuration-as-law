@@ -1,0 +1,13 @@
+{"id": "BOOT-ORDER", "replay_ready_us": 34948808, "ssh_active_us": 4942013, "ready_marker": true, "pam_account_gate": true, "passed": true}
+getty@tty1.service Requires=sysinit.target stand-replay.service system-getty.slice
+After=basic.target rc-local.service systemd-user-sessions.service plymouth-quit-wait.service system-getty.slice sysinit.target stand-replay.service getty-pre.target
+
+serial-getty@ttyS0.service Requires=sysinit.target "system-serial\\x2dgetty.slice" stand-replay.service
+After=stand-replay.service dev-ttyS0.device sysinit.target basic.target systemd-user-sessions.service getty-pre.target plymouth-quit-wait.service rc-local.service "system-serial\\x2dgetty.slice"
+
+systemd-logind.service Requires=sysinit.target stand-replay.service system.slice -.mount
+After=system.slice -.mount systemd-journald.socket nss-user-lookup.target dbus.socket basic.target user.slice sysinit.target tmp.mount var-tmp.mount systemd-tmpfiles-setup.service systemd-remount-fs.service modprobe@drm.service stand-replay.service
+
+systemd-user-sessions.service Requires=stand-replay.service sysinit.target system.slice
+After=system.slice systemd-pcrphase.service sysinit.target stand-replay.service remote-fs.target systemd-journald.socket basic.target home.mount network.target nss-user-lookup.target
+

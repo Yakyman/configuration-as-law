@@ -1,0 +1,10 @@
+Source: https://api.opensuse.org/public/source/openSUSE:Factory/desktop-data-openSUSE/desktop-data-openSUSE.spec
+%files
+%dir %{_sysconfdir}/xdg/menus
+%dir %{_sysconfdir}/xdg/menus/applications-merged
+%config(noreplace) %{_sysconfdir}/xdg/menus/*.menu
+%config %{_sysconfdir}/profile.d/desktop-data.*
+%{_datadir}/desktop-*
+%{_fillupdir}/sysconfig.windowmanager-%name
+
+%changelog

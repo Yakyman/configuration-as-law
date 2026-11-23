@@ -1,0 +1,1237 @@
+{
+  "acl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/acl/default.nix",
+    "description": "Library and tools for manipulating access control lists",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"doc\""
+  },
+  "attr": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/attr/default.nix",
+    "description": "Library and tools for manipulating extended attributes",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"doc\""
+  },
+  "audit": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/au/audit/package.nix",
+    "description": "Audit Library",
+    "outputs": "\"bin\"\n    \"lib\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"scripts\""
+  },
+  "aws-c-auth": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-auth/package.nix",
+    "description": "C99 library implementation of AWS client-side authentication",
+    "outputs": ""
+  },
+  "aws-c-cal": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-cal/package.nix",
+    "description": "AWS Crypto Abstraction Layer",
+    "outputs": ""
+  },
+  "aws-c-common": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-common/package.nix",
+    "description": "AWS SDK for C common core",
+    "outputs": ""
+  },
+  "aws-c-compression": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-compression/package.nix",
+    "description": "C99 implementation of huffman encoding/decoding",
+    "outputs": ""
+  },
+  "aws-c-event-stream": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-event-stream/package.nix",
+    "description": "C99 implementation of the vnd.amazon.eventstream content-type",
+    "outputs": ""
+  },
+  "aws-c-http": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-http/package.nix",
+    "description": "C99 implementation of the HTTP/1.1 and HTTP/2 specifications",
+    "outputs": ""
+  },
+  "aws-c-io": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-io/package.nix",
+    "description": "AWS SDK for C module for IO and TLS",
+    "outputs": ""
+  },
+  "aws-c-mqtt": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-mqtt/package.nix",
+    "description": "C99 implementation of the MQTT 3.1.1 specification",
+    "outputs": ""
+  },
+  "aws-c-s3": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-s3/package.nix",
+    "description": "C99 library implementation for communicating with the S3 service",
+    "outputs": ""
+  },
+  "aws-c-sdkutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-c-sdkutils/package.nix",
+    "description": "AWS SDK utility library",
+    "outputs": ""
+  },
+  "aws-checksums": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-checksums/package.nix",
+    "description": "HW accelerated CRC32c and CRC32",
+    "outputs": ""
+  },
+  "aws-crt-cpp": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/aw/aws-crt-cpp/package.nix",
+    "description": "C++ wrapper around the aws-c-* libraries",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "bash": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/shells/bash/5.nix",
+    "description": "GNU Bourne-Again Shell, the de facto standard shell on Linux\" + lib.optionalString interactive \" (for interactive use)",
+    "outputs": "\"out\"\n      \"dev\"\n      \"man\"\n      \"doc\"\n      \"info\""
+  },
+  "bash-completion": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ba/bash-completion/package.nix",
+    "description": "Programmable completion for the bash shell",
+    "outputs": ""
+  },
+  "bash-interactive": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/shells/bash/5.nix",
+    "description": "GNU Bourne-Again Shell, the de facto standard shell on Linux\" + lib.optionalString interactive \" (for interactive use)",
+    "outputs": "\"out\"\n      \"dev\"\n      \"man\"\n      \"doc\"\n      \"info\""
+  },
+  "bcache-tools": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bc/bcache-tools/package.nix",
+    "description": "User-space tools required for bcache (Linux block layer cache)",
+    "outputs": ""
+  },
+  "bind": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bi/bind/package.nix",
+    "description": "Domain name server",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"man\"\n    \"dnsutils\"\n    \"host\""
+  },
+  "boehm-gc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bo/boehmgc/package.nix",
+    "description": "conservative garbage collector for C and C++",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "boost": {
+    "url": "https://www.boost.org/",
+    "description": "Boost C++ Homepage Libraries",
+    "outputs": ""
+  },
+  "brotli": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/br/brotli/package.nix",
+    "description": "General-purpose lossless compression library with CLI",
+    "outputs": "\"out\"\n    \"dev\"\n    \"lib\""
+  },
+  "btrfs-progs": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bt/btrfs-progs/package.nix",
+    "description": "Utilities for the btrfs filesystem",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"lib\""
+  },
+  "busybox": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bu/busybox/package.nix",
+    "description": "Tiny versions of common UNIX utilities in a single small executable",
+    "outputs": ""
+  },
+  "bzip2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/bz/bzip2/package.nix",
+    "description": "High-quality data compression program",
+    "outputs": "\"bin\"\n      \"dev\"\n      \"out\"\n      \"man\""
+  },
+  "c-dvar": {
+    "url": "https://raw.githubusercontent.com/c-util/c-dvar/main/README.md",
+    "description": "The c-dvar project implements the D-Bus Variant Type-System.",
+    "outputs": ""
+  },
+  "c-ini": {
+    "url": "https://raw.githubusercontent.com/c-util/c-ini/main/README.md",
+    "description": "The c-ini project implements APIs to deal with ini-files.",
+    "outputs": ""
+  },
+  "c-rbtree": {
+    "url": "https://raw.githubusercontent.com/c-util/c-rbtree/main/README.md",
+    "description": "The c-rbtree project implements an intrusive collection based on red-black\ntrees in ISO-C11.",
+    "outputs": ""
+  },
+  "c-shquote": {
+    "url": "https://raw.githubusercontent.com/c-util/c-shquote/main/README.md",
+    "description": "To use c-shquote, include\nc-shquote.h and link to the libcshquote.so library.",
+    "outputs": ""
+  },
+  "c-utf8": {
+    "url": "https://raw.githubusercontent.com/c-util/c-utf8/main/README.md",
+    "description": "The c-utf8 project implements utility functions around handling UTF-8 in\nstandard ISO C11.",
+    "outputs": ""
+  },
+  "coreutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/co/coreutils/package.nix",
+    "description": "GNU Core Utilities",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "coreutils-full": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/co/coreutils/package.nix",
+    "description": "GNU Core Utilities",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "cpio": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/cp/cpio/package.nix",
+    "description": "Program to create or extract from cpio archives",
+    "outputs": ""
+  },
+  "cracklib": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/cr/cracklib/package.nix",
+    "description": "Password checking library",
+    "outputs": "\"bin\"\n    \"out\"\n    \"dev\"\n    \"man\""
+  },
+  "cryptsetup": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/cr/cryptsetup/package.nix",
+    "description": "LUKS for dm-crypt",
+    "outputs": "\"bin\"\n    \"out\"\n    \"dev\"\n    \"man\""
+  },
+  "curl": {
+    "url": "https://raw.githubusercontent.com/curl/curl/master/README.md",
+    "description": "libcurl is the library curl is using to do its job.",
+    "outputs": ""
+  },
+  "cyrus-sasl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/cy/cyrus_sasl/package.nix",
+    "description": "Library for adding authentication support to connection-based protocols",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"devdoc\""
+  },
+  "dash": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/da/dash/package.nix",
+    "description": "POSIX-compliant implementation of /bin/sh that aims to be as small as possible",
+    "outputs": ""
+  },
+  "db": {
+    "url": "https://www.oracle.com/database/technologies/related/berkeleydb.html",
+    "description": "Berkeley DB is a family of embedded key-value database libraries",
+    "outputs": ""
+  },
+  "dbus": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/db/dbus/package.nix",
+    "description": "Simple interprocess messaging system",
+    "outputs": "\"out\"\n    \"dev\"\n    \"lib\"\n    \"doc\"\n    \"man\""
+  },
+  "dbus-broker": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/db/dbus-broker/package.nix",
+    "description": "C-Util Project is a collection of utility libraries for the C11 language",
+    "outputs": ""
+  },
+  "dejavu-fonts-minimal": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/de/dejavu_fonts/package.nix",
+    "missing": true
+  },
+  "dhcpcd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/dh/dhcpcd/package.nix",
+    "description": "Client for the Dynamic Host Configuration Protocol (DHCP)",
+    "outputs": ""
+  },
+  "diffutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/di/diffutils/package.nix",
+    "description": "Commands for showing the differences between files (diff, cmp, etc.)",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "dns-root-data": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/dn/dns-root-data/package.nix",
+    "description": "DNS root data including root hints and DNSSEC root trust anchor + key",
+    "outputs": ""
+  },
+  "dosfstools": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/do/dosfstools/package.nix",
+    "description": "Utilities for creating and checking FAT and VFAT file systems",
+    "outputs": "\"out\"\n    \"doc\"\n    \"man\""
+  },
+  "e2fsprogs": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/e2/e2fsprogs/package.nix",
+    "description": "Tools for creating and checking ext2/ext3/ext4 filesystems",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"info\"\n    \"scripts\""
+  },
+  "ed": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ed/ed/package.nix",
+    "description": "GNU implementation of the standard Unix editor",
+    "outputs": ""
+  },
+  "editline": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ed/editline/package.nix",
+    "description": "Readline() replacement for UNIX without termcap (ncurses)",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"doc\""
+  },
+  "elfutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/el/elfutils/package.nix",
+    "description": "Set of utilities to handle ELF objects",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\""
+  },
+  "etc-environment.d": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/et/etc-environment.d/package.nix",
+    "missing": true
+  },
+  "etc-sysctl.d": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/et/etc-sysctl.d/package.nix",
+    "missing": true
+  },
+  "etc-systemd-system-preset": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/et/etc-systemd-system-preset/package.nix",
+    "missing": true
+  },
+  "etc-systemd-user-preset": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/et/etc-systemd-user-preset/package.nix",
+    "missing": true
+  },
+  "expat": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ex/expat/package.nix",
+    "description": "Stream-oriented XML parser library written in C",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "fc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/fc/fc/package.nix",
+    "missing": true
+  },
+  "file": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/fi/file/package.nix",
+    "description": "Program that shows the type of files",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "findutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/fi/findutils/package.nix",
+    "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
+    "outputs": "\"out\"\n    \"info\"\n    \"locate\""
+  },
+  "fontconfig": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/fontconfig/default.nix",
+    "description": "Library for font customization and configuration",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"lib\"\n    \"out\""
+  },
+  "freetype": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/fr/freetype/package.nix",
+    "description": "Font rendering engine",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "fstrm": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/fs/fstrm/package.nix",
+    "description": "Frame Streams implementation in C",
+    "outputs": "\"bin\"\n    \"out\"\n    \"dev\""
+  },
+  "fuse": {
+    "url": "https://raw.githubusercontent.com/libfuse/libfuse/master/README.md",
+    "description": "libfuse provides functions to\nmount the file system, unmount it, read requests from the kernel, and\nsend responses back.",
+    "outputs": ""
+  },
+  "gawk": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/tools/text/gawk/default.nix",
+    "description": "GNU implementation of the Awk programming language",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "gcc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gc/gcc/package.nix",
+    "missing": true
+  },
+  "gdbm": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gd/gdbm/package.nix",
+    "description": "GNU dbm key/value database library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"info\"\n    \"lib\"\n    \"man\""
+  },
+  "getent-glibc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/glibc/default.nix",
+    "description": "GNU C Library",
+    "outputs": ""
+  },
+  "glib": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gl/glib/package.nix",
+    "description": "C library of programming buildings blocks",
+    "outputs": "\"bin\"\n    \"out\"\n    \"dev\"\n    \"devdoc\""
+  },
+  "glibc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/glibc/default.nix",
+    "description": "GNU C Library",
+    "outputs": ""
+  },
+  "glibc-locales": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gl/glibc-locales/package.nix",
+    "missing": true
+  },
+  "gmp-with-cxx": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gm/gmp/package.nix",
+    "missing": true
+  },
+  "gnugrep": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gn/gnugrep/package.nix",
+    "description": "GNU implementation of the Unix grep command",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "gnupg": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/tools/security/gnupg/24.nix",
+    "description": "Modern release of the GNU Privacy Guard, a GPL OpenPGP implementation",
+    "outputs": "\"out\"\n    \"info\"\n    \"man\"\n    \"doc\""
+  },
+  "gnused": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gn/gnused/package.nix",
+    "description": "GNU sed, a batch stream editor",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "gnutar": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gn/gnutar/package.nix",
+    "description": "GNU implementation of the `tar` archiver",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "gnutls": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gn/gnutls/package.nix",
+    "description": "GNU Transport Layer Security Library",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\""
+  },
+  "gpm-unstable": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gp/gpm/package.nix",
+    "description": "Daemon that provides mouse support on the Linux console",
+    "outputs": "\"out\"\n    \"dev\"\n    \"info\"\n    \"man\""
+  },
+  "groff": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gr/groff/package.nix",
+    "description": "GNU Troff, a typesetting package that reads plain text and produces formatted output",
+    "outputs": "\"out\"\n    \"man\"\n    \"doc\"\n    \"info\"\n    \"perl\""
+  },
+  "grub": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gr/grub/package.nix",
+    "missing": true
+  },
+  "gzip": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gz/gzip/package.nix",
+    "description": "GNU zip compression program",
+    "outputs": "\"out\"\n    \"man\"\n    \"info\""
+  },
+  "hicolor-icon-theme": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/hi/hicolor-icon-theme/package.nix",
+    "description": "Default fallback theme used by implementations of the icon theme specification",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "hostname-debian": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ho/hostname-debian/package.nix",
+    "description": "Utility to set/show the host name or domain name",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "hostname-hostname-debian": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ho/hostname-hostname-debian/package.nix",
+    "missing": true
+  },
+  "hwloc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/hw/hwloc/package.nix",
+    "description": "Portable abstraction of hierarchical architectures for high-performance computing",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"doc\"\n    \"man\""
+  },
+  "iana-etc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ia/iana-etc/package.nix",
+    "description": "IANA protocol and port number assignments (/etc/protocols and /etc/services)",
+    "outputs": ""
+  },
+  "icu4c": {
+    "url": "https://raw.githubusercontent.com/unicode-org/icu/main/README.md",
+    "description": "International Components for Unicode",
+    "outputs": ""
+  },
+  "initrd-linux": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/in/initrd-linux/package.nix",
+    "missing": true
+  },
+  "iproute2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ip/iproute2/package.nix",
+    "description": "Collection of utilities for controlling TCP/IP networking and traffic control in Linux",
+    "outputs": "\"out\"\n    \"dev\"\n    \"scripts\"\n    \"man\""
+  },
+  "iptables": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ip/iptables/package.nix",
+    "description": "Program to configure the Linux IP packet filtering ruleset",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"man\""
+  },
+  "iputils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/iputils/default.nix",
+    "description": "Set of small useful utilities for Linux networking",
+    "outputs": "\"out\"\n    \"man\"\n    \"apparmor\""
+  },
+  "jemalloc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/je/jemalloc/package.nix",
+    "description": "General purpose malloc(3) implementation",
+    "outputs": ""
+  },
+  "jq": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/jq/jq/package.nix",
+    "description": "Lightweight and flexible command-line JSON processor",
+    "outputs": "\"bin\"\n    \"doc\"\n    \"man\"\n    \"dev\"\n    \"out\""
+  },
+  "json-c": {
+    "url": "https://raw.githubusercontent.com/json-c/json-c/master/README.md",
+    "description": "JSON-C - A JSON implementation in C",
+    "outputs": ""
+  },
+  "kbd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/kb/kbd/package.nix",
+    "description": "Linux keyboard tools and keyboard maps",
+    "outputs": "\"out\"\n    \"dev\"\n    \"scripts\"\n    \"man\""
+  },
+  "kexec-tools": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ke/kexec-tools/package.nix",
+    "description": "Tools related to the kexec Linux feature",
+    "outputs": ""
+  },
+  "keyutils": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ke/keyutils/package.nix",
+    "description": "Tools used to control the Linux kernel key management system",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"man\""
+  },
+  "kmod": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/kmod/default.nix",
+    "description": "Tools for loading and managing Linux kernel modules",
+    "outputs": "\"out\"\n    \"man\"\n    \"dev\"\n    \"lib\""
+  },
+  "kmod-blacklist": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/km/kmod-blacklist/package.nix",
+    "missing": true
+  },
+  "kmod-debian-aliases.conf": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/km/kmod-debian-aliases.conf/package.nix",
+    "missing": true
+  },
+  "krb5": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/kr/krb5/package.nix",
+    "description": "MIT Kerberos 5",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\""
+  },
+  "less": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/le/less/package.nix",
+    "description": "More advanced file pager than 'more'",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "libaio": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libaio/package.nix",
+    "description": "Library for asynchronous I/O in Linux",
+    "outputs": ""
+  },
+  "libapparmor": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libapparmor/package.nix",
+    "description": "Mandatory access control system - core library",
+    "outputs": ""
+  },
+  "libarchive": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libarchive/package.nix",
+    "description": "Multi-format archive and compression library",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\""
+  },
+  "libassuan": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libassuan/package.nix",
+    "description": "IPC library used by GnuPG and related software",
+    "outputs": "\"out\"\n    \"dev\"\n    \"info\""
+  },
+  "libblake3": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libblake3/package.nix",
+    "description": "Official C implementation of BLAKE3",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libbpf": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libbpf/package.nix",
+    "description": "Library for loading eBPF programs and reading and manipulating eBPF objects from user-space",
+    "outputs": "\"out\" \"dev\""
+  },
+  "libbsd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libbsd/package.nix",
+    "description": "Common functions found on BSD systems",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libcap": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libcap/package.nix",
+    "description": "Library for working with POSIX capabilities",
+    "outputs": "\"out\"\n    \"dev\"\n    \"lib\"\n    \"man\"\n    \"doc\""
+  },
+  "libcap-ng": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libcap_ng/package.nix",
+    "description": "Library for working with POSIX capabilities",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libcbor": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libcbor/package.nix",
+    "description": "CBOR protocol implementation for C and others",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libcpuid": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libcpuid/package.nix",
+    "description": "Small C library for CPU detection and feature extraction",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libedit": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libedit/package.nix",
+    "description": "Port of the NetBSD Editline library (libedit)",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libevent": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libevent/package.nix",
+    "description": "Event notification library",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libffi": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libffiReal/package.nix",
+    "description": "Foreign function call interface library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"info\""
+  },
+  "libfido2": {
+    "url": "https://raw.githubusercontent.com/Yubico/libfido2/main/README.adoc",
+    "description": "provides library functionality and command-line tools to\ncommunicate with a FIDO device over USB or NFC",
+    "outputs": ""
+  },
+  "libgcrypt": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libgcrypt/package.nix",
+    "description": "General-purpose cryptographic library",
+    "outputs": "\"bin\"\n    \"lib\"\n    \"dev\"\n    \"info\"\n    \"out\""
+  },
+  "libgit2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libgit2/package.nix",
+    "description": "Linkable library implementation of Git that you can use in your application",
+    "outputs": "\"lib\"\n    \"dev\"\n    \"out\""
+  },
+  "libgpg-error": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libgpg-error/package.nix",
+    "description": "Small library that defines common error values for all GnuPG components",
+    "outputs": "\"out\""
+  },
+  "libice": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libice/package.nix",
+    "description": "Inter-Client Exchange Library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "libidn2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/libidn2/default.nix",
+    "description": "Free software implementation of IDNA2008 and TR46",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"info\"\n    \"devdoc\""
+  },
+  "libksba": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libksba/package.nix",
+    "description": "CMS and X.509 access library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"info\""
+  },
+  "libmd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libmd/package.nix",
+    "description": "Message Digest functions from BSD systems",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libmicrohttpd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libmicrohttpd/package.nix",
+    "missing": true
+  },
+  "libmnl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libmnl/package.nix",
+    "description": "Minimalistic user-space library oriented to Netlink developers",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libnetfilter_conntrack": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libnetfilter_conntrack/package.nix",
+    "description": "Userspace library providing an API to the in-kernel connection tracking state table",
+    "outputs": ""
+  },
+  "libnfnetlink": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libnfnetlink/package.nix",
+    "description": "Low-level library for netfilter related kernel/userspace communication",
+    "outputs": ""
+  },
+  "libnftnl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libnftnl/package.nix",
+    "description": "Userspace library providing a low-level netlink API to the in-kernel nf_tables subsystem",
+    "outputs": ""
+  },
+  "libnl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libnl/package.nix",
+    "description": "Linux Netlink interface library suite",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\""
+  },
+  "libpcap": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libpcap/package.nix",
+    "description": "Packet Capture Library",
+    "outputs": "\"out\"\n    \"lib\""
+  },
+  "libpipeline": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libpipeline/package.nix",
+    "description": "C library for manipulating pipelines of subprocesses in a flexible and convenient way",
+    "outputs": ""
+  },
+  "libpng-apng": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libpng/package.nix",
+    "description": "Official reference implementation for the PNG file format",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libpsl": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libpsl/package.nix",
+    "description": "C library for the Publix Suffix List",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libpwquality": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libpwquality/package.nix",
+    "description": "Password quality checking and random password generation library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"lib\"\n    \"man\""
+  },
+  "libressl": {
+    "url": "https://raw.githubusercontent.com/libressl/portable/master/README.md",
+    "description": "LibreSSL provides much of the OpenSSL 1.1 API.",
+    "outputs": ""
+  },
+  "libseccomp": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libseccomp/package.nix",
+    "description": "High level library for the Linux Kernel seccomp filter",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"man\"\n    \"pythonsrc\""
+  },
+  "libselinux": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libselinux/package.nix",
+    "description": "SELinux core library",
+    "outputs": "\"bin\"\n    \"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libsm": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libsm/package.nix",
+    "description": "X Session Management Library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "libsodium": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libsodium/package.nix",
+    "description": "Modern and easy-to-use crypto library",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libssh2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libssh2/package.nix",
+    "description": "Client-side C library implementing the SSH2 protocol",
+    "outputs": "\"out\"\n    \"dev\"\n    \"devdoc\""
+  },
+  "libtasn1": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libtasn1/package.nix",
+    "description": "ASN.1 library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"devdoc\""
+  },
+  "libtool": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libtool_2/package.nix",
+    "description": "GNU Libtool, a generic library support script",
+    "outputs": "\"out\"\n    \"lib\""
+  },
+  "libtpms": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libtpms/package.nix",
+    "description": "Library for software emulation of a Trusted Platform Module (TPM 1.2 and TPM 2.0)",
+    "outputs": "\"out\"\n    \"man\"\n    \"dev\""
+  },
+  "libunistring": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/libunistring/default.nix",
+    "description": "Unicode string library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"info\"\n    \"doc\""
+  },
+  "liburcu": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/liburcu/package.nix",
+    "description": "Userspace RCU (read-copy-update) library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "libusb": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libusb1/package.nix",
+    "description": "Cross-platform user-mode USB device library",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libuv": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libuv/package.nix",
+    "description": "Multi-platform support library with a focus on asynchronous I/O",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libx11": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libx11/package.nix",
+    "description": "Core X11 protocol client library (aka \\",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "libxau": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxau/package.nix",
+    "description": "Functions for handling Xauthority files and entries.",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "libxcb": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxcb/package.nix",
+    "description": "C interface to the X Window System protocol",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"doc\""
+  },
+  "libxcrypt": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/libxcrypt/default.nix",
+    "description": "Extended crypt library for descrypt, md5crypt, bcrypt, and others",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "libxdmcp": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxdmcp/package.nix",
+    "description": "X Display Manager Control Protocol library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "libxext": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxext/package.nix",
+    "description": "Xlib-based library for common extensions to the X11 protocol",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"doc\""
+  },
+  "libxml2": {
+    "url": "https://raw.githubusercontent.com/GNOME/libxml2/master/README.md",
+    "description": "libxml2 is an XML toolkit implemented in C",
+    "outputs": ""
+  },
+  "libxmu": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxmu/package.nix",
+    "description": "X miscellaneous utility routines library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "libxt": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/libxt/package.nix",
+    "description": "X Toolkit Intrinsics library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"devdoc\""
+  },
+  "linux": {
+    "url": "https://docs.kernel.org/admin-guide/README.html",
+    "description": "Linux kernel release 6.x",
+    "outputs": ""
+  },
+  "linux-headers-static": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/linuxHeaders/package.nix",
+    "missing": true
+  },
+  "linux-pam": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/li/linux-pam/package.nix",
+    "description": "Pluggable Authentication Modules, a flexible mechanism for authenticating user",
+    "outputs": "\"out\"\n    \"doc\"\n    \"man\"\n    \"scripts\"\n    # \"modules\""
+  },
+  "llhttp": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ll/llhttp/package.nix",
+    "description": "Port of http_parser to llparse",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "logrotate": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/lo/logrotate/package.nix",
+    "description": "Rotates and compresses system logs",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "lowdown": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/lo/lowdown/package.nix",
+    "description": "Simple markdown translator",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"man\""
+  },
+  "lvm2": {
+    "url": "https://sourceware.org/lvm2/",
+    "description": "LVM2 refers to the userspace toolset that provide logical volume\n\tmanagement facilities on linux.",
+    "outputs": ""
+  },
+  "lz4": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/lz/lz4/package.nix",
+    "description": "Extremely fast compression algorithm",
+    "outputs": "\"dev\"\n    \"lib\"\n    \"man\"\n    \"out\""
+  },
+  "lzo": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/lz/lzo/package.nix",
+    "description": "Real-time data (de)compression library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "mailcap": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ma/mailcap/package.nix",
+    "description": "Helper application and MIME type associations for file types",
+    "outputs": ""
+  },
+  "make-initrd-ng": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ma/make-initrd-ng/package.nix",
+    "missing": true
+  },
+  "man-db": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ma/man-db/package.nix",
+    "description": "Implementation of the standard Unix documentation system accessed using the man command",
+    "outputs": "\"out\"\n    \"doc\""
+  },
+  "mdadm": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/md/mdadm4/package.nix",
+    "description": "Programs for managing RAID arrays under Linux",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "mkpasswd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/mk/mkpasswd/package.nix",
+    "description": "Overfeatured front-end to crypt, from the Debian whois package",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "mpdecimal": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/mp/mpdecimal/package.nix",
+    "description": "Library for arbitrary precision decimal floating point arithmetic",
+    "outputs": "\"out\"\n    \"cxx\"\n    \"doc\"\n    \"dev\""
+  },
+  "nano": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/na/nano/package.nix",
+    "description": "Small, user-friendly console text editor",
+    "outputs": "\"out\"\n    \"doc\"\n    \"info\"\n    \"man\""
+  },
+  "ncurses": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/ncurses/default.nix",
+    "description": "Free software emulation of curses in SVR4 and more",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "nettle": {
+    "url": "https://www.lysator.liu.se/~nisse/nettle/",
+    "description": "Nettle is a cryptographic library",
+    "outputs": ""
+  },
+  "nghttp2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ng/nghttp2/package.nix",
+    "description": "HTTP/2 C library and tools",
+    "outputs": "\"out\"\n    \"dev\"\n    \"lib\"\n    \"doc\"\n    \"man\""
+  },
+  "nghttp3": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ng/nghttp3/package.nix",
+    "description": "Implementation of HTTP/3 mapping over QUIC and QPACK in C",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "ngtcp2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ng/ngtcp2/package.nix",
+    "description": "Implementation of the QUIC protocol (RFC9000)",
+    "outputs": "\"out\"\n    \"dev\"\n    \"doc\""
+  },
+  "nix": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-bash-completions": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ni/nix-bash-completions/package.nix",
+    "description": "Bash completions for Nix, NixOS, and NixOps",
+    "outputs": ""
+  },
+  "nix-cmd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-expr": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-fetchers": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-flake": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-main": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-manual": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ni/nix-manual/package.nix",
+    "missing": true
+  },
+  "nix-nswrapper": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-store": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nix-util": {
+    "url": "https://raw.githubusercontent.com/NixOS/nix/master/README.md",
+    "description": "Nix is a powerful package manager for Linux and other Unix systems",
+    "outputs": ""
+  },
+  "nixos-init": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ni/nixos-init/package.nix",
+    "description": "",
+    "outputs": ""
+  },
+  "nixos-rebuild-ng": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ni/nixos-rebuild-ng/package.nix",
+    "description": "Rebuild your NixOS configuration and switch to it, on local hosts and remote",
+    "outputs": ""
+  },
+  "npth": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/np/npth/package.nix",
+    "description": "New GNU Portable Threads Library",
+    "outputs": ""
+  },
+  "nsncd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ns/nsncd/package.nix",
+    "description": "Name service non-caching daemon",
+    "outputs": ""
+  },
+  "nss-cacert": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ca/cacert/package.nix",
+    "description": "Bundle of X.509 certificates of public Certificate Authorities (CA)",
+    "outputs": "\"out\"\n    \"unbundled\"\n    \"p11kit\"\n    \"hashed\""
+  },
+  "onetbb": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/on/onetbb/package.nix",
+    "description": "oneAPI Threading Building Blocks",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "oniguruma": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/on/oniguruma/package.nix",
+    "description": "Regular expressions library",
+    "outputs": "\"dev\"\n    \"lib\"\n    \"out\""
+  },
+  "openldap": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/op/openldap/package.nix",
+    "description": "Open source implementation of the Lightweight Directory Access Protocol",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"devdoc\""
+  },
+  "openresolv": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/op/openresolv/package.nix",
+    "description": "Program to manage /etc/resolv.conf",
+    "outputs": ""
+  },
+  "openssh": {
+    "url": "https://raw.githubusercontent.com/openssh/openssh-portable/master/README",
+    "description": "This is the port of OpenBSD's excellent OpenSSH[0] to Linux and other\nUnices.",
+    "outputs": ""
+  },
+  "openssl": {
+    "url": "https://raw.githubusercontent.com/openssl/openssl/master/README.md",
+    "description": "The protocol implementations are based on a full-strength general purpose\ncryptographic library, which can also be used stand-alone.",
+    "outputs": ""
+  },
+  "p11-kit": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/p1/p11-kit/package.nix",
+    "description": "Library for loading and sharing PKCS#11 modules",
+    "outputs": "\"out\"\n    \"bin\"\n    \"dev\""
+  },
+  "patch": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gn/gnupatch/package.nix",
+    "description": "GNU Patch, a program to apply differences to files",
+    "outputs": ""
+  },
+  "pcre2": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/pc/pcre2/package.nix",
+    "description": "Perl Compatible Regular Expressions",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"doc\"\n    \"man\"\n    \"devdoc\""
+  },
+  "pcsclite": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/pc/pcsclite/package.nix",
+    "description": "Middleware to access a smart card using SCard API (PC/SC)",
+    "outputs": "\"out\"\n    \"lib\"\n    \"dev\"\n    \"doc\"\n    \"man\""
+  },
+  "perl": {
+    "url": "https://raw.githubusercontent.com/Perl/perl5/blead/pod/perlintro.pod",
+    "description": "This document is intended to give you a quick overview of the Perl\nprogramming language",
+    "outputs": ""
+  },
+  "perl5.42.3-Config-IniFiles": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Module for reading .ini-style configuration files",
+    "outputs": ""
+  },
+  "perl5.42.3-File-Copy-Recursive": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Perl extension for recursively copying files and directories",
+    "outputs": ""
+  },
+  "perl5.42.3-File-Slurp": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Simple and Efficient Reading/Writing/Modifying of Complete Files",
+    "outputs": ""
+  },
+  "perl5.42.3-IO-Stringy": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "I/O on in-core objects like strings and arrays",
+    "outputs": ""
+  },
+  "perl5.42.3-JSON": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "JSON (JavaScript Object Notation) encoder/decoder",
+    "outputs": ""
+  },
+  "perl5.42.3-List-Compare": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Compare elements of two or more lists",
+    "outputs": ""
+  },
+  "perl5.42.3-XML-LibXML": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Perl Binding for libxml2",
+    "outputs": ""
+  },
+  "perl5.42.3-XML-NamespaceSupport": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Simple generic namespace processor",
+    "outputs": ""
+  },
+  "perl5.42.3-XML-SAX": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Simple API for XML",
+    "outputs": ""
+  },
+  "perl5.42.3-XML-SAX-Base": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/top-level/perl-packages.nix",
+    "description": "Base class for SAX Drivers and Filters",
+    "outputs": ""
+  },
+  "popt": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/po/popt/package.nix",
+    "description": "Command line option parsing library",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\""
+  },
+  "procps": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/procps-ng/default.nix",
+    "description": "Utilities that give information about processes using the /proc filesystem",
+    "outputs": "\"out\"\n    \"man\"\n    \"dev\""
+  },
+  "protobuf-c": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/pr/protobuf-c/package.nix",
+    "missing": true
+  },
+  "publicsuffix-list": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/pu/publicsuffix-list/package.nix",
+    "description": "Cross-vendor public domain suffix database",
+    "outputs": ""
+  },
+  "python3": {
+    "url": "https://raw.githubusercontent.com/python/cpython/main/README.rst",
+    "description": "Installable Python kits, and information about using Python, are available at",
+    "outputs": ""
+  },
+  "qrencode": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/qr/qrencode/package.nix",
+    "description": "C library and command line tool for encoding data in a QR Code symbol",
+    "outputs": "\"bin\"\n    \"out\"\n    \"man\"\n    \"dev\""
+  },
+  "readline": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/readline/8.3.nix",
+    "description": "Library for interactive line editing",
+    "outputs": "\"out\"\n    \"dev\"\n    \"man\"\n    \"doc\"\n    \"info\""
+  },
+  "rsync": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/rs/rsync/package.nix",
+    "description": "Fast incremental file transfer utility",
+    "outputs": ""
+  },
+  "s2n-tls": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/s2/s2n-tls/package.nix",
+    "description": "C99 implementation of the TLS/SSL protocols",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "shadow": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/sh/shadow/package.nix",
+    "description": "Suite containing authentication-related tools such as passwd and su",
+    "outputs": "\"out\"\n    \"su\"\n    \"dev\"\n    \"man\""
+  },
+  "shared-mime-info": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/sh/shared-mime-info/package.nix",
+    "description": "Database of common MIME types",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "simple-dark-gray-bootloader": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/si/simple-dark-gray-bootloader/package.nix",
+    "missing": true
+  },
+  "sound-theme-freedesktop": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/so/sound-theme-freedesktop/package.nix",
+    "description": "Freedesktop reference sound theme",
+    "outputs": ""
+  },
+  "sqlite": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/sqlite/default.nix",
+    "description": "Self-contained, serverless, zero-configuration, transactional SQL database engine",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"man\"\n    \"doc\"\n    \"out\""
+  },
+  "strace": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/st/strace/package.nix",
+    "description": "System call tracer for Linux",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "sudo": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/su/sudo/package.nix",
+    "description": "Command to run commands as root",
+    "outputs": "\"out\"\n    \"man\"\n    \"doc\"\n    \"dev\""
+  },
+  "switch-to-configuration": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/sw/switch-to-configuration/package.nix",
+    "missing": true
+  },
+  "system-sendmail": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/sy/system-sendmail/package.nix",
+    "missing": true
+  },
+  "systemd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/systemd/default.nix",
+    "description": "System and service manager for Linux",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "systemd-minimal": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/systemd/default.nix",
+    "description": "System and service manager for Linux",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "systemd-minimal-libs": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/os-specific/linux/systemd/default.nix",
+    "description": "System and service manager for Linux",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "tcb": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/tc/tcb/package.nix",
+    "description": "Alternative password shadowing scheme",
+    "outputs": "\"out\"\n    \"bin\"\n    \"dev\"\n    \"man\""
+  },
+  "texinfo-interactive": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/te/texinfo/package.nix",
+    "missing": true
+  },
+  "time": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ti/time/package.nix",
+    "description": "Tool that runs programs and summarizes the system resources they use",
+    "outputs": "\"out\"\n    \"info\""
+  },
+  "tpm2-tss": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/tp/tpm2-tss/package.nix",
+    "description": "OSS implementation of the TCG TPM2 Software Stack (TSS2)",
+    "outputs": "\"out\"\n    \"man\"\n    \"dev\""
+  },
+  "tzdata": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/tz/tzdata/package.nix",
+    "description": "Database of current and historical time zones",
+    "outputs": "\"out\"\n    \"bin\"\n    \"man\"\n    \"dev\""
+  },
+  "unbound": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/un/unbound/package.nix",
+    "description": "Validating, recursive, and caching DNS resolver",
+    "outputs": "\"out\"\n    \"lib\"\n    \"man\""
+  },
+  "util-linux": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ut/util-linux/package.nix",
+    "description": "Set of system utilities for Linux",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"lib\"\n    \"man\"\n    \"login\""
+  },
+  "util-linux-minimal": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/ut/util-linux/package.nix",
+    "description": "Set of system utilities for Linux",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"lib\"\n    \"man\"\n    \"login\""
+  },
+  "w3m": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/w3/w3m/package.nix",
+    "description": "Text-mode web browser",
+    "outputs": "\"out\"\n    \"man\""
+  },
+  "which": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/wh/which/package.nix",
+    "description": "Shows the full path of (shell) commands",
+    "outputs": "\"out\"\n    \"info\"\n    \"man\""
+  },
+  "xauth": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/xa/xauth/package.nix",
+    "description": "X authority file utility",
+    "outputs": ""
+  },
+  "xgcc": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/gc/gcc/package.nix",
+    "missing": true
+  },
+  "xxhash": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/xx/xxhash/package.nix",
+    "description": "Extremely fast hash algorithm",
+    "outputs": ""
+  },
+  "xz": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/xz/xz/package.nix",
+    "description": "General-purpose data compression software, successor of LZMA",
+    "outputs": "\"bin\"\n    \"dev\"\n    \"out\"\n    \"man\"\n    \"doc\""
+  },
+  "zlib": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/development/libraries/zlib/default.nix",
+    "description": "Lossless data-compression library",
+    "outputs": "\"out\"\n    \"dev\""
+  },
+  "zstd": {
+    "url": "https://raw.githubusercontent.com/NixOS/nixpkgs/master/pkgs/by-name/zs/zstd/package.nix",
+    "description": "Zstandard real-time compression algorithm",
+    "outputs": "\"bin\"\n    \"dev\""
+  },
+  "system-output": {
+    "url": "none",
+    "missing": true
+  }
+}

@@ -1,0 +1,20 @@
+Source: https://raw.githubusercontent.com/lfam/guix/master/gnu/services/base.scm
+
+Exact implementation excerpts (Scheme identifiers, 14 whitespace-separated words total):
+(provision '(root-file-system))
+(provision '(user-file-systems))
+(sethostname #$name)
+(system* #$(file-append kbd "/bin/setfont")
+(provision '(urandom-seed))
+
+Observations from the inspected procedures:
+- The root-filesystem service synchronizes storage and remounts the root filesystem read-only at shutdown.
+- Filesystem service construction produces lifecycle procedures and an ordering target for required mounts.
+- User-filesystem shutdown unmounts mounts outside the known system mount set.
+- The host-name service invokes the Scheme interface to the system host-name operation.
+- The virtual-terminal service sets the kernel UTF-8 parameter before terminal services start.
+- Each console-font service invokes setfont for its terminal device.
+- The package-daemon service executes the daemon and supplies its operating arguments and environment.
+- The random-seed service copies saved seed bytes into the kernel random device, accounts entropy, refreshes the saved seed, and saves again on shutdown.
+
+These observations establish function; they are not prior classification labels. Local service identities and status come from A1/in/raw/guix/herd-all-service-status.txt.

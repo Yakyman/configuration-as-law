@@ -1,0 +1,20 @@
+2026-11-22T06:54:03Z
+== before
+wheel:x:1:user
+users wheel
+Removing user user from group wheel
+gpasswd -d exit=0
+== after removal, no application
+wheel:x:1:
+users
+== 30 s later
+2026-11-22T06:54:33Z
+wheel:x:1:
+users
+Adding user user to group wheel
+gpasswd -a exit=0
+== after restore
+wheel:x:1:user
+users wheel
+2026-11-22T06:54:33Z
+run rc=0

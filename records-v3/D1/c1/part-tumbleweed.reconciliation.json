@@ -1,0 +1,1490 @@
+[
+  {
+    "name": "branding-openSUSE",
+    "ids": [
+      "tumbleweed-9c27fd6cc1f6e95eaeda2b15",
+      "tumbleweed-afd24c8aacb62bb4d83a4713"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "The brand file triggers package selection; removal changes subsequent system installation behavior."
+  },
+  {
+    "name": "breeze6-cursors",
+    "ids": [
+      "tumbleweed-51d8e1057ebd0be44f76c82d",
+      "tumbleweed-604e994fbd779b550d9377de"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Payload contains presentation assets; removal makes only that artwork unavailable."
+  },
+  {
+    "name": "dbus-broker-block-restart",
+    "ids": [
+      "tumbleweed-e8596c1f2e7cf3225d78566f",
+      "tumbleweed-c7ac4a140066a37feed0450b"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "The service drop-ins constrain restarting separate message-bus processes; their effects are not confined inside one program."
+  },
+  {
+    "name": "desktop-translations",
+    "ids": [
+      "tumbleweed-69d8cbcefe0629f32ed6c8e8",
+      "tumbleweed-d4ff03222fe3efc98f95872f"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "distribution-logos-openSUSE-Tumbleweed",
+    "ids": [
+      "tumbleweed-207892425f45c7f1ff152fb5",
+      "tumbleweed-88c6d153fb922b34384bb62c"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Payload contains presentation assets; removal makes only that artwork unavailable."
+  },
+  {
+    "name": "gnome-tour-data",
+    "ids": [
+      "tumbleweed-4a4dfe61ec107005d2e1e593",
+      "tumbleweed-c3769a3b91a480a1eb8680b6"
+    ],
+    "a": "UNKNOWN",
+    "b": "HOLE",
+    "final": "UNKNOWN",
+    "mode": "retained first-half functional rule",
+    "reason": "Package description does not establish the subpackage contents or removal consequences; raw ownership inventory is empty."
+  },
+  {
+    "name": "gtk3-data",
+    "ids": [
+      "tumbleweed-cfee098921beb2a44ecc53d7",
+      "tumbleweed-753ec04c3399c7c24f6764f9"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Toolkit schemas and keybindings affect multiple applications; removal changes shared interface behavior."
+  },
+  {
+    "name": "gtk3-schema",
+    "ids": [
+      "tumbleweed-9168ed9921348431a160dfbd",
+      "tumbleweed-94733f055f9f9e259def1555"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Toolkit schemas and keybindings affect multiple applications; removal changes shared interface behavior."
+  },
+  {
+    "name": "gtk4-schema",
+    "ids": [
+      "tumbleweed-94aabfb89fb2b64b1f06bc7c",
+      "tumbleweed-1c13d4d6011ae45ca83363fb"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Toolkit schemas and keybindings affect multiple applications; removal changes shared interface behavior."
+  },
+  {
+    "name": "iso-codes",
+    "ids": [
+      "tumbleweed-e3ffdbeeab220be3a54cafba",
+      "tumbleweed-fb37a4a8d9cbdde019568fee"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Removal loses supplied text, artwork, or reference data; the text does not distinguish unavailable content from lost rendering, language, or recognition capability."
+  },
+  {
+    "name": "javapackages-filesystem",
+    "ids": [
+      "tumbleweed-805fce69915400aba79d77c2",
+      "tumbleweed-7a02732097fb92ad188d98e9"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing required directories prevents their software and stored objects from being accessed."
+  },
+  {
+    "name": "kImageAnnotator-lang",
+    "ids": [
+      "tumbleweed-cef9aa36975108f20d6841ff",
+      "tumbleweed-803cd9885d5ac3af08d2e0a6"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "kdegames-carddecks-default",
+    "ids": [
+      "tumbleweed-f30a186bd1cff9957e0f7b5c",
+      "tumbleweed-10a7e6c22aeeee7b7f43e322"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "kf6-breeze-icons",
+    "ids": [
+      "tumbleweed-39af3faa265fdda45dd7c62f",
+      "tumbleweed-9b979d05f7cbf004bcb901d2"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "kf6-kconfigwidgets",
+    "ids": [
+      "tumbleweed-555907102e5e611d02ba43fa",
+      "tumbleweed-6a50fe2fbf58a513826d1501"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "individual factual and textual resolution",
+    "reason": "Removal loses language-selection descriptions or the ability to present those choices; the text does not distinguish this content from interface capability."
+  },
+  {
+    "name": "kf6-purpose-services",
+    "ids": [
+      "tumbleweed-85b5251c5f01299b8ed5f228",
+      "tumbleweed-a7932bee81af8eff1a35652f"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values configure libraries or application integration; the text does not determine whether effects remain inside one program."
+  },
+  {
+    "name": "kmail-application-icons",
+    "ids": [
+      "tumbleweed-8deb6bea53de73438bc0b1e6",
+      "tumbleweed-57a1dd2591b7ee64af0fc2f9"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "kscreenlocker6-imports",
+    "ids": [
+      "tumbleweed-7d8d618d7aee68e4f0b88913",
+      "tumbleweed-142611cc5e946fee6c2cbd1e"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "ksysguardsystemstats6-data",
+    "ids": [
+      "tumbleweed-eee438d72ab81b664173bca6",
+      "tumbleweed-eff364d4e6ac3e0fa97b66b0"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "individual factual and textual resolution",
+    "reason": "The package supplies an interface-description XML document, not the service implementation or its activation policy."
+  },
+  {
+    "name": "libkleo",
+    "ids": [
+      "tumbleweed-f6c9b74cc941ca216b2b4f00",
+      "tumbleweed-6133fb619cc177cebd450517"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values configure libraries or application integration; the text does not determine whether effects remain inside one program."
+  },
+  {
+    "name": "libkmahjongg",
+    "ids": [
+      "tumbleweed-3ce8f43f3335b61c4fbd7b99",
+      "tumbleweed-139df17d42bdf459183ce14d"
+    ],
+    "a": "UNKNOWN",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "individual factual and textual resolution",
+    "reason": "Only the supplied artwork and descriptions become unavailable; filelists establish no game implementation in this package."
+  },
+  {
+    "name": "libksane-icons",
+    "ids": [
+      "tumbleweed-27ce24f45c743a72178fdae6",
+      "tumbleweed-20628fa1fe408105dd49c66b"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Payload contains presentation assets; removal makes only that artwork unavailable."
+  },
+  {
+    "name": "libksane-lang",
+    "ids": [
+      "tumbleweed-527aeb630ad9f2636cdd559f",
+      "tumbleweed-f8aef4a27312ebc7f111d4cc"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libksieve",
+    "ids": [
+      "tumbleweed-96511044c97fd0e083b030ca",
+      "tumbleweed-f930414351a4a1b2409054de"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload has data and descriptions rather than advertised code; text does not resolve descriptive content versus effects on application functionality."
+  },
+  {
+    "name": "libnl-config",
+    "ids": [
+      "tumbleweed-44ac2878cd1bcaaea18757cd",
+      "tumbleweed-57e50cddde9ed86fbce3d1d5"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "These values configure a library or service used by other programs; the text does not define whether their effects remain inside one program."
+  },
+  {
+    "name": "libpaper",
+    "ids": [
+      "tumbleweed-8fa99d7de9ae7eeed6b04c4f",
+      "tumbleweed-a9f781f6fa923e586a78340a"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values configure libraries or application integration; the text does not determine whether effects remain inside one program."
+  },
+  {
+    "name": "libplasma6-desktoptheme",
+    "ids": [
+      "tumbleweed-694485646109ee5946fed689",
+      "tumbleweed-27de7a07eb2d915e8d077283"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Documented themes, transformations, or trust data affect behavior; the text does not determine whether interface confinement or single-program settings exemption applies."
+  },
+  {
+    "name": "libqt5-qttranslations",
+    "ids": [
+      "tumbleweed-6a567e1b020369e9b4a15b5e",
+      "tumbleweed-948045f52341e1e72f76b635"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libsemanage-conf",
+    "ids": [
+      "tumbleweed-fcc948a559fb78283d68a052",
+      "tumbleweed-ad652a1173c64b17a408185a"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "These values configure a library or service used by other programs; the text does not define whether their effects remain inside one program."
+  },
+  {
+    "name": "libstorage-ng-lang",
+    "ids": [
+      "tumbleweed-debbb43da15a0050abbd7e0a",
+      "tumbleweed-0ab2bb3fafb9fac820306c2c"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libtirpc-netconfig",
+    "ids": [
+      "tumbleweed-acf8b249ca546c3d3db5ca4d",
+      "tumbleweed-ef50d89379c7e871dae8bd93"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documentation identifies shared defaults across applications; removal changes behavior beyond one program."
+  },
+  {
+    "name": "ocean-sound-theme6",
+    "ids": [
+      "tumbleweed-d2388c321ef8b22307dcf7bd",
+      "tumbleweed-9142d0bdb665215fcceafc81"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "qt6-translations",
+    "ids": [
+      "tumbleweed-af2b623383a61a33374a59f1",
+      "tumbleweed-abf58d89cb28c95c39c19058"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "snapper-lang",
+    "ids": [
+      "tumbleweed-14b4feff4d3b3c916032ed56",
+      "tumbleweed-21ca4798e791f08c9baab6c4"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "wallpaper-branding-openSUSE",
+    "ids": [
+      "tumbleweed-bf9029a4ec645e21be37f294",
+      "tumbleweed-e611f296dca7b2cfc334a802"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "xbitmaps",
+    "ids": [
+      "tumbleweed-9fe77d5b5a8d7bb3aa41ea6a",
+      "tumbleweed-62d402c2551a56cb162b49d4"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "metatheme-breeze6-common",
+    "ids": [
+      "tumbleweed-ff8414e8fa9b41b847ba8f03",
+      "tumbleweed-b9c111aab7a79f2e0d7c33b6"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "gtk3-metatheme-breeze6",
+    "ids": [
+      "tumbleweed-8e84d13ea1b940f02e6994e2",
+      "tumbleweed-132eadc911f7cc2633da5ffd"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "distribution-logos-openSUSE-icons",
+    "ids": [
+      "tumbleweed-6cc4dd2ccf77fb4f5b6b01f6",
+      "tumbleweed-09328326db8cc83a6b20de6f"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "kf6-kuserfeedback-lang",
+    "ids": [
+      "tumbleweed-f73eeb400766d5a937dddc88",
+      "tumbleweed-1b4b23a3596c6c72480401e8"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "kidentitymanagement-lang",
+    "ids": [
+      "tumbleweed-e4b043dbfeb54717e5f66dcc",
+      "tumbleweed-416cf73a88cad1ab9ce270fd"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libkgapi6-lang",
+    "ids": [
+      "tumbleweed-dedd102fa4c17b964a081ec2",
+      "tumbleweed-7a897347e8001d0658ee6828"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "filesystem",
+    "ids": [
+      "tumbleweed-d3f932cd4413f85b7a0dd24a",
+      "tumbleweed-cae0778ca79df14155e00d1c"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing required directories prevents their software and stored objects from being accessed."
+  },
+  {
+    "name": "gtk4-metatheme-breeze6",
+    "ids": [
+      "tumbleweed-c99ceaa989531e038628e42e",
+      "tumbleweed-819b570cdea5ea55df85afe1"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "augeas-lenses",
+    "ids": [
+      "tumbleweed-eeeceb9dea1a900d85a2b621",
+      "tumbleweed-58bfaed75b767465bff8e84a"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documented executable functions run as programs or with the invoking program rights."
+  },
+  {
+    "name": "alsa-ucm-conf",
+    "ids": [
+      "tumbleweed-10abe303067f45019dadd870",
+      "tumbleweed-f0da0e6ac4776e60abf294fc"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Settings govern multiple consumers or devices; removal changes shared behavior beyond one program."
+  },
+  {
+    "name": "typelib-1_0-GLib-2_0",
+    "ids": [
+      "tumbleweed-7a6ad33f358961bfad1a3cba",
+      "tumbleweed-b6506c20dbd511bc9d1cea43"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "girepository-1_0",
+    "ids": [
+      "tumbleweed-6240417d927371402a3afcc8",
+      "tumbleweed-b8844433a232609731e25abb"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Language bindings require these interface descriptions to invoke corresponding native operations."
+  },
+  {
+    "name": "typelib-1_0-GObject-2_0",
+    "ids": [
+      "tumbleweed-900dbc71741501e821d1c709",
+      "tumbleweed-54f349aab25a45dcdffb851f"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-GModule-2_0",
+    "ids": [
+      "tumbleweed-b7d547e3a754a9f5372ffdcf",
+      "tumbleweed-6f6fb0bebafbad99f7e14193"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-GLibUnix-2_0",
+    "ids": [
+      "tumbleweed-50bd7f4cb772b73088964c52",
+      "tumbleweed-1071b28ebfc759ac33f9c4d0"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-Atk-1_0",
+    "ids": [
+      "tumbleweed-272491cb93106d5053d88d39",
+      "tumbleweed-4427d7290d8883e9a3b55338"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-HarfBuzz-0_0",
+    "ids": [
+      "tumbleweed-c94a1b3acbd79a0bc4cb5cf6",
+      "tumbleweed-76fd873cf562e0c5fb4f8e63"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "Mesa",
+    "ids": [
+      "tumbleweed-855ad8c48fdbd681d9a7fbe1",
+      "tumbleweed-67486972373cb0f28ea8c779"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "rpm-plugin-selinux",
+    "ids": [
+      "tumbleweed-696aec51c689c2a848ec2d21",
+      "tumbleweed-cdd698ee2b182cf9d748a45a"
+    ],
+    "a": "NOT",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "The configuration selects labeling of installed files and scriptlets; effects extend beyond RPM. The package itself does not contain plugin code."
+  },
+  {
+    "name": "systemd-presets-common-SUSE",
+    "ids": [
+      "tumbleweed-9d2a17c65c7d0f613f430846",
+      "tumbleweed-81ef65c1ae2937fc90855b48"
+    ],
+    "a": "HOLE",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "These values govern other services and processes; being read by one manager does not confine their effects inside that manager."
+  },
+  {
+    "name": "systemd-default-settings-branding-openSUSE",
+    "ids": [
+      "tumbleweed-1817ca562b1a0c7ae7647a05",
+      "tumbleweed-44476dfef6681a4c07b026b9"
+    ],
+    "a": "HOLE",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "These values govern other services and processes; being read by one manager does not confine their effects inside that manager."
+  },
+  {
+    "name": "systemd-default-settings",
+    "ids": [
+      "tumbleweed-fa43d1bdb79b1bf3c672dda1",
+      "tumbleweed-af6349a44190ec884e69ba95"
+    ],
+    "a": "HOLE",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "These values govern other services and processes; being read by one manager does not confine their effects inside that manager."
+  },
+  {
+    "name": "sound-theme-freedesktop",
+    "ids": [
+      "tumbleweed-9d4553a31373cb92d9b4fd44",
+      "tumbleweed-4efba37278070710fee7ab15"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "libssh-config",
+    "ids": [
+      "tumbleweed-6131ae58ce030a383e82f2ec",
+      "tumbleweed-95709d632bb78c758db4db62"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documentation identifies shared defaults across applications; removal changes behavior beyond one program."
+  },
+  {
+    "name": "hicolor-icon-theme-branding-openSUSE",
+    "ids": [
+      "tumbleweed-aa92a36c91f7c095a4cf0ae4",
+      "tumbleweed-df9d675a32e5d6a4a33bf4e7"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "systemd-presets-branding-openSUSE",
+    "ids": [
+      "tumbleweed-e912f4efac89b08dc3a3427d",
+      "tumbleweed-7d45a3b81903e644cb0a1a7b"
+    ],
+    "a": "HOLE",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "These values govern other services and processes; being read by one manager does not confine their effects inside that manager."
+  },
+  {
+    "name": "kf6-kcoreaddons",
+    "ids": [
+      "tumbleweed-5af8f561b7ccb1aa8b1e29dd",
+      "tumbleweed-c9074ea775e56a8c729f3272"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Shared MIME type definitions enable recognition and dispatch across applications; effect is not confined to one program."
+  },
+  {
+    "name": "kcoreaddons",
+    "ids": [
+      "tumbleweed-8c4834567709f4438623ddcf",
+      "tumbleweed-7781b81cdd531b4c92391295"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Shared MIME type definitions enable recognition and dispatch across applications; effect is not confined to one program."
+  },
+  {
+    "name": "permissions",
+    "ids": [
+      "tumbleweed-550067369a58c28023491aa6",
+      "tumbleweed-255999ada4afb173b049b428"
+    ],
+    "a": "HOLE",
+    "b": "MUST",
+    "final": "HOLE",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing the selector leaves existing code intact but changes package selection; removal test gives no temporal scope."
+  },
+  {
+    "name": "kf6-kcoreaddons-lang",
+    "ids": [
+      "tumbleweed-9ea2c6724e303abdda7e5731",
+      "tumbleweed-31dd829cd3d204a81012a82c"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "kcoreaddons-lang",
+    "ids": [
+      "tumbleweed-f26f0039c10ac5d7b9eb7fdf",
+      "tumbleweed-820d867dc9ae3382f0fd838e"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "typelib-1_0-Gio-2_0",
+    "ids": [
+      "tumbleweed-80a3e282e5b79c37931671ce",
+      "tumbleweed-6455caea510a0c238f9e567c"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-Secret-1",
+    "ids": [
+      "tumbleweed-e61016bde855c68fde4fd1ec",
+      "tumbleweed-7769497f7bd1158eda7070c5"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-Pango-1_0",
+    "ids": [
+      "tumbleweed-70589ea9923cebb923c91aef",
+      "tumbleweed-a0a946f12961a3da9e476606"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-GdkPixbuf-2_0",
+    "ids": [
+      "tumbleweed-e7b05fc9fc3e1f0f168dfc36",
+      "tumbleweed-a3c5a4f65d4d7e6f87d40f6c"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "info-lang",
+    "ids": [
+      "tumbleweed-5e98285ef0a1baddc79ba349",
+      "tumbleweed-679a99f1e70a45be2caaed6b"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "ruby",
+    "ids": [
+      "tumbleweed-daa4705f2a56ae9fbb16b74f",
+      "tumbleweed-5cb38da8ace4818e55967f7b"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "typelib-1_0-Atspi-2_0",
+    "ids": [
+      "tumbleweed-8b89c29d76b3f11d585898d3",
+      "tumbleweed-4925f073c57698d6d637fe23"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "qtkeychain-qt6-lang",
+    "ids": [
+      "tumbleweed-de929cdb4a5022b567dda621",
+      "tumbleweed-19db1f7e7b5a88f9b88a6c6d"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "openssl",
+    "ids": [
+      "tumbleweed-cb451634ee2eefd18c46af93",
+      "tumbleweed-5fa45966f561960d04de8d01"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "libreoffice-icon-themes",
+    "ids": [
+      "tumbleweed-0c9194115520ab49a173b08c",
+      "tumbleweed-5b027a0fdc9ceabbb8c1ca25"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "typelib-1_0-NM-1_0",
+    "ids": [
+      "tumbleweed-b68a2f51de24a967e062733a",
+      "tumbleweed-08f3a7852a66c471c7b6ffb4"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "tesseract-ocr-common",
+    "ids": [
+      "tumbleweed-21eff087b77fb58f160ba922",
+      "tumbleweed-0b930082aeaa5454d0b21f09"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values configure libraries or application integration; the text does not determine whether effects remain inside one program."
+  },
+  {
+    "name": "libKF5WidgetsAddons5-lang",
+    "ids": [
+      "tumbleweed-dee16399c907d247e629e279",
+      "tumbleweed-0b24665e209b2504c6019d1d"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libKF5JobWidgets5-lang",
+    "ids": [
+      "tumbleweed-e697bbb27d5ae72b19fdcbbb",
+      "tumbleweed-7af81b7bf15e2592c06e5fc3"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libKF6WidgetsAddons6-lang",
+    "ids": [
+      "tumbleweed-54fc6800943a1d0259693075",
+      "tumbleweed-cf30f1d92afa436f01aa7c98"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libKF6CalendarCore6-lang",
+    "ids": [
+      "tumbleweed-a615de32f8e90f1a4bedf010",
+      "tumbleweed-241ce940c8a944fef8b2501c"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libKF6JobWidgets6-lang",
+    "ids": [
+      "tumbleweed-821ff52735a7ca22cf3e5e1c",
+      "tumbleweed-ad54581a3d7f6326e1ab37cc"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "openSUSE-release",
+    "ids": [
+      "tumbleweed-db62e6171947e4d1346ccfc9",
+      "tumbleweed-2dba08873e49df3a281f2b7e"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "System identity and shared product defaults affect multiple installation and management tools."
+  },
+  {
+    "name": "dbus-1",
+    "ids": [
+      "tumbleweed-d8ec3330d38527ef431d50a9",
+      "tumbleweed-1c7bbc9651e3117e1332ebc5"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "typelib-1_0-Polkit-1_0",
+    "ids": [
+      "tumbleweed-9bbc952e5e5869e5ca370b93",
+      "tumbleweed-3a0058d5f4427f79864bda9a"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "kf6-kauth-lang",
+    "ids": [
+      "tumbleweed-aaa4214a525be4a27976c652",
+      "tumbleweed-bebc5a5d46ac17921f5dc409"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libKF5Auth5-lang",
+    "ids": [
+      "tumbleweed-00f6faa7919bc639b275a5d8",
+      "tumbleweed-584b5b5fddfa41e96cea9139"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "usb_modeswitch-data",
+    "ids": [
+      "tumbleweed-a9c7da8fffa9c58809d73688",
+      "tumbleweed-03157754505268e3d9b2f8d2"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Device matching rules invoke switching that makes hardware functions available beyond a single program."
+  },
+  {
+    "name": "chrony-pool-openSUSE",
+    "ids": [
+      "tumbleweed-3fddd84530d7d0c31df015d9",
+      "tumbleweed-0440ecd1e9571cf8cde1be87"
+    ],
+    "a": "NOT",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "The configured sources govern the system clock used by other programs; this is not a setting confined inside chrony."
+  },
+  {
+    "name": "openconnect-lang",
+    "ids": [
+      "tumbleweed-77a4e6c9383222b6ef2e9db7",
+      "tumbleweed-2cc7c28f6d2b0bd98f167419"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "NetworkManager-branding-openSUSE",
+    "ids": [
+      "tumbleweed-44c3b58f80b5d66089a33032",
+      "tumbleweed-e788c0407bc909d3a1ff0c64"
+    ],
+    "a": "NOT",
+    "b": "MUST",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "Connectivity results change default-route metrics and are exposed to other applications; effects are not confined inside NetworkManager."
+  },
+  {
+    "name": "firewalld-lang",
+    "ids": [
+      "tumbleweed-8da311a12c8890ea10a09a96",
+      "tumbleweed-bc4ed4a0d90fa39a64e28f57"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "PackageKit-branding-openSUSE",
+    "ids": [
+      "tumbleweed-3ac4eeb862bd4a20289cab82",
+      "tumbleweed-88de43bb31abf3d91ab8c376"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "metatheme-adwaita-common",
+    "ids": [
+      "tumbleweed-8950e190d14060a369183dc1",
+      "tumbleweed-1b6ff4c84ec0c06e7e9cac74"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "gtk3-metatheme-adwaita",
+    "ids": [
+      "tumbleweed-99e98e78a19742451d9457a5",
+      "tumbleweed-b323fb0780ed0774fe52a8c7"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "gsettings-desktop-schemas",
+    "ids": [
+      "tumbleweed-b8d83f1a0d2f476273247468",
+      "tumbleweed-092a5a5077a4aa62cdda0634"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documentation identifies shared defaults across applications; removal changes behavior beyond one program."
+  },
+  {
+    "name": "typelib-1_0-PackageKitGlib-1_0",
+    "ids": [
+      "tumbleweed-af4b49d0a7d52b0827ecb5b1",
+      "tumbleweed-1820210d0ef66cf6a5569071"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "xorg-x11-driver-video",
+    "ids": [
+      "tumbleweed-adca233073ff23d3f930a6c3",
+      "tumbleweed-7aecb91b81cec91f654dab24"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "System display configuration determines device availability across applications."
+  },
+  {
+    "name": "yast2-theme-breeze",
+    "ids": [
+      "tumbleweed-baa068a8d5487cfed3bd790d",
+      "tumbleweed-49b7e58c9ade1153330e3892"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "individual factual and textual resolution",
+    "reason": "The packaged Bash script invokes filesystem commands with interpreter rights; executable code remains code even when packaged with theme assets."
+  },
+  {
+    "name": "flatpak-remote-flathub",
+    "ids": [
+      "tumbleweed-8bd4bea3220cc915155c4add",
+      "tumbleweed-a08bac3bb4eead7e0306e601"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "plymouth-lang",
+    "ids": [
+      "tumbleweed-e8b349efa81999eb3254bcfa",
+      "tumbleweed-afd0456e9faa11ada6e68c41"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "grub2",
+    "ids": [
+      "tumbleweed-3a5424813d4b9d2c4bc646f1",
+      "tumbleweed-aac6aa8494b1f3e8c0028242"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Payload supplies metadata or launch integration rather than the described implementation; the text does not distinguish indirect behavioral effects from descriptive content."
+  },
+  {
+    "name": "libKF6Baloo6-lang",
+    "ids": [
+      "tumbleweed-bc3fcb50c4e791af6510e215",
+      "tumbleweed-d8620423f05d02d99e676201"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "adwaita-icon-theme",
+    "ids": [
+      "tumbleweed-69ae64c8389433b269d88bb4",
+      "tumbleweed-eb9dcce62701fd2c47fea2d3"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "NOT",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing artwork or sounds makes only that presentation content unavailable."
+  },
+  {
+    "name": "gtk4-branding-openSUSE",
+    "ids": [
+      "tumbleweed-cd056181d467173557b158d3",
+      "tumbleweed-8fba25fb55f307fa4b8ffcd0"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documentation identifies shared defaults across applications; removal changes behavior beyond one program."
+  },
+  {
+    "name": "konsole-part-lang",
+    "ids": [
+      "tumbleweed-3671752d547530c2e50b0f5f",
+      "tumbleweed-7a4775e0cf54ae314b82147d"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "gtk3-branding-openSUSE",
+    "ids": [
+      "tumbleweed-137a527bf6c4dbe43722554d",
+      "tumbleweed-7b897cdfd9256cc00b039c05"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documentation identifies shared defaults across applications; removal changes behavior beyond one program."
+  },
+  {
+    "name": "typelib-1_0-Gtk-3_0",
+    "ids": [
+      "tumbleweed-421dbfce1d277c686a4990e3",
+      "tumbleweed-140ebdef1b7fa0d54c32ee08"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "libreoffice-l10n-en",
+    "ids": [
+      "tumbleweed-4d04745d1b6f2c0164398cc0",
+      "tumbleweed-298d1d68f55f699e351f3be1"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "typelib-1_0-Handy-1_0",
+    "ids": [
+      "tumbleweed-890e2ba0b9deddb0047aed77",
+      "tumbleweed-7e1b3535382849f2c8e6be07"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "typelib-1_0-Notify-0_7",
+    "ids": [
+      "tumbleweed-ceecb247c3de6184bb017c56",
+      "tumbleweed-ddfdc5887173f2d794089459"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "phonon4qt5-lang",
+    "ids": [
+      "tumbleweed-2b526c5fb8b26b3bc16614bc",
+      "tumbleweed-a4edb4233a2dabfba9404808"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "phonon-vlc-lang",
+    "ids": [
+      "tumbleweed-152240b336a732ee8c788b72",
+      "tumbleweed-dd5147cdcfebccd535774556"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "translated-interface boundary",
+    "reason": "Removal loses translated-output capability or only translated content; the text does not distinguish those readings."
+  },
+  {
+    "name": "libreoffice-filters-optional",
+    "ids": [
+      "tumbleweed-b66b6e6586d2543db7fadb72",
+      "tumbleweed-458bd2d25764f4b4b0aa2150"
+    ],
+    "a": "UNKNOWN",
+    "b": "MUST",
+    "final": "UNKNOWN",
+    "mode": "individual factual and textual resolution",
+    "reason": "Transformation code is established, but evidence does not establish whether this processor confines it or grants the program’s full rights."
+  },
+  {
+    "name": "plasma6-sddm-theme-openSUSE",
+    "ids": [
+      "tumbleweed-5e0021f998f99319a0ff105f",
+      "tumbleweed-c225ad126cda23f96aa4609e"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Documented package payload includes executable code; removing it removes the corresponding callable operations."
+  },
+  {
+    "name": "sddm-qt6-branding-openSUSE",
+    "ids": [
+      "tumbleweed-cb185dbc194f5f6a1895b5d3",
+      "tumbleweed-21c689370df3d76a7ab7285f"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "sddm-branding-openSUSE",
+    "ids": [
+      "tumbleweed-65d31620d369de83109c9fb8",
+      "tumbleweed-398f3c80654469a71f15a2fe"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "plasma6-branding-openSUSE",
+    "ids": [
+      "tumbleweed-e908396bce4f54f9bec66bfa",
+      "tumbleweed-06d3881473145922f997835c"
+    ],
+    "a": "NOT",
+    "b": "HOLE",
+    "final": "HOLE",
+    "mode": "specific interface/settings or dependency-metadata boundary",
+    "reason": "Values affect shared libraries, system appearance, sessions, or installation choices; the text does not establish that their effects remain inside one program."
+  },
+  {
+    "name": "typelib-1_0-Fwupd-2_0",
+    "ids": [
+      "tumbleweed-61f34ac9328e7bb4f5198926",
+      "tumbleweed-9e908df731cd0bf59ddd4226"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Removing runtime introspection descriptions prevents language bindings from calling these library interfaces."
+  },
+  {
+    "name": "libcontainers-default-policy",
+    "ids": [
+      "tumbleweed-8a0f96226b9f5119262f9093",
+      "tumbleweed-4c394b49c4edbaf1ac753966"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Shared container policy affects which images multiple tools accept or locate; removal changes system capabilities."
+  },
+  {
+    "name": "registries-conf-default",
+    "ids": [
+      "tumbleweed-a7cfefd659c7a59cf7dcc32f",
+      "tumbleweed-20e31b9f2ffa6df7884e3b3d"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "Shared container policy affects which images multiple tools accept or locate; removal changes system capabilities."
+  },
+  {
+    "name": "hicolor-icon-theme",
+    "ids": [
+      "tumbleweed-dc123bdc513c409035c84aa5",
+      "tumbleweed-628aba51170df68037b752da"
+    ],
+    "a": "MUST",
+    "b": "HOLE",
+    "final": "MUST",
+    "mode": "retained first-half functional rule",
+    "reason": "The package macro expands to shell mkdir and touch commands; executable installation code requires recording despite accompanying artwork."
+  }
+]

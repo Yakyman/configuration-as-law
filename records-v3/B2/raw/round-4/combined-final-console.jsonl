@@ -1,0 +1,101 @@
+{"declaration_files_sha256": {"machine.jsonl": "29680919714eefb4c7fab885ddaed7ca482db9973280f27169f7e186cf65b257"}, "expected": "fresh image accepts the same complete BC4 declaration; all lines verify and every channel launches", "id": "COMBINED-a", "image_sha256": "6626fded301318907dc841d6dc5118e2eea36d075d2d1824f6a4f289f38e7fc1", "phase": "expected", "utc": "2026-11-22T14:45:45Z"}
+{"log": "a-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:46:21Z"}
+{"log": "a-deliver.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:46:21Z"}
+{"log": "a-apply.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:00Z"}
+{"log": "a-exact.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:00Z"}
+{"log": "a-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:25Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-repository", "marker": "Hello, world!", "phase": "expected", "utc": "2026-11-22T14:47:25Z"}
+{"log": "a-launch-repository.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:25Z"}
+{"id": "a-repository", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:25Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-updated-base", "marker": "GNU ed 1.21.1", "phase": "expected", "utc": "2026-11-22T14:47:25Z"}
+{"log": "a-launch-updated-base.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:26Z"}
+{"id": "a-updated-base", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:26Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-pip", "marker": "PIP_POSITIVE 2026", "phase": "expected", "utc": "2026-11-22T14:47:26Z"}
+{"log": "a-launch-pip.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:26Z"}
+{"id": "a-pip", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:26Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-npm", "marker": "NPM_POSITIVE true", "phase": "expected", "utc": "2026-11-22T14:47:26Z"}
+{"log": "a-launch-npm.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:26Z"}
+{"id": "a-npm", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:26Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-native-wheel", "marker": "NATIVE_POSITIVE abc", "phase": "expected", "utc": "2026-11-22T14:47:26Z"}
+{"log": "a-launch-native-wheel.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:27Z"}
+{"id": "a-native-wheel", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:27Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-flatpak", "marker": "RECORDED_APPLICATION_OK", "phase": "expected", "utc": "2026-11-22T14:47:27Z"}
+{"log": "a-launch-flatpak.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:28Z"}
+{"id": "a-flatpak", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:28Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-appimage", "marker": "RECORDED_APPLICATION_OK", "phase": "expected", "utc": "2026-11-22T14:47:28Z"}
+{"log": "a-launch-appimage.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:29Z"}
+{"id": "a-appimage", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:29Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-oci", "marker": "EXISTING_NONENTRY_EXEC_REFUSED", "phase": "expected", "utc": "2026-11-22T14:47:29Z"}
+{"log": "a-launch-oci.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:30Z"}
+{"id": "a-oci", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:30Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-download", "marker": "development-version-1", "phase": "expected", "utc": "2026-11-22T14:47:30Z"}
+{"log": "a-launch-download.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:30Z"}
+{"id": "a-download", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:30Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-source-build", "marker": "BUILT_SOURCE_OK", "phase": "expected", "utc": "2026-11-22T14:47:30Z"}
+{"log": "a-launch-source-build.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:30Z"}
+{"id": "a-source-build", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:30Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "a-user-service-program", "marker": "development-version-1", "phase": "expected", "utc": "2026-11-22T14:47:30Z"}
+{"log": "a-launch-user-service-program.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:31Z"}
+{"id": "a-user-service-program", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:47:31Z"}
+{"expected": "recorded scheduled command appears in actual service journal", "id": "a-schedule", "phase": "expected", "utc": "2026-11-22T14:47:31Z"}
+{"log": "a-schedule.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:31Z"}
+{"expected": "exact combined declaration and all required values survive a clean reboot", "id": "a-reboot", "phase": "expected", "utc": "2026-11-22T14:47:31Z"}
+{"log": "a-stop.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:47:35Z"}
+{"log": "a-start.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:48:20Z"}
+{"log": "a-reboot-exact.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:48:20Z"}
+{"log": "a-reboot-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:48:46Z"}
+{"log": "a-snapshot.json", "phase": "result", "rc": 0, "utc": "2026-11-22T14:49:11Z"}
+{"log": "a-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:49:15Z"}
+{"declaration_files_sha256": {"machine.jsonl": "29680919714eefb4c7fab885ddaed7ca482db9973280f27169f7e186cf65b257"}, "expected": "fresh image accepts the same complete BC4 declaration; all lines verify and every channel launches", "id": "COMBINED-b", "image_sha256": "62adffae74c1d95b0fc289c418420457d75c38306e1a456c8cc494950cf8b0eb", "phase": "expected", "utc": "2026-11-22T14:49:16Z"}
+{"log": "b-new.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:49:52Z"}
+{"log": "b-deliver.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:49:52Z"}
+{"log": "b-apply.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:31Z"}
+{"log": "b-exact.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:32Z"}
+{"log": "b-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:57Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-repository", "marker": "Hello, world!", "phase": "expected", "utc": "2026-11-22T14:50:57Z"}
+{"log": "b-launch-repository.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:57Z"}
+{"id": "b-repository", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:57Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-updated-base", "marker": "GNU ed 1.21.1", "phase": "expected", "utc": "2026-11-22T14:50:57Z"}
+{"log": "b-launch-updated-base.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:57Z"}
+{"id": "b-updated-base", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:57Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-pip", "marker": "PIP_POSITIVE 2026", "phase": "expected", "utc": "2026-11-22T14:50:57Z"}
+{"log": "b-launch-pip.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:58Z"}
+{"id": "b-pip", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:58Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-npm", "marker": "NPM_POSITIVE true", "phase": "expected", "utc": "2026-11-22T14:50:58Z"}
+{"log": "b-launch-npm.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:58Z"}
+{"id": "b-npm", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:58Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-native-wheel", "marker": "NATIVE_POSITIVE abc", "phase": "expected", "utc": "2026-11-22T14:50:58Z"}
+{"log": "b-launch-native-wheel.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:58Z"}
+{"id": "b-native-wheel", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:58Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-flatpak", "marker": "RECORDED_APPLICATION_OK", "phase": "expected", "utc": "2026-11-22T14:50:58Z"}
+{"log": "b-launch-flatpak.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:50:59Z"}
+{"id": "b-flatpak", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:50:59Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-appimage", "marker": "RECORDED_APPLICATION_OK", "phase": "expected", "utc": "2026-11-22T14:50:59Z"}
+{"log": "b-launch-appimage.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:00Z"}
+{"id": "b-appimage", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:51:00Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-oci", "marker": "EXISTING_NONENTRY_EXEC_REFUSED", "phase": "expected", "utc": "2026-11-22T14:51:00Z"}
+{"log": "b-launch-oci.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:01Z"}
+{"id": "b-oci", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:51:01Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-download", "marker": "development-version-1", "phase": "expected", "utc": "2026-11-22T14:51:01Z"}
+{"log": "b-launch-download.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:02Z"}
+{"id": "b-download", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:51:02Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-source-build", "marker": "BUILT_SOURCE_OK", "phase": "expected", "utc": "2026-11-22T14:51:02Z"}
+{"log": "b-launch-source-build.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:02Z"}
+{"id": "b-source-build", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:51:02Z"}
+{"expected": "recorded ordinary launch succeeds", "id": "b-user-service-program", "marker": "development-version-1", "phase": "expected", "utc": "2026-11-22T14:51:02Z"}
+{"log": "b-launch-user-service-program.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:02Z"}
+{"id": "b-user-service-program", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:51:02Z"}
+{"expected": "recorded scheduled command appears in actual service journal", "id": "b-schedule", "phase": "expected", "utc": "2026-11-22T14:51:02Z"}
+{"log": "b-schedule.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:02Z"}
+{"expected": "exact combined declaration and all required values survive a clean reboot", "id": "b-reboot", "phase": "expected", "utc": "2026-11-22T14:51:02Z"}
+{"log": "b-stop.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:51:05Z"}
+{"log": "b-start.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:52:07Z"}
+{"log": "b-reboot-exact.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:52:07Z"}
+{"log": "b-reboot-verify.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:52:32Z"}
+{"log": "b-snapshot.json", "phase": "result", "rc": 0, "utc": "2026-11-22T14:52:57Z"}
+{"expected": "installed stand-compare reports equal for every combined declaration line", "id": "COMBINED-COMPARE", "phase": "expected", "utc": "2026-11-22T14:52:57Z"}
+{"log": "stand-compare.jsonl", "phase": "result", "rc": 0, "utc": "2026-11-22T14:52:58Z"}
+{"compared_rows": 572, "id": "COMBINED-VALUES-EQUAL", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:52:58Z"}
+{"log": "b-destroy.log", "phase": "result", "rc": 0, "utc": "2026-11-22T14:53:00Z"}
+{"id": "COMBINED-RECIPES-EQUAL", "passed": true, "phase": "assertion", "utc": "2026-11-22T14:53:00Z"}
+{"declaration_rows": 572, "independent_build_origin": "two supplied separate roots; recipe-build provenance must additionally establish separate rebuilds", "owned_vms_remaining": [], "phase": "summary", "results": {"a": {"snapshot_complete": true, "snapshot_exit": 0}, "b": {"snapshot_complete": true, "snapshot_exit": 0}}, "snapshot_sides": ["a", "b"], "suite_exit": 0, "utc": "2026-11-22T14:53:00Z"}

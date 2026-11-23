@@ -1,0 +1,1247 @@
+## coreos-3cd182c07b OWNED /boot n=1
+    d /boot  1024
+## coreos-827c5914e9 OWNED /boot/efi n=1
+    d /boot/efi  1024
+## coreos-1d70ce548d OWNED /boot/grub2 n=5
+    d /boot/grub2  1024
+    d /boot/grub2/fonts  1024
+    f /boot/grub2/fonts/unicode.pf2  2394108
+    f /boot/grub2/grub.cfg  4141
+    f /boot/grub2/grubenv  1024
+## coreos-037231a728 OWNED /etc n=1
+    d /etc  8192
+## coreos-0738d52777 OWNED /etc/DIR_COLORS n=1
+    f /etc/DIR_COLORS  5977
+## coreos-b2d3d5d989 OWNED /etc/DIR_COLORS.lightbgcolor n=1
+    f /etc/DIR_COLORS.lightbgcolor  6059
+## coreos-cc15017ada OWNED /etc/GREP_COLORS n=1
+    f /etc/GREP_COLORS  94
+## coreos-9945c88deb OWNED /etc/NetworkManager n=11
+    d /etc/NetworkManager  134
+    d /etc/NetworkManager/conf.d  6
+    d /etc/NetworkManager/dispatcher.d  111
+    d /etc/NetworkManager/dispatcher.d/no-wait.d  6
+    d /etc/NetworkManager/dispatcher.d/pre-down.d  6
+    d /etc/NetworkManager/dispatcher.d/pre-up.d  6
+    d /etc/NetworkManager/dnsmasq-shared.d  6
+    d /etc/NetworkManager/dnsmasq.d  6
+    d /etc/NetworkManager/system-connections  6
+    f /etc/NetworkManager/NetworkManager.conf  2263
+    f /etc/NetworkManager/dispatcher.d/90-console-login-helper-messages-gensnippet_if  506
+## coreos-0a38e83850 OWNED /etc/X11 n=7
+    d /etc/X11  51
+    d /etc/X11/applnk  6
+    d /etc/X11/fontpath.d  6
+    d /etc/X11/xinit  39
+    d /etc/X11/xinit/xinitrc.d  32
+    d /etc/X11/xinit/xinput.d  6
+    f /etc/X11/xinit/xinitrc.d/50-systemd-user.sh  556
+## coreos-d20d960ea0 OWNED /etc/adjtime n=1
+    f /etc/adjtime  12
+## coreos-341d2df2d9 OWNED /etc/aliases n=1
+    f /etc/aliases  1529
+## coreos-d3d071d2ba OWNED /etc/alternatives n=1
+    d /etc/alternatives  4096
+## coreos-a4c2c16ae9 OWNED /etc/audit n=7
+    d /etc/audit  100
+    d /etc/audit/plugins.d  6
+    d /etc/audit/rules.d  25
+    f /etc/audit/audit-stop.rules  127
+    f /etc/audit/audit.rules  84
+    f /etc/audit/auditd.conf  1324
+    f /etc/audit/rules.d/audit.rules  499
+## coreos-e2885ad43a OWNED /etc/authselect n=11
+    d /etc/authselect  4096
+    d /etc/authselect/custom  6
+    f /etc/authselect/authselect.conf  26
+    f /etc/authselect/dconf-db  397
+    f /etc/authselect/dconf-locks  426
+    f /etc/authselect/fingerprint-auth  304
+    f /etc/authselect/nsswitch.conf  689
+    f /etc/authselect/password-auth  1272
+    f /etc/authselect/postlogin  534
+    f /etc/authselect/smartcard-auth  304
+    f /etc/authselect/system-auth  1272
+## coreos-f536dafd04 OWNED /etc/azure-ephemeral-disk-setup.conf n=1
+    f /etc/azure-ephemeral-disk-setup.conf  955
+## coreos-47cc2958ff OWNED /etc/bash_completion.d n=3
+    d /etc/bash_completion.d  77
+    f /etc/bash_completion.d/000_bash_completion_compat.bash  17877
+    f /etc/bash_completion.d/authselect-completion.sh  6489
+## coreos-3605e4ff0b OWNED /etc/bashrc n=1
+    f /etc/bashrc  2709
+## coreos-d68859230e OWNED /etc/bindresvport.blacklist n=1
+    f /etc/bindresvport.blacklist  535
+## coreos-c0faa16997 OWNED /etc/binfmt.d n=1
+    d /etc/binfmt.d  6
+## coreos-4e5cdc2024 OWNED /etc/chrony.conf n=1
+    f /etc/chrony.conf  1602
+## coreos-8ff1651d76 OWNED /etc/cifs-utils n=2
+    d /etc/cifs-utils  26
+    l /etc/cifs-utils/idmap-plugin ->/etc/alternatives/cifs-idmap-plugin 35
+## coreos-3a7a7fb965 OWNED /etc/containerd n=2
+    d /etc/containerd  25
+    f /etc/containerd/config.toml  260
+## coreos-c2d2685965 OWNED /etc/containers n=15
+    d /etc/containers  170
+    d /etc/containers/certs.d  6
+    d /etc/containers/networks  6
+    d /etc/containers/oci  21
+    d /etc/containers/oci/hooks.d  6
+    d /etc/containers/registries.conf.d  33
+    d /etc/containers/registries.d  122
+    d /etc/containers/systemd  6
+    f /etc/containers/policy.json  256
+    f /etc/containers/registries.conf  3935
+    f /etc/containers/registries.conf.d/000-shortnames.conf  7917
+    f /etc/containers/registries.d/default.yaml  977
+    f /etc/containers/registries.d/registry.access.redhat.com.yaml  121
+    f /etc/containers/registries.d/registry.redhat.io.yaml  100
+    f /etc/containers/toolbox.conf  699
+## coreos-43399114f3 OWNED /etc/credstore n=1
+    d /etc/credstore  6
+## coreos-edd98ae366 OWNED /etc/credstore.encrypted n=1
+    d /etc/credstore.encrypted  6
+## coreos-96885714dc OWNED /etc/crypto-policies n=21
+    d /etc/crypto-policies  81
+    d /etc/crypto-policies/back-ends  4096
+    d /etc/crypto-policies/local.d  6
+    d /etc/crypto-policies/policies  21
+    d /etc/crypto-policies/policies/modules  6
+    d /etc/crypto-policies/state  21
+    f /etc/crypto-policies/config  680
+    f /etc/crypto-policies/state/current  8
+    l /etc/crypto-policies/back-ends/bind.config ->/usr/share/crypto-policies/DEFAULT/bind.txt 43
+    l /etc/crypto-policies/back-ends/gnutls.config ->/usr/share/crypto-policies/DEFAULT/gnutls.txt 45
+    l /etc/crypto-policies/back-ends/java.config ->/usr/share/crypto-policies/DEFAULT/java.txt 43
+    l /etc/crypto-policies/back-ends/krb5.config ->/usr/share/crypto-policies/DEFAULT/krb5.txt 43
+    l /etc/crypto-policies/back-ends/libreswan.config ->/usr/share/crypto-policies/DEFAULT/libreswan.txt 48
+    l /etc/crypto-policies/back-ends/libssh.config ->/usr/share/crypto-policies/DEFAULT/libssh.txt 45
+    l /etc/crypto-policies/back-ends/nss.config ->/usr/share/crypto-policies/DEFAULT/nss.txt 42
+    l /etc/crypto-policies/back-ends/openssh.config ->/usr/share/crypto-policies/DEFAULT/openssh.txt 46
+    l /etc/crypto-policies/back-ends/opensshserver.config ->/usr/share/crypto-policies/DEFAULT/opensshserver.txt 52
+    l /etc/crypto-policies/back-ends/openssl_fips.config ->/usr/share/crypto-policies/DEFAULT/openssl_fips.txt 51
+    l /etc/crypto-policies/back-ends/opensslcnf.config ->/usr/share/crypto-policies/DEFAULT/opensslcnf.txt 49
+    l /etc/crypto-policies/back-ends/rpm-sequoia.config ->/usr/share/crypto-policies/DEFAULT/rpm-sequoia.txt 50
+    l /etc/crypto-policies/back-ends/sequoia.config ->/usr/share/crypto-policies/DEFAULT/sequoia.txt 46
+## coreos-1ba66236e5 OWNED /etc/csh.cshrc n=1
+    f /etc/csh.cshrc  1401
+## coreos-e381aefda5 OWNED /etc/csh.login n=1
+    f /etc/csh.login  1569
+## coreos-ec5f04bd95 OWNED /etc/dbus-1 n=6
+    d /etc/dbus-1  78
+    d /etc/dbus-1/session.d  6
+    d /etc/dbus-1/system.d  24
+    f /etc/dbus-1/session.conf  838
+    f /etc/dbus-1/system.conf  833
+    f /etc/dbus-1/system.d/teamd.conf  409
+## coreos-4f3962b16e OWNED /etc/default n=2
+    d /etc/default  21
+    f /etc/default/useradd  123
+## coreos-fc1b65b090 OWNED /etc/depmod.d n=1
+    d /etc/depmod.d  6
+## coreos-66050d35a8 OWNED /etc/dhcp n=1
+    f /etc/dhcp/dhclient.d/chrony.sh  662
+## coreos-05942fe9ff OWNED /etc/dnf n=20
+    d /etc/dnf/dnf5-aliases.d  20
+    d /etc/dnf/dnf5-plugins  6
+    d /etc/dnf/libdnf5-plugins  6
+    d /etc/dnf/libdnf5.conf.d  6
+    d /etc/dnf/protected.d  4096
+    d /etc/dnf/repos.override.d  6
+    d /etc/dnf/suggest-reboot.d  6
+    d /etc/dnf/usr-drift-protected-paths.d  6
+    d /etc/dnf/vars  6
+    d /etc/dnf/vendors.d  6
+    f /etc/dnf/dnf.conf  63
+    f /etc/dnf/dnf5-aliases.d/README  167
+    f /etc/dnf/protected.d/grub2-efi-x64.conf  14
+    f /etc/dnf/protected.d/grub2-pc.conf  9
+    f /etc/dnf/protected.d/grub2-tools-minimal.conf  20
+    f /etc/dnf/protected.d/selinux-policy-targeted.conf  24
+    f /etc/dnf/protected.d/setup.conf  6
+    f /etc/dnf/protected.d/shim.conf  38
+    f /etc/dnf/protected.d/sudo.conf  5
+    f /etc/dnf/protected.d/systemd.conf  21
+## coreos-92ecf7d0bd OWNED /etc/dnsmasq.conf n=1
+    f /etc/dnsmasq.conf  28591
+## coreos-31a0673933 OWNED /etc/dnsmasq.d n=1
+    d /etc/dnsmasq.d  6
+## coreos-55a6f7c888 OWNED /etc/dracut.conf n=1
+    f /etc/dracut.conf  117
+## coreos-1ae98d3e98 OWNED /etc/dracut.conf.d n=1
+    d /etc/dracut.conf.d  6
+## coreos-e3737db876 OWNED /etc/environment n=1
+    f /etc/environment  0
+## coreos-cb82313c3c OWNED /etc/ethertypes n=1
+    f /etc/ethertypes  1362
+## coreos-ad7ef19755 OWNED /etc/exports n=1
+    f /etc/exports  0
+## coreos-b8df559058 OWNED /etc/fedora-release n=1
+    l /etc/fedora-release ->../usr/lib/fedora-release 25
+## coreos-fea66188ce OWNED /etc/filesystems n=1
+    f /etc/filesystems  66
+## coreos-a5fb2b8af3 OWNED /etc/fuse.conf n=1
+    f /etc/fuse.conf  38
+## coreos-e9bcb7e1df OWNED /etc/fwupd n=9
+    d /etc/fwupd  64
+    d /etc/fwupd/bios-settings.d  23
+    d /etc/fwupd/remotes.d  102
+    f /etc/fwupd/bios-settings.d/README.md  1038
+    f /etc/fwupd/fwupd.conf  51
+    f /etc/fwupd/remotes.d/lvfs-embargo.conf  586
+    f /etc/fwupd/remotes.d/lvfs-testing.conf  442
+    f /etc/fwupd/remotes.d/lvfs.conf  436
+    f /etc/fwupd/remotes.d/vendor-directory.conf  282
+## coreos-140bcfe3eb OWNED /etc/gcrypt n=1
+    d /etc/gcrypt  6
+## coreos-f615deb35e OWNED /etc/gnupg n=1
+    d /etc/gnupg  6
+## coreos-24c754202f OWNED /etc/group n=1
+    f /etc/group  156
+## coreos-b91b989f2d OWNED /etc/grub.d n=14
+    d /etc/grub.d  4096
+    f /etc/grub.d/00_header  9873
+    f /etc/grub.d/01_users  236
+    f /etc/grub.d/10_linux  20063
+    f /etc/grub.d/14_menu_show_once  518
+    f /etc/grub.d/20_linux_xen  14627
+    f /etc/grub.d/20_ppc_terminfo  2562
+    f /etc/grub.d/25_bli  869
+    f /etc/grub.d/30_os-prober  11006
+    f /etc/grub.d/30_uefi-firmware  1166
+    f /etc/grub.d/35_fwupd  747
+    f /etc/grub.d/40_custom  218
+    f /etc/grub.d/41_custom  219
+    f /etc/grub.d/README  483
+## coreos-7d0a068e05 OWNED /etc/grub2-efi.cfg n=1
+    l /etc/grub2-efi.cfg ->../boot/grub2/grub.cfg 22
+## coreos-891d8df1a9 OWNED /etc/grub2.cfg n=1
+    l /etc/grub2.cfg ->../boot/grub2/grub.cfg 22
+## coreos-046b344016 OWNED /etc/gshadow n=1
+    f /etc/gshadow  744
+## coreos-35fa9d83db OWNED /etc/gss n=3
+    d /etc/gss  20
+    d /etc/gss/mech.d  28
+    f /etc/gss/mech.d/proxymech.conf  189
+## coreos-89042bc9be OWNED /etc/gssproxy n=3
+    d /etc/gssproxy  61
+    f /etc/gssproxy/99-network-fs-clients.conf  304
+    f /etc/gssproxy/gssproxy.conf  11
+## coreos-f8fd544bf4 OWNED /etc/host.conf n=1
+    f /etc/host.conf  9
+## coreos-7b46bb78c3 OWNED /etc/hosts n=1
+    f /etc/hosts  384
+## coreos-274ab9b8e6 OWNED /etc/idmapd.conf n=1
+    f /etc/idmapd.conf  5799
+## coreos-0dcdf91fb2 OWNED /etc/inittab n=1
+    f /etc/inittab  490
+## coreos-c850bf65bf OWNED /etc/inputrc n=1
+    f /etc/inputrc  943
+## coreos-95865da962 OWNED /etc/iproute2 n=2
+    d /etc/iproute2  20
+    f /etc/iproute2/README  728
+## coreos-d33aabe318 OWNED /etc/iscsi n=2
+    d /etc/iscsi  25
+    f /etc/iscsi/iscsid.conf  15501
+## coreos-00e2673eb7 OWNED /etc/issue n=1
+    l /etc/issue ->../usr/lib/issue 16
+## coreos-a15e92627f OWNED /etc/issue.d n=1
+    d /etc/issue.d  67
+## coreos-db4f957c7f OWNED /etc/issue.net n=1
+    l /etc/issue.net ->../usr/lib/issue.net 20
+## coreos-67a4ba7362 OWNED /etc/kdump n=4
+    d /etc/kdump  52
+    d /etc/kdump/emergency.d  6
+    d /etc/kdump/post.d  6
+    d /etc/kdump/pre.d  6
+## coreos-d0cc647d6d OWNED /etc/kdump.conf n=1
+    f /etc/kdump.conf  9179
+## coreos-35ac52fc24 OWNED /etc/kernel n=2
+    d /etc/kernel  23
+    d /etc/kernel/install.d  6
+## coreos-85898eb196 OWNED /etc/keys n=10
+    d /etc/keys  17
+    d /etc/keys/ima  4096
+    f /etc/keys/ima/fedora-39-ima.der  446
+    f /etc/keys/ima/fedora-40-ima.der  445
+    f /etc/keys/ima/fedora-41-ima.der  444
+    f /etc/keys/ima/fedora-42-ima.der  444
+    f /etc/keys/ima/fedora-43-ima.der  431
+    f /etc/keys/ima/fedora-44-ima.der  445
+    f /etc/keys/ima/fedora-45-ima.der  445
+    f /etc/keys/ima/fedora-46-ima.der  445
+## coreos-21040da853 OWNED /etc/keyutils n=1
+    d /etc/keyutils  6
+## coreos-5fd4dee5c3 OWNED /etc/kmscon n=1
+    f /etc/kmscon/kmscon.conf.example  4065
+## coreos-386433d690 OWNED /etc/krb5.conf n=1
+    f /etc/krb5.conf  880
+## coreos-3368ad3458 OWNED /etc/krb5.conf.d n=3
+    d /etc/krb5.conf.d  57
+    f /etc/krb5.conf.d/enable_sssd_conf_dir  252
+    l /etc/krb5.conf.d/crypto-policies ->/etc/crypto-policies/back-ends/krb5.config 42
+## coreos-d9f9f1c4e7 OWNED /etc/ld.so.cache n=1
+    f /etc/ld.so.cache  18655
+## coreos-b085a2a65a OWNED /etc/ld.so.conf n=1
+    f /etc/ld.so.conf  28
+## coreos-8265490c79 OWNED /etc/ld.so.conf.d n=2
+    d /etc/ld.so.conf.d  32
+    f /etc/ld.so.conf.d/llvm18-x86_64.conf  22
+## coreos-7a289b195a OWNED /etc/libaudit.conf n=1
+    f /etc/libaudit.conf  191
+## coreos-a17631eb59 OWNED /etc/libblockdev n=3
+    d /etc/libblockdev  15
+    d /etc/libblockdev/3/conf.d  28
+    f /etc/libblockdev/3/conf.d/00-default.cfg  1042
+## coreos-66ca6c2372 OWNED /etc/libibverbs.d n=19
+    d /etc/libibverbs.d  4096
+    f /etc/libibverbs.d/bnxt_re.driver  15
+    f /etc/libibverbs.d/cxgb4.driver  13
+    f /etc/libibverbs.d/efa.driver  11
+    f /etc/libibverbs.d/erdma.driver  13
+    f /etc/libibverbs.d/hfi1verbs.driver  17
+    f /etc/libibverbs.d/hns.driver  11
+    f /etc/libibverbs.d/ionic.driver  13
+    f /etc/libibverbs.d/ipathverbs.driver  18
+    f /etc/libibverbs.d/irdma.driver  13
+    f /etc/libibverbs.d/mana.driver  12
+    f /etc/libibverbs.d/mlx4.driver  12
+    f /etc/libibverbs.d/mlx5.driver  12
+    f /etc/libibverbs.d/mthca.driver  13
+    f /etc/libibverbs.d/ocrdma.driver  14
+    f /etc/libibverbs.d/qedr.driver  12
+    f /etc/libibverbs.d/rxe.driver  11
+    f /etc/libibverbs.d/siw.driver  11
+    f /etc/libibverbs.d/vmw_pvrdma.driver  18
+## coreos-ee7f18d46b OWNED /etc/libnl n=3
+    d /etc/libnl  35
+    f /etc/libnl/classid  1130
+    f /etc/libnl/pktloc  1532
+## coreos-f5454e1609 OWNED /etc/libreport n=6
+    d /etc/libreport  70
+    d /etc/libreport/events  6
+    d /etc/libreport/events.d  30
+    d /etc/libreport/plugins  6
+    d /etc/libreport/workflows.d  6
+    f /etc/libreport/events.d/mdadm_event.conf  157
+## coreos-eab5faaa03 OWNED /etc/locale.conf n=1
+    f /etc/locale.conf  81
+## coreos-3a013e0ac4 OWNED /etc/login.defs n=1
+    f /etc/login.defs  8888
+## coreos-0cf51bb875 OWNED /etc/logrotate.conf n=1
+    f /etc/logrotate.conf  493
+## coreos-1af8073cda OWNED /etc/logrotate.d n=9
+    d /etc/logrotate.d  101
+    d /etc/logrotate.d/numad  29
+    f /etc/logrotate.d/btmp  130
+    f /etc/logrotate.d/chrony  160
+    f /etc/logrotate.d/iscsiuiolog  172
+    f /etc/logrotate.d/numad/numad.logrotate  106
+    f /etc/logrotate.d/samba  155
+    f /etc/logrotate.d/sssd  307
+    f /etc/logrotate.d/wtmp  145
+## coreos-a45be4a17a OWNED /etc/lvm n=16
+    d /etc/lvm  115
+    d /etc/lvm/archive  6
+    d /etc/lvm/backup  6
+    d /etc/lvm/cache  6
+    d /etc/lvm/devices  28
+    d /etc/lvm/profile  4096
+    f /etc/lvm/lvm.conf  116144
+    f /etc/lvm/lvmlocal.conf  3014
+    f /etc/lvm/profile/cache-mq.profile  531
+    f /etc/lvm/profile/cache-smq.profile  339
+    f /etc/lvm/profile/command_profile_template.profile  3020
+    f /etc/lvm/profile/lvmdbusd.profile  2309
+    f /etc/lvm/profile/metadata_profile_template.profile  828
+    f /etc/lvm/profile/thin-generic.profile  76
+    f /etc/lvm/profile/thin-performance.profile  80
+    f /etc/lvm/profile/vdo-small.profile  483
+## coreos-29068be214 OWNED /etc/machine-id n=1
+    f /etc/machine-id  33
+## coreos-3058cb94e3 OWNED /etc/magic n=1
+    f /etc/magic  110
+## coreos-bf150b6595 OWNED /etc/makedumpfile.conf.sample n=1
+    f /etc/makedumpfile.conf.sample  5122
+## coreos-446f7db4a6 OWNED /etc/mke2fs.conf n=1
+    f /etc/mke2fs.conf  813
+## coreos-b69b9d321c OWNED /etc/modprobe.d n=1
+    d /etc/modprobe.d  36
+## coreos-2c02b3cc58 OWNED /etc/modules-load.d n=1
+    d /etc/modules-load.d  6
+## coreos-aa1f3c32d8 OWNED /etc/motd n=1
+    f /etc/motd  0
+## coreos-cfd23d970d OWNED /etc/motd.d n=1
+    d /etc/motd.d  6
+## coreos-ce53d892ee OWNED /etc/mtab n=1
+    l /etc/mtab ->../proc/self/mounts 19
+## coreos-c9c8354f05 OWNED /etc/multipath n=1
+    d /etc/multipath  6
+## coreos-49cf62bf07 OWNED /etc/nanorc n=1
+    f /etc/nanorc  12192
+## coreos-0d7dcf81c4 OWNED /etc/netconfig n=1
+    f /etc/netconfig  767
+## coreos-7939f4b893 OWNED /etc/networks n=1
+    f /etc/networks  58
+## coreos-aeff2dbc71 OWNED /etc/nfs.conf n=1
+    f /etc/nfs.conf  1540
+## coreos-3d9b37c9c6 OWNED /etc/nfsmount.conf n=1
+    f /etc/nfsmount.conf  3598
+## coreos-20d5a4dc7b OWNED /etc/nftables n=6
+    d /etc/nftables  66
+    d /etc/nftables/osf  19
+    f /etc/nftables/main.nft  1704
+    f /etc/nftables/nat.nft  1090
+    f /etc/nftables/osf/pf.os  28884
+    f /etc/nftables/router.nft  407
+## coreos-34af1b92eb OWNED /etc/nmstate n=2
+    d /etc/nmstate  20
+    f /etc/nmstate/README  95
+## coreos-d73e4b5767 OWNED /etc/nsswitch.conf n=1
+    l /etc/nsswitch.conf ->/etc/authselect/nsswitch.conf 29
+## coreos-ae5247403a OWNED /etc/nvme n=2
+    d /etc/nvme  28
+    f /etc/nvme/discovery.conf  183
+## coreos-1ef6a866b0 OWNED /etc/openldap n=3
+    d /etc/openldap  36
+    d /etc/openldap/certs  6
+    f /etc/openldap/ldap.conf  900
+## coreos-1129028ddd OWNED /etc/opt n=1
+    d /etc/opt  6
+## coreos-c215572d44 OWNED /etc/os-release n=1
+    l /etc/os-release ->../usr/lib/os-release 21
+## coreos-537aab0ebb OWNED /etc/ostree n=2
+    d /etc/ostree  23
+    d /etc/ostree/remotes.d  6
+## coreos-cbdd239882 OWNED /etc/pam.d n=22
+    d /etc/pam.d  4096
+    f /etc/pam.d/chfn  192
+    f /etc/pam.d/chsh  192
+    f /etc/pam.d/config-util  232
+    f /etc/pam.d/login  676
+    f /etc/pam.d/other  154
+    f /etc/pam.d/passwd  168
+    f /etc/pam.d/remote  640
+    f /etc/pam.d/runuser  143
+    f /etc/pam.d/runuser-l  138
+    f /etc/pam.d/sshd  727
+    f /etc/pam.d/sssd-shadowutils  214
+    f /etc/pam.d/su  566
+    f /etc/pam.d/su-l  137
+    f /etc/pam.d/sudo  238
+    f /etc/pam.d/sudo-i  178
+    f /etc/pam.d/vlock  84
+    l /etc/pam.d/fingerprint-auth ->/etc/authselect/fingerprint-auth 32
+    l /etc/pam.d/password-auth ->/etc/authselect/password-auth 29
+    l /etc/pam.d/postlogin ->/etc/authselect/postlogin 25
+    l /etc/pam.d/smartcard-auth ->/etc/authselect/smartcard-auth 30
+    l /etc/pam.d/system-auth ->/etc/authselect/system-auth 27
+## coreos-f82abd2154 OWNED /etc/passwd n=1
+    f /etc/passwd  140
+## coreos-f196040609 OWNED /etc/pkcs11 n=2
+    d /etc/pkcs11  21
+    d /etc/pkcs11/modules  6
+## coreos-5b0c287125 OWNED /etc/pkgconfig n=2
+    d /etc/pkgconfig  27
+    d /etc/pkgconfig/personality.d  6
+## coreos-17a7caf72b OWNED /etc/pki n=938
+    d /etc/pki  108
+    d /etc/pki/ca-trust  73
+    d /etc/pki/ca-trust/extracted  70
+    d /etc/pki/ca-trust/extracted/java  35
+    d /etc/pki/ca-trust/extracted/openssl  47
+    d /etc/pki/ca-trust/extracted/pem  123
+    d /etc/pki/ca-trust/extracted/pem/directory-hash  12288
+    d /etc/pki/ca-trust/source  80
+    d /etc/pki/ca-trust/source/anchors  6
+    d /etc/pki/ca-trust/source/blocklist  6
+    d /etc/pki/fwupd  51
+    d /etc/pki/fwupd-metadata  51
+    d /etc/pki/java  21
+    d /etc/pki/nssdb  55
+    d /etc/pki/rpm-gpg  16384
+    d /etc/pki/tls  127
+    d /etc/pki/tls/certs  8192
+    d /etc/pki/tls/misc  6
+    d /etc/pki/tls/openssl.d  6
+    d /etc/pki/tls/private  6
+    f /etc/pki/ca-trust/README  166
+    f /etc/pki/ca-trust/ca-legacy.conf  980
+    f /etc/pki/ca-trust/extracted/README  560
+    f /etc/pki/ca-trust/extracted/edk2/README  566
+    f /etc/pki/ca-trust/extracted/edk2/cacerts.bin  132295
+    f /etc/pki/ca-trust/extracted/java/README  726
+    f /etc/pki/ca-trust/extracted/java/cacerts  132787
+    f /etc/pki/ca-trust/extracted/openssl/README  787
+    f /etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt  692034
+    f /etc/pki/ca-trust/extracted/pem/README  898
+    ... 908 more
+## coreos-a2af3d5e5e OWNED /etc/pm n=4
+    d /etc/pm  52
+    d /etc/pm/config.d  6
+    d /etc/pm/power.d  6
+    d /etc/pm/sleep.d  6
+## coreos-ad79f60794 OWNED /etc/polkit-1 n=2
+    d /etc/polkit-1  21
+    d /etc/polkit-1/rules.d  6
+## coreos-472666b75f OWNED /etc/popt.d n=1
+    d /etc/popt.d  6
+## coreos-a1d62e6d33 OWNED /etc/printcap n=1
+    f /etc/printcap  233
+## coreos-249aac2616 OWNED /etc/profile n=1
+    f /etc/profile  2058
+## coreos-2f70798fb0 OWNED /etc/profile.d n=29
+    d /etc/profile.d  4096
+    f /etc/profile.d/bash-color-prompt.sh  6037
+    f /etc/profile.d/bash_completion.sh  747
+    f /etc/profile.d/colorgrep.csh  200
+    f /etc/profile.d/colorgrep.sh  205
+    f /etc/profile.d/colorls.csh  1586
+    f /etc/profile.d/colorls.sh  1431
+    f /etc/profile.d/colorxzgrep.csh  162
+    f /etc/profile.d/colorxzgrep.sh  205
+    f /etc/profile.d/colorzgrep.csh  216
+    f /etc/profile.d/colorzgrep.sh  220
+    f /etc/profile.d/csh.local  83
+    f /etc/profile.d/gawk.csh  1107
+    f /etc/profile.d/gawk.sh  757
+    f /etc/profile.d/gnupg2.csh  52
+    f /etc/profile.d/gnupg2.sh  52
+    f /etc/profile.d/lang.csh  3424
+    f /etc/profile.d/lang.sh  3187
+    f /etc/profile.d/less.csh  500
+    f /etc/profile.d/less.sh  253
+    f /etc/profile.d/nano-default-editor.csh  122
+    f /etc/profile.d/nano-default-editor.sh  120
+    f /etc/profile.d/sh.local  81
+    f /etc/profile.d/toolbox.sh  3675
+    f /etc/profile.d/which2.csh  120
+    f /etc/profile.d/which2.sh  465
+    l /etc/profile.d/70-systemd-shell-extra.sh ->../../usr/lib/systemd/profile.d/70-systemd-shell-extra.sh 57
+    l /etc/profile.d/80-systemd-osc-context.sh ->../../usr/lib/systemd/profile.d/80-systemd-osc-context.sh 57
+    l /etc/profile.d/console-login-helper-messages-profile.sh ->../../usr/share/console-login-helper-messages/profile.sh 56
+## coreos-e57d809473 OWNED /etc/protocols n=1
+    f /etc/protocols  6963
+## coreos-5d89e4193b OWNED /etc/rc.d n=3
+    d /etc/rc.d  20
+    d /etc/rc.d/init.d  20
+    f /etc/rc.d/init.d/README  1131
+## coreos-a8a73f1cb2 OWNED /etc/rdma n=2
+    d /etc/rdma  21
+    d /etc/rdma/modules  6
+## coreos-30861d1070 OWNED /etc/redhat-release n=1
+    l /etc/redhat-release ->fedora-release 14
+## coreos-423a4655a6 OWNED /etc/request-key.conf n=1
+    f /etc/request-key.conf  1787
+## coreos-d159c2f1cf OWNED /etc/request-key.d n=4
+    d /etc/request-key.d  77
+    f /etc/request-key.d/cifs.idmap.conf  49
+    f /etc/request-key.d/cifs.spnego.conf  51
+    f /etc/request-key.d/id_resolver.conf  354
+## coreos-a55bc5f4fa OWNED /etc/rpc n=1
+    f /etc/rpc  1634
+## coreos-f9ad571e51 OWNED /etc/rpm n=1
+    d /etc/rpm  6
+## coreos-21ecef7889 OWNED /etc/rpm-ostreed.conf n=1
+    f /etc/rpm-ostreed.conf  480
+## coreos-004eebee72 OWNED /etc/rsyncd.conf n=1
+    f /etc/rsyncd.conf  458
+## coreos-29ef947721 OWNED /etc/rwtab.d n=4
+    d /etc/rwtab.d  51
+    f /etc/rwtab.d/gssproxy  23
+    f /etc/rwtab.d/logrotate  24
+    f /etc/rwtab.d/sssd  18
+## coreos-38d62d7f56 OWNED /etc/samba n=4
+    d /etc/samba  61
+    f /etc/samba/lmhosts  20
+    f /etc/samba/smb.conf  969
+    f /etc/samba/smb.conf.example  11590
+## coreos-dc91146359 OWNED /etc/sasl2 n=1
+    d /etc/sasl2  6
+## coreos-aaa1adf124 OWNED /etc/security n=17
+    d /etc/security  4096
+    d /etc/security/limits.d  6
+    d /etc/security/namespace.d  6
+    d /etc/security/pwquality.conf.d  34
+    f /etc/security/access.conf  4671
+    f /etc/security/chroot.conf  82
+    f /etc/security/faillock.conf  2207
+    f /etc/security/group.conf  3635
+    f /etc/security/limits.conf  2473
+    f /etc/security/namespace.conf  1637
+    f /etc/security/namespace.init  1975
+    f /etc/security/opasswd  0
+    f /etc/security/pam_env.conf  2971
+    f /etc/security/pwhistory.conf  512
+    f /etc/security/pwquality.conf  2674
+    f /etc/security/sepermit.conf  418
+    f /etc/security/time.conf  2179
+## coreos-c9f542a45c OWNED /etc/selinux n=47
+    d /etc/selinux  70
+    d /etc/selinux/targeted  4096
+    d /etc/selinux/targeted/contexts  4096
+    d /etc/selinux/targeted/contexts/files  4096
+    d /etc/selinux/targeted/contexts/users  133
+    d /etc/selinux/targeted/logins  6
+    d /etc/selinux/targeted/policy  23
+    f /etc/selinux/config  1187
+    f /etc/selinux/semanage.conf  2693
+    f /etc/selinux/targeted/.policy.sha512  129
+    f /etc/selinux/targeted/booleans.subs_dist  2366
+    f /etc/selinux/targeted/contexts/customizable_types  262
+    f /etc/selinux/targeted/contexts/dbus_contexts  195
+    f /etc/selinux/targeted/contexts/default_contexts  1224
+    f /etc/selinux/targeted/contexts/default_type  114
+    f /etc/selinux/targeted/contexts/failsafe_context  29
+    f /etc/selinux/targeted/contexts/files/file_contexts  417941
+    f /etc/selinux/targeted/contexts/files/file_contexts.bin  439640
+    f /etc/selinux/targeted/contexts/files/file_contexts.homedirs  17476
+    f /etc/selinux/targeted/contexts/files/file_contexts.homedirs.bin  16157
+    f /etc/selinux/targeted/contexts/files/file_contexts.local  0
+    f /etc/selinux/targeted/contexts/files/file_contexts.subs  0
+    f /etc/selinux/targeted/contexts/files/file_contexts.subs_dist  1530
+    f /etc/selinux/targeted/contexts/files/media  139
+    f /etc/selinux/targeted/contexts/initrc_context  30
+    f /etc/selinux/targeted/contexts/lxc_contexts  372
+    f /etc/selinux/targeted/contexts/openssh_contexts  27
+    f /etc/selinux/targeted/contexts/removable_context  33
+    f /etc/selinux/targeted/contexts/securetty_types  35
+    f /etc/selinux/targeted/contexts/sepgsql_contexts  1170
+    ... 17 more
+## coreos-57468545ac OWNED /etc/services n=1
+    f /etc/services  701707
+## coreos-93a2f03edf OWNED /etc/sestatus.conf n=1
+    f /etc/sestatus.conf  216
+## coreos-78b97bd234 OWNED /etc/shadow n=1
+    f /etc/shadow  933
+## coreos-811fe564c9 OWNED /etc/shells n=1
+    f /etc/shells  44
+## coreos-4c24122c97 OWNED /etc/skel n=4
+    d /etc/skel  62
+    f /etc/skel/.bash_logout  18
+    f /etc/skel/.bash_profile  144
+    f /etc/skel/.bashrc  522
+## coreos-c366c1919d OWNED /etc/ssh n=12
+    d /etc/ssh  4096
+    d /etc/ssh/ssh_config.d  61
+    d /etc/ssh/sshd_config.d  190
+    f /etc/ssh/moduli  581349
+    f /etc/ssh/ssh_config  1885
+    f /etc/ssh/ssh_config.d/50-redhat.conf  635
+    f /etc/ssh/sshd_config  3834
+    f /etc/ssh/sshd_config.d/40-redhat-crypto-policies.conf  412
+    f /etc/ssh/sshd_config.d/50-redhat.conf  360
+    f /etc/ssh/sshd_config.d/90-afterburn-authorized-keys-file.conf  65
+    f /etc/ssh/sshd_config.d/91-ignition-authorized-keys-file.conf  65
+    l /etc/ssh/ssh_config.d/20-systemd-ssh-proxy.conf ->../../../usr/lib/systemd/ssh_config.d/20-systemd-ssh-proxy.conf 63
+## coreos-5f604fda76 OWNED /etc/ssl n=9
+    d /etc/ssl  91
+    d /etc/ssl/certs  81
+    f /etc/ssl/README  1167
+    l /etc/ssl/cert.pem ->/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem 49
+    l /etc/ssl/certs/ca-bundle.crt ->/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem 49
+    l /etc/ssl/certs/ca-bundle.trust.crt ->/etc/pki/ca-trust/extracted/openssl/ca-bundle.trust.crt 55
+    l /etc/ssl/certs/ca-certificates.crt ->/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem 49
+    l /etc/ssl/ct_log_list.cnf ->/etc/pki/tls/ct_log_list.cnf 28
+    l /etc/ssl/openssl.cnf ->/etc/pki/tls/openssl.cnf 24
+## coreos-bd22a77d69 OWNED /etc/sssd n=3
+    d /etc/sssd  31
+    d /etc/sssd/conf.d  6
+    d /etc/sssd/pki  6
+## coreos-aa5384e0cc OWNED /etc/statetab.d n=1
+    d /etc/statetab.d  6
+## coreos-7dab5dfc03 OWNED /etc/subgid n=1
+    f /etc/subgid  38
+## coreos-217e90efd9 OWNED /etc/subuid n=1
+    f /etc/subuid  38
+## coreos-e64b8dac95 OWNED /etc/sudo.conf n=1
+    f /etc/sudo.conf  4333
+## coreos-75a4626ad9 OWNED /etc/sudoers n=1
+    f /etc/sudoers  4375
+## coreos-5cec13c210 OWNED /etc/sudoers.d n=1
+    d /etc/sudoers.d  48
+## coreos-cc6acfb8b2 OWNED /etc/swid n=3
+    d /etc/swid  24
+    d /etc/swid/swidtags.d  31
+    l /etc/swid/swidtags.d/fedoraproject.org ->../../../usr/lib/swidtag/fedoraproject.org 42
+## coreos-0fea41ffe5 OWNED /etc/sysconfig n=16
+    d /etc/sysconfig  4096
+    f /etc/sysconfig/arptables  25
+    f /etc/sysconfig/chronyd  50
+    f /etc/sysconfig/ebtables-config  417
+    f /etc/sysconfig/ip6tables  635
+    f /etc/sysconfig/ip6tables-config  2134
+    f /etc/sysconfig/iptables  550
+    f /etc/sysconfig/iptables-config  2116
+    f /etc/sysconfig/kdump  2887
+    f /etc/sysconfig/nftables.conf  364
+    f /etc/sysconfig/raid-check  2915
+    f /etc/sysconfig/rpcbind  76
+    f /etc/sysconfig/samba  428
+    f /etc/sysconfig/sshd  395
+    f /etc/sysconfig/stalld  1707
+    l /etc/sysconfig/selinux ->../selinux/config 17
+## coreos-b314911515 OWNED /etc/sysctl.conf n=1
+    f /etc/sysctl.conf  449
+## coreos-2b4fe000fc OWNED /etc/sysctl.d n=2
+    d /etc/sysctl.d  28
+    l /etc/sysctl.d/99-sysctl.conf ->../sysctl.conf 14
+## coreos-fc9bc6f0d4 OWNED /etc/system-release n=1
+    l /etc/system-release ->fedora-release 14
+## coreos-8d67bd1d31 OWNED /etc/system-release-cpe n=1
+    l /etc/system-release-cpe ->../usr/lib/system-release-cpe 29
+## coreos-4d2a7c7537 OWNED /etc/systemd n=15
+    d /etc/systemd  68
+    d /etc/systemd/network  6
+    d /etc/systemd/system  4096
+    d /etc/systemd/system/basic.target.wants  123
+    d /etc/systemd/system/default.target.wants  48
+    d /etc/systemd/system/getty.target.wants  32
+    d /etc/systemd/system/graphical.target.wants  29
+    d /etc/systemd/system/local-fs.target.wants  36
+    d /etc/systemd/system/multi-user.target.wants  4096
+    d /etc/systemd/system/network-online.target.wants  48
+    d /etc/systemd/system/remote-fs.target.wants  31
+    d /etc/systemd/system/sockets.target.wants  4096
+    d /etc/systemd/system/sysinit.target.wants  4096
+    d /etc/systemd/system/timers.target.wants  132
+    d /etc/systemd/user  107
+## coreos-5eec7351b9 OWNED /etc/terminfo n=1
+    d /etc/terminfo  6
+## coreos-fd0e514451 OWNED /etc/tmpfiles.d n=1
+    d /etc/tmpfiles.d  6
+## coreos-0c7a1a4d1e OWNED /etc/tpm2-tss n=7
+    d /etc/tpm2-tss  51
+    d /etc/tpm2-tss/fapi-profiles  118
+    f /etc/tpm2-tss/fapi-config.json  368
+    f /etc/tpm2-tss/fapi-profiles/P_ECCP256SHA256.json  1136
+    f /etc/tpm2-tss/fapi-profiles/P_ECCP384SHA384.json  3740
+    f /etc/tpm2-tss/fapi-profiles/P_RSA2048SHA256.json  1410
+    f /etc/tpm2-tss/fapi-profiles/P_RSA3072SHA384.json  3890
+## coreos-2c9c2e6906 OWNED /etc/trusted-key.key n=1
+    f /etc/trusted-key.key  750
+## coreos-ec7d8d80c0 OWNED /etc/udev n=4
+    d /etc/udev  51
+    d /etc/udev/hwdb.d  6
+    d /etc/udev/rules.d  6
+    f /etc/udev/hwdb.bin  13843333
+## coreos-3da21e28f6 OWNED /etc/udisks2 n=4
+    d /etc/udisks2  82
+    d /etc/udisks2/modules.conf.d  6
+    f /etc/udisks2/mount_options.conf.example  3851
+    f /etc/udisks2/udisks2.conf  251
+## coreos-7cce69f8a3 OWNED /etc/userdb n=1
+    d /etc/userdb  6
+## coreos-98660c121d OWNED /etc/vconsole.conf n=1
+    f /etc/vconsole.conf  79
+## coreos-65ebfc7c98 OWNED /etc/virc n=1
+    f /etc/virc  1183
+## coreos-c6b5b55731 OWNED /etc/wireguard n=1
+    d /etc/wireguard  6
+## coreos-f348a796b5 OWNED /etc/xattr.conf n=1
+    f /etc/xattr.conf  817
+## coreos-3eb238bafa OWNED /etc/xdg n=4
+    d /etc/xdg  38
+    d /etc/xdg/autostart  6
+    d /etc/xdg/systemd  18
+    l /etc/xdg/systemd/user ->../../systemd/user 18
+## coreos-b656843499 OWNED /etc/yum.repos.d n=6
+    d /etc/yum.repos.d  156
+    f /etc/yum.repos.d/fedora-cisco-openh264.repo  1102
+    f /etc/yum.repos.d/fedora-updates-archive.repo  986
+    f /etc/yum.repos.d/fedora-updates-testing.repo  1344
+    f /etc/yum.repos.d/fedora-updates.repo  1286
+    f /etc/yum.repos.d/fedora.repo  1239
+## coreos-318403237a OWNED /etc/zincati n=2
+    d /etc/zincati  22
+    d /etc/zincati/config.d  6
+## coreos-edb01554a2 OWNED /var n=1
+    d /var  4096
+## coreos-934217a086 OWNED /var/adm n=1
+    d /var/adm  6
+## coreos-af7144ef2a OWNED /var/cache n=1
+    d /var/cache  112
+## coreos-579ec2be7b OWNED /var/cache/bpf n=1
+    d /var/cache/bpf  6
+## coreos-12df645f55 OWNED /var/cache/fwupd n=1
+    d /var/cache/fwupd  6
+## coreos-e62a1c4d75 OWNED /var/cache/krb5rcache n=1
+    d /var/cache/krb5rcache  6
+## coreos-e2cc7e7fb6 OWNED /var/cache/ldconfig n=2
+    d /var/cache/ldconfig  23
+    f /var/cache/ldconfig/aux-cache  24580
+## coreos-8ebbfd329a OWNED /var/cache/private n=1
+    d /var/cache/private  6
+## coreos-5aaa5eace3 OWNED /var/crash n=1
+    d /var/crash  6
+## coreos-65dd3c0075 OWNED /var/db n=3
+    d /var/db  18
+    d /var/db/sudo  22
+    d /var/db/sudo/lectured  6
+## coreos-91dfbbb7d3 OWNED /var/empty n=1
+    d /var/empty  6
+## coreos-d8d2a28551 OWNED /var/ftp n=1
+    d /var/ftp  6
+## coreos-70f321cbeb OWNED /var/games n=1
+    d /var/games  6
+## coreos-77c753a548 OWNED /var/home n=0
+## coreos-0b9413ef1c OWNED /var/kerberos n=3
+    d /var/kerberos  18
+    d /var/kerberos/krb5  18
+    d /var/kerberos/krb5/user  6
+## coreos-1a8eeeaeac OWNED /var/lib n=1
+    d /var/lib  4096
+## coreos-845955a7d2 OWNED /var/lib/.ssh-host-keys-migration n=1
+    f /var/lib/.ssh-host-keys-migration  0
+## coreos-5699b7ac46 OWNED /var/lib/NetworkManager n=1
+    d /var/lib/NetworkManager  187
+## coreos-96abca74aa OWNED /var/lib/authselect n=1
+    d /var/lib/authselect  22
+## coreos-e48d7a5dbe OWNED /var/lib/chrony n=2
+    d /var/lib/chrony  19
+    f /var/lib/chrony/drift  42
+## coreos-c398535771 OWNED /var/lib/containers n=1
+    d /var/lib/containers/sigstore  6
+## coreos-a51d3ac08b OWNED /var/lib/dnf n=2
+    d /var/lib/dnf  30
+    f /var/lib/dnf/system-repo.lock  0
+## coreos-1e4e3b7c68 OWNED /var/lib/dnsmasq n=1
+    d /var/lib/dnsmasq  6
+## coreos-a1e8f60b67 OWNED /var/lib/fwupd n=1
+    d /var/lib/fwupd  6
+## coreos-d4e87bb2e7 OWNED /var/lib/games n=1
+    d /var/lib/games  6
+## coreos-94db10583a OWNED /var/lib/gssproxy n=4
+    d /var/lib/gssproxy  55
+    d /var/lib/gssproxy/clients  6
+    d /var/lib/gssproxy/rcache  6
+    l /var/lib/gssproxy/default.sock ->/run/gssproxy.default.sock 26
+## coreos-2b3c016dd0 OWNED /var/lib/initramfs n=1
+    d /var/lib/initramfs  6
+## coreos-48ff1110c3 OWNED /var/lib/iscsi n=7
+    d /var/lib/iscsi  90
+    d /var/lib/iscsi/ifaces  6
+    d /var/lib/iscsi/isns  6
+    d /var/lib/iscsi/nodes  6
+    d /var/lib/iscsi/send_targets  6
+    d /var/lib/iscsi/slp  6
+    d /var/lib/iscsi/static  6
+## coreos-cdcec476d5 OWNED /var/lib/kdump n=1
+    d /var/lib/kdump  6
+## coreos-50f96c23a0 OWNED /var/lib/lastlog n=1
+    d /var/lib/lastlog  25
+## coreos-4ecc4a774a OWNED /var/lib/logrotate n=1
+    d /var/lib/logrotate  6
+## coreos-462d7a30f0 OWNED /var/lib/lvm n=1
+    d /var/lib/lvm  6
+## coreos-57b5e676aa OWNED /var/lib/machines n=1
+    d /var/lib/machines  6
+## coreos-fc7d10dae3 OWNED /var/lib/misc n=1
+    d /var/lib/misc  6
+## coreos-678e504858 OWNED /var/lib/nfs n=4
+    d /var/lib/nfs/rpc_pipefs  0
+    d /var/lib/nfs/statd  30
+    d /var/lib/nfs/statd/sm  6
+    d /var/lib/nfs/statd/sm.bak  6
+## coreos-da27f29e51 OWNED /var/lib/os-prober n=1
+    d /var/lib/os-prober  6
+## coreos-b29c283641 OWNED /var/lib/portables n=1
+    d /var/lib/portables  6
+## coreos-4f19681e9b OWNED /var/lib/private n=1
+    d /var/lib/private  6
+## coreos-45c38cb9ef OWNED /var/lib/rpm-state n=1
+    d /var/lib/rpm-state  6
+## coreos-c9fe1e503f OWNED /var/lib/samba n=5
+    d /var/lib/samba  46
+    d /var/lib/samba/certs  6
+    d /var/lib/samba/lock  6
+    d /var/lib/samba/private  19
+    d /var/lib/samba/private/certs  6
+## coreos-5b60ba238a OWNED /var/lib/selinux n=1
+    l /var/lib/selinux ->../../etc/selinux 17
+## coreos-dfdc89cacb OWNED /var/lib/sss n=11
+    d /var/lib/sss  120
+    d /var/lib/sss/db  6
+    d /var/lib/sss/deskprofile  6
+    d /var/lib/sss/gpo_cache  6
+    d /var/lib/sss/keytabs  6
+    d /var/lib/sss/mc  6
+    d /var/lib/sss/pipes  21
+    d /var/lib/sss/pipes/private  6
+    d /var/lib/sss/pubconf  28
+    d /var/lib/sss/pubconf/krb5.include.d  6
+    d /var/lib/sss/secrets  6
+## coreos-89229e49e6 OWNED /var/lib/systemd n=6
+    d /var/lib/systemd  133
+    d /var/lib/systemd/catalog  22
+    d /var/lib/systemd/coredump  6
+    d /var/lib/systemd/linger  20
+    f /var/lib/systemd/catalog/database  295762
+    f /var/lib/systemd/random-seed  32
+## coreos-7c2773719e OWNED /var/lib/udisks2 n=1
+    d /var/lib/udisks2  6
+## coreos-56e09b3522 OWNED /var/local n=1
+    d /var/local  6
+## coreos-168923b779 OWNED /var/lock n=1
+    l /var/lock ->../run/lock 11
+## coreos-47c62f375a OWNED /var/log n=1
+    d /var/log  141
+## coreos-034fae831a OWNED /var/log/audit n=1
+    d /var/log/audit  23
+## coreos-3be54c113f OWNED /var/log/btmp n=1
+    f /var/log/btmp  0
+## coreos-7dfb76f18f OWNED /var/log/chrony n=1
+    d /var/log/chrony  6
+## coreos-ee8fbfac84 OWNED /var/log/journal n=1
+    d /var/log/journal  46
+## coreos-92b12ef741 OWNED /var/log/lastlog n=1
+    f /var/log/lastlog  0
+## coreos-469b1939a5 OWNED /var/log/private n=1
+    d /var/log/private  6
+## coreos-ac383d1b07 OWNED /var/log/samba n=2
+    d /var/log/samba  17
+    d /var/log/samba/old  6
+## coreos-426ffd6e4f OWNED /var/log/sssd n=1
+    d /var/log/sssd  6
+## coreos-05415f05f2 OWNED /var/log/wtmp n=1
+    f /var/log/wtmp  4992
+## coreos-4345e85304 OWNED /var/mail n=1
+    l /var/mail ->spool/mail 10
+## coreos-7e90d9287f OWNED /var/nis n=1
+    d /var/nis  6
+## coreos-b131b5db13 OWNED /var/opt n=1
+    d /var/opt  6
+## coreos-f75a178565 OWNED /var/preserve n=1
+    d /var/preserve  6
+## coreos-45ac105402 OWNED /var/roothome n=0
+## coreos-7b2c351789 OWNED /var/run n=1
+    l /var/run ->../run 6
+## coreos-67c1c371f6 OWNED /var/spool n=1
+    d /var/spool  29
+## coreos-0073d6a1ac OWNED /var/spool/lpd n=1
+    d /var/spool/lpd  6
+## coreos-5b5aa99e91 OWNED /var/spool/mail n=1
+    d /var/spool/mail  6
+## coreos-3c89a39182 OWNED /var/srv n=0
+## coreos-0e21348a3c OWNED /var/tmp n=1
+    d /var/tmp  4096
+## coreos-ab8f504399 OWNED /var/usrlocal n=0
+## coreos-338b6b9b2a OWNED /var/yp n=1
+    d /var/yp  6
+## coreos-cc3f68da69 STORED /boot/.root_uuid n=1
+    f /boot/.root_uuid  37
+## coreos-3620611c7e STORED /boot/boot n=1
+    l /boot/boot ->. 1
+## coreos-e51a3be8af STORED /boot/bootupd-state.json n=1
+    f /boot/bootupd-state.json  2231
+## coreos-7b9cb61b42 STORED /boot/coreos n=2
+    d /boot/coreos  1024
+    f /boot/coreos/platforms.json  2757
+## coreos-23a9706caf STORED /boot/grub2 n=338
+    d /boot/grub2/i386-pc  9216
+    d /boot/grub2/locale  1024
+    f /boot/grub2/bootuuid.cfg  53
+    f /boot/grub2/console.cfg  189
+    f /boot/grub2/i386-pc/acpi.mod  13876
+    f /boot/grub2/i386-pc/adler32.mod  1416
+    f /boot/grub2/i386-pc/affs.mod  7388
+    f /boot/grub2/i386-pc/afs.mod  9168
+    f /boot/grub2/i386-pc/afsplitter.mod  1764
+    f /boot/grub2/i386-pc/ahci.mod  22996
+    f /boot/grub2/i386-pc/all_video.mod  492
+    f /boot/grub2/i386-pc/aout.mod  1052
+    f /boot/grub2/i386-pc/appended_signature_test.mod  14852
+    f /boot/grub2/i386-pc/appendedsig.mod  45548
+    f /boot/grub2/i386-pc/archelp.mod  4064
+    f /boot/grub2/i386-pc/asn1.mod  38292
+    f /boot/grub2/i386-pc/at_keyboard.mod  9492
+    f /boot/grub2/i386-pc/ata.mod  7976
+    f /boot/grub2/i386-pc/backtrace.mod  1388
+    f /boot/grub2/i386-pc/bfs.mod  10100
+    f /boot/grub2/i386-pc/biosdisk.mod  6740
+    f /boot/grub2/i386-pc/bitmap.mod  3160
+    f /boot/grub2/i386-pc/bitmap_scale.mod  5980
+    f /boot/grub2/i386-pc/blocklist.mod  2532
+    f /boot/grub2/i386-pc/blscfg.mod  15732
+    f /boot/grub2/i386-pc/boot.img  512
+    f /boot/grub2/i386-pc/boot.mod  3188
+    f /boot/grub2/i386-pc/bsd.mod  43992
+    f /boot/grub2/i386-pc/bswap_test.mod  2816
+    f /boot/grub2/i386-pc/btrfs.mod  41896
+    ... 308 more
+## coreos-91fe7de139 STORED /boot/loader n=1
+    l /boot/loader ->loader.0 8
+## coreos-87a4a24017 STORED /boot/loader.0 n=4
+    d /boot/loader.0  1024
+    d /boot/loader.0/entries  1024
+    f /boot/loader.0/entries/ostree-1.conf  671
+    f /boot/loader.0/entries/ostree-2.conf  657
+## coreos-93d75707e8 STORED /boot/ostree n=5
+    d /boot/ostree  1024
+    d /boot/ostree/fedora-coreos-ce419b455d8df3259425723284e2cc1fab6fb62a0c443b0936093a109ac31733  1024
+    f /boot/ostree/fedora-coreos-ce419b455d8df3259425723284e2cc1fab6fb62a0c443b0936093a109ac31733/.vmlinuz-7.2.11-200.fc44.x86_64.hmac  161
+    f /boot/ostree/fedora-coreos-ce419b455d8df3259425723284e2cc1fab6fb62a0c443b0936093a109ac31733/initramfs-7.2.11-200.fc44.x86_64.img  115170860
+    f /boot/ostree/fedora-coreos-ce419b455d8df3259425723284e2cc1fab6fb62a0c443b0936093a109ac31733/vmlinuz-7.2.11-200.fc44.x86_64  19020136
+## coreos-5ddc7863e0 STORED /etc/.ignition-result.json n=1
+    f /etc/.ignition-result.json  143
+## coreos-fefd90f542 STORED /etc/.pwd.lock n=1
+    f /etc/.pwd.lock  0
+## coreos-3f676c29ae STORED /etc/.rpm-ostree-shadow-mode-fixed2.stamp n=1
+    f /etc/.rpm-ostree-shadow-mode-fixed2.stamp  0
+## coreos-5932b79e41 STORED /etc/.updated n=1
+    f /etc/.updated  237
+## coreos-809cb439ce STORED /etc/alternatives n=18
+    l /etc/alternatives/arptables ->/usr/bin/arptables-nft 22
+    l /etc/alternatives/arptables-man ->/usr/share/man/man8/arptables-nft.8.gz 38
+    l /etc/alternatives/arptables-restore ->/usr/bin/arptables-nft-restore 30
+    l /etc/alternatives/arptables-restore-man ->/usr/share/man/man8/arptables-nft-restore.8.gz 46
+    l /etc/alternatives/arptables-save ->/usr/bin/arptables-nft-save 27
+    l /etc/alternatives/arptables-save-man ->/usr/share/man/man8/arptables-nft-save.8.gz 43
+    l /etc/alternatives/cifs-idmap-plugin ->/usr/lib64/cifs-utils/cifs_idmap_sss.so 39
+    l /etc/alternatives/ebtables ->/usr/bin/ebtables-nft 21
+    l /etc/alternatives/ebtables-man ->/usr/share/man/man8/ebtables-nft.8.gz 37
+    l /etc/alternatives/ebtables-restore ->/usr/bin/ebtables-nft-restore 29
+    l /etc/alternatives/ebtables-save ->/usr/bin/ebtables-nft-save 26
+    l /etc/alternatives/ip6tables ->/usr/bin/ip6tables-nft 22
+    l /etc/alternatives/ip6tables-restore ->/usr/bin/ip6tables-nft-restore 30
+    l /etc/alternatives/ip6tables-save ->/usr/bin/ip6tables-nft-save 27
+    l /etc/alternatives/iptables ->/usr/bin/iptables-nft 21
+    l /etc/alternatives/iptables-restore ->/usr/bin/iptables-nft-restore 29
+    l /etc/alternatives/iptables-save ->/usr/bin/iptables-nft-save 26
+    l /etc/alternatives/libnssckbi.so.x86_64 ->/usr/lib64/pkcs11/p11-kit-trust.so 34
+## coreos-4232784ce3 STORED /etc/alternatives-admindir n=6
+    d /etc/alternatives-admindir  108
+    f /etc/alternatives-admindir/arptables  497
+    f /etc/alternatives-admindir/cifs-idmap-plugin  114
+    f /etc/alternatives-admindir/ebtables  271
+    f /etc/alternatives-admindir/iptables  381
+    f /etc/alternatives-admindir/libnssckbi.so.x86_64  69
+## coreos-671ff5c246 STORED /etc/authselect n=1
+    f /etc/authselect/switchable-auth  304
+## coreos-ba123e6f1b STORED /etc/containers n=1
+    f /etc/containers/registries.d/fedora-coreos.yaml  231
+## coreos-f85fa52854 STORED /etc/dconf n=6
+    d /etc/dconf  16
+    d /etc/dconf/db  22
+    d /etc/dconf/db/distro.d  40
+    d /etc/dconf/db/distro.d/locks  27
+    l /etc/dconf/db/distro.d/20-authselect ->/etc/authselect/dconf-db 24
+    l /etc/dconf/db/distro.d/locks/20-authselect ->/etc/authselect/dconf-locks 27
+## coreos-d3bb1c2fce STORED /etc/group- n=1
+    f /etc/group-  134
+## coreos-42b0af3cd4 STORED /etc/gshadow- n=1
+    f /etc/gshadow-  726
+## coreos-d3e3da8568 STORED /etc/issue.d n=2
+    f /etc/issue.d/21_clhm_ssh_host_keys.issue  219
+    f /etc/issue.d/22_clhm_ens3.issue  24
+## coreos-1ba388a08e STORED /etc/lvm n=1
+    f /etc/lvm/devices/system.devices  485
+## coreos-1af8deec0e STORED /etc/modprobe.d n=1
+    f /etc/modprobe.d/blacklist-nouveau.conf  76
+## coreos-4d882498fa STORED /etc/pam.d n=1
+    l /etc/pam.d/switchable-auth ->/etc/authselect/switchable-auth 31
+## coreos-c169edc1ca STORED /etc/passwd- n=1
+    f /etc/passwd-  93
+## coreos-cee61291d2 STORED /etc/resolv.conf n=1
+    l /etc/resolv.conf ->../run/systemd/resolve/stub-resolv.conf 39
+## coreos-84b24ebf2a STORED /etc/security n=1
+    f /etc/security/pwquality.conf.d/20-disable-dict.conf  103
+## coreos-f12cddbc22 STORED /etc/selinux n=1750
+    d /etc/selinux/final  6
+    d /etc/selinux/targeted/active  4096
+    d /etc/selinux/targeted/active/modules  55
+    d /etc/selinux/targeted/active/modules/100  12288
+    d /etc/selinux/targeted/active/modules/100/abrt  44
+    d /etc/selinux/targeted/active/modules/100/accountsd  44
+    d /etc/selinux/targeted/active/modules/100/acct  44
+    d /etc/selinux/targeted/active/modules/100/afs  44
+    d /etc/selinux/targeted/active/modules/100/afterburn  44
+    d /etc/selinux/targeted/active/modules/100/aide  44
+    d /etc/selinux/targeted/active/modules/100/alsa  44
+    d /etc/selinux/targeted/active/modules/100/amanda  44
+    d /etc/selinux/targeted/active/modules/100/anaconda  44
+    d /etc/selinux/targeted/active/modules/100/antivirus  44
+    d /etc/selinux/targeted/active/modules/100/apache  44
+    d /etc/selinux/targeted/active/modules/100/apcupsd  44
+    d /etc/selinux/targeted/active/modules/100/apm  44
+    d /etc/selinux/targeted/active/modules/100/application  44
+    d /etc/selinux/targeted/active/modules/100/arpwatch  44
+    d /etc/selinux/targeted/active/modules/100/asterisk  44
+    d /etc/selinux/targeted/active/modules/100/auditadm  44
+    d /etc/selinux/targeted/active/modules/100/authlogin  44
+    d /etc/selinux/targeted/active/modules/100/automount  44
+    d /etc/selinux/targeted/active/modules/100/avahi  44
+    d /etc/selinux/targeted/active/modules/100/awstats  44
+    d /etc/selinux/targeted/active/modules/100/bacula  44
+    d /etc/selinux/targeted/active/modules/100/base  44
+    d /etc/selinux/targeted/active/modules/100/bind  44
+    d /etc/selinux/targeted/active/modules/100/bitlbee  44
+    d /etc/selinux/targeted/active/modules/100/blkmapd  44
+    ... 1720 more
+## coreos-9ed4eb3a99 STORED /etc/shadow- n=1
+    f /etc/shadow-  905
+## coreos-0075a76d48 STORED /etc/ssh n=7
+    f /etc/ssh/ssh_host_ecdsa_key  480
+    f /etc/ssh/ssh_host_ecdsa_key.pub  162
+    f /etc/ssh/ssh_host_ed25519_key  387
+    f /etc/ssh/ssh_host_ed25519_key.pub  82
+    f /etc/ssh/ssh_host_rsa_key  2578
+    f /etc/ssh/ssh_host_rsa_key.pub  554
+    f /etc/ssh/sshd_config.d/40-disable-passwords.conf  210
+## coreos-c1ef82d842 STORED /etc/subgid- n=1
+    f /etc/subgid-  18
+## coreos-a2bc9043e2 STORED /etc/subuid- n=1
+    f /etc/subuid-  18
+## coreos-09d09204d8 STORED /etc/sudoers.d n=2
+    f /etc/sudoers.d/90-census  30
+    f /etc/sudoers.d/coreos-sudo-group  87
+## coreos-bf56b0bc9b STORED /etc/sysconfig n=1
+    f /etc/sysconfig/README  404
+## coreos-b86fee9a16 STORED /etc/systemd n=105
+    d /etc/systemd/system-preset  32
+    d /etc/systemd/system/NetworkManager.service.wants  29
+    d /etc/systemd/system/afterburn-sshkeys.target.requires  44
+    d /etc/systemd/system/cryptsetup.target.wants  38
+    d /etc/systemd/system/factory-reset.target.wants  40
+    d /etc/systemd/system/multi-user.target.requires  38
+    d /etc/systemd/system/systemd-homed.service.wants  44
+    d /etc/systemd/system/systemd-journald.service.wants  43
+    d /etc/systemd/user/basic.target.wants  44
+    d /etc/systemd/user/sockets.target.wants  25
+    d /etc/systemd/user/timers.target.wants  42
+    f /etc/systemd/system-preset/20-ignition.preset  39
+    l /etc/systemd/system/NetworkManager.service.wants/nmstate.service ->/usr/lib/systemd/system/nmstate.service 39
+    l /etc/systemd/system/afterburn-sshkeys.target.requires/afterburn-sshkeys@core.service ->/usr/lib/systemd/system/afterburn-sshkeys@.service 50
+    l /etc/systemd/system/basic.target.wants/coreos-ignition-firstboot-complete.service ->/usr/lib/systemd/system/coreos-ignition-firstboot-complete.service 66
+    l /etc/systemd/system/basic.target.wants/coreos-update-ca-trust.service ->/usr/lib/systemd/system/coreos-update-ca-trust.service 54
+    l /etc/systemd/system/basic.target.wants/rpmdb-rebuild.service ->/usr/lib/systemd/system/rpmdb-rebuild.service 45
+    l /etc/systemd/system/cryptsetup.target.wants/clevis-luks-askpass.path ->/usr/lib/systemd/system/clevis-luks-askpass.path 48
+    l /etc/systemd/system/ctrl-alt-del.target ->/usr/lib/systemd/system/reboot.target 37
+    l /etc/systemd/system/dbus-org.freedesktop.home1.service ->/usr/lib/systemd/system/systemd-homed.service 45
+    l /etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service ->/usr/lib/systemd/system/NetworkManager-dispatcher.service 57
+    l /etc/systemd/system/dbus-org.freedesktop.resolve1.service ->/usr/lib/systemd/system/systemd-resolved.service 48
+    l /etc/systemd/system/dbus.service ->/usr/lib/systemd/system/dbus-broker.service 43
+    l /etc/systemd/system/default.target.wants/coreos-populate-lvmdevices.service ->/usr/lib/systemd/system/coreos-populate-lvmdevices.service 58
+    l /etc/systemd/system/dnsmasq.service ->/dev/null 9
+    l /etc/systemd/system/factory-reset.target.wants/systemd-tpm2-clear.service ->/usr/lib/systemd/system/systemd-tpm2-clear.service 50
+    l /etc/systemd/system/getty.target.wants/getty@tty1.service ->/usr/lib/systemd/system/getty@.service 38
+    l /etc/systemd/system/graphical.target.wants/udisks2.service ->/usr/lib/systemd/system/udisks2.service 39
+    l /etc/systemd/system/local-fs.target.wants/ostree-remount.service ->/usr/lib/systemd/system/ostree-remount.service 46
+    l /etc/systemd/system/multi-user.target.requires/afterburn-sshkeys.target ->/usr/lib/systemd/system/afterburn-sshkeys.target 48
+    ... 75 more
+## coreos-5a0b991b97 STORED /var/.ostree-selabeled n=1
+    f /var/.ostree-selabeled  0
+## coreos-1711d3c8c4 STORED /var/.updated n=1
+    f /var/.updated  237
+## coreos-418d5e5b2b STORED /var/cache/rpm-ostree n=43
+    d /var/cache/rpm-ostree  32
+    d /var/cache/rpm-ostree/repomd  127
+    d /var/cache/rpm-ostree/repomd/fedora-44-x86_64  108
+    d /var/cache/rpm-ostree/repomd/fedora-44-x86_64/gpgdir  34
+    d /var/cache/rpm-ostree/repomd/fedora-44-x86_64/packages  6
+    d /var/cache/rpm-ostree/repomd/fedora-44-x86_64/repodata  4096
+    d /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64  92
+    d /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/gpgdir  34
+    d /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/repodata  112
+    d /var/cache/rpm-ostree/repomd/updates-44-x86_64  92
+    d /var/cache/rpm-ostree/repomd/updates-44-x86_64/gpgdir  34
+    d /var/cache/rpm-ostree/repomd/updates-44-x86_64/repodata  4096
+    d /var/cache/rpm-ostree/repomd/updates-archive-44-x86_64  72
+    d /var/cache/rpm-ostree/repomd/updates-archive-44-x86_64/gpgdir  34
+    d /var/cache/rpm-ostree/repomd/updates-archive-44-x86_64/repodata  112
+    d /var/cache/rpm-ostree/solv  139
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/RPM-GPG-KEY-fedora-44-x86_64  1672
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/gpgdir/DBFCF71C6D9F90A6.pub  1176
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/metalink.xml  21189
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/repodata/94b77791ef59000ff6c51fc68daa922676f91d8f431da9fdc784bbfde496a708-comps-Everything.x86_64.xml.zck  505833
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/repodata/e32a0c328ac8716e71e3f66e87366a172fea8ecb2f452909a42db9c080cd3704-primary.xml.zck  36915318
+    f /var/cache/rpm-ostree/repomd/fedora-44-x86_64/repodata/repomd.xml  5966
+    f /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/RPM-GPG-KEY-fedora-44-x86_64  1672
+    f /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/gpgdir/DBFCF71C6D9F90A6.pub  1176
+    f /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/metalink.xml  986
+    f /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/repodata/ef464269998980f44c8b2c94cf023d2343751c9c2325e8197a457b378f451226-primary.xml.zst  1342
+    f /var/cache/rpm-ostree/repomd/fedora-cisco-openh264-44-x86_64/repodata/repomd.xml  3077
+    f /var/cache/rpm-ostree/repomd/updates-44-x86_64/RPM-GPG-KEY-fedora-44-x86_64  1672
+    f /var/cache/rpm-ostree/repomd/updates-44-x86_64/gpgdir/DBFCF71C6D9F90A6.pub  1176
+    f /var/cache/rpm-ostree/repomd/updates-44-x86_64/metalink.xml  7976
+    ... 13 more
+## coreos-0ef3eb01b3 STORED /var/home/census/.bash_logout n=1
+    f /var/home/census/.bash_logout  18
+## coreos-be57689b36 STORED /var/home/census/.bash_profile n=1
+    f /var/home/census/.bash_profile  144
+## coreos-661587021d STORED /var/home/census/.bashrc n=1
+    f /var/home/census/.bashrc  17
+## coreos-b2b64aaca8 STORED /var/home/census/.ssh n=3
+    d /var/home/census/.ssh  31
+    d /var/home/census/.ssh/authorized_keys.d  22
+    f /var/home/census/.ssh/authorized_keys.d/ignition  95
+## coreos-6def24feb7 STORED /var/home/census/Documents n=2
+    d /var/home/census/Documents  25
+    f /var/home/census/Documents/day-note.md  71
+## coreos-95ac45c046 STORED /var/home/core/.bash_logout n=1
+    f /var/home/core/.bash_logout  18
+## coreos-9b7b30cbba STORED /var/home/core/.bash_profile n=1
+    f /var/home/core/.bash_profile  144
+## coreos-cc70cd5e32 STORED /var/home/core/.bashrc n=1
+    f /var/home/core/.bashrc  522
+## coreos-23f2259103 STORED /var/lib/NetworkManager n=6
+    f /var/lib/NetworkManager/NetworkManager-intern.conf  939
+    f /var/lib/NetworkManager/NetworkManager.state  68
+    f /var/lib/NetworkManager/internal-<REDACTED>-ens3.lease  56
+    f /var/lib/NetworkManager/secret_key  50
+    f /var/lib/NetworkManager/seen-bssids  0
+    f /var/lib/NetworkManager/timestamps  109
+## coreos-9f4d264e14 STORED /var/lib/authselect n=1
+    f /var/lib/authselect/checksum  68
+## coreos-99d362e5d4 STORED /var/lib/coreos-populate-lvmdevices.stamp n=1
+    f /var/lib/coreos-populate-lvmdevices.stamp  0
+## coreos-23338df933 STORED /var/lib/lastlog n=1
+    f /var/lib/lastlog/lastlog2.db  12288
+## coreos-0eecaaf2d8 STORED /var/lib/nfs n=13
+    d /var/lib/nfs  37
+    d /var/lib/nfs/rpc_pipefs/cache  0
+    d /var/lib/nfs/rpc_pipefs/gssd  0
+    d /var/lib/nfs/rpc_pipefs/gssd/clntXX  0
+    d /var/lib/nfs/rpc_pipefs/lockd  0
+    d /var/lib/nfs/rpc_pipefs/mount  0
+    d /var/lib/nfs/rpc_pipefs/nfs  0
+    d /var/lib/nfs/rpc_pipefs/nfsd  0
+    d /var/lib/nfs/rpc_pipefs/nfsd4_cb  0
+    d /var/lib/nfs/rpc_pipefs/portmap  0
+    d /var/lib/nfs/rpc_pipefs/statd  0
+    f /var/lib/nfs/rpc_pipefs/gssd/clntXX/info  0
+    p /var/lib/nfs/rpc_pipefs/gssd/clntXX/gssd  0
+## coreos-eacfba77ec STORED /var/lib/rpm n=1
+    l /var/lib/rpm ->../../usr/share/rpm 19
+## coreos-5e5913285f STORED /var/lib/rpm-ostree n=3
+    d /var/lib/rpm-ostree  21
+    d /var/lib/rpm-ostree/history  24
+    f /var/lib/rpm-ostree/history/1795069506  47639
+## coreos-57da4d32dc STORED /var/lib/systemd n=9
+    d /var/lib/systemd/ephemeral-trees  6
+    d /var/lib/systemd/home  6
+    d /var/lib/systemd/pstore  6
+    d /var/lib/systemd/timers  124
+    f /var/lib/systemd/linger/census  0
+    f /var/lib/systemd/timers/stamp-fstrim.timer  0
+    f /var/lib/systemd/timers/stamp-fwupd-refresh.timer  0
+    f /var/lib/systemd/timers/stamp-logrotate.timer  0
+    f /var/lib/systemd/timers/stamp-raid-check.timer  0
+## coreos-d01c2fc3c7 STORED /var/log/README n=1
+    l /var/log/README ->../../usr/share/doc/systemd/README.logs 39
+## coreos-134469a114 STORED /var/log/audit n=1
+    f /var/log/audit/audit.log  97994
+## coreos-e6b33c3854 STORED /var/log/journal n=3
+    d /var/log/journal/<REDACTED-2>  53
+    f /var/log/journal/<REDACTED-2>/system.journal  8388608
+    f /var/log/journal/<REDACTED-2>/user-1001.journal  8388608
+## coreos-2d7adb8ef6 STORED /var/roothome n=8
+    d /var/roothome/.ssh  6
+    d /var/roothome/buildinfo  50
+    d /var/roothome/buildinfo/content_manifests  31
+    f /var/roothome/.bash_logout  18
+    f /var/roothome/.bash_profile  144
+    f /var/roothome/.bashrc  522
+    f /var/roothome/buildinfo/content_manifests/content-sets.json  0
+    f /var/roothome/buildinfo/labels.json  0

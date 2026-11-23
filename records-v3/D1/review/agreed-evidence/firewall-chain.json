@@ -1,0 +1,25 @@
+[
+  {
+    "chain": {
+      "family": "inet",
+      "table": "firewalld",
+      "name": "nat_PRE_FedoraWorkstation_post",
+      "handle": 184
+    }
+  },
+  {
+    "rule": {
+      "family": "inet",
+      "table": "firewalld",
+      "chain": "nat_PRE_FedoraWorkstation",
+      "handle": 185,
+      "expr": [
+        {
+          "jump": {
+            "target": "nat_PRE_FedoraWorkstation_post"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,15 @@
+UTC 2026-11-22T09:42:05Z OP admission
+$ /usr/sbin/runuser -u stand -- /usr/local/bin/stand-session -c run	/usr/bin/cp	/opt/stand/pkgs/dev-worker/bin/worker	/home/stand/undeclared-worker
+EXIT 0
+$ /usr/sbin/runuser -u stand -- /usr/local/bin/stand-session -c run	/home/stand/undeclared-worker
+REFUSED entry is not a declared ordinary launch
+EXIT 126
+$ /usr/sbin/runuser -u stand -- /usr/local/bin/stand-session -c run	/lib64/ld-linux-x86-64.so.2	/home/stand/undeclared-worker
+REFUSED entry is not a declared ordinary launch
+EXIT 126
+$ /usr/sbin/runuser -u stand -- /usr/local/bin/stand-session -c run	/opt/stand/pkgs/dev-worker/bin/worker
+development-version-1
+EXIT 0
+$ /usr/bin/findmnt -n -o OPTIONS --target /home/stand
+rw,nosuid,nodev,noexec,relatime,discard,errors=remount-ro
+EXIT 0

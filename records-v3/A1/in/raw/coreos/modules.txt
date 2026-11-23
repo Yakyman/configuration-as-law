@@ -1,0 +1,60 @@
+Module                  Size  Used by
+sunrpc                974848  1
+rfkill                 45056  1
+ptp_kvm                20480  0
+intel_rapl_msr         24576  0
+intel_rapl_common      53248  1 intel_rapl_msr
+kvm_amd               278528  0
+ppdev                  24576  0
+kvm                  1568768  1 kvm_amd
+irqbypass              16384  1 kvm
+i2c_piix4              40960  0
+i2c_smbus              20480  1 i2c_piix4
+bochs                  28672  0
+parport_pc             57344  0
+parport                90112  2 parport_pc,ppdev
+joydev                 32768  0
+tun                    77824  0
+overlay               262144  1
+erofs                 176128  1
+xfs                  4755456  1
+virtio_net            139264  0
+net_failover           24576  1 virtio_net
+failover               16384  1 net_failover
+nvme_tcp              102400  0
+nvme_fabrics           49152  1 nvme_tcp
+serio_raw              20480  0
+nvme_core             299008  2 nvme_tcp,nvme_fabrics
+nvme_keyring           20480  3 nvme_tcp,nvme_core,nvme_fabrics
+nvme_auth              36864  1 nvme_core
+ata_generic            12288  0
+pata_acpi              12288  0
+be2iscsi              233472  0
+bnx2i                  94208  0
+cnic                  102400  1 bnx2i
+uio                    32768  1 cnic
+cxgb4i                 73728  0
+cxgb4                 790528  1 cxgb4i
+tls                   155648  1 cxgb4
+cxgb3i                 53248  0
+cxgb3                 266240  1 cxgb3i
+mdio                   12288  1 cxgb3
+libcxgbi              110592  2 cxgb4i,cxgb3i
+libcxgb                32768  2 libcxgbi,cxgb3i
+qla4xxx               520192  0
+iscsi_boot_sysfs       20480  2 be2iscsi,qla4xxx
+iscsi_tcp              28672  0
+libiscsi_tcp           40960  4 libcxgbi,iscsi_tcp,cxgb4i,cxgb3i
+libiscsi               98304  8 be2iscsi,libiscsi_tcp,bnx2i,libcxgbi,iscsi_tcp,qla4xxx,cxgb4i,cxgb3i
+scsi_transport_iscsi   196608  7 be2iscsi,libiscsi_tcp,bnx2i,libcxgbi,iscsi_tcp,qla4xxx,libiscsi
+scsi_dh_rdac           16384  0
+scsi_dh_emc            12288  0
+i2c_dev                28672  0
+scsi_dh_alua           28672  0
+dm_multipath           49152  0
+qemu_fw_cfg            24576  0
+virtiofs               49152  0
+fuse                  315392  2 virtiofs
+vmw_vsock_virtio_transport    20480  0
+vmw_vsock_virtio_transport_common    65536  1 vmw_vsock_virtio_transport
+vsock                  77824  4 vmw_vsock_virtio_transport_common,vmw_vsock_virtio_transport

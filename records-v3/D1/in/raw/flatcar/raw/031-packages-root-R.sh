@@ -1,0 +1,1 @@
+runuser -u root -- env HOME=/root XDG_RUNTIME_DIR=/run/user/0 sh -c 'command -v R >/dev/null 2>&1 || exit 127; R --vanilla --slave -e '"'"'write.table(installed.packages()[,c("Package","Version","LibPath")],row.names=FALSE,sep="\t")'"'"''

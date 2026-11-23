@@ -1,0 +1,10 @@
+glibc-utf8-locales
+(define-public glibc-utf8-locales
+  (hidden-package
+   (make-glibc-utf8-locales glibc)))
+
+;; Packages provided to ease use of binaries linked against the previous libc.
+
+glibc-locales
+(define-public glibc-locales
+  (make-glibc-locales glibc))

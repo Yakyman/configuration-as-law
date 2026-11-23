@@ -1,0 +1,209 @@
+## L1:account 54
+   fedora-a7d694ba1f3f98768bcf4735 | gluster | MUST | Account gluster (uid 986, shell /usr/sbin/nologin)
+   fedora-8145bb2dd35951a9c53c8324 | nm-openconnect | MUST | Account nm-openconnect (uid 980, shell /usr/sbin/nologin)
+   fedora-0eea6d09d6acacd5e4fe7cc8 | daemon | MUST | Account daemon (uid 2, shell /usr/sbin/nologin)
+   fedora-e570cabb701548a01b208208 | rtkit | MUST | Account rtkit (uid 978, shell /usr/sbin/nologin)
+   fedora-73e4893fb30465e27f3b4c4d | polkitd | MUST | Account polkitd (uid 114, shell /sbin/nologin)
+   fedora-1ecb309e6edc8edee34eb660 | systemd-network | MUST | Account systemd-network (uid 192, shell /usr/sbin/nologin)
+   fedora-d4f31cb7b5f6de48b528ccf0 | tcpdump | MUST | Account tcpdump (uid 72, shell /usr/sbin/nologin)
+   fedora-9be523615024b3454de846d6 | wsdd | MUST | Account wsdd (uid 979, shell /usr/sbin/nologin)
+   fedora-bee9d72ae586083edd19a086 | openvpn | MUST | Account openvpn (uid 982, shell /usr/sbin/nologin)
+   fedora-845849f07d3b848abbeb89c1 | operator | MUST | Account operator (uid 11, shell /usr/sbin/nologin)
+## L1:driver 61
+   fedora-2fe52377b74b6f8121fdfe79 | /sys/devices/platform/serial8250/serial8250:0/serial8250:0.2 | MUST | Kernel driver port bound to device serial8250:0.22
+   fedora-1b19cbc030d8801b41c12070 | /sys/devices/platform/serial8250/serial8250:0/driver | MUST | Kernel driver ctrl bound to device serial8250:0
+   fedora-ba58d65e9f62eaf06f3a9d0a | /sys/devices/pci0000:00/0000:00:01.0/PNP0B00:00/driver | MUST | Kernel driver rtc_cmos bound to device PNP0B00:00
+   fedora-cc53afb43a49e6a93d906cc5 | /sys/devices/platform/serial8250/serial8250:0/serial8250:0.1 | MUST | Kernel driver port bound to device serial8250:0.14
+   fedora-1647a6027ebb7d3c2ee51509 | /sys/devices/pnp0/00:04/driver | MUST | Kernel driver serial bound to device 00:04
+   fedora-2d8ad3fffd8454bd2d8aa029 | /sys/devices/platform/kgdboc/driver | MUST | Kernel driver kgdboc bound to device kgdboc
+   fedora-8770b2f6ed319f32b50a9dc2 | /sys/devices/pci0000:00/0000:00:03.0/virtio0/driver | MUST | Kernel driver virtio_net bound to device virtio0
+   fedora-0511932be2026bde156449fc | /sys/devices/pci0000:00/0000:00:04.0/driver | MUST | Kernel driver virtio-pci bound to device 0000:00:04.0
+   fedora-bdb0719de64582fce7ef0a41 | /sys/devices/platform/serial8250/driver | MUST | Kernel driver serial8250 bound to device serial8250
+   fedora-8186258aa7f6f009a3f9cfd2 | /sys/devices/platform/serial8250/serial8250:0/serial8250:0.3 | MUST | Kernel driver port bound to device serial8250:0.30
+## L1:firewall-chain 84
+   fedora-9ac76ec2f4b943cd49d51abe | firewall-nft:5155 | MUST | nftables chain filter_OUT_FedoraWorkstation_log of firewalld table holding rules
+   fedora-4ca22fe733a9e1221a68eed4 | firewall-nft:5138 | MUST | nftables chain filter_IN_FedoraWorkstation_deny of firewalld table holding rules
+   fedora-58d64331d9512e7b9c4d8195 | firewall-nft:5166 | MUST | nftables chain filter_FWD_FedoraWorkstation_pre of firewalld table holding rules
+   fedora-a09e1d191830beff24acacbd | firewall-nft:5135 | MUST | nftables chain filter_IN_FedoraWorkstation of firewalld table holding rules
+   fedora-0be6651ef0a288eaa47e9646 | firewall-nft:5132 | MUST | nftables chain nat_OUT_HOST_to_FedoraWorkstation of firewalld table holding rules
+   fedora-4c801f0aafb04b72c64144bc | firewall-nft:5191 | MUST | nftables chain mangle_PRE_policy_allow-host-ipv6_log of firewalld table holding rules
+   fedora-497bd7baea82815a90409335 | firewall-nft:5163 | MUST | nftables chain nat_OUT_FedoraWorkstation_allow of firewalld table holding rules
+   fedora-ed8453500b3269361670b5e7 | firewall-nft:5170 | MUST | nftables chain filter_FWD_FedoraWorkstation_post of firewalld table holding rules
+   fedora-e7113cb8f5777025506f68ba | firewall-nft:5178 | MUST | nftables chain filter_IN_policy_allow-host-ipv6_pre of firewalld table holding rules
+   fedora-663292a35e0208061dec3c37 | firewall-nft:5123 | MUST | nftables chain filter_INPUT_dispatch of firewalld table holding rules
+## L1:firewall-rule 136
+   fedora-08e3e8d67cf4388952c189d6 | firewall-nft:5316 | MUST | nftables rule in firewalld table, chain filter_IN_policy_allow-host-ipv6_allow
+   fedora-dc357c5477bb43fe37805f7a | firewall-nft:5268 | MUST | nftables rule in firewalld table, chain filter_IN_FedoraWorkstation
+   fedora-5fe5506620f0bfcdb6e5cfb2 | firewall-nft:5229 | MUST | nftables rule in firewalld table, chain filter_OUTPUT
+   fedora-994749a32534ac6168364ef8 | firewall-nft:5199 | MUST | nftables rule in firewalld table, chain mangle_PREROUTING_dispatch
+   fedora-8e4ac223bc88924c0aa8c8df | firewall-nft:5225 | MUST | nftables rule in firewalld table, chain filter_FORWARD
+   fedora-79e54a8b2227e341edf55d6a | firewall-nft:5310 | MUST | nftables rule in firewalld table, chain filter_IN_policy_allow-host-ipv6
+   fedora-752d5ef7d9d971e31a64deaa | firewall-nft:5208 | MUST | nftables rule in firewalld table, chain nat_OUTPUT
+   fedora-16d817ff19d83c2ebb27c1ce | firewall-nft:5276 | MUST | nftables rule in firewalld table, chain filter_IN_FedoraWorkstation_allow
+   fedora-751248495a2f71a555834659 | firewall-nft:5254 | MUST | nftables rule in firewalld table, chain mangle_PRE_FedoraWorkstation_dispatch
+   fedora-a64a43d55a2d1eeb5c0a038b | firewall-nft:5247 | MUST | nftables rule in firewalld table, chain filter_IN_FedoraWorkstation_to_HOST
+## L1:group 83
+   fedora-ab8b57710c109b87ef370a1a | tcpdump | MUST | Group account tcpdump (gid 72)
+   fedora-7f2950438c77270ef864f43a | gdm | MUST | Group account gdm (gid 42)
+   fedora-3b5d5cd11a4d5fa298c34124 | gnome-remote-desktop | MUST | Group account gnome-remote-desktop (gid 970)
+   fedora-cdc6dd1af931be3d7c954426 | nobody | MUST | Group account nobody (gid 65534)
+   fedora-7ecb869d80f7a99e2a8a68fc | input | MUST | Group account input (gid 104)
+   fedora-58f4f782007c73e53a0fac9e | audio | MUST | Group account audio (gid 63)
+   fedora-4573246fbc42a8eacfeef601 | empower | MUST | Group account empower (gid 999)
+   fedora-989875f16bc5f7faddfd22ba | user | MUST | Group account user (gid 1000)
+   fedora-d2b68c5190a38b05492fc5e5 | utmp | MUST | Group account utmp (gid 22)
+   fedora-6a1d5d9ad1130409ef989431 | unbound | MUST | Group account unbound (gid 984)
+## L1:module 51
+   fedora-47bce7a92b1ec8480bae5053 | vsock | MUST | Loaded kernel module vsock, code running with kernel rights
+   fedora-9270a9964346b07156989aba | kvm_amd | MUST | Loaded kernel module kvm_amd, code running with kernel rights
+   fedora-e9889ff3b24c396924d8197c | parport_pc | MUST | Loaded kernel module parport_pc, code running with kernel rights
+   fedora-7fe5803ae338a490b6e77237 | vsock_loopback | MUST | Loaded kernel module vsock_loopback, code running with kernel rights
+   fedora-a766892e4df83a16c30794a9 | nf_defrag_ipv4 | MUST | Loaded kernel module nf_defrag_ipv4, code running with kernel rights
+   fedora-6340042d047be5b1eb6cb0da | i2c_dev | MUST | Loaded kernel module i2c_dev, code running with kernel rights
+   fedora-922c66a588dd37461e418ec6 | bochs | MUST | Loaded kernel module bochs, code running with kernel rights
+   fedora-4b02209b07d278ee280be2af | ata_generic | MUST | Loaded kernel module ata_generic, code running with kernel rights
+   fedora-61584db5bdaa082ebc1774b4 | nf_conntrack_netbios_ns | MUST | Loaded kernel module nf_conntrack_netbios_ns, code running with kernel rights
+   fedora-08f7d4bc5f634aa3e838b373 | nf_conntrack | MUST | Loaded kernel module nf_conntrack, code running with kernel rights
+## L1:network 5
+   fedora-f6c2d0fba65c00bca033466c | ens3:<REDACTED>:802-3-ethernet:ens | MUST | Saved NetworkManager 802-3-ethernet profile ens3 active on ens3
+   fedora-9a4099712c9d6110c39db541 | cal-secondary:<REDACTED>:802-3-eth | MUST | Saved NetworkManager 802-3-ethernet profile cal-secondary active on ens4
+   fedora-363f0e426527d20d9061be42 | <SSID>:<REDACTED>:802-11-wireles | MUST | Saved Wi-Fi network profile <SSID> (autoconnect off)
+   fedora-f690ad160842c31c72be017b | lo:<REDACTED>:loopback:lo | MUST | Saved NetworkManager loopback profile lo active on lo
+   fedora-0afcc521a3e91400b3a89dd2 | Wired | MUST | Saved NetworkManager 802-3-ethernet profile Wired connection 1, not active
+## L1:package:flatpak 7
+   fedora-762dfd196143c74a63b73bbc | user:org.gnome.Calculator.Locale/x86_64/stable | NOT | Translations of GNOME Calculator
+   fedora-7700d88919be30f34191e212 | user:org.gnome.Calculator/x86_64/stable | MUST | GNOME Calculator application installed as a Flatpak in the user's home
+   fedora-37429f62a7af35199ad08b31 | user:org.freedesktop.Platform.codecs-extra/x86_64/26.08-extr | NOT | Extra media codec libraries for runtime applications that decode media
+   fedora-3ec0c644b542f85244ed4838 | user:org.gnome.Platform/x86_64/51 | MUST | GNOME 51 runtime: libraries the Calculator application runs on
+   fedora-6a3fc7cac41c026ead69015c | user:org.gnome.Platform.Locale/x86_64/51 | NOT | Translations and locale data of the GNOME runtime, used only by Calculator here
+   fedora-56acab57a09e62c57b2c4933 | user:org.freedesktop.Platform.GL.default/x86_64/26.08-extra | UNKNOWN | Mesa GL drivers for runtime apps; two branches installed, only one is mounted
+   fedora-1609b9cd08e3588897613050 | user:org.freedesktop.Platform.GL.default/x86_64/26.08 | UNKNOWN | Mesa GL drivers for runtime apps; two branches installed, only one is mounted
+## L1:polkit-actions 542
+   fedora-e0be316b99e4689dfa44ddb6 | org.freedesktop.ModemManager1.Control | MUST | Polkit action org.freedesktop.ModemManager1.Control: declares who may perform this privileged operation
+   fedora-fc7d4f60fb9ce18a69270e04 | org.freedesktop.NetworkManager.enable-disable-network | MUST | Polkit action org.freedesktop.NetworkManager.enable-disable-network: declares who may perform this privileged operation
+   fedora-99cd0abb38f46b3580a000f1 | org.freedesktop.udisks2.nvme-disconnect | MUST | Polkit action org.freedesktop.udisks2.nvme-disconnect: declares who may perform this privileged operation
+   fedora-4d6ad3ca50a6680aa93a3288 | org.freedesktop.portable1.attach-images | MUST | Polkit action org.freedesktop.portable1.attach-images: declares who may perform this privileged operation
+   fedora-677b0377fe24d2bebc3a8b24 | io.systemd.confext.manage | MUST | Polkit action io.systemd.confext.manage: declares who may perform this privileged operation
+   fedora-3264f6d16d160c3e0ed2fc8a | org.rpm.dnf.v0.rpm.Repo.conf_write | MUST | Polkit action org.rpm.dnf.v0.rpm.Repo.conf_write: declares who may perform this privileged operation
+   fedora-66d4180f38517b604dbad51b | org.libvirt.api.secret.read-secure | MUST | Polkit action org.libvirt.api.secret.read-secure: declares who may perform this privileged operation
+   fedora-456856bc61f9b737fdaccefe | org.libvirt.api.node-device.write | MUST | Polkit action org.libvirt.api.node-device.write: declares who may perform this privileged operation
+   fedora-e9cde75da364e9eaba245841 | com.redhat.tuned.disable | MUST | Polkit action com.redhat.tuned.disable: declares who may perform this privileged operation
+   fedora-b376ea9e99a96a57a650f0d4 | org.freedesktop.login1.set-wall-message | MUST | Polkit action org.freedesktop.login1.set-wall-message: declares who may perform this privileged operation
+## L1:port 12
+   fedora-7bf1a5aa29254d2fb0b9f708 | udp UNCONN 0 0 0.0.0.0:5355 | MUST | Socket 0.0.0.0:5355 open for connections, held by systemd-resolve
+   fedora-9df4745bd8719264b0be0477 | udp UNCONN 0 0 [::]:5353 | MUST | Socket [::]:5353 open for connections, held by avahi-daemon
+   fedora-6a93d26e7cec6e8ea9d6123f | tcp LISTEN 0 4096 0.0.0.0:5355 | MUST | Socket 0.0.0.0:5355 open for connections, held by systemd-resolve
+   fedora-4eb8eb0aaef7b9a755a6a130 | udp UNCONN 0 0 127.0.0.54:53 | MUST | Socket 127.0.0.54:53 open for connections, held by systemd-resolve
+   fedora-e165d70be8ce19b7fb4b0ab2 | udp UNCONN 0 0 127.0.0.53%lo:53 | MUST | Socket 127.0.0.53%lo:53 open for connections, held by systemd-resolve
+   fedora-7cb43c13130113d18a0cc5f6 | tcp LISTEN 0 4096 127.0.0.53%lo:53 | MUST | Socket 127.0.0.53%lo:53 open for connections, held by systemd-resolve
+   fedora-20833db50c06e91d73bf5acc | udp UNCONN 0 0 127.0.0.1:323 | MUST | Socket 127.0.0.1:323 open for connections, held by chronyd
+   fedora-39f6d1978fe023b825f93913 | udp UNCONN 0 0 [::]:5355 | MUST | Socket [::]:5355 open for connections, held by systemd-resolve
+   fedora-f04408001178a91733a72992 | udp UNCONN 0 0 [::1]:323 | MUST | Socket [::1]:323 open for connections, held by chronyd
+   fedora-253b7e3459a1941d07d1de59 | tcp LISTEN 0 4096 127.0.0.54:53 | MUST | Socket 127.0.0.54:53 open for connections, held by systemd-resolve
+## L1:process 50
+   fedora-e13f4a22a923074cdd80ff04 | 6324 | MUST | Running process /usr/bin/base64
+   fedora-6343349100e68300e60baa7c | 65 | MUST | Running process /usr/bin/ModemManager plus 3 pids without readable exe link
+   fedora-f1b2933bb9154af3096ecca4 | 6332 | MUST | Running process /usr/bin/bash
+   fedora-3c35baf48cff3e50cbd2da22 | 6327 | MUST | Running process /usr/bin/sudo
+   fedora-46859551cc6ce23e533bbf94 | 1195 | MUST | Running process /usr/lib/systemd/systemd-executor
+   fedora-392610b617a68fcd01f28f09 | 489 | MUST | Running process /usr/lib/systemd/systemd-userdbd
+   fedora-0630a103ed7d87f90879cea5 | 1188 | MUST | Running process /usr/lib/systemd/systemd plus 2 pids without readable exe link
+   fedora-dbf65a00973cf7c8aeede32e | 5986 | MUST | Running process /usr/lib/systemd/systemd-userwork
+   fedora-696c7b6b9b4509ea04e284b9 | 6279 | MUST | Running process /usr/bin/login
+   fedora-561b4bc232a888af36471a37 | 6325 | MUST | Running process /usr/bin/gawk
+## L1:service/loaded 194
+   fedora-dba47aaf987189fb82e49de4 | chronyd.service | MUST | Loaded service chronyd.service (active/running) started by the service manager
+   fedora-744fb9b8c7036240edd7569c | plymouth-quit-wait.service | MUST | Loaded service plymouth-quit-wait.service (active/exited) started by the service manager
+   fedora-a05b9ed390d55cabbd6213f9 | uresourced.service | MUST | Loaded service uresourced.service (active/running) started by the service manager
+   fedora-ed7b2db600edae73a8497945 | thermald.service | MUST | Loaded service thermald.service (inactive/dead) started by the service manager
+   fedora-062cdd0a170b555ed8365d4b | kmod-static-nodes.service | MUST | Loaded service kmod-static-nodes.service (active/exited) started by the service manager
+   fedora-74768db8ae30ad92cfd22226 | systemd-timesyncd.service | MUST | Loaded service systemd-timesyncd.service (inactive/dead) started by the service manager
+   fedora-38c611fa990ee8b3ffb22d25 | systemd-tmpfiles-setup.service | MUST | Loaded service systemd-tmpfiles-setup.service (active/exited) started by the service manager
+   fedora-97ed6336c01f65b0e46bf348 | dnf-makecache.service | MUST | Loaded service dnf-makecache.service (inactive/dead) started by the service manager
+   fedora-ffb9ddd2812f781efc5920f9 | serial-getty@ttyS0.service | MUST | Loaded service serial-getty@ttyS0.service (active/running) started by the service manager
+   fedora-cef3484829e1e510d0610e78 | systemd-pstore.service | MUST | Loaded service systemd-pstore.service (inactive/dead) started by the service manager
+## L1:service/notfound 22
+   fedora-e7583a06ca8dfc7bcc4d7160 | mkinitcpio-generate-shutdown-ramfs.service | NOT | Name of unit mkinitcpio-generate-shutdown-ramfs.service referenced elsewhere; no unit file exists
+   fedora-baa12452798e37c8ae7d7e38 | iptables.service | NOT | Name of unit iptables.service referenced elsewhere; no unit file exists
+   fedora-b1e72d868879085ce0e05b5f | sntp.service | NOT | Name of unit sntp.service referenced elsewhere; no unit file exists
+   fedora-08986be41fd1862e830d9846 | apparmor.service | NOT | Name of unit apparmor.service referenced elsewhere; no unit file exists
+   fedora-73b6736a48ef2979375baf88 | virtlock.service | NOT | Name of unit virtlock.service referenced elsewhere; no unit file exists
+   fedora-9515d3fb9b76dbb5c2e901ab | power-profiles-daemon.service | NOT | Name of unit power-profiles-daemon.service referenced elsewhere; no unit file exists
+   fedora-80fb7cc958ad23682989d6e0 | syslog.service | NOT | Name of unit syslog.service referenced elsewhere; no unit file exists
+   fedora-5c8df5a520934ed33232edca | xendomains.service | NOT | Name of unit xendomains.service referenced elsewhere; no unit file exists
+   fedora-044a62eb377fe1b5f6d7e42e | rpc-svcgssd.service | NOT | Name of unit rpc-svcgssd.service referenced elsewhere; no unit file exists
+   fedora-e8feb2994be08aa7000fc522 | nslcd.service | NOT | Name of unit nslcd.service referenced elsewhere; no unit file exists
+## L1:timer 7
+   fedora-8c809e90f7155326f7f829c4 | systemd-tmpfiles-clean.timer | MUST | Active timer systemd-tmpfiles-clean.timer that starts its service on schedule
+   fedora-ec10a3f2d2519412545f1958 | unbound-anchor.timer | MUST | Active timer unbound-anchor.timer that starts its service on schedule
+   fedora-294aef0b49d5c64b88ce25f9 | fstrim.timer | MUST | Active timer fstrim.timer that starts its service on schedule
+   fedora-68c22adb0708611c1e149f7f | dnf-makecache.timer | MUST | Active timer dnf-makecache.timer that starts its service on schedule
+   fedora-de2247fff095979dd3c49fd1 | raid-check.timer | MUST | Active timer raid-check.timer that starts its service on schedule
+   fedora-3a14403d9a02cffeee58c8a0 | logrotate.timer | MUST | Active timer logrotate.timer that starts its service on schedule
+   fedora-fd23e3814da56784daf928de | plocate-updatedb.timer | MUST | Active timer plocate-updatedb.timer that starts its service on schedule
+## L1:unit-file 474
+   fedora-b59d15574037ae979358b85f | usb_modeswitch@.service | MUST | Static unit file usb_modeswitch@.service, started by dependency or activation
+   fedora-0bfa7b9022f9cec2b22cb2ed | polkit-agent-helper@.service | MUST | Static unit file polkit-agent-helper@.service, started by dependency or activation
+   fedora-737898c85aed481d3486310f | systemd-repart.service | MUST | Static unit file systemd-repart.service, started by dependency or activation
+   fedora-f199d0a1a23a4917cdeddac0 | sssd-pam.service | MUST | Unit file sssd-pam.service enabled through another unit (Also=)
+   fedora-321bb2ec5a3b46d4c339fe9c | teamd@.service | MUST | Static unit file teamd@.service, started by dependency or activation
+   fedora-a5a950aaa2224de624550c91 | cockpit-session-socket-user.service | MUST | Static unit file cockpit-session-socket-user.service, started by dependency or activation
+   fedora-ee0585d8e29015688ed268d5 | lastlog2-import.service | MUST | Disabled unit file lastlog2-import.service, can be started on demand
+   fedora-1a5038ae01699700905f9588 | brltty.service | MUST | Disabled unit file brltty.service, can be started on demand
+   fedora-b6f0c598da1cf3c132323aee | anaconda-nm-config.service | MUST | Static unit file anaconda-nm-config.service, started by dependency or activation
+   fedora-f46f15409eeaf32abea9354b | raid-check.timer | MUST | Enabled unit file raid-check.timer, started automatically
+## L1:user-service/loaded 10
+   fedora-db0ebf6e4f328dde7f9b9e5c | user:systemd-machined.service | MUST | Loaded user service systemd-machined.service (inactive/dead) started by the service manager
+   fedora-80a8e66711f40f95de0597b7 | user:grub-boot-success.service | MUST | Loaded user service grub-boot-success.service (inactive/dead) started by the service manager
+   fedora-d425229db14cb84fbe14415a | user:pipewire-pulse.service | MUST | Loaded user service pipewire-pulse.service (inactive/dead) started by the service manager
+   fedora-55c26aad13ee82ec0b079841 | user:systemd-tmpfiles-setup.service | MUST | Loaded user service systemd-tmpfiles-setup.service (active/exited) started by the service manager
+   fedora-97c29dbbb2de1b96af1cf4ac | user:dbus-broker.service | MUST | Loaded user service dbus-broker.service (active/running) started by the service manager
+   fedora-87d17c64a2f13a10cbac2732 | user:wireplumber.service | MUST | Loaded user service wireplumber.service (inactive/dead) started by the service manager
+   fedora-af780df7858da6b4e6b6bf49 | user:cal-hello.service | MUST | Loaded user service cal-hello.service (inactive/dead) started by the service manager
+   fedora-36ad48b5ba32b47bb18ed758 | user:systemd-importd.service | MUST | Loaded user service systemd-importd.service (inactive/dead) started by the service manager
+   fedora-7a5fdc16d0e0bdbd140c2b8a | user:systemd-tmpfiles-clean.service | MUST | Loaded user service systemd-tmpfiles-clean.service (inactive/dead) started by the service manager
+   fedora-51a77ef359241936e64f68df | user:pipewire.service | MUST | Loaded user service pipewire.service (inactive/dead) started by the service manager
+## L1:user-unit-file 125
+   fedora-c9dbd9bdf1fc3c59975f7e12 | user:app-geoclue\x2ddemo\x2dagent@autostart.service | MUST | User Unit app-geoclue\x2ddemo\x2dagent@autostart.service generated at login from an autostart entry; starts a program
+   fedora-87cf507caf824ef3cf35c2a1 | user:pipewire-session-manager.service | MUST | User Alias name pipewire-session-manager.service pointing to another unit, used for activation by that name
+   fedora-34145c1d021a8a3332afe31f | user:ssh-agent.service | MUST | User Unit file ssh-agent.service enabled through another unit (Also=)
+   fedora-8a621c75659fd028d29a3b6c | user:xdg-desktop-portal-gtk.service | MUST | User Static unit file xdg-desktop-portal-gtk.service, started by dependency or activation
+   fedora-ce740c8147b834ac89cac764 | user:oo7-portal.service | MUST | User Static unit file oo7-portal.service, started by dependency or activation
+   fedora-d4180f19a6e541bea6105bc9 | user:org.gnome.SettingsDaemon.A11ySettings.service | MUST | User Static unit file org.gnome.SettingsDaemon.A11ySettings.service, started by dependency or activation
+   fedora-20e351c5a8d6ee5f4a6d6648 | user:systemd-ask-password@.service | MUST | User Static unit file systemd-ask-password@.service, started by dependency or activation
+   fedora-15c37cdc61fa0ced9599802f | user:colord-session.service | MUST | User Static unit file colord-session.service, started by dependency or activation
+   fedora-a71b38ba035d94d1134e17d1 | user:podman-kube@.service | MUST | User Disabled unit file podman-kube@.service, can be started on demand
+   fedora-8935db7d696f81be1f2a4e61 | user:dbus-org.freedesktop.import1.service | MUST | User Alias name dbus-org.freedesktop.import1.service pointing to another unit, used for activation by that name
+## rpm/pattern:FONT 124
+   fedora-620846b7710176627a520903 | user:google-noto-sans-cherokee-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-f7e91b6876fe93f7c62bd97f | user:google-noto-serif-armenian-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-747acdcead624545038d341d | root:google-noto-serif-telugu-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-6dc78b63ac39de7f625c7ac8 | user:google-noto-sans-devanagari-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-e0a2cd9f3beaf298ff1995d9 | root:google-noto-serif-bengali-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-605cf4d64178ce1d94a2df6a | root:google-noto-serif-gujarati-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-ddccc3abbe0229963d9d0c69 | user:google-noto-sans-symbols-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-a0d820a3e5869759172e5d6a | root:google-noto-sans-bengali-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-6c4f706a43ec18c6b8d2a9f9 | root:google-noto-sans-hebrew-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+   fedora-8f21a36894ab5eb23193c111 | root:google-noto-sans-cherokee-vf-fonts | MUST | Font files and fontconfig rules that every program uses to render text
+## rpm/pattern:META 142
+   fedora-ae67fa153ffccb628995d2cd | user:default-fonts-cjk-sans | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-b56f05620fcaec003a5d8d96 | root:default-fonts-eu | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-f03133774dff7dd96a24b73d | root:default-fonts-hi | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-8783be175b4228eae55a46f2 | user:default-fonts-ts | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-e81ba140795be6ed7558a62a | root:default-fonts-nb | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-458aa0216067c826e339c3a2 | root:default-fonts-kn | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-3b29505e8db1855bd0b4000f | user:default-fonts-chr | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-4938395fa435d9bacdcdf51d | root:default-fonts-chr | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-955a8166b29b18831f2c39ec | root:default-fonts-ia | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+   fedora-efc3f2d3cbc0a91878b19d86 | user:default-fonts-or | NOT | Metapackage: dependency record, at most an AppStream metainfo file; installs no program
+## rpm/rule:R-RPM-CODE 3192
+   fedora-c2ebd4f32e74da69168dd87d | root:iproute | MUST | Ships executable code: Advanced IP routing and network device configuration tools
+   fedora-2afe4ab66ffddcf2cf2708a3 | user:qemu-img | MUST | Ships executable code: QEMU command line tool for manipulating disk images
+   fedora-b3885b7b11403836e26ae953 | root:dbus-daemon | MUST | Ships executable code: D-BUS message bus
+   fedora-63e088fd21101a1dffa17dca | root:libtheora | MUST | Ships executable code: Theora Video Compression Codec
+   fedora-0d546a71b12ea60e69d1d243 | root:wireless-regdb | MUST | Ships executable code: Regulatory database for 802.11 wireless networking
+   fedora-eb72d8db42b849e63696e99d | user:httpd | MUST | Ships executable code: Apache HTTP Server
+   fedora-b29f4f4d5d40b5364d4579e7 | user:libcdio | MUST | Ships executable code: CD-ROM input and control library
+   fedora-69cd2eb9fe77ad9a09008e95 | root:libdatrie | MUST | Ships executable code: Implementation of Double-Array structure for representing trie
+   fedora-6beb75ef56462b06cc83f943 | root:rpm-plugin-systemd-inhibit | MUST | Ships executable code: Rpm plugin for systemd inhibit functionality
+   fedora-d5d490090d4eb63f6d4a06a6 | root:mdevctl | MUST | Ships executable code: A mediated device management utility for Linux

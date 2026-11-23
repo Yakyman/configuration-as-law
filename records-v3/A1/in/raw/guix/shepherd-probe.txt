@@ -1,0 +1,19 @@
+total 868
+dr-xr-xr-x   2 root root        4096 Jan  1  1970 .
+drwxrwxr-t 804 root guixbuild 868352 Nov 19 09:06 ..
+lrwxrwxrwx   1 root root          56 Jan  1  1970 activate -> /gnu/store/aww9ssrdlccn1b98562rrhqfh80gbr5f-activate.scm
+lrwxrwxrwx   1 root root          48 Jan  1  1970 boot -> /gnu/store/2pp54w4sxp49qj3x67a8clh8al3xvhcq-boot
+lrwxrwxrwx   1 root root          56 Jan  1  1970 channels.scm -> /gnu/store/xsx6vxx9hs3qy6mb9zlmdnnnfajpq1xh-channels.scm
+lrwxrwxrwx   1 root root          61 Jan  1  1970 configuration.scm -> /gnu/store/zfdsn48dw9n7z6mvxrxp37z2nbhvlx9f-configuration.scm
+lrwxrwxrwx   1 root root          47 Jan  1  1970 etc -> /gnu/store/ghqi2b3n5y8gjx2isnidwflcjy82fp0f-etc
+lrwxrwxrwx   1 root root          69 Jan  1  1970 initrd -> /gnu/store/8r9lfcbib93vsf1fl5hr71dl2aw5v46i-raw-initrd/initrd.cpio.gz
+lrwxrwxrwx   1 root root          51 Jan  1  1970 kernel -> /gnu/store/j1fm7k2yvlr4jxsl8a3vf2j10c7s3hvm-profile
+lrwxrwxrwx   1 root root          68 Jan  1  1970 locale -> /gnu/store/lyvvjkl4y7jnzzwzzq1ki6gahqk9hvq5-locale-multiple-versions
+lrwxrwxrwx   1 root root          54 Jan  1  1970 parameters -> /gnu/store/4z8csx09cbmgwzzrnxpl23c0jmdamyv1-parameters
+lrwxrwxrwx   1 root root          51 Jan  1  1970 profile -> /gnu/store/vczxzzi8350d4jaawvv1lhf4xyiyd145-profile
+lrwxrwxrwx   1 root root          54 Jan  1  1970 provenance -> /gnu/store/dym66gyvj2rzc9r600rp6qr8i9j6x7jr-provenance
+ls: cannot access '/etc/shepherd*': No such file or directory
+head: cannot open '/etc/shepherd.scm' for reading: No such file or directory
+herd: error: exception caught while executing 'schedule' on service 'timer':
+Timer spec lacks 'at TIME'.
+herd: error: service 'mcron' could not be found

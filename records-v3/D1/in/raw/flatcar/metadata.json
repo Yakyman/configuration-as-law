@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-22T07:46:16.748539+00:00",
+  "machine": "d1-flatcar",
+  "system": "flatcar",
+  "mode": "--observe",
+  "inputs_commit": "43594a47b72707f836953b6b39d5849d5513f61a",
+  "filesystem_status": 0,
+  "engine_graph_roots": [
+    {
+      "engine": "docker",
+      "user": "root",
+      "path": "/var/lib/docker",
+      "evidence": "raw/102-engine-root-docker-root.out"
+    }
+  ],
+  "opaque_storage_paths": [],
+  "container_boundary_gaps": [],
+  "ownership_queries_complete": true,
+  "package_parse_gaps": [],
+  "unsupported_ownership_managers": [],
+  "limitations": [
+    "Ownership not established by any queried record is listed as belonging to no package, per the binding input decision.",
+    "Failed queries and inaccessible paths are coverage gaps, not evidence of absence.",
+    "Container and VM image contents are not expanded."
+  ]
+}

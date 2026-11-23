@@ -1,0 +1,60 @@
+2026-11-22T07:01:33Z
+6.12.117+deb13-amd64
+lockdown,capability,landlock,yama,apparmor,tomoyo,bpf,ipe,ima,evm2
+/usr/bin/ed	data	stand-run-4421dbc83ad5644772a1	/usr/bin/ed	ffb4610edbf021a8940d9c4ae89befd50045e594447cc6fb844c36fd5166616b	-	-	ed
+/usr/bin/w3m	data	stand-run-d43cdbfcc2e591b5e877	/usr/bin/w3m	0fe64c033f9cadc1e7d3fae53651f5b9cbc26eb2727db6b64d0a7bbb00a8549e	-	-	w3m
+/usr/bin/cat	data	stand-run-96a6d84030f1670694e1	/usr/bin/cat	8a5c20c3400a4058a487cd806111cc5138ef4d0fbc6714ff67c9432e38c2705a	-	-	-
+/usr/bin/cp	data	stand-run-0c116f36e59edcc5d304	/usr/bin/cp	5a3a8808bab81a67c6ac578670f5608595f1569948d4dc7d7d604c1d08d596d9	-	-	-
+/usr/bin/mkdir	data	stand-run-ac37696ed274339d474a	/usr/bin/mkdir	bd3d9b36a1cc1c63b8dca7967003f4e5b0bb8556c87cbb7c1916aa358bf3f053	-	-	-
+/usr/bin/curl	data	stand-run-f0da955d46aa49e3cac4	/usr/bin/curl	52e9ceef96bd7c7dd4c2c9d8ac4c5f466c563dc0d16817720518b430da7a94b7	-	-	-
+/opt/stand/pkgs/dev-worker/bin/worker	sealed	stand-run-458181eb3efbccd6aaa7	/opt/stand/pkgs/dev-worker/bin/worker	039eff836b8e0d9c9de6d22cddd3e9882dac6e52dd755d5b6e39392501a4b27a	-	-	-
+service:stand-development.service	sealed	stand-run-281b3a23a0238221a716	/opt/stand/pkgs/dev-worker/bin/worker	039eff836b8e0d9c9de6d22cddd3e9882dac6e52dd755d5b6e39392501a4b27a	-	-	--wait
+{"limitation":"file-read interpreters, memfd, anonymous code, other writable mounts, root backends remain open","mechanism":"AppArmor exec/map + sealed Landlock read closure + inherited seccomp","mounts":{"/dev/shm":"rw,nosuid,nodev,noexec,size=262144k,inode64","/home":"rw,nosuid,nodev,noexec,relatime,discard,errors=remount-ro","/run":"rw,nosuid,nodev,noexec,relatime,size=262144k,mode=755,inode64","/tmp":"rw,nosuid,nodev,noexec,size=1048576k,nr_inodes=1048576,inode64","/var/tmp":"rw,nosuid,nodev,noexec,relatime,discard,errors=remount-ro"},"profiles":8}
+permituserrc no
+disableforwarding yes
+permituserenvironment no
+
+Elf file type is EXEC (Executable file)
+Entry point 0x4028c0
+There are 11 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x0000000000000500 0x0000000000000500  R      0x1000
+  LOAD           0x0000000000001000 0x0000000000401000 0x0000000000401000
+                 0x000000000007a405 0x000000000007a405  R E    0x1000
+  LOAD           0x000000000007c000 0x000000000047c000 0x000000000047c000
+                 0x00000000000289d4 0x00000000000289d4  R      0x1000
+  LOAD           0x00000000000a4dd0 0x00000000004a5dd0 0x00000000004a5dd0
+                 0x0000000000005ce8 0x000000000000c4f8  RW     0x1000
+  NOTE           0x00000000000002a8 0x00000000004002a8 0x00000000004002a8
+                 0x0000000000000020 0x0000000000000020  R      0x8
+  NOTE           0x00000000000002c8 0x00000000004002c8 0x00000000004002c8
+                 0x0000000000000024 0x0000000000000024  R      0x4
+  NOTE           0x00000000000a49b4 0x00000000004a49b4 0x00000000004a49b4
+                 0x0000000000000020 0x0000000000000020  R      0x4
+  TLS            0x00000000000a4dd0 0x00000000004a5dd0 0x00000000004a5dd0
+                 0x0000000000000030 0x0000000000000058  R      0x8
+  GNU_PROPERTY   0x00000000000002a8 0x00000000004002a8 0x00000000004002a8
+                 0x0000000000000020 0x0000000000000020  R      0x8
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x00000000000a4dd0 0x00000000004a5dd0 0x00000000004a5dd0
+                 0x0000000000004230 0x0000000000004230  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.gnu.property .note.gnu.build-id .rela.plt 
+   01     .init .plt .text .fini 
+   02     .rodata rodata.cst32 .eh_frame .gcc_except_table .note.ABI-tag 
+   03     .tdata .init_array .fini_array .data.rel.ro .got .got.plt .data .bss 
+   04     .note.gnu.property 
+   05     .note.gnu.build-id 
+   06     .note.ABI-tag 
+   07     .tdata .tbss 
+   08     .note.gnu.property 
+   09     
+   10     .tdata .init_array .fini_array .data.rel.ro .got 
+active
