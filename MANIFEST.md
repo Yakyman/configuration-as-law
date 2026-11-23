@@ -2254,6 +2254,7 @@ ebf6930d83ff76b5e1dcebc8c455973924fd79278485832b0d80322ae55e140d  check-inputs-v
 d0d2ae1d4390aea9b16df24eaff826a5d63ad0ef2a565df44460bfab71449a7d  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removal-deltas.json
 1fcee73fdeb3142cf93bcd1eee7341e229c05d7869c50345c3424986ea1783a7  check-inputs-v4/supplement-1/step-6-cases/B2/cases-6/removed-lines.json
 3d490b8c1495afea94729d0bba78b942d1db7e59e874fda5badda78fe94dcc9f  check-inputs-v4/supplement-1/step-6.md
+8c9e6e6c1c82e2fe1d394c545bf844d3d3b0f671229fccf5114cb71e3ebe6288  check-inputs-v4/supplement-1/step-8.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
 1c49c7dc7a3be70da98901999af4858ffe62ce6ccaf23c46ba2d50f6c00a5b72  definitions-analysis/documented-objects/SOURCES.md
@@ -2332,7 +2333,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 2147.
+Files listed: 2148.
 
 ## 5. Version 3: results of its checks, and version 4
 
