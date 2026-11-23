@@ -107,6 +107,11 @@ decision is known in advance, and names the investigations carried out beyond th
 the checks are committed to the same folder before the first observation of each check, as Section 9.1 of the
 fourth paper requires.
 
+`check-inputs-v4/SUPPLEMENT-1.md`, published on 23 November 2026 after the first night of checks, lists the
+claims of the hypothesis that none of the four checks tests and the steps by which they are examined. It changes
+neither `PROTOCOL.md` nor the outcomes of the four checks. The inputs and the expected result of each step are
+committed to `check-inputs-v4/supplement-1/` before the work on that step begins.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper

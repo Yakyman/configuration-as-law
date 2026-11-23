@@ -185,7 +185,7 @@ Each value below was recounted from the published (cleaned) file named in the la
 ```
 5eebefd3682e32d661f307a28539b304e5e52fb1eb33ba214e61d7a57663e4f0  LICENSE
 62191fd767a50c67dd9923e6c7407f9bbd07e5fd5412e0b200c341dc18b2f1ee  LICENSE-CODE
-de26820fec321096c5d731111f101a0994a906c06bc38ab2bb774e19a1bba872  README.md
+04d44c1e5837a7cdffc2cce68e974a265404abffb9207dfd5e2e5108fd6dd744  README.md
 e5db48196d5ba90107636e16d656cab5d747da0e1b8831119f84d190e5bfc3ea  check-1-census/debian-fedora-coreos-nixos/METHOD.md
 5a184715436b5aa8ef48b3457d26170c6d4c9a22be4ac967eec1ece48703580b  check-1-census/debian-fedora-coreos-nixos/RESULT.md
 4aac4b78585fd061f7d622e62b2225ac2057dd2c92e55003fe3128d97dc8293a  check-1-census/debian-fedora-coreos-nixos/REVIEW-2.md
@@ -1102,6 +1102,7 @@ cca9b68969b7f405d80aaf33e6313ef9ae4b9c070969ae98da4163c627cdf7cb  check-inputs-v
 b6603015efb096fae0e720cd10726122771641efcecad8200efa6450091f34fa  check-inputs-v4/READY.md
 dfc782447ac74f2973587104f3abc599f540991ae636662b23d02792f42058b6  check-inputs-v4/REVIEW-KIT.md
 152fd97a35600f66e9104462689ae3a803d29e3198883490c149b0f92aca5ebe  check-inputs-v4/REVIEW.md
+6c6022614852d4456103bf53549ee051fa4e5a09d9674eab7961047e4176d47d  check-inputs-v4/SUPPLEMENT-1.md
 2cd4a6ec5b1a14cbd79dec2128ad4878a892c790891943f76cd435d6ab8e7541  check-inputs-v4/TALOS-COLLECT.md
 4210b4e4954bd48d07675e34856a652e71335d77af365129bbee71b0a2013dc8  check-inputs-v4/actions/README.md
 788a1f4df09bbdb9b1e2b97ff110a78028223584201e29dd578730acf34f5058  check-inputs-v4/actions/alma.sh
@@ -2103,6 +2104,9 @@ a504e453c051d1aedfb7a988005b5afbc732aab789714bd6f8e10b1d401a8013  check-inputs-v
 d260bca378b4544460afbea5d5c06f2417795aacc88297ab001a0bfc257dec8a  check-inputs-v4/rehearsal/void/sources/xbps-manifest-excerpt.c
 02cf8ba8396d68b09c71cef5f20c4ee6e92cb5c02e337f8394bddb308ca90c98  check-inputs-v4/rehearsal/void/status.tsv
 efe26d465299d9c36318c326aeda5055937d1b1f517c126c2d2005ceab2556ce  check-inputs-v4/releases.tsv
+48e35b680559b5b0ce2ef1a3124c53077bc76c0218a49e62fc26e74af789ef9d  check-inputs-v4/supplement-1/SENTENCES.md
+11b959dea7b11ae9350db46c04e9cceb00fccaace015d27c7261dc43434ad7d4  check-inputs-v4/supplement-1/step-1.md
+653b04219ad772ab4d3984c88142ea06e6565ff7bb7eb197729a3d770ffd8fe8  check-inputs-v4/supplement-1/step-3.md
 b4c9829d6e3ff95a40ef32d6a7f70ebad4762d929ba9dcfe72537ca46f5fdd8c  definitions-analysis/documented-objects/ATTACK.md
 f463f263dc94c8169abd067e82a8cff3772fcd3f1d883465e9d332be929feb56  definitions-analysis/documented-objects/REVIEW-2.md
 1c49c7dc7a3be70da98901999af4858ffe62ce6ccaf23c46ba2d50f6c00a5b72  definitions-analysis/documented-objects/SOURCES.md
@@ -2181,7 +2185,7 @@ f46ed090723ece8aa73c44ab4bd570e63a0cf4f2349b1618b7f05282cf36333f  preregistratio
 b0c9627bc35f2123e5fd880bb4f3b003bf775c411bd3a76f87ace481cf739532  preregistration-v3/prereg-en.md
 ```
 
-Files listed: 1996.
+Files listed: 2000.
 
 ## 5. Version 3: results of its checks, and version 4
 
