@@ -6818,3 +6818,12 @@ The hashes of the 120,786 files under `records-v4/` and `analysis/` are in [`rec
 4f0b0a199744d08ef2619691342e6200de37d26ef8d492661ba9d0abd44324fc  fifth-paper/configuration-as-law-v5.pdf
 42112dd1dd830247b8795d459bcd3d97020fc333c4fe120588dd00bc641bec35  records-v4/SHA256SUMS
 ```
+
+## 7. The reference implementation and the inputs of its check
+
+Committed before the complete runs of the check of the fifth paper, Section 9. Each row is one state of the two
+folders; the files of a state are listed with their SHA-256 in the `SHA256SUMS` file of each folder at that commit.
+
+| Before complete run | Release | Source archive, SHA-256 | `confos/SHA256SUMS`, SHA-256 | `confos-check/SHA256SUMS`, SHA-256 | Staged (UTC) |
+|---|---|---|---|---|---|
+| 1 | 0.32 | `61d290744606b4804b298217d340df5445cf276ea2b3ad69cc024e9457261001` | `7fb37eeb9f3725d06eba03fc3acae0eab3f8bb0fb2313b2e54191eb570c31dc5` | `38a066819614ddbd0fde81581eb3bf960857c1b6bbc01d6d9f98821811297862` | 24 November 2026, 16:26 |

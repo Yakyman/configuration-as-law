@@ -1,0 +1,54 @@
+#!/bin/bash
+export PATH=/usr/bin:/usr/sbin
+export LC_ALL=C.UTF-8
+mount -t tmpfs -o mode=0755,nosuid,nodev,noexec tmpfs /run
+mount -t tmpfs -o nosuid,nodev,noexec tmpfs /tmp
+mkdir -p /run/root-view
+mount --bind / /run/root-view
+mount -t tmpfs -o mode=0755,nosuid,nodev,noexec tmpfs /var
+cp -a /run/root-view/var/. /var/
+mkdir -p /var/tmp
+chmod 1777 /tmp /var/tmp
+mkdir -p /dev/pts /dev/shm
+mount -t devpts devpts /dev/pts
+mount -t tmpfs -o nosuid,nodev,noexec tmpfs /dev/shm
+ln -sfn /proc/self/fd /dev/fd
+ln -sfn /proc/self/fd/0 /dev/stdin
+ln -sfn /proc/self/fd/1 /dev/stdout
+ln -sfn /proc/self/fd/2 /dev/stderr
+mount -o nosuid,nodev,noexec /dev/vda3 /state || exec /bin/bash
+mkdir -p /state/home
+mount --bind /state/home /home
+mount -o remount,bind,nosuid,nodev,noexec /home
+modprobe virtio_net
+ip link set lo up
+ip link set eth0 up
+ip addr add 10.0.2.15/24 dev eth0
+ip route add default via 10.0.2.2
+python3 /usr/bin/confos boot-prepare || exec /bin/bash
+mount -t securityfs securityfs /sys/kernel/security || exec /bin/bash
+apparmor_parser -r /etc/confos/session.apparmor || exec /bin/bash
+python3 /usr/bin/confos supervise &
+supervisor=$!
+for attempt in {1..20}; do
+    [ -f /run/confos-services-ready ] && break
+    kill -0 "$supervisor" || exec /bin/bash
+    sleep 1
+done
+[ -f /run/confos-services-ready ] || exec /bin/bash
+dropbearkey -t ed25519 -f /run/ssh_host_ed25519_key >/run/hostkey.log 2>&1
+if [ -d /etc/confos/systemd-system ]; then
+    export SYSTEMD_UNIT_PATH=/etc/confos/systemd-system
+    export SYSTEMD_GENERATOR_PATH=/dev/null
+    export SYSTEMD_ENVIRONMENT_GENERATOR_PATH=/dev/null
+    exec /usr/lib/systemd/systemd --system --unit=confos.target --log-target=console
+fi
+env -i PATH=/usr/local/bin:/usr/bin:/usr/sbin LC_ALL=C.UTF-8 HOME=/root aa-exec -p confos-session -- /usr/sbin/dropbear -F -E -e -s -r /run/ssh_host_ed25519_key &
+sshpid=$!
+sleep 1
+if kill -0 "$sshpid"; then
+    sync
+    cp /etc/confos/identity /run/confos-ready
+    echo "READY $(cat /etc/confos/identity)"
+fi
+while true; do sleep 3600 & wait $!; done

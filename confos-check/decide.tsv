@@ -1,0 +1,161 @@
+# Decisions of the case party under Paper 4, Section 8.2 (spec/SENTENCES.md); format: FORMATS.md "Decisions".
+# PATTERN<TAB>CLASS<TAB>SENTENCE_ID<TAB>REASON. The first matching rule wins. An object with "exec": true is never
+# excluded by any rule (S8.2-9, S8.2-10). A "runtime" rule never excludes by itself: compare resolves the program or
+# setting that creates the object and excludes it only if that creator is recorded; otherwise the object is reported
+# with the creator named. Every excluded object is written to compare-excluded.tsv.
+#
+# S8.2-5: "What exists only while the computer runs—a process, an open port, a mount point, a relationship between
+# services—is not considered a separate object: it belongs to the program or setting that creates it, and the
+# decision follows that for the program or setting."
+unit:**#value.active,value.sub,value.members	runtime	S8.2-5	whether a unit is running, and which processes run in it, exists only while the computer runs; the unit itself is still compared on enabled, load, fragment, source, drop-ins and transient
+process:**	runtime	S8.2-5	a process belongs to its executable (the id is the path read from /proc/PID/exe); decided with that file; kernel threads with the kernel image of the running release
+port:**	runtime	S8.2-5	an open port belongs to the executable of the process that holds it
+mount:**	runtime	S8.2-5	a mount point belongs to what creates it: the file behind its loop device, else the fstab file or the unit file the service manager names for it; if none is named the mount is reported
+module:**	runtime	S8.2-5	a loaded kernel module belongs to its module file (modinfo -n)
+unit:system/session-*.scope	runtime	S8.2-5	a login-session scope is a relationship between the processes of one login, created when they start and gone when they end; decided with the executables of its member processes
+#
+# S8.2-15: "Otherwise: if a program recorded the object as it ran, it is a program record—a log, cache, history,
+# working state; ..." Each entry below names the program that records the object.
+file,dir,symlink,other:/var/log/**	program-record	S8.2-15	logs: the journal of systemd-journald, login records (wtmp, lastlog), logs of installers and services
+file,dir:/var/lib/wtmpdb/**	program-record	S8.2-15	login records written by the login session modules (wtmpdb), a log
+file:/var/lib/systemd/random-seed	program-record	S8.2-15	working state of systemd-random-seed, rewritten by it
+file:/var/lib/systemd/timers/stamp-*	program-record	S8.2-15	working state of the service manager: when a persistent timer last elapsed
+file,dir,vfile,vdir:/var/lib/apt/lists/**	program-record	S8.2-15	cache of the archive indexes that apt downloads
+file,dir,vfile,vdir:/var/cache/apt/**	program-record	S8.2-15	cache of apt (downloaded packages and index caches)
+file:/var/lib/apt/periodic/*	program-record	S8.2-15	working state of the daily apt job (stamps)
+file,vfile:/var/lib/dpkg/lock*	program-record	S8.2-15	working state of dpkg: the locks it creates as it runs (also on a volatile /var)
+file,dir,symlink:/var/lib/cloud/**	program-record	S8.2-15	working state of cloud-init (instance data, semaphores, status); executables in it stay reported
+file,dir:/var/cache/man/**	program-record	S8.2-15	cache of man-db (index of manual pages)
+file:/var/backups/*	program-record	S8.2-15	copies of the package and account databases that dpkg-db-backup records as it runs
+file,dir:/var/lib/sudo/**	program-record	S8.2-15	working state of sudo (lecture marks, time stamps)
+vfile:/run/systemd/journal/seqnum	program-record	S8.2-15	working state of systemd-journald (sequence number of the journal)
+vfile:/run/systemd/journal/kernel-seqnum	program-record	S8.2-15	working state of systemd-journald (sequence number of kernel messages)
+vfile:/run/systemd/journal/streams/*	program-record	S8.2-15	working state of systemd-journald: one file per connected log stream
+vfile,vother:/run/systemd/sessions/*	program-record	S8.2-15	working state of systemd-logind: one file and one FIFO per login session
+vfile:/run/systemd/users/*	program-record	S8.2-15	working state of systemd-logind: the sessions of each logged-in account
+vfile:/run/systemd/transient/session-*.scope	program-record	S8.2-15	working state of the service manager: the description it wrote of a login-session scope it created
+vsymlink:/run/systemd/units/invocation:*	program-record	S8.2-15	working state of the service manager: the invocation identifier of each started unit
+vsymlink:/run/user/*/systemd/units/invocation:*	program-record	S8.2-15	working state of an account's service manager: the invocation identifier of each started unit
+vfile,vdir,vsymlink:/run/udev/data/**	program-record	S8.2-15	the udev database: what systemd-udevd recorded about each device as it processed it (the rules in /etc/udev, /run/udev/rules.d and /usr/lib/udev are not excluded)
+vfile,vdir,vsymlink:/run/udev/tags/**	program-record	S8.2-15	the udev database: the tags systemd-udevd recorded for each device
+vfile,vdir,vsymlink:/run/udev/links/**	program-record	S8.2-15	the udev database: which device owns each name systemd-udevd created
+vsymlink:/run/udev/watch/*	program-record	S8.2-15	working state of systemd-udevd: the devices it watches
+vdir,vsymlink:/dev/block/**	program-record	S8.2-15	names systemd-udevd created for block devices as it processed them; the rules that make them are compared as files
+vdir,vsymlink:/dev/char/**	program-record	S8.2-15	names systemd-udevd created for character devices as it processed them; the rules that make them are compared as files
+vdir,vsymlink:/dev/disk/**	program-record	S8.2-15	names systemd-udevd created for disks as it processed them; the rules that make them are compared as files
+#
+# Added 2026-11-24, 11:45–13:50 UTC ([n2-3]): working state seen in development run dev-11 after an attempt or a
+# restart, and between two fresh boots of one clean installation (compare --baseline P1-0 against P4-C3-2-pre).
+file:@part1/NvVars	program-record	S8.2-15	the variable store that the firmware of the virtual machine (OVMF) writes to the EFI partition at every boot when it has no flash store of its own: working state of the firmware; the entries in it are the firmware's own, chosen by no person
+mount:/dev#value.options~(size|nr_inodes)=[0-9]+k?	runtime	S8.2-5	devtmpfs: the kernel sets size= and nr_inodes= from the memory present at boot; every other option of the mount is still compared
+vfile:/run/confos-containers/*/store/db.sql	program-record	S8.2-15	working state of the container engine: its storage database, layer list and lock files, written as it runs (the files of the images are not decided by this rule; they follow from the container line or are reported)
+vfile:/run/confos-containers/*/store/*.lock	program-record	S8.2-15	working state of the container engine: its storage database, layer list and lock files, written as it runs (the files of the images are not decided by this rule; they follow from the container line or are reported)
+vfile:/run/confos-containers/*/store/vfs-*/*.lock	program-record	S8.2-15	working state of the container engine: its storage database, layer list and lock files, written as it runs (the files of the images are not decided by this rule; they follow from the container line or are reported)
+vfile:/run/confos-containers/*/store/vfs-layers/layers.json	program-record	S8.2-15	working state of the container engine: its storage database, layer list and lock files, written as it runs (the files of the images are not decided by this rule; they follow from the container line or are reported)
+vfile:/run/confos-containers/*/store/vfs-images/images.json	program-record	S8.2-15	working state of the container engine: its storage database, layer list and lock files, written as it runs (the files of the images are not decided by this rule; they follow from the container line or are reported)
+
+vfile,vdir:/run/user/*/confos-podman-run/**	program-record	S8.2-15	working state of the container engine of an account: lock files written as it runs
+vfile,vdir:/run/user/*/confos-podman-tmp/**	program-record	S8.2-15	working state of the container engine of an account: its liveness mark and event log, written as it runs
+vfile:/run/user/*/libpod/tmp/pause.pid	program-record	S8.2-15	working state of the container engine of an account: the process number of its pause process
+vfile:/run/confos-services.json	program-record	S8.2-15	working state of the system's service starter: the services it started at this boot, rewritten at every boot; the services themselves are compared as units and processes
+vfile:/run/hostkey.log	program-record	S8.2-15	log of the generation of the SSH host key at boot
+vfile:/run/ssh_host_ed25519_key	program-record	S8.2-15	the host key that the SSH server's start generates at every boot: working state of that program, chosen by no person; it identifies this computer to others and is not a means of login to it (S8.2-13)
+vfile:/run/ssh_host_ed25519_key.pub	program-record	S8.2-15	the public half of the host key generated at boot (as above)
+vfile:/var/run/dropbear.pid	program-record	S8.2-15	working state of the SSH server: its process number
+file:**/.local/share/containers/cache/blob-info-cache-v1.sqlite	program-record	S8.2-15	cache of the container engine (which image layers it has seen), rewritten as it runs
+vfile,vdir,vsymlink,vother:/var/log/**	program-record	S8.2-15	logs on a volatile /var: of the journal, of apt and dpkg, of services
+vfile,vdir:/var/lib/dpkg/triggers/**	program-record	S8.2-15	working state of dpkg: its pending triggers and their lock, written as it runs
+vdir:/var/lib/dpkg/triggers	program-record	S8.2-15	working state of dpkg (as above)
+vfile,vdir:/var/lib/dpkg/updates/**	program-record	S8.2-15	working state of dpkg: its journal of database updates in progress
+vfile:/var/lib/dpkg/status-old	program-record	S8.2-15	the previous copy of the dpkg database, which dpkg writes before it changes the database
+vfile:/var/lib/dpkg/info/format	program-record	S8.2-15	working state of dpkg: the format of its own database
+vfile:/var/lib/dpkg/status	program-record	S8.2-15	the database in which dpkg records what it unpacked and configured, rewritten as it runs; what is installed is compared through the package objects (dpkg-query) and the files of the packages
+vfile:/var/lib/apt/extended_states	program-record	S8.2-15	the record apt keeps of which packages it installed as dependencies of others
+vfile:/var/cache/debconf/*.dat	program-record	S8.2-15	the database that debconf writes when apt runs it (templates and answers of package configuration); no program of the computer obeys it unless a maintainer script reads it
+mount:**#value.uuid	runtime	S8.2-17	the UUID that mkfs chose at random when the installation was built: a value created during the installation, covered by the line that built the filesystem; every other field of the mount is compared
+other:@disk/partition-table#value~guid=[0-9A-F-]{36},sha256	program-record	S8.2-17	the GUID of each partition, chosen at random when the installation was built: a value created during the installation, covered by the line that built the disk; the layout, the type GUIDs and the names are compared (the sha256 is that of the same text)
+file:/state/declaration.conf	material	S8.2-15	the declaration file that the person writes (build/INTERFACE.md, S8.1-3): a text the person created; what it records is compared through the derivation of the declaration in force, and a written declaration that is not in force is the person's document
+vfile:/run/confos-apply.lock	program-record	S8.2-15	the lock that `confos apply` holds while it runs: working state of that program, left by an application that did not complete
+vfile,vdir,vsymlink,vother:/run/user/*/gnupg/**	program-record	S8.2-15	working state of gpg-agent of an account: its sockets
+vdir:/run/user/*/gnupg	program-record	S8.2-15	working state of gpg-agent of an account: the folder of its sockets
+file,dir:/state/files/**	material	S8.2-15	the content files that the person puts beside the declaration for its lines (build/INTERFACE.md); a file whose line was removed stays the person's document; an executable there is still reported
+#
+# Added 2026-11-24, 13:55–15:50 UTC ([n3-A]). Used only by `compare --questions`, which the runner gives to
+# every comparison of an installation. An object of the writable area (a filesystem or image mounted read-write, or a
+# volatile filesystem) that follows from no line is decided by the four questions of S8.2-6 in their order:
+# question 1 by the `store` rules below; question 2 by the routes (routes.tsv: a direct route of the object's form
+# executes it); then the rules above that name the program which recorded the object; question 3 by the `carrier/...`
+# rules below, each with the probe that shows whether the setting is in force; otherwise S8.2-15: a program record
+# or material, not counted (compare-excluded.tsv, rule `four-questions`). The stored, read-only system part is not
+# decided this way: there every object that equals neither the derivation nor the reference installation stays
+# reported.
+#
+# Question 1, S8.2-7: "Is the object a package installed on the computer, or was it obtained as part of such a
+# package and does it remain as received?" Where package managers keep what they install.
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/site-packages	store	S8.2-7	the package store of pip (site-packages): a Python package installed there
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/site-packages/**	store	S8.2-7	the package store of pip (site-packages): a Python package installed there or a file obtained as part of one
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/dist-packages/**	store	S8.2-7	the package store of pip (dist-packages) in the writable area: a file obtained as part of a Python package
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/node_modules	store	S8.2-7	the package store of npm (node_modules)
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/node_modules/**	store	S8.2-7	the package store of npm (node_modules): a JavaScript package installed there or a file obtained as part of one
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/.local/share/flatpak/**	store	S8.2-7	the package store of Flatpak of an account: an application or runtime installed there
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/var/lib/flatpak/**	store	S8.2-7	the package store of Flatpak of the system: an application or runtime installed there
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/storage/vfs/**	store	S8.2-7	the image store of the container engine (layers of the vfs driver): a file obtained as part of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/storage/overlay/**	store	S8.2-7	the image store of the container engine (layers of the overlay driver): a file obtained as part of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/storage/*-images/*/**	store	S8.2-7	the image store of the container engine: the manifest and configuration of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/storage/*-layers/*.gz	store	S8.2-7	the image store of the container engine: the content list of a layer of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/run/confos-containers/*/store/vfs/**	store	S8.2-7	the image store of the container engine of an account (layers of the vfs driver): a file obtained as part of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/run/confos-containers/*/store/overlay/**	store	S8.2-7	the image store of the container engine of an account (layers of the overlay driver): a file obtained as part of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/run/confos-containers/*/store/*-images/*/**	store	S8.2-7	the image store of the container engine of an account: the manifest and configuration of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/run/confos-containers/*/store/*-layers/*.gz	store	S8.2-7	the image store of the container engine of an account: the content list of a layer of a container image
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:**/squashfs-root/**	store	S8.2-7	an unpacked AppImage (squashfs-root, what `--appimage-extract` writes): a file obtained as part of an application package
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/var/lib/dpkg/info/*.*	store	S8.2-7	the package database of dpkg: the entry of a package installed on the computer (its file list, checksums, maintainer scripts)
+file,dir,symlink,other,vfile,vdir,vsymlink,vother:/var/cache/apt/archives/*.deb	store	S8.2-7	a Debian package downloaded by apt for installation
+#
+# Question 3, S8.2-11 to S8.2-14: "Is the object a value chosen by a person that the computer as a whole obeys ...?";
+# "A value obeyed only by a program that a person runs for himself or herself is a setting if it launches something
+# or grants access". Where settings are stored, by the probe that shows one in force (compare, function `probe`):
+# carrier/unit: the service manager loaded a unit from it (the units of the inventory: file, source, drop-ins; a
+# symlink in a .wants/.requires folder: the unit it names is enabled); carrier/cron: a running cron daemon reads it
+# (the cron tables of the inventory); carrier/key: the SSH server takes a key from it (the authorized keys of the
+# inventory); carrier/route: the program that obeys it executed it (routes.tsv: a direct route of its form);
+# carrier/none: no probe exists in the case party's programs, the outcome is UNPROBED ([n3-B]).
+file,symlink,vfile,vsymlink:**/systemd/user/**	carrier/unit	S8.2-13	a unit file of an account's service manager (services and their parameters)
+file,symlink,vfile,vsymlink:**/systemd/system/**	carrier/unit	S8.2-13	a unit file of the system's service manager (services and their parameters)
+file,symlink,vfile,vsymlink:**/.config/systemd/**	carrier/unit	S8.2-13	a unit file or drop-in of an account's service manager
+file,symlink,vfile,vsymlink:**/systemd/user.control/**	carrier/unit	S8.2-13	a unit setting of an account's service manager made with `systemctl --user set-property`
+file,symlink,vfile,vsymlink:**/systemd/system.control/**	carrier/unit	S8.2-13	a unit setting of the system's service manager made with `systemctl set-property`
+file,symlink,vfile,vsymlink:/run/systemd/transient/**	carrier/unit	S8.2-13	a transient unit started with systemd-run
+file,symlink,vfile,vsymlink:/run/user/*/systemd/transient/**	carrier/unit	S8.2-13	a transient unit of an account started with systemd-run --user
+file,symlink,vfile,vsymlink:/run/systemd/generator*/**	carrier/unit	S8.2-13	a unit made by a generator of the service manager
+file,symlink,vfile,vsymlink:/var/spool/cron/**	carrier/cron	S8.2-13	a cron table of an account (a scheduler: services and their parameters)
+file,symlink,vfile,vsymlink:/etc/cron*/**	carrier/cron	S8.2-13	a cron table of the system
+file,symlink,vfile,vsymlink:/etc/crontab	carrier/cron	S8.2-13	the cron table of the system
+file,symlink,vfile,vsymlink:**/.ssh/authorized_keys*	carrier/key	S8.2-13	the keys permitted as a means of login to an account of this computer
+file,symlink,vfile,vsymlink:**/.bashrc	carrier/route	S8.2-14	a startup file of the shell: the shell executes it at every start
+file,symlink,vfile,vsymlink:**/.profile	carrier/route	S8.2-14	a startup file of the login shell
+file,symlink,vfile,vsymlink:**/.bash_profile	carrier/route	S8.2-14	a startup file of the login shell
+file,symlink,vfile,vsymlink:**/.bash_login	carrier/route	S8.2-14	a startup file of the login shell
+file,symlink,vfile,vsymlink:**/.bash_logout	carrier/route	S8.2-14	a file the login shell executes when it ends
+file,symlink,vfile,vsymlink:**/.ssh/rc	carrier/route	S8.2-14	the file the SSH server executes at every login of the account
+file,symlink,vfile,vsymlink:**/.git/hooks/*	carrier/route	S8.2-14	a hook that git executes at its events
+file,symlink,vfile,vsymlink:**/.zshrc	carrier/none	S8.2-14	a startup file of zsh
+file,symlink,vfile,vsymlink:**/.zprofile	carrier/none	S8.2-14	a startup file of zsh
+file,symlink,vfile,vsymlink:**/.zshenv	carrier/none	S8.2-14	a startup file of zsh
+file,symlink,vfile,vsymlink:**/.config/fish/**	carrier/none	S8.2-14	a startup file of fish
+file,symlink,vfile,vsymlink:**/.config/autostart/**	carrier/none	S8.2-14	an entry that the graphical session launches at login
+file,symlink,vfile,vsymlink:**/.config/environment.d/**	carrier/none	S8.2-14	the environment that an account's service manager gives every program it launches
+file,symlink,vfile,vsymlink:**/.pam_environment	carrier/none	S8.2-14	the environment that the login modules give every login of the account
+file,symlink,vfile,vsymlink:**/.xinitrc	carrier/none	S8.2-14	the file that starts a graphical session
+file,symlink,vfile,vsymlink:**/.xsession*	carrier/none	S8.2-14	the file that starts a graphical session
+file,symlink,vfile,vsymlink:**/.xprofile	carrier/none	S8.2-14	the file executed at the start of a graphical session
+file,symlink,vfile,vsymlink:**/.ssh/config	carrier/none	S8.2-14	settings of the SSH client, which can launch a program (ProxyCommand, LocalCommand)
+file,symlink,vfile,vsymlink:**/.forward	carrier/none	S8.2-14	a mail forwarding file, which can launch a program
+file,symlink,vfile,vsymlink:**/.config/containers/**	carrier/none	S8.2-14	settings of the container engine of an account (registries, hooks, the runtime it launches)
+file,symlink,vfile,vsymlink:**/system-connections/**	carrier/none	S8.2-13	a saved network of NetworkManager
+file,symlink,vfile,vsymlink:/var/lib/iwd/**	carrier/none	S8.2-13	a saved network of iwd
+file,symlink,vfile,vsymlink:**/wpa_supplicant*.conf	carrier/none	S8.2-13	a saved network of wpa_supplicant
+file,symlink,vfile,vsymlink:/var/lib/bluetooth/**	carrier/none	S8.2-13	a paired device of BlueZ
+file,symlink,vfile,vsymlink:**/sudoers.d/**	carrier/none	S8.2-13	an access rule of sudo
+file,symlink,vfile,vsymlink:**/.config/sudo/**	carrier/none	S8.2-13	an access rule of sudo
+file,symlink,vfile,vsymlink:**/.gitconfig	carrier/none	S8.2-14	settings of git, whose values can launch a program (aliases with !, core.editor, core.pager, core.sshCommand, hooks)
+file,symlink,vfile,vsymlink:**/.config/git/config	carrier/none	S8.2-14	settings of git, whose values can launch a program (as above)

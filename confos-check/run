@@ -1,0 +1,1810 @@
+#!/usr/bin/env python3
+"""run: perform every case of CASES.md, in its order, against a ConfOS source tree and its clean installations.
+
+  run --source BUILD_DIR --name NAME [--image CLEAN.qcow2 --key KEY] [--only ID,...] [--backend confos|stock]
+      [--max-vms 3] [--vm-mem MIB] [--link-hold SECONDS]
+  run --list
+
+Runs on the server. Writes runs/<NAME>/results.tsv (CASE_ID PART OUTCOME EVIDENCE_FILE; outcomes only pass, fail,
+unobserved, undecided) and one evidence directory per case under runs/<NAME>/ (every command with its stdout,
+stderr, exit and UTC times in commands.jsonl and log.txt).
+
+Clean installations: the test declaration cases/declarations/D-test.spec is rendered by adapter.py into the
+builder's syntax and built once per run with the builder's documented `build.sh` (from a copy of the published
+source); every FRESH is an overlay of that disk; FRESH-BUILD builds a new independent installation. With --image the
+given clean disk is used instead of the build (--key is then the private key of the account `person`).
+The stock backend boots a stock Debian 13 cloud image (STOCK_IMAGE of local.env) with a NoCloud seed; every ConfOS
+operation raises NotAvailable there and gives `unobserved`. It exists only to test the runner.
+"""
+import argparse
+import base64
+import collections
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import shutil
+import signal
+import subprocess
+import sys
+import threading
+import time
+import traceback
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+
+from lib.common import Evidence, RunnerError, utc, load_env, home_path, sha256_file, sha256_bytes, scrub  # noqa: E402
+from lib import vm as vmlib  # noqa: E402
+from lib.vm import Machine, BootFailed, make_seed  # noqa: E402
+from lib.http import PayloadServer  # noqa: E402
+import adapter  # noqa: E402
+from adapter import NotExpressible, NotAvailable, StepFailed, Spec, Declaration, Renderer  # noqa: E402
+import casedefs  # noqa: E402
+
+ENV = load_env()
+OUTCOMES = ('pass', 'fail', 'unobserved', 'undecided')
+INVENTORY = HERE / 'inventory'
+DERIVE = HERE / 'derive'
+COMPARE = HERE / 'compare'
+DECIDE = HERE / 'decide.tsv'
+
+
+def list_order():
+    out = []
+    for c in casedefs.CASES:
+        if c['id'] == 'P2-ADD-1':
+            out.append('P2-1:*')
+        out.append(c['id'])
+        if c['id'] == 'UND-0':
+            out.append('UND:<TAG>')
+    return out
+
+
+def prog(path):
+    """The checking programs are Python scripts: run them with this interpreter (their mode is not relied on)."""
+    with open(path, 'rb') as f:
+        first = f.readline()
+    return [sys.executable, str(path)] if b'python' in first else [str(path)]
+
+
+def safe(name):
+    return re.sub(r'[^A-Za-z0-9._:-]', '_', name)
+
+
+def holds(test, code, out, err):
+    text = (out + b'\n' + err).decode(errors='replace')
+    if test == 'exit0':
+        return code == 0
+    if test == 'nonzero':
+        return code != 0
+    if test.startswith('eq:'):
+        return code == int(test[3:])
+    if test.startswith('renz:'):
+        return code != 0 or re.search(test[5:], text, re.M) is not None
+    if test.startswith('!re:'):
+        return re.search(test[4:], text, re.M) is None
+    if test.startswith('re:'):
+        return code is not None and re.search(test[3:], text, re.M) is not None
+    if test.startswith('out:'):
+        # exit 0 and the regex on standard output only (an error message on stderr never matches)
+        return code == 0 and re.search(test[4:], out.decode(errors='replace'), re.M) is not None
+    raise ValueError(test)
+
+
+# ---------------------------------------------------------------- routes ([n2-4], review decision R1)
+# For each file the person made: every direct route (the file itself given to a program as its program) and every
+# data route (a typed command reads the file as data and hands its bytes to an interpreter). Run in the guest after
+# the inventory (its effects never enter that inventory), as the person and then as root, each route under
+# `timeout 10` with standard input from /dev/null. One output line per route: PATH GROUP ROUTE EXIT BASE64(stderr).
+ROUTES_SH = r'''
+set +e
+emit() { printf '%s\t%s\t%s\t%s\t%s\n' "$F" "$1" "$2" "$3" "$(printf %s "$4" | head -c 400 | base64 -w0)"; }
+r() { g=$1; n=$2; shift 2; e=$(cd ~ && timeout 10 "$@" 2>&1 >/dev/null </dev/null); emit "$g" "$n" $? "$e"; }
+for F in "$@"; do
+  if [ ! -f "$F" ]; then emit none absent - ''; continue; fi
+  if [ ! -s "$F" ]; then emit none empty - ''; continue; fi
+  name=${F##*/}; line1=$(head -n 1 "$F" 2>/dev/null | head -c 200 | tr -d '\0')
+  emit none form - "$line1"
+  if [ -x "$F" ]; then r direct path "$F"
+  elif [ -O "$F" ] && chmod u+x "$F" 2>/dev/null; then r direct path+x "$F"; chmod u-x "$F"; fi
+  [ -e /lib64/ld-linux-x86-64.so.2 ] && r direct loader /lib64/ld-linux-x86-64.so.2 "$F"
+  # a file with NUL bytes in its first 64 KiB is not text: no interpreter reads it as its program
+  if [ "$(head -c 65536 "$F" | tr -d '\0' | wc -c)" -lt "$(head -c 65536 "$F" | wc -c)" ]; then
+    emit none binary - ''; continue
+  fi
+  r direct bash bash "$F"
+  r direct sh sh "$F"
+  e=$(cd ~ && timeout 10 bash < "$F" 2>&1 >/dev/null); emit direct bash-stdin $? "$e"
+  r direct source bash -c '. "$1"' cases-route "$F"
+  command -v python3 >/dev/null && r direct python3 python3 "$F"
+  command -v perl >/dev/null && r direct perl perl "$F"
+  # awk executes something only through an action ({...}); make only through a recipe that `make -n` prints
+  if grep -q '{' "$F"; then r direct awk awk -f "$F"; else emit direct awk 126 'awk: no action in the file: nothing to execute'; fi
+  if [ -n "$(cd ~ && timeout 10 make -n -f "$F" 2>/dev/null </dev/null | grep -v "^make\(\[[0-9]*\]\)\?: ")" ]; then r direct make make -f "$F"; else emit direct make 126 'make: make -n prints no command: nothing to execute'; fi
+
+  command -v node >/dev/null && r direct node node "$F"
+  case "$line1" in '#!'*) set -- ${line1#\#!}; [ -n "$1" ] && [ -x "$1" ] && r direct shebang "$@" "$F";; esac
+  e=$(cd ~ && cat "$F" | timeout 10 bash 2>&1 >/dev/null); emit data cat-pipe-bash $? "$e"
+  r data bash-c-cat bash -c "$(head -c 200000 "$F" | tr -d '\0')"
+  command -v python3 >/dev/null && r data python3-exec python3 -c 'import sys; exec(open(sys.argv[1], "rb").read())' "$F"
+done
+
+'''
+# A route is refused when the system or the program refuses the file as its program: exit 126 (cannot execute) or
+# 127 (not found), or a message of refusal or of a file that is not a program in that program's language. Exit 0, a
+# timeout (124: it ran for 10 s) or any other exit without such a message: the route executed the file.
+REFUSAL = re.compile(r'Permission denied|Operation not permitted|Exec format error|cannot execute|error while loading '
+                     r'shared libraries|cannot open shared object|failed to map segment|not a dynamic executable|'
+                     r'invalid ELF header|No such file or directory|command not found|: not found|syntax error|'
+                     r'SyntaxError|Can.t locate|Bareword found|missing separator|No rule to make target|null bytes|'
+                     r'Is a directory|unexpected EOF|unexpected token|Unrecognized character|ValueError: source code|No targets',
+                     re.I)
+
+
+SHELL_ROUTES = {'bash', 'sh', 'bash-stdin', 'source', 'cat-pipe-bash', 'bash-c-cat'}
+INTERP_ROUTES = {'sh': SHELL_ROUTES, 'bash': SHELL_ROUTES, 'dash': SHELL_ROUTES, 'python': {'python3', 'python3-exec'},
+                 'perl': {'perl'}, 'awk': {'awk'}, 'gawk': {'awk'}, 'mawk': {'awk'}, 'node': {'node'},
+                 'nodejs': {'node'}, 'make': {'make'}}
+SUFFIX_ROUTES = {'.sh': SHELL_ROUTES, '.bash': SHELL_ROUTES, '.py': INTERP_ROUTES['python'], '.pl': {'perl'},
+                 '.awk': {'awk'}, '.js': {'node'}, '.mjs': {'node'}, '.cjs': {'node'}, '.mk': {'make'}}
+SHELL_NAMES = {'.bashrc', '.profile', '.bash_profile', '.bash_login', '.bash_logout', 'rc'}
+MAKE_NAMES = {'Makefile', 'makefile', 'GNUmakefile'}
+
+
+def form_routes(path, line1):
+    """The routes that a file's own form names (R1, Q12): the path, the loader and the #! line always; the
+    interpreter of its #! line, of its suffix, or of its startup-file name (shell)."""
+    out = {'path', 'path+x', 'loader', 'shebang'}
+    name = path.rsplit('/', 1)[-1]
+    if line1.startswith('#!'):
+        words = line1[2:].split()
+        if words and words[0].rsplit('/', 1)[-1] == 'env' and len(words) > 1:
+            words = [w for w in words[1:] if not w.startswith('-')]
+        if words:
+            base = re.sub(r'[0-9.]+$', '', words[0].rsplit('/', 1)[-1])
+            out |= INTERP_ROUTES.get(base, set())
+    for suf, r in SUFFIX_ROUTES.items():
+        if name.endswith(suf):
+            out |= r
+    if name in SHELL_NAMES or path.endswith('/.ssh/rc'):
+        out |= SHELL_ROUTES
+    if name in MAKE_NAMES:
+        out |= {'make'}
+    return out
+
+
+_CMP = []
+
+def load_compare_module():
+    """The program `compare` as a module (its made.tsv and glob rules are reused, never copied)."""
+    if not _CMP:
+        import importlib.machinery
+        _CMP.append(importlib.machinery.SourceFileLoader('cases_compare', str(COMPARE)).load_module())
+    return _CMP[0]
+
+
+
+
+def route_executes(code, err):
+    if code in (0, 124):
+        return True
+    if code is None or code in (126, 127):
+        return False
+    return REFUSAL.search(err) is None
+
+
+MADE_KINDS = 'file,dir,symlink,other,vfile,vdir,vsymlink,vother'
+# verdicts of compare for an object whose deciding observation was not made ([n3-B]): code in form that
+# no direct route was tried on, a carrier of a setting that no probe was made of
+UNOBSERVED_VERDICTS = ('UNROUTED', 'UNPROBED')
+STORED_KINDS = set(MADE_KINDS.split(','))
+
+
+def read_tsv_counts(path, stored_differs=False):
+    """Verdict counts of a compare.tsv; with stored_differs, DIFFERS of a stored or volatile object is also counted
+    as DIFFERS-STORED (P1: a file of a package that no longer remains as received follows from no line, S8.2-7)."""
+    counts = collections.Counter()
+    lines = []
+    for line in Path(path).read_text().splitlines():
+        if line.strip():
+            f = line.split('\t')
+            counts[f[0]] += 1
+            if stored_differs and f[0] == 'DIFFERS' and len(f) > 1 and f[1] in STORED_KINDS:
+                counts['DIFFERS-STORED'] += 1
+            if f[0] == 'DIFFERS' and len(f) > 3 and f[3].startswith('value.text[Q7]'):
+                counts['DIFFERS-Q7'] += 1
+            lines.append(f)
+    return counts, lines
+
+
+def p2_outcome(counts):
+    """P2 from the counts of a comparison with the derivation, under both readings of Q7 (a rule in force with an
+    added comment): `fail` on MISSING or another DIFFERS; `undecided` (Q7) when the only differences are such
+    rules; `unobserved` on UNVERIFIED (Q8); else `pass`."""
+    if counts.get('MISSING') or counts.get('DIFFERS', 0) > counts.get('DIFFERS-Q7', 0):
+        return 'fail'
+    if counts.get('DIFFERS-Q7'):
+        return 'undecided'
+    if counts.get('UNVERIFIED'):
+        return 'unobserved'
+    return 'pass'
+
+
+def probe_opts(step):
+    """Options of a PROBE step: ('PROBE', WHO, CMD, TEST[, {'nopre': REASON}])."""
+    return step[4] if len(step) > 4 and isinstance(step[4], dict) else {}
+
+
+# ---------------------------------------------------------------- VM pool (never more than --max-vms)
+
+class Pool:
+    def __init__(self, size):
+        self.size = size
+        self.used = 0
+        self.cond = threading.Condition()
+
+    def acquire(self, n):
+        n = min(n, self.size)
+        with self.cond:
+            while self.used + n > self.size:
+                self.cond.wait()
+            self.used += n
+        return n
+
+    def release(self, n):
+        with self.cond:
+            self.used -= n
+            self.cond.notify_all()
+
+
+# ---------------------------------------------------------------- the run
+
+class Run:
+    def __init__(self, args):
+        self.args = args
+        self.name = args.name
+        base = home_path(ENV.get('SERVER_DIR', 'VMs/confos/cases'))
+        self.runs_dir = (Path(args.runs_dir) if args.runs_dir else base / 'runs') / self.name
+        self.work = base / 'run' / 'work' / self.name
+        self.cache = base / 'run' / 'cache'
+        self.keys = base / 'run' / 'keys' / self.name
+        for d in (self.runs_dir, self.work, self.cache, self.keys):
+            d.mkdir(parents=True, exist_ok=True)
+        self.ev = Evidence(self.runs_dir / '_run')
+        self.rows = collections.defaultdict(list)
+        self.rows_lock = threading.Lock()
+        self.pool = Pool(args.max_vms)
+        self.derive_lock = threading.Lock()
+        self.derived_cache = {}
+        self.build_failed = None
+        self.stopping = False
+        self.ref_lock = threading.Lock()
+        self.ref_locks = {}
+        self.rendered_by_sha = {}
+
+    # -- rows
+    def add_row(self, case_id, row_id, part, outcome, evidence_file):
+        assert outcome in OUTCOMES, outcome
+        with self.rows_lock:
+            self.rows[case_id].append((row_id, part, outcome, evidence_file))
+        self.write_results()
+
+    def write_results(self):
+        with self.rows_lock:
+            lines = []
+            for cid in casedefs.IDS + [c['id'] for c in casedefs.TEST_CASES]:
+                for row in self.rows.get(cid, []):
+                    lines.append('\t'.join(row) + '\n')
+            tmp = self.runs_dir / 'results.tsv.new'
+            tmp.write_text(''.join(lines))
+            os.replace(tmp, self.runs_dir / 'results.tsv')
+
+    # -- preparation
+    def prepare(self):
+        a = self.args
+        self.ev.note(f'run {self.name} backend={a.backend} max_vms={a.max_vms} started')
+        key = self.keys / 'person'
+        if a.key:
+            key = Path(a.key)
+        elif not key.exists():
+            code, _, err = self.ev.host(['ssh-keygen', '-q', '-t', 'ed25519', '-N', '', '-C', '', '-f', str(key)])
+            if code:
+                raise RunnerError('ssh-keygen failed')
+        self.key = key
+        pub = Path(str(key) + '.pub')
+        if not pub.exists():
+            code, out, _ = self.ev.host(['ssh-keygen', '-y', '-f', str(key)])
+            pub.write_bytes(out)
+        self.pubkey = pub.read_text().strip()
+        if a.backend == 'confos':
+            self.source = self.work / 'source'
+            shutil.rmtree(self.source, ignore_errors=True)
+            self.source.mkdir()
+            src = Path(a.source).expanduser()
+            listing = []
+            if src.is_file():
+                # the published source archive, unpacked into our own folder (never built in the builder's folder)
+                listing.append(f'{sha256_file(src)}  {src.name}\n')
+                code, _, err = self.ev.host(['tar', '-xzf', str(src), '-C', str(self.source)])
+                if code:
+                    raise RunnerError('the source archive could not be unpacked')
+            else:
+                for f in sorted(src.iterdir()):
+                    if f.is_file() and not f.name.startswith('.') and f.name != 'local.env':
+                        shutil.copy2(f, self.source / f.name)
+            for f in sorted(self.source.rglob('*')):
+                if f.is_file():
+                    listing.append(f'{sha256_file(f)}  {f.relative_to(self.source)}\n')
+            (self.runs_dir / 'source.sha256').write_text(''.join(listing))
+            self.backend = adapter.ConfosBackend(self.source)
+            base_version = self.backend.base_version()
+        else:
+            self.source = None
+            self.backend = adapter.StockBackend()
+            base_version = '0.1'
+            img = home_path(ENV['STOCK_IMAGE'])
+            want = ENV.get('STOCK_IMAGE_SHA512')
+            code, out, _ = self.ev.host(['sha512sum', str(img)], timeout=600)
+            if code or (want and out.split()[0].decode() != want):
+                raise RunnerError('the stock image is missing or its checksum differs')
+            self.stock_image = img
+        self.renderer = Renderer(self.cache / 'render', base_version, self.pubkey, self.ev)
+        spec_file = Path(a.declaration) if a.declaration else HERE / 'declarations' / 'D-test.spec'
+        self.ev.note(f'test declaration: {spec_file} sha256 {sha256_file(spec_file)}'
+                     + ('' if not a.declaration else ' (NOT D-test: a development run of the runner, not an observation)'))
+        self.dtest_decl = Declaration(adapter.read_spec_file(spec_file))
+        try:
+            self.dtest = self.renderer.render(self.dtest_decl)
+        except RunnerError as e:
+            self.dtest = None
+            self.build_failed = ('unobserved', f'the test declaration could not be rendered: {e}')
+            return
+        dt = self.runs_dir / 'D-test'
+        dt.mkdir(exist_ok=True)
+        (dt / 'declaration.conf').write_bytes(self.dtest.text())
+        (dt / 'render.json').write_text(json.dumps({
+            'sha256': self.dtest.sha256(), 'not_expressible': self.dtest.not_expressible,
+            'records': self.dtest.records, 'content_files': {k: adapter.file_sha(v) for k, v in self.dtest.files.items()},
+        }, indent=1, sort_keys=True) + '\n')
+        self.rendered_by_sha = {self.dtest.sha256(): self.dtest}
+        if a.backend == 'confos' and not a.render_only:
+            if a.image:
+                self.clean_image = Path(a.image).resolve()
+            else:
+                self.clean_image = self.work / 'clean.qcow2'
+                if self.clean_image.exists():
+                    self.clean_image.unlink()
+                try:
+                    self.backend.build_clean(self.dtest, self.work / 'D-test', self.clean_image, self.ev)
+                except StepFailed as e:
+                    self.build_failed = ('fail', f'the clean installation could not be built from D-test: {e}')
+
+    # -- cases
+    def run_cases(self, ids):
+        threads = []
+        for cid in ids:
+            case = casedefs.BY_ID[cid]
+            if case['family'] == 'with':
+                if case['with_case'] in ids:
+                    continue
+                case = casedefs.BY_ID[case['with_case']]
+            need = case.get('vms', 0 if case['family'] == 'hardware' else 1)
+            n = self.pool.acquire(need) if need else 0
+            if self.stopping:
+                break
+            t = threading.Thread(target=self.run_one, args=(case, n), daemon=True)
+            t.start()
+            threads.append(t)
+        for t in threads:
+            while t.is_alive():
+                t.join(timeout=1)
+
+    def run_one(self, case, held):
+        ctx = Ctx(self, case)
+        try:
+            ctx.execute()
+        finally:
+            if held:
+                self.pool.release(held)
+        # P1 and UND rows need the reference installation of each declaration in force ([n2-1]); it
+        # is made after the case's own machines are gone, so that a case never waits for a slot it holds itself
+        ctx.finish_pending()
+
+    # -- the reference installation of a declaration ([n2-1])
+    def reference(self, sha, decl_dir):
+        """Inventory of a clean installation built by the case party from the published source and the declaration
+        with SHA256 `sha` (plan Section 9.3: the checksum that follows from a line ... from the published source of
+        the release run in a clean environment, never on the machine under test). Built, booted once, inventoried
+        from outside, stopped and deleted; one per declaration per run. Returns (inventory dir or None, reasons)."""
+        with self.ref_lock:
+            lock = self.ref_locks.setdefault(sha, threading.Lock())
+        with lock:
+            d = self.runs_dir / '_reference' / sha[:16]
+            done = d / 'reference.json'
+            if done.exists():
+                info = json.loads(done.read_text())
+                return (d / 'inventory' if info.get('ok') else None), info.get('reasons', [])
+            d.mkdir(parents=True, exist_ok=True)
+            ev = Evidence(d)
+            reasons = []
+            info = {'declaration_sha256': sha, 'ok': False}
+            if self.args.backend != 'confos':
+                reasons.append('no reference installation on the stock backend')
+            else:
+                rendered = self.rendered_by_sha.get(sha) or adapter.rendered_from_dir(decl_dir)
+                if rendered.sha256() != sha:
+                    reasons.append(f'the declaration read back is {rendered.sha256()}, not {sha}')
+                else:
+                    n = self.pool.acquire(1)
+                    vmdir = self.work / 'vms' / f'_reference-{sha[:16]}'
+                    m = None
+                    try:
+                        shutil.rmtree(vmdir, ignore_errors=True)
+                        vmdir.mkdir(parents=True)
+                        disk = vmdir / 'clean.qcow2'
+                        ev.note(f'reference: an independent clean build of declaration {sha} from the published '
+                                f'source {self.args.source}')
+                        self.backend.build_clean(rendered, vmdir / 'decl', disk, ev)
+                        m = Machine('confos', 'reference', vmdir, disk, self.key, 'person', ev,
+                                    memory=self.args.vm_mem, source=self.source)
+                        m.start()
+                        if m.wait_ssh(timeout=900) is None:
+                            reasons.append('the reference installation did not answer over SSH')
+                        else:
+                            # the first boot may still be completing (`confos status` prints NOT-READY meanwhile)
+                            deadline = time.time() + 900
+                            c, s = self.backend.status(m)
+                            while not s.startswith('APPLIED') and time.time() < deadline:
+                                time.sleep(3)
+                                c, s = self.backend.status(m, record=False)
+                            ev.note(f'reference: confos status {s!r}')
+                            info['status'] = s
+                            if s != f'APPLIED {sha}':
+                                reasons.append(f'confos status of the reference is {s!r}')
+                            m.r('sync', timeout=120)
+                            code, _, _ = ev.host(prog(INVENTORY) + [
+                                '--disk', str(m.disk), '--ssh-port', str(m.port), '--ssh-key', str(m.key),
+                                '--user', m.user, '--root-cmd', 'sudo -n', '--out', str(d / 'inventory')] +
+                                (['--firewall-fallback', self.backend.firewall_fallback]
+                                 if getattr(self.backend, 'firewall_fallback', None) else []), timeout=7200)
+                            if code != 0:
+                                reasons.append(f'inventory of the reference exited {code}')
+                            elif not reasons:
+                                info['ok'] = True
+                    except (StepFailed, BootFailed, RunnerError) as e:
+                        reasons.append(f'the reference installation could not be made: {type(e).__name__}: {e}')
+                    finally:
+                        if m is not None:
+                            m.destroy(keep_logs_in=d)
+                        shutil.rmtree(vmdir, ignore_errors=True)
+                        self.pool.release(n)
+            info['reasons'] = reasons
+            info['time'] = utc()
+            done.write_text(json.dumps(info, indent=1, sort_keys=True) + '\n')
+            return (d / 'inventory' if info['ok'] else None), reasons
+
+    def cleanup(self):
+        vmlib.cleanup_all()
+        shutil.rmtree(self.work / 'vms', ignore_errors=True)
+        if not self.args.image and (self.work / 'clean.qcow2').exists():
+            (self.work / 'clean.qcow2').unlink()
+        shutil.rmtree(self.work, ignore_errors=True)
+
+
+# ---------------------------------------------------------------- one case
+
+class Ctx:
+    def __init__(self, run, case):
+        self.run = run
+        self.case = case
+        self.id = case['id']
+        self.part = case['part']
+        self.dir = run.runs_dir / safe(self.id)
+        self.ev = Evidence(self.dir)
+        self.machines = []
+        self.apply_n = 0
+        self.http = None
+        self.inv_results = {}
+        self.decl_changed = None
+        self.written_rows = set()
+        self.pending = []      # inventories whose P1 and UND rows wait for the reference installation
+        self.obeyed = False    # a probe showed something the person saved in force since the last restart
+
+    # -- rows and evidence
+    def row(self, row_id, outcome, reasons, part=None, extra=None):
+        fname = safe(row_id) + '.outcome.txt'
+        reasons = list(reasons) if isinstance(reasons, list) else [reasons]
+        if self.run.stopping:
+            # A row written after the run received a stop signal: its machines and programs were being killed, so the
+            # deciding observation was not completed ([n3-B]). Found when dev-13 was stopped: [f3].
+            reasons = [f'the run was stopped ({self.run.stopping}) before this row was decided; the observation was '
+                       f'not completed', f'outcome the interrupted steps gave, not used: {outcome}'] + reasons
+            outcome = 'unobserved'
+        body = [f'{row_id}\t{part or self.part}\t{outcome}', f'time {utc()}']
+        body += [f'reason: {r}' for r in reasons]
+        if extra:
+            body.append(json.dumps(extra, indent=1, sort_keys=True, default=str))
+        (self.dir / fname).write_text(scrub('\n'.join(body) + '\n'))
+        rel = str((self.dir / fname).relative_to(self.run.runs_dir))
+        self.run.add_row(self.case['id'] if self.case['family'] != 'with' else self.case['with_case'],
+                         row_id, part or self.part, outcome, rel)
+        self.written_rows.add(row_id)
+
+    def execute(self):
+        self.ev.note(f'case {self.id} ({self.case.get("source", "")})')
+        handler = getattr(self, 'fam_' + self.case['family'].replace('-', '_'))
+        main_ids = [self.id] + (['OW-3'] if self.id == 'OW-2' else [])
+        try:
+            if self.run.build_failed and self.case['family'] not in ('hardware', 'und0'):
+                outcome, reason = self.run.build_failed
+                for mid in main_ids:
+                    self.row(mid, outcome, reason)
+                return
+            handler()
+        except NotAvailable as e:
+            self.finish_missing(main_ids, 'unobserved', f'NotAvailable: {e}')
+        except NotExpressible as e:
+            out = 'unobserved' if self.id == 'REPRO-2b' else 'fail'
+            self.finish_missing(main_ids, out, f'not expressible in the declaration: {e} — an ordinary action '
+                                               f'cannot be performed through the declaration' if out == 'fail' else
+                                               f'unobserved: not expressible: {e}')
+        except (StepFailed, BootFailed) as e:
+            self.finish_missing(main_ids, 'fail', f'{type(e).__name__}: {e}')
+        except RunnerError as e:
+            self.finish_missing(main_ids, 'unobserved', f'a step outside the implementation failed: {e}')
+        except Exception as e:
+            tb = traceback.format_exc()
+            (self.dir / 'runner-error.txt').write_text(tb)
+            self.finish_missing(main_ids, 'unobserved', f'the runner raised {type(e).__name__}: {e}')
+        finally:
+            for m in self.machines:
+                m.destroy(keep_logs_in=self.dir)
+            if self.http:
+                self.http.__exit__(None, None, None)
+
+    def finish_missing(self, ids, outcome, reason):
+        for i in ids:
+            if i not in self.written_rows:
+                self.row(i, outcome, reason)
+
+    # -- machines
+    def fresh(self, name, build=False, decl=None):
+        run = self.run
+        vmdir = run.work / 'vms' / f'{safe(self.id)}-{name}'
+        if vmdir.exists():
+            shutil.rmtree(vmdir)
+        vmdir.mkdir(parents=True)
+        decl = decl or run.dtest_decl
+        if run.args.backend == 'stock':
+            disk = Machine.overlay(run.stock_image, vmdir / 'disk.qcow2', self.ev)
+            seed = make_seed(vmdir, run.pubkey, f'{run.name}-{self.id}-{name}', self.ev)
+            m = Machine('stock', name, vmdir, disk, run.key, 'person', self.ev, memory=run.args.vm_mem, seed=seed)
+            rendered = run.dtest
+        else:
+            if build:
+                rendered = run.renderer.render(decl)
+                disk = vmdir / 'clean.qcow2'
+                self.ev.note(f'FRESH-BUILD {name}: an independent build of declaration {rendered.sha256()}')
+                run.backend.build_clean(rendered, vmdir / 'decl', disk, self.ev)
+                run.rendered_by_sha[rendered.sha256()] = rendered
+            else:
+                rendered = run.dtest
+                disk = Machine.overlay(run.clean_image, vmdir / 'disk.qcow2', self.ev)
+            m = Machine('confos', name, vmdir, disk, run.key, 'person', self.ev, memory=run.args.vm_mem,
+                        source=run.source)
+        m.decl = decl.copy()
+        m.rendered = rendered
+        m.rendered_in_force = rendered
+        m.written_sha = m.in_force_sha = rendered.sha256() if rendered else None
+        m.dev = None
+        self.machines.append(m)
+        m.start()
+        if m.wait_ssh(timeout=900) is None:
+            raise BootFailed(f'the fresh installation {name} did not answer over SSH')
+        if run.args.backend == 'confos':
+            # the person starts once the system reports the declaration in force (as the reference installation)
+            deadline = time.time() + 900
+            c, s = run.backend.status(m)
+            while not s.startswith('APPLIED') and time.time() < deadline:
+                time.sleep(3)
+                c, s = run.backend.status(m, record=False)
+            self.ev.note(f'{name}: confos status after the first boot: {s!r}')
+        return m
+
+    def expand(self, m, cmd):
+        if '@HTTP@' in cmd:
+            if not self.http:
+                raise RunnerError('no payload server for this case')
+            cmd = cmd.replace('@HTTP@', f'http://10.0.2.2:{self.http.port}')
+        if '@DEV@' in cmd:
+            if m.dev is None:
+                m.dev = m.net_device()
+            cmd = cmd.replace('@DEV@', m.dev or 'eth0')
+        return cmd
+
+    def cmd(self, m, who, command, timeout=1800):
+        command = self.expand(m, command)
+        return m.ssh(command, root=(who == 'R'), timeout=timeout)
+
+    def serve(self):
+        files = self.case.get('serve')
+        if not files:
+            return
+        d = self.run.work / 'serve' / safe(self.id)
+        d.mkdir(parents=True, exist_ok=True)
+        self.http = PayloadServer(d, self.ev).__enter__()
+        base = f'http://10.0.2.2:{self.http.port}'
+        for name, content in files.items():
+            if isinstance(content, tuple):
+                data = self.run.renderer.fetch(content[1])
+            else:
+                data = content.replace('@HTTP@', base).encode()
+            (d / name).write_bytes(data)
+            self.ev.note(f'served {name}: {len(data)} bytes sha256 {sha256_bytes(data)}')
+            (self.dir / f'served-{name}.sha256').write_text(sha256_bytes(data) + '\n')
+
+    # -- the person's lines and the application
+    def change(self, m, op, spec_text, machine_build=False):
+        before = self.run.renderer.render(m.decl)
+        if op == 'L+':
+            spec = m.decl.add(spec_text)
+        elif op == 'L~':
+            _, spec = m.decl.change(spec_text)
+        else:
+            spec = m.decl.remove(spec_text)
+            for text, reason in before.not_expressible:
+                if text == spec.text:
+                    raise NotExpressible(spec.text, 'the line to remove could not be written: ' + reason)
+        rendered = self.run.renderer.render(m.decl, machine=m if machine_build else None,
+                                            machine_specs={spec.text} if machine_build else None)
+        if op != 'L-':
+            for text, reason in rendered.not_expressible:
+                if text == spec.text:
+                    raise NotExpressible(spec.text, reason)
+        self.ev.note(f'{op} {spec.text} -> {rendered.line_of_spec.get(spec.text, "(removed)")}')
+        sha = self.run.backend.write(m, rendered)
+        m.rendered = rendered
+        self.run.rendered_by_sha[sha] = rendered
+        (self.dir / f'declaration-{sha[:12]}.conf').write_bytes(rendered.text())
+        return spec
+
+    def apply(self, m, cut=False, during=None, inventory=True):
+        self.apply_n += 1
+        n = self.apply_n
+        res = self.run.backend.apply(m, m.written_sha, cut=cut, during=during)
+        (self.dir / f'apply-{n}.json').write_text(json.dumps(res, indent=1, sort_keys=True) + '\n')
+        if res.get('applied'):
+            m.in_force_sha = m.written_sha
+            m.rendered_in_force = m.rendered
+        if inventory and not cut:
+            self.inv(m, f'{self.id}-apply-{n}', p2=f'P2-1:{self.id}:{n}')
+        return res
+
+    # -- inventory, derivation, comparison
+    def in_force_declaration(self, m, tag):
+        d = self.dir / f'inv-{safe(tag)}' / 'declaration-from-disk'
+        info = self.run.backend.declaration_files_from_disk(m, d)
+        c, status = self.run.backend.status(m)
+        info['status'] = status
+        info['identity_matches_status'] = status == f'APPLIED {info["current"]}'
+        decl = d / 'decl'
+        decl.mkdir(exist_ok=True)
+        shutil.copy2(d / 'in-force.conf', decl / 'declaration.conf')
+        rendered = self.run.rendered_by_sha.get(info['in_force_sha256'])
+        info['content_files_known'] = rendered is not None
+        if rendered:
+            for rel, data in rendered.files.items():
+                adapter.write_content(decl / rel, data)
+        (d / 'info.json').write_text(json.dumps(info, indent=1, sort_keys=True) + '\n')
+        return decl, info
+
+    def derive(self, decl_dir, out_dir):
+        key = sha256_bytes((Path(decl_dir) / 'declaration.conf').read_bytes())
+        with self.run.derive_lock:
+            if key in self.run.derived_cache:
+                shutil.copy2(self.run.derived_cache[key], out_dir / 'derived.jsonl')
+                self.ev.note(f'derivation of {key} taken from the run cache')
+                return 0
+            argv = prog(DERIVE) + ['--declaration', str(decl_dir), '--cache', str(self.run.cache / 'derive'),
+                    '--out', str(out_dir / 'derived.jsonl')]
+            if self.run.source and (self.run.source / 'components.txt').exists():
+                argv += ['--components', str(self.run.source / 'components.txt')]
+            code, _, _ = self.ev.host(argv, timeout=7200)
+            if code == 0:
+                keep = self.run.work / 'derived' / (key + '.jsonl')
+                keep.parent.mkdir(exist_ok=True)
+                shutil.copy2(out_dir / 'derived.jsonl', keep)
+                self.run.derived_cache[key] = keep
+            return code
+
+    def inv(self, m, tag, p2=None, rows=True):
+        """INV TAG + DER + CMP. Writes P2 (when given) at once; P1:TAG and UND:TAG are written by finish_pending,
+        after the case's machines are gone, against the reference installation of the declaration in force."""
+        res = {'tag': tag, 'status': 'unobserved', 'counts': {}, 'reasons': []}
+        self.inv_results[tag] = res
+        out = self.dir / f'inv-{safe(tag)}'
+        out.mkdir(parents=True, exist_ok=True)
+
+        def fail_rows():
+            self.emit_unobserved(tag, p2, res['reasons'], rows)
+            return res
+
+        if not INVENTORY.exists():
+            res['reasons'].append('the inventory program cases/inventory is not present')
+            return fail_rows()
+        if not m.alive():
+            res['reasons'].append('the machine is not running')
+            return fail_rows()
+        m.r('sync', timeout=120)
+        code, _, _ = self.ev.host(prog(INVENTORY) + ['--disk', str(m.disk), '--ssh-port', str(m.port),
+                                   '--ssh-key', str(m.key), '--user', m.user, '--root-cmd', 'sudo -n',
+                                   '--out', str(out / 'inventory')] +
+                                  (['--firewall-fallback', self.run.backend.firewall_fallback]
+                                   if getattr(self.run.backend, 'firewall_fallback', None) else []) +
+                                  (['--raw', str(out / 'collector-raw.txt')] if os.environ.get('CASES_INVENTORY_RAW')
+                                   else []), timeout=7200)
+        res['inventory_exit'] = code
+        if code != 0:
+            res['reasons'].append(f'inventory exited {code}')
+            return fail_rows()
+        try:
+            decl, info = self.in_force_declaration(m, tag)
+            res['declaration'] = info
+        except NotAvailable as e:
+            res['reasons'].append(f'NotAvailable: {e} (no declaration on the stock image)')
+            if COMPARE.exists():
+                c, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(out / 'inventory'), '--baseline',
+                                        str(out / 'inventory'), '--out', str(out / 'compare-self.tsv')],
+                                       timeout=3600)
+                res['compare_self_exit'] = c
+            return fail_rows()
+        except RunnerError as e:
+            res['reasons'].append(f'the declaration in force could not be read from the disk: {e}')
+            return fail_rows()
+        if not info['identity_matches_status']:
+            res['reasons'].append(f'note: confos status {info["status"]!r} names another declaration than '
+                                  f'/system/current {info["current"]}')
+        self.write_made(out, tag)
+        if rows and self.case.get('made'):
+            self.try_routes(m, out)
+        return self.decide_inv(res, out, decl, info, p2, rows, m.written_sha, machine=m if rows else None)
+
+    def made_files(self, out):
+        """Guest paths of the regular files of the inventory that made.tsv names (the candidates of the routes)."""
+        cmp = load_compare_module()
+        rules = cmp.load_made(str(out / 'made.tsv'))
+        paths = []
+        for name in ('stored.jsonl', 'force.jsonl'):
+            p = out / 'inventory' / name
+            if not p.exists():
+                continue
+            with open(p, encoding='utf-8') as f:
+                for line in f:
+                    o = json.loads(line)
+                    if o.get('kind') not in ('file', 'vfile') or o.get('shadowed'):
+                        continue
+                    if any(r.matches_obj(o['kind'], o['id'], o) for r in rules):
+                        rt = [x for x in (o.get('runtime') or []) if x.startswith('/')]
+                        path = rt[-1] if rt else o['id']
+                        if path.startswith('/') and '!' not in path:
+                            paths.append(path)
+        return sorted(set(paths))
+
+    def try_routes(self, m, out, limit=3000, paths=None, scope='made'):
+        """routes.tsv of the inventory ([n2-4], R1). A route counts as executing the file when it is
+        refused by nothing and is a route that the file's own form names (`form_routes`: the path, the loader, the
+        interpreter of its #! line, of its suffix or of its startup-file name). Per file: `executes` (such a direct
+        route executed it, as the person or as root), `data-only` (only a data route of its form did: Q11),
+        `any-only` (only an interpreter that its form does not name accepted it, a JSON log read as Python, a line
+        of words read as awk: Q12), else `refused`. scope `blocked` (objects that a rule of decide.tsv decides and
+        that carry an execute flag): only the routes of the form count. routes-raw.tsv: every route with its exit
+        and the start of its error output."""
+        paths = self.made_files(out) if paths is None else paths
+        if not paths:
+            return
+        tried, rest = paths[:limit], paths[limit:]
+        raw = []
+        empty, binary, line1 = set(), set(), {}
+
+        def strong(x):
+            return x[1] == 'direct' and x[2].split(':', 1)[1] in form_routes(x[0], line1.get(x[0], '')) and \
+                route_executes(x[3], x[4])
+
+        for who in ('U', 'R'):
+            todo = tried if who == 'U' else [p for p in tried if p not in empty and not any(
+                x[0] == p and strong(x) for x in raw)]
+            for i in range(0, len(todo), 200):
+                chunk = todo[i:i + 200]
+                code, o, e = m.ssh('bash -s -- ' + ' '.join(shlex.quote(p) for p in chunk), root=(who == 'R'),
+                                   stdin=ROUTES_SH.encode(), timeout=600 + 40 * len(chunk), record=False)
+                for line in o.decode(errors='replace').splitlines():
+                    f = line.split('\t')
+                    if len(f) != 5:
+                        continue
+                    try:
+                        err = base64.b64decode(f[4]).decode(errors='replace')
+                    except ValueError:
+                        err = ''
+                    if f[1] == 'none':
+                        {'empty': empty, 'binary': binary}.get(f[2], set()).add(f[0])
+                        if f[2] == 'form':
+                            line1[f[0]] = err
+                        continue
+                    if f[1] in ('direct', 'data'):
+                        rc = int(f[3]) if f[3].lstrip('-').isdigit() else None
+                        raw.append((f[0], f[1], f'{who}:{f[2]}', rc, err))
+        with open(out / 'routes-raw.tsv', 'a') as fh:
+            for p, g, rname, rc, err in raw:
+                fh.write(f'{p}\t{g}\t{rname}\t{rc}\t{route_executes(rc, err)}\t'
+                         f'{"form" if rname.split(":", 1)[1] in form_routes(p, line1.get(p, "")) else "other"}\t'
+                         f'{err[:300]!r}\n')
+            for p in rest:
+                fh.write(f'{p}\t-\tnot-tried\t-\t-\t-\tmore than {limit} files\n')
+        lines = []
+        for p in tried:
+            if p in empty:
+                lines.append(f'{p}\trefused\tan empty file: it contains no code (S8.2-20); no route tried\n')
+                continue
+            mine = [x for x in raw if x[0] == p]
+            if not mine:
+                continue
+            fr = form_routes(p, line1.get(p, ''))
+            ran = [x for x in mine if route_executes(x[3], x[4])]
+            direct = [x[2] for x in ran if x[1] == 'direct' and x[2].split(':', 1)[1] in fr]
+            data = [x[2] for x in ran if x[1] == 'data' and x[2].split(':', 1)[1] in fr]
+            weak = [x[2] for x in ran if x[2].split(':', 1)[1] not in fr]
+            nd = sum(1 for x in mine if x[1] == 'direct')
+            note = ' (binary content: only the path and the loader)' if p in binary else ''
+            if direct:
+                lines.append(f'{p}\texecutes\tdirect route(s) of its form executed it: {", ".join(direct)}\n')
+            elif data:
+                lines.append(f'{p}\tdata-only\tevery direct route refused; data route(s) ran it: {", ".join(data)}\n')
+            elif weak and scope == 'made':
+                lines.append(f'{p}\tany-only\tonly interpreters that its name and first line do not name accepted it: '
+                             f'{", ".join(weak)} (QUESTIONS.md Q12); every route of its form refused\n')
+            else:
+                lines.append(f'{p}\trefused\t{nd} direct and {len(mine) - nd} data route(s) tried as the person and '
+                             f'as root; none of its form executed it{note}' +
+                             (f'; other interpreters accepted it ({", ".join(weak)}), which for an object a rule '
+                              f'decides does not count' if weak else '') + '\n')
+
+        with open(out / 'routes.tsv', 'a') as fh:
+            fh.write(''.join(lines))
+        self.ev.note(f'routes: {len(tried)} file(s) tried, {len(rest)} not tried; routes.tsv in {out.name}')
+
+    # ---- the decision of one inventory, from the files in its directory (also used by --redecide)
+
+    def write_made(self, out, tag):
+        """made.tsv of the inventory: what the person's own commands created or brought in this case (casedefs
+        `made`), for compare --made ([n2-3]). An `obeyed` entry is `obeyed` if a probe of the case
+        showed something in force since the last restart."""
+        lines = []
+        for typ, glob in self.case.get('made', []):
+            g = glob.replace('~root/', '/root/').replace('~/', '/home/person/')
+            state = ('obeyed' if self.obeyed else 'not-obeyed') if typ == 'obeyed' else '-'
+            lines.append(f'{MADE_KINDS}:{g}\t{typ}\t{state}\t{self.id}: made by the person\'s own command\n')
+        (out / 'made.tsv').write_text(''.join(lines))
+
+    def compare_args(self, out):
+        # [n3-A]: every comparison of an installation asks the four questions of S8.2-6 for the
+        # objects of its writable area (the plain comparison of two inventories, attempt-delta.tsv, does not)
+        a = ['--questions']
+        if (out / 'made.tsv').exists():
+            a += ['--made', str(out / 'made.tsv')]
+        if (out / 'routes.tsv').exists():
+            a += ['--routes', str(out / 'routes.tsv')]
+        return a
+
+    def decide_inv(self, res, out, decl, info, p2, rows, written_sha, machine=None):
+        tag = res['tag']
+        if not DERIVE.exists() or not COMPARE.exists() or not DECIDE.exists():
+            res['reasons'].append('missing program(s): ' + ', '.join(
+                p.name for p in (DERIVE, COMPARE, DECIDE) if not p.exists()))
+            self.emit_unobserved(tag, p2, res['reasons'], rows)
+            return res
+        if self.derive(decl, out) != 0:
+            res['reasons'].append('derive did not exit 0')
+            self.emit_unobserved(tag, p2, res['reasons'], rows)
+            return res
+        cmp_out = out / 'compare.tsv'
+        code, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(out / 'inventory'), '--derived',
+                                   str(out / 'derived.jsonl'), '--declaration', str(decl), '--decide', str(DECIDE),
+                                   '--out', str(cmp_out)] + self.compare_args(out), timeout=7200)
+        blocked = out / 'compare-exec-blocked.txt'
+        wanted = out / 'compare-routes-wanted.txt'
+        if machine is not None and code in (0, 1) and (blocked.exists() or wanted.exists()) and machine.alive():
+            # R1: an object that a rule of decide.tsv decides but that carries an execute flag is given to the
+            # routes; if every route refuses it, it is not code and the rule applies (compare --routes).
+            # [n3-A] [n3-B]: every object of the writable area that is code in form, whoever made
+            # it, and every startup file or hook, is given the routes of its form (as the person's own files)
+            done = {l.split('\t')[0] for l in (out / 'routes.tsv').read_text().splitlines()} \
+                if (out / 'routes.tsv').exists() else set()
+            new = [p for p in blocked.read_text().splitlines() if p and p not in done] if blocked.exists() else []
+            want = [p for p in wanted.read_text().splitlines() if p and p not in done and p not in new] \
+                if wanted.exists() else []
+            if want:
+                self.try_routes(machine, out, paths=want, scope='made')
+            if new:
+                self.try_routes(machine, out, paths=new, scope='blocked')
+            if new or want:
+                code, _, _ = self.ev.host(prog(COMPARE) + [
+                    '--inventory', str(out / 'inventory'), '--derived', str(out / 'derived.jsonl'), '--declaration',
+                    str(decl), '--decide', str(DECIDE), '--out', str(cmp_out)] + self.compare_args(out), timeout=7200)
+        if code not in (0, 1) or not cmp_out.exists():
+            res['reasons'].append(f'compare exited {code}')
+            self.emit_unobserved(tag, p2, res['reasons'], rows)
+            return res
+        counts, lines = read_tsv_counts(cmp_out)
+        res.update(status='ok', counts=dict(counts), compare=cmp_out.relative_to(self.run.runs_dir), lines=lines)
+        if p2:
+            # Table 9, P2: every line compared with the state it requires (MISSING, DIFFERS of a derived object);
+            # files that account and setting lines determine are underived (derive, [n2-2])
+            o = p2_outcome(counts)
+            self.row(p2, o, [f'compare verdict counts {dict(counts)}', f'application identity {written_sha}'] +
+                     (['met under reading A of Q7 only: the only differences are rules in force with an added '
+                       'comment'] if o == 'undecided' else []),
+                     part='P2', extra={'compare': str(res['compare'])})
+        if rows:
+            self.pending.append((res, out, decl, info))
+        return res
+
+    def emit_unobserved(self, tag, p2, why, rows):
+        if rows:
+            p1_id = self.id if self.case.get('policy') == 'inv-only' else f'P1:{tag}'
+            self.row(p1_id, 'unobserved', why, part='P1')
+            self.row(f'UND:{tag}', 'unobserved', why, part='UND')
+        if p2:
+            self.row(p2, 'unobserved', why, part='P2')
+
+    def finish_pending(self):
+        """P1:TAG and UND:TAG of every inventory of the case ([n2-1] [n2-6])."""
+        for res, out, decl, info in self.pending:
+            try:
+                self.p1_und_rows(res, out, decl, info)
+            except Exception as e:  # never a silent row
+                (self.dir / 'runner-error-finish.txt').write_text(traceback.format_exc())
+                self.emit_unobserved(res['tag'], None, [f'the runner raised {type(e).__name__}: {e}'], True)
+        self.pending = []
+
+    def p1_und_rows(self, res, out, decl, info):
+        tag = res['tag']
+        p1_id = self.id if self.case.get('policy') == 'inv-only' else f'P1:{tag}'
+        sha = info['in_force_sha256']
+        ref, why = self.run.reference(sha, decl)
+        cnt = res['counts']
+        if ref is None:
+            self.row(p1_id, 'unobserved', ['no reference installation of the declaration in force'] + why, part='P1')
+            und_hard = 'fail' if any(cnt.get(k) for k in ('UNRECORDED', 'DIFFERS', 'MISSING', 'UNDERIVED')) \
+                else 'unobserved' if any(cnt.get(k) for k in UNOBSERVED_VERDICTS) else 'pass'
+            self.row(f'UND:{tag}', 'unobserved' if und_hard == 'fail' else 'pass',
+                     [f'derivation (harder reading): {und_hard}, counts {cnt}', 'the easier reading needs the '
+                      'reference installation, which could not be made'] + why, part='UND')
+            return
+        rel_ref = str(Path(ref).relative_to(self.run.runs_dir))
+        # P1: an object of the machine that equals the object of the reference installation is recorded by the lines
+        # (plan Section 9.3); every other object is decided by the four questions (decide.tsv, made.tsv, routes.tsv)
+        p1_out = out / 'compare-p1.tsv'
+        code, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(out / 'inventory'), '--derived',
+                                   str(out / 'derived.jsonl'), '--declaration', str(decl), '--decide', str(DECIDE),
+                                   '--reference', str(ref), '--out', str(p1_out)] + self.compare_args(out),
+                                  timeout=7200)
+        if code not in (0, 1) or not p1_out.exists():
+            self.row(p1_id, 'unobserved', [f'compare --reference exited {code}'], part='P1')
+        else:
+            c1, _ = read_tsv_counts(p1_out, stored_differs=True)
+            # [n3-B]: objects whose deciding observation (a route, a probe) was not made make the row
+            # unobserved, unless an object counts against it with its observation made
+            p1 = 'fail' if c1.get('UNRECORDED') or c1.get('DIFFERS-STORED') else \
+                'unobserved' if any(c1.get(k) for k in UNOBSERVED_VERDICTS) else \
+                'undecided' if c1.get('BOTHWAYS') or c1.get('QUESTION') else 'pass'
+            q4 = []
+            if p1 == 'fail' and self.id.startswith('P4-PIPE') and tag.endswith('-before'):
+                # Q4: reading A judges only the state after the restart; this row exists under reading B only
+                p1, q4 = 'undecided', ['met under reading A of Q4 only (the state before the restart is not judged '
+                                       'under A; under B it counts)']
+            self.row(p1_id, p1, [f'objects that equal neither the derivation nor the reference installation, '
+                                 f'after the four questions: {dict(c1)}',
+                                 'P1: fail on UNRECORDED or a changed stored object (DIFFERS-STORED); unobserved on '
+                                 'UNROUTED or UNPROBED (a route or probe that decides an object was not taken); '
+                                 'undecided on BOTHWAYS (Q2) or QUESTION (Q11, Q12) only'] + q4,
+                     part='P1', extra={'compare': str(p1_out.relative_to(self.run.runs_dir)), 'reference': rel_ref})
+
+        # Understanding under both readings of D1, D3–D6 ([n2-6]): harder = the derivation by
+        # `derive`; easier = what the published source gives for the declaration, the reference installation
+        und_out = out / 'compare-und-reference.tsv'
+        code, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(out / 'inventory'), '--baseline', str(ref),
+                                   '--decide', str(DECIDE), '--out', str(und_out)] + self.compare_args(out),
+                                  timeout=7200)
+        hard = 'fail' if any(cnt.get(k) for k in ('UNRECORDED', 'DIFFERS', 'MISSING', 'UNDERIVED')) else \
+            'unobserved' if cnt.get('UNVERIFIED') or any(cnt.get(k) for k in UNOBSERVED_VERDICTS) else 'pass'
+        if code not in (0, 1) or not und_out.exists():
+            self.row(f'UND:{tag}', 'unobserved', [f'compare --baseline of the reference exited {code}',
+                                                  f'harder reading: {hard}, counts {cnt}'], part='UND')
+            return
+        c2, _ = read_tsv_counts(und_out)
+        easy = 'fail' if any(c2.get(k) for k in ('UNRECORDED', 'DIFFERS', 'MISSING')) else \
+            'unobserved' if any(c2.get(k) for k in UNOBSERVED_VERDICTS) else \
+            'undecided' if c2.get('BOTHWAYS') or c2.get('QUESTION') else 'pass'
+        if hard == 'pass' and easy == 'pass':
+            und = 'pass'
+        elif easy == 'fail':
+            und = 'fail'
+        elif hard == 'unobserved' or easy == 'unobserved':
+            und = 'unobserved'
+        else:
+            und = 'undecided'
+        if und == 'fail' and self.id.startswith('P4-PIPE') and tag.endswith('-before'):
+            und = 'undecided'   # Q4, as for the P1 row of this inventory
+        self.row(f'UND:{tag}', und, [f'harder reading (derivation from the declaration alone, D1, D3–D6 as followed '
+                                     f'in QUESTIONS-derive.md): {hard}, counts {cnt}',
+                                     f'easier reading (what the published source gives for the declaration: the '
+                                     f'reference installation): {easy}, counts {dict(c2)}',
+                                     'met under one reading only: undecided (D1, D3, D4, D5, D6)' if
+                                     und == 'undecided' else f'outcome {und}'],
+                 part='UND', extra={'harder': {'outcome': hard, 'counts': cnt, 'compare': str(res['compare'])},
+                                    'easier': {'outcome': easy, 'counts': dict(c2),
+                                               'compare': str(und_out.relative_to(self.run.runs_dir)),
+                                               'reference': rel_ref}})
+
+    def derived_of_line(self, m, spec_text):
+        """CONTRIB: every object that the derivation assigns to the builder line of SPEC (before its removal)."""
+        rendered = m.rendered_in_force
+        lines = rendered.line_of_spec.get(Spec(spec_text).text) or next(
+            (v for k, v in rendered.line_of_spec.items() if Spec(k).key() == Spec(spec_text).key()), None)
+        if not lines:
+            raise NotExpressible(spec_text, 'the line is not in the declaration in force')
+        d = self.dir / f'contrib-{sha256_bytes(spec_text.encode())[:8]}'
+        (d / 'decl').mkdir(parents=True, exist_ok=True)
+        rendered.write(d / 'decl')
+        if not DERIVE.exists() or self.derive(d / 'decl', d) != 0:
+            return None
+        suffixes = [' '.join(shlex.split(x)[:2]) for x in lines]
+        objs = set()
+        for line in (d / 'derived.jsonl').read_text().splitlines():
+            o = json.loads(line)
+            lid = o.get('line') or ''
+            if any(lid.endswith(' ' + s) for s in suffixes) or any(
+                    (al.split(' (')[0]).endswith(' ' + s) for al in o.get('also_lines', []) for s in suffixes):
+                objs.add((o['kind'], o['id']))
+        (d / 'contributed.json').write_text(json.dumps(sorted(objs), indent=0) + '\n')
+        return objs
+
+    # ------------------------------------------------------------ families
+
+    def fam_hardware(self):
+        self.row(self.id, 'unobserved', 'not performed in this run: real hardware')
+
+    def fam_steps(self):
+        policy = self.case['policy']
+        self.serve()
+        m = self.fresh('m')
+        against, failed = [], None
+        probes_unchanged = []
+        snaps, contrib, leftovers, left_unobs = {}, {}, [], []
+        last_inv = None
+        pre_inv = None
+        # P4 ([n2-5]): every probe is taken before the attempt too, and only a change counts — a probe
+        # that already holds before the attempt reads a state the declaration itself gives, not the attempt's doing
+        pre_probe = {}
+        pre_done = not (policy == 'probe' and self.part == 'P4')
+        for idx, step in enumerate(self.case['steps']):
+            kind = step[0]
+            if not pre_done and kind in ("ATTEMPT", "PROBE", "LOGIN", "SNAP", "PROBE-CHANGED", "LOGIN-WITH-GUEST-KEY") and \
+                    any(s[0] == "INV0" for s in self.case["steps"][:idx]):
+                # right after the inventory before the attempt (INV0), before the first step of the attempt
+                pre_done = True
+                pre_probe = self.pre_probes(m)
+            if failed and kind != 'INV':
+                continue
+            try:
+                if kind in ('L+', 'L~', 'L-'):
+                    self.change(m, kind, step[1])
+                elif kind == 'APPLY':
+                    res = self.apply(m)
+                    if not res.get('applied'):
+                        failed = f'the application did not report success: {res.get("reason")}'
+                elif kind in ('U', 'R'):
+                    test = step[2] if len(step) > 2 else 'exit0'
+                    code, out, err = self.cmd(m, kind, step[1])
+                    if not holds(test, code, out, err):
+                        failed = f'step `{kind}: {step[1]}` did not hold {test} (exit {code})'
+                elif kind == 'ATTEMPT':
+                    self.cmd(m, step[1], step[2], timeout=3600)
+                elif kind == 'LOGIN':
+                    m.ssh(step[1], login=True, timeout=120, where='U-login')
+                elif kind == 'PROBE':
+                    code, out, err = self.cmd(m, step[1], step[2], timeout=600)
+                    if holds(step[3], code, out, err):
+                        before = pre_probe.get(idx)
+                        if before is not None and before['holds']:
+                            self.ev.note(f'probe `{step[1]}: {step[2]}` holds ({step[3]}) but held before the attempt '
+                                         f'too (exit {before["exit"]}): no change, it does not count')
+                            probes_unchanged.append(f'`{step[1]}: {step[2]}` held before the attempt too')
+                        else:
+                            note = ''
+                            if policy == 'probe' and self.part == 'P4':
+                                note = ('; before the attempt it did not hold' if before is not None else
+                                        '; not taken before the attempt: ' + probe_opts(step).get('nopre', '?'))
+                            against.append(f'probe `{step[1]}: {step[2]}` counts against ({step[3]}, exit {code})'
+                                           + note)
+                            self.obeyed = True
+                elif kind == 'OBSERVE':
+                    code, out, err = self.cmd(m, step[1], step[2], timeout=600)
+                    if len(step) > 3 and holds(step[3], code, out, err):
+                        # recorded only; but what the person saved is in force now (made.tsv `obeyed`)
+                        self.obeyed = True
+                elif kind == 'SNAP':
+                    snaps[(step[1], step[2])] = self.cmd(m, step[1], step[2])
+                elif kind == 'PROBE-CHANGED':
+                    now = self.cmd(m, step[1], step[2])
+                    if now[1] != snaps[(step[1], step[2])][1]:
+                        against.append(f'`{step[2]}` changed')
+                        self.obeyed = True
+                elif kind == 'LOGIN-WITH-GUEST-KEY':
+                    code, out, _ = m.u('cat ' + step[1])
+                    if code == 0 and out:
+                        kf = m.dir / 'guest-key'
+                        kf.write_bytes(out)
+                        kf.chmod(0o600)
+                        c2, _, _ = m.ssh('true', key=str(kf), timeout=60, where='H-ssh-guest-key')
+                        if c2 == 0:
+                            against.append('a login with the key added by the person succeeded')
+                            self.obeyed = True
+                elif kind == 'RESTART':
+                    old, new = m.restart()
+                    self.obeyed = False
+                    if new is None or new == old:
+                        if policy == 'probe':
+                            failed = 'RESTART: no new boot id (the machine did not come back)'
+                        else:
+                            failed = 'RESTART: no new boot id'
+                elif kind == 'WAIT':
+                    time.sleep(step[1])
+                elif kind == 'CONTRIB':
+                    contrib[Spec(step[1]).key()] = self.derived_of_line(m, step[1])
+                elif kind == 'LEFTOVER':
+                    objs = contrib.get(Spec(step[1]).key())
+                    if objs is None or not last_inv or last_inv['status'] != 'ok':
+                        leftovers.append(None)
+                    else:
+                        left = [f for f in last_inv['lines'] if f[0] in ('UNRECORDED', 'BOTHWAYS')
+                                and len(f) > 2 and (f[1], f[2]) in objs]
+                        # [n3-B]: a contributed object whose route or probe was not taken
+                        left_unobs.extend(f for f in last_inv['lines'] if f[0] in UNOBSERVED_VERDICTS
+                                          and len(f) > 2 and (f[1], f[2]) in objs)
+                        (self.dir / f'leftover-{len(leftovers)}.tsv').write_text(
+                            ''.join('\t'.join(x) + '\n' for x in left))
+                        leftovers.append(left)
+                        if left:
+                            against.append(f'{len(left)} object(s) the removed line contributed are still on the '
+                                           f'machine and follow from no remaining line ({step[1]})')
+                elif kind == 'INV0':
+                    pre_inv = self.inv(m, step[1], rows=False)
+                elif kind == 'INV':
+                    if policy == 'probe' and self.part == 'P4':
+                        try:
+                            r = self.run.backend.declaration_changed(m, self.dir / f'decl-{safe(step[1])}')
+                            self.decl_changed = r['changed'] or bool(self.decl_changed)
+                            (self.dir / f'decl-{safe(step[1])}.json').write_text(json.dumps(r, indent=1) + '\n')
+                        except RunnerError as e:
+                            self.ev.note(f'DECL? could not be read from the disk: {e}')
+                            against_unknown = True
+                        except NotAvailable:
+                            pass
+                    last_inv = self.inv(m, step[1])
+                else:
+                    raise ValueError(f'unknown step {kind}')
+            except NotExpressible as e:
+                if policy == 'probe' and self.part == 'P4':
+                    raise
+                failed = f'not expressible in the declaration: {e} — an ordinary action cannot be performed ' \
+                         f'through the declaration'
+        # decision
+        if policy == 'ow':
+            self.row(self.id, 'fail' if failed else 'pass', [failed] if failed else ['every step held'])
+        elif policy == 'inv-only':
+            if failed:
+                self.row(self.id, 'fail', failed)
+        else:
+            if self.part == 'P4':
+                return self.p4_decide(against, failed, probes_unchanged, last_inv, pre_inv)
+            reasons = against + ([failed] if failed else [])
+            note = self.case.get('note')
+            if note:
+                reasons.append('note: ' + note)
+            if failed or against:
+                self.row(self.id, 'fail', reasons)
+            else:
+                if any(x is None for x in leftovers) or not leftovers:
+                    self.row(self.id, 'unobserved', ['the probes did not count against, but what the line '
+                                                     'contributed could not be compared'])
+                elif left_unobs:
+                    self.row(self.id, 'unobserved', [f'{len(left_unobs)} object(s) the removed line contributed are '
+                                                     'still on the machine and their route or probe was not taken '
+                                                     '(UNROUTED, UNPROBED)'] +
+                             ['\t'.join(x)[:300] for x in left_unobs[:5]])
+                else:
+                    self.row(self.id, 'pass', ['nothing the removed lines contributed is in force'])
+
+    def p4_decide(self, against, failed, unchanged, last_inv, pre_inv):
+        """The outcome of a P4 case under both readings of every open question that changes it ([n2-6]):
+        Q3 (a line written by a program), Q6 (a breaking candidate), Q2 and Q11 (objects decided both
+        ways), S8.3-7 (a built-in tool refused instead of adding the line). `fail` only when not met under either
+        reading."""
+        cid = self.id
+        q6_all = cid in casedefs.Q6_ALL
+        q6_tests = casedefs.Q6_PROBES.get(cid, [])
+        q6_paths = casedefs.Q6_PATHS.get(cid, [])
+        real = [a for a in against if not q6_all and not any(f'({t},' in a for t in q6_tests)]
+        q6 = [a for a in against if a not in real]
+        reasons = [f'not counted (no change): {x}' for x in unchanged]
+        if self.case.get('note'):
+            reasons.append('note: ' + self.case['note'])
+        if self.decl_changed:
+            self.row(cid, 'undecided', ['a declaration file changed although the runner did not write it '
+                                        '(QUESTIONS.md Q3)'] + against + reasons)
+            return
+        if failed:
+            self.row(cid, 'fail', [failed] + against + reasons)
+            return
+        if not last_inv or last_inv['status'] != 'ok':
+            eff, why = None, ['the comparison after the attempt could not be made'] + (last_inv or {}).get('reasons', [])
+        else:
+            eff, why = self.attempt_effect(pre_inv, last_inv)
+        e_q6 = [x for x in (eff or []) if q6_all or any(x[3] == p or x[3].endswith('!' + p) for p in q6_paths)]
+        e_q = [x for x in (eff or []) if x not in e_q6 and x[1] in ('BOTHWAYS', 'QUESTION')]
+        e_un = [x for x in (eff or []) if x not in e_q6 and x[1] in UNOBSERVED_VERDICTS]
+        e_real = [x for x in (eff or []) if x not in e_q6 and x not in e_q and x not in e_un]
+        if real or e_real:
+            self.row(cid, 'fail', real + ([f'{len(e_real)} object(s) changed by the attempt follow from no line or no '
+                                           'longer match their line (attempt-effect.tsv)'] if e_real else []) +
+                     q6 + why + reasons)
+            return
+        if e_un:
+            # [n3-B]: the only objects that could count against need a route or a probe not taken
+            self.row(cid, 'unobserved', [f'{len(e_un)} object(s) changed by the attempt could count against, but the '
+                                         'route or probe that decides them was not taken (UNROUTED, UNPROBED in '
+                                         'attempt-effect.tsv)'] + q6 + why + reasons)
+            return
+        qs = []
+        if q6 or e_q6:
+            qs.append('Q6: met if the direct write by root is recognised as breaking, not met otherwise')
+        if any(x[1] == 'BOTHWAYS' for x in e_q):
+            qs.append('Q2: an object the text decides both ways')
+        if any(x[1] == 'QUESTION' and 'Q12' not in x[-1] for x in e_q):
+            qs.append('Q11: an object that only a data route executes')
+        if any(x[1] == 'QUESTION' and 'Q12' in x[-1] for x in e_q):
+            qs.append('Q12: an object that only an interpreter its form does not name accepts')
+
+        if qs:
+            self.row(cid, 'undecided', ['met under one reading only: ' + '; '.join(qs)] + q6 +
+                     [f'{len(e_q6) + len(e_q)} object(s) of attempt-effect.tsv concern these questions'] + why +
+                     reasons)
+            return
+        if eff is None:
+            self.row(cid, 'unobserved', ['the probes did not count against, but the effect of the attempt could not '
+                                         'be measured'] + why + reasons)
+            return
+        if self.case.get('tool'):
+            self.row(cid, 'undecided', [
+                f'met under reading A of S8.3-7 and not under reading B: the built-in tool ({self.case["tool"]}) '
+                'refused, and nothing the attempt installed, launched or changed is in force against the '
+                'declaration; under reading B the tool must add the change to the declaration, and it did not '
+                '(build/QUESTIONS.md 1; REVIEW.md, “Not decided by the review”)'] + why + reasons)
+            return
+        self.row(cid, 'pass', ['no probe counted against; nothing the attempt installed, launched or changed is in '
+                               'force against the declaration'] + why + reasons)
+
+    def pre_probes(self, m):
+        """[n2-5]: every PROBE of the case once before the attempt (after INV0). Returns {step index:
+        {'holds', 'exit'}}; a probe marked `nopre` (it would itself perform the attempt) is not taken and is
+        absent. Written to pre-probes.json in the evidence."""
+        res, rec = {}, []
+        for idx, step in enumerate(self.case['steps']):
+            if step[0] != 'PROBE':
+                continue
+            why = probe_opts(step).get('nopre')
+            if why:
+                rec.append({'step': idx, 'probe': f'{step[1]}: {step[2]}', 'taken': False, 'why': why})
+                continue
+            code, out, err = self.cmd(m, step[1], step[2], timeout=600)
+            h = holds(step[3], code, out, err)
+            res[idx] = {'holds': h, 'exit': code}
+            rec.append({'step': idx, 'probe': f'{step[1]}: {step[2]}', 'test': step[3], 'taken': True, 'exit': code,
+                        'holds': h})
+        (self.dir / 'pre-probes.json').write_text(json.dumps(rec, indent=1) + '\n')
+        return res
+
+    def attempt_effect(self, pre, post):
+        """P4: what the attempt installed, launched or changed. `compare --baseline` of the inventory after the attempt
+        (the last INV) against the one before it (INV0) gives every object that is new, gone or different; of these,
+        the attempt's effect counts against when the comparison with the derivation after the attempt reports the
+        object (it follows from no line: UNRECORDED, BOTHWAYS) — plus every MISSING or DIFFERS line of the comparison
+        after the attempt that was not there before (a recorded thing changed past the declaration). Returns
+        (list of effect lines, reasons) or (None, reasons) if it cannot be measured."""
+        if not pre or pre.get('status') != 'ok':
+            return None, ['no inventory before the attempt'] + ((pre or {}).get('reasons') or [])
+        if not post or post.get('status') != 'ok':
+            return None, ['no comparison after the attempt']
+        a = self.run.runs_dir / pre['compare']
+        b = self.run.runs_dir / post['compare']
+        delta = self.dir / 'attempt-delta.tsv'
+        code, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(b.parent / 'inventory'), '--baseline',
+                                   str(a.parent / 'inventory'), '--decide', str(DECIDE), '--out', str(delta)],
+                                  timeout=7200)
+        if code not in (0, 1) or not delta.exists():
+            return None, [f'compare --baseline exited {code}']
+        changed = {}
+        for l in delta.read_text().splitlines():
+            f = l.split('\t')
+            if len(f) > 2:
+                changed[(f[1], f[2])] = f[0]
+        after = {(f[1], f[2]): f for f in post['lines'] if len(f) > 2}
+        before_bad = {(f[1], f[2]) for f in pre['lines'] if len(f) > 2 and f[0] in ('MISSING', 'DIFFERS', 'UNVERIFIED')}
+        eff = []
+        for k, v in sorted(changed.items()):
+            f = after.get(k)
+            if f and f[0] in ('UNRECORDED', 'BOTHWAYS', 'DIFFERS', 'QUESTION') + UNOBSERVED_VERDICTS:
+                eff.append([f'attempt:{v}'] + f)
+        for k, f in sorted(after.items()):
+            if f[0] in ('MISSING', 'DIFFERS', 'UNVERIFIED') and k not in before_bad and k not in changed:
+                eff.append(['attempt:line'] + f)
+        (self.dir / 'attempt-effect.tsv').write_text(''.join('\t'.join(x) + '\n' for x in eff))
+        return eff, [f'{len(changed)} object(s) differ between the inventories before and after the attempt '
+                     f'(attempt-delta.tsv); {len(eff)} count against (attempt-effect.tsv)']
+
+    def fam_p2_cut(self):
+        op, spec = self.case['op']
+        if spec == 'CHG1':
+            name, version = casedefs.CHG1_PACKAGE
+            if version is None:
+                self.row(self.id, 'unobserved', 'the other available version of the package is not fixed yet '
+                                                '(it is fixed with the inputs, QUESTIONS.md Q1)')
+                return
+            spec = f'package {name}={version}'
+        m = self.fresh('m')
+        self.change(m, op, spec)
+        res = self.apply(m, cut=True)
+        reasons = []
+        if not res.get('applied'):
+            self.row(self.id, 'fail', [f'no report of success was read: {res.get("reason")}'], extra=res)
+            return
+        after = res.get('after_cut_status')
+        if after != f'APPLIED {m.written_sha}':
+            self.row(self.id, 'fail', [f'after the power cut the declaration in force is {after!r}, the report of '
+                                       f'success named {m.written_sha}'], extra=res)
+            self.inv(m, self.id)
+            return
+        against = []
+        for step in self.case['probes']:
+            code, out, err = self.cmd(m, step[1], step[2], timeout=300)
+            if holds(step[3], code, out, err):
+                against.append(f'probe `{step[2]}` counts against ({step[3]})')
+        r = self.inv(m, self.id)
+        if against:
+            self.row(self.id, 'fail', against)
+        elif r['status'] != 'ok':
+            self.row(self.id, 'unobserved', ['the identity after the cut is right; the comparison could not be '
+                                             'made'] + r['reasons'])
+        elif p2_outcome(r['counts']) == 'fail':
+            self.row(self.id, 'fail', [f'compare after the cut: {r["counts"]}'])
+        elif p2_outcome(r['counts']) == 'undecided':
+            self.row(self.id, 'undecided', [f'compare after the cut: {r["counts"]}; met under reading A of Q7 only '
+                                            '(rules in force with an added comment)'])
+        elif r['counts'].get('UNVERIFIED'):
+            self.row(self.id, 'unobserved', [f'compare after the cut: {r["counts"]}; a line could not be verified '
+                                             '(UNVERIFIED rows of the comparison)'])
+        else:
+            self.row(self.id, 'pass', ['the declaration in force is the one reported as applied; no MISSING or '
+                                       'DIFFERS'])
+
+    def _netloss_during(self, holder):
+        """LINK down when the guest has received >= 5 MB more than before the application; up after --link-hold
+        seconds or when the application has ended."""
+        args = self.run.args
+
+        def during(m, thread):
+            dev = holder['dev']
+            base = holder['rx0']
+            samples = []
+            down_at = None
+            deadline = time.time() + self.run.backend.apply_timeout
+            while thread.is_alive() and time.time() < deadline:
+                if down_at is None:
+                    code, out, _ = m.u(f'cat /sys/class/net/{dev}/statistics/rx_bytes', timeout=10, record=False)
+                    if code == 0 and out.strip().isdigit():
+                        rx = int(out)
+                        samples.append((utc(), rx))
+                        if rx - base >= 5 * 1024 * 1024:
+                            m.set_link(False)
+                            down_at = time.time()
+                            holder['down_at'] = utc()
+                            holder['rx_at_down'] = rx
+                    time.sleep(0.2)
+                else:
+                    if time.time() - down_at >= args.link_hold:
+                        break
+                    time.sleep(1)
+            if down_at is not None:
+                m.set_link(True)
+                holder['up_at'] = utc()
+            (self.dir / 'rx-samples.tsv').write_text(''.join(f'{t}\t{v}\n' for t, v in samples))
+        return during
+
+    def fam_netloss(self):
+        m = self.fresh('m')
+        dev = m.net_device()
+        code, out, _ = m.u(f'cat /sys/class/net/{dev}/statistics/rx_bytes')
+        holder = {'dev': dev, 'rx0': int(out.strip() or 0)}
+        self.change(m, 'L+', 'package fonts-noto-cjk')
+        before_sha = m.in_force_sha
+        res = self.run.backend.apply(m, m.written_sha, during=self._netloss_during(holder))
+        self.apply_n += 1
+        (self.dir / 'apply-1.json').write_text(json.dumps({'apply': res, 'link': holder}, indent=1) + '\n')
+        if res.get('applied'):
+            m.in_force_sha = m.written_sha
+            m.rendered_in_force = m.rendered
+        note = ('the guest is reached through the same network link; it is observed after LINK up (the link was '
+                f'down from {holder.get("down_at")} to {holder.get("up_at")})')
+        if 'down_at' not in holder:
+            note = 'the link was never cut: the application ended before 5 MB were received'
+        tag = self.id if self.id == 'P2-NET-1' else f'{self.id}-a'
+        r = self.inv(m, tag, p2=f'P2-1:{self.id}:1')
+        if self.id == 'P2-NET-1':
+            if 'down_at' not in holder:
+                self.row(self.id, 'unobserved', [note])
+                return
+            c, status = self.run.backend.status(m)
+            if r['status'] != 'ok':
+                self.row(self.id, 'unobserved', [note, f'status {status!r}'] + r['reasons'])
+                return
+            lines_o = p2_outcome(r['counts'])
+            if lines_o == 'unobserved':
+                self.row(self.id, 'unobserved', [note, f'compare {r["counts"]}; a line could not be verified'])
+                return
+            ok = res.get('applied') or status == f'APPLIED {before_sha}'
+            o = 'fail' if not ok or lines_o == 'fail' else lines_o
+            self.row(self.id, o, [note, 'the application reported success' if res.get('applied') else
+                                  f'the application did not report success; status {status!r}; earlier '
+                                  f'declaration in force: {status == f"APPLIED {before_sha}"}',
+                                  f'compare {r["counts"]}'] +
+                     (['met under reading A of Q7 only'] if o == 'undecided' else []))
+            return
+        # OW-9: after LINK up, apply again; the package must be installed
+        res2 = self.apply(m)
+        code, out, err = m.u('ls /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc')
+        m.u("dpkg-query -W fonts-noto-cjk")
+        ok = res2.get('applied') and code == 0
+        self.row(self.id, 'pass' if ok else 'fail',
+                 [note, f'second application applied: {res2.get("applied")}', f'font file present: {code == 0}'])
+        self.inv(m, self.id)
+
+    def fam_ow_updates(self):
+        states = casedefs.ARCHIVE_STATES
+        if not all(states.values()):
+            for i in ('OW-2', 'OW-3'):
+                self.row(i, 'unobserved', 'the archive states T0, T1, T2 are not fixed yet (QUESTIONS.md Q1)')
+            return
+        decl = self.run.dtest_decl.copy()
+        decl.change(f'archive-state {states["T0"]}')
+        m = self.fresh('m', build=True, decl=decl)
+        for cid, t in (('OW-2', 'T1'), ('OW-3', 'T2')):
+            try:
+                self.change(m, 'L~', f'archive-state {states[t]}')
+                res = self.apply(m)
+                old, new = m.restart()
+                index = self.run.renderer.packages_index(states[t])
+                code, out, _ = m.u("dpkg-query -W -f '${Package}\\t${Version}\\n'")
+                have = dict(l.split('\t') for l in out.decode().splitlines() if '\t' in l)
+                wrong = [f'{s.args[0]}: {have.get(s.args[0])} != {index.get(s.args[0])}'
+                         for s in m.decl.find('package') if have.get(s.args[0]) != index.get(s.args[0])]
+                self.inv(m, cid)
+                ok = res.get('applied') and new and new != old and not wrong
+                self.row(cid, 'pass' if ok else 'fail', [f'applied {res.get("applied")}', f'new boot id {new}',
+                                                         f'{len(wrong)} package(s) not at the {t} version'] + wrong[:50])
+            except NotExpressible as e:
+                self.row(cid, 'fail', f'not expressible: {e}')
+
+    def fam_ow_build(self):
+        """OW-7 (REVIEW.md R2): the person fetches the source, records the program by a compile line whose source is
+        their own file, applies, runs it; edits the source, changes the line, applies, runs it — three rounds. The
+        person's own direct build (`gcc -o ~/bin/…`) is performed too and kept in direct.json; it does not decide."""
+        m = self.fresh('m')
+        url, sha = casedefs.HELLO_C_URL, casedefs.HELLO_C_SHA
+        spec = 'compile-from /home/person/bin/hello /home/person/src/hello.c -O2'
+        edited = {1: 'dc33252ebb4d05deeb7ceda878f924af50c155c9f7f1ba5f46c526850a6ac556',
+                  2: '7355078184b618f88d6b99c4322d44da790befd1964e6e1286129b5edd13ec75',
+                  3: '22fdc70564a8f34c8eb86658c6ed3af162ad89a12721f03893c56f24c1b96233'}
+        results, direct = [], []
+        failed = None
+        recorded = False
+        for rnd in (1, 2, 3):
+            if failed:
+                break
+            code, out, _ = m.u(f'mkdir -p ~/src && curl -fsSo ~/src/hello.c {url} && sha256sum ~/src/hello.c')
+            if code or sha not in out.decode():
+                failed = f'round {rnd}: the source could not be fetched with its checksum (exit {code})'
+                break
+            for phase in ('original', 'edited'):
+                if phase == 'edited':
+                    code, out, _ = m.u(f"sed -i 's/\"Hello from Docker!\\\\n\"/\"Hello from step 8 development round "
+                                       f"{rnd}!\\\\n\"/' ~/src/hello.c && sha256sum ~/src/hello.c")
+                    if code or edited[rnd] not in out.decode():
+                        failed = f'round {rnd}: the edit did not give the expected source (exit {code})'
+                        break
+                want = casedefs.HELLO_OUT['original' if phase == 'original' else rnd]
+                try:
+                    self.change(m, 'L~' if recorded else 'L+', spec, machine_build=True)
+                    recorded = True
+                except (StepFailed, NotExpressible) as e:
+                    failed = f'round {rnd} {phase}: the line could not be written: {e}'
+                    break
+                res = self.apply(m)
+                if not res.get('applied'):
+                    failed = f'round {rnd} {phase}: the application did not report success: {res.get("reason")}'
+                    break
+                code, out, _ = m.u('~/bin/hello | sha256sum')
+                ok = code == 0 and want in out.decode()
+                results.append((rnd, phase, ok))
+                # the person's own direct build, for the evidence only (R2)
+                dc, dout, derr = m.u('gcc -O2 -o ~/bin/hello-direct ~/src/hello.c && ~/bin/hello-direct | sha256sum')
+                direct.append({'round': rnd, 'phase': phase, 'command': 'gcc -O2 -o ~/bin/hello-direct '
+                               '~/src/hello.c && ~/bin/hello-direct', 'exit': dc,
+                               'expected_output': want in dout.decode(),
+                               'stderr': derr.decode(errors='replace')[-500:]})
+                if not ok:
+                    failed = f'round {rnd} {phase}: the program of the line did not print the expected output ' \
+                             f'(exit {code})'
+                    break
+        (self.dir / 'direct.json').write_text(json.dumps(direct, indent=1) + '\n')
+        self.row(self.id, 'pass' if not failed and len(results) == 6 else 'fail',
+                 [failed or 'six runs of the program built from the line printed the expected outputs',
+                  f'runs: {results}', 'through the lines of the declaration and confos apply (REVIEW.md R2); the '
+                  f'person\'s own gcc: {sum(1 for d in direct if d["exit"] == 0)} of {len(direct)} exited 0 '
+                  '(direct.json)'])
+        self.inv(m, self.id)
+
+    def fam_ow_game(self):
+        """OW-8 (REVIEW.md R2): the prerequisites of the release's game-packages.conf and a linuxgsm line (launcher
+        26.5.0 with the ET 2.60b server) are written and applied; the game server is started, seen running and
+        stopped; the line is changed to 26.6.0 (the launcher's update), applied, started, seen, stopped. The person's
+        own launcher in ~/game-direct is performed too and kept in direct.json; it does not decide."""
+        m = self.fresh('m')
+        failed = None
+        have = {s.key() for s in m.decl.specs}
+        pkgs = []
+        conf = self.run.source / 'game-packages.conf' if self.run.source else None
+        if conf and conf.exists():
+            for line in conf.read_text().splitlines():
+                f = line.split()
+                if len(f) == 3 and f[0] == 'package':
+                    pkgs.append(f'package {f[1]}={f[2]}')
+        else:
+            pkgs = [f'package {p}' for p in casedefs.GAME_PREREQS]
+        try:
+            for p in pkgs:
+                if Spec(p).key() not in have:
+                    self.change(m, 'L+', p)
+            self.change(m, 'L+', 'linuxgsm person /home/person/game 26.5.0')
+        except (NotExpressible, RunnerError, StepFailed) as e:
+            failed = f'the lines could not be written: {e}'
+        ran = 0
+        for release in ('26.5.0', '26.6.0'):
+            if failed:
+                break
+            if release != '26.5.0':
+                try:
+                    self.change(m, 'L~', f'linuxgsm person /home/person/game {release}')
+                except (NotExpressible, RunnerError, StepFailed) as e:
+                    failed = f'the line of {release} could not be written: {e}'
+                    break
+            res = self.apply(m)
+            if not res.get('applied'):
+                failed = f'{release}: the application did not report success: {res.get("reason")}'
+                break
+            code, _, _ = m.u('bash /home/person/game/wetserver start', timeout=900)
+            if code:
+                failed = f'{release}: `bash /home/person/game/wetserver start` exited {code}'
+                break
+            time.sleep(10)
+            code, _, _ = m.r("ls -l /proc/[0-9]*/exe 2>/dev/null | grep etded")
+            if code == 0:
+                ran += 1
+            else:
+                failed = f'{release}: the game server process etded was not running'
+            m.u('bash /home/person/game/wetserver stop', timeout=600)
+        direct = []
+        steps = [f'mkdir -p ~/game-direct && cd ~/game-direct && curl -fsSLo linuxgsm.sh {casedefs.LGSM_URL} && '
+                 f'sha256sum linuxgsm.sh | grep -q {casedefs.LGSM_SHA}',
+                 'cd ~/game-direct && bash linuxgsm.sh wetserver', 'cd ~/game-direct && ./wetserver auto-install']
+        for s in steps:
+            c, o, e = m.u(s, timeout=1800)
+            direct.append({'command': s, 'exit': c, 'stderr': e.decode(errors='replace')[-500:]})
+            if c:
+                break
+        (self.dir / 'direct.json').write_text(json.dumps(direct, indent=1) + '\n')
+        self.row(self.id, 'pass' if not failed and ran == 2 else 'fail',
+                 [failed or 'the game server of the line ran with launcher 26.5.0 and after its update to 26.6.0',
+                  'through the lines of the declaration and confos apply (REVIEW.md R2); the person\'s own '
+                  f'launcher: {"; ".join(f"`{d["command"][:60]}` exit {d["exit"]}" for d in direct)} (direct.json)'])
+        self.inv(m, self.id)
+
+    def fam_repro1(self):
+        a = self.fresh('a', build=True)
+        b = self.fresh('b', build=True)
+        for m in (a, b):
+            self.run.backend.write(m, m.rendered)
+            res = self.apply(m, inventory=False)
+            if not res.get('applied'):
+                self.row(self.id, 'fail', f'{m.name}: the application did not report success: {res.get("reason")}')
+                return
+        diffs = self._repro_compare(a, b, extra_reasons=[])
+        if diffs is None:
+            return
+        if diffs:
+            self.row(self.id, 'fail', [f'{len(diffs)} difference(s) under the lines between the two installations '
+                                       '(repro-differences-under-lines.tsv)'] + diffs[:5])
+        else:
+            self.row(self.id, 'pass', 'what is in force under the lines is identical on both installations')
+
+    def _repro_compare(self, a, b, extra_reasons, observed=None):
+        ra = self.inv(a, f'{self.id}-{a.name}')
+        rb = self.inv(b, f'{self.id}-{b.name}')
+        if ra['status'] != 'ok' or rb['status'] != 'ok':
+            if observed and observed[0] != observed[1]:
+                self.row(self.id, 'fail', extra_reasons + ['the observed accounts differ'])
+            else:
+                self.row(self.id, 'unobserved', ['an inventory or derivation could not be made'] + ra['reasons'] +
+                         rb['reasons'])
+            return None
+        out = self.dir / 'repro-baseline.tsv'
+        code, _, _ = self.ev.host(prog(COMPARE) + ['--inventory', str(self.dir / f'inv-{safe(ra["tag"])}/inventory'),
+                                   '--baseline', str(self.dir / f'inv-{safe(rb["tag"])}/inventory'),
+                                   '--out', str(out)], timeout=7200)
+        if code not in (0, 1):
+            self.row(self.id, 'unobserved', f'compare --baseline exited {code}')
+            return None
+        derived = set()
+        for line in (self.dir / f'inv-{safe(ra["tag"])}' / 'derived.jsonl').read_text().splitlines():
+            o = json.loads(line)
+            derived.add((o['kind'], o['id']))
+        diffs = [l for l in out.read_text().splitlines() if l.strip() and tuple(l.split('\t')[1:3]) in derived]
+        (self.dir / 'repro-differences-under-lines.tsv').write_text(''.join(d + '\n' for d in diffs))
+        return diffs
+
+    def fam_repro2(self):
+        ids = self.case['with_ids']
+        acc = {'tcpdump': 'account tcpdump uid=2001 gid=2001 groups=- shell=/usr/sbin/nologin home=/nonexistent',
+               'uuidd': 'account uuidd uid=2002 gid=2002 groups=- shell=/usr/sbin/nologin home=/nonexistent'}
+        if not ids:
+            acc = {k: f'account {k} groups=- shell=/usr/sbin/nologin home=/nonexistent' for k in acc}
+        x = self.fresh('x', build=True)
+        y = self.fresh('y', build=True)
+        orders = {x: [('tcpdump', 'package tcpdump'), ('uuidd', 'package uuid-runtime')],
+                  y: [('uuidd', 'package uuid-runtime'), ('tcpdump', 'package tcpdump')]}
+        for m, order in orders.items():
+            for account, package in order:
+                self.change(m, 'L+', acc[account])
+                self.change(m, 'L+', package)
+                res = self.apply(m)
+                if not res.get('applied'):
+                    self.row(self.id, 'fail', f'{m.name}: the application did not report success: '
+                                              f'{res.get("reason")}')
+                    return
+        if sorted(x.written_text.splitlines()) != sorted(y.written_text.splitlines()):
+            self.row(self.id, 'unobserved', f'the final declarations do not have the same lines: {x.written_sha} '
+                                            f'{y.written_sha} (the runner wrote them)')
+            return
+        # the same lines; their order follows the order of installation (CASES.md, REPRO-2)
+        self.ev.note(f'final declarations: same lines, order of installation x {x.written_sha}, y {y.written_sha}')
+        observed = []
+        for m in (x, y):
+            code, out, _ = m.u("grep -E '^(tcpdump|uuidd):' /etc/passwd /etc/group | sed 's|^[^:]*:||' | sort")
+            observed.append(out)
+        diffs = self._repro_compare(x, y, [f'final declaration {x.written_sha}'], observed)
+        if diffs is None:
+            return
+        if observed[0] == observed[1] and not diffs:
+            self.row(self.id, 'pass', 'what is in force under the lines is identical on both machines')
+        else:
+            self.row(self.id, 'fail', [f'{len(diffs)} difference(s) under the lines',
+                                       f'accounts identical: {observed[0] == observed[1]}'])
+
+    def fam_und0(self):
+        if not DERIVE.exists():
+            self.row(self.id, 'unobserved', 'the program cases/derive is not present')
+            return
+        if self.run.dtest is None:
+            self.row(self.id, 'unobserved', 'the test declaration could not be rendered')
+            return
+        d = self.run.work / 'und0'
+        shutil.rmtree(d, ignore_errors=True)
+        self.run.dtest.write(d / 'decl')
+        shutil.copy2(d / 'decl' / 'declaration.conf', self.dir / 'declaration.conf')
+        log = self.run.cache / 'derive' / 'derive-reads.log'
+        start = log.stat().st_size if log.exists() else 0
+        code = self.derive(d / 'decl', self.dir)
+        derived = self.dir / 'derived.jsonl'
+        n = len(derived.read_text().splitlines()) if derived.exists() else 0
+        bad = []
+        if log.exists():
+            with open(log, 'rb') as f:
+                f.seek(start)
+                for line in f.read().decode(errors='replace').splitlines():
+                    if '.qcow2' in line or '/vms/' in line:
+                        bad.append(line)
+        (self.dir / 'reads-of-guest-disks.txt').write_text(''.join(b + '\n' for b in bad))
+        ok = code == 0 and n > 0 and not bad
+        self.row(self.id, 'pass' if ok else 'fail', [f'derive exit {code}', f'{n} derived objects',
+                                                     f'{len(bad)} read(s) of a guest disk'])
+
+
+# ---------------------------------------------------------------- main
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--list', action='store_true', help='print every case ID in the order of CASES.md')
+    ap.add_argument('--source', help='the published ConfOS source tree (build.sh, boot.sh, ...)')
+    ap.add_argument('--image', help='a clean ConfOS installation built from D-test (default: build it)')
+    ap.add_argument('--key', help='private key of the account person for --image')
+    ap.add_argument('--name')
+    ap.add_argument('--only', help='comma-separated case IDs')
+    ap.add_argument('--backend', choices=('confos', 'stock'), default='confos')
+    ap.add_argument('--max-vms', type=int, default=3)
+    ap.add_argument('--vm-mem', type=int, default=4096)
+    ap.add_argument('--link-hold', type=int, default=240, help='seconds the link stays down in the network cases')
+    ap.add_argument('--runs-dir')
+    ap.add_argument('--declaration', help='a spec file instead of declarations/D-test.spec (testing the runner only)')
+    ap.add_argument('--render-only', action='store_true', help='render D-test into runs/NAME/D-test and stop')
+    args = ap.parse_args()
+    if args.list:
+        print('\n'.join(list_order()))
+        return 0
+    if not args.name or (args.backend == 'confos' and not args.source):
+        ap.error('--name and (for confos) --source are required')
+    if args.image and not args.key:
+        ap.error('--image needs --key')
+    if not 1 <= args.max_vms <= 6:
+        ap.error('--max-vms must be 1..6')
+    ids = casedefs.IDS
+    if args.only:
+        want = [x.strip() for x in args.only.split(',') if x.strip()]
+        unknown = [x for x in want if x not in casedefs.BY_ID]
+        if unknown:
+            ap.error(f'unknown case IDs: {unknown}')
+        ids = [i for i in casedefs.IDS if i in want] + [i for i in want if casedefs.BY_ID[i].get('test_only')]
+    run = Run(args)
+
+    def on_signal(signum, frame):
+        run.stopping = f'signal {signum} at {utc()}'
+        run.ev.note(f'signal {signum}: stopping, cleaning up')
+        run.cleanup()
+        run.write_results()
+        os._exit(128 + signum)
+
+    signal.signal(signal.SIGTERM, on_signal)
+    signal.signal(signal.SIGINT, on_signal)
+    try:
+        run.prepare()
+        if args.render_only:
+            print((run.runs_dir / 'D-test' / 'declaration.conf').read_text())
+            print((run.runs_dir / 'D-test' / 'render.json').read_text())
+            return 0
+        run.run_cases(ids)
+    except RunnerError as e:
+        run.ev.note(f'runner error: {e}')
+        for cid in ids:
+            if cid not in run.rows:
+                Ctx(run, casedefs.BY_ID[cid]).row(cid, 'unobserved', f'the run could not be prepared: {e}')
+    finally:
+        run.cleanup()
+        run.write_results()
+        run.ev.note('run finished')
+    print(scrub(f'results: {run.runs_dir / "results.tsv"}'))
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

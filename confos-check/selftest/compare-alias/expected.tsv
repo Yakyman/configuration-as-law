@@ -1,0 +1,7 @@
+UNRECORDED	firewall	nft/rule inet confos/input/[2]	
+DIFFERS	firewall	nft/rule inet confos/input/text:tcp dport 8083 accept comment "r3"	value.text[Q7] machine="tcp dport 8083 accept comment \"r3\"" derived="tcp dport 8083 accept" line=d:8
+MISSING	language-package	npm:*/semverx	line=d:10
+UNRECORDED	process	[exe-unreadable]	
+MISSING	unit	service:gone	line=d:2
+UNVERIFIED	unit	service:unseen	value.args machine="/usr/bin/sleep 7200" derived="the executable of the process could not be read" line=d:4
+DIFFERS	unit	user/1000/cases-tick.timer	value.enabled machine="disabled" derived="enabled" line=d:13

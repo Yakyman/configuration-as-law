@@ -1,0 +1,13 @@
+{"kind":"unit","id":"service:cases-svc","line":"d:1","value":{"name":"cases-svc","enabled":true,"argv":["/usr/bin/sleep","infinity"]}}
+{"kind":"unit","id":"service:gone","line":"d:2","value":{"name":"gone","enabled":true,"argv":["/usr/bin/sleep","600"]}}
+{"kind":"firewall","id":"add rule inet confos input tcp dport 8081 accept","line":"d:3","value":{"name":"r","text":"add rule inet confos input tcp dport 8081 accept"}}
+{"kind":"unit","id":"service:unseen","line":"d:4","value":{"name":"unseen","enabled":true,"argv":["/usr/bin/sleep","7200"]}}
+{"kind":"firewall","id":"add rule inet confos input tcp dport 8082 accept","line":"d:5","value":{"name":"r2","text":"add rule inet confos input tcp dport 8082 accept"}}
+{"kind":"release","id":"base","line":"d:6","value":{"version":"0.7","components":[]}}
+{"kind":"release","id":"snapshot","line":"d:7","value":{"timestamp":"20261123T000000Z"}}
+{"kind":"firewall","id":"add rule inet confos input tcp dport 8083 accept","line":"d:8","value":{"name":"r3","text":"add rule inet confos input tcp dport 8083 accept"}}
+{"kind":"language-package","id":"pip:*/cowsay","line":"d:9","value":{"version":"6.1","source_sha256":"x"}}
+{"kind":"language-package","id":"npm:*/semverx","line":"d:10","value":{"version":"1.0.0"}}
+{"kind":"flatpak","id":"*/io.mpv.Mpv/*","line":"d:11","value":{"id":"io.mpv.Mpv","kind":"app","arch":"x86_64","branch":"stable","commit":"13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc"}}
+{"kind":"container","id":"person/image/63b790fccc9078ab8bb913d94a5d869e19fca9b77712b315da3fa45bb8f14636","line":"d:12","value":{"names":["docker.io/library/alpine:3.20.3"]}}
+{"kind":"unit","id":"user/*/cases-tick.timer","line":"d:13","value":{"enabled":"enabled"}}

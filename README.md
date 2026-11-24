@@ -167,6 +167,25 @@ Privacy substitutions cover host identity and host home paths, the author's acco
 
 No measurement, count, outcome or decision was changed. Every included table retains its source row count. The records retain the reported limitations, unknown facts and disagreements of reviews.
 
+## The reference implementation: inputs committed before its check
+
+The fifth paper (Section 9) fixes a check on a reference implementation, ConfOS, built with the text of version 4 as
+its specification. Section 9.5 requires that the exact commands of the cases, the declarations, the checking programs,
+the program chosen for each channel and the releases of the components be committed before the first complete run.
+Two folders hold them:
+
+* `confos/` — the implementation as it stood before the complete run named in `confos/RELEASE.md`: every text file of
+  its source archive, and the path, size and SHA-256 of every other file of the archive (`confos/BINARIES.tsv`).
+* `confos-check/` — the cases (`CASES.md`); the programs that take the inventory of a machine, compare it with the
+  declaration and derive the state from the declaration alone (`inventory`, `compare`, `derive`); the runner (`run`);
+  the rules by which objects are decided (`decide.tsv`); the program chosen for each channel (`PROGRAMS.md`); the
+  record of the repairs of these programs (`CORRECTIONS.md`); and their self-tests.
+
+Both folders are replaced whole before each later complete run. The history of the repository keeps every earlier
+state, and section 7 of `MANIFEST.md` lists the SHA-256 of each state. Runs made while the implementation was being
+built are not observations of the check; their records are published with the outcomes. The programs in the two
+folders are code under the MIT License (`LICENSE-CODE`), whatever their file extension.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper
@@ -202,6 +221,7 @@ definitions does not resolve).
 | `fourth-paper/`, `records-v3/`, `trial-v4/` | The fourth paper and the records of the second cycle; see «Version 3: results of its checks, and version 4» above. | fourth paper |
 | `check-inputs-v4/` | The order of the checks of version 4 (`PROTOCOL.md`) and the inputs of these checks, committed before the first observation of each check. | fourth paper §9 |
 | `fifth-paper/`, `records-v4/`, `analysis/` | The fifth paper and the records of the third cycle; see «Version 4: results of its checks, and the plan of a reference implementation» above. | fifth paper |
+| `confos/`, `confos-check/` | The reference implementation and the inputs of its check, committed before each complete run; see «The reference implementation: inputs committed before its check» above. | fifth paper §9 |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record

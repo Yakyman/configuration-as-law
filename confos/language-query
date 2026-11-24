@@ -1,0 +1,44 @@
+#!/usr/bin/python3 -IS
+"""Expose native language-package inspection; application owns installation."""
+import os
+from pathlib import Path
+import pwd
+import re
+import sys
+
+tool = Path(sys.argv[0]).name
+args = sys.argv[1:]
+person = pwd.getpwuid(os.getuid())
+os.environ.clear()
+os.environ.update(PATH='/usr/local/bin:/usr/bin:/usr/sbin', HOME=person.pw_dir,
+                  LC_ALL='C.UTF-8', PYTHONDONTWRITEBYTECODE='1')
+os.chdir('/')
+refusal = tool+': mutation requires editing the declaration and confos apply'
+if tool in ('pip', 'pip3'):
+    valid = args in (['--version'], ['-V'])
+    valid |= bool(args and args[0] == 'list' and all(a in ('--user', '--local', '--format=json', '--format=columns') for a in args[1:]))
+    valid |= bool(len(args) > 1 and args[0] == 'show' and all(re.fullmatch('[A-Za-z0-9][A-Za-z0-9_.-]*', a) for a in args[1:]))
+    if not valid:
+        raise SystemExit(refusal)
+    command = ['/usr/bin/python3', '-IB', '/usr/bin/pip3',
+               '--isolated', '--disable-pip-version-check', *args]
+elif tool == 'npm':
+    if args in (['--version'], ['-v']):
+        native_args = args
+    elif args and args[0] in ('ls', 'list'):
+        tail = args[1:]
+        prefix = '/usr'
+        if tail:
+            if len(tail) != 2 or tail[0] != '--prefix' or not re.fullmatch('/opt/confos/npm/[A-Za-z0-9_.-]+', tail[1]):
+                raise SystemExit(refusal)
+            prefix = tail[1]
+        native_args = ['ls', '--prefix', prefix]
+    else:
+        raise SystemExit(refusal)
+    command = ['/usr/bin/node', '/usr/share/nodejs/npm/bin/npm-cli.js',
+               '--ignore-scripts', '--no-audit', '--no-fund', '--logs-max=0',
+               '--cache=/usr/lib/confos/npm-query-cache', '--userconfig=/dev/null',
+               '--globalconfig=/etc/confos/npm-query.conf', *native_args]
+else:
+    raise SystemExit(refusal)
+os.execv(command[0], command)

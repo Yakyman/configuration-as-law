@@ -1,0 +1,1570 @@
+#!/usr/bin/env python3
+"""Inventory of a whole machine at both levels of Paper 3, Section 4.2 (format: FORMATS.md, "Inventory").
+
+Force level: asked over SSH with the standard tools of the system (one shell script sent to the guest's bash on
+standard input, run as superuser through --root-cmd), including every object on a volatile filesystem (tmpfs, ramfs,
+devtmpfs; device nodes of devtmpfs are not listed).
+Stored level: the disk image read from outside with libguestfs opened read-only, every filesystem of every partition,
+every object with sha256/mode/uid/gid, and the contents of every filesystem image file found on the disk.
+
+Nothing of ConfOS is read to decide anything. The dpkg database is read only through dpkg-query as the answer of the
+standard tool to "which packages are in force"; it is never used to decide which files belong to a package.
+
+Python 3 standard library only. Runs on the host that runs the virtual machine.
+"""
+import argparse
+import base64
+import hashlib
+import ipaddress
+import json
+import os
+import re
+import secrets
+import shutil
+import subprocess
+import sys
+import tarfile
+import tempfile
+import time
+
+EXEC_SUFFIXES = ('.sh', '.bash', '.py', '.pl', '.rb', '.js', '.lua', '.desktop', '.service', '.timer', '.socket',
+                 '.path')
+EXEC_NAMES = ('.bashrc', '.profile', '.bash_profile', '.bash_login', '.bash_logout')
+VOLATILE_FS = ('tmpfs', 'ramfs', 'devtmpfs')
+
+# ----------------------------------------------------------------------------------------------------------------
+# Guest collector. Sent to the guest's bash on standard input; prints sections delimited by a per-run token, on
+# standard output and (for the attribution of messages) on standard error. It writes nothing on the machine.
+COLLECTOR = r'''
+T="$1"
+FWALT="${2:-}"   # base64 of a read-only command printing the native nft text, used only when nft itself is refused
+export LC_ALL=C PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PYTHONDONTWRITEBYTECODE=1 SYSTEMD_PAGER= SYSTEMD_COLORS=0 npm_config_logs_max=0 npm_config_update_notifier=false
+B() { printf '\n@@%s BEGIN %s@@\n' "$T" "$1"; printf '\n@@%s BEGIN %s@@\n' "$T" "$1" >&2; }
+E() { printf '\n@@%s END %s %s@@\n' "$T" "$1" "$2"; printf '\n@@%s END %s %s@@\n' "$T" "$1" "$2" >&2; }
+run() { local n="$1"; shift; B "$n"; "$@"; E "$n" "$?"; }
+have() { command -v "$1" >/dev/null 2>&1; }
+# portable listing: works with GNU and BusyBox find/stat/sha256sum (no -printf, no sha256sum -z)
+hashlist() {  # NUL-separated paths on stdin -> "SHA256  PATH\0" for regular files
+  local p h
+  while IFS= read -r -d '' p; do
+    [ -f "$p" ] && [ ! -L "$p" ] || continue
+    if h=$(sha256sum < "$p" 2>/dev/null); then printf '%s  %s\0' "${h%% *}" "$p"; else printf 'sha256 unreadable: %s\n' "$p" >&2; fi
+  done
+}
+hashfiles() {
+  local ex=() p
+  for p in "$@"; do [ -e "$p" ] && ex+=("$p"); done
+  [ ${#ex[@]} -eq 0 ] && return 0
+  find "${ex[@]}" -type f -print0 | hashlist
+}
+vlist() {  # $1 mount point, $2 fstype -> per object: TYPE MODE UID GID SIZE LINK PATH, NUL-separated
+  local p y s l ft="$2"
+  find "$1" -xdev -print0 | while IFS= read -r -d '' p; do
+    if [ -L "$p" ]; then y=l; elif [ -d "$p" ]; then y=d; elif [ -f "$p" ]; then y=f; elif [ -p "$p" ]; then y=p
+    elif [ -S "$p" ]; then y=s; elif [ -b "$p" ]; then y=b; elif [ -c "$p" ]; then y=c; else y=u; fi
+    if [ "$ft" = devtmpfs ] && { [ $y = b ] || [ $y = c ]; }; then continue; fi
+    s=$(stat -c '%a %u %g %s' "$p" 2>/dev/null) || { printf 'stat failed: %s\n' "$p" >&2; continue; }
+    l=; [ $y = l ] && l=$(readlink "$p")
+    set -- $s
+    printf '%s\0%s\0%s\0%s\0%s\0%s\0%s\0' "$y" "$1" "$2" "$3" "$4" "$l" "$p"
+  done
+}
+vhash() { find "$1" -xdev -type f -print0 | hashlist; }
+vmagic() {
+  local p
+  find "$1" -xdev -type f -print0 | while IFS= read -r -d '' p; do
+    printf '%s\0' "$p"; head -c 4 "$p" 2>/dev/null | od -An -v -tx1 | tr -d ' \n'; printf '\0'
+  done
+}
+db() { if have getent; then getent "$1"; else cat "/etc/$1"; fi; }
+f1() { local a b; while read -r a b; do printf '%s\n' "$a"; done; }
+f2() { local a b c; while read -r a b c; do printf '%s\n' "$b"; done; }
+accounts() { db passwd | cut -d: -f1; }
+homes() { db passwd | while IFS=: read -r n p u g c h s; do printf '%s\t%s\t%s\n' "$n" "$u" "$h"; done; }
+mounts_tf() {
+  if have findmnt; then findmnt -rn -o TARGET,FSTYPE; return; fi
+  local F k
+  while read -r -a F; do for ((k=6; k<${#F[@]}; k++)); do [ "${F[k]}" = - ] && break; done; printf '%s %s\n' "${F[4]}" "${F[k+1]}"; done < /proc/self/mountinfo
+}
+
+run meta_boot cat /proc/sys/kernel/random/boot_id
+run meta_kernel uname -r
+run meta_time date -u +%Y-%m-%dT%H:%M:%SZ
+run meta_session cat /proc/self/sessionid
+run meta_hostname cat /proc/sys/kernel/hostname
+run meta_pid1 readlink /proc/1/exe
+run meta_cmdline cat /proc/cmdline
+
+run dpkg dpkg-query -W -f '${Package}\t${Architecture}\t${Version}\t${db:Status-Abbrev}\n'
+
+ssc() { systemctl "$@"; }
+usc() { local u="$USC" id; id=$(id -u "$u"); runuser -u "$u" -- env XDG_RUNTIME_DIR=/run/user/$id DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$id/bus systemctl --user "$@"; }
+unitnames() {
+  { "$1" list-unit-files --no-legend --full --no-pager 2>/dev/null | f1
+    "$1" list-units --all --no-legend --full --no-pager --plain 2>/dev/null | f1
+  } | grep -v '@\.[a-z]*$' | sort -u
+}
+unitshow() {
+  local n; n=$(unitnames "$1")
+  [ -z "$n" ] && return 0
+  local P=Id,LoadState,UnitFileState,ActiveState,SubState,FragmentPath,SourcePath,Transient,ControlGroup,DropInPaths
+  # no `--` (a system may expose only a restricted read-only form of systemctl); if the batch is refused, one by one
+  "$1" show -p "$P" $n 2>/dev/null && return 0
+  local u; for u in $n; do "$1" show -p "$P" "$u" 2>/dev/null && echo; done; return 0
+}
+# accounts whose user manager runs (also without logind or linger)
+umanagers() { local d; for d in /proc/[0-9]*; do case "$(tr '\0' ' ' < "$d/cmdline" 2>/dev/null)" in *systemd\ --user*) stat -c %U "$d" 2>/dev/null;; esac; done | sort -u; }
+users=
+if [ -d /run/systemd/system ]; then
+run units_files ssc list-unit-files --no-legend --full --no-pager
+run units_list ssc list-units --all --no-legend --full --no-pager --plain
+run units_show unitshow ssc
+users=$( { loginctl list-users --no-legend 2>/dev/null | f2; ls /var/lib/systemd/linger 2>/dev/null; umanagers; } | sort -u)
+else
+run nosystemd readlink /proc/1/exe
+fi
+B usermanagers
+for u in $users; do printf '%s\n' "$u"; done
+E usermanagers 0
+B linger; ls /var/lib/systemd/linger 2>/dev/null; E linger 0
+for u in $users; do
+  USC="$u"
+  run "uunits_files:$u" usc list-unit-files --no-legend --full --no-pager
+  run "uunits_list:$u" usc list-units --all --no-legend --full --no-pager --plain
+  run "uunits_show:$u" unitshow usc
+done
+
+procs() {
+  local d p st
+  for d in /proc/[0-9]*; do
+    p=${d#/proc/}
+    st=$(cut -d')' -f2- "$d/stat" 2>/dev/null) || continue
+    set -- $st
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$p" "$(readlink "$d/exe" 2>/dev/null)" "$(sed -n 's/^0:://p' "$d/cgroup" 2>/dev/null)" \
+      "$2" "$(stat -c %u "$d" 2>/dev/null)" "$(tr -d '\n' < "$d/comm" 2>/dev/null)" "$(tr '\0\t\n' '   ' < "$d/cmdline" 2>/dev/null)"
+  done
+}
+sockinodes() { local d l; for d in /proc/[0-9]*/fd/*; do l=$(readlink "$d" 2>/dev/null) || continue; case "$l" in socket:*) l=${d#/proc/}; printf '%s\t%s\n' "${l%%/*}" "$(readlink "$d")";; esac; done; }
+# containers first: rootless podman leaves its pause process running after its first call, so the process list
+# below already contains what the podman queries of any inventory leave behind (two inventories of one
+# machine stay comparable; the process is still reported, it is in force)
+if have podman; then
+  if [ -d /var/lib/containers ]; then
+    run podps:root podman ps -a --format json
+    run podimg:root podman images --format json
+  fi
+  # every ordinary account (UID 1000..60000), also when its image store is not below its home directory
+  homes | while IFS=$'\t' read -r n u h; do
+    if [ "$u" != 0 ] && { [ -d "$h/.local/share/containers" ] || { [ "$u" -ge 1000 ] && [ "$u" -le 60000 ]; }; }; then
+      run "podps:$n" runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman ps -a --format json
+      if ! runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman ps -a --format json >/dev/null 2>&1; then
+        run "podpsplain:$n" runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman ps -a
+      fi
+      run "podimg:$n" runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman images --format json
+      if ! runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman images --format json >/dev/null 2>&1; then
+        # only plain `podman images` and `podman image inspect NAME` exposed: names from the first, ids from the second
+        run "podimgplain:$n" runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman images
+        for ref in $(runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman images 2>/dev/null | while read -r repo tag rest; do [ "$repo" = REPOSITORY ] || [ "$repo" = '<none>' ] || [ -z "$tag" ] || printf '%s:%s\n' "$repo" "$tag"; done); do
+          run "podinspect:$n:$ref" runuser -u "$n" -- env XDG_RUNTIME_DIR=/run/user/$u HOME="$h" podman image inspect "$ref"
+        done
+      fi
+    fi
+  done
+else
+  run podman podman --version
+fi
+run ps ps -ww -e -o pid=,ppid=,user:64=,args=
+run procexe procs
+
+run passwd db passwd
+run group db group
+shadow() { db shadow | while IFS=: read -r n h r; do printf '%s\t%s\n' "$n" "$(printf %s "$h" | sha256sum | cut -d' ' -f1)"; done; }
+run shadow shadow
+if have sudo; then
+  for n in $(accounts); do run "sudol:$n" sudo -n -l -U "$n"; done
+else
+  run sudol sudo -V
+fi
+run accessfiles hashfiles /etc/sudoers /etc/sudoers.d /etc/security /etc/pam.d /etc/polkit-1/rules.d /usr/share/polkit-1/rules.d /etc/polkit-1/localauthority /var/lib/polkit-1/localauthority
+authkeys() { homes | while IFS=$'\t' read -r n u h; do hashfiles "$h/.ssh/authorized_keys" "$h/.ssh/authorized_keys2"; done; }
+run authkeys authkeys
+akeys() { local f; for f in "$1/.ssh/authorized_keys" "$1/.ssh/authorized_keys2"; do [ -f "$f" ] && grep -v '^[[:space:]]*#' "$f" | grep . | sed "s#^#$f\t#"; done; return 0; }
+homes | while IFS=$'\t' read -r n u h; do run "akeys:$n" akeys "$h" < /dev/null; done
+tzone() { if [ -L /etc/localtime ]; then readlink /etc/localtime | sed 's#^.*zoneinfo/##'; elif [ -f /etc/timezone ]; then cat /etc/timezone; else echo UTC; fi; }
+run timezone tzone
+
+run modules cat /proc/modules
+modfiles() { local m; for m in $(cut -d' ' -f1 /proc/modules); do printf '%s\t%s\n' "$m" "$(modinfo -n "$m" 2>/dev/null)"; done; }
+run modfiles modfiles
+
+run ports ss -H -tulpn
+if ! have ss; then
+  for x in tcp tcp6 udp udp6; do run "procnet:$x" cat "/proc/net/$x"; done
+  run sockinodes sockinodes
+fi
+
+run nft nft -j list ruleset
+run nfttext nft -a list ruleset
+if [ -n "$FWALT" ] && ! nft -j list ruleset >/dev/null 2>&1; then run nftalt bash -c "$(printf %s "$FWALT" | base64 -d)"; fi
+run iptables iptables-save
+run ip6tables ip6tables-save
+
+run nmcli nmcli -t -f NAME,UUID,TYPE,FILENAME connection show
+run networkctl networkctl list --no-legend --no-pager
+run netfiles hashfiles /etc/systemd/network /run/systemd/network /etc/network /etc/netplan /etc/NetworkManager/system-connections /run/NetworkManager/system-connections
+run ipaddr ip -j addr
+run iproute4 ip -j -4 route show table all
+run iproute6 ip -j -6 route show table all
+
+run findmnt findmnt -J -l -o TARGET,SOURCE,FSTYPE,OPTIONS,FSROOT,UUID,LABEL,PARTUUID
+run mountinfo cat /proc/self/mountinfo
+run losetup losetup --list --json -O NAME,BACK-FILE,OFFSET,SIZELIMIT
+loopsha() { local d; for d in $(losetup --list --noheadings -O NAME 2>/dev/null); do printf '%s\t%s\n' "$d" "$(sha256sum < "$d" | cut -d' ' -f1)"; done; }
+run loopsha loopsha
+mountshow() {
+  local n; n=$(systemctl list-units --type=mount --all --no-legend --full --no-pager --plain 2>/dev/null | f1)
+  [ -z "$n" ] && return 0
+  systemctl show -p Id,Where,What,FragmentPath,SourcePath -- $n
+}
+run mountunits mountshow
+
+if have crontab; then
+  for n in $(accounts); do run "crontab:$n" crontab -l -u "$n"; done
+else
+  run crontab crontab -V
+fi
+run cronfiles hashfiles /etc/crontab /etc/cron.d /etc/cron.hourly /etc/cron.daily /etc/cron.weekly /etc/cron.monthly /etc/cron.yearly /var/spool/cron /etc/anacrontab
+
+if have flatpak; then
+  run flatpak:root flatpak list --all --columns=application,version,origin,installation,active,branch,arch
+  if ! flatpak list --all --columns=application >/dev/null 2>&1; then
+    # a system that exposes only plain `flatpak list` and `flatpak info ID`: the IDs from the first, each one's
+    # ref, commit and installation from the second
+    run flatpakplain:root flatpak list
+    for id in $(flatpak list 2>/dev/null | tr '\t' '\n' | grep -E '^[A-Za-z][A-Za-z0-9_-]*([.][A-Za-z][A-Za-z0-9_-]*){2,}$' | sort -u); do
+      run "flatpakinfo:$id" flatpak info "$id"
+    done
+  fi
+  homes | while IFS=$'\t' read -r n u h; do
+    if [ -d "$h/.local/share/flatpak" ]; then run "flatpak:$n" runuser -u "$n" -- flatpak list --user --all --columns=application,version,origin,installation,active,branch,arch; fi
+  done
+else
+  run flatpak flatpak --version
+fi
+
+pythons() { find /usr /opt /root /home -xdev \( -type f -o -type l \) -name 'python3*' 2>/dev/null | while IFS= read -r p; do [[ "$p" =~ /bin/python3(\.[0-9]+)?$ ]] && printf '%s\n' "$p"; done | sort; }
+B pythons; pythons; E pythons 0
+# A Python of a Flatpak runtime or application tree (.../files/bin/python3) runs in its declared context: with the
+# loader and libraries of that tree (outside it the host loader finds no libpython of the tree)
+pyctx() {
+  case "$1" in
+    */files/bin/*)
+      local r="${1%/bin/*}" ld
+      for ld in "$r/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2" "$r/lib64/ld-linux-x86-64.so.2" "$r/lib/ld-linux-x86-64.so.2"; do
+        [ -f "$ld" ] || continue
+        "$ld" --library-path "$r/lib/x86_64-linux-gnu:$r/lib" "$@" 2>/dev/null && return 0
+      done
+      LD_LIBRARY_PATH="$r/lib/x86_64-linux-gnu:$r/lib" "$@";;
+    *) "$@";;
+  esac
+}
+for py in $(pythons); do
+  if pyctx "$py" -I -B -m pip --version >/dev/null 2>&1; then
+    run "pip:$py" pyctx "$py" -I -B -m pip --disable-pip-version-check --no-cache-dir list --format json
+    # a system that exposes only a restricted pip entry: its plain listing form
+    pyctx "$py" -I -B -m pip --disable-pip-version-check --no-cache-dir list --format json >/dev/null 2>&1 || \
+      run "pipq:$py" pyctx "$py" -m pip list --format=json
+  else
+    run "pymeta:$py" pyctx "$py" -I -B -c 'import importlib.metadata as m, json; print(json.dumps(sorted({(d.metadata["Name"] or "", d.version or "", str(getattr(d, "_path", ""))) for d in m.distributions()})))'
+  fi
+done
+npmprefixes() { find /usr /opt /root /home -xdev -type d -path '*/lib/node_modules' -prune 2>/dev/null | sed 's#/lib/node_modules$##' | sort -u; }
+B npmprefixes; npmprefixes; E npmprefixes 0
+for pf in $(npmprefixes); do
+  run "npm:$pf" npm ls -g --json --prefix "$pf"
+  if ! npm ls -g --json --prefix "$pf" >/dev/null 2>&1 && [ "$pf" = /usr ]; then run "npmtxt:$pf" npm ls; fi
+done
+# projects installed by `npm ci`/`npm install` (a node_modules with its .package-lock.json), outside home directories
+npmprojects() { find /usr /opt /srv -xdev -type f -path '*/node_modules/.package-lock.json' 2>/dev/null | sed 's#/node_modules/.package-lock.json$##' | sort -u; }
+B npmprojects; npmprojects; E npmprojects 0
+for pj in $(npmprojects); do
+  run "npmproj:$pj" npm ls --json --prefix "$pj"
+  npm ls --json --prefix "$pj" >/dev/null 2>&1 || run "npmprojtxt:$pj" npm ls --prefix "$pj"
+done
+
+i=0
+mounts_tf | while read -r t f; do
+  case "$f" in tmpfs|ramfs|devtmpfs) ;; *) continue;; esac
+  t=$(printf '%b' "$t")
+  run "vmount:$i" printf '%s\t%s\n' "$f" "$t"
+  run "vlist:$i" vlist "$t" "$f" < /dev/null
+  run "vhash:$i" vhash "$t" < /dev/null
+  run "vmagic:$i" vmagic "$t" < /dev/null
+  i=$((i+1))
+done
+
+run sync sync
+'''
+
+
+def log(msg):
+    print('inventory: ' + msg, file=sys.stderr, flush=True)
+
+
+NON_UTF8 = [0]
+
+
+def jdump(path, objs):
+    """JSON Lines, UTF-8. A byte of a name that is not UTF-8 (read with surrogateescape) is written as the four
+    characters \\xHH, as `ls -b` shows it; meta.non_utf8_strings counts such strings."""
+    objs = sorted(objs, key=lambda o: (o['kind'], o['id']))
+    with open(path, 'w', encoding='utf-8') as f:
+        for o in objs:
+            s = json.dumps(o, sort_keys=True, ensure_ascii=False)
+            if re.search('[\udc80-\udcff]', s):
+                NON_UTF8[0] += 1
+                s = re.sub('[\udc80-\udcff]', lambda m: '\\\\x%02x' % (ord(m.group()) - 0xdc00), s)
+            f.write(s + '\n')
+
+
+def sha_bytes(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def exec_of(kind, mode, name, head):
+    """Return (exec, reason) for an object; head is the first bytes of a regular file."""
+    if kind not in ('file', 'vfile'):
+        return False, None
+    if head[:4] == b'\x7fELF':
+        return True, 'elf'
+    if head[:2] == b'#!':
+        return True, 'shebang'
+    if mode & 0o111:
+        return True, 'mode'
+    base = name.rsplit('/', 1)[-1]
+    if base in EXEC_NAMES or base.endswith(EXEC_SUFFIXES):
+        return True, 'suffix'
+    return False, None
+
+
+def image_type(head):
+    if head[:4] == b'hsqs':
+        return 'squashfs'
+    if len(head) >= 1082 and head[1080:1082] == b'\x53\xef':
+        return 'ext'
+    if len(head) >= 32774 and head[32769:32774] == b'CD001':
+        return 'iso9660'
+    if len(head) >= 512 and head[510:512] == b'\x55\xaa' and (head[54:57] == b'FAT' or head[82:87] == b'FAT32'):
+        return 'fat'
+    return None
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Force level
+
+class Sections:
+    def __init__(self, out, err, token):
+        self.sec = {}
+        self.rc = {}
+        self.err = {}
+        pat = re.compile(rb'\n@@' + token.encode() + rb' (BEGIN|END) (\S+?)(?: (-?\d+))?@@\n')
+        for stream, store in ((out, 'out'), (err, 'err')):
+            pos = 0
+            cur = None
+            for m in pat.finditer(stream):
+                if m.group(1) == b'BEGIN':
+                    cur = m.group(2).decode('utf-8', 'replace')
+                    pos = m.end()
+                else:
+                    name = m.group(2).decode('utf-8', 'replace')
+                    data = stream[pos:m.start()]
+                    if store == 'out':
+                        self.sec[name] = data
+                        self.rc[name] = int(m.group(3)) if m.group(3) is not None else None
+                    else:
+                        self.err[name] = data.decode('utf-8', 'replace').strip()
+                    cur = None
+
+    def text(self, name):
+        return self.sec.get(name, b'').decode('utf-8', 'surrogateescape')
+
+    def names(self, prefix):
+        return sorted(n[len(prefix):] for n in self.sec if n.startswith(prefix))
+
+
+def parse_show(text):
+    blocks, cur = [], {}
+    for line in text.split('\n'):
+        if not line.strip():
+            if cur:
+                blocks.append(cur)
+                cur = {}
+            continue
+        k, _, v = line.partition('=')
+        cur[k] = v
+    if cur:
+        blocks.append(cur)
+    return blocks
+
+
+def take_force(args, objs, errors):
+    """Run the collector over SSH; returns (Sections, meta-dict) and appends objects."""
+    marker = secrets.token_hex(8)
+    fw_fallback = args.firewall_fallback  # `args` is reused below for a process's command line
+    ssh = ['ssh', '-i', args.ssh_key, '-p', str(args.ssh_port), '-o', 'BatchMode=yes',
+           '-o', 'StrictHostKeyChecking=no', '-o', 'UserKnownHostsFile=/dev/null', '-o', 'LogLevel=ERROR',
+           '-o', 'ConnectTimeout=20', f'{args.user}@{args.ssh_host}', f'{args.root_cmd} bash -s -- {marker}' +
+           (' ' + base64.b64encode(args.firewall_fallback.encode()).decode() if args.firewall_fallback else '')]
+    t0 = time.time()
+    p = subprocess.run(ssh, input=COLLECTOR.encode(), capture_output=True, timeout=args.timeout)
+    log(f'force level collected in {time.time() - t0:.1f}s, ssh exit {p.returncode}, {len(p.stdout)} bytes')
+    if p.returncode != 0 and b'BEGIN meta_boot' not in p.stdout:
+        raise RuntimeError('ssh collector failed: ' + p.stderr.decode('utf-8', 'replace')[-2000:])
+    if getattr(args, 'raw', None):
+        with open(args.raw, 'wb') as f:
+            f.write(p.stdout + b'\n@@STDERR@@\n' + p.stderr)
+    S = Sections(p.stdout, p.stderr, marker)
+    if 'sync' not in S.sec:
+        errors.append({'kind': 'error', 'id': 'force/collector', 'detail': 'collector did not finish: ' +
+                       p.stderr.decode('utf-8', 'replace')[-2000:]})
+
+    def err(name, detail=None):
+        errors.append({'kind': 'error', 'id': 'force/' + name, 'rc': S.rc.get(name),
+                       'detail': detail or S.err.get(name, '')[:4000]})
+
+    def absent(name):
+        return S.rc.get(name) == 127
+
+    meta = {'boot_id': S.text('meta_boot').strip(), 'kernel_release': S.text('meta_kernel').strip(),
+            'time_utc': S.text('meta_time').strip(), 'inventory_session': S.text('meta_session').strip(),
+            'hostname': S.text('meta_hostname').strip(), 'pid1_exe': S.text('meta_pid1').strip(),
+            'cmdline': S.text('meta_cmdline').strip()}
+
+    # packages
+    if absent('dpkg'):
+        objs.append({'kind': 'package', 'id': 'dpkg', 'value': {'tool': 'absent'}})
+    elif S.rc.get('dpkg') != 0:
+        err('dpkg')
+    for line in S.text('dpkg').splitlines():
+        f = line.split('\t')
+        if len(f) == 4:
+            objs.append({'kind': 'package', 'id': f'{f[0]}:{f[1]}', 'value': {'version': f[2], 'status': f[3].strip()}})
+
+    # processes (needed for units and ports)
+    procs = {}
+    uname = {}
+    for line in S.text('passwd').splitlines():
+        f = line.split(':')
+        if len(f) > 2:
+            uname.setdefault(f[2], f[0])
+    for line in S.text('procexe').splitlines():
+        f = line.split('\t')
+        if len(f) >= 7:
+            args = f[6].strip() or f'[{f[5]}]'
+            procs[f[0]] = {'exe': f[1], 'cgroup': f[2], 'ppid': f[3], 'user': uname.get(f[4], f[4]), 'args': args}
+    psrows = {}
+    for line in S.text('ps').splitlines():
+        m = re.match(r'\s*(\d+)\s+(\d+)\s+(\S+)\s*(.*)$', line)
+        if m:
+            psrows[m.group(1)] = (m.group(2), m.group(3), m.group(4))
+    if S.rc.get("ps") != 0 or not psrows:
+        # no ps on the machine: the same fields read from /proc by the collector
+        psrows = {pid: (i['ppid'], i['user'], i['args']) for pid, i in procs.items()}
+        meta['process_source'] = '/proc (ps absent or failed: ' + S.err.get('ps', '')[:200] + ')'
+    pobj = {}
+    for pid, (ppid, user, a) in psrows.items():
+        if marker in a:
+            continue  # the collector of this inventory itself (its command line carries the per-run marker)
+        info = procs.get(pid, {'exe': '', 'cgroup': ''})
+        exe = info['exe']
+        if not exe:
+            if pid == '2' or ppid == '2':
+                exe = '[kthread]'
+            else:
+                exe = '[exe-unreadable]'
+                if pid not in procs:
+                    continue  # exited between ps and readlink
+        if exe.endswith(' (deleted)'):
+            exe = exe  # kept as is: the executable is no longer on the filesystem
+        o = pobj.setdefault(exe, {'kind': 'process', 'id': exe, 'value': {'users': set(), 'count': 0, 'args': set()}})
+        o['value']['users'].add(user)
+        o['value']['count'] += 1
+        o['value']['args'].add(a)
+    for o in pobj.values():
+        o['value']['users'] = sorted(o['value']['users'])
+        o['value']['args'] = sorted(o['value']['args'])
+        objs.append(o)
+    pid_exe = {pid: (procs.get(pid, {}).get('exe') or '') for pid in set(psrows) | set(procs)}
+
+    def pid_exe_of(p):
+        return pid_exe.get(p) or f'[pid {p} gone]'
+
+    def members(cg):
+        if not cg:
+            return []
+        out = set()
+        for pid, info in procs.items():
+            c = info.get('cgroup', '')
+            if c == cg or c.startswith(cg.rstrip('/') + '/'):
+                out.add(info.get('exe') or ('[kthread]' if psrows.get(pid, ('',))[0] == '2' else '[exe-unreadable]'))
+        return sorted(out)
+
+    # units
+    def units(prefix, files_s, list_s, show_s):
+        state = {}
+        for line in S.text(files_s).splitlines():
+            f = line.split()
+            if len(f) >= 2:
+                state[f[0]] = f[1]
+        listed = {}
+        for line in S.text(list_s).splitlines():
+            f = line.split(None, 4)
+            if len(f) >= 4:
+                listed[f[0]] = (f[1], f[2], f[3])
+        if S.rc.get(files_s) not in (0, None):
+            err(files_s)
+        shown = {}
+        for b in parse_show(S.text(show_s)):
+            if 'Id' in b:
+                shown[b['Id']] = b
+        if S.rc.get(show_s) not in (0, None):
+            err(show_s)
+        for name in sorted(set(state) | set(listed)):
+            b = shown.get(name, {})
+            transient = b.get('Transient') == 'yes'
+            v = {'enabled': state.get(name, b.get('UnitFileState', '')),
+                 'active': b.get('ActiveState', listed.get(name, ('', '', ''))[1]),
+                 'sub': b.get('SubState', listed.get(name, ('', '', ''))[2]),
+                 'load': b.get('LoadState', listed.get(name, ('', '', ''))[0]),
+                 'fragment': b.get('FragmentPath', ''), 'source': b.get('SourcePath', ''),
+                 'dropins': b.get('DropInPaths', ''), 'transient': transient}
+            if transient:
+                v['members'] = members(b.get('ControlGroup', ''))
+            objs.append({'kind': 'unit', 'id': prefix + name, 'value': v})
+
+    units('system/', 'units_files', 'units_list', 'units_show')
+    managers = [u for u in S.text('usermanagers').split() if u]
+    for u in managers:
+        units(f'user/{u}/', f'uunits_files:{u}', f'uunits_list:{u}', f'uunits_show:{u}')
+    meta['user_managers'] = managers
+    meta['linger'] = S.text('linger').split()
+
+    # accounts
+    for name in ('passwd', 'group'):
+        if S.rc.get(name) != 0:
+            err(name)
+    groups = []
+    for line in S.text('group').splitlines():
+        f = line.split(':')
+        if len(f) >= 4 and f[0]:
+            groups.append(f)
+            members = sorted(x for x in f[3].split(',') if x)
+            objs.append({'kind': 'group', 'id': f[0], 'value': {'fields': f, 'name': f[0], 'password': f[1],
+                                                               'gid': int(f[2]) if f[2].isdigit() else f[2],
+                                                               'members': members}})
+    for line in S.text('passwd').splitlines():
+        f = line.split(':')
+        if len(f) >= 7 and f[0]:
+            supp = sorted(g[0] for g in groups if f[0] in g[3].split(','))
+            objs.append({'kind': 'account', 'id': f[0], 'value': {
+                'fields': f, 'name': f[0], 'password': f[1], 'uid': int(f[2]) if f[2].isdigit() else f[2],
+                'gid': int(f[3]) if f[3].isdigit() else f[3], 'gecos': f[4], 'home': f[5], 'shell': f[6],
+                'groups': supp}})
+    count = {}
+    for n in S.names('akeys:'):
+        for line in S.text(f'akeys:{n}').splitlines():
+            path, _, key = line.partition('\t')
+            parts = key.split()
+            # options may precede the type; the type is the first field that looks like one
+            ti = next((i for i, p in enumerate(parts) if re.match(r'^(ssh-|ecdsa-|sk-)', p)), None)
+            if ti is None or ti + 1 >= len(parts):
+                continue
+            kid = f'{n}/{parts[ti]}'
+            c = count.get(kid, 0) + 1
+            count[kid] = c
+            objs.append({'kind': 'authorized-key', 'id': kid + (f'#{c}' if c > 1 else ''),
+                         'value': {'account': n, 'type': parts[ti], 'key': parts[ti + 1],
+                                   'key_sha256': sha_bytes(parts[ti + 1].encode()), 'file': path,
+                                   'options': ' '.join(parts[:ti])}})
+    # settings asked with the standard tools
+    objs.append({'kind': 'setting', 'id': 'hostname', 'value': {'name': 'hostname', 'value': meta['hostname']}})
+    tz = S.text('timezone').strip()
+    if S.rc.get('timezone') == 0 and tz:
+        objs.append({'kind': 'setting', 'id': 'timezone', 'value': {'name': 'timezone', 'value': tz}})
+    else:
+        err('timezone')
+    for line in S.text('shadow').splitlines():
+        f = line.split('\t')
+        if len(f) == 2:
+            objs.append({'kind': 'shadow', 'id': f[0], 'value': {'hash_sha256': f[1]}})
+
+    # access
+    sud = S.names('sudol:')
+    if 'sudol' in S.sec:
+        objs.append({'kind': 'access', 'id': 'sudo', 'value': {'tool': 'absent' if absent('sudol') else 'error'}})
+    for n in sud:
+        objs.append({'kind': 'access', 'id': f'sudo-l/{n}',
+                     'value': {'rc': S.rc.get(f'sudol:{n}'), 'text': S.text(f'sudol:{n}')}})
+
+    def hashed(section, kind, prefix):
+        data = S.sec.get(section, b'')
+        for rec in data.split(b'\0'):
+            rec = rec.lstrip(b'\n')
+            if not rec:
+                continue
+            h, _, path = rec.partition(b'  ')
+            p = path.decode('utf-8', 'surrogateescape')
+            objs.append({'kind': kind, 'id': prefix + p, 'value': {'sha256': h.decode()}})
+        if S.rc.get(section) not in (0, None):
+            err(section)
+
+    hashed('accessfiles', 'access', 'file:')
+    hashed('authkeys', 'access', 'file:')
+
+    # modules
+    modfile = {}
+    for line in S.text('modfiles').splitlines():
+        f = line.split('\t')
+        if len(f) == 2:
+            modfile[f[0]] = f[1]
+    for line in S.text('modules').splitlines():
+        f = line.split()
+        if f:
+            objs.append({'kind': 'module', 'id': f[0], 'value': {'size': f[1], 'file': modfile.get(f[0], '')}})
+
+    # ports
+    seen = {}
+    if absent('ports'):
+        objs.append({'kind': 'port', 'id': 'ss', 'value': {'tool': 'absent'}})
+        meta['port_source'] = '/proc/net (ss absent)'
+        ino_pids = {}
+        for line in S.text('sockinodes').splitlines():
+            f = line.split('\t')
+            mm = re.match(r'socket:\[(\d+)\]', f[1]) if len(f) == 2 else None
+            if mm:
+                ino_pids.setdefault(mm.group(1), set()).add(f[0])
+        for x in ('tcp', 'tcp6', 'udp', 'udp6'):
+            for line in S.text(f'procnet:{x}').splitlines()[1:]:
+                f = line.split()
+                if len(f) < 10 or f[3] != ('0A' if x.startswith('tcp') else '07'):
+                    continue
+                ah, ph = f[1].split(':')
+                raw = bytes.fromhex(ah)
+                if len(raw) == 4:
+                    addr = str(ipaddress.IPv4Address(raw[::-1]))
+                else:
+                    addr = '[' + str(ipaddress.IPv6Address(b''.join(raw[i:i + 4][::-1] for i in range(0, 16, 4)))) + ']'
+                pid_id = f'{x[:3]}/{addr}:{int(ph, 16)}'
+                exes = sorted({pid_exe_of(p) for p in ino_pids.get(f[9], ())}) or ['[no process]']
+                o = seen.setdefault(pid_id, {'kind': 'port', 'id': pid_id, 'value': {'exe': set()}})
+                o['value']['exe'].update(exes)
+    elif S.rc.get('ports') != 0:
+        err('ports')
+    for line in S.text('ports').splitlines():
+        f = line.split()
+        if len(f) < 5:
+            continue
+        proto, local = f[0], f[4]
+        pids = re.findall(r'pid=(\d+)', line)
+        exes = sorted({pid_exe.get(p) or f'[pid {p} gone]' for p in pids}) or ['[no process]']
+        pid_id = f'{proto}/{local}'
+        o = seen.setdefault(pid_id, {'kind': 'port', 'id': pid_id, 'value': {'exe': set()}})
+        o['value']['exe'].update(exes)
+    for o in seen.values():
+        o['value']['exe'] = sorted(o['value']['exe'])
+        objs.append(o)
+
+    # firewall
+    if absent('nft'):
+        objs.append({'kind': 'firewall', 'id': 'nft', 'value': {'tool': 'absent'}})
+    elif S.rc.get('nft') != 0 and S.rc.get('nftalt') == 0:
+        # nft refused even to root; the native nft text printed by the fallback command (FORMATS.md, inventory)
+        meta['firewall_source'] = {'nft_refused': S.err.get('nft', '')[:400], 'read_with': fw_fallback}
+        count = {}
+        cur = [None, None, None]
+        for tl in S.text('nftalt').splitlines():
+            t = tl.strip()
+            mt = re.match(r'table (\S+) (\S+) \{', t)
+            mc = re.match(r'chain (\S+) \{', t)
+            if mt:
+                cur = [mt.group(1), mt.group(2), None]
+                fid, body = f'nft/table {cur[0]} {cur[1]}', {'family': cur[0], 'name': cur[1]}
+            elif mc and cur[1]:
+                cur[2] = mc.group(1)
+                fid, body = f'nft/chain {cur[0]} {cur[1]}/{cur[2]}', {'family': cur[0], 'table': cur[1],
+                                                                       'name': cur[2], 'text': []}
+            elif t == '}' or not t:
+                if t == '}' and cur[2]:
+                    cur[2] = None
+                continue
+            elif cur[2] and t.startswith(('type ', 'policy ')):
+                for o in reversed(objs):
+                    if o['id'] == f'nft/chain {cur[0]} {cur[1]}/{cur[2]}':
+                        o['value']['text'].append(t)
+                        break
+                continue
+            elif cur[2]:
+                fid = f'nft/rule {cur[0]} {cur[1]}/{cur[2]}/text:{t}'
+                body = {'family': cur[0], 'table': cur[1], 'chain': cur[2], 'text': t}
+            else:
+                fid, body = f'nft/other {cur[0]} {cur[1]}/{t}', {'text': t}
+            body['via'] = fw_fallback
+            n = count.get(fid, 0) + 1
+            count[fid] = n
+            objs.append({'kind': 'firewall', 'id': fid + (f'#{n}' if n > 1 else ''), 'value': body})
+    elif S.rc.get('nft') != 0:
+        err('nft')
+    else:
+        try:
+            data = json.loads(S.text('nft') or '{"nftables":[]}')
+        except ValueError as e:
+            data = {'nftables': []}
+            err('nft', 'json: ' + str(e))
+        count = {}
+        # the rule text as nft itself prints it (`nft -a list ruleset`), keyed by family, table, chain, handle
+        rtext, cur = {}, [None, None, None]
+        for tl in (S.text('nfttext') if S.rc.get('nfttext') == 0 else '').splitlines():
+            t = tl.strip()
+            mt = re.match(r'table (\S+) (\S+) \{', t)
+            mc = re.match(r'chain (\S+) \{', t)
+            mr = re.match(r'(.*\S)\s+# handle (\d+)$', t)
+            if mt:
+                cur = [mt.group(1), mt.group(2), None]
+            elif mc:
+                cur[2] = mc.group(1)
+            elif mr and cur[2] and not t.startswith(('type ', 'policy ')):
+                rtext[(cur[0], cur[1], cur[2], int(mr.group(2)))] = mr.group(1)
+        for item in data.get('nftables', []):
+            for typ, body in item.items():
+                if typ == 'metainfo':
+                    continue
+                hnd = body.get('handle')
+                body = {k: v for k, v in body.items() if k != 'handle'}
+                if typ == 'rule':
+                    body['text'] = rtext.get((body.get('family'), body.get('table'), body.get('chain'), hnd))
+                fam, tab = body.get('family', ''), body.get('table', body.get('name', ''))
+                if typ == 'table':
+                    fid = f'nft/table {fam} {body.get("name")}'
+                elif typ == 'chain':
+                    fid = f'nft/chain {fam} {tab}/{body.get("name")}'
+                elif typ == 'rule':
+                    fid = f'nft/rule {fam} {tab}/{body.get("chain")}/' + json.dumps(body.get('expr'), sort_keys=True)
+                else:
+                    fid = f'nft/{typ} {fam} {tab}/{body.get("name", json.dumps(body, sort_keys=True))}'
+                n = count.get(fid, 0) + 1
+                count[fid] = n
+                if n > 1:
+                    fid += f'#{n}'
+                objs.append({'kind': 'firewall', 'id': fid, 'value': body})
+    for name in ('iptables', 'ip6tables'):
+        if absent(name):
+            objs.append({'kind': 'firewall', 'id': name, 'value': {'tool': 'absent'}})
+            continue
+        if S.rc.get(name) != 0:
+            err(name)
+        table = ''
+        count = {}
+        for line in S.text(name).splitlines():
+            if line.startswith('#') or not line.strip() or line == 'COMMIT':
+                continue
+            if line.startswith('*'):
+                table = line[1:]
+                continue
+            if line.startswith(':'):
+                line = re.sub(r'\s*\[\d+:\d+\]$', '', line)
+            fid = f'{name}/{table}/{line}'
+            n = count.get(fid, 0) + 1
+            count[fid] = n
+            objs.append({'kind': 'firewall', 'id': fid + (f'#{n}' if n > 1 else ''), 'value': {}})
+
+    # network
+    for name, tool in (('nmcli', 'nmcli'), ('networkctl', 'networkctl')):
+        if absent(name):
+            objs.append({'kind': 'network', 'id': tool, 'value': {'tool': 'absent'}})
+            continue
+        for line in S.text(name).splitlines():
+            if not line.strip():
+                continue
+            if name == 'nmcli':
+                f = line.split(':')
+                objs.append({'kind': 'network', 'id': f'nmcli/{f[0]}', 'value': {'fields': f}})
+            else:
+                f = line.split()
+                if len(f) >= 2:
+                    objs.append({'kind': 'network', 'id': f'link/{f[1]}', 'value': {'fields': f[2:]}})
+    hashed('netfiles', 'network', 'file:')
+    try:
+        for a in json.loads(S.text('ipaddr') or '[]'):
+            for ai in a.get('addr_info', []):
+                v = {k: x for k, x in ai.items() if k not in ('valid_life_time', 'preferred_life_time')}
+                objs.append({'kind': 'network', 'id': f'addr/{a.get("ifname")}/{ai.get("local")}/{ai.get("prefixlen")}',
+                             'value': v})
+        for name in ('iproute4', 'iproute6'):
+            count = {}
+            for r in json.loads(S.text(name) or '[]'):
+                r = {k: x for k, x in r.items() if k not in ('expires',)}
+                fid = 'route/' + ' '.join(f'{k}={r[k]}' for k in ('table', 'type', 'dst', 'gateway', 'dev') if k in r)
+                n = count.get(fid, 0) + 1
+                count[fid] = n
+                objs.append({'kind': 'network', 'id': fid + (f'#{n}' if n > 1 else ''), 'value': r})
+    except ValueError as e:
+        err('ip', str(e))
+
+    # mounts
+    mounts = []
+    if absent('findmnt'):
+        # no findmnt on the machine: the kernel's own table (/proc/self/mountinfo); no UUIDs
+        meta['mount_source'] = '/proc/self/mountinfo (findmnt absent)'
+
+        def unesc(s):
+            return re.sub(r'\\([0-7]{3})', lambda m: chr(int(m.group(1), 8)), s)
+        for line in S.text('mountinfo').splitlines():
+            f = line.split()
+            if '-' not in f:
+                continue
+            k = f.index('-', 6)
+            mounts.append({'target': unesc(f[4]), 'source': unesc(f[k + 2]) if k + 2 < len(f) else '',
+                           'fstype': f[k + 1], 'options': f[5] + (',' + f[k + 3] if k + 3 < len(f) else ''),
+                           'fsroot': unesc(f[3]), 'uuid': None, 'label': None, 'partuuid': None,
+                           'majmin': f[2]})
+    else:
+        try:
+            mounts = json.loads(S.text('findmnt') or '{}').get('filesystems', [])
+        except ValueError as e:
+            err('findmnt', str(e))
+    loops = {}
+    try:
+        for l in json.loads(S.text('losetup') or '{}').get('loopdevices', []):
+            loops[l.get('name')] = l
+    except ValueError:
+        pass
+    loopsha = {}
+    for line in S.text('loopsha').splitlines():
+        f = line.split('\t')
+        if len(f) == 2:
+            loopsha[f[0]] = f[1]
+    munits = {}
+    for b in parse_show(S.text('mountunits')):
+        if b.get('Where'):
+            munits[b['Where']] = b
+    count = {}
+    for m in mounts:
+        tgt = m.get('target')
+        src = m.get('source') or ''
+        dev = src.split('[')[0]
+        u = munits.get(tgt, {})
+        creator = u.get('SourcePath') or u.get('FragmentPath') or ''
+        v = {'source': src, 'fstype': m.get('fstype'), 'options': m.get('options'), 'fsroot': m.get('fsroot'),
+             'uuid': m.get('uuid'), 'label': m.get('label'), 'creator': creator}
+        if dev in loops:
+            v['loop_back_file'] = loops[dev].get('back-file')
+            v['loop_sha256'] = loopsha.get(dev)
+            v['loop_offset'] = loops[dev].get('offset')
+        n = count.get(tgt, 0) + 1
+        count[tgt] = n
+        objs.append({'kind': 'mount', 'id': tgt + (f'#{n}' if n > 1 else ''), 'value': v})
+
+    # cron
+    if 'crontab' in S.sec:
+        objs.append({'kind': 'crontab', 'id': 'crontab', 'value': {'tool': 'absent' if absent('crontab') else 'error'}})
+    for n in S.names('crontab:'):
+        t = S.text(f'crontab:{n}')
+        if S.rc.get(f'crontab:{n}') == 0 or t.strip():
+            objs.append({'kind': 'crontab', 'id': f'user/{n}', 'value': {'sha256': sha_bytes(S.sec[f'crontab:{n}']),
+                                                                        'text': t}})
+    hashed('cronfiles', 'crontab', 'file:')
+
+    # flatpak, containers, language packages
+    if 'flatpak' in S.sec:
+        objs.append({'kind': 'flatpak', 'id': 'flatpak', 'value': {'tool': 'absent' if absent('flatpak') else 'error'}})
+    for n in S.names('flatpak:'):
+        if S.rc.get(f'flatpak:{n}') != 0 and not (n == 'root' and S.rc.get('flatpakplain:root') == 0):
+            err(f'flatpak:{n}')
+        for line in S.text(f'flatpak:{n}').splitlines():
+            f = line.split('\t')
+            if f and f[0]:
+                v = {'fields': f}
+                for i, k in ((4, 'commit'), (5, 'branch'), (6, 'arch')):
+                    if len(f) > i and f[i]:
+                        v[k] = f[i]
+                objs.append({'kind': 'flatpak', 'id': f'{n}/{f[0]}/{f[3] if len(f) > 3 else ""}', 'value': v})
+    for i in S.names('flatpakinfo:'):
+        if S.rc.get(f'flatpakinfo:{i}') != 0:
+            err(f'flatpakinfo:{i}')
+            continue
+        kv = {k.strip().lower(): v.strip() for k, _, v in
+              (l.partition(':') for l in S.text(f'flatpakinfo:{i}').splitlines() if ':' in l)}
+        ref = kv.get('ref', '')
+        v = {'ref': ref, 'commit': kv.get('commit'), 'branch': kv.get('branch'), 'arch': kv.get('arch'),
+             'installation': kv.get('installation'), 'tool': 'flatpak info'}
+        objs.append({'kind': 'flatpak', 'id': f'root/{i}/{kv.get("installation", "")}', 'value': v})
+    if 'flatpakplain:root' in S.sec and S.rc.get('flatpakplain:root') != 0:
+        err('flatpakplain:root')
+    if 'podman' in S.sec:
+        objs.append({'kind': 'container', 'id': 'podman', 'value': {'tool': 'absent' if absent('podman') else 'error'}})
+    for n in S.names('podpsplain:'):
+        if S.rc.get(f'podpsplain:{n}') != 0:
+            err(f'podpsplain:{n}')
+            continue
+        for l in S.text(f'podpsplain:{n}').splitlines()[1:]:
+            f = l.split()
+            if len(f) >= 2:
+                objs.append({'kind': 'container', 'id': f'{n}/container/{f[0]}',
+                             'value': {'image': f[1], 'line': l.strip(), 'tool': 'podman ps -a'}})
+    for n in S.names('podps:'):
+        if S.rc.get(f'podps:{n}') != 0 and S.rc.get(f'podpsplain:{n}') != 0:
+            err(f'podps:{n}')
+        try:
+            for c in json.loads(S.text(f'podps:{n}') or '[]'):
+                objs.append({'kind': 'container', 'id': f'{n}/container/{c.get("Id")}',
+                             'value': {'image': c.get('Image'), 'names': c.get('Names'), 'command': c.get('Command'),
+                                       'state': c.get('State')}})
+        except ValueError as e:
+            err(f'podps:{n}', str(e))
+    for nr in S.names('podinspect:'):
+        n = nr.split(':', 1)[0]
+        if S.rc.get(f'podinspect:{nr}') != 0:
+            err(f'podinspect:{nr}')
+            continue
+        try:
+            for c in json.loads(S.text(f'podinspect:{nr}') or '[]'):
+                objs.append({'kind': 'container', 'id': f'{n}/image/{c.get("Id")}',
+                             'value': {'names': c.get('RepoTags'), 'digest': c.get('Digest'),
+                                       'tool': 'podman image inspect'}})
+        except ValueError as e:
+            err(f'podinspect:{nr}', str(e))
+    for n in S.names('podimg:'):
+        if S.rc.get(f'podimg:{n}') != 0 and not any(x.startswith(n + ':') for x in S.names('podinspect:')) \
+                and S.rc.get(f'podimgplain:{n}') != 0:
+            err(f'podimg:{n}')
+        try:
+            for c in json.loads(S.text(f'podimg:{n}') or '[]'):
+                objs.append({'kind': 'container', 'id': f'{n}/image/{c.get("Id")}',
+                             'value': {'names': c.get('Names'), 'digest': c.get('Digest')}})
+        except ValueError as e:
+            err(f'podimg:{n}', str(e))
+    for py in S.names('pipq:'):
+        if S.rc.get(f'pipq:{py}') != 0:
+            err(f'pipq:{py}')
+            continue
+        try:
+            for d in json.loads(S.text(f'pipq:{py}') or '[]'):
+                objs.append({'kind': 'language-package', 'id': f'pip:{py}/{d.get("name")}',
+                             'value': {'version': d.get('version'), 'tool': 'pip list (restricted entry)'}})
+        except ValueError as e:
+            err(f'pipq:{py}', str(e))
+    for py in S.names('pip:'):
+        if S.rc.get(f'pip:{py}') != 0 and S.rc.get(f'pipq:{py}') == 0:
+            continue
+        try:
+            for d in json.loads(S.text(f'pip:{py}') or '[]'):
+                objs.append({'kind': 'language-package', 'id': f'pip:{py}/{d.get("name")}',
+                             'value': {'version': d.get('version'), 'tool': 'pip list'}})
+        except ValueError as e:
+            err(f'pip:{py}', str(e))
+    for py in S.names('pymeta:'):
+        if S.rc.get(f'pymeta:{py}') != 0:
+            err(f'pymeta:{py}')
+            continue
+        objs.append({'kind': 'language-package', 'id': f'pip:{py}', 'value': {'pip': 'absent'}})
+        try:
+            for name, ver, path in json.loads(S.text(f'pymeta:{py}') or '[]'):
+                objs.append({'kind': 'language-package', 'id': f'pip:{py}/{name}',
+                             'value': {'version': ver, 'tool': 'importlib.metadata', 'path': path}})
+        except ValueError as e:
+            err(f'pymeta:{py}', str(e))
+    for pf in S.names('npm:'):
+        if absent(f'npm:{pf}'):
+            objs.append({'kind': 'language-package', 'id': f'npm:{pf}', 'value': {'npm': 'absent'}})
+            continue
+        try:
+            deps = json.loads(S.text(f'npm:{pf}') or '{}').get('dependencies', {})
+            for name, d in deps.items():
+                objs.append({'kind': 'language-package', 'id': f'npm:{pf}/{name}', 'value': {'version': d.get('version')}})
+        except ValueError as e:
+            err(f'npm:{pf}', str(e))
+    for sec, pfx in (('npmprojtxt:', ''), ('npmtxt:', '')):
+        for pj in S.names(sec):
+            if S.rc.get(sec + pj) != 0:
+                err(sec + pj)
+                continue
+            for l in S.text(sec + pj).splitlines():
+                m = re.match(r'^(?:[├└]──|[+`]--) (\S+)$', l.strip('\n'))
+                if m:
+                    name, _, ver = m.group(1).rpartition('@')
+                    if name:
+                        objs.append({'kind': 'language-package', 'id': f'npm:{pj}/{name}',
+                                     'value': {'version': ver, 'tool': 'npm ls (restricted entry, text)'}})
+    for pj in S.names('npmproj:'):
+        if S.rc.get(f'npmproj:{pj}') != 0 and S.rc.get(f'npmprojtxt:{pj}') == 0:
+            continue
+        try:
+            deps = json.loads(S.text(f'npmproj:{pj}') or '{}').get('dependencies', {})
+            for name, d in deps.items():
+                objs.append({'kind': 'language-package', 'id': f'npm:{pj}/{name}',
+                             'value': {'version': d.get('version'), 'tool': 'npm ls (project)'}})
+        except ValueError as e:
+            err(f'npmproj:{pj}', str(e))
+
+    # volatile filesystems
+    vm = {}
+    for i in S.names('vmount:'):
+        f = S.text(f'vmount:{i}').strip('\n').split('\t')
+        if len(f) == 2:
+            vm[i] = (f[0], f[1])
+    vol = {}
+    for i in S.names('vlist:'):
+        hashes = {}
+        for rec in S.sec.get(f'vhash:{i}', b'').split(b'\0'):
+            rec = rec.lstrip(b'\n')
+            if rec:
+                h, _, p = rec.partition(b'  ')
+                hashes[p] = h.decode()
+        magic = {}
+        parts = S.sec.get(f'vmagic:{i}', b'').lstrip(b'\n').split(b'\0')
+        for k in range(0, len(parts) - 1, 2):
+            magic[parts[k].lstrip(b'\n')] = parts[k + 1]
+        f = S.sec.get(f'vlist:{i}', b'').lstrip(b'\n').split(b'\0')
+        if S.rc.get(f'vhash:{i}') not in (0, None):
+            err(f'vhash:{i}')
+        for k in range(0, len(f) - 6, 7):
+            y, mode, uid, gid, size, link, path = f[k:k + 7]
+            y = y.decode().strip()
+            p = path.decode('utf-8', 'surrogateescape')
+            kind = {'f': 'vfile', 'd': 'vdir', 'l': 'vsymlink'}.get(y, 'vother')
+            mode_i = int(mode.decode() or '0', 8)
+            head = bytes.fromhex(magic.get(path, b'').decode() or '')
+            ex, reason = exec_of(kind, mode_i, p, head)
+            o = {'kind': kind, 'id': p, 'mode': '%04o' % mode_i, 'uid': int(uid), 'gid': int(gid),
+                 'size': int(size) if kind == 'vfile' else 0,
+                 'sha256': hashes.get(path) if kind == 'vfile' else None,
+                 'target': link.decode('utf-8', 'surrogateescape') if kind == 'vsymlink' else None,
+                 'exec': ex, 'exec_reason': reason, 'fs': vm.get(i, ('', ''))[0]}
+            if kind == 'vother':
+                o['type'] = y
+            if kind == 'vfile' and path not in hashes:
+                errors.append({'kind': 'error', 'id': 'volatile-unread:' + p, 'detail': 'sha256 not read'})
+            vol[p] = o  # a nested mount's root replaces the mount point seen from the parent
+    objs.extend(vol.values())
+    meta['volatile_mounts'] = sorted(v[1] for v in vm.values())
+    if S.rc.get('sync') != 0:
+        err('sync')
+    meta['synced'] = S.rc.get('sync') == 0
+    return S, meta, mounts
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Stored level
+
+class GF:
+    def __init__(self, disk, fmt):
+        with tempfile.TemporaryFile() as out:
+            p = subprocess.Popen(['guestfish', '--listen', '--ro', f'--format={fmt}', '-a', disk],
+                                 stdout=subprocess.PIPE, stderr=out, stdin=subprocess.DEVNULL, text=True)
+            line = p.stdout.readline()
+            p.stdout.close()
+            m = re.search(r'GUESTFISH_PID=(\d+)', line)
+            if not m:
+                p.wait(timeout=60)
+                out.seek(0)
+                raise RuntimeError('guestfish --listen failed: ' + line + out.read().decode('utf-8', 'replace'))
+            p.wait(timeout=60)
+        self.pid = m.group(1)
+
+    def __call__(self, *args, check=True):
+        p = subprocess.run(['guestfish', f'--remote={self.pid}', '--', *args], capture_output=True, text=True,
+                           timeout=7200)
+        if check and p.returncode != 0:
+            raise RuntimeError(f'guestfish {" ".join(args)}: {p.stderr.strip()}')
+        return p.stdout if p.returncode == 0 else None
+
+    def close(self):
+        subprocess.run(['guestfish', f'--remote={self.pid}', '--', 'exit'], capture_output=True, timeout=60)
+
+
+def tar_objects(tarpath, id_of, runtime_of, fsname, images_out, tmpdir):
+    """Read a tar produced by guestfish tar-out; yield stored objects. Saves filesystem images found."""
+    objs = []
+    seen = {}
+    with tarfile.open(tarpath, 'r:') as tf:
+        for m in tf:
+            name = m.name
+            if name.startswith('./'):
+                name = name[1:]
+            elif name == '.':
+                name = '/'
+            elif not name.startswith('/'):
+                name = '/' + name
+            if name != '/' and name.endswith('/'):
+                name = name.rstrip('/')
+            mode = m.mode & 0o7777
+            sha = None
+            head = b''
+            target = None
+            typ = None
+            size = 0
+            if m.isreg():
+                kind = 'file'
+                size = m.size
+                h = hashlib.sha256()
+                f = tf.extractfile(m)
+                img_fh = None
+                first = True
+                while True:
+                    b = f.read(1 << 20)
+                    if not b:
+                        break
+                    if first:
+                        head = b[:65536]
+                        first = False
+                        it = image_type(head)
+                        if it:
+                            fd, ipath = tempfile.mkstemp(dir=tmpdir, suffix='.img')
+                            img_fh = os.fdopen(fd, 'wb')
+                            images_out.append((name, it, ipath))
+                    h.update(b)
+                    if img_fh:
+                        img_fh.write(b)
+                if img_fh:
+                    img_fh.close()
+                sha = h.hexdigest()
+                seen[m.name] = (sha, head[:4], size)
+            elif m.islnk():
+                kind = 'file'
+                sha, head, size = seen.get(m.linkname, (None, b'', 0))
+            elif m.issym():
+                kind = 'symlink'
+                target = m.linkname
+            elif m.isdir():
+                kind = 'dir'
+            else:
+                kind = 'other'
+                typ = {tarfile.CHRTYPE: 'char', tarfile.BLKTYPE: 'block', tarfile.FIFOTYPE: 'fifo'}.get(m.type, 'unknown')
+            ex, reason = exec_of(kind, mode, name, head)
+            o = {'kind': kind, 'id': id_of(name), 'mode': '%04o' % mode, 'uid': m.uid, 'gid': m.gid, 'size': size,
+                 'sha256': sha, 'target': target, 'exec': ex, 'exec_reason': reason, 'fs': fsname, 'fs_path': name}
+            if typ:
+                o['type'] = typ
+                if typ in ('char', 'block'):
+                    o['rdev'] = f'{m.devmajor}:{m.devminor}'
+            if m.islnk():
+                o['hardlink_to'] = id_of('/' + m.linkname.lstrip('./')) if m.linkname.startswith('./') else m.linkname
+            rt = runtime_of(name)
+            if rt:
+                o['runtime'] = rt
+            objs.append(o)
+    return objs
+
+
+def join(prefix, path):
+    if path == '/':
+        return prefix or '/'
+    return (prefix.rstrip('/') + path) if prefix not in ('', '/') else path
+
+
+def take_stored(args, mounts, mount_objs, meta, objs, errors, tmpdir):
+    gf = GF(args.disk, args.format)
+    try:
+        gf('run')
+        gf('mkmountpoint', '/p')
+        gf('mkmountpoint', '/i')
+        gf('mkmountpoint', '/j')
+        devices = gf('list-devices').split()
+        parts = gf('list-partitions').split()
+        fss = {}
+        for line in gf('list-filesystems').splitlines():
+            d, _, t = line.partition(': ')
+            fss[d] = t.strip()
+        meta['stored_devices'] = devices
+        # the disk itself: partition table and boot code area
+        for dev in devices:
+            dn = 'disk' if dev == devices[0] else 'disk-' + dev.rsplit('/', 1)[-1]
+            pt = gf('part-get-parttype', dev, check=False)
+            plist = gf('part-list', dev, check=False) or ''
+            extra = []
+            if pt and pt.strip() == 'gpt':
+                for pn in re.findall(r'part_num: (\d+)', plist):
+                    extra.append(f'{pn} type={(gf("part-get-gpt-type", dev, pn, check=False) or "").strip()} '
+                                 f'guid={(gf("part-get-gpt-guid", dev, pn, check=False) or "").strip()} '
+                                 f'name={(gf("part-get-name", dev, pn, check=False) or "").strip()}')
+            text = f'parttype={(pt or "none").strip()}\n{plist}\n' + '\n'.join(extra)
+            objs.append({'kind': 'other', 'id': f'@{dn}/partition-table', 'type': 'partition-table', 'mode': None,
+                         'uid': None, 'gid': None, 'size': len(text), 'sha256': sha_bytes(text.encode()),
+                         'target': None, 'exec': False, 'exec_reason': None, 'value': text})
+            bpath = os.path.join(tmpdir, 'bootsector')
+            gf('download-offset', dev, bpath, '0', '440')
+            with open(bpath, 'rb') as f:
+                bs = f.read()
+            objs.append({'kind': 'other', 'id': f'@{dn}/boot-code', 'type': 'boot-code', 'mode': None, 'uid': None,
+                         'gid': None, 'size': len(bs), 'sha256': sha_bytes(bs), 'target': None,
+                         'exec': any(bs), 'exec_reason': 'boot-code' if any(bs) else None})
+        # map filesystems to their runtime mounts by UUID (and by device name as a fallback)
+        for dev, fstype in sorted(fss.items()):
+            m = re.match(r'/dev/[a-z]+?(\d+)$', dev)
+            fsname = f'@part{m.group(1)}' if m else '@' + dev.rsplit('/', 1)[-1]
+            uuid = (gf('vfs-uuid', dev, check=False) or '').strip()
+            label = (gf('vfs-label', dev, check=False) or '').strip()
+            rt = [mm for mm in mounts if uuid and (mm.get('uuid') or '') == uuid and mm.get('fstype') != 'squashfs']
+            how = 'uuid'
+            if not rt and m and not any(mm.get('uuid') for mm in mounts):
+                # no UUIDs known in the guest (findmnt absent): the partition number of the mount's source device
+                how = 'partition number'
+                rt = [mm for mm in mounts if re.match(
+                    r'/dev/(?:[sv]d[a-z]+|xvd[a-z]+|nvme\d+n\d+p|mmcblk\d+p)' + m.group(1) + r'(\[.*\])?$',
+                    mm.get('source') or '')]
+            prefix = None
+            aliases = []
+            for mm in rt:
+                fr = mm.get('fsroot') or '/'
+                if fr == '/' and prefix is None:
+                    prefix = mm['target']
+                aliases.append((fr, mm['target']))
+            meta.setdefault('stored_filesystems', []).append(
+                {'device': dev, 'name': fsname, 'fstype': fstype, 'uuid': uuid, 'label': label, 'matched_by': how,
+                 'runtime_mounts': [{'fsroot': a, 'target': b} for a, b in aliases]})
+            if fstype in ('unknown', 'swap', '') or fstype.startswith('LVM'):
+                # no mountable filesystem: record the raw content
+                h = (gf('checksum-device', 'sha256', dev, check=False) or '').strip()
+                size = (gf('blockdev-getsize64', dev, check=False) or '0').strip()
+                objs.append({'kind': 'other', 'id': fsname, 'type': 'raw-partition:' + fstype, 'mode': None,
+                             'uid': None, 'gid': None, 'size': int(size or 0), 'sha256': h or None, 'target': None,
+                             'exec': True, 'exec_reason': 'raw'})
+                continue
+            idp = prefix if prefix is not None else fsname
+
+            def id_of(path, idp=idp):
+                return join(idp, path) if idp.startswith('/') else (idp + path if path != '/' else idp + '/')
+
+            def runtime_of(path, aliases=aliases, prefix=prefix):
+                out = []
+                for fr, tgt in aliases:
+                    if fr == '/' and tgt == prefix:
+                        continue
+                    if path == fr or path.startswith(fr.rstrip('/') + '/'):
+                        out.append(join(tgt, path[len(fr.rstrip('/')):] or '/'))
+                return out or None
+
+            r = gf('mount-ro', dev, '/p', check=False)
+            if r is None:
+                errors.append({'kind': 'error', 'id': f'stored/{fsname}', 'detail': f'mount-ro {dev} failed'})
+                continue
+            images = []
+            t0 = time.time()
+            n = walk_fs(gf, '/p', fsname, id_of, runtime_of, images, objs, errors, tmpdir)
+            log(f'{fsname} ({fstype}) {n} objects in {time.time() - t0:.1f}s')
+            for (ipath, itype, hostcopy) in images:
+                open_image(gf, '/p', ipath, itype, hostcopy, id_of(ipath), mount_objs, meta, objs, errors, tmpdir,
+                           depth=0)
+            gf('umount', '/p', check=False)
+    finally:
+        gf.close()
+
+
+def walk_fs(gf, mnt, fsname, id_of, runtime_of, images, objs, errors, tmpdir):
+    tarpath = os.path.join(tmpdir, 'fs.tar')
+    gf('tar-out', mnt, tarpath, 'numericowner:true')
+    found = tar_objects(tarpath, id_of, runtime_of, fsname, images, tmpdir)
+    os.unlink(tarpath)
+    # completeness: names that tar does not carry (sockets) are taken with lstatns
+    lpath = os.path.join(tmpdir, 'find0')
+    gf('find0', mnt, lpath)
+    with open(lpath, 'rb') as f:
+        names = {'/' + n.decode('utf-8', 'surrogateescape').lstrip('/') for n in f.read().split(b'\0') if n}
+    os.unlink(lpath)
+    have = {o['fs_path'] for o in found}
+    for n in sorted(names - have):
+        st = gf('lstatns', mnt + n, check=False)
+        kv = dict(re.findall(r'(\w+): (-?\d+)', st or ''))
+        mode = int(kv.get('st_mode', '0'))
+        typ = {0o140000: 'socket', 0o010000: 'fifo', 0o020000: 'char', 0o060000: 'block'}.get(mode & 0o170000)
+        if typ is None:
+            errors.append({'kind': 'error', 'id': 'stored-not-in-tar:' + id_of(n), 'detail': st or 'lstatns failed'})
+            typ = 'unknown'
+        o = {'kind': 'other', 'id': id_of(n), 'type': typ, 'mode': '%04o' % (mode & 0o7777),
+             'uid': int(kv.get('st_uid', -1)), 'gid': int(kv.get('st_gid', -1)), 'size': 0, 'sha256': None,
+             'target': None, 'exec': False, 'exec_reason': None, 'fs': fsname, 'fs_path': n}
+        rt = runtime_of(n)
+        if rt:
+            o['runtime'] = rt
+        found.append(o)
+    objs.extend(found)
+    return len(found)
+
+
+def open_image(gf, mnt, ipath, itype, hostcopy, image_id, mounts, meta, objs, errors, tmpdir, depth):
+    """List the contents of a filesystem image found at ipath (inside the filesystem mounted at mnt)."""
+    with open(hostcopy, 'rb') as f:
+        h = hashlib.sha256()
+        for b in iter(lambda: f.read(1 << 20), b''):
+            h.update(b)
+    isha = h.hexdigest()
+    # where is it mounted at runtime? exact content of a loop device, else the loop back-file path
+    rt_target = None
+    how = None
+    for o in mounts:
+        if o['kind'] != 'mount':
+            continue
+        v = o['value']
+        if v.get('loop_sha256') == isha and (v.get('fsroot') in ('/', None)):
+            rt_target, how = o['id'].split('#')[0], 'loop device content sha256'
+            break
+    if rt_target is None:
+        cands = []
+        for o in mounts:
+            if o['kind'] == 'mount' and o['value'].get('loop_back_file'):
+                bf = o['value']['loop_back_file']
+                ip = image_id.split('!')[-1]
+                if bf == image_id or bf.endswith(ip) or (os.path.basename(bf) == os.path.basename(ip)):
+                    cands.append(o['id'].split('#')[0])
+        if len(set(cands)) == 1:
+            rt_target, how = cands[0], 'loop back-file path'
+        elif len(set(cands)) > 1:
+            errors.append({'kind': 'error', 'id': 'image-runtime-ambiguous:' + image_id, 'detail': str(cands)})
+    meta.setdefault('images', []).append({'id': image_id, 'type': itype, 'sha256': isha, 'runtime_mount': rt_target,
+                                          'matched_by': how})
+    mp = '/i' if depth == 0 else '/j'
+    if depth > 1:
+        errors.append({'kind': 'error', 'id': 'image-nesting:' + image_id, 'detail': 'image nested deeper than 2'})
+        os.unlink(hostcopy)
+        return
+
+    def id_of(path):
+        return image_id + '!' + path
+
+    def runtime_of(path):
+        if rt_target is None:
+            return None
+        return [join(rt_target, path)]
+
+    images = []
+    r = gf('mount-loop', mnt + ipath, mp, check=False)
+    if r is None:
+        if itype == 'squashfs' and shutil.which('unsquashfs'):
+            n = unsquash(hostcopy, image_id, id_of, runtime_of, objs, errors, tmpdir)
+            log(f'image {image_id} ({itype}, unsquashfs) {n} objects')
+        else:
+            errors.append({'kind': 'error', 'id': 'image-unopened:' + image_id, 'detail': f'mount-loop failed ({itype})'})
+        os.unlink(hostcopy)
+        return
+    os.unlink(hostcopy)
+    n = walk_fs(gf, mp, image_id, id_of, runtime_of, images, objs, errors, tmpdir)
+    log(f'image {image_id} ({itype}, mount-loop) {n} objects, runtime mount {rt_target}')
+    for (p2, t2, c2) in images:
+        open_image(gf, mp, p2, t2, c2, id_of(p2), mounts, meta, objs, errors, tmpdir, depth + 1)
+    gf('umount', mp, check=False)
+
+
+def unsquash(img, image_id, id_of, runtime_of, objs, errors, tmpdir):
+    """Fallback when the appliance cannot mount the image: list with unsquashfs -lln, hash an extraction."""
+    p = subprocess.run(['unsquashfs', '-lln', '-d', '', img], capture_output=True, text=True,
+                       errors='surrogateescape')
+    d = tempfile.mkdtemp(dir=tmpdir)
+    subprocess.run(['unsquashfs', '-f', '-no-xattrs', '-d', d, img], capture_output=True)
+    n = 0
+    for line in p.stdout.splitlines():
+        m = re.match(r'([-dlcbps])([rwxsStT-]{9})\s+(\d+)/(\d+)\s+(\S+(?:,\s*\d+)?)\s+\S+\s+\S+\s(.*)$', line)
+        if not m:
+            continue
+        t, perm, uid, gid, size, rest = m.groups()
+        mode = 0
+        for i, c in enumerate(perm):
+            if c not in '-ST':
+                mode |= 1 << (8 - i)
+        if perm[2] in 'sS':
+            mode |= 0o4000
+        if perm[5] in 'sS':
+            mode |= 0o2000
+        if perm[8] in 'tT':
+            mode |= 0o1000
+        target = None
+        name = rest
+        if t == 'l':
+            name, _, target = rest.partition(' -> ')
+        name = name if name.startswith('/') else '/' + name
+        if name != '/':
+            name = name.rstrip('/')
+        kind = {'-': 'file', 'd': 'dir', 'l': 'symlink'}.get(t, 'other')
+        sha, head = None, b''
+        if kind == 'file':
+            fp = d + name
+            try:
+                os.chmod(fp, 0o600)
+                with open(fp, 'rb') as f:
+                    hh = hashlib.sha256()
+                    head = f.read(65536)
+                    hh.update(head)
+                    for b in iter(lambda: f.read(1 << 20), b''):
+                        hh.update(b)
+                sha = hh.hexdigest()
+            except OSError as e:
+                errors.append({'kind': 'error', 'id': 'unsquash-unread:' + id_of(name), 'detail': str(e)})
+        ex, reason = exec_of(kind, mode, name, head)
+        o = {'kind': kind, 'id': id_of(name), 'mode': '%04o' % mode, 'uid': int(uid), 'gid': int(gid),
+             'size': int(size) if kind == 'file' else 0, 'sha256': sha, 'target': target, 'exec': ex,
+             'exec_reason': reason, 'fs': image_id, 'fs_path': name}
+        rt = runtime_of(name)
+        if rt:
+            o['runtime'] = rt
+        objs.append(o)
+        n += 1
+    subprocess.run(['chmod', '-R', 'u+rwx', d], capture_output=True)
+    shutil.rmtree(d, ignore_errors=True)
+    return n
+
+
+PART_RE = re.compile(r'/dev/(?:[sv]d[a-z]+|xvd[a-z]+|nvme\d+n\d+p|mmcblk\d+p)(\d+)$')
+
+
+def owner_filter(stored, mount_objs, meta):
+    """Keep a runtime path of a stored object only if the object is what is in force at that path.
+
+    At runtime a path belongs to one mount: the one with the longest target containing the path (of stacked mounts on
+    one target, the last in the kernel's order). A stored object is in force at the path only if that mount shows the
+    object's own filesystem (partition, or image by the SHA256 of the loop device) at the object's own path. Without
+    this, a mount point hidden under a bind mount (for example an empty file in the data partition under a file bound
+    from the root image) would be taken for the object in force. Returns the number of runtime paths dropped."""
+    ms = []
+    for i, o in enumerate(mount_objs):
+        v = o.get('value') or {}
+        idents = set()
+        if v.get('loop_sha256'):
+            idents.add(('img', v['loop_sha256']))
+        else:
+            m = PART_RE.match((v.get('source') or '').split('[')[0])
+            if m:
+                idents.add(('part', m.group(1)))
+            if v.get('uuid'):
+                idents.add(('uuid', v['uuid']))
+        ms.append((o['id'].split('#')[0], v.get('fsroot') or '/', idents, i))
+    if not ms:
+        return 0
+    fs_ident = {}
+    for f in meta.get('stored_filesystems', []):
+        s = set()
+        m = re.match(r'@part(\d+)$', f.get('name') or '')
+        if m:
+            s.add(('part', m.group(1)))
+        if f.get('uuid'):
+            s.add(('uuid', f['uuid']))
+        fs_ident[f.get('name')] = s
+    for im in meta.get('images', []):
+        if im.get('sha256'):
+            fs_ident[im['id']] = {('img', im['sha256'])}
+    cache = {}
+
+    def owner(path):
+        if path not in cache:
+            best = None
+            for w in ms:
+                tgt, i = w[0], w[3]
+                if path == tgt or path.startswith(tgt.rstrip('/') + '/'):
+                    if best is None or (len(tgt), i) > (len(best[0]), best[3]):
+                        best = w
+            cache[path] = best
+        return cache[path]
+
+    changed = 0
+    for o in stored:
+        if 'fs_path' not in o or o.get('fs') not in fs_ident:
+            continue
+        mine = fs_ident[o['fs']]
+        mounts_of_fs = [w for w in ms if w[2] & mine]
+        if not mounts_of_fs:
+            continue  # the filesystem is not mounted at runtime (or not identifiable): leave as found
+        p = os.path.normpath(o['fs_path'])
+        keep = []
+        for w in mounts_of_fs:
+            tgt, fr = w[0], os.path.normpath(w[1])
+            if p == fr:
+                rp = tgt
+            elif fr == '/' or p.startswith(fr + '/'):
+                rest = p if fr == '/' else p[len(fr):]
+                rp = os.path.normpath(tgt.rstrip('/') + rest) if tgt != '/' else rest
+            else:
+                continue
+            if owner(rp) is w and rp not in keep:
+                keep.append(rp)
+        old = o.get('runtime') or []
+        if sorted(old) != sorted(keep):
+            changed += 1
+        if keep:
+            o['runtime'] = keep
+            o.pop('shadowed', None)
+        else:
+            o.pop('runtime', None)
+            if old or mounts_of_fs:
+                o['shadowed'] = True
+    return changed
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    ap.add_argument('--disk', required=True)
+    ap.add_argument('--format', default='qcow2')
+    ap.add_argument('--ssh-port', type=int)
+    ap.add_argument('--ssh-host', default='127.0.0.1')
+    ap.add_argument('--ssh-key')
+    ap.add_argument('--user')
+    ap.add_argument('--root-cmd', default='sudo -n')
+    ap.add_argument('--raw', help='also write the raw output of the collector to this file (diagnosis)')
+    ap.add_argument('--firewall-fallback', help='read-only command run as root in the guest that prints the native '
+                    'nft text, used only if `nft list ruleset` is refused (e.g. "confos rules")')
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--timeout', type=int, default=1800)
+    args = ap.parse_args()
+    os.makedirs(args.out, exist_ok=True)
+    tmpdir = tempfile.mkdtemp(prefix='inv-', dir=args.out)
+    force, stored, errors = [], [], []
+    meta = {'tool': 'inventory', 'disk': os.path.basename(args.disk), 'started_utc':
+            time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
+    mounts = []
+    status = 0
+    try:
+        if args.ssh_port:
+            if not (args.ssh_key and args.user):
+                ap.error('--ssh-port needs --ssh-key and --user')
+            _, m2, mounts = take_force(args, force, errors)
+            meta.update(m2)
+            meta['stored_level_note'] = (
+                'stored level read while the machine runs, after sync in the guest, from the live disk opened '
+                'read-only with libguestfs (--ro); libguestfs documents this as safe but the view may be '
+                'inconsistent if the guest writes during the read')
+        else:
+            meta['force_level'] = 'not taken (no --ssh-port); stored level only'
+        t0 = time.time()
+        mount_objs = [o for o in force if o['kind'] == 'mount']
+        take_stored(args, mounts, mount_objs, meta, stored, errors, tmpdir)
+        log(f'stored level read in {time.time() - t0:.1f}s, {len(stored)} objects')
+        if mount_objs:
+            n = owner_filter(stored, mount_objs, meta)
+            meta['runtime_paths'] = ('each runtime path is assigned to the stored object that the owning mount of the '
+                                     'path shows (longest mount target; last of stacked mounts); objects that no mount '
+                                     f'shows are marked shadowed; {n} objects changed')
+            log(f'runtime paths by owning mount: {n} objects changed, '
+                f'{sum(1 for o in stored if o.get("shadowed"))} shadowed')
+    except Exception as e:
+        errors.append({'kind': 'error', 'id': 'inventory/fatal', 'detail': f'{type(e).__name__}: {e}'})
+        log(f'FATAL {type(e).__name__}: {e}')
+        status = 2
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+    meta['finished_utc'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+    meta['counts'] = {'stored': len(stored), 'force': len(force), 'errors': len(errors)}
+    force.append({'kind': 'meta', 'id': 'meta', 'value': meta})
+    # errors of the stored level go with the stored objects, others with the force level
+    for e in errors:
+        (stored if e['id'].startswith(('stored', 'image', 'unsquash', 'inventory/fatal')) else force).append(e)
+    jdump(os.path.join(args.out, 'stored.jsonl'), stored)
+    for o in force:
+        if o.get('kind') == 'meta' and isinstance(o.get('value'), dict):
+            o['value']['non_utf8_strings_in_stored'] = NON_UTF8[0]
+    jdump(os.path.join(args.out, 'force.jsonl'), force)
+    ex = [o for o in stored + force if o.get('exec') is True]
+    jdump(os.path.join(args.out, 'executables.jsonl'), ex)
+    log(f'wrote {args.out}: stored {len(stored)}, force {len(force)}, executables {len(ex)}, errors {len(errors)}')
+    sys.exit(status)
+
+
+if __name__ == '__main__':
+    main()

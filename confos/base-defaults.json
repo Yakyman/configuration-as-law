@@ -1,0 +1,16 @@
+{
+  "/etc/passwd": {"mode": "0644", "text": "root:x:0:0:root:/root:/bin/bash\n_apt:x:42:65534:apt:/nonexistent:/usr/sbin/nologin\n"},
+  "/etc/group": {"mode": "0644", "text": "nogroup:x:65534:\nroot:x:0:\nwheel:x:10:\n"},
+  "/etc/shadow": {"mode": "0600", "text": "root:*:19000:0:99999:7:::\n"},
+  "/etc/nsswitch.conf": {"mode": "0644", "text": "passwd: files\ngroup: files\nshadow: files\nhosts: files dns\n"},
+  "/etc/shells": {"mode": "0644", "text": "/bin/bash\n/bin/sh\n"},
+  "/etc/sudoers": {"mode": "0440", "text": "Defaults secure_path=\"/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin\"\nroot ALL=(ALL) NOPASSWD: ALL\n%wheel ALL=(ALL) NOPASSWD: ALL\nALL ALL=(root) NOPASSWD: /usr/lib/confos/systemctl-query\n@includedir /etc/sudoers.d\n"},
+  "/etc/pam.d/sudo": {"mode": "0644", "text": "auth sufficient pam_permit.so\naccount sufficient pam_permit.so\nsession sufficient pam_permit.so\npassword required pam_deny.so\n"},
+  "/etc/pam.d/sudo-i": {"mode": "0644", "text": "auth sufficient pam_permit.so\naccount sufficient pam_permit.so\nsession sufficient pam_permit.so\npassword required pam_deny.so\n"},
+  "/etc/pam.d/other": {"mode": "0644", "text": "auth required pam_deny.so\naccount required pam_deny.so\npassword required pam_deny.so\nsession required pam_deny.so\n"},
+  "/etc/hostname": {"mode": "0644", "text": "confos\n"},
+  "/etc/hosts": {"mode": "0644", "text": "127.0.0.1 localhost confos\n"},
+  "/etc/resolv.conf": {"mode": "0644", "text": "nameserver 10.0.2.3\n"},
+  "/etc/profile": {"mode": "0644", "text": "export PATH=/usr/local/bin:/usr/bin:/usr/sbin\nexport LC_ALL=C.UTF-8\numask 022\n"},
+  "/etc/fstab": {"mode": "0644", "text": ""}
+}

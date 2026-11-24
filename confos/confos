@@ -1,0 +1,207 @@
+#!/usr/bin/python3 -IS
+import fcntl
+import hashlib
+import json
+import os
+import pwd
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import time
+
+os.environ.clear()
+os.environ.update(PATH='/usr/bin:/usr/sbin:/bin:/sbin', LC_ALL='C', HOME='/root')
+
+def boot_prepare():
+    hostname = Path('/etc/hostname').read_text().strip()
+    subprocess.run(['/usr/bin/busybox', 'hostname', hostname], check=True)
+    for name, value in json.loads(Path('/etc/confos/sysctls.json').read_text()).items():
+        subprocess.run(['/usr/bin/busybox', 'sysctl', '-w', name+'='+value], check=True)
+    if os.uname().nodename != hostname:
+        raise RuntimeError('running hostname differs from /etc/hostname')
+    subprocess.run(['/usr/sbin/nft', '-f', '/etc/confos/rules.nft'], check=True)
+    for line in Path('/etc/passwd').read_text().splitlines():
+        name, _, uid, gid, _, home, shell = line.split(':')
+        native = pwd.getpwnam(name)
+        if (native.pw_uid, native.pw_gid, native.pw_dir, native.pw_shell) != (int(uid), int(gid), home, shell):
+            raise RuntimeError('native account lookup differs from passwd entry: '+name)
+        if home.startswith('/home/'):
+            p = Path(home)
+            if p.is_symlink():
+                p.unlink()
+            p.mkdir(parents=True, exist_ok=True)
+            os.chown(p, int(uid), int(gid))
+            runtime = Path('/run/user')/uid
+            runtime.mkdir(parents=True, exist_ok=True)
+            runtime.chmod(0o700)
+            os.chown(runtime, int(uid), int(gid))
+    tracked = Path('/state/managed-home-files.json')
+    current_paths = json.loads(Path('/etc/confos/home-mounts.json').read_text())
+    if tracked.exists():
+        for former in json.loads(tracked.read_text()):
+            if former not in current_paths and former.startswith('/home/') and '..' not in Path(former).parts:
+                old = Path(former)
+                if old.is_dir() and not old.is_symlink():
+                    try:
+                        old.rmdir()
+                    except OSError:
+                        pass  # Retain unrelated material in the backing directory.
+                else:
+                    old.unlink(missing_ok=True)
+    for path in current_paths:
+        target = Path(path)
+        source = Path('/run/root-view'+path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if target.is_symlink():
+            target.unlink()
+        if source.is_dir():
+            if target.is_file():
+                raise RuntimeError('home mount directory conflicts with material: '+path)
+            target.mkdir(exist_ok=True)
+        else:
+            target.touch(exist_ok=True)
+        subprocess.run(['mount', '--bind', str(source), str(target)], check=True)
+        subprocess.run(['mount', '-o', 'remount,bind,ro,nosuid,nodev', str(target)], check=True)
+    tracked.write_text(json.dumps(current_paths, sort_keys=True)+'\n')
+    sys.path.insert(0, '/usr/lib/confos')
+    import games
+    games.prepare()
+    import containers
+    containers.prepare()
+    # No obsolete installed generation or installation staging remains at readiness.
+    current = Path('/etc/confos/identity').read_text().strip()
+    subprocess.run(['mount', '-o', 'remount,rw', '/system'], check=True)
+    for generation in Path('/system/generations').iterdir():
+        if generation.name != current:
+            shutil.rmtree(generation)
+    shutil.rmtree('/state/staging', ignore_errors=True)
+    os.sync()
+    subprocess.run(['mount', '-o', 'remount,ro', '/system'], check=True)
+
+def supervise():
+    services = json.loads(Path('/etc/confos/services.json').read_text())
+    children = {}
+    logs = Path('/var/log/confos')
+    logs.mkdir(parents=True, exist_ok=True)
+    while True:
+        for name, service in services.items():
+            if service['state'] != 'enabled':
+                continue
+            if name not in children or children[name].poll() is not None:
+                with open(logs/(name+'.log'), 'ab', buffering=0) as output:
+                    children[name] = subprocess.Popen(['/usr/bin/aa-exec', '-p', 'confos-session', '--', *service['argv']], stdin=subprocess.DEVNULL,
+                        stdout=output, stderr=subprocess.STDOUT, start_new_session=True,
+                        env={'PATH': '/usr/local/bin:/usr/bin:/usr/sbin', 'HOME': '/root', 'LC_ALL': 'C.UTF-8'})
+        time.sleep(0.25)
+        running = {name: child.pid for name, child in children.items() if child.poll() is None}
+        Path('/run/confos-services.json').write_text(json.dumps(running, sort_keys=True)+'\n')
+        enabled = {name for name, service in services.items() if service['state'] == 'enabled'}
+        if set(running) == enabled:
+            Path('/run/confos-services-ready').touch()
+        else:
+            Path('/run/confos-services-ready').unlink(missing_ok=True)
+        time.sleep(0.75)
+
+def service_status():
+    services = json.loads(Path('/etc/confos/services.json').read_text())
+    running = json.loads(Path('/run/confos-services.json').read_text())
+    for name, service in sorted(services.items()):
+        print(name, service['state'], running.get(name, '-'))
+
+def rules():
+    if os.geteuid() != 0:
+        raise SystemExit('rules inspection requires root')
+    subprocess.run(['/usr/sbin/nft', 'list', 'ruleset'], check=True)
+
+def kernel_log():
+    if os.geteuid() != 0:
+        raise SystemExit('kernel log inspection requires root')
+    subprocess.run(['/usr/bin/busybox', 'dmesg'], check=True)
+
+def status():
+    identity = Path('/etc/confos/identity').read_text().strip()
+    ready = Path('/run/confos-ready')
+    if ready.exists() and ready.read_text().strip() == identity:
+        print('APPLIED '+identity, flush=True)
+    else:
+        raise SystemExit('NOT-READY')
+
+def apply():
+    if os.geteuid() != 0:
+        raise SystemExit('apply requires root')
+    sys.path.insert(0, '/usr/lib/confos')
+    import assemble
+    lock = open('/run/confos-apply.lock', 'w')
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    declaration = Path('/state/declaration.conf')
+    captured = declaration.read_bytes()
+    digest = hashlib.sha256(captured).hexdigest()
+    if digest == Path('/etc/confos/identity').read_text().strip():
+        status()
+        return
+    stage = Path('/state/staging')
+    if stage.exists():
+        shutil.rmtree(stage)
+    stage.mkdir()
+    previous_selector = Path('/system/boot.cfg').read_bytes()
+    try:
+        apply_candidate(assemble, declaration, captured, digest, stage)
+    except BaseException:
+        shutil.rmtree(stage)
+        target = Path('/system/generations')/digest
+        if Path('/system/boot.cfg').read_bytes() == previous_selector and target.exists():
+            subprocess.run(['mount', '-o', 'remount,rw', '/system'], check=True)
+            shutil.rmtree(target)
+            os.sync()
+        subprocess.run(['mount', '-o', 'remount,ro', '/system'], check=True)
+        raise
+
+def apply_candidate(assemble, declaration, captured, digest, stage):
+    snapshot = stage/'declaration.conf'
+    snapshot.write_bytes(captured)
+    # Preserve relative file references while freezing the candidate bytes.
+    rows, _ = assemble.parse(snapshot)
+    for row in rows:
+        if row[0] in ('file', 'pip', 'npm', 'compile', 'flatpak', 'appimage', 'container', 'user-unit', 'linuxgsm'):
+            source = Path(row[5] if row[0] in ('container', 'user-unit', 'linuxgsm') else row[4])
+            if '..' in source.parts:
+                raise ValueError('input must be below declaration directory')
+            if not source.is_absolute():
+                dest = stage/source
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(declaration.parent/source, dest)
+    newdigest, root = assemble.root_image(snapshot, stage)
+    assert newdigest == digest
+    release = assemble.initramfs(root, stage)
+    subprocess.run(['mount', '-o', 'remount,rw', '/system'], check=True)
+    target = Path('/system/generations')/digest
+    target.mkdir(exist_ok=True)
+    shutil.copy2(stage/'root.sqfs', target/'root.sqfs')
+    shutil.copy2(snapshot, target/'declaration.conf')
+    shutil.copy2(root/'boot'/('vmlinuz-'+release), target/'vmlinuz')
+    shutil.copy2(stage/'initramfs', target/'initramfs')
+    os.sync()
+    Path('/system/boot.cfg.new').write_text(assemble.boot_config(digest))
+    with open('/system/boot.cfg.new', 'rb') as stream:
+        os.fsync(stream.fileno())
+    os.replace('/system/boot.cfg.new', '/system/boot.cfg')
+    directory = os.open('/system', os.O_RDONLY | os.O_DIRECTORY)
+    os.fsync(directory)
+    os.close(directory)
+    os.sync()
+    subprocess.run(['mount', '-o', 'remount,ro', '/system'], check=True)
+    print('REBOOTING; reconnect and run confos status', flush=True)
+    subprocess.run(['reboot', '-f'], check=True)
+
+def systemd_ready():
+    sys.path.insert(0, '/usr/lib/confos')
+    import user_units
+    user_units.ready()
+
+try:
+    {'status': status, 'apply': apply, 'boot-prepare': boot_prepare,
+     'supervise': supervise, 'services': service_status, 'rules': rules,
+     'kernel-log': kernel_log, 'systemd-ready': systemd_ready}[sys.argv[1]]()
+except (IndexError, KeyError):
+    raise SystemExit('usage: confos status|apply')

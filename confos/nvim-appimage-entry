@@ -1,0 +1,5 @@
+#!/bin/sh
+confos_appdir=$(dirname "$(readlink -f "$0")")
+VIMRUNTIME="$confos_appdir/usr/share/nvim/runtime"
+export VIMRUNTIME
+exec "$confos_appdir/usr/bin/nvim" "$@"

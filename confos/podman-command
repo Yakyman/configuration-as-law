@@ -1,0 +1,42 @@
+#!/usr/bin/python3 -IS
+"""Expose native inspection and read-only execution of this account's recorded images."""
+import json
+import os
+from pathlib import Path
+import pwd
+import sys
+
+sys.path.insert(0, '/usr/lib/confos')
+import containers
+person = pwd.getpwuid(os.getuid())
+os.environ.clear()
+os.environ.update(containers.environment(person))
+declared = json.loads(Path('/etc/confos/containers.json').read_text()).get(person.pw_name, {})
+if not declared or person.pw_uid == 0:
+    raise SystemExit('podman: no container images recorded for this ordinary account')
+args = sys.argv[1:]
+debug = []
+if args and args[0] == '--log-level=debug':
+    debug = [args.pop(0)]
+if args in (['images'], ['image', 'ls'], ['ps'], ['ps', '-a'], ['ps', '--all'], ['--version']):
+    operation = args
+elif len(args) == 3 and args[:2] == ['image', 'inspect'] and args[2] in declared:
+    operation = args
+elif args and args[0] == 'run':
+    args = args[1:]
+    if args and args[0] == '--rm':
+        args = args[1:]
+    if not args or args[0] not in declared:
+        raise SystemExit('podman: run requires an image recorded for this account')
+    image = declared[args.pop(0)]
+    root = '/run/confos-container-ro/'+person.pw_name+'/'+image['id']
+    environment = [flag for value in image['environment'] for flag in ('--env', value)]
+    operation = ['run', '--rm', '--cgroups=disabled', '--network=none', '--read-only',
+        '--read-only-tmpfs=false', '--cap-drop=all', '--security-opt=no-new-privileges',
+        '--workdir='+image['workdir'], '--user='+image['user'], *environment,
+        '--rootfs', '--', root, *image['entrypoint'], *(args or image['command'])]
+else:
+    raise SystemExit('podman: installation/configuration requires editing the declaration and confos apply')
+command = containers.arguments(person.pw_name, person.pw_uid)
+command[1:1] = debug
+os.execv(command[0], [*command, *operation])

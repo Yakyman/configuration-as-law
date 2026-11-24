@@ -1,0 +1,20 @@
+#!/bin/sh
+export PATH=/bin
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev
+for module in virtio_pci virtio_blk crc32c_generic ext4 loop squashfs; do modprobe "$module"; done
+while [ ! -b /dev/vda2 ]; do sleep 1; done
+mount -o ro /dev/vda2 /system || exec sh
+generation=
+for argument in $(cat /proc/cmdline); do
+    case "$argument" in confos.generation=*) generation=${argument#confos.generation=} ;; esac
+done
+case "$generation" in ''|*[!0-9a-f]*) echo 'Invalid generation'; exec sh ;; esac
+[ "${#generation}" = 64 ] || exec sh
+mount -t squashfs -o ro,loop "/system/generations/$generation/root.sqfs" /newroot || exec sh
+mount --move /system /newroot/system
+mount --move /proc /newroot/proc
+mount --move /sys /newroot/sys
+mount --move /dev /newroot/dev
+exec switch_root /newroot /sbin/init

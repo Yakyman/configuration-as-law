@@ -1,0 +1,16 @@
+#!/usr/bin/python3 -IS
+"""Read-only privilege broker; mutation remains the declaration application's job."""
+import os
+import sys
+
+os.environ.clear()
+os.environ.update(PATH='/usr/bin:/usr/sbin', LC_ALL='C')
+arguments = sys.argv[1:]
+flags = []
+while arguments and arguments[0] in ('-a', '--handle', '-n', '--numeric', '-j', '--json'):
+    flags.append(arguments.pop(0))
+if arguments not in (['list', 'ruleset'], ['list', 'tables'], ['--version'], ['-v']):
+    raise SystemExit('nft: mutation requires editing the declaration and confos apply')
+if arguments[0] == 'list' and os.geteuid() != 0:
+    raise SystemExit('nft: inspection requires root')
+os.execv('/usr/sbin/nft', ['nft', *flags, *arguments])

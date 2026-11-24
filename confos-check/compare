@@ -1,0 +1,944 @@
+#!/usr/bin/env python3
+"""Compare an inventory with a derivation, or with another inventory (format: FORMATS.md, "Comparison").
+
+compare --inventory DIR --derived derived.jsonl --declaration PATH --decide decide.tsv --out compare.tsv
+compare --inventory DIR --baseline OTHER_INVENTORY_DIR --decide decide.tsv --out compare.tsv
+
+Writes compare.tsv (VERDICT KIND ID DETAIL) and, beside it, compare-excluded.tsv (every object that decide.tsv
+classifies as not needing a line, with the rule and the sentence ID). Exit 0 if compare.tsv is empty, 1 otherwise,
+2 on error. Python 3 standard library only.
+"""
+import argparse
+import fnmatch
+import json
+import os
+import re
+import sys
+
+STORED_FIELDS = ('kind', 'mode', 'uid', 'gid', 'size', 'sha256', 'target', 'exec', 'type', 'rdev', 'value')
+RUNTIME_KINDS = ('process', 'port', 'mount', 'module', 'unit')
+REF = ['reference']
+# [n3-A]: rules that answer question 1 (`store`: where package managers keep what they install) and
+# question 3 (`carrier/PROBE`: where settings are stored, and the probe that shows whether one is in force). They are
+# used only with --questions; without it they are ignored and the comparison is the plain one.
+QUESTION_CLASSES = ('store', 'carrier/unit', 'carrier/cron', 'carrier/route', 'carrier/key', 'carrier/none')
+STORED_KINDS = ('file', 'dir', 'symlink', 'other', 'vfile', 'vdir', 'vsymlink', 'vother')
+CRON_DAEMONS = ('cron', 'crond', 'anacron', 'fcron', 'cronie', 'busybox-cron')
+
+
+def load_jsonl(path):
+    """JSON Lines; PATH or, when it is absent, PATH.gz (a compacted run, lib/remote.sh compact)."""
+    out = []
+    if not os.path.exists(path) and os.path.exists(path + '.gz'):
+        import gzip
+        f = gzip.open(path + '.gz', 'rt', encoding='utf-8')
+    else:
+        f = open(path, encoding='utf-8')
+    with f:
+        for n, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                out.append(json.loads(line))
+            except ValueError as e:
+                raise ValueError(f'{path}:{n}: {e}')
+    return out
+
+
+def load_inventory(d):
+    objs = {}
+    for name in ('stored.jsonl', 'force.jsonl'):
+        p = os.path.join(d, name)
+        if not os.path.exists(p) and not os.path.exists(p + '.gz'):
+            raise FileNotFoundError(p)
+        for o in load_jsonl(p):
+            objs[(o['kind'], o['id'])] = o
+    return objs
+
+def glob_re(g):
+    out, i = '', 0
+    while i < len(g):
+        c = g[i]
+        if g.startswith('**', i):
+            out += '.*'
+            i += 2
+            continue
+        if c == '*':
+            out += '[^/]*'
+        elif c == '?':
+            out += '[^/]'
+        else:
+            out += re.escape(c)
+        i += 1
+    return re.compile('^' + out + '$', re.S)
+
+
+class Rule:
+    def __init__(self, n, pattern, cls, sentence, reason):
+        self.n, self.pattern, self.cls, self.sentence, self.reason = n, pattern, cls, sentence, reason
+        pat, _, fields = pattern.partition('#')
+        kinds, _, g = pat.partition(':')
+        self.kinds = set(kinds.split(','))
+        self.re = glob_re(g)
+        # FIELD or FIELD~REGEX: a field rule removes a difference in FIELD; with ~REGEX only when the two values are
+        # equal after every match of REGEX is deleted from both (the part of the value the rule's reason names)
+        self.fields = None
+        self.field_res = {}
+        if fields:
+            self.fields = set()
+            for x in fields.split(','):
+                name, sep, rx = x.partition('~')
+                self.fields.add(name)
+                if sep:
+                    self.field_res[name] = re.compile(rx)
+
+    def matches(self, kind, oid):
+        return ('*' in self.kinds or kind in self.kinds) and bool(self.re.match(oid))
+
+    def matches_obj(self, kind, oid, obj):
+        """Matched against the id and every runtime path of the object."""
+        if not ('*' in self.kinds or kind in self.kinds):
+            return False
+        return bool(self.re.match(oid)) or any(self.re.match(r) for r in (obj or {}).get('runtime') or [])
+
+    def removes(self, diff):
+        f, mv, rv = diff
+        for name in (f, f.split('.', 1)[-1]):
+            if name in (self.fields or ()):
+                rx = self.field_res.get(name)
+                if rx is None:
+                    return True
+                return rx.sub('', json.dumps(mv, sort_keys=True)) == rx.sub('', json.dumps(rv, sort_keys=True))
+        return False
+
+    def label(self):
+        return f'{self.pattern}\t{self.cls}\t{self.sentence}'
+
+
+def load_made(path):
+    """--made: the objects that the person created or brought in the case ([n2-3] [n2-4]).
+    PATTERN<TAB>TYPE<TAB>STATE<TAB>EVIDENCE; TYPE `data` (a document, archive, key, download, project, directory) or
+    `obeyed` (a startup file, unit file, hook, alias: it counts when something obeys it); STATE for `obeyed`:
+    `obeyed` or `not-obeyed` (from the probes of the case), else `-`."""
+    out = []
+    with open(path, encoding='utf-8') as f:
+        for n, line in enumerate(f, 1):
+            if not line.strip() or line.startswith('#'):
+                continue
+            p = line.rstrip('\n').split('\t')
+            if len(p) < 3 or p[1] not in ('data', 'obeyed') or p[2] not in ('obeyed', 'not-obeyed', '-'):
+                raise ValueError(f'{path}:{n}: bad made line')
+            r = Rule(n, p[0], 'material', 'S8.2-15', p[3] if len(p) > 3 else '')
+            r.type, r.state = p[1], p[2]
+            out.append(r)
+    return out
+
+
+def load_routes(path):
+    """--routes: PATH<TAB>RESULT<TAB>EVIDENCE, RESULT `executes` (a direct route ran it), `refused` (every direct
+    route and every data route refused), `data-only` (every direct route refused, a data route ran it: Q11)."""
+    out = {}
+    with open(path, encoding='utf-8') as f:
+        for n, line in enumerate(f, 1):
+            if not line.strip() or line.startswith('#'):
+                continue
+            p = line.rstrip('\n').split('\t')
+            if len(p) < 2 or p[1] not in ('executes', 'refused', 'data-only', 'any-only'):
+                raise ValueError(f'{path}:{n}: bad routes line')
+            out[p[0]] = (p[1], p[2] if len(p) > 2 else '')
+    return out
+
+
+def load_rules(path):
+    rules = []
+    with open(path, encoding='utf-8') as f:
+        for n, line in enumerate(f, 1):
+            if not line.strip() or line.startswith('#'):
+                continue
+            parts = line.rstrip('\n').split('\t')
+            if len(parts) < 4 or parts[1] not in ('program-record', 'material', 'runtime', 'bothways') + \
+                    QUESTION_CLASSES:
+                raise ValueError(f'{path}:{n}: bad rule line')
+            rules.append(Rule(n, parts[0], parts[1], parts[2], parts[3]))
+    return rules
+
+
+def fields_of(o):
+    return {k: o.get(k) for k in STORED_FIELDS if k in o}
+
+
+def diff_fields(a, b, only=None):
+    fa, fb = fields_of(a), fields_of(b)
+    keys = only if only is not None else sorted(set(fa) | set(fb))
+    out = []
+    for k in keys:
+        if k == 'value' and isinstance(fa.get(k), dict) and isinstance(fb.get(k), dict):
+            for vk in sorted(set(fa[k]) | set(fb[k])):
+                if fa[k].get(vk) != fb[k].get(vk):
+                    out.append(('value.' + vk, fa[k].get(vk), fb[k].get(vk)))
+        elif fa.get(k) != fb.get(k):
+            out.append((k, fa.get(k), fb.get(k)))
+    return out
+
+
+def short(v):
+    s = json.dumps(v, sort_keys=True, ensure_ascii=False)
+    return s if len(s) <= 200 else s[:200] + '...'
+
+
+def clean(s):
+    return s.replace('\t', ' ').replace('\n', ' ')
+
+
+class Index:
+    """Resolve a runtime path (an executable, a module file, a fragment) to an object of an inventory."""
+
+    def __init__(self, inv):
+        self.by_path = {}
+        for (kind, oid), o in inv.items():
+            if kind in ('file', 'symlink', 'vfile', 'vsymlink', 'dir', 'vdir', 'other', 'vother'):
+                self.by_path.setdefault(oid, (kind, oid))
+                for r in o.get('runtime') or []:
+                    self.by_path.setdefault(r, (kind, oid))
+        self.inv = inv
+
+    def resolve(self, path, depth=0):
+        key = self.by_path.get(path)
+        if key is None:
+            # follow symlinks of the path's directories (e.g. /lib -> usr/lib)
+            parts = path.split('/')
+            for i in range(len(parts) - 1, 1, -1):
+                head = '/'.join(parts[:i])
+                k = self.by_path.get(head)
+                if k and self.inv[k].get('target') and depth < 8:
+                    t = self.inv[k]['target']
+                    base = t if t.startswith('/') else os.path.normpath(os.path.join(os.path.dirname(head), t))
+                    return self.resolve(base + '/' + '/'.join(parts[i:]), depth + 1)
+            return None
+        o = self.inv[key]
+        if o.get('kind') in ('symlink', 'vsymlink') and o.get('target') and depth < 8:
+            t = o['target']
+            nxt = t if t.startswith('/') else os.path.normpath(os.path.join(os.path.dirname(path), t))
+            r = self.resolve(nxt, depth + 1)
+            return r or key
+        return key
+
+
+def creators(o, inv, meta):
+    """Paths of the program or setting that creates a runtime object (S8.2-5); None if not determinable."""
+    k, v = o['kind'], o.get('value') or {}
+    if k == 'process':
+        if o['id'] == '[kthread]':
+            return [('kernel', meta.get('kernel_release', ''))]
+        if o['id'].startswith('['):
+            return None
+        return [('path', o['id'])]
+    if k == 'port':
+        ex = v.get('exe') or []
+        if not ex or any(e.startswith('[') for e in ex):
+            return None
+        return [('path', e) for e in ex]
+    if k == 'module':
+        return [('path', v['file'])] if v.get('file') and v['file'].startswith('/') else None
+    if k == 'mount':
+        if v.get('loop_back_file'):
+            return [('path', v['loop_back_file'])]
+        if v.get('creator'):
+            return [('path', v['creator'])]
+        return None
+    if k == 'unit':
+        if v.get('transient'):
+            m = v.get('members') or []
+            return [('path', e) if not e.startswith('[') else ('kernel', '') for e in m] or None
+        return [('path', v['fragment'])] if v.get('fragment') else None
+    return None
+
+
+def match_id(key):
+    """The id of an inventory object as a line names it: pip names in their normalised form (PEP 503)."""
+    kind, oid = key
+    if kind == 'language-package' and oid.startswith('pip:') and '/' in oid:
+        head, _, name = oid.rpartition('/')
+        return head + '/' + re.sub(r'[-_.]+', '-', name).lower()
+    return oid
+
+
+def resolve_alias(d, inv):
+    """Objects whose derived id is not the inventory id: a `service` line (unit `service:NAME`) and a rule given as
+    nft text. Returns None if d is not such an object, else (state, machine_key, diffs) with state 'ok', 'differs',
+    'missing' or 'absent-ok' (a disabled service that is not in force)."""
+    k, v = d.get('kind'), d.get('value') or {}
+    if k == 'unit' and str(d.get('id', '')).startswith('service:'):
+        name = d['id'].split(':', 1)[1]
+        want = bool(v.get('enabled'))
+        for uid in (f'system/{name}.service', f'system/{name}'):
+            m = inv.get(('unit', uid))
+            if m:
+                en = (m.get('value') or {}).get('enabled')
+                ok = (en in ('enabled', 'static', 'enabled-runtime')) == want
+                return ('ok' if ok else 'differs', ('unit', uid), [] if ok else [('value.enabled', en, want)])
+        argv = v.get('argv') or []
+        line = ' '.join(argv)
+        for key, m in inv.items():
+            if key[0] != 'process' or not argv:
+                continue
+            exe = key[1]
+            if exe == argv[0] or exe.rsplit('/', 1)[-1] == argv[0].rsplit('/', 1)[-1]:
+                if any(a == line or a.endswith(' '.join(argv[1:])) and a.split(' ', 1)[0].endswith(argv[0].rsplit('/', 1)[-1])
+                       for a in (m.get('value') or {}).get('args', [])):
+                    return ('ok' if want else 'differs', key, [] if want else [('value.running', True, False)])
+        # the executable of a process may be unreadable to the inventory (confinement): a process whose command
+        # line is exactly the argv is seen, but which program runs is not; such a match is never 'ok'
+        m = inv.get(('process', '[exe-unreadable]'))
+        if argv and m and line in ((m.get('value') or {}).get('args') or []):
+            if want:
+                return ('unverified', ('process', '[exe-unreadable]'),
+                        [('value.args', line, 'the executable of the process could not be read')])
+            return ('differs', ('process', '[exe-unreadable]'), [('value.running', 'by command line', False)])
+        return ('missing' if want else 'absent-ok', None, [])
+    if k == 'firewall' and str(v.get('text', d.get('id', ''))).lstrip().startswith('add rule '):
+        parts = v.get('text', d['id']).split(None, 5)
+        if len(parts) < 6:
+            return None
+        _, _, fam, tab, chain, body = parts
+        norm = ' '.join(body.split())
+        near = None
+        for key, m in inv.items():
+            mv = m.get('value') or {}
+            if key[0] == 'firewall' and mv.get('family') == fam and mv.get('table') == tab \
+                    and mv.get('chain') == chain:
+                mt = ' '.join(str(mv.get('text') or '').split())
+                if mt == norm:
+                    return ('ok', key, [])
+                # the same rule with an annotation added by the system (`comment "..."`): in force, but not the
+                # exact text of the line (QUESTIONS.md Q7: reported as DIFFERS)
+                if re.fullmatch(re.escape(norm) + r' comment "[^"]*"', mt):
+                    near = (key, mt)
+        if near:
+            return ('differs', near[0], [('value.text[Q7]', near[1], norm)])
+        return ('missing', None, [])
+    return None
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+    ap.add_argument('--inventory', required=True)
+    ap.add_argument('--derived')
+    ap.add_argument('--declaration')
+    ap.add_argument('--baseline')
+    ap.add_argument('--decide', default=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'decide.tsv'))
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--excluded')
+    ap.add_argument('--made', help='objects the person created or brought (TSV, see load_made)')
+    ap.add_argument('--routes', help='results of the direct and data routes per path (TSV, see load_routes)')
+    ap.add_argument('--reference', help='inventory of a clean installation built from the published source and the '
+                                        'same declaration (derived mode; [n2-1])')
+    ap.add_argument('--questions', action='store_true',
+                    help='decide every object of the writable area that follows from no line by the four questions '
+                         'of S8.2-6 ([n3-A]); objects of the read-only stored system part stay reported')
+    a = ap.parse_args()
+    if bool(a.baseline) == bool(a.derived):
+        print('compare: give exactly one of --baseline or --derived', file=sys.stderr)
+        return 2
+    if a.derived and not a.declaration:
+        print('compare: --derived needs --declaration', file=sys.stderr)
+        return 2
+    if a.declaration and not os.path.exists(a.declaration):
+        print(f'compare: declaration {a.declaration} not found', file=sys.stderr)
+        return 2
+    REF[0] = 'baseline' if a.baseline else 'derived'
+    excl_path = a.excluded or (a.out[:-4] if a.out.endswith('.tsv') else a.out) + '-excluded.tsv'
+    try:
+        inv = load_inventory(a.inventory)
+        rules = load_rules(a.decide)
+        made = load_made(a.made) if a.made else []
+        routes = load_routes(a.routes) if a.routes else {}
+        ref = load_inventory(a.reference) if a.reference else None
+    except (OSError, KeyError, ValueError) as e:
+        print(f'compare: {e}', file=sys.stderr)
+        return 2
+    if ref is not None and a.baseline:
+        print('compare: --reference is for the comparison with a derivation', file=sys.stderr)
+        return 2
+    meta = (inv.get(('meta', 'meta')) or {}).get('value', {})
+    idx = Index(inv)
+    reported = []   # (verdict, kind, id, detail)
+    excluded = []   # (kind, id, would-be verdict, rule label, detail)
+    status = {}     # (kind,id) of inventory objects -> 'ok' | verdict
+
+    def rule_for(kind, oid):
+        for r in rules:
+            if r.fields is None and r.cls not in QUESTION_CLASSES and r.matches(kind, oid):
+                return r
+        return None
+
+    def field_rules(kind, oid):
+        return [r for r in rules if r.fields is not None and r.matches(kind, oid)]
+
+    # ---- the list of candidates: (key, verdict, machine-object, reference-object, diffs, line)
+    cands = []
+    if a.baseline:
+        try:
+            base = load_inventory(a.baseline)
+        except OSError as e:
+            print(f'compare: {e}', file=sys.stderr)
+            return 2
+        bmeta = (base.get(('meta', 'meta')) or {}).get('value', {})
+        bidx = Index(base)
+        for key in sorted(set(inv) | set(base)):
+            if key[0] == 'meta':
+                continue
+            m, b = inv.get(key), base.get(key)
+            if m and not b:
+                cands.append((key, 'UNRECORDED', m, None, [], ''))
+            elif b and not m:
+                cands.append((key, 'MISSING', None, b, [], ''))
+            else:
+                d = diff_fields(m, b)
+                if d:
+                    cands.append((key, 'DIFFERS', m, b, d, ''))
+                else:
+                    status[key] = 'ok'
+    else:
+        try:
+            derived = load_jsonl(a.derived)
+        except OSError as e:
+            print(f'compare: {e}', file=sys.stderr)
+            return 2
+        covered = set()
+        external = []
+        for d in derived:
+            if d.get('kind') == 'external-list':
+                external.append(d)
+                continue
+            if d.get('kind') == 'release':
+                # `base`/`snapshot` summaries: their content is the package objects derive expands them into, which
+                # are compared one by one; no object of a machine is a release (FORMATS.md, kinds per line)
+                continue
+            key = (d['kind'], d['id'])
+            line = str(d.get('line', ''))
+            al = resolve_alias(d, inv)
+            if al is not None:
+                for fld, reason in sorted((d.get('underived_fields') or {}).items()):
+                    cands.append((key, 'UNDERIVED', None, dict(d, underived=f'field {fld}: {reason}'), [], line))
+                st, akey, adiffs = al
+                if akey is not None and akey != ('process', '[exe-unreadable]'):  # a group of unknown programs
+                    covered.add(akey)
+                if st == 'ok':
+                    status[akey] = 'ok'
+                elif st == 'differs':
+                    cands.append((akey, 'DIFFERS', inv[akey], d, adiffs, line))
+                elif st == 'missing':
+                    cands.append((key, 'MISSING', None, d, [], line))
+                elif st == 'unverified':
+                    cands.append((key, 'UNVERIFIED', inv[akey], d, adiffs, line))
+                continue
+            if '*' in str(d.get('id', '')) and d.get('value') is not None:
+                # a line whose objects the system places by its own convention (pip, npm, flatpak, user units):
+                # matched by name; every object that matches must agree with the line (FORMATS.md, additions of 2026-11-24 before 11:45 UTC)
+                for fld, reason in sorted((d.get('underived_fields') or {}).items()):
+                    cands.append((key, 'UNDERIVED', None, dict(d, underived=f'field {fld}: {reason}'), [], line))
+                hits = [k for k in inv if k[0] == d['kind'] and fnmatch.fnmatchcase(match_id(k), d['id'])]
+                if not hits:
+                    cands.append((key, 'MISSING', None, d, [], line))
+                    continue
+                for hk in hits:
+                    covered.add(hk)
+                    mv = inv[hk].get('value') or {}
+                    diffs = []
+                    for f, want in sorted(d['value'].items()):
+                        if f not in mv:
+                            continue
+                        got = mv.get(f)
+                        if f == 'commit' and isinstance(got, str) and isinstance(want, str) and got and \
+                                want.startswith(got):
+                            continue  # `flatpak list` prints the first characters of the commit
+                        if got != want:
+                            diffs.append(('value.' + f, got, want))
+                    if diffs:
+                        cands.append((hk, 'DIFFERS', inv[hk], d, diffs, line))
+                    else:
+                        status[hk] = 'ok'
+                continue
+            mkey = key if key in inv else None
+            if mkey is None and d['kind'] in ('file', 'dir', 'symlink', 'other'):
+                k2 = idx.by_path.get(d['id'])
+                if k2 and k2[0] == d['kind']:
+                    mkey = k2
+            if mkey is None and d['kind'] in ('file', 'dir', 'symlink', 'other') and ('v' + d['kind'], d['id']) in inv:
+                # nothing stored is in force at the path, but the object exists on a volatile filesystem (created
+                # while the machine runs): that is what is in force, and it is compared field by field
+                mkey = ('v' + d['kind'], d['id'])
+            if mkey is None and d['kind'] == 'dir' and ('mount', d['id']) in inv and d.get('value') is not None:
+                mv = inv[('mount', d['id'])].get('value') or {}
+                if mv.get('fstype') in ('proc', 'sysfs', 'devpts', 'securityfs', 'cgroup2', 'debugfs', 'tracefs',
+                                        'configfs', 'pstore', 'bpf', 'mqueue', 'hugetlbfs', 'efivarfs', 'fusectl'):
+                    # the mount point of a kernel filesystem: the directory is there; its fields are the kernel's
+                    excluded.append(('dir', d['id'], 'MISSING', '-\tkernel-mount\t-',
+                                     f'mount point of {mv.get("fstype")}; line={line}'))
+                    covered.add(('mount', d['id']))
+                    status[('mount', d['id'])] = 'ok'
+                    continue
+            if d.get('value') is None:
+                cands.append((key, 'UNDERIVED', inv.get(mkey) if mkey else None, d, [], line))
+                if mkey:
+                    covered.add(mkey)
+                continue
+            for fld, reason in sorted((d.get('underived_fields') or {}).items()):
+                cands.append((key, 'UNDERIVED', None, dict(d, underived=f'field {fld}: {reason}'), [], line))
+            if mkey is None:
+                cands.append((key, 'MISSING', None, d, [], line))
+                continue
+            covered.add(mkey)
+            m = inv[mkey]
+            dv = d['value']
+            diffs = []
+            if d['kind'] in ('file', 'dir', 'symlink', 'other', 'vfile', 'vdir', 'vsymlink', 'vother'):
+                # fields the inventory observes; names (owner, group) are compared through uid and gid
+                fields = {'dir': ('mode', 'uid', 'gid'), 'vdir': ('mode', 'uid', 'gid'),
+                          'symlink': ('mode', 'uid', 'gid', 'target'), 'vsymlink': ('mode', 'uid', 'gid', 'target')
+                          }.get(m['kind'], ('mode', 'uid', 'gid', 'size', 'sha256', 'target'))
+                for f in sorted(dv):
+                    if f in fields and m.get(f) != dv.get(f):
+                        diffs.append((f, m.get(f), dv.get(f)))
+            else:
+                mv = m.get('value') or {}
+                for f in sorted(dv):
+                    if f == 'members_include':
+                        lack = sorted(set(dv[f]) - set(mv.get('members') or []))
+                        if lack:
+                            diffs.append(('value.members', mv.get('members'), f'includes {dv[f]}'))
+                    elif f in mv and mv.get(f) != dv.get(f):
+                        diffs.append(('value.' + f, mv.get(f), dv.get(f)))
+            if diffs:
+                cands.append((mkey, 'DIFFERS', m, d, diffs, line))
+            else:
+                status[mkey] = 'ok'
+        ext_rules = []
+        for e in external:
+            if e.get('covers'):
+                ext_rules.append(Rule(0, e['covers'], 'external-list', 'S8.2-18', f'source {e.get("source")}'))
+        for key, m in sorted(inv.items()):
+            if key in covered or key[0] == 'meta':
+                continue
+            er = next((r for r in ext_rules if r.matches(*key)), None)
+            if er:
+                excluded.append((key[0], key[1], 'UNRECORDED', f'{er.pattern}\texternal-list\tS8.2-18',
+                                 f'line {er.reason}'))
+                status[key] = 'ok'
+                continue
+            cands.append((key, 'UNRECORDED', m, None, [], ''))
+
+    # ---- decide: non-runtime objects first, then runtime objects whose decision follows their creator
+    # filesystems that store no modes (FAT): the execute bits there are made up by the mount and say nothing
+    vfat = {f.get('name') for f in meta.get('stored_filesystems') or [] if f.get('fstype') in ('vfat', 'msdos')}
+    blocked = []    # objects a rule would exclude but whose execute flag keeps them reported (paths for the routes)
+
+    def exec_state(o):
+        """'exec' (code in form, no route refused it), 'question' (every direct route refused, a data route ran
+        it: Q11), or None (not code: no execute flag, a FAT mode, or every route refused it — R1)."""
+        if not o or not o.get('exec'):
+            return None
+        if o.get('exec_reason') == 'mode' and o.get('fs') in vfat:
+            return None
+        rt = routes_of(o, o.get('id', ''))
+        if rt and rt[0] == 'refused':
+            return None
+        if rt and rt[0] in ('data-only', 'any-only'):
+            return 'question'
+        return 'exec'
+
+    def is_exec(m, r):
+        return exec_state(m) == 'exec' or exec_state(r) == 'exec'
+
+    def routes_of(m, oid):
+        for p in [oid] + list((m or {}).get('runtime') or []):
+            if p in routes:
+                return routes[p]
+        return None
+
+    def made_decision(m, kind, oid):
+        """Four questions for an object the person created or brought (S8.2-6): obtained with no package (it is in
+        the case's list of what the person's own commands made); code only if a direct route executes it (R1);
+        a startup file, unit or hook counts when something obeys it; otherwise material (S8.2-15).
+        Returns None (not in the list) or (decision, rule, reason), decision in material|question|counts."""
+        mr = next((x for x in made if x.matches_obj(kind, oid, m)), None)
+        if mr is None:
+            return None
+        rt = routes_of(m, oid)
+        if kind in ('dir', 'vdir'):
+            return ('material', mr, 'a directory the person made')
+        if rt and rt[0] == 'executes':
+            return ('counts', mr, f'code: a direct route executes it ({rt[1]})')
+        if mr.type == 'obeyed' and mr.state == 'obeyed':
+            return ('counts', mr, 'a setting obeyed: a probe of the case showed it in force')
+        if rt and rt[0] in ('data-only', 'any-only'):
+            return ('question', mr, f'every direct route refused; {rt[1]}: QUESTIONS.md ' + ('Q11' if rt[0] == 'data-only' else 'Q12'))
+        if rt and rt[0] == 'refused':
+            return ('material', mr, f'every direct route refused ({rt[1]})' +
+                    ('; nothing obeyed it' if mr.type == 'obeyed' else ''))
+        if not (m or {}).get('exec') or (mr.type == 'obeyed' and (m or {}).get('exec_reason') == 'suffix'):
+            return ('material', mr, 'not code in form (no ELF, no #!, no execute bit' +
+                    (', a suffix only' if (m or {}).get('exec') else '') + ') and no route was tried' +
+                    ('; nothing obeyed it' if mr.type == 'obeyed' else ''))
+        # [n3-B]: the deciding observation (a direct route) was not made
+        return ('unrouted', mr, f'code in form ({(m or {}).get("exec_reason")}) and no direct route was tried')
+
+    # ---- [n3-A]: the four questions of S8.2-6 for an object of the writable area
+    wfs = set()
+    if a.questions:
+        mopts = {}
+        for (k, i), o in inv.items():
+            if k == 'mount':
+                mopts.setdefault(i.split('#')[0], []).append(str((o.get('value') or {}).get('options', '')))
+
+        def rw(target):
+            return any('rw' in x.split(',') for x in mopts.get(target, []))
+        for f in meta.get('stored_filesystems') or []:
+            if any(rw(x.get('target')) for x in f.get('runtime_mounts') or []):
+                wfs.add(f.get('name'))
+        for im in meta.get('images') or []:
+            if rw(im.get('runtime_mount')):
+                wfs.add(im.get('id'))
+    unit_paths = {}
+    for (k, i), o in inv.items():
+        if k == 'unit':
+            v = o.get('value') or {}
+            for p in [v.get('fragment'), v.get('source')] + str(v.get('dropins') or '').split():
+                if p:
+                    unit_paths.setdefault(p, []).append((i, v))
+    managers = set(meta.get('user_managers') or [])
+    cron_procs = sorted(i for (k, i) in inv if k == 'process' and i.rsplit('/', 1)[-1] in CRON_DAEMONS)
+    wanted = []     # paths whose decision needs a direct route that was not tried (the runner tries them)
+
+    def writable(o):
+        """Outside the stored, read-only system part: on a filesystem or image mounted read-write while the
+        machine runs, or on a volatile filesystem."""
+        if not o or o.get('kind') not in STORED_KINDS:
+            return False
+        return o['kind'].startswith('v') or o.get('fs') in wfs
+
+    def gpath(o, oid):
+        rt = [x for x in (o or {}).get('runtime') or [] if x.startswith('/')]
+        return rt[-1] if rt else oid
+
+    def account_of(paths):
+        for p in paths:
+            mm = re.match(r'^(?:/state)?/home/([^/]+)/', p)
+            if mm:
+                return mm.group(1)
+            mm = re.match(r'^/run/user/(\d+)/', p)
+            if mm:
+                acc = [i for (k, i), o in inv.items() if k == 'account' and
+                       str((o.get('value') or {}).get('uid')) == mm.group(1)]
+                return acc[0] if acc else '#' + mm.group(1)
+        return None
+
+    def probe(cls, kind, oid, o):
+        """Question 3: ('in-force', evidence) | ('not-in-force', evidence) | ('unprobed', why)."""
+        paths = [oid] + list((o or {}).get('runtime') or [])
+        typ = cls.split('/', 1)[1]
+        if typ == 'unit':
+            hits = [(u, v) for p in paths for (u, v) in unit_paths.get(p, [])]
+            name = paths[-1].rsplit('/', 1)[-1]
+            parent = paths[-1].rsplit('/', 2)[-2] if paths[-1].count('/') > 1 else ''
+            if not hits and kind in ('symlink', 'vsymlink') and re.search(r'\.(wants|requires|upholds)$', parent):
+                hits = [(u, v) for (k, u), x in inv.items() if k == 'unit' and u.rsplit('/', 1)[-1] == name
+                        for v in [x.get('value') or {}] if v.get('enabled') not in ('disabled', 'masked', '')]
+            loaded = [(u, v) for u, v in hits if v.get('load') == 'loaded']
+            if loaded:
+                return ('in-force', 'force level: ' + ', '.join(
+                    f'unit {u} load={v.get("load")} enabled={v.get("enabled")} active={v.get("active")}'
+                    for u, v in loaded[:3]))
+            acc = account_of(paths)
+            if acc and acc not in managers and not any(p.startswith('/run/systemd/') for p in paths):
+                return ('unprobed', f'the service manager of account {acc} was not running when the inventory '
+                                    f'was taken (meta user_managers {sorted(managers)})')
+            return ('not-in-force', 'force level: no unit of the service manager has it as its file or drop-in')
+        if typ == 'cron':
+            p = paths[-1]
+            obj = inv.get(('crontab', 'file:' + p)) or inv.get(('crontab', 'user/' + p.rsplit('/', 1)[-1])) \
+                if '/spool/cron' in p else inv.get(('crontab', 'file:' + p))
+            if obj is None and '/spool/cron' not in p:
+                obj = inv.get(('crontab', 'file:' + oid))
+            if not cron_procs:
+                return ('not-in-force', 'force level: no cron daemon runs (processes)')
+            if obj is None:
+                return ('not-in-force', f'force level: the cron tables read by {cron_procs[0]} do not include it')
+            return ('in-force', f'force level: crontab {obj["id"]}, read by the running {", ".join(cron_procs)}')
+        if typ == 'key':
+            ks = [i for (k, i), x in inv.items() if k == 'authorized-key' and
+                  (x.get('value') or {}).get('file') in paths]
+            if ks:
+                return ('in-force', f'force level: the SSH server takes the key(s) {", ".join(ks[:3])} from it')
+            return ('not-in-force', 'force level: no authorized key is taken from it')
+        if typ == 'route':
+            rt = routes_of(o, oid)
+            if rt and rt[0] == 'executes':
+                return ('in-force', f'a direct route executed it ({rt[1]})')
+            if rt and rt[0] == 'refused':
+                return ('not-in-force', f'every direct route refused it ({rt[1]})')
+            if rt:
+                return ('in-force-question', rt)
+            wanted.append(gpath(o, oid))
+            return ('unprobed', 'the program that obeys it (the routes of its form) was not run on it')
+        return ('unprobed', 'no probe of this kind of setting exists in the case party\'s programs')
+
+    def questions(kind, oid, o, verdict, diffs, line):
+        """('report', VERDICT, reason) or ('exclude', label, reason). The first affirmative answer decides."""
+        q1 = next((r for r in rules if r.cls == 'store' and r.matches_obj(kind, oid, o)), None)
+        if q1:
+            return ('report', verdict, f'question 1 (S8.2-7): {q1.reason} (rule {q1.pattern})')
+        rt = routes_of(o, oid)
+        rule = rule_for(kind, oid)
+        note = ''
+        open_q2 = None      # question 2 answered yes under one reading only (Q11, Q12)
+        unrouted = None     # question 2 not observed: code in form and no direct route tried (item B)
+        if kind not in ('dir', 'vdir') and o.get('exec') and not (o.get('exec_reason') == 'mode' and
+                                                                   o.get('fs') in vfat):
+            if rt and rt[0] == 'executes':
+                return ('report', verdict, f'question 2 (S8.2-9): code; a direct route executed it ({rt[1]})')
+            if rt and rt[0] == 'any-only' and rule and rule.cls in ('program-record', 'material'):
+                # QUESTIONS.md Q12: for an object that a rule decides only the routes of its form count
+                note = (f'; question 2: every route of its form refused it; {rt[1]}; for an object that a rule '
+                        'decides only the routes of its form count (QUESTIONS.md Q12)')
+            elif rt and rt[0] in ('data-only', 'any-only'):
+                open_q2 = (f'question 2 (S8.2-9): every direct route of its form refused; {rt[1]}: QUESTIONS.md ' +
+                           ('Q11' if rt[0] == 'data-only' else 'Q12'))
+            elif not rt:
+                wanted.append(gpath(o, oid))
+                unrouted = (f'question 2 (S8.2-9): code in form ({o.get("exec_reason")}) and no direct route was '
+                            'tried ([n3-B])')
+            else:
+                note = f'; question 2: every route refused it ({rt[1]})'
+
+        def pending(rest):
+            """Question 2 still open when no later question is answered yes: the object is UNROUTED (not observed)
+            or QUESTION (Q11/Q12); otherwise None."""
+            if unrouted:
+                return ('report', 'UNROUTED', clean(unrouted + rest))
+            if open_q2:
+                return ('report', 'QUESTION', clean(open_q2 + rest))
+            return None
+
+        if rule and rule.cls in ('program-record', 'material'):
+            return pending(f'; otherwise rule {rule.pattern} ({rule.cls})') or \
+                ('exclude', rule.label(), clean(f'{rule.reason}{note}'))
+        if rule and rule.cls == 'bothways':
+            return pending(f'; otherwise rule {rule.pattern} (bothways)') if unrouted else \
+                ('report', 'BOTHWAYS', f'rule {rule.pattern} {rule.sentence}{note}')
+        # question 3 is asked also while question 2 is open: if it is answered yes, the object counts whatever the
+        # answer to question 2 is
+        q3 = next((r for r in rules if r.cls.startswith('carrier/') and r.matches_obj(kind, oid, o)), None)
+        if q3:
+            st, ev = probe(q3.cls, kind, oid, o)
+            if st == 'in-force':
+                return ('report', verdict, f'question 3 (S8.2-11): {q3.reason}; in force: {ev}' +
+                        (f' ({unrouted or open_q2})' if unrouted or open_q2 else ''))
+            if st == 'in-force-question':
+                return ('report', 'QUESTION', f'question 3 (S8.2-11): {q3.reason}; every direct route of its form '
+                        f'refused; {ev[1]}: QUESTIONS.md ' + ('Q11' if ev[0] == 'data-only' else 'Q12'))
+            if st == 'unprobed':
+                return ('report', 'UNPROBED', f'question 3 (S8.2-11): {q3.reason}; no probe was made: {ev} '
+                                              '([n3-B])')
+            note += f'; question 3: {q3.reason}, not in force: {ev}'
+        return pending(note) or ('exclude', '-\tfour-questions\tS8.2-15',
+                                 clean('S8.2-15: none of the first three questions is answered yes' + note))
+
+    later = []
+    for c in cands:
+        key, verdict, m, r, diffs, line = c
+        kind, oid = key
+        if verdict == 'UNDERIVED':
+            reported.append((verdict, kind, oid, f'line={line} reason={clean(str(r.get("underived", "")))}'))
+            continue
+        if verdict == 'UNVERIFIED':
+            reported.append((verdict, kind, oid, detail_of(verdict, diffs, line)))
+            continue
+        if m is not None and verdict in ('UNRECORDED', 'DIFFERS'):
+            if ref is not None and key in ref and not [
+                    d for d in diff_fields(m, ref[key]) if not any(x.removes(d) for x in field_rules(kind, oid))]:
+                # plan Section 9.3 and [n2-1]: the object equals the object of a clean installation
+                # built from the published source and the same declaration: it is recorded by the lines (S8.2-16)
+                excluded.append((kind, oid, verdict, 'reference\treference-equal\tS8.2-16',
+                                 'equal to the clean installation built from the published source and the same '
+                                 'declaration'))
+                status[key] = 'ok'
+                continue
+            # only an object that follows from no line: a recorded object that the person changed is a recorded thing
+            # changed past the declaration, never material
+            md = made_decision(m, kind, oid) if verdict == 'UNRECORDED' else None
+            if md is not None:
+                dec, mr, why = md
+                if dec == 'material':
+                    excluded.append((kind, oid, verdict, f'{mr.pattern}\tmaterial\tS8.2-15', clean(why)))
+                    status[key] = 'ok'
+                    continue
+                if dec == 'question':
+                    reported.append(('QUESTION', kind, oid, clean(why)))
+                    status[key] = 'QUESTION'
+                    continue
+                if dec == 'unrouted':
+                    wanted.append(gpath(m, oid))
+                    reported.append(('UNROUTED', kind, oid, clean(why)))
+                    status[key] = 'UNROUTED'
+                    continue
+                # counts: reported as it is, whatever rule of decide.tsv matches the path
+                reported.append((verdict, kind, oid, clean(why + '; ' + detail_of(verdict, diffs, line))))
+                status[key] = verdict
+                continue
+            if a.questions and writable(m) and (verdict == 'UNRECORDED' or a.baseline):
+                # [n3-A]: an object of the writable area that follows from no line (or, between two
+                # inventories, changed) is decided by the four questions; UNRECORDED always carries its answer
+                act, x, why = questions(kind, oid, m, verdict, diffs, line)
+                if act == 'exclude':
+                    excluded.append((kind, oid, verdict, x, why))
+                    status[key] = 'ok'
+                else:
+                    reported.append((x, kind, oid, clean(why + ('; ' + detail_of(verdict, diffs, line)
+                                                                 if diffs or line else ''))))
+                    status[key] = x
+                continue
+        if verdict == 'DIFFERS':
+            frs = field_rules(kind, oid)
+            if frs and not is_exec(m, r):
+                kept = []
+                for f in diffs:
+                    fr = next((x for x in frs if x.removes(f)), None)
+                    if fr:
+                        excluded.append((kind, oid, 'DIFFERS', fr.label(),
+                                         f'{f[0]} machine={short(f[1])} {REF[0]}={short(f[2])}'))
+                    else:
+                        kept.append(f)
+                diffs = kept
+                if not diffs:
+                    status[key] = 'ok'
+                    continue
+        rule = rule_for(kind, oid)
+        if rule and rule.cls != 'bothways' and (exec_state(m) == 'question' or exec_state(r) == 'question') \
+                and not is_exec(m, r):
+            reported.append(('QUESTION', kind, oid, clean(f'rule {rule.pattern} would decide it, but only a data route or a program that reads almost any text ran '
+                                                          'it (routes.tsv): QUESTIONS.md Q11 or Q12')))
+            status[key] = 'QUESTION'
+            continue
+        if rule and is_exec(m, r) and rule.cls in ('program-record', 'material', 'runtime'):
+            o = m or r
+            rt = [x for x in (o.get('runtime') or []) if x.startswith('/')]
+            p = rt[-1] if rt else oid
+            if p.startswith('/') and '!' not in p:
+                blocked.append(p)
+        if rule and not is_exec(m, r) and rule.cls in ('program-record', 'material'):
+            excluded.append((kind, oid, verdict, rule.label(), detail_of(verdict, diffs, line)))
+            status[key] = 'ok'
+            continue
+        if rule and rule.cls == 'runtime' and kind in RUNTIME_KINDS and not is_exec(m, r):
+            later.append((key, verdict, m, r, diffs, line, rule))
+            continue
+        if rule and rule.cls == 'bothways' and verdict == 'UNRECORDED' and not is_exec(m, r):
+            reported.append(('BOTHWAYS', kind, oid, f'rule {rule.pattern} {rule.sentence}'))
+            status[key] = 'BOTHWAYS'
+            continue
+        reported.append((verdict, kind, oid, detail_of(verdict, diffs, line)))
+        status[key] = verdict
+
+    for key, verdict, m, r, diffs, line, rule in later:
+        kind, oid = key
+        obj = m if m is not None else r
+        cr = creators(obj, inv, meta)
+        why = []
+        ok = cr is not None
+        for typ, path in cr or []:
+            if typ == 'kernel':
+                # kernel threads belong to the running kernel: the file the boot loader named (BOOT_IMAGE of
+                # /proc/cmdline, as a path inside a partition), else the kernel image named after the release
+                bi = re.search(r'(?:^|\s)BOOT_IMAGE=(?:\([^)]*\))?(\S+)', meta.get('cmdline', ''))
+                kk = []
+                if bi:
+                    kk = [k for k, o in inv.items() if k[0] == 'file' and '!' not in k[1]
+                          and o.get('fs_path') == bi.group(1)]
+                if len(kk) != 1:
+                    kk = [k for k, o in inv.items() if k[0] == 'file' and
+                          re.search(r'/(vmlinuz|bzImage)[^/]*$', k[1]) and (path in k[1])]
+                if len(kk) != 1:
+                    ok = False
+                    why.append(f'kernel image for {path} not found in the stored level')
+                    continue
+                ck = kk[0]
+            else:
+                ck = idx.resolve(path)
+                if ck is None:
+                    ok = False
+                    why.append(f'creator {path} not in the inventory')
+                    continue
+            st = status.get(ck)
+            if st != 'ok':
+                ok = False
+                why.append(f'creator {ck[0]}:{ck[1]} is {st or "undecided"}')
+            else:
+                why.append(f'decided with {ck[0]}:{ck[1]}')
+        if cr is None:
+            why.append('creator not determinable')
+        if ok:
+            excluded.append((kind, oid, verdict, rule.label(),
+                             clean('; '.join(why) + ('; ' + detail_of(verdict, diffs, line) if diffs else ''))))
+            status[key] = 'ok'
+        else:
+            reported.append((verdict, kind, oid, clean('; '.join(why) + ('; ' + detail_of(verdict, diffs, line)
+                                                                        if diffs else ''))))
+            status[key] = verdict
+
+    if a.questions:
+        # [n3-A]: an UNRECORDED line never has an empty reason
+        for n, (v, k, i, d) in enumerate(reported):
+            if v != 'UNRECORDED' or d:
+                continue
+            o = inv.get((k, i)) or {}
+            if k in STORED_KINDS:
+                why = ('the stored, read-only system part (filesystem ' + str(o.get('fs')) + '): equal neither to the '
+                       'derivation nor to the reference installation' +
+                       (f'; code in form ({o.get("exec_reason")})' if o.get('exec') else ''))
+            else:
+                why = f'in force: observed by the inventory at the level of what is in force ({k}); no line records it'
+            reported[n] = (v, k, i, why)
+    reported.sort(key=lambda x: (x[1], x[2], x[0]))
+    excluded.sort(key=lambda x: (x[0], x[1]))
+    with open(a.out, 'w', encoding='utf-8') as f:
+        for v, k, i, d in reported:
+            f.write(f'{v}\t{k}\t{clean(i)}\t{d}\n')
+    # paths of objects that a rule of decide.tsv would decide but whose execute flag keeps reported: the runner tries
+    # the routes on them (R1) and compares again with --routes
+    with open((a.out[:-4] if a.out.endswith('.tsv') else a.out) + '-exec-blocked.txt', 'w', encoding='utf-8') as f:
+        for p in sorted(set(blocked)):
+            f.write(p + '\n')
+    # paths whose decision needs a direct route that was not tried ([n3-A] [n3-B]): the runner tries
+    # the routes of their form on them, as for the files the person made, and compares again with --routes
+    with open((a.out[:-4] if a.out.endswith('.tsv') else a.out) + '-routes-wanted.txt', 'w', encoding='utf-8') as f:
+        for p in sorted(set(x for x in wanted if x.startswith('/') and '!' not in x)):
+            f.write(p + '\n')
+    with open(excl_path, 'w', encoding='utf-8') as f:
+        for k, i, v, lab, d in excluded:
+            f.write(f'{k}\t{clean(i)}\t{v}\t{lab}\t{d}\n')
+    counts = {}
+    for v, *_ in reported:
+        counts[v] = counts.get(v, 0) + 1
+    print(f'compare: {len(reported)} reported {counts}, {len(excluded)} excluded -> {a.out}, {excl_path}',
+          file=sys.stderr)
+    return 0 if not reported else 1
+
+
+def detail_of(verdict, diffs, line):
+    s = '; '.join(f'{f} machine={short(m)} {REF[0]}={short(r)}' for f, m, r in diffs)
+    if line:
+        s = (s + ' ' if s else '') + f'line={line}'
+    return clean(s)
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(main())
+    except SystemExit:
+        raise
+    except Exception as e:  # an error is never silent
+        print(f'compare: error {type(e).__name__}: {e}', file=sys.stderr)
+        sys.exit(2)

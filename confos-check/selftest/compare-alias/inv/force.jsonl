@@ -1,0 +1,10 @@
+{"kind":"process","id":"/usr/bin/sleep","value":{"users":["root"],"count":1,"args":["/usr/bin/sleep infinity"]}}
+{"kind":"firewall","id":"nft/rule inet confos/input/[1]","value":{"family":"inet","table":"confos","chain":"input","text":"tcp dport 8081 accept"}}
+{"kind":"firewall","id":"nft/rule inet confos/input/[2]","value":{"family":"inet","table":"confos","chain":"input","text":"tcp dport 9999 accept"}}
+{"kind":"process","id":"[exe-unreadable]","value":{"users":["root"],"count":2,"args":["/usr/bin/sleep 7200","/usr/sbin/dropbear -F"]}}
+{"kind":"firewall","id":"nft/rule inet confos/input/text:tcp dport 8082 accept","value":{"family":"inet","table":"confos","chain":"input","text":"tcp dport 8082 accept","via":"confos rules"}}
+{"kind":"firewall","id":"nft/rule inet confos/input/text:tcp dport 8083 accept comment \"r3\"","value":{"family":"inet","table":"confos","chain":"input","text":"tcp dport 8083 accept comment \"r3\"","via":"confos rules"}}
+{"kind":"language-package","id":"pip:/usr/bin/python3.13/Cowsay","value":{"version":"6.1","tool":"pip list"}}
+{"kind":"flatpak","id":"root/io.mpv.Mpv/system","value":{"fields":["io.mpv.Mpv","","flathub","system","13baef0d642f","stable","x86_64"],"commit":"13baef0d642f","branch":"stable","arch":"x86_64"}}
+{"kind":"container","id":"person/image/63b790fccc9078ab8bb913d94a5d869e19fca9b77712b315da3fa45bb8f14636","value":{"names":["docker.io/library/alpine:3.20.3"],"digest":"sha256:x"}}
+{"kind":"unit","id":"user/1000/cases-tick.timer","value":{"enabled":"disabled","load":"loaded"}}

@@ -1,0 +1,35 @@
+#!/usr/bin/python3 -IS
+"""Run only declared Flatpak refs; declaration application performs installation."""
+import json
+import os
+from pathlib import Path
+import pwd
+import sys
+
+person = pwd.getpwuid(os.getuid())
+os.environ.clear()
+os.environ.update(PATH='/usr/local/bin:/usr/bin:/usr/sbin', HOME=person.pw_dir,
+                  USER=person.pw_name, LOGNAME=person.pw_name, LC_ALL='C',
+                  FLATPAK_USER_DIR='/usr/lib/confos/flatpak-user',
+                  XDG_RUNTIME_DIR='/run/user/'+str(person.pw_uid))
+refs = json.loads(Path('/etc/confos/flatpaks.json').read_text())
+args = sys.argv[1:]
+if args == ['--version'] or args == ['list']:
+    native = args
+elif args and args[0] == 'info' and len(args) == 2 and args[1] in refs:
+    native = ['info', '--system', args[1]]
+elif args and args[0] == 'run':
+    if os.getuid() == 0:
+        raise SystemExit('flatpak: launch as a declared ordinary account')
+    args = args[1:]
+    command = []
+    if args and args[0].startswith('--command='):
+        command = [args.pop(0)]
+    if not args or args[0] not in refs or not refs[args[0]].startswith('app/'):
+        raise SystemExit('flatpak: run requires a declared application ID')
+    ref = refs[args[0]]
+    branch = ref.rsplit('/', 1)[1]
+    native = ['run', '--system', '--branch='+branch, *command, *args]
+else:
+    raise SystemExit('flatpak: installation and configuration require editing the declaration and confos apply')
+os.execv('/usr/bin/flatpak', ['flatpak', *native])

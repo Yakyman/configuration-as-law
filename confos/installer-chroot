@@ -1,0 +1,11 @@
+#!/bin/bash
+# Called only in a fresh private mount/PID namespace by the privileged assembler.
+set -euo pipefail
+root=$1
+shift
+/usr/bin/mount --bind "$root" "$root"
+/usr/bin/mount -t proc proc "$root/proc"
+/usr/bin/mount --rbind /dev "$root/dev"
+exec /usr/sbin/chroot "$root" /usr/bin/env -i \
+    PATH=/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin HOME=/root LC_ALL=C \
+    PYTHONDONTWRITEBYTECODE=1 SOURCE_DATE_EPOCH=1795392000 TZ=UTC "$@"

@@ -1,0 +1,65 @@
+#!/usr/bin/python3 -IS
+"""Read-only native manager inspection through a fixed environment."""
+import os
+import json
+from pathlib import Path
+import pwd
+import re
+import sys
+sys.path.insert(0, '/usr/lib/confos')
+import user_units
+
+args = sys.argv[1:]
+allowed = {'status', 'show', 'cat', 'is-active', 'is-enabled', 'list-units',
+           'list-unit-files', 'list-timers', 'list-jobs', 'is-system-running'}
+flags = {'--user', '--system', '--all', '--full', '--plain', '--no-legend', '--value', '--no-pager', '-a', '-l'}
+operation = None
+property_next = False
+end_options = False
+options = []
+units = []
+unit_pattern = r'(?:[A-Za-z0-9_.@:*?-]|\\x[0-9a-fA-F]{2})+'
+for argument in args:
+    if property_next:
+        if not re.fullmatch('[A-Za-z0-9,]+', argument):
+            raise SystemExit('systemctl: invalid property')
+        property_next = False
+        options.extend(['-p', argument])
+    elif not end_options and argument == '--':
+        end_options = True
+    elif not end_options and argument in ('-p', '--property'):
+        property_next = True
+    elif not end_options and argument.startswith('--property='):
+        value = argument.split('=', 1)[1]
+        if not re.fullmatch('[A-Za-z0-9,]+', value):
+            raise SystemExit('systemctl: invalid property')
+        options.extend(['-p', value])
+    elif not end_options and argument.startswith('--type='):
+        if not re.fullmatch(r'--type=[a-z]+(?:,[a-z]+)*', argument):
+            raise SystemExit('systemctl: invalid type filter')
+        options.append(argument)
+    elif not end_options and argument in flags:
+        options.append(argument)
+    elif operation is None and argument in allowed:
+        operation = argument
+    elif operation is not None and re.fullmatch(unit_pattern, argument) and (
+            end_options or not argument.startswith('-') or argument.endswith(('.mount', '.slice', '.service', '.target', '.device', '.socket', '.timer', '.path', '.scope'))):
+        units.append(argument)
+    else:
+        raise SystemExit('systemctl: mutation requires editing the declaration and confos apply')
+if operation is None or property_next:
+    raise SystemExit('systemctl: a read-only operation is required')
+if os.geteuid() != 0:
+    os.execv('/usr/bin/sudo', ['sudo', '-n', '/usr/lib/confos/systemctl-query', *args])
+caller = pwd.getpwuid(int(os.environ.get('SUDO_UID', '0')))
+if '--user' in options:
+    managers = json.loads(Path('/etc/confos/user-units.json').read_text())
+    if caller.pw_name not in managers:
+        raise SystemExit('systemctl: no declared user manager for '+caller.pw_name)
+os.environ.clear()
+os.environ.update(user_units.environment(caller))
+command = ['/usr/bin/systemctl', '--no-pager', *options, operation, '--', *units]
+if '--user' in options and caller.pw_uid != 0:
+    command = ['/usr/bin/setpriv', '--reuid', str(caller.pw_uid), '--regid', str(caller.pw_gid),
+        '--init-groups', '--inh-caps=-all,+dac_override', '--ambient-caps=+dac_override', *command]
+os.execv(command[0], command)
