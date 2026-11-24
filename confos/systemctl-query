@@ -10,6 +10,13 @@ sys.path.insert(0, '/usr/lib/confos')
 import user_units
 
 args = sys.argv[1:]
+if any(arg in ('enable', 'disable') for arg in args):
+    import configuration_recording
+    try:
+        configuration_recording.record('systemctl', args)
+    except (ValueError, OSError) as error:
+        raise SystemExit('systemctl: '+str(error))
+    raise SystemExit(0)
 allowed = {'status', 'show', 'cat', 'is-active', 'is-enabled', 'list-units',
            'list-unit-files', 'list-timers', 'list-jobs', 'is-system-running'}
 flags = {'--user', '--system', '--all', '--full', '--plain', '--no-legend', '--value', '--no-pager', '-a', '-l'}

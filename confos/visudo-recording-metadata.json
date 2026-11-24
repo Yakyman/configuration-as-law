@@ -1,0 +1,23 @@
+{
+  "sealed_source": "0.41",
+  "sealed_source_sha256": "2c73f6a664a2754cc78a7244d31bb77c7ac3d5253f45653a3c12cdfb418e4ca9",
+  "files": {
+    "visudo-recording-command-draft": "6f54d22e9d5d6459108c235dde37a092f173d79be4620fc2381a88d4fc7af286",
+    "visudo-recording-private-build.py": "f12871973ea18e19b8f1cb270bdb44962805efdda04dbebbc5b5d220987752ef",
+    "visudo-recording-private-diagnostic.sh": "bfe891d522c6e9d34cdeea24ddbe17bd3ebfc86b17ccf11cc1893d9cb70b6dcd",
+    "visudo-recording-probe.py": "ccba8e1c6edc103d53db2ff0da556ef4bf23fe7a5c8aa6b05e653b5501f5aa42",
+    "visudo-recording-include-probe.py": "31aa009453cf81a87c31608158a5750c936396069e93547a5e12d6f5189ca5ce",
+    "VISUDO-RECORDING-DRAFT.md": "1ba2813af68e15b3a6052dcfe511eb443068876d14c541abc1ad8cd9d33b6dfd",
+    "records/visudo-recording-explicit-removal-private.log": "e460355431465b4bc11582d35bdb082f9ea131df94de1164ab64b437a8654927",
+    "records/visudo-recording-private-final.log": "5753c586ca6ead381699acca40d5463c5281f2acb632490595d70a33cb7124c4",
+    "records/visudo-command-before-explicit-removal.txt": "a4f0fda2bd4ae7086dc09c003ba5e63ab06bbb4488dc9f9b09ad2824ef5f01be",
+    "records/visudo-probe-before-explicit-removal.py": "a04bcc28ac9d4a1a81e351fee4183497f21fd7373ee5197913c2749834e63103"
+  },
+  "result": "Private matrix passed; canonical release regression still required",
+  "limits": [
+    "Only one supported sudoers snippet target per request",
+    "Native empty edit remains unchanged; --remove explicitly deletes its row",
+    "Individual native validation at recording; complete policy validated on apply",
+    "Editor stays in confos-session confinement"
+  ]
+}

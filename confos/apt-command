@@ -1,0 +1,19 @@
+#!/usr/bin/python3 -IS
+"""ConfOS APT entry: record installation requests; apply is explicit."""
+import os
+from pathlib import Path
+import sys
+
+tool = Path(sys.argv[0]).name
+os.environ.clear()
+os.environ.update(PATH='/usr/bin:/usr/sbin:/bin:/sbin', LC_ALL='C', HOME='/root')
+os.chdir('/')
+if sys.argv[1:] in (['--version'], ['-v']):
+    native = '/usr/bin/'+tool
+    os.execv(native, [tool, '--version'])
+sys.path.insert(0, '/usr/lib/confos')
+import recording
+try:
+    recording.apt(sys.argv[1:])
+except (ValueError, OSError) as error:
+    raise SystemExit(tool+': '+str(error))

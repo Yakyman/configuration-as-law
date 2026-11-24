@@ -1,0 +1,601 @@
+[
+  {
+    "name": "uchardet",
+    "archive_url": "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz",
+    "sha256": "e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0",
+    "module": {
+      "name": "uchardet",
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DBUILD_STATIC=0",
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      ],
+      "sources": [
+        {
+          "url": "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz",
+          "sha256": "e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0",
+          "x-checker-data": {
+            "type": "html",
+            "url": "https://www.freedesktop.org/software/uchardet/releases/",
+            "version-pattern": "uchardet-(\\d\\.\\d+\\.?\\d*).tar.xz",
+            "url-template": "https://www.freedesktop.org/software/uchardet/releases/uchardet-$version.tar.xz"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/bin",
+        "/include",
+        "/lib/pkgconfig",
+        "/share/man"
+      ]
+    }
+  },
+  {
+    "name": "libass",
+    "archive_url": "https://codeload.github.com/libass/libass/tar.gz/64ebcac709d949e6059bdacf5356c3af7848e8e5",
+    "sha256": "646bae98d94e1b4471c4f774249c8816c131b8e995fc15680abc2bc7cee295ba",
+    "module": {
+      "name": "libass",
+      "config-opts": [
+        "--disable-static",
+        "--enable-asm",
+        "--enable-harfbuzz",
+        "--enable-fontconfig"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/libass/libass.git",
+          "commit": "64ebcac709d949e6059bdacf5356c3af7848e8e5",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^(\\d\\.\\d{1,3}\\.\\d{1,2})$"
+          },
+          "type": "git"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  },
+  {
+    "name": "libcdio",
+    "archive_url": "https://github.com/libcdio/libcdio-C/releases/download/2.4.0/libcdio-2.4.0.tar.bz2",
+    "sha256": "8e6a305f81e45a78b41ce696d34497cc208d97075469d7304c11a6d44bf006ac",
+    "module": {
+      "name": "libcdio",
+      "config-opts": [
+        "--disable-static",
+        "--disable-example-progs"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/libcdio/libcdio-C/releases/download/2.4.0/libcdio-2.4.0.tar.bz2",
+          "sha256": "8e6a305f81e45a78b41ce696d34497cc208d97075469d7304c11a6d44bf006ac",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://api.github.com/repos/libcdio/libcdio-C/releases/latest",
+            "version-query": ".tag_name",
+            "url-query": ".assets[] | select(.name | test(\"^libcdio-\\\\Q\\($version)\\\\E\\\\.tar\\\\.bz2$\")) | .browser_download_url",
+            "timestamp-query": ".published_at"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  },
+  {
+    "name": "libcdio-paranoia",
+    "archive_url": "https://github.com/libcdio/libcdio-paranoia/releases/download/release-10.2%2B2.0.2/libcdio-paranoia-10.2%2B2.0.2.tar.bz2",
+    "sha256": "186892539dedd661276014d71318c8c8f97ecb1250a86625256abd4defbf0d0c",
+    "module": {
+      "name": "libcdio-paranoia",
+      "config-opts": [
+        "--disable-static",
+        "--disable-example-progs"
+      ],
+      "sources": [
+        {
+          "url": "https://github.com/libcdio/libcdio-paranoia/releases/download/release-10.2%2B2.0.2/libcdio-paranoia-10.2%2B2.0.2.tar.bz2",
+          "sha256": "186892539dedd661276014d71318c8c8f97ecb1250a86625256abd4defbf0d0c",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://api.github.com/repos/libcdio/libcdio-paranoia/releases/latest",
+            "version-query": ".tag_name | sub(\"^release-\";\"\")",
+            "url-query": ".assets[] | select(.name | test(\"^libcdio-paranoia-\\\\Q\\($version)\\\\E\\\\.tar\\\\.bz2$\")) | .browser_download_url",
+            "timestamp-query": ".published_at"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  },
+  {
+    "name": "libdvdread",
+    "archive_url": "https://download.videolan.org/pub/videolan/libdvdread/7.1.1/libdvdread-7.1.1.tar.xz",
+    "sha256": "a0d47876548bec806774bbf8dbf20bb19ba139464383156b32eb8e59915b90a9",
+    "module": {
+      "name": "libdvdread",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "url": "https://download.videolan.org/pub/videolan/libdvdread/7.1.1/libdvdread-7.1.1.tar.xz",
+          "sha256": "a0d47876548bec806774bbf8dbf20bb19ba139464383156b32eb8e59915b90a9",
+          "x-checker-data": {
+            "type": "html",
+            "url": "https://download.videolan.org/pub/videolan/libdvdread/last/",
+            "version-pattern": "libdvdread-([\\w.]+)\\.tar\\.",
+            "url-template": "https://download.videolan.org/pub/videolan/libdvdread/$version/libdvdread-$version.tar.xz"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ],
+      "modules": [
+        {
+          "name": "libdvdcss",
+          "buildsystem": "meson",
+          "sources": [
+            {
+              "url": "https://download.videolan.org/pub/libdvdcss/1.6.0/libdvdcss-1.6.0.tar.xz",
+              "sha256": "7ea556c846b7bfc32d47b41cae56d1863a6b6d5f706bb162778d6f298490977c",
+              "x-checker-data": {
+                "type": "anitya",
+                "project-id": 5568,
+                "url-template": "https://download.videolan.org/pub/libdvdcss/$version/libdvdcss-$version.tar.xz"
+              },
+              "type": "archive"
+            }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "libdvdnav",
+    "archive_url": "https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz",
+    "sha256": "a2a18f5ad36d133c74bf9106b6445806fa253b09141a46392550394b647b221e",
+    "module": {
+      "name": "libdvdnav",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "url": "https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz",
+          "sha256": "a2a18f5ad36d133c74bf9106b6445806fa253b09141a46392550394b647b221e",
+          "x-checker-data": {
+            "type": "html",
+            "url": "https://download.videolan.org/pub/videolan/libdvdnav/last/",
+            "version-pattern": "libdvdnav-([\\w.]+)\\.tar\\.",
+            "url-template": "https://download.videolan.org/pub/videolan/libdvdnav/$version/libdvdnav-$version.tar.xz"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  },
+  {
+    "name": "libbluray",
+    "archive_url": "https://download.videolan.org/pub/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz",
+    "sha256": "f676408e91a5d321abf8b8d4dfdae36205c297dab5c54c3ec519639025f474a2",
+    "module": {
+      "name": "libbluray",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dbdj_jar=disabled"
+      ],
+      "sources": [
+        {
+          "url": "https://download.videolan.org/pub/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz",
+          "sha256": "f676408e91a5d321abf8b8d4dfdae36205c297dab5c54c3ec519639025f474a2",
+          "x-checker-data": {
+            "type": "html",
+            "url": "https://download.videolan.org/pub/videolan/libbluray/last/",
+            "version-pattern": "libbluray-([\\w.]+)\\.tar\\.",
+            "url-template": "https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ],
+      "modules": [
+        {
+          "name": "libaacs",
+          "config-opts": [
+            "--disable-static",
+            "--disable-bdjava-jar"
+          ],
+          "sources": [
+            {
+              "url": "https://download.videolan.org/pub/videolan/libaacs/0.12.0/libaacs-0.12.0.tar.bz2",
+              "sha256": "1996673a9fc45ee4a364c66ffa84756629bf3923e52346c7358b71becb8e4419",
+              "x-checker-data": {
+                "type": "html",
+                "url": "https://download.videolan.org/pub/videolan/libaacs/last/",
+                "version-pattern": "libaacs-([\\w.]+)\\.tar\\.",
+                "url-template": "https://download.videolan.org/pub/videolan/libaacs/$version/libaacs-$version.tar.bz2"
+              },
+              "type": "archive"
+            }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "zimg",
+    "archive_url": "https://api.github.com/repos/sekrit-twc/zimg/tarball/release-3.0.6",
+    "sha256": "15140e491c4ce9db5f02a038d8a1eb53e9151b55eeed06a2899425a6ebfef367",
+    "module": {
+      "name": "zimg",
+      "config-opts": [
+        "--disable-static"
+      ],
+      "sources": [
+        {
+          "url": "https://api.github.com/repos/sekrit-twc/zimg/tarball/release-3.0.6",
+          "sha256": "15140e491c4ce9db5f02a038d8a1eb53e9151b55eeed06a2899425a6ebfef367",
+          "archive-type": "tar",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://api.github.com/repos/sekrit-twc/zimg/releases/latest",
+            "url-query": ".tarball_url",
+            "version-query": ".tag_name | sub(\"^release-\"; \"\")",
+            "timestamp-query": ".published_at"
+          },
+          "type": "archive"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/doc"
+      ]
+    }
+  },
+  {
+    "name": "rubberband",
+    "archive_url": "https://codeload.github.com/breakfastquay/rubberband/tar.gz/1d95888bec3ae0a17c0c4af791810d5a63f6bc35",
+    "sha256": "0d6fe8fcc54d8e0b7da1a67ebdb0129dd62f983ecbfb66650c65f977d46fe20f",
+    "module": {
+      "name": "rubberband",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "url": "https://github.com/breakfastquay/rubberband.git",
+          "commit": "1d95888bec3ae0a17c0c4af791810d5a63f6bc35",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^v([\\d.]+)$"
+          },
+          "type": "git"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  },
+  {
+    "name": "ffmpeg",
+    "archive_url": "https://codeload.github.com/FFmpeg/FFmpeg/tar.gz/ce8f11b9fac4cd7ccfb41ca7c01bc17f5cda8cc3",
+    "sha256": "979e06585856b823e07a94bb9560106e4eb73ac7d061000556e2484270afc09c",
+    "module": {
+      "name": "ffmpeg",
+      "config-opts": [
+        "--disable-debug",
+        "--disable-doc",
+        "--disable-static",
+        "--enable-encoder=png",
+        "--enable-gnutls",
+        "--enable-gpl",
+        "--enable-shared",
+        "--enable-version3",
+        "--enable-libaom",
+        "--enable-libass",
+        "--enable-libbs2b",
+        "--enable-libdav1d",
+        "--enable-libfreetype",
+        "--enable-libmp3lame",
+        "--enable-libopus",
+        "--enable-libjxl",
+        "--enable-libmysofa",
+        "--enable-libtheora",
+        "--enable-libv4l2",
+        "--enable-libvorbis",
+        "--enable-libvpx",
+        "--enable-libx264",
+        "--enable-libx265",
+        "--enable-libwebp",
+        "--enable-libsmbclient",
+        "--enable-libxml2",
+        "--enable-vulkan",
+        "--enable-libdrm",
+        "--enable-vaapi"
+      ],
+      "sources": [
+        {
+          "url": "https://git.ffmpeg.org/ffmpeg.git",
+          "commit": "ce8f11b9fac4cd7ccfb41ca7c01bc17f5cda8cc3",
+          "x-checker-data": {
+            "type": "git",
+            "tag-pattern": "^n([\\d.]{3,7})$"
+          },
+          "type": "git"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/ffmpeg/examples"
+      ],
+      "modules": [
+        {
+          "name": "smbclient",
+          "buildsystem": "autotools",
+          "config-opts": [
+            "--without-json",
+            "--without-ad-dc",
+            "--without-ldap",
+            "--without-ads",
+            "--without-pam",
+            "--disable-python",
+            "--disable-cups",
+            "--disable-iprint",
+            "--without-systemd",
+            "--bindir=.",
+            "--sbindir=.",
+            "--sysconfdir=."
+          ],
+          "sources": [
+            {
+              "url": "https://download.samba.org/pub/samba/stable/samba-4.25.1.tar.gz",
+              "sha256": "7f367545bca69aa96897628f82f0f04d4b66b3bcb36cb978b9bb952c4b4c428d",
+              "archive-type": "tar",
+              "x-checker-data": {
+                "type": "html",
+                "url": "https://download.samba.org/pub/samba/stable/?C=M;O=D",
+                "version-pattern": "samba-(\\d+\\.\\d+\\.\\d+).tar.gz",
+                "url-template": "https://download.samba.org/pub/samba/stable/samba-$version.tar.gz"
+              },
+              "type": "archive"
+            }
+          ],
+          "build-options": {
+            "env": {
+              "PERL5LIB": "/app/lib/perl5"
+            }
+          },
+          "cleanup": [
+            "/lib/perl5"
+          ],
+          "modules": [
+            {
+              "name": "lmdb",
+              "subdir": "libraries/liblmdb",
+              "no-autogen": true,
+              "make-install-args": [
+                "prefix=/app"
+              ],
+              "sources": [
+                {
+                  "url": "https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz",
+                  "sha256": "f3927859882eb608868c8c31586bb7eb84562a40a6bf5cc3e13b6b564641ea28",
+                  "type": "archive"
+                }
+              ]
+            },
+            {
+              "name": "parse-yapp",
+              "buildsystem": "simple",
+              "sources": [
+                {
+                  "url": "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz",
+                  "sha256": "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5",
+                  "type": "archive"
+                }
+              ],
+              "build-commands": [
+                "perl Makefile.PL INSTALL_BASE=/app",
+                "make",
+                "make install"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tesseract",
+          "config-opts": [
+            "--disable-static"
+          ],
+          "sources": [
+            {
+              "url": "https://github.com/tesseract-ocr/tesseract.git",
+              "commit": "c5065e4c17df16a75960a0e0fa50e4399df1ac74",
+              "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/tesseract-ocr/tesseract/releases/latest",
+                "timestamp-query": ".published_at",
+                "tag-query": ".tag_name",
+                "version-query": ".tag_name"
+              },
+              "type": "git"
+            }
+          ],
+          "cleanup": [
+            "/bin"
+          ],
+          "modules": [
+            {
+              "name": "leptonica",
+              "config-opts": [
+                "--disable-static",
+                "--with-pic"
+              ],
+              "sources": [
+                {
+                  "url": "https://github.com/DanBloomberg/leptonica/releases/download/1.87.0/leptonica-1.87.0.tar.gz",
+                  "sha256": "c73363397f96eb1295602bf44d708a994ad42046c791bf03ea0505d829bdb6a7",
+                  "x-checker-data": {
+                    "type": "json",
+                    "url": "https://api.github.com/repos/danbloomberg/leptonica/releases/latest",
+                    "version-query": ".tag_name",
+                    "url-query": ".assets[] | select(.name | test(\"^leptonica-\\\\Q\\($version)\\\\E\\\\.tar\\\\.gz$\")) | .browser_download_url",
+                    "timestamp-query": ".published_at"
+                  },
+                  "type": "archive"
+                }
+              ],
+              "cleanup": [
+                "/bin"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "x264",
+          "config-opts": [
+            "--disable-cli",
+            "--enable-shared"
+          ],
+          "sources": [
+            {
+              "url": "https://code.videolan.org/videolan/x264.git",
+              "commit": "b35605ace3ddf7c1a5d67a2eb553f034aef41d55",
+              "x-checker-data": {
+                "type": "json",
+                "url": "https://code.videolan.org/api/v4/projects/536/repository/branches/stable",
+                "commit-query": ".commit.id",
+                "version-query": ".commit.short_id",
+                "timestamp-query": ".commit.created_at"
+              },
+              "type": "git"
+            }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig",
+            "/share/man"
+          ]
+        },
+        {
+          "name": "x265",
+          "subdir": "source",
+          "buildsystem": "cmake",
+          "config-opts": [
+            "-DCMAKE_BUILD_TYPE=Release",
+            "-DBUILD_STATIC=0"
+          ],
+          "sources": [
+            {
+              "url": "https://bitbucket.org/multicoreware/x265_git.git",
+              "commit": "e7a37608685a1ea61c59342cb19208d688928287",
+              "x-checker-data": {
+                "type": "git",
+                "tag-pattern": "^([\\d.]+)$"
+              },
+              "type": "git"
+            }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig",
+            "/share/man"
+          ]
+        },
+        {
+          "name": "libbs2b",
+          "buildsystem": "autotools",
+          "config-opts": [
+            "--disable-static"
+          ],
+          "sources": [
+            {
+              "url": "https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-3.1.0.tar.gz",
+              "sha256": "6aaafd81aae3898ee40148dd1349aab348db9bfae9767d0e66e0b07ddd4b2528",
+              "archive-type": "tar",
+              "x-checker-data": {
+                "type": "html",
+                "url": "https://sourceforge.net/projects/bs2b/files/libbs2b/",
+                "version-pattern": "projects/bs2b/files/libbs2b/(\\d+\\.\\d+\\.\\d+)",
+                "url-template": "https://downloads.sourceforge.net/sourceforge/bs2b/libbs2b-$version.tar.gz"
+              },
+              "type": "archive"
+            },
+            {
+              "commands": [
+                "sed -i -e 's/lzma/xz/g' configure.ac",
+                "autoreconf -vif"
+              ],
+              "type": "shell"
+            }
+          ],
+          "cleanup": [
+            "/include",
+            "/lib/pkgconfig"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "libplacebo",
+    "archive_url": "https://code.videolan.org/videolan/libplacebo/-/archive/451d8ea5661c868562725e6500deda7fdd4e9a1e/libplacebo-451d8ea5661c868562725e6500deda7fdd4e9a1e.tar.gz",
+    "sha256": "63251b5af660e264abcf70b2d4dbadc5817443e3d10a6e03f03d4f0647b48ac6",
+    "module": {
+      "name": "libplacebo",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dvulkan=enabled",
+        "-Dshaderc=enabled"
+      ],
+      "sources": [
+        {
+          "url": "https://code.videolan.org/videolan/libplacebo.git",
+          "commit": "451d8ea5661c868562725e6500deda7fdd4e9a1e",
+          "x-checker-data": {
+            "type": "json",
+            "url": "https://code.videolan.org/api/v4/projects/videolan%2Flibplacebo/repository/tags",
+            "tag-query": ".[0].name",
+            "version-query": "$tag | sub(\"^v\";\"\")",
+            "timestamp-query": ".[0].commit.created_at"
+          },
+          "type": "git"
+        }
+      ],
+      "cleanup": [
+        "/include",
+        "/lib/pkgconfig"
+      ]
+    }
+  }
+]

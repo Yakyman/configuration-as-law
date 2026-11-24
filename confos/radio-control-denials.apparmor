@@ -1,0 +1,18 @@
+# Draft fragment for BOTH confos-session and confos-flatpak, including sudo.
+# Dedicated supervisor label and mount aliases need native tests before release.
+deny network bluetooth,
+deny unix (connect, send, receive) peer=(label=confos-radio),
+deny capability net_admin,
+deny capability net_raw,
+deny capability sys_admin,
+deny /dev/vhci rwklmx,
+deny /dev/rfkill rwklmx,
+deny /run/confos-radio{,/**} rwklmx,
+deny /run/confos-radio-ready* wklmx,
+deny /var/lib/bluetooth{,/**} rwklmx,
+deny /run/netns/confos-radio-ap rwklmx,
+deny /var/run/confos-radio{,/**} rwklmx,
+deny /var/run/netns/confos-radio-ap rwklmx,
+deny /proc/*/root/run/confos-radio{,/**} rwklmx,
+deny /proc/*/root/var/lib/bluetooth{,/**} rwklmx,
+deny /proc/*/root/run/netns/confos-radio-ap rwklmx,

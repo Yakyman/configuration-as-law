@@ -9,8 +9,17 @@ import sys
 sys.path.insert(0, '/usr/lib/confos')
 import containers
 person = pwd.getpwuid(os.getuid())
+sudo_user = os.environ.get('SUDO_USER')
 os.environ.clear()
 os.environ.update(containers.environment(person))
+args = sys.argv[1:]
+if any(arg in ('pull', 'rmi', '--account') for arg in args):
+    import podman_recording
+    try:
+        podman_recording.record(args, sudo_user=sudo_user)
+    except (ValueError, OSError) as error:
+        raise SystemExit('podman: '+str(error))
+    raise SystemExit(0)
 declared = json.loads(Path('/etc/confos/containers.json').read_text()).get(person.pw_name, {})
 if not declared or person.pw_uid == 0:
     raise SystemExit('podman: no container images recorded for this ordinary account')

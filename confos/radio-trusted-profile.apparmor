@@ -1,0 +1,14 @@
+# Trusted boot supervisor and its native children. Same authority as trusted init;
+# distinct label supplies narrow Unix peer mediation to ordinary contexts.
+profile confos-radio flags=(attach_disconnected,mediate_deleted) {
+  capability,
+  network,
+  mount,
+  umount,
+  signal,
+  ptrace,
+  dbus,
+  / r,
+  /** rwklm,
+  /** ix,
+}

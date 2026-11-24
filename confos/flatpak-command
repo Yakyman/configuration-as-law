@@ -1,5 +1,6 @@
 #!/usr/bin/python3 -IS
 """Run only declared Flatpak refs; declaration application performs installation."""
+import configparser
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,15 @@ os.environ.update(PATH='/usr/local/bin:/usr/bin:/usr/sbin', HOME=person.pw_dir,
                   XDG_RUNTIME_DIR='/run/user/'+str(person.pw_uid))
 refs = json.loads(Path('/etc/confos/flatpaks.json').read_text())
 args = sys.argv[1:]
+operation = [arg for arg in args if arg not in ('-y', '--assumeyes', '--system')]
+if operation and operation[0] in ('install', 'uninstall', 'remote-add'):
+    sys.path.insert(0, '/usr/lib/confos')
+    import flatpak_recording
+    try:
+        flatpak_recording.record(args)
+    except (ValueError, OSError) as error:
+        raise SystemExit('flatpak: '+str(error))
+    raise SystemExit(0)
 if args == ['--version'] or args == ['list']:
     native = args
 elif args and args[0] == 'info' and len(args) == 2 and args[1] in refs:
@@ -22,14 +32,22 @@ elif args and args[0] == 'run':
     if os.getuid() == 0:
         raise SystemExit('flatpak: launch as a declared ordinary account')
     args = args[1:]
-    command = []
+    command = None
     if args and args[0].startswith('--command='):
-        command = [args.pop(0)]
+        command = args.pop(0).split('=', 1)[1]
     if not args or args[0] not in refs or not refs[args[0]].startswith('app/'):
         raise SystemExit('flatpak: run requires a declared application ID')
     ref = refs[args[0]]
     branch = ref.rsplit('/', 1)[1]
-    native = ['run', '--system', '--branch='+branch, *command, *args]
+    if command is None:
+        metadata = configparser.RawConfigParser()
+        metadata.read('/usr/lib/confos/flatpak/'+ref+'/active/metadata')
+        command = metadata['Application']['command']
+    if not command or '\x00' in command:
+        raise SystemExit('flatpak: invalid application command')
+    entry = 'printf %s "changeprofile confos-flatpak" >/proc/self/attr/current || exit; exec "$@"'
+    native = ['run', '--system', '--branch='+branch, '--command=/usr/bin/sh', args[0],
+              '-c', entry, 'confos-flatpak-entry', command, *args[1:]]
 else:
     raise SystemExit('flatpak: installation and configuration require editing the declaration and confos apply')
 os.execv('/usr/bin/flatpak', ['flatpak', *native])

@@ -1,0 +1,13 @@
+--- a/flatpak_readers.py
++++ b/flatpak_readers.py
+@@ -19,8 +19,8 @@
+     if not isinstance(items, list):
+         raise ValueError('invalid Flatpak reader manifest')
+     for item in items:
+-        if not re.fullmatch(r'runtime/[A-Za-z0-9_.-]+/x86_64/[A-Za-z0-9_.-]+', item['ref']):
+-            raise ValueError('invalid reader runtime ref')
++        if not re.fullmatch(r'(?:runtime|app)/(?![.]{1,2}/)[A-Za-z0-9_.-]+/x86_64/(?![.]{1,2}$)[A-Za-z0-9_.-]+', item['ref']):
++            raise ValueError('invalid reader app/runtime ref')
+         for key in ('commit', 'bundle_sha256', 'original_sha256', 'sha256'):
+             if not re.fullmatch('[0-9a-f]{64}', item[key]):
+                 raise ValueError('invalid reader digest')

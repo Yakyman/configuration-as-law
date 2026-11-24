@@ -1,0 +1,152 @@
+#!/usr/bin/python3 -IS
+"""Private finite nmcli request recorder; never invokes a radio or a daemon."""
+import fcntl,hashlib,json,os,re,shlex,sys,tempfile
+from pathlib import Path
+sys.path.insert(0,'/usr/lib/confos')
+
+KINDS={'radio-fixture','network','bluetooth-pair'}
+FIXED={'type':'wifi','ifname':'wlan1','autoconnect':'yes','wifi-sec.key-mgmt':'wpa-psk',
+       'wifi-sec.proto':'rsn','wifi-sec.pairwise':'ccmp','wifi-sec.group':'ccmp','ipv4.method':'manual'}
+FIELDS={'ssid','wifi-sec.psk','ipv4.addresses'}
+
+def request(args):
+    if args[:2]==['connection','add']:
+        operation='add'; tokens=args[2:]; name=None
+    elif len(args)>=4 and args[:2] in (['connection','modify'],['connection','delete']) and args[2]=='id':
+        operation=args[1];name=args[3];tokens=args[4:]
+    else:
+        raise ValueError('supported: connection add explicit static Wi-Fi properties; connection modify/delete id NAME; device wifi connect lacks an explicit client address')
+    if len(tokens)%2: raise ValueError('property/value pairs required')
+    props={}
+    for key,value in zip(tokens[::2],tokens[1::2]):
+        if key in props: raise ValueError('duplicate property: '+key)
+        props[key]=value
+    if operation=='add':
+        if set(props)!=set(FIXED)|FIELDS|{'con-name'}: raise ValueError('add requires exactly type, ifname, autoconnect, con-name, ssid, wifi-sec.key-mgmt/proto/pairwise/group/psk, ipv4.method/addresses')
+        if any(props[k]!=v for k,v in FIXED.items()): raise ValueError('only wlan1 autoconnecting WPA2-PSK RSN CCMP with manual IPv4 is representable')
+        name=props.pop('con-name')
+    elif operation=='modify':
+        if not props or not set(props)<=FIELDS: raise ValueError('modify supports ssid, wifi-sec.psk and ipv4.addresses only')
+    elif props: raise ValueError('delete accepts one exact connection id only')
+    if not re.fullmatch('[a-z][a-z0-9-]{0,31}',name): raise ValueError('connection name must fit existing network identity grammar')
+    if 'ssid' in props:
+        value=props['ssid']
+        if not re.fullmatch('[ -~]{1,32}',value): raise ValueError('draft accepts printable ASCII SSID 1..32 bytes only')
+    if 'wifi-sec.psk' in props and not re.fullmatch('[0-9a-f]{64}',props['wifi-sec.psk']):
+        raise ValueError('draft requires explicit lowercase 64-hex raw WPA2 PSK; passphrases unsupported')
+    return operation,name,props
+
+def plan(arguments,original,rows,directory):
+    """Return proposed declaration and generated inputs; no persistent writes."""
+    import radio_declaration
+    operation,name,props=request(arguments)
+    radio=[r for r in rows if r[0] in KINDS]
+    text='\n'.join(shlex.join(r) for r in radio)
+    prior=radio_declaration.derive(text,directory)
+    found=[r for r in radio if r[:2]==['network',name]]
+    if operation=='modify' and not found: raise ValueError('modify requires an existing declared network')
+    if operation=='delete' and not found: return original,{}
+    obj=None
+    if found:
+        obj=json.loads(radio_declaration.read_input(directory,found[0][-2],found[0][-1]))
+    inputs={}
+    if operation!='delete':
+        fixture=prior['plan']['fixture']
+        if not fixture or fixture['wifi'] is None: raise ValueError('request requires exactly one declared Wi-Fi fixture')
+        if obj is None:
+            obj={'format':1,'fixture':fixture['name']}
+        else: obj=dict(obj)
+        for key,target in (('ssid','ssid_hex'),('wifi-sec.psk','psk'),('ipv4.addresses','address')):
+            if key in props: obj[target]=props[key].encode('ascii').hex() if key=='ssid' else props[key]
+        data=(json.dumps(obj,sort_keys=True,separators=(',',':'))+'\n').encode()
+        sha=hashlib.sha256(data).hexdigest();relative='recorded-inputs/network-'+sha+'.json'
+        replacement=['network',name,sha,relative]
+        if found and obj==json.loads(radio_declaration.read_input(directory,found[0][-2],found[0][-1])):
+            return original,{}
+        if found and operation=='add': raise ValueError('existing network differs; use connection modify id NAME')
+        inputs[relative]=data
+    lines=[]
+    for line in original.splitlines(keepends=True):
+        if shlex.split(line.decode(),comments=True)[:2]!=['network',name]: lines.append(line)
+    candidate=b''.join(lines)
+    if operation!='delete':
+        candidate+=(b'\n' if candidate and not candidate.endswith(b'\n') else b'')+(shlex.join(replacement)+'\n').encode()
+    # Validate the whole candidate radio set against exact input bytes before commit.
+    with tempfile.TemporaryDirectory(prefix='confos-radio-plan-') as temporary:
+        stage=Path(temporary)
+        for row in radio:
+            if row[:2]==['network',name]: continue
+            data=radio_declaration.read_input(directory,row[-2],row[-1])
+            dest=stage/row[-1];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+        for relative,data in inputs.items():
+            dest=stage/relative
+            if dest.exists() and dest.read_bytes()!=data: raise ValueError('generated input collision')
+            dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+        filtered=[shlex.split(line,comments=True) for line in candidate.decode().splitlines()]
+        result=radio_declaration.derive('\n'.join(shlex.join(r) for r in filtered if r and r[0] in KINDS),stage)
+    # No implicit package installation: the declared fixture must already carry the client prerequisites.
+    required=dict(result['required_packages'])
+    if result['plan']['network']: required['iputils-ping']='3:20240905-3'
+    packages={r[1]:r[2] for r in rows if r[0]=='package'}
+    for package,version in required.items():
+        if packages.get(package)!=version: raise ValueError('draft requires explicit package '+package+' '+version)
+    return candidate,inputs
+
+def persist_inputs(directory,inputs):
+    """Write immutable content-addressed inputs durably before the text commit."""
+    if not inputs:return
+    parent=directory/'recorded-inputs'
+    if parent.is_symlink():raise ValueError('input directory must not be symlink')
+    parent.mkdir(mode=0o700,exist_ok=True)
+    for relative,data in inputs.items():
+        dest=directory/relative
+        flags=os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW
+        try:fd=os.open(dest,flags,0o600)
+        except FileExistsError:
+            if dest.is_symlink() or not dest.is_file() or dest.read_bytes()!=data:raise ValueError('generated input collision')
+            fd=os.open(dest,os.O_RDONLY|os.O_NOFOLLOW)
+            try:os.fsync(fd)
+            finally:os.close(fd)
+        else:
+            with os.fdopen(fd,'wb') as stream:
+                stream.write(data);stream.flush();os.fsync(stream.fileno())
+    fd=os.open(parent,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+    try:os.fsync(fd)
+    finally:os.close(fd)
+
+def main(arguments):
+    import configuration_recording,recording,assemble
+    configuration_recording.authority(os.geteuid(),os.getuid(),os.environ)
+    request(arguments)
+    with open('/run/confos-apply.lock','w') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        path=recording.DECLARATION
+        if path.is_symlink() or not path.is_file():raise ValueError('declaration must be a regular primary text file')
+        original=path.read_bytes()
+        with tempfile.TemporaryDirectory(prefix='confos-radio-record-',dir='/run') as temporary:
+            captured=Path(temporary)/'declaration.conf';captured.write_bytes(original)
+            rows,_=assemble.parse(captured)
+            candidate,inputs=plan(arguments,original,rows,path.parent)
+            captured.write_bytes(candidate);assemble.parse(captured)
+            persist_inputs(path.parent,inputs)
+            # Flush every referenced radio input even for an idempotent request.
+            # A person may have written an identical declaration/input manually.
+            import radio_declaration
+            for line in candidate.decode().splitlines():
+                row=shlex.split(line,comments=True)
+                if not row or row[0] not in KINDS:continue
+                radio_declaration.read_input(path.parent,row[-2],row[-1])
+                full=path.parent/row[-1]
+                fd=os.open(full,os.O_RDONLY|os.O_NOFOLLOW)
+                try:os.fsync(fd)
+                finally:os.close(fd)
+                for parent in (full.parent,*full.parent.parents):
+                    if parent==path.parent:break
+                    fd=os.open(parent,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+                    try:os.fsync(fd)
+                    finally:os.close(fd)
+            recording.commit(path,original,candidate)
+
+if __name__=='__main__':
+    try:main(sys.argv[1:])
+    except (ValueError,OSError) as error:raise SystemExit('nmcli: '+str(error))

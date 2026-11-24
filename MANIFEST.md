@@ -6827,3 +6827,4 @@ folders; the files of a state are listed with their SHA-256 in the `SHA256SUMS` 
 | Before complete run | Release | Source archive, SHA-256 | `confos/SHA256SUMS`, SHA-256 | `confos-check/SHA256SUMS`, SHA-256 | Staged (UTC) |
 |---|---|---|---|---|---|
 | 1 | 0.32 | `61d290744606b4804b298217d340df5445cf276ea2b3ad69cc024e9457261001` | `7fb37eeb9f3725d06eba03fc3acae0eab3f8bb0fb2313b2e54191eb570c31dc5` | `38a066819614ddbd0fde81581eb3bf960857c1b6bbc01d6d9f98821811297862` | 24 November 2026, 16:26 |
+| 2 | 0.49 | `0f71e751f85a05fba1a8f8c726c823109a6dec6feaa1d27e210e5c729d9ef4db` | `fa82d99eb59928f3c44b1daa974bd0f636932f3abf7cf5f9ebf6c36bea5cd534` | `ac7edf5f76c4e98318244960b5463103c9c89d18f5fbe3d44e5db42fc5a4247a` | 24 November 2026, 23:02 |

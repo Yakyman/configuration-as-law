@@ -1,0 +1,56 @@
+[
+  {
+    "bundle_sha256": "66d65390ff1b7a526b25a448f12d137f72df5859460c1d05e17508ed6a88bed9",
+    "candidate_worker_path": "interpreter-inputs/flatpak-mpv-lua-candidate/candidate/mpv",
+    "commit": "13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc",
+    "mode": 493,
+    "objects": [
+      "repo/objects/7c/af52a2b7889c5ba35029dab06708b329f674ae4734a8a6d07621cc61414445.file"
+    ],
+    "original_nlink": 2,
+    "original_sha256": "a6de4a9af6d84e78d7451bc0b68150de958c9c369ce010e8c2b9575b6e954cbb",
+    "payload": "mpv41-0.gz",
+    "preserve_symlinks": {},
+    "ref": "app/io.mpv.Mpv/x86_64/stable",
+    "sha256": "42c25feff2de540289d7ec4245bd2d77785c042c994ce9978bab8c11437e6656",
+    "target": "bin/mpv"
+  },
+  {
+    "bundle_sha256": "66d65390ff1b7a526b25a448f12d137f72df5859460c1d05e17508ed6a88bed9",
+    "candidate_worker_path": "interpreter-inputs/flatpak-mpv-lua-candidate/candidate/libmpv.so.2.6.0",
+    "commit": "13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc",
+    "mode": 493,
+    "objects": [
+      "repo/objects/87/a3508d1277def6f05a50f083695a150286dd79584dae1208277b2849913204.file"
+    ],
+    "original_nlink": 2,
+    "original_sha256": "1fcd8306d860def640c68c2fec47f20e38fc9c5f3bc4176d04fe2c6ca39902e4",
+    "payload": "mpv41-1.gz",
+    "preserve_symlinks": {
+      "lib/libmpv.so": "libmpv.so.2",
+      "lib/libmpv.so.2": "libmpv.so.2.6.0"
+    },
+    "ref": "app/io.mpv.Mpv/x86_64/stable",
+    "sha256": "a3fb816802e6fff0598e5326af29788155ee13b7275002dbb1f49095ddc52c68",
+    "target": "lib/libmpv.so.2.6.0"
+  },
+  {
+    "bundle_sha256": "66d65390ff1b7a526b25a448f12d137f72df5859460c1d05e17508ed6a88bed9",
+    "candidate_worker_path": "interpreter-inputs/flatpak-mpv-lua-candidate/candidate/libluajit-5.1.so.2.1.1781966178",
+    "commit": "13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc",
+    "mode": 493,
+    "objects": [
+      "repo/objects/b4/439190066f7f36b90f776e4f0cd979eba4711a14847c9e77240c379cb2590d.file"
+    ],
+    "original_nlink": 2,
+    "original_sha256": "565e9aa1f51c3880a66e9189d3fe505dd536b0ff4e8c34ad100c7ab76ceee523",
+    "payload": "mpv41-2.gz",
+    "preserve_symlinks": {
+      "lib/libluajit-5.1.so": "libluajit-5.1.so.2.1.1781966178",
+      "lib/libluajit-5.1.so.2": "libluajit-5.1.so.2.1.1781966178"
+    },
+    "ref": "app/io.mpv.Mpv/x86_64/stable",
+    "sha256": "3f3d40eb32dbd6303717c3c1fccb0ff819775a053f2653147fac2eee835236cf",
+    "target": "lib/libluajit-5.1.so.2.1.1781966178"
+  }
+]

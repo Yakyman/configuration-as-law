@@ -101,8 +101,16 @@ def holds(test, code, out, err):
 ROUTES_SH = r'''
 set +e
 emit() { printf '%s\t%s\t%s\t%s\t%s\n' "$F" "$1" "$2" "$3" "$(printf %s "$4" | head -c 400 | base64 -w0)"; }
-r() { g=$1; n=$2; shift 2; e=$(cd ~ && timeout 10 "$@" 2>&1 >/dev/null </dev/null); emit "$g" "$n" $? "$e"; }
+# [f5-b]: the standard error of a route goes to a file of its own, never to a pipe: a process that the route starts in
+# the background keeps a pipe open, and `e=$(...)` then waits for it for ever (P4-C9-1, P4-C9-2 of complete run 1).
+# The route is over when its own program has ended (or `timeout` ended it); what it left running stays running.
+D=$(mktemp -d 2>/dev/null || mktemp -d -p ~ 2>/dev/null); N=0
+trap 'rm -rf "$D"' EXIT
+ef() { N=$((N + 1)); EF=$D/$N; }
+er() { e=$(head -c 4000 "$EF" 2>/dev/null | tr -d '\0'); rm -f "$EF"; }
+r() { g=$1; n=$2; shift 2; ef; (cd ~ && timeout 10 "$@" >/dev/null 2>"$EF" </dev/null); c=$?; er; emit "$g" "$n" $c "$e"; }
 for F in "$@"; do
+  if [ -z "$D" ] || [ ! -d "$D" ]; then emit none nocapture - 'no temporary directory for the standard error of the routes'; continue; fi
   if [ ! -f "$F" ]; then emit none absent - ''; continue; fi
   if [ ! -s "$F" ]; then emit none empty - ''; continue; fi
   name=${F##*/}; line1=$(head -n 1 "$F" 2>/dev/null | head -c 200 | tr -d '\0')
@@ -116,7 +124,7 @@ for F in "$@"; do
   fi
   r direct bash bash "$F"
   r direct sh sh "$F"
-  e=$(cd ~ && timeout 10 bash < "$F" 2>&1 >/dev/null); emit direct bash-stdin $? "$e"
+  ef; (cd ~ && timeout 10 bash < "$F" >/dev/null 2>"$EF"); c=$?; er; emit direct bash-stdin $c "$e"
   r direct source bash -c '. "$1"' cases-route "$F"
   command -v python3 >/dev/null && r direct python3 python3 "$F"
   command -v perl >/dev/null && r direct perl perl "$F"
@@ -126,7 +134,7 @@ for F in "$@"; do
 
   command -v node >/dev/null && r direct node node "$F"
   case "$line1" in '#!'*) set -- ${line1#\#!}; [ -n "$1" ] && [ -x "$1" ] && r direct shebang "$@" "$F";; esac
-  e=$(cd ~ && cat "$F" | timeout 10 bash 2>&1 >/dev/null); emit data cat-pipe-bash $? "$e"
+  ef; (cd ~ && cat "$F" | timeout 10 bash >/dev/null 2>"$EF"); c=$?; er; emit data cat-pipe-bash $c "$e"
   r data bash-c-cat bash -c "$(head -c 200000 "$F" | tr -d '\0')"
   command -v python3 >/dev/null && r data python3-exec python3 -c 'import sys; exec(open(sys.argv[1], "rb").read())' "$F"
 done
@@ -513,9 +521,26 @@ class Ctx:
         self.obeyed = False    # a probe showed something the person saved in force since the last restart
 
     # -- rows and evidence
+    def record_only(self, row_id):
+        """[f5-c], review R6: the P1 and Understanding comparisons of the inventory before the restart of a P4-PIPE case
+        are records kept in the evidence, not rows (the case is judged after the restart)."""
+        return self.id.startswith('P4-PIPE') and re.fullmatch(r'(P1|UND):P4-PIPE-[0-9]+-before', row_id) is not None
+
     def row(self, row_id, outcome, reasons, part=None, extra=None):
-        fname = safe(row_id) + '.outcome.txt'
         reasons = list(reasons) if isinstance(reasons, list) else [reasons]
+        if self.record_only(row_id):
+            fname = safe(row_id) + '.record.txt'
+            body = [f'{row_id}\t{part or self.part}\trecord (no row)', f'time {utc()}',
+                    'reason: review R6: the state before the restart of a P4-PIPE case is a record, not an outcome of '
+                    'P1 or of Understanding; this comparison is kept as evidence and written to no results row',
+                    f'reason: what the comparison gave: {outcome}']
+            body += [f'reason: {r}' for r in reasons]
+            if extra:
+                body.append(json.dumps(extra, indent=1, sort_keys=True, default=str))
+            (self.dir / fname).write_text(scrub('\n'.join(body) + '\n'))
+            self.ev.note(f'{row_id}: record only (R6), the comparison gave {outcome}; evidence {fname}')
+            return
+        fname = safe(row_id) + '.outcome.txt'
         if self.run.stopping:
             # A row written after the run received a stop signal: its machines and programs were being killed, so the
             # deciding observation was not completed ([n3-B]). Found when dev-13 was stopped: [f3].
@@ -999,16 +1024,11 @@ class Ctx:
             p1 = 'fail' if c1.get('UNRECORDED') or c1.get('DIFFERS-STORED') else \
                 'unobserved' if any(c1.get(k) for k in UNOBSERVED_VERDICTS) else \
                 'undecided' if c1.get('BOTHWAYS') or c1.get('QUESTION') else 'pass'
-            q4 = []
-            if p1 == 'fail' and self.id.startswith('P4-PIPE') and tag.endswith('-before'):
-                # Q4: reading A judges only the state after the restart; this row exists under reading B only
-                p1, q4 = 'undecided', ['met under reading A of Q4 only (the state before the restart is not judged '
-                                       'under A; under B it counts)']
             self.row(p1_id, p1, [f'objects that equal neither the derivation nor the reference installation, '
                                  f'after the four questions: {dict(c1)}',
                                  'P1: fail on UNRECORDED or a changed stored object (DIFFERS-STORED); unobserved on '
                                  'UNROUTED or UNPROBED (a route or probe that decides an object was not taken); '
-                                 'undecided on BOTHWAYS (Q2) or QUESTION (Q11, Q12) only'] + q4,
+                                 'undecided on BOTHWAYS (Q2) or QUESTION (Q11, Q12) only'],
                      part='P1', extra={'compare': str(p1_out.relative_to(self.run.runs_dir)), 'reference': rel_ref})
 
         # Understanding under both readings of D1, D3–D6 ([n2-6]): harder = the derivation by
@@ -1035,8 +1055,6 @@ class Ctx:
             und = 'unobserved'
         else:
             und = 'undecided'
-        if und == 'fail' and self.id.startswith('P4-PIPE') and tag.endswith('-before'):
-            und = 'undecided'   # Q4, as for the P1 row of this inventory
         self.row(f'UND:{tag}', und, [f'harder reading (derivation from the declaration alone, D1, D3–D6 as followed '
                                      f'in QUESTIONS-derive.md): {hard}, counts {cnt}',
                                      f'easier reading (what the published source gives for the declaration: the '
@@ -1676,10 +1694,12 @@ class Ctx:
 
     def fam_repro2(self):
         ids = self.case['with_ids']
-        acc = {'tcpdump': 'account tcpdump uid=2001 gid=2001 groups=- shell=/usr/sbin/nologin home=/nonexistent',
-               'uuidd': 'account uuidd uid=2002 gid=2002 groups=- shell=/usr/sbin/nologin home=/nonexistent'}
+        # [f5-a]: no `home=`: the adapter gives the documented default /home/NAME (build/DECLARATION.md: account homes
+        # immediately below /home); `home=/nonexistent` was refused by `confos apply` in complete run 1 (REPRO-2a)
+        acc = {'tcpdump': 'account tcpdump uid=2001 gid=2001 groups=- shell=/usr/sbin/nologin',
+               'uuidd': 'account uuidd uid=2002 gid=2002 groups=- shell=/usr/sbin/nologin'}
         if not ids:
-            acc = {k: f'account {k} groups=- shell=/usr/sbin/nologin home=/nonexistent' for k in acc}
+            acc = {k: f'account {k} groups=- shell=/usr/sbin/nologin' for k in acc}
         x = self.fresh('x', build=True)
         y = self.fresh('y', build=True)
         orders = {x: [('tcpdump', 'package tcpdump'), ('uuidd', 'package uuid-runtime')],

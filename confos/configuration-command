@@ -1,0 +1,42 @@
+#!/usr/bin/python3 -IS
+"""Explicit configuration requests recorded before separate application."""
+import os
+from pathlib import Path
+import re
+import sys
+sys.path.insert(0, '/usr/lib/confos')
+import configuration_recording
+tool = Path(sys.argv[0]).name
+args = sys.argv[1:]
+mutation = (tool in ('useradd', 'usermod', 'userdel') or
+            tool == 'hostnamectl' and args[:1] == ['set-hostname'] or
+            tool == 'timedatectl' and args[:1] == ['set-timezone'] or
+            tool == 'sysctl' and args[:1] == ['-w'])
+if mutation:
+    try:
+        configuration_recording.record(tool, args)
+    except (ValueError, OSError) as error:
+        raise SystemExit(tool+': '+str(error))
+    raise SystemExit(0)
+# Query forwarding is deliberately finite; no native mutation option is admitted.
+allowed = (tool == 'hostnamectl' and args in (['--static'], ['status'], []) or
+           tool == 'timedatectl' and args in (['status'], ['show', '-p', 'Timezone'], []) or
+           tool == 'sysctl' and bool(args) and
+           all(re.fullmatch(r'[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*', a) for a in (args[1:] if args[0] == '-n' else args)))
+if not allowed or (tool == 'sysctl' and args == ['-n']):
+    raise SystemExit(tool+': unsupported request; see the documented declaration recording forms')
+# These values are exact immutable applied settings; no system D-Bus is required.
+if tool == 'hostnamectl' and args == ['--static']:
+    print(Path('/etc/hostname').read_text().strip())
+    raise SystemExit(0)
+if tool == 'timedatectl' and args == ['show', '-p', 'Timezone']:
+    print('Timezone='+Path('/etc/timezone').read_text().strip())
+    raise SystemExit(0)
+native = ('/usr/bin/' if tool in ('hostnamectl', 'timedatectl') else '/usr/sbin/')+tool
+os.environ.clear()
+os.environ.update(PATH='/usr/bin:/usr/sbin', LC_ALL='C', HOME='/')
+if Path(native).is_file():
+    os.execv(native, [tool, *args])
+if tool == 'sysctl':
+    os.execv('/usr/bin/busybox', ['busybox', 'sysctl', *args])
+raise SystemExit(tool+': native query implementation is not installed')

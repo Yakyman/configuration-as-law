@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tarfile
 import time
+from archive_sources import sources
 
 HERE = Path(__file__).resolve().parent
 EPOCH = 1795392000
@@ -100,7 +101,7 @@ def validate_accounts(rows):
 def parse(path):
     rows = []
     seen = set()
-    arities = {'base': 2, 'snapshot': 2, 'package': 3, 'account': 7,
+    arities = {'base': 2, 'snapshot': 2, 'radio-fixture': 4, 'network': 4, 'bluetooth-pair': 5, 'package': 3, 'account': 7,
                'authorized-key': 4, 'file': None, 'pip': 5, 'npm': 5, 'flatpak': 5, 'appimage': 5,
                'container': 6, 'user-unit': 6, 'linuxgsm': 6, 'setting': 3, 'rule': 3, 'service': None, 'compile': None}
     for n, line in enumerate(path.read_text().splitlines(), 1):
@@ -132,7 +133,7 @@ def parse(path):
             if not re.fullmatch(r'(?:app|runtime)/[A-Za-z0-9_.-]+/x86_64/[A-Za-z0-9_.-]+', row[1]):
                 raise ValueError('flatpak requires a complete app/runtime x86_64 ref')
             identity = ('flatpak', row[1].split('/')[1])
-        if row[0] in ('container', 'user-unit', 'linuxgsm'):
+        if row[0] in ('container', 'user-unit', 'linuxgsm', 'bluetooth-pair'):
             identity = tuple(row[:3])
         if identity in seen:
             raise ValueError(f'line {n}: duplicate identity')
@@ -168,7 +169,7 @@ def base_package(name='confos-runtime', snapshot=None):
                 elif name == 'confos-boot':
                     run(sys.executable, HERE/'package-boot.py', 'build', version, archive)
                 elif name == 'confos-code-readers':
-                    run('bash', HERE/'build-nvim-reader-component.sh', version)
+                    run('bash', HERE/'build-busybox-vi-component.sh', version)
                 else:
                     run(sys.executable, HERE/'package-initramfs.py', version.split('+')[0], snapshot, archive)
     expected = archive.with_suffix('.deb.sha256').read_text().strip()
@@ -185,8 +186,7 @@ def packages(work, rows, snapshot):
     for sub in ('lists/partial', 'archives/partial', 'etc', 'log'):
         (apt / sub).mkdir(parents=True, exist_ok=True)
     (apt / 'status').write_text('')
-    (apt / 'etc/sources.list').write_text(
-        f'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/{snapshot}/ trixie main\n')
+    (apt / 'etc/sources.list').write_text(sources(snapshot))
     opts = ['-o', f'Dir::State::status={apt}/status', '-o', f'Dir::State::lists={apt}/lists',
             '-o', f'Dir::Cache::archives={apt}/archives', '-o', f'Dir::Etc::sourcelist={apt}/etc/sources.list',
             '-o', 'Dir::Etc::sourceparts=-', '-o', 'APT::Install-Recommends=false',
@@ -209,13 +209,23 @@ def packages(work, rows, snapshot):
         expected = version+'+'+snapshot if name == 'confos-initramfs' else version
         if requested.pop(name, None) != expected:
             raise ValueError('component lock must name this '+name+' release')
-    run('apt-get', *opts, 'update')
+    apt_command = '/usr/bin/apt-get' if HERE == Path('/usr/lib/confos') else 'apt-get'
+    run(apt_command, *opts, 'update')
     arguments = [name+'='+release for name, release in sorted(requested.items())]
-    resolution = subprocess.check_output(['apt-get', *opts, '--simulate', 'install', *arguments], text=True)
+    solver = []
+    try:
+        resolution = subprocess.check_output([apt_command, *opts, '--simulate', 'install', *arguments], text=True)
+    except subprocess.CalledProcessError as error:
+        print('Native default dependency resolution failed (exit '+str(error.returncode)+'); retrying all available dependency versions', flush=True)
+        solver = ['--solver', '3.0', '--no-strict-pinning']
+        resolution = subprocess.check_output([apt_command, *opts, *solver, '--simulate', 'install', *arguments], text=True)
     resolved = {(name.split(':')[0], release) for name, release in re.findall(r'^Inst (\S+) \((\S+) ', resolution, re.M)}
     if not resolved:
         raise ValueError('empty native package resolution')
-    run('apt-get', *opts, '--yes', '--download-only', 'install',
+    required = set(requested.items())
+    if not required <= resolved or any(name in requested and requested[name] != release for name, release in resolved):
+        raise ValueError('native dependency resolution changed an explicit package request')
+    run(apt_command, *opts, *solver, '--yes', '--download-only', 'install',
         *arguments)
     selected = {}
     for archive in sorted((apt/'archives').glob('*.deb')):
@@ -303,6 +313,8 @@ def configure(root, rows, declaration, digest):
         if not p.exists():
             p.symlink_to(target)
     compatibility_links(root)
+    import recording
+    recording.configure(root)
     # Debian package payloads do not include all alternatives or installation-generated files.
     for name in ('sh', 'mount', 'umount', 'mkdir', 'cat', 'sleep', 'sync', 'reboot', 'poweroff',
                  'ip', 'hostname', 'ps', 'ls', 'chmod', 'chown', 'cp', 'mv', 'rm', 'vi', 'grep',
@@ -453,7 +465,7 @@ def configure(root, rows, declaration, digest):
     # Query/run entries are original confos-runtime files, linked in /usr/local/bin.
     # Native package executables remain at their original paths with original bytes.
     for command in ('flatpak', 'podman', 'pip', 'pip3', 'npm', 'npx'):
-        if (root/'usr/bin'/command).exists():
+        if (root/'usr/bin'/command).exists() or (root/'usr/bin'/command).is_symlink():
             entry = root/'usr/local/bin'/command
             if not entry.exists() and not entry.is_symlink():
                 entry.symlink_to('/usr/lib/confos/commands/'+command)
@@ -472,6 +484,7 @@ def execution_policy(root):
   capability sys_ptrace,
   network,
   signal (send, receive) peer=confos-session,
+  signal (send, receive) peer=confos-flatpak,
   signal (receive) peer=unconfined,
   ptrace (read, readby) peer=confos-session,
   ptrace (read, readby) peer=unconfined,
@@ -485,6 +498,15 @@ def execution_policy(root):
   /state/** rwkl,
   /tmp/** rwkl,
   /var/** rwkl,
+  deny /var/lib/dpkg{,/**} wkl,
+  deny /var/lib/apt{,/**} wkl,
+  deny /var/spool/cron{,/**} wkl,
+  deny /run/host/var/lib/dpkg{,/**} wkl,
+  deny /run/host/var/lib/apt{,/**} wkl,
+  deny /run/host/var/spool/cron{,/**} wkl,
+  deny /proc/*/root/var/lib/dpkg{,/**} wkl,
+  deny /proc/*/root/var/lib/apt{,/**} wkl,
+  deny /proc/*/root/var/spool/cron{,/**} wkl,
   /run/** rwkl,
   deny /state/staging{,/**} wkl,
   deny /run/confos-installer-root{,/**} rwklmx,
@@ -492,6 +514,9 @@ def execution_policy(root):
   deny /usr/bin/flatpak x,
   deny /usr/bin/podman x,
   deny /usr/bin/systemctl x,
+  deny /usr/bin/{hostnamectl,timedatectl} x,
+  deny /usr/sbin/{sysctl,useradd,usermod,userdel} x,
+  deny /usr/bin/apt{,-get} x,
   deny /usr/bin/pip{,3} rmx,
   deny /usr/lib/python3/dist-packages/pip/_internal/** rmx,
   deny /usr/lib/python3/dist-packages/pip/_vendor/** rmx,
@@ -530,7 +555,11 @@ def execution_policy(root):
     for path in sorted(executables):
         escaped = ''.join('\\'+c if c in '\\[]{}*?^' else c for c in path)
         policy += '  "'+escaped+'" '+('Ux' if path in ('/usr/bin/confos', '/usr/lib/confos/systemctl-query') or path.startswith('/usr/lib/confos/commands/') else 'ix')+',\n'
-    put(root, '/etc/confos/session.apparmor', policy+'}\n')
+    policy += (HERE/'radio-control-denials.apparmor').read_text()+'\n'
+    import flatpak_profile
+    import flatpak_readers
+    policy += flatpak_readers.policy(root)
+    put(root, '/etc/confos/session.apparmor', policy+'}\n'+flatpak_profile.render(root, executables)+'\n'+(HERE/'radio-trusted-profile.apparmor').read_text())
 
 def root_image(declaration, work):
     rows, snapshot = parse(declaration)
@@ -546,6 +575,9 @@ def root_image(declaration, work):
                      if line.startswith('Package: ')}
     optional_readers.apply(root, package_names)
     configure(root, rows, declaration, digest)
+    import radio_integration, radio_systemd
+    radio_integration.install(root, rows, declaration)
+    radio_systemd.configure(root)
     import installers
     installers.run_in_root(root, '/usr/sbin/visudo', '-c')
     installers.install(root, rows, declaration)
@@ -621,6 +653,13 @@ def disk(declaration, output):
     (data/'declaration.conf').chmod(0o644)
     rows, _ = parse(declaration)
     for row in rows:
+        if row[0] in ('radio-fixture', 'network', 'bluetooth-pair'):
+            import radio_declaration
+            data_bytes = radio_declaration.read_input(declaration.parent, row[-2], row[-1])
+            dest = data/row[-1]
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(data_bytes)
+            dest.chmod(0o600)
         if row[0] in ('file', 'pip', 'npm', 'compile', 'flatpak', 'appimage'):
             dest = data/row[4]
             dest.parent.mkdir(parents=True, exist_ok=True)

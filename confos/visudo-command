@@ -1,0 +1,83 @@
+#!/usr/bin/python3 -IS
+"""Private snippet recorder: native editor always inside session confinement."""
+import os,sys
+from pathlib import Path
+sys.path.insert(0,'/usr/lib/confos')
+import subprocess
+args=sys.argv[1:]
+native='/usr/sbin/visudo'
+environment={'PATH':'/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin','LC_ALL':'C','HOME':'/root','TERM':os.environ.get('TERM','dumb')}
+for key in ('SUDO_EDITOR','VISUAL','EDITOR'):
+ if key in os.environ:environment[key]=os.environ[key]
+def confined(arguments,**kwargs):
+ return subprocess.run(['/usr/bin/aa-exec','-p','confos-session','--',native,*arguments],env=environment,**kwargs)
+# Check/version/help never enter recording, and execute within caller confinement.
+if args and (args[0] in ('-c','-cf','--check','-V','--version','-h','--help') or args[0].startswith('-c')):
+ # Finite accepted check grammar prevents an option spelling turning into editing.
+ if args in (['-c'],['--check'],['-V'],['--version'],['-h'],['--help']) or (len(args)==2 and args[0]=='-cf') or (len(args)==3 and args[:2]==['-c','-f']):
+  raise SystemExit(confined(args).returncode)
+ raise SystemExit('visudo: unsupported check options')
+if os.getuid()!=0 or os.geteuid()!=0:
+ raise SystemExit('visudo: permission denied: this account may not change /state/declaration.conf; use an authorized root invocation')
+import fcntl,hashlib,re,shlex,tempfile
+import recording,assemble
+try:
+ target='/etc/sudoers.d/confos-local'
+ remove=bool(args and args[0]=='--remove')
+ if remove:args=args[1:]
+ if args:
+  if len(args)!=2 or args[0]!='-f':raise ValueError('supported requests: visudo [--remove] [-f /etc/sudoers.d/NAME]; default confos-local')
+  target=args[1]
+ if not re.fullmatch('/etc/sudoers.d/[A-Za-z0-9_-]+',target):raise ValueError('edit target must be one /etc/sudoers.d/NAME snippet; generated /etc/sudoers cannot be edited')
+ with open('/run/confos-apply.lock','w') as lock:
+  fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+  declaration=recording.DECLARATION
+  if declaration.is_symlink() or not declaration.is_file():raise ValueError('declaration must be regular')
+  original=declaration.read_bytes()
+  with tempfile.TemporaryDirectory(prefix='confos-visudo-',dir='/run') as temporary:
+   directory=Path(temporary);captured=directory/'declaration.conf';captured.write_bytes(original)
+   rows,_=assemble.parse(captured)
+   found=[r for r in rows if r[0]=='file' and r[1]==target]
+   content=b''
+   if found:
+    row=found[0]
+    if row[2]!='0440' or (len(row)==6 and row[5]!='0:0'):raise ValueError('existing snippet must have mode0440 owner0:0')
+    relative=Path(row[4])
+    if relative.is_absolute() or '..' in relative.parts:raise ValueError('unsafe existing input path')
+    content=(declaration.parent/relative).read_bytes()
+    if hashlib.sha256(content).hexdigest()!=row[3]:raise ValueError('existing input checksum mismatch')
+   if remove:
+    data=b''
+   else:
+    edited=directory/'snippet';edited.write_bytes(content);edited.chmod(0o600)
+    result=confined(['-I','-f',str(edited)])
+    if result.returncode:raise ValueError('native editor/validation failed; declaration unchanged')
+    data=edited.read_bytes()
+   if re.search(rb'(?m)^\s*[@#]include',data):raise ValueError('snippet includes are unsupported by declaration file rows')
+   # Validate the exact captured bytes through native stdin, not a mutable editor file.
+   if confined(['-c','-f','-'],input=data).returncode:raise ValueError('native validation failed; declaration unchanged')
+   digest=hashlib.sha256(data).hexdigest();relative='recorded-inputs/visudo-'+digest
+   lines=original.splitlines(keepends=True)
+   if found:
+    # assemble normalizes optional owner into the last field; compare source identity.
+    lines=[line for line in lines if shlex.split(line.decode(),comments=True)[:2]!=['file',target]]
+   candidate=b''.join(lines)
+   if data:
+    if candidate and not candidate.endswith(b'\n'):candidate+=b'\n'
+    candidate+=(shlex.join(['file',target,'0440','0:0',digest,relative])+'\n').encode()
+   # Preserve original text exactly for identical effective requests, even when located mid-file.
+   if found and data==content and not remove:candidate=original
+   captured.write_bytes(candidate);assemble.parse(captured)
+   if data:
+    inputs=declaration.parent/'recorded-inputs'
+    if inputs.is_symlink():raise ValueError('input directory must not be symlink')
+    inputs.mkdir(mode=0o700,exist_ok=True)
+    destination=declaration.parent/relative
+    if destination.exists():
+     if destination.is_symlink() or destination.read_bytes()!=data:raise ValueError('input collision')
+    else:
+     with destination.open('xb') as stream:
+      stream.write(data);stream.flush();os.fchmod(stream.fileno(),0o600);os.fsync(stream.fileno())
+    fd=os.open(inputs,os.O_RDONLY|os.O_DIRECTORY);os.fsync(fd);os.close(fd)
+   recording.commit(declaration,original,candidate)
+except (ValueError,OSError) as error:raise SystemExit('visudo: '+str(error))

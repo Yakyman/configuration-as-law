@@ -128,6 +128,8 @@ def install(root, rows, declaration):
                 deployments = root/'var/lib/flatpak'/ref
                 if not (deployments/commit/'files').is_dir() or (deployments/'active').readlink() != Path(commit):
                     raise ValueError('Flatpak bundle installed a different ref/commit')
+                import flatpak_readers
+                flatpak_readers.apply(root, root/'var/lib/flatpak', ref, commit, digest)
                 continue
             if row[0] == 'compile':
                 _, path, mode, digest, source, *flags = row

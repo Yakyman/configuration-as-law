@@ -259,7 +259,8 @@ for r in rows:
             lines.append(f'  - comparison `{os.path.relpath(cmp_path, os.path.dirname(run))}`: set {shared[h][0]} below')
     entries.append('\n'.join(lines))
 
-print(f'Development run `{name}` (not an observation of the check)'
+print((f'Complete run `{name}` of the check' if re.fullmatch(r'run-[0-9]+', name) else
+       f'Development run `{name}` (not an observation of the check)')
       + (f', rows before `{stop}` only (the later rows are void)' if stop else '')
       + (f', without the rows of {", ".join(sorted(skip))} (rerun in another part)' if skip else '')
       + f': {len(rows)} rows, '

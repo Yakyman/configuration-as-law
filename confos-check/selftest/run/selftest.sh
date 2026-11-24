@@ -81,6 +81,19 @@ else
   echo "CHECK list-matches-CASES.md FAIL"; status=1
 fi
 
+echo "== 5. the repairs of the fifth freeze ([f5-a], [f5-b], [f5-c] of CORRECTIONS.md; each fails on the fourth)"
+python3 -I selftest/run/check-before-record.py ./run || status=1
+bash selftest/run/check-routes-background.sh ./run || status=1
+REL=${CASES_RELEASE:-$HOME/$SERVER_BUILD_DIR/releases/confos-0.43-source.tar.gz}
+RELDIR=$(mktemp -d)
+if tar -xzf "$REL" -C "$RELDIR" assemble.py archive_sources.py archive-sources.json 2>/dev/null || \
+   tar -xzf "$REL" -C "$RELDIR"; then
+  python3 -I selftest/run/check-repro2-accounts.py ./run "$RELDIR" || status=1
+else
+  echo "CHECK repro2-accounts FAIL (the release $REL could not be unpacked)"; status=1
+fi
+rm -rf "$RELDIR"
+
 echo "end $(date -u +%FT%TZ)"
 if [ "$status" = 0 ]; then echo "SELFTEST PASS"; else echo "SELFTEST FAIL"; fi
 exit "$status"

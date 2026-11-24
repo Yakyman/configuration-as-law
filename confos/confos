@@ -163,6 +163,13 @@ def apply_candidate(assemble, declaration, captured, digest, stage):
     # Preserve relative file references while freezing the candidate bytes.
     rows, _ = assemble.parse(snapshot)
     for row in rows:
+        if row[0] in ('radio-fixture', 'network', 'bluetooth-pair'):
+            import radio_declaration
+            data_bytes = radio_declaration.read_input(declaration.parent, row[-2], row[-1])
+            dest = stage/row[-1]
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(data_bytes)
+            dest.chmod(0o600)
         if row[0] in ('file', 'pip', 'npm', 'compile', 'flatpak', 'appimage', 'container', 'user-unit', 'linuxgsm'):
             source = Path(row[5] if row[0] in ('container', 'user-unit', 'linuxgsm') else row[4])
             if '..' in source.parts:
@@ -199,8 +206,13 @@ def systemd_ready():
     import user_units
     user_units.ready()
 
+def radio_inspect():
+    sys.path.insert(0, '/usr/lib/confos')
+    import radio_inspect as native
+    native.inspect(sys.argv[2:])
+
 try:
-    {'status': status, 'apply': apply, 'boot-prepare': boot_prepare,
+    {'radio-inspect': radio_inspect, 'status': status, 'apply': apply, 'boot-prepare': boot_prepare,
      'supervise': supervise, 'services': service_status, 'rules': rules,
      'kernel-log': kernel_log, 'systemd-ready': systemd_ready}[sys.argv[1]]()
 except (IndexError, KeyError):

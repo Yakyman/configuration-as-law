@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+from archive_sources import sources
 
 HERE = Path(__file__).resolve().parent
 snapshots = ('20260801T000000Z', '20261001T000000Z', '20261123T000000Z')
@@ -18,8 +19,7 @@ for stamp in snapshots:
     for sub in ('lists/partial', 'archives/partial', 'etc', 'log'):
         (work/sub).mkdir(parents=True, exist_ok=True)
     (work/'status').write_text('')
-    (work/'etc/sources.list').write_text(
-        f'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/{stamp}/ trixie main\n')
+    (work/'etc/sources.list').write_text(sources(stamp))
     opts = ['-o', f'Dir::State::status={work}/status', '-o', f'Dir::State::lists={work}/lists',
             '-o', f'Dir::Cache::archives={work}/archives', '-o', f'Dir::Etc::sourcelist={work}/etc/sources.list',
             '-o', 'Dir::Etc::sourceparts=-', '-o', 'APT::Install-Recommends=false',

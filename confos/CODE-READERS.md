@@ -1,4 +1,27 @@
-# Saved code readers — development, 2026-11-24 UTC
+# Saved code readers — 2026-11-24 UTC
+
+Current published release42: native mpv/libmpv Lua/JavaScript and discovery guards
+passed in41; pdb/gyp/curl guards and native apt/dpkg/cron store denials passed in42.
+Exact originals, native positives, removal and outside-inventory evidence are in
+STATE.md, MPV-041-DOCUMENTATION.md and records/readers-0.42.log. Release43 work
+adds native ed; its canonical gates are pending. OpenSSH saved configuration,
+separately installed embedded libraries and document macros remain unclaimed.
+
+The release-by-release prototype observations below are historical. Their older
+“open”/“pending” labels describe the named release, not the current implementation.
+
+Release39 integrates the exact Flatpak Bash/sh and Python/libpython
+overrides and original-object alias denials; canonical two-boot/removal checks
+passed. Native mpv Lua remains OPEN. See flatpak-readers-component-draft.md and
+the exact packaged manifest/provenance; unknown runtime versions are unclaimed.
+
+Standalone Flatpak-runtime prototypes now pass bounded guest checks: static
+Bash nine direct refusals plus recorded/source/startup/typed/data controls;
+Python3.14 twenty-one direct refusals plus seven positive controls. Evidence:
+records/flatpak-bash-0.34.log and records/flatpak-python-0.34.log. These are declared
+standalone programs, not replacements for the original runtime readers. Original
+readers remain open. ABI/optional-module/provenance and OSTree-object exposure
+limits are listed in flatpak-reader-integration-draft.md; no integration claim.
 
 Target: REVIEW.md R1 direct routes; S8.2-9 and S8.3-6. No outcome0 is claimed.
 Release29 adds optional dash/mawk/gawk/GNU sed/make checks to the native
@@ -44,5 +67,13 @@ Documentation read before implementation:
 - https://docs.python.org/3.13/c-api/file.html — native code-open API/hook.
 - https://docs.python.org/3.13/library/io.html#io.open_code — distinct code-file opener.
 
-`cat F | bash` remains a data route and is reported separately as required by R1;
-its successful execution is not presented as a closed route or an impossibility.
+`cat F | bash` is a data route under REVIEW R4: a typed command hands data to the
+interpreter. Record its effects separately; do not close typed/piped commands.
+
+Development33 evidence retained in34: native BusyBox vi saved .exrc refusals and
+recorded option-value, typed option-value, ordinary save, root, restart and removal
+controls pass (records/native-vi-0.33.log). Startup shell-command SIGSEGV is also
+present upstream; records/vi-startup-baseline.log records both binaries.
+Flatpak processes now enter confos-flatpak(enforce); recorded Python/Lua and mpv
+controls pass, but all9 original shell/Python/mpv-Lua direct routes remain open
+(records/flatpak-confined-0.33.log). Confinement alone does not mediate code reads.

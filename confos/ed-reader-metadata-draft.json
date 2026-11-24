@@ -1,0 +1,138 @@
+{
+  "package": "ed",
+  "binary_version": "1.21.1-1",
+  "source_version": "1.21.1-1",
+  "target": "/usr/bin/ed",
+  "mode": 493,
+  "original_sha256": "ffb4610edbf021a8940d9c4ae89befd50045e594447cc6fb844c36fd5166616b",
+  "sha256": "9c9821ab6caf3422c61380691914078dadfa8aa920e626f2db6eadc86993b5b8",
+  "candidate_path": "interpreter-inputs/ed-reader-draft/candidate/ed",
+  "red": {
+    "target": "/usr/bin/red",
+    "sha256": "417f37ffe30a83d9b2a7e0340e57e46018f6ee6919ee1b6f63b791d716c3f65a",
+    "type": "regular shell launcher",
+    "unchanged": true
+  },
+  "inputs": [
+    {
+      "path": "interpreter-inputs/ed-reader-draft/ed_1.21.1-1_amd64.deb",
+      "sha256": "b5498068d8ac54ad004bacbde2223a348fee781f9bb94328b01d8bfcbd179b48"
+    },
+    {
+      "path": "interpreter-inputs/ed-reader-draft/ed_1.21.1-1.dsc",
+      "sha256": "c35f79215fc1039fb00379c9b63dafebf9f9c262b168a006ca657137dbfc41ca"
+    },
+    {
+      "path": "interpreter-inputs/ed-reader-draft/ed_1.21.1.orig.tar.gz",
+      "sha256": "bb88a08496ffbaeca59bda93e5da195ef993522fb74f4fcfbf2619ff39f83b44"
+    },
+    {
+      "path": "interpreter-inputs/ed-reader-draft/ed_1.21.1-1.debian.tar.xz",
+      "sha256": "ba8d3de70c1db8e50c978cf3b60beddf45b0c6c6931989865c20e550696d84ab"
+    }
+  ],
+  "licences": [
+    {
+      "path": "interpreter-inputs/ed-reader-draft/source/COPYING",
+      "sha256": "022e9c2e9cc1aac3622313df6f971fbb39c1d1b0cb45324c16b8a1fe231c5ea6"
+    },
+    {
+      "path": "interpreter-inputs/ed-reader-draft/source/debian/copyright",
+      "sha256": "b1483cf9f267a1bd12338374d384e01f07e0f525b96fb14de47d34654cf8356b"
+    }
+  ],
+  "reader_policy": {
+    "path": "interpreter-inputs/ed-reader-draft/code-file-policy.h",
+    "sha256": "64e344ca44ea9859708b0f84fe3c8a41c6a56942eafc3e05a75a1f00434fbea2"
+  },
+  "recipe": [
+    {
+      "path": "prepare-ed-reader-draft.py",
+      "sha256": "0699d88af4c01144f97ace16f817342b206e28fdc7ba564e01b27e6fca78a1a7"
+    },
+    {
+      "path": "build-ed-reader-draft.py",
+      "sha256": "8a4eaae08bfd28a38aef87f056faa61767438375b4b7996491f55ebbb14a3858"
+    },
+    {
+      "path": "verify-ed-reader-abi-draft.py",
+      "sha256": "7d9da1d3f49ef6d83d0e37abc10dd4fc9854bf32e560f17d6a5ee7754b4e32bb"
+    },
+    {
+      "path": "build-ed-reader-guest-draft.py",
+      "sha256": "55fe224bfa300f0ffe90219252cab966a9a640d15b3b870cd6418cfc6b3098d4"
+    },
+    {
+      "path": "run-ed-reader-guest-draft.sh",
+      "sha256": "3d2f844b741a4243668342b68b36c2b1270a29781cbf8ad1ad5952bc3ecd84ec"
+    },
+    {
+      "path": "probe-ed-reader-guest-draft.py",
+      "sha256": "7ab0a4b1ee60f7b08a5f8a18c631e88e868fe07110318839faf6fa8c4c6bc089"
+    },
+    {
+      "path": "collect-ed-reader-draft.py",
+      "sha256": "d237d24b10ea65cbb3de19756bb6d96ce54b957487c5df1217a1cb65601d2d46"
+    }
+  ],
+  "guest_libraries": {
+    "archive": "libc6_2.41-12+deb13u5_amd64.deb",
+    "archive_sha256": "b59b0625cd1a791375d40dab23a4d5d3d0641e3d0a773501becdc3725b7f99cf",
+    "files": {
+      "usr/lib/x86_64-linux-gnu/libc.so.6": "cc7377e8816cefadbb4ee083f5387f67a4a883d90bc273160842a6ac075af662",
+      "usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": "8642358c60bdf4579911381070c69cc7b1a447809b73d483ce799c4421609d21"
+    }
+  },
+  "baseline_source": {
+    "path": "releases/confos-0.41-source.tar.gz",
+    "sha256": "2c73f6a664a2754cc78a7244d31bb77c7ac3d5253f45653a3c12cdfb418e4ca9"
+  },
+  "comparison": {
+    "original": {
+      "sha256": "ffb4610edbf021a8940d9c4ae89befd50045e594447cc6fb844c36fd5166616b",
+      "needed": [
+        "libc.so.6"
+      ],
+      "versions": [
+        "GLIBC_2.11",
+        "GLIBC_2.14",
+        "GLIBC_2.2.5",
+        "GLIBC_2.3",
+        "GLIBC_2.3.4",
+        "GLIBC_2.33",
+        "GLIBC_2.34",
+        "GLIBC_2.4"
+      ],
+      "exports": [
+        "stderr@GLIBC_2.2.5",
+        "stdin@GLIBC_2.2.5",
+        "stdout@GLIBC_2.2.5"
+      ],
+      "version": "GNU ed 1.21.1\nCopyright (C) 1994 Andrew L. Moore.\nCopyright (C) 2025 Antonio Diaz Diaz.\nLicense GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n"
+    },
+    "candidate": {
+      "sha256": "9c9821ab6caf3422c61380691914078dadfa8aa920e626f2db6eadc86993b5b8",
+      "needed": [
+        "libc.so.6"
+      ],
+      "versions": [
+        "GLIBC_2.11",
+        "GLIBC_2.14",
+        "GLIBC_2.2.5",
+        "GLIBC_2.3",
+        "GLIBC_2.3.4",
+        "GLIBC_2.33",
+        "GLIBC_2.34",
+        "GLIBC_2.4"
+      ],
+      "exports": [
+        "stderr@GLIBC_2.2.5",
+        "stdin@GLIBC_2.2.5",
+        "stdout@GLIBC_2.2.5"
+      ],
+      "version": "GNU ed 1.21.1\nCopyright (C) 1994 Andrew L. Moore.\nCopyright (C) 2025 Antonio Diaz Diaz.\nLicense GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n"
+    }
+  },
+  "guest_evidence": "interpreter-inputs/ed-reader-draft/evidence/guest-build-run.log",
+  "status": "private native and guest proof only; independent case review and numbered integration pending"
+}

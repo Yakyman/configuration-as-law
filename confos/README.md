@@ -37,8 +37,19 @@ public login key in the declaration first. See INTERFACE.md and DECLARATION.md.
 
 The root filesystem is read-only; material and records live on a separate disk
 partition. `sudo confos apply` rebuilds the root from edited text and reboots;
-`confos status` identifies the declaration in force after startup. No command adds
-declaration lines for the person. STATE.md describes what has actually been run,
+`confos status` identifies the declaration in force after startup. From34, authorized
+APT install/remove/purge requests edit package lines and report RECORDED; a separate
+application is required before the requested change takes effect. From35, ConfOS
+adds pip wheel and global npm lock recording with the same protocol. Release36
+adds native Flatpak bundle recording and37 native Podman pull/rmi recording.
+Release38 adds settings, service states and account recording; exact handover
+status is in STATE.md.
+Release39 guards the exact recorded Flatpak runtime's Bash/Python readers and
+original object aliases. Native mpv Lua and unknown runtimes remain unguarded.
+STATE.md describes what has actually been run,
 and IMPOSSIBLE.md records observed unmet requirements. This is a work in progress,
 not an accepted implementation of the hypothesis. The independent cases provide
 acceptance; smoke.sh is only the builder's short regression check.
+
+Release40 adds declaration-driven simulated Wi-Fi/Bluetooth; see INTERFACE40 for
+exact input forms and fixed native inspection, and STATE.md for observed results.

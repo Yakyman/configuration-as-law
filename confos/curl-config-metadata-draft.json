@@ -1,0 +1,52 @@
+{
+  "status": "private candidate; future integration requires original executable identity check",
+  "package": "curl",
+  "source_package": "curl",
+  "source_version": "8.14.1-2+deb13u7",
+  "binary_version": "8.14.1-2+deb13u7",
+  "architecture": "amd64",
+  "target": "/usr/bin/curl",
+  "mode": 493,
+  "original_sha256": "52e9ceef96bd7c7dd4c2c9d8ac4c5f466c563dc0d16817720518b430da7a94b7",
+  "sha256": "cf221d19c07407cc275bd2653bbf8417283d383a46e0a9d5824cfeae3e792095",
+  "candidate_path": "interpreter-inputs/curl-config-draft/candidate/curl",
+  "original_executable_path": "interpreter-inputs/curl-config-draft/original-package/usr/bin/curl",
+  "inputs": [
+    {
+      "path": "interpreter-inputs/curl-config-draft/curl_8.14.1-2+deb13u7_amd64.deb",
+      "sha256": "135636bd8b713c582d33e50ec4e36ea55cc3c5da3f12bbeb6b87d2bcbd3a0649"
+    },
+    {
+      "path": "interpreter-inputs/curl-config-draft/curl_8.14.1-2+deb13u7.dsc",
+      "sha256": "a559b829ff852b2ee1ac0e448b5d9c18e0f94875bc820d037609d4d807ac6f57"
+    },
+    {
+      "path": "interpreter-inputs/curl-config-draft/curl_8.14.1.orig.tar.gz",
+      "sha256": "6766ada7101d292b42b8b15681120acd68effa4a9660935853cf6d61f0d984d4"
+    },
+    {
+      "path": "interpreter-inputs/curl-config-draft/curl_8.14.1.orig.tar.gz.asc",
+      "sha256": "39cc2ec8ddc39d04e3e7101bbed46d858d0875cbb297a6bfa20959fa2bc7d5c7"
+    },
+    {
+      "path": "interpreter-inputs/curl-config-draft/curl_8.14.1-2+deb13u7.debian.tar.xz",
+      "sha256": "e0f627ee2b9ae61078b2835edc25c8b94a0b57e180a1bc72dd8636ef260c370b"
+    }
+  ],
+  "licences": [
+    {
+      "path": "interpreter-inputs/curl-config-draft/source/COPYING",
+      "sha256": "e18f1989333b70044b2adfb7dc2f905d0119dbdcac3bc9f4bc9d540e3a29de5b"
+    },
+    {
+      "path": "interpreter-inputs/curl-config-draft/source/debian/copyright",
+      "sha256": "e1b7678c8443b4f8ac69350e1eefd6132339b010cc3b870675fec0c0c29779a5"
+    }
+  ],
+  "native_evidence": "interpreter-inputs/curl-config-draft/publish/comparison-controls.json",
+  "guest_evidence": "interpreter-inputs/curl-config-draft/guest-evidence/guest-build-run.log",
+  "guest_library_provenance": "interpreter-inputs/curl-config-draft/guest-evidence/guest-library-provenance.json",
+  "native_guest_dependencies_identical": false,
+  "guest_controls": 32,
+  "main_release_integrated": false
+}

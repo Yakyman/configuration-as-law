@@ -14,7 +14,7 @@ import tempfile
 
 HERE = Path(__file__).resolve().parent
 EPOCH = 1795392000
-RUNTIME = ('assemble.py', 'optional_readers.py', 'appimage_readers.py', 'installers.py', 'containers.py', 'user_units.py', 'games.py',
+RUNTIME = ('nmcli-command', 'visudo-command', 'radio_inspect.py', 'radio_declaration.py', 'radio_runtime.py', 'radio_integration.py', 'radio_systemd.py', 'radio-control-denials.apparmor', 'radio-trusted-profile.apparmor', 'assemble.py', 'archive_sources.py', 'archive-sources.json', 'recording.py', 'language_recording.py', 'flatpak_recording.py', 'podman_recording.py', 'configuration_recording.py', 'configuration-command', 'apt-command', 'optional_readers.py', 'appimage_readers.py', 'flatpak_readers.py', 'flatpak_profile.py', 'flatpak-profile.apparmor', 'installers.py', 'containers.py', 'user_units.py', 'games.py',
     'installer-chroot', 'nft-query', 'flatpak-command', 'podman-command',
     'systemctl-query', 'language-query', 'components.txt', 'runtime-init', 'confos',
     'early-init', 'VERSION')
@@ -38,12 +38,12 @@ def build(output):
             put('/usr/lib/confos/components/'+lock.name, lock.read_bytes())
         put('/usr/bin/confos', (HERE/'confos').read_bytes(), 0o755)
         put('/usr/sbin/init', (HERE/'runtime-init').read_bytes(), 0o755)
-        for command, source in {'nft': 'nft-query', 'flatpak': 'flatpak-command',
+        for command, source in {'nmcli': 'nmcli-command', 'visudo': 'visudo-command', 'apt': 'apt-command', 'apt-get': 'apt-command', 'nft': 'nft-query', 'flatpak': 'flatpak-command',
                 'podman': 'podman-command', 'systemctl': 'systemctl-query',
                 'pip': 'language-query', 'pip3': 'language-query',
-                'npm': 'language-query', 'npx': 'language-query'}.items():
+                'npm': 'language-query', 'npx': 'language-query', **{name: 'configuration-command' for name in ('hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel')}}.items():
             put('/usr/lib/confos/commands/'+command, (HERE/source).read_bytes(), 0o755)
-            if command in ('nft', 'systemctl'):
+            if command in ('apt', 'apt-get', 'nmcli', 'visudo', 'nft', 'systemctl', 'hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel'):
                 entry = root/'usr/local/bin'/command
                 entry.parent.mkdir(parents=True, exist_ok=True)
                 entry.symlink_to('/usr/lib/confos/commands/'+command)

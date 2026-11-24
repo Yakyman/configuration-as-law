@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from archive_sources import sources
 
 HERE = Path(__file__).resolve().parent
 EPOCH = 1795392000
@@ -33,8 +34,7 @@ def build(version, snapshot, destination):
         for sub in ('lists/partial', 'archives/partial', 'etc', 'log'):
             (apt/sub).mkdir(parents=True)
         (apt/'status').write_text('')
-        (apt/'etc/sources.list').write_text(
-            f'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/{snapshot}/ trixie main\n')
+        (apt/'etc/sources.list').write_text(sources(snapshot))
         values = {'Dir::State::status': apt/'status', 'Dir::State::lists': apt/'lists',
             'Dir::Cache::archives': apt/'archives', 'Dir::Etc::sourcelist': apt/'etc/sources.list',
             'Dir::Etc::sourceparts': '-', 'Dir::Etc::parts': '-', 'Dir::Etc::main': '-',

@@ -1,4 +1,280 @@
-# ConfOS interface, revision 32
+# ConfOS interface, revision 49
+
+Revision 49 changes where the recording tools are, not what they do.
+
+- Every package file keeps its own path and bytes. `/usr/bin/apt`, `apt-get`, `pip`,
+  `pip3`, `flatpak`, `podman`, `systemctl`, `hostnamectl`, `timedatectl`,
+  `/usr/sbin/sysctl`, `useradd`, `usermod`, `userdel`, `visudo` are the objects of
+  their Debian packages and `/usr/bin/npm` is the package's link. The folder
+  `/usr/lib/confos/native` no longer exists. Every statement below that original
+  bytes "move to `/usr/lib/confos/native/NAME`" or that a `/usr/bin` path "becomes a
+  link" describes releases 0.34–0.48 only.
+- A recording tool is called by its NAME: `apt-get install X`, `sudo -n apt-get
+  install X`. `/usr/local/bin/NAME` is a link to the runtime package's entry
+  `/usr/lib/confos/commands/NAME`; `/usr/local/bin` is first in the path of a login,
+  of a non-interactive SSH command and of `sudo`. Reply, place of the line and the
+  wait are unchanged: `RECORDED SHA256; run confos apply` on standard output, the
+  line in `/state/declaration.conf`, then `sudo confos apply` and `confos status`
+  printing `APPLIED SHA256`.
+- Called by its own full path (`/usr/bin/apt-get install X`, with or without
+  `sudo`) the package executable is refused by the session confinement
+  (`Permission denied`); it records nothing and changes nothing. The same holds for
+  the full paths of the other tools listed above except `visudo`, whose package
+  executable stays reachable inside the confinement and cannot write the read-only
+  system part. Queries by name are unchanged.
+- A `flatpak` line may name any export (bundle file) of a ref and commit for which
+  the runtime package carries reader replacements. The replacements are bound to
+  the ref, the commit and the checksum of each replaced object; up to 0.48 they were
+  bound to one bundle file, and a declaration naming another export of the same
+  commit could not be built (`Flatpak reader bundle checksum mismatch`).
+
+No declaration syntax changes. Release gates and observed limitations are in
+STATE.md; independent acceptance remains separate.
+
+Revision48 retries failed native package resolutions with APT's all-version
+solver. Every explicitly requested version remains mandatory. Successful default
+resolutions are unchanged; the same selected solver performs package download.
+No declaration syntax or installer-recording protocol changes. Release gates and
+observed limitations are in STATE.md; independent acceptance remains separate.
+
+Revision47 extends the saved-file checks to the exact optional Debian
+libperl5.40 shared library. Original payload checksums gate the replacement.
+The declaration grammar and installer recording/apply protocol are unchanged.
+Scope is the tested native perl_parse/perl_run file routes; arbitrary string
+readers, static archives and independently supplied libraries remain unclaimed.
+Exact provenance: interpreter-inputs/libperl-private/metadata.json. Actual
+release gates and independent acceptance status are recorded in STATE.md.
+
+Revision46 extends saved-file checks to the exact optional Debian shared
+libpython3.13 library, through an original-checksum-guarded reader override.
+The declaration grammar, recording tools and apply protocol are unchanged.
+The filename API refuses unrecorded regular input while recorded files, typed
+strings and pipes remain available. This covers the tested shared-library API,
+not every embedding interface, static archive or independently supplied copy.
+Exact provenance: interpreter-inputs/libpython-private/metadata.json; release
+gates and evidence are in STATE.md. Independent acceptance remains separate.
+
+Revision45 records a finite nmcli static Wi-Fi request subset into the existing
+network line and a checksummed JSON input. It never invokes NetworkManager or
+changes a live radio. Success prints RECORDED SHA256; run confos apply. Wait for
+confos status to print APPLIED SHA256 before treating the request as in force.
+Only accounts already authorized to edit the declaration may record requests.
+The request requires an existing simulated radio-fixture and its explicit pinned
+packages. Bluetooth pairing remains available by manual declaration lines.
+Exact supported properties and refusal limits are in CHOICES.md; guest evidence
+and release status are in STATE.md. No declaration grammar was changed.
+
+Revision44 adds visudo recording for one /etc/sudoers.d/NAME snippet per
+request (default confos-local). The native editor and validator remain confined.
+Successful edits record a file row with0440 root ownership and checksum input;
+visudo --remove [-f /etc/sudoers.d/NAME] removes that row. A native zero-length
+edit remains unchanged. RECORDED is durable pending text only; confos apply and
+APPLIED retain their existing meanings. Invalid/generated targets and includes
+refuse; full policy validation is performed at apply. See CHOICES.md for limits.
+Exact native OpenSSH saved configuration reads are guarded; typed options and
+explicit producer pipes remain available. The original/candidate and ordinary
+connection controls are described in SSH-READER-RESULTS.md. Other copies and
+versions remain unclaimed. Release status and actual gates are in STATE.md.
+
+Revision43 records a supported native nft request subset as existing rule rows:
+sudo nft add rule inet confos input tcp dport PORT accept|drop, and delete rule
+inet confos input handle HANDLE when native state maps uniquely to an applied
+declared rule. Ordinary authority checks precede native queries. RECORDED means
+durable text only; confos apply changes native rules. Other expressions, unknown
+handles and ambiguous ownership refuse explicitly. Details: CHOICES.md.
+The exact Debian ed1.21.1-1 command reader checks actual regular stdin before
+executing commands; recorded input, terminals, pipes and document data remain
+available. Its original red launcher bytes/restrictions are preserved. Unknown
+original bytes fail assembly. Actual gates/status are in STATE.md; this is not
+independent acceptance or a claim about every editor/embedded reader.
+
+Revision42 guards native pdb startup files, gyp main/include files and
+curl configuration inputs through their actual opened descriptor. Original-file
+checksum preconditions require the exact supported Debian input bytes; a different
+original fails assembly explicitly. Existing inherited overrides are unchanged.
+Native apt/dpkg/cron stores reject direct writes while queries remain readable;
+supported installer requests still record lines and require apply. These denials
+do not add hold/auto/manual/crontab line kinds or recorder support. Full scope and
+compatibility limits are in CHOICES.md; actual evidence/status is in STATE.md.
+
+Revision41 adds exact native mpv/libmpv/LuaJIT payload overrides for
+app/io.mpv.Mpv/x86_64/stable commit
+13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc.
+No declaration syntax changes. The existing flatpak line still names its original
+bundle and commit; the base reader component records the replacement checksums.
+Original OSTree object bytes are retained with explicit execution/mapping denials.
+Initial Lua/JavaScript files and nested Lua loaders/JavaScript require consult the
+actual opened descriptor. Explicit data reads/evaluation and ordinary media remain
+available. Other applications/versions and native plugin routes are not newly
+claimed by this change. Exact provenance, compatibility limits and tested/pending
+controls are in MPV-041-DOCUMENTATION.md and STATE.md. Also allow root to read
+the radio readiness JSON for external inventory, retaining all write denials;
+source40's one unread-checksum inventory error is preserved in its evidence.
+
+Revision40 adds recorded simulated radios. These rows require the exact
+native packages in radio-public-fixture/packages.conf and checksum-pinned files
+below the declaration directory. radio-public-fixture/radio-draft.conf is a
+public radio-row fragment; combine it with base/snapshot/account/key rows and
+packages.conf. Its test keys are intentionally non-secret. The fixture builder
+build-radio-fixture-040.py generates complete normal/systemd declarations.
+
+| Kind | Syntax | Sentence | Effect |
+|---|---|---|---|
+| Fixture | radio-fixture NAME SHA256 RELATIVE_JSON | S8.2-11–13 | Two hwsim radios/AP and a native btvirt controller pair with fixed identities. |
+| Saved network | network NAME SHA256 RELATIVE_JSON | S8.2-11–13 | Exact SSID bytes, WPA2-PSK, IPv4 address and fixture association. |
+| Saved pairing | bluetooth-pair ADAPTER PEER SHA256 RELATIVE_INFO | S8.2-11–14 | Exact native BlueZ bond/key input; two reciprocal rows permit mutual authenticated traffic. |
+
+The renderer validates every field; exact schema and package requirements are in
+radio_declaration.py. One fixture/client is supported. The fixture remains when
+client/bond rows are removed. Startup does not generate pairing keys: it restores
+the declared bytes and requires native traffic before APPLIED. These forms require
+manual text edits; network/pairing command recording is still unfinished.
+
+Radio controls and BlueZ storage occupy a trusted private mount namespace.
+Ordinary/sudo/Flatpak sessions cannot change those controls. Their code and native
+tools remain named package payloads. Normal PID1 monitors the supervisor; optional
+systemd owns it as a Type=notify service with dependent readiness/user managers.
+Radio failure revokes readiness. The same declaration drives boot and apply.
+
+Native read-only inspection: sudo confos radio-inspect wifi|bluetooth|files.
+This root-only fixed broker enters the supervisor mount namespace, accepts no
+caller command/path/address/environment, and reads actual native state. wifi
+returns native iw/ip command output for the client and AP; bluetooth returns
+BlueZ GetManagedObjects properties, including Adapter1 Address and Device1 Paired;
+files enumerates private runtime/BlueZ paths, types, modes, owners and checksums.
+It never reads the runtime READY report to infer these values and never outputs
+bond key contents. No arbitrary native command or bus mutation is exposed.
+
+Real hardware support and generic radio managers are not claimed. Private caches,
+bus identifiers, logs and the runtime PID are listed in RADIO-040-DOCUMENTATION.md;
+UNDERIVED enumerates the baseline inventory separately. Native probes and their
+remaining limitations are in STATE.md; this interface is not an acceptance result.
+
+Revision39 adds exact source-built Bash/sh, Python and libpython replacements
+for the recorded org.freedesktop.Platform/x86_64/26.08 runtime commit
+ df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c.
+The existing named code-reader component supplies compressed payloads and a static
+manifest. Existing flatpak lines remain unchanged; the bundle SHA, original file
+SHA, repository inode, replacement SHA and mode must all match that manifest.
+Other runtime refs/commits are not covered by this override set. A matching commit
+with a different bundle checksum is refused rather than silently substituted.
+
+Deployment files are replaced with separate inodes, preserving original repository
+object bytes. Exact original-object execution and executable mapping are denied
+in both session and Flatpak profiles, including their /run/host aliases. Their
+bytes remain readable as material. Removing the runtime removes its deployment
+and alias restrictions; removing only the application retains its named runtime.
+
+The guarded readers preserve declared, typed, piped and data use. Native mpv Lua,
+MuJS and other unpatched/unknown embedded readers remain open. The builder's
+namespace probes cover specified bwrap/unshare attempts only; they are not a
+claim about every namespace construction. Source and ABI differences, including
+unproven whole SDK build parity, are recorded in the packaged provenance drafts.
+
+Revision38 adds explicit configuration request recording. Authorized root
+invocations of hostnamectl set-hostname, timedatectl set-timezone (UTC/Etc/UTC),
+sysctl -w, systemctl enable/disable of existing declared services and
+systemctl --user enable/disable of existing caller-owned units edit declaration
+lines only. The RECORDED/separate confos apply/APPLIED protocol is unchanged.
+Automatic query-only sudo does not authorize recording; --user mutations require
+an explicit sudo origin matching the declared account.
+
+useradd [-m] [-u UID] [-g GID] [-G GROUPS] [-s SHELL] [-d HOME] NAME writes a full
+account line. Unspecified new-account defaults are the first ID >=1000 unused as
+any declared UID/GID, primary GID equal to UID, no supplementary groups, /bin/bash,
+and /home/NAME. Existing accounts retain unspecified fields on repeated requests.
+usermod supports those field options and -a -G / -aG to append groups. userdel
+removes an unreferenced account line; material in its home is not deleted.
+Identity changes/removal with declared references require explicit dependent edits.
+Numeric groups and named supplementary groups follow existing account semantics.
+
+Configuration queries hostnamectl --static and timedatectl show -p Timezone read
+immutable applied files; sysctl reads kernel values. Original native helpers,
+when installed, remain at /usr/lib/confos/native/NAME and cannot be invoked
+directly from a confined session. Query forwarding has a finite allowlist.
+Unsupported timezone values/options, unknown units, groupadd, nft mutations,
+visudo editing and the other unfinished mappings remain refused as listed in
+CHOICES. No new line kinds or automatic observation of installed state exist.
+
+Revision37 adds root `podman pull REGISTRY/NAME[:TAG]` and `podman rmi` for one
+fully qualified image name. `sudo` targets the declared ordinary SUDO_USER;
+direct root supplies `--account USER`. Missing tag means latest; repeated pulls
+reuse the exact recorded input, not a refreshed tag. Native Podman pulls/saves
+into private scratch without running an image; the adapter records the existing
+container line and checksum-bound OCI archive. RECORDED/separate APPLIED applies.
+Short names, digest/transport references, multiple images, alternate flags,
+private authentication and other mutation verbs remain unsupported/refused.
+Original native Podman bytes move to `/usr/lib/confos/native/podman`; direct
+session execution is denied. Rootless recorded-image run behavior is unchanged.
+Guest regression is pending; handover status is in STATE.md.
+
+Revision36 adds root `flatpak install --bundle LOCALFILE` and `flatpak uninstall
+ID|REF`, with optional `-y`, `--assumeyes`, `--system`. They record the existing
+flatpak line and use the same RECORDED/separate-apply protocol. Native Flatpak
+imports frozen bundle bytes into isolated scratch to obtain exact ref/commit;
+the adapter writes the line and durably retains the input beside the declaration.
+An application requires its runtime already recorded. Removing a runtime still
+required by another line is refused. Repeats preserve equivalent handwritten lines.
+Named-remote installs, remote-add, user installs, other flags and mutation verbs
+are refused; no remote line kind exists. Original native Flatpak bytes move to
+`/usr/lib/confos/native/flatpak`, inaccessible to direct session execution.
+Guest add/repeat/removal, pre-apply nonchange and pending/applied power-cut
+regression passed; release status is in STATE.md.
+
+Revision35 adds pip/npm recording with the same root authority,
+primary declaration, RECORDED/APPLIED protocol and separate application as APT.
+`pip install NAME[==VERSION]...` or local `.whl` inputs resolves binary wheels;
+each dependency gets an exact `pip` line. `pip uninstall [-y|--yes] NAME...`
+removes named lines unless another pip line still needs them. The harmless
+`--break-system-packages` flag is accepted. `npm install -g NAME[@VERSION]`
+and `npm uninstall -g NAME` support one unscoped root; `--global` is equivalent.
+Bare install names resolve once; repeated requests preserve the recorded version.
+Native npm writes its exact package lock with lock-only mode and lifecycle scripts
+disabled. The adapter writes ConfOS line syntax. Pip uses binary-only native
+resolution. Inputs are fsynced under `/state/recorded-inputs/SHA256/` before text
+commit; removal leaves these source materials available for reuse. No installed
+state is scanned. Relative wheel paths are relative to the invoking directory.
+Direct `/usr/bin` aliases and `python3 -m pip` share the recorder. Original pip
+entry bytes move to `/usr/lib/confos/native/pip{,3}`; native pip/npm implementation
+modules remain inaccessible to ordinary confined sessions. Queries still work.
+Requests outside the existing grammar are refused: version ranges/tags, editable
+or source builds, requirements files, VCS/URL requirements, alternate registries,
+target/prefix/user overrides, scoped npm names, per-project npm, arbitrary flags,
+and conflicts with remaining declared dependencies. CHOICES lists the restrictions.
+Guest recording/add/repeat/removal and pending/applied power-cut regression passed;
+release/handoff status is recorded separately in STATE.md.
+
+Revision34 adds explicit APT request recording. Both `apt` and
+`apt-get`, including `/usr/bin` and `/bin` paths, accept root requests
+`install NAME[=VERSION]...`, `remove NAME...`, `purge NAME...` and optional
+`-y`, `--yes`, `--assume-yes`, `-q`, `-qq`. Install resolves the selected archive
+and writes `package NAME VERSION`; remove/purge removes that explicit line.
+A remaining base/dependency owner prevents removal and is reported as an error.
+The tool prints exactly `RECORDED SHA256; run confos apply` after durable text
+replacement at `/state/declaration.conf`. Exit0 reports only recording. It does
+not apply, reboot, install files or change the identity returned by status.
+Run `sudo confos apply`, reconnect, and wait for `confos status` to return
+`APPLIED SHA256`. Only that is the machine's success report. Repeating the same
+request preserves the text. Non-root requests explain that the account may not
+change the declaration; use an authorized root invocation. Other options/commands
+are refused; `--version` remains a native read-only query.
+
+Original APT executable bytes move from `/usr/bin/apt{,-get}` to
+`/usr/lib/confos/native/apt{,-get}`; the original paths become links to the
+runtime package's command entries. Confined sessions cannot execute the native
+helpers directly. The trusted recorder only requests native metadata/simulation,
+with an empty status and fixed options; application alone downloads/unpacks.
+No recorder examines installed files or monitors downloads to infer lines.
+Original component data `archive-sources.json` names each snapshot's sources.
+T2 adds security snapshot20261124T000000Z to main20261123T000000Z and pins the
+kernel to6.12.118-1; T0/T1 stay as before. All request/assembly/initramfs resolvers
+use the same source map. Native APT has no mode that emits ConfOS package lines;
+the recording adapter is implementation code, reported as such under plan9.3.
+
+Revision33 changes retained in34: Flatpak app processes enter confos-flatpak through a
+fixed runtime /usr/bin/sh entry before their command; the runtime must supply that
+shell. Original app metadata supplies the default command. Native BusyBox vi .exrc
+startup inputs require recorded immutable files, retaining original owner/mode checks.
 
 Revision32 applies exact-AppImage reader overrides from original component data
 at /usr/lib/confos/appimage-reader-overrides/manifest.json. Each record names

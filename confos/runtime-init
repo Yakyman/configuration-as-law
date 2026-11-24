@@ -28,6 +28,16 @@ ip route add default via 10.0.2.2
 python3 /usr/bin/confos boot-prepare || exec /bin/bash
 mount -t securityfs securityfs /sys/kernel/security || exec /bin/bash
 apparmor_parser -r /etc/confos/session.apparmor || exec /bin/bash
+if [ ! -d /etc/confos/systemd-system ]; then
+aa-exec -p confos-radio -- python3 /usr/lib/confos/radio_runtime.py &
+radio_pid=$!
+for radio_attempt in {1..120}; do
+    [ -f /run/confos-radio-ready.json ] && break
+    kill -0 "$radio_pid" || exec /bin/bash
+    sleep 1
+done
+[ -f /run/confos-radio-ready.json ] || exec /bin/bash
+fi
 python3 /usr/bin/confos supervise &
 supervisor=$!
 for attempt in {1..20}; do
@@ -51,4 +61,6 @@ if kill -0 "$sshpid"; then
     cp /etc/confos/identity /run/confos-ready
     echo "READY $(cat /etc/confos/identity)"
 fi
-while true; do sleep 3600 & wait $!; done
+while kill -0 "$radio_pid"; do sleep 1 & wait $!; done
+rm -f /run/confos-ready /run/confos-radio-ready.json /run/confos-radio.pid
+exec /bin/bash

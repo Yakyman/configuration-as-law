@@ -1,0 +1,46 @@
+{
+  "runtime_ref": "runtime/org.freedesktop.Platform/x86_64/26.08",
+  "commit": "df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c",
+  "store_guest_path": "/usr/lib/confos/flatpak",
+  "readers": [
+    {
+      "target": "runtime/org.freedesktop.Platform/x86_64/26.08/df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c/files/bin/bash",
+      "links": 2,
+      "mode": "0o755",
+      "sha256": "9b814ddc2495f9a0fecd2049f1dff711cee00f0a2fdde946cf5c29e5f8cbb97b",
+      "object_paths": [
+        "repo/objects/08/8ac0e78b5c58326c0b5f6f04ce48110e888e42c41f2ba6cf31f1589fdeb21b.file"
+      ],
+      "candidate_worker_path": "interpreter-inputs/flatpak-bash-compatible/bash",
+      "candidate_sha256": "27f0efbc3d136c6c8b8d8d54a3f35c7a17a9c67615d49142d6d7fae32f3d9e3b",
+      "candidate_mode": "0755"
+    },
+    {
+      "target": "runtime/org.freedesktop.Platform/x86_64/26.08/df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c/files/bin/python3.14",
+      "links": 2,
+      "mode": "0o755",
+      "sha256": "3c9c31e89f288c647647be8291e96b7757a0ac6a245089855b8ef4445073f9db",
+      "object_paths": [
+        "repo/objects/9a/9a79a0a407476be156b7dd95932d9996782814a1cd7201be0d36bc3c3b636d.file"
+      ],
+      "candidate_worker_path": "interpreter-inputs/flatpak-python-shared/python",
+      "candidate_sha256": "9b61acc3353ec7dc339bb38ce54c88acc0dfd1dcfacd3fd612255609f52f0896",
+      "candidate_mode": "0755"
+    },
+    {
+      "target": "runtime/org.freedesktop.Platform/x86_64/26.08/df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c/files/lib/x86_64-linux-gnu/libpython3.14.so.1.0",
+      "links": 2,
+      "mode": "0o755",
+      "sha256": "e5c4b181660a9e668b98867325fc9cf3360c242649442590f6c521c09ef2bf8c",
+      "object_paths": [
+        "repo/objects/69/fbcba0a573b7b4570c7e2921656c1c257aef94d26051d4037bcd83a6579ffe.file"
+      ],
+      "candidate_worker_path": "interpreter-inputs/flatpak-python-shared/libpython3.14.so.1.0",
+      "candidate_sha256": "626cf3792f74e7f8d1c81c6965e88d54c7e78204c24c12c4879d6213ca465896",
+      "candidate_mode": "0755"
+    }
+  ],
+  "limitations": "Exact runtime/commit/raw original hashes guard these candidates. Original repo objects stay intact and need executable/mapping alias policy. SDK whole-build revision unknown. No namespace closure or production durability claim.",
+  "status": "tested candidate metadata only; not installed or published",
+  "runtime_bundle_sha256": "072d80f7f24a5c5ff75e2c244fdd5aea032216fcb6e6138af175e18ee76054e3"
+}

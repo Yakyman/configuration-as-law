@@ -29,5 +29,8 @@ def apply(root, package_names):
         path = root/str(target).lstrip('/')
         if not path.is_file() or path.is_symlink():
             raise ValueError('reader override requires the original package file: '+str(target))
+        original = item.get('original_sha256')
+        if original is not None and hashlib.sha256(path.read_bytes()).hexdigest() != original:
+            raise ValueError('reader override original checksum mismatch: '+str(target))
         path.write_bytes(data)
         path.chmod(item['mode'])

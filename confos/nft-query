@@ -1,16 +1,66 @@
 #!/usr/bin/python3 -IS
-"""Read-only privilege broker; mutation remains the declaration application's job."""
-import os
-import sys
-
-os.environ.clear()
-os.environ.update(PATH='/usr/bin:/usr/sbin', LC_ALL='C')
-arguments = sys.argv[1:]
-flags = []
-while arguments and arguments[0] in ('-a', '--handle', '-n', '--numeric', '-j', '--json'):
-    flags.append(arguments.pop(0))
-if arguments not in (['list', 'ruleset'], ['list', 'tables'], ['--version'], ['-v']):
-    raise SystemExit('nft: mutation requires editing the declaration and confos apply')
-if arguments[0] == 'list' and os.geteuid() != 0:
-    raise SystemExit('nft: inspection requires root')
-os.execv('/usr/sbin/nft', ['nft', *flags, *arguments])
+"""Private candidate: native read queries and explicit durable rule requests."""
+import os,sys
+from pathlib import Path
+sys.path.insert(0, '/usr/lib/confos')
+args=sys.argv[1:]
+if args[:1] in (['add'],['delete']):
+    # This executable transitions out of session confinement, not UID authority.
+    if os.getuid()!=0 or os.geteuid()!=0:
+        raise SystemExit('nft: permission denied: this account may not change /state/declaration.conf; use an authorized root invocation')
+    import fcntl,hashlib,json,re,shlex,subprocess,tempfile
+    import recording,assemble
+    def expression(tokens):
+        if len(tokens)!=4 or tokens[0:2]!=['tcp','dport'] or not re.fullmatch('[0-9]+',tokens[2]) or not 1<=int(tokens[2])<=65535 or tokens[3] not in ('accept','drop'):
+            raise ValueError('supported expression: tcp dport PORT accept|drop (PORT 1..65535)')
+        return ['tcp','dport',str(int(tokens[2])),tokens[3]]
+    def value(tokens):return 'add rule inet confos input '+' '.join(expression(tokens))
+    try:
+        if args[:5] not in (['add','rule','inet','confos','input'],['delete','rule','inet','confos','input']):
+            raise ValueError('only add/delete rule inet confos input is supported')
+        if args[0]=='add':requested=value(args[5:])
+        elif len(args)!=7 or args[5]!='handle' or not re.fullmatch('[1-9][0-9]*',args[6]):
+            raise ValueError('delete requires one positive native handle')
+        os.environ.clear();os.environ.update(PATH='/usr/bin:/usr/sbin',LC_ALL='C')
+        with open('/run/confos-apply.lock','w') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+            path=recording.DECLARATION
+            if path.is_symlink() or not path.is_file():raise ValueError('declaration must be regular')
+            original=path.read_bytes()
+            with tempfile.TemporaryDirectory(prefix='confos-nft-record-',dir='/run') as temporary:
+                captured=Path(temporary)/'declaration.conf';captured.write_bytes(original)
+                rows,_=assemble.parse(captured)
+                if args[0]=='delete':
+                    document=json.loads(subprocess.check_output(['/usr/sbin/nft','-j','-a','list','ruleset']))
+                    matches=[entry['rule'] for entry in document['nftables'] if 'rule' in entry and entry['rule'].get('family')=='inet' and entry['rule'].get('table')=='confos' and entry['rule'].get('chain')=='input' and entry['rule'].get('handle')==int(args[6])]
+                    if len(matches)!=1:raise ValueError('unknown or ambiguous native handle')
+                    rule=matches[0];expr=rule['expr']
+                    if len(expr)!=2 or set(expr[1]) not in ({'accept'},{'drop'}) or expr[1][next(iter(expr[1]))] is not None:raise ValueError('handle expression is unsupported')
+                    match=expr[0].get('match',{})
+                    if match.get('op')!='==' or match.get('left')!={'payload':{'protocol':'tcp','field':'dport'}} or type(match.get('right')) is not int:raise ValueError('handle expression is unsupported')
+                    requested=value(['tcp','dport',str(match['right']),next(iter(expr[1]))])
+                    applied=Path('/etc/confos/rules.nft').read_text().splitlines()[3:]
+                    if applied.count(requested)!=1:raise ValueError('handle has no unique exact applied declaration rule')
+                    # Duplicate native semantic rules cannot establish unique ownership.
+                    equivalent=[e['rule'] for e in document['nftables'] if 'rule' in e and all(e['rule'].get(k)==rule.get(k) for k in ('family','table','chain','expr'))]
+                    if len(equivalent)!=1:raise ValueError('ambiguous native rule expression')
+                matches=[r for r in rows if r[0]=='rule' and r[2]==requested]
+                if len(matches)>1:raise ValueError('ambiguous declaration rule ownership')
+                candidate=original
+                if args[0]=='add' and not matches:
+                    name='nft-'+hashlib.sha256(requested.encode()).hexdigest()[:24]
+                    if any(r[0]=='rule' and r[1]==name for r in rows):raise ValueError('generated name collision')
+                    candidate=original+(b'\n' if original and not original.endswith(b'\n') else b'')+(shlex.join(['rule',name,requested])+'\n').encode()
+                elif args[0]=='delete' and matches:
+                    candidate=b''.join(line for line in original.splitlines(keepends=True) if shlex.split(line.decode(),comments=True)!=matches[0])
+                captured.write_bytes(candidate);assemble.parse(captured)
+                recording.commit(path,original,candidate)
+    except (ValueError,OSError,KeyError,subprocess.CalledProcessError) as error:
+        raise SystemExit('nft: '+str(error))
+    raise SystemExit(0)
+os.environ.clear();os.environ.update(PATH='/usr/bin:/usr/sbin',LC_ALL='C')
+flags=[]
+while args and args[0] in ('-a','--handle','-n','--numeric','-j','--json'):flags.append(args.pop(0))
+if args not in (['list','ruleset'],['list','tables'],['--version'],['-v']):raise SystemExit('nft: unsupported request; supported mutation: add/delete rule inet confos input')
+if args[0]=='list' and os.geteuid()!=0:raise SystemExit('nft: inspection requires root')
+os.execv('/usr/sbin/nft',['nft',*flags,*args])

@@ -169,3 +169,49 @@ was followed by the self-tests then in force.
   path, `Replaces` decides. Test: `selftest/inventory/test.sh` PASS 14:44; `selftest/derive/run.sh` PASS 14:27.
 - 14:29 `compare`: question 3 is asked also while question 2 is open or not observed; routes that only a data route
   offers do not count for an object that a rule decides (Q12). Test: `selftest/specificity/test.sh` PASS 15:27.
+
+## [r1] Tools of the report of complete run 1 — 2026-11-24 20:00–20:10 UTC (no program of the check changed)
+
+- `tools/failing-list.py`: its first line called every run a development run; for a run named `run-N` it now says
+  “Complete run `run-N` of the check”. Nothing else changed. It reads only what a run wrote.
+- `tools/run-report.py` (new): the body of `RUN-1.md`, i.e. the counts by part and outcome, one line per row that is not
+  `pass`, and the `QUESTION` objects with their kind and path. It reads only what a run wrote and uses
+  `tools/ready-summary.py`.
+- Found by complete run 1 in the frozen `run`, NOT repaired (the order of the run): the routes hang on a file that a
+  route runs and that leaves a background process (P4-C9-1, P4-C9-2), and the REPRO-2 account lines state a home that
+  the implementation refuses (REPRO-2a). See `RUN-1.md`.
+
+## [f5] Three defects found by complete run 1 — repaired 2026-11-24 20:12–20:20 UTC, fifth freeze (`run` only)
+
+Each repair has a test that fails on the fourth freeze and passes on the fifth (commands below; both outputs of
+20:20 UTC are in `READY.md`, section 2). They are step 5 of the runner self-test (`selftest/run/selftest.sh`).
+
+- **[f5-a] REPRO-2: account lines that the implementation refuses.** Wrong: `run` (`fam_repro2`) declared the two
+  package accounts with `home=/nonexistent`; the implementation documents homes immediately below `/home`
+  (`build/DECLARATION.md`), and `confos apply` refused the text in complete run 1 (`REPRO-2a` `fail`, `RUN-1.md`). The
+  value had been a home below `/home` until the cleaning of home paths before publication. Now: the lines state no
+  `home=`, and `adapter.py` gives the documented default `/home/NAME`. Test: `selftest/run/check-repro2-accounts.py
+  RUN RELEASE-DIR` calls `fam_repro2` with stubs that only record the lines it adds, renders them with `adapter.py`
+  and gives them to `validate_accounts` of the release's own `assemble.py` (fourth freeze: “account home must be an
+  immediate child of /home”; fifth: accepted).
+- **[f5-b] The routes never ended when a route started a background process.** Wrong: the routes script captured
+  the standard error of each route with `e=$(… 2>&1 >/dev/null)`; a file that a route ran started a background
+  process (`sleep 86413 &` in P4-C9-1, `subprocess.Popen(…)` in P4-C9-2), which kept that pipe open, so the script
+  never ended, the call of the routes timed out over SSH and the file got no route line (`UNROUTED`: six rows
+  `unobserved` in complete run 1). Now: the standard error of each route goes to a file of its own in a temporary
+  folder of the guest (removed when the script ends); the route is over when its own program has ended or `timeout`
+  ended it, and its line is written with its exit status. What the route left running stays running, as before.
+  Test: `selftest/run/check-routes-background.sh RUN` gives the routes script of RUN the two files of the forms of
+  P4-C9-1 and P4-C9-2 under `timeout 120` (fourth freeze: ended by the timeout, no line for `cat-pipe-bash` or
+  `python3-exec`; fifth: ends at once with every route line), and stops the background processes afterwards.
+- **[f5-c] The inventory before the restart of P4-PIPE was a row.** Wrong: the P1 and Understanding comparisons of
+  `P4-PIPE-n-before` were rows, `undecided` by Q4, and the reason text of the Understanding row named D1–D6 instead
+  of Q4. The review decided Q4 (`REVIEW.md`, R6: the case is judged after the restart; the rows before it are
+  records). Now: `Ctx.row` writes them as `P1:P4-PIPE-n-before.record.txt` and `UND:P4-PIPE-n-before.record.txt` in
+  the evidence, with what the comparison gave and R6, and writes no row; the inventory and both comparisons are still
+  made. Every other row is unchanged. Test: `selftest/run/check-before-record.py RUN` (fourth freeze: the two rows are
+  written; fifth: two records, no row, the rows after the restart and of other cases unchanged).
+
+Under R3–R5 nothing else changed: the rows keep their outcome and question; the decisions of the review are applied when the outcomes are assigned.
+Fifth freeze: `run/src11` (`run` `c5f856085f5549bbd9ed6bef18f22e310b15a596db906d0baee8c4bb498e324e`; the other eleven
+program files are byte-identical to the fourth freeze).

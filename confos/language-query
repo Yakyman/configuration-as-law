@@ -12,6 +12,15 @@ person = pwd.getpwuid(os.getuid())
 os.environ.clear()
 os.environ.update(PATH='/usr/local/bin:/usr/bin:/usr/sbin', HOME=person.pw_dir,
                   LC_ALL='C.UTF-8', PYTHONDONTWRITEBYTECODE='1')
+mutation = [a for a in args if a not in ('-g', '--global', '--break-system-packages')]
+if tool in ('pip', 'pip3', 'npm') and mutation and mutation[0] in ('install', 'uninstall'):
+    sys.path.insert(0, '/usr/lib/confos')
+    import language_recording
+    try:
+        language_recording.record('npm' if tool == 'npm' else 'pip', args)
+    except (ValueError, OSError) as error:
+        raise SystemExit(tool+': '+str(error))
+    raise SystemExit(0)
 os.chdir('/')
 refusal = tool+': mutation requires editing the declaration and confos apply'
 if tool in ('pip', 'pip3'):
