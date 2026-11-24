@@ -1,0 +1,1451 @@
+[
+  {
+    "id": "ORDERED-RULES",
+    "passed": true,
+    "required": true,
+    "summary": {
+      "cases": 37,
+      "failed": [],
+      "kind": "rules-selftest-summary",
+      "passed": 37,
+      "scope": "Finite pure rule fixtures; real capability evidence remains separately required"
+    },
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "count": 436,
+    "id": "NATIVE-PACKAGE-CENSUS",
+    "passed": true,
+    "required": true,
+    "uncovered": [],
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 93fa54ea66c84fde4326e3ebd4f36c9e4ccb00feeb6156b59d54a11e56ca45f8\n"
+    },
+    "id": "ADD-v4:objects",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 85ea6e22a7550f5d062bf658b5a8c5c2ac5ee7e54da834acfce40a960acde0b7\n"
+    },
+    "id": "ADD-v4:meta",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS ae2fdbdad284b6730ee13d2503b6857eb4a721571d1e1f955a3d80971b995443\n"
+    },
+    "id": "ADD-v4:noncode",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 8b5167fbbb72e0a677788f4981bf30a4963646b9edc10612c9b0afc9517edf1f\n"
+    },
+    "id": "ADD-v4:printk",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 4781f6067d1dfb48e4c9c8db247e24b01a7f41073cc2c69c4805e78bb75a9e96\n"
+    },
+    "id": "ADD-dev-worker",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS be7cfea0dd23f8cc3469ca9371bffd8647247706fcc2017dd6c0cbef523bc6dd\n"
+    },
+    "id": "ADD-v4:unit-source",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 65e74108aad90330119f1057b283e1096a95ed65ab800aa7ff6eb261208158ae\n"
+    },
+    "id": "ADD-v4:generated-unit",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "PACKAGE-package:stand:v4-objects",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-objects",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [
+        "v4:objects"
+      ],
+      "object": "package:stand:v4-objects",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-objects",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "PACKAGE-package:stand:v4-meta",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:meta",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-meta",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-meta",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [
+        "v4:meta"
+      ],
+      "object": "package:stand:v4-meta",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-meta",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "line": "v4:meta",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-meta",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "PACKAGE-package:stand:v4-noncode",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:noncode",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-noncode",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-noncode",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [
+        "v4:noncode"
+      ],
+      "object": "package:stand:v4-noncode",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-noncode",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "line": "v4:noncode",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-noncode",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "PACKAGE-package:stand:v4-dependency",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:meta",
+          "relation": "derived",
+          "required": {
+            "backend": "stand",
+            "name": "v4-dependency",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [
+        "v4:meta"
+      ],
+      "object": "package:stand:v4-dependency",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "dependency_identity": {
+            "backend": "stand",
+            "name": "v4-dependency",
+            "version": "1"
+          },
+          "line": "v4:meta",
+          "relation": "derived",
+          "required": {
+            "backend": "stand",
+            "name": "v4-dependency",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "FILE-default.conf",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:objects",
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/default.conf",
+            "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+            "uid": 0
+          }
+        },
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/default.conf",
+            "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+            "uid": 0
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": false,
+        "package_member": true,
+        "remains_as_received": true
+      },
+      "kind": "file",
+      "lines": [
+        "v4:objects"
+      ],
+      "object": "/opt/stand/pkgs/v4-objects/default.conf",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/default.conf",
+        "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "line": "v4:objects",
+          "package_default": true,
+          "package_identity": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "version": "1"
+          },
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/default.conf",
+            "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+            "uid": 0
+          }
+        }
+      ],
+      "packages": [],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "id": "FILE-source.py",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:objects",
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        },
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": false,
+        "package_member": true,
+        "remains_as_received": true
+      },
+      "kind": "file",
+      "lines": [
+        "v4:objects"
+      ],
+      "object": "/opt/stand/pkgs/v4-objects/source.py",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.py",
+        "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "line": "v4:objects",
+          "package_default": false,
+          "package_identity": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "version": "1"
+          },
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        }
+      ],
+      "packages": [],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "id": "FILE-copy.py",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:objects",
+          "relation": "derived",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/copy.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        },
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/copy.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": false,
+        "package_member": true,
+        "remains_as_received": true
+      },
+      "kind": "file",
+      "lines": [
+        "v4:objects"
+      ],
+      "object": "/opt/stand/pkgs/v4-objects/copy.py",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/copy.py",
+        "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "derivation": {
+            "algorithm": "copy",
+            "path": "/opt/stand/pkgs/v4-objects/copy.py",
+            "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+          },
+          "line": "v4:objects",
+          "package_default": false,
+          "package_identity": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "version": "1"
+          },
+          "relation": "derived",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/copy.py",
+            "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+            "uid": 0
+          }
+        }
+      ],
+      "packages": [],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "id": "FILE-source.pyc",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:objects",
+          "relation": "derived",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+            "sha256": "e1f7cddac69b3c39f4d91f1194530560a4f7249abb6dedfd97c4656ae70deb0e",
+            "uid": 0
+          }
+        },
+        {
+          "line": "v4:objects",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+            "sha256": "e1f7cddac69b3c39f4d91f1194530560a4f7249abb6dedfd97c4656ae70deb0e",
+            "uid": 0
+          }
+        }
+      ],
+      "facts": {
+        "package_installed": false,
+        "package_member": true,
+        "remains_as_received": true
+      },
+      "kind": "file",
+      "lines": [
+        "v4:objects"
+      ],
+      "object": "/opt/stand/pkgs/v4-objects/source.pyc",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+        "sha256": "e1f7cddac69b3c39f4d91f1194530560a4f7249abb6dedfd97c4656ae70deb0e",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "derivation": {
+            "algorithm": "python-bytecode",
+            "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+            "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+          },
+          "line": "v4:objects",
+          "package_default": false,
+          "package_identity": {
+            "backend": "stand",
+            "name": "v4-objects",
+            "version": "1"
+          },
+          "relation": "derived",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+            "sha256": "e1f7cddac69b3c39f4d91f1194530560a4f7249abb6dedfd97c4656ae70deb0e",
+            "uid": 0
+          }
+        }
+      ],
+      "packages": [],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "id": "CHOSEN-SYSTEM-SETTING",
+    "observation": {
+      "classification": {
+        "category": "setting",
+        "missing": [],
+        "question": 3,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:printk",
+          "relation": "own",
+          "required": {
+            "name": "kernel.printk",
+            "value": "3 4 1 7"
+          }
+        }
+      ],
+      "facts": {
+        "chosen_value": true,
+        "computer_obeys": true,
+        "executable": false,
+        "package_installed": false,
+        "package_member": false,
+        "setting": true
+      },
+      "kind": "setting",
+      "lines": [
+        "v4:printk"
+      ],
+      "object": "sysctl:kernel.printk",
+      "observed": {
+        "name": "kernel.printk",
+        "value": "3 4 1 7"
+      },
+      "origins": [
+        {
+          "line": "v4:printk",
+          "relation": "own",
+          "required": {
+            "name": "kernel.printk",
+            "value": "3 4 1 7"
+          }
+        }
+      ],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "failed": [],
+    "id": "installed-verify",
+    "passed": true,
+    "required": true,
+    "rows": 566,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "actual_file": {
+      "gid": 0,
+      "kind": "file",
+      "mode": 420,
+      "path": "/etc/systemd/system/stand-v4-generated.service",
+      "sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+      "uid": 0
+    },
+    "id": "GENERATED-UNIT",
+    "observation": {
+      "classification": {
+        "category": "setting",
+        "missing": [],
+        "question": 3,
+        "required": true
+      },
+      "coverage": [
+        {
+          "line": "v4:generated-unit",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/etc/systemd/system/stand-v4-generated.service",
+            "sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+            "uid": 0
+          }
+        }
+      ],
+      "facts": {
+        "executable": false,
+        "package_installed": false,
+        "package_member": false,
+        "remains_as_received": false,
+        "setting": true
+      },
+      "kind": "file",
+      "lines": [
+        "v4:generated-unit"
+      ],
+      "object": "/etc/systemd/system/stand-v4-generated.service",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/etc/systemd/system/stand-v4-generated.service",
+        "sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "derivation": {
+            "algorithm": "copy",
+            "path": "/etc/systemd/system/stand-v4-generated.service",
+            "source_path": "/opt/stand/pkgs/v4-unit/source.service"
+          },
+          "line": "v4:generated-unit",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/etc/systemd/system/stand-v4-generated.service",
+            "sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+            "uid": 0
+          },
+          "source_line": "v4:unit-source"
+        }
+      ],
+      "packages": [],
+      "status": "covered"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C6.5",
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 64,
+      "stderr": "",
+      "stdout": "REFUSED systemctl: use stand-line add LINE.json or a supported pinned artifact operation\n"
+    },
+    "id": "UNDECLARED-GENERATOR",
+    "passed": true,
+    "required": true,
+    "scope": "supplied manager path only",
+    "variants": [
+      "C6.5"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "RECORDED-BYTECODE\nDEFAULT-LANGUAGE:en\n"
+    },
+    "default_consumer": "recorded source reads its received language value without execution of that value",
+    "id": "BYTECODE-RUN",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "C8.08"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    "id": "LOOSE-NONCODE-COPY",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 1,
+      "stderr": "bash: line 1: /opt/stand/pkgs/v4-objects/default.conf: Permission denied\n",
+      "stdout": ""
+    },
+    "id": "DEFAULT-WRITE",
+    "passed": true,
+    "readback_unchanged": true,
+    "required": true,
+    "variants": [
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 1,
+      "stderr": "bash: line 1: /proc/sys/kernel/printk: Permission denied\n",
+      "stdout": ""
+    },
+    "id": "SYSTEM-VALUE-WRITE",
+    "passed": true,
+    "readback_unchanged": true,
+    "required": true,
+    "variants": [
+      "C8.08",
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 1,
+      "stderr": "",
+      "stdout": "FAILED restored previous declaration: derived output differs from source algorithm\n"
+    },
+    "id": "FALSE-DERIVATION",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.18",
+      "M5.01"
+    ]
+  },
+  {
+    "classification": "breaking",
+    "id": "BREAKING-READBACK",
+    "observation": {
+      "files": [
+        {
+          "gid": 0,
+          "kind": "file",
+          "mode": 384,
+          "path": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+          "sha256": "51b593619ac4aa9576d14d89129503372158a8691cdc5638225441e18cfa99e9",
+          "uid": 0
+        }
+      ],
+      "package_identity": {
+        "backend": "stand",
+        "name": "v4-noncode",
+        "status": "installed",
+        "version": "1"
+      },
+      "source": "fixture:round-2",
+      "version": "1"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "candidate_applied": false,
+    "id": "MISSING-OWNER-package:stand:v4-meta",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-meta",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [],
+      "object": "package:stand:v4-meta",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-meta",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "line": "v4:meta",
+          "relation": "own",
+          "required": {
+            "backend": "stand",
+            "name": "v4-meta",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "unrecorded"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "candidate_applied": false,
+    "id": "MISSING-OWNER-package:stand:v4-dependency",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [],
+      "facts": {
+        "package_installed": true
+      },
+      "identity": {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "version": "1"
+      },
+      "kind": "package",
+      "lines": [],
+      "object": "package:stand:v4-dependency",
+      "observed": {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "status": "installed",
+        "version": "1"
+      },
+      "origins": [
+        {
+          "dependency_identity": {
+            "backend": "stand",
+            "name": "v4-dependency",
+            "version": "1"
+          },
+          "line": "v4:meta",
+          "relation": "derived",
+          "required": {
+            "backend": "stand",
+            "name": "v4-dependency",
+            "status": "installed",
+            "version": "1"
+          }
+        }
+      ],
+      "status": "unrecorded"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "candidate_applied": false,
+    "id": "MISSING-OWNER-/opt/stand/pkgs/v4-noncode/lookup.txt",
+    "observation": {
+      "classification": {
+        "category": "installed object",
+        "missing": [],
+        "question": 1,
+        "required": true
+      },
+      "coverage": [],
+      "facts": {
+        "package_installed": false,
+        "package_member": true,
+        "remains_as_received": true
+      },
+      "kind": "file",
+      "lines": [],
+      "object": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+      "observed": {
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+        "sha256": "5d4f0c6a7441ec3302dfd4b081759ea6bc0dbfaa02edd450b962b8b302e2d5fb",
+        "uid": 0
+      },
+      "origins": [
+        {
+          "line": "v4:noncode",
+          "package_default": false,
+          "package_identity": {
+            "backend": "stand",
+            "name": "v4-noncode",
+            "version": "1"
+          },
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+            "sha256": "5d4f0c6a7441ec3302dfd4b081759ea6bc0dbfaa02edd450b962b8b302e2d5fb",
+            "uid": 0
+          }
+        }
+      ],
+      "packages": [],
+      "status": "unrecorded"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "Ordinary document\n"
+    },
+    "id": "PERSONAL-VALUES",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C8.08"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "UNCOVERED-BYTECODE\n"
+    },
+    "id": "UNRECORDED-BYTECODE",
+    "passed": false,
+    "report_unchanged": true,
+    "required": false,
+    "variants": [
+      "C7.18"
+    ]
+  },
+  {
+    "actual_file": {
+      "gid": 1000,
+      "kind": "file",
+      "mode": 420,
+      "path": "/home/stand/extracted/program.py",
+      "sha256": "1fcc2cdc1f315667b8c461e17529a3acc524e3bdee5c38ba4e0c9e9f6a573f86",
+      "uid": 1000
+    },
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "EXTRACTED-CODE\n"
+    },
+    "id": "EXTRACTED-CODE",
+    "passed": false,
+    "report_unchanged": true,
+    "required": false,
+    "variants": [
+      "C1.3"
+    ]
+  },
+  {
+    "id": "ALT-FIXTURE",
+    "output": "dpkg-deb: building package 'v4-alt' in '/tmp/v4-alt.deb'.\n",
+    "passed": true,
+    "required": true,
+    "stderr": "",
+    "variants": [
+      "C1.3"
+    ]
+  },
+  {
+    "boundary_result": "failed",
+    "classification": "built-in-tool path",
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "Selecting previously unselected package v4-alt.\n(Reading database ... 0 files and directories currently installed.)\nPreparing to unpack /tmp/v4-alt.deb ...\nUnpacking v4-alt (1) ...\nSetting up v4-alt (1) ...\n"
+    },
+    "file_readback": {
+      "gid": 0,
+      "kind": "file",
+      "mode": 420,
+      "path": "/tmp/v4-alt-root/usr/share/v4-alt/data.txt",
+      "sha256": "455e9a74a4e72379a60dc65006cfb7701c20f55e6523ec2297b9ff3be1eeb53f",
+      "uid": 0
+    },
+    "id": "ALTERNATE-DATABASE",
+    "package_readback": "install ok installed 1",
+    "passed": false,
+    "report_unchanged": true,
+    "required": false,
+    "variants": [
+      "C1.3"
+    ]
+  },
+  {
+    "id": "RUNTIME-NO-SEPARATE-LINE",
+    "observation": {
+      "classification": {
+        "category": "runtime",
+        "creator": null,
+        "creator_status": "FACT_UNKNOWN",
+        "missing": [],
+        "question": "S8.2-5",
+        "required": false
+      },
+      "coverage": [],
+      "creator_coverage": "FACT_UNKNOWN",
+      "facts": {
+        "runtime_only": true
+      },
+      "kind": "port",
+      "lines": [],
+      "object": "tcp:127.0.0.1:50941",
+      "observed": {
+        "listening": true
+      },
+      "status": "diagnostic"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "C7.25"
+    ]
+  },
+  {
+    "id": "UNKNOWN-DOES-NOT-COVER",
+    "passed": true,
+    "required": true,
+    "unknown_count": 65877,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 1,
+      "stderr": "",
+      "stdout": "FAILED restored previous declaration: unsupported line type algorithm\n"
+    },
+    "id": "UNSUPPORTED-ALGORITHM",
+    "passed": true,
+    "required": true,
+    "scope": "finite format only",
+    "variants": [
+      "M5.02"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS d398cdfa738ee93a1e283ce1295f871872b47970a0724ef21e77e491904c46c2\n"
+    },
+    "id": "ADD-v4:printk",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 165bf120061ad3a46c5d0d442a45aab888768ffdd12dd607fcf1713183662567\n"
+    },
+    "id": "REMOVE-v4:generated-unit",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 4a94f00b1bd173f1f3dd3899d2b648bf59283236d118561a1b5d52a85d32efbb\n"
+    },
+    "id": "REMOVE-v4:unit-source",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 6990f46e0fc7279dad3b00f78543e6ffd192d77d3d59d0307c302e2058601c3f\n"
+    },
+    "id": "REMOVE-dev-worker",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS ae2fdbdad284b6730ee13d2503b6857eb4a721571d1e1f955a3d80971b995443\n"
+    },
+    "id": "REMOVE-v4:printk",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 85ea6e22a7550f5d062bf658b5a8c5c2ac5ee7e54da834acfce40a960acde0b7\n"
+    },
+    "id": "REMOVE-v4:noncode",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS 93fa54ea66c84fde4326e3ebd4f36c9e4ccb00feeb6156b59d54a11e56ca45f8\n"
+    },
+    "id": "REMOVE-v4:meta",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "command": {
+      "exit": 0,
+      "stderr": "",
+      "stdout": "SUCCESS a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7\n"
+    },
+    "id": "REMOVE-v4:objects",
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "REMOVAL-package:stand:v4-meta",
+    "observation": null,
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "REMOVAL-package:stand:v4-dependency",
+    "observation": null,
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "REMOVAL-/opt/stand/pkgs/v4-noncode/lookup.txt",
+    "observation": null,
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "REMOVAL-/opt/stand/pkgs/v4-objects/source.pyc",
+    "observation": null,
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "id": "LOOSE-COPY-NO-PACKAGE-MEMBERSHIP",
+    "interpretation": "Observed copy is material by known fixture provenance; autonomous reader remains conservative",
+    "observation": {
+      "classification": {
+        "category": "FACT_UNKNOWN",
+        "missing": [
+          "executable"
+        ],
+        "question": null,
+        "required": null
+      },
+      "coverage": [],
+      "facts": {
+        "package_installed": false,
+        "package_member": false
+      },
+      "kind": "file",
+      "lines": [],
+      "object": "/home/stand/loose-lookup.txt",
+      "observed": {
+        "gid": 1000,
+        "kind": "file",
+        "mode": 420,
+        "path": "/home/stand/loose-lookup.txt",
+        "sha256": "5d4f0c6a7441ec3302dfd4b081759ea6bc0dbfaa02edd450b962b8b302e2d5fb",
+        "uid": 1000
+      },
+      "packages": [],
+      "status": "FACT_UNKNOWN"
+    },
+    "passed": true,
+    "required": true,
+    "variants": [
+      "M5.01"
+    ]
+  },
+  {
+    "failed": [],
+    "id": "final-verify",
+    "passed": true,
+    "required": true,
+    "rows": 559,
+    "variants": [
+      "M5.01"
+    ]
+  }
+]

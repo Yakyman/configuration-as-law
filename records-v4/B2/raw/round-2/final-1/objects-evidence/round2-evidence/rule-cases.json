@@ -1,0 +1,628 @@
+[
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "unknown-q1-blocks-known-code",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "package_installed/package_member/remains_as_received"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "unknown-unchanged-blocks-material",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "package_installed/package_member/remains_as_received"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "installed object",
+      "question": 1,
+      "required": true
+    },
+    "name": "package-first-over-contained-code",
+    "observed": {
+      "category": "installed object",
+      "missing": [],
+      "question": 1,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "installed object",
+      "question": 1,
+      "required": true
+    },
+    "name": "package-first-over-cache",
+    "observed": {
+      "category": "installed object",
+      "missing": [],
+      "question": 1,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "installed object",
+      "question": 1,
+      "required": true
+    },
+    "name": "dependency-only-package",
+    "observed": {
+      "category": "installed object",
+      "missing": [],
+      "question": 1,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "material",
+      "question": 4,
+      "required": false
+    },
+    "name": "changed-package-member-falls-through",
+    "observed": {
+      "category": "material",
+      "missing": [],
+      "question": 4,
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "unknown-executable-blocks-material",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "executable"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program",
+      "question": 2,
+      "required": true
+    },
+    "name": "actual-own-process",
+    "observed": {
+      "category": "program",
+      "missing": [],
+      "question": 2,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "contained code",
+      "question": 2,
+      "required": false
+    },
+    "name": "contained-code-all-capabilities",
+    "observed": {
+      "category": "contained code",
+      "clarification": "S8.2-21",
+      "missing": [],
+      "question": 2,
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program",
+      "question": 2,
+      "required": true
+    },
+    "name": "can-launch-is-not-contained",
+    "observed": {
+      "category": "program",
+      "missing": [],
+      "question": 2,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program",
+      "question": 2,
+      "required": true
+    },
+    "name": "can-change-installed-is-not-contained",
+    "observed": {
+      "category": "program",
+      "missing": [],
+      "question": 2,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "unknown-settings-capability",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "cannot_change_settings"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program",
+      "question": 2,
+      "required": true
+    },
+    "name": "own-process-over-contained-claim",
+    "observed": {
+      "category": "program",
+      "missing": [],
+      "question": 2,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "setting",
+      "question": 3,
+      "required": true
+    },
+    "name": "chosen-system-value",
+    "observed": {
+      "category": "setting",
+      "missing": [],
+      "question": 3,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "setting",
+      "question": 3,
+      "required": true
+    },
+    "name": "personal-launch-setting",
+    "observed": {
+      "category": "setting",
+      "missing": [],
+      "question": 3,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "setting",
+      "question": 3,
+      "required": true
+    },
+    "name": "personal-access-setting",
+    "observed": {
+      "category": "setting",
+      "missing": [],
+      "question": 3,
+      "required": true
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program record",
+      "question": 3,
+      "required": false
+    },
+    "name": "personal-values-person-created",
+    "observed": {
+      "category": "program record",
+      "clarification": "S8.2-14",
+      "missing": [],
+      "question": 3,
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "personal-values-unknown-access",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "chosen_value/computer_obeys/personal_program_value/launches/grants_access"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "material",
+      "question": 4,
+      "required": false
+    },
+    "name": "material-after-earlier-negatives",
+    "observed": {
+      "category": "material",
+      "missing": [],
+      "question": 4,
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "program record",
+      "question": 4,
+      "required": false
+    },
+    "name": "program-record-after-earlier-negatives",
+    "observed": {
+      "category": "program record",
+      "missing": [],
+      "question": 4,
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "FACT_UNKNOWN",
+      "question": null,
+      "required": null
+    },
+    "name": "unknown-setting-blocks-record",
+    "observed": {
+      "category": "FACT_UNKNOWN",
+      "missing": [
+        "chosen_value/computer_obeys/personal_program_value/launches/grants_access"
+      ],
+      "question": null,
+      "required": null
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "category": "runtime",
+      "question": "S8.2-5",
+      "required": false
+    },
+    "name": "runtime-without-creator",
+    "observed": {
+      "category": "runtime",
+      "creator": null,
+      "creator_status": "FACT_UNKNOWN",
+      "missing": [],
+      "question": "S8.2-5",
+      "required": false
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "name": "own-exact-program",
+    "observed": {
+      "coverage": [
+        {
+          "line": "fixture",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/fixture/object",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "uid": 0
+          }
+        }
+      ],
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "name": "derived-exact-program",
+    "observed": {
+      "coverage": [
+        {
+          "line": "fixture",
+          "relation": "derived",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/fixture/object",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "uid": 0
+          }
+        }
+      ],
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "name": "package-exact-installed",
+    "observed": {
+      "coverage": [
+        {
+          "line": "fixture",
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/fixture/object",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "uid": 0
+          }
+        }
+      ],
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "mismatch"
+    },
+    "name": "changed-content-mismatch",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "mismatch"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "mismatch"
+    },
+    "name": "changed-mode-mismatch",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "mismatch"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "mismatch"
+    },
+    "name": "unverified-path-does-not-cover",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "mismatch"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "FACT_UNKNOWN"
+    },
+    "name": "unknown-never-covered",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "FACT_UNKNOWN"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "name": "own-setting",
+    "observed": {
+      "coverage": [
+        {
+          "line": "fixture",
+          "relation": "own",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/fixture/object",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "uid": 0
+          }
+        }
+      ],
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "mismatch"
+    },
+    "name": "derived-setting-not-permitted",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "mismatch"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "mismatch"
+    },
+    "name": "package-setting-needs-default-proof",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "mismatch"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "name": "package-default-setting",
+    "observed": {
+      "coverage": [
+        {
+          "line": "fixture",
+          "relation": "package",
+          "required": {
+            "gid": 0,
+            "kind": "file",
+            "mode": 420,
+            "path": "/opt/stand/pkgs/fixture/object",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "uid": 0
+          }
+        }
+      ],
+      "lines": [
+        "fixture"
+      ],
+      "status": "covered"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "not-required"
+    },
+    "name": "material-without-line",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "not-required"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "diagnostic"
+    },
+    "name": "runtime-without-line",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "diagnostic"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "diagnostic"
+    },
+    "name": "runtime-line-does-not-create-duty",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "diagnostic"
+    },
+    "pass_": true
+  },
+  {
+    "expected": {
+      "lines": [],
+      "status": "unrecorded"
+    },
+    "name": "missing-program-line",
+    "observed": {
+      "coverage": [],
+      "lines": [],
+      "status": "unrecorded"
+    },
+    "pass_": true
+  }
+]

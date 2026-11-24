@@ -1,0 +1,48 @@
+{
+  "retrieved_utc": "2026-11-23T12:37:19.380193+00:00",
+  "metadata_url": "https://addons.mozilla.org/api/v5/addons/addon/clearurls/",
+  "source_record": {
+    "id": "{<REDACTED>}",
+    "version": "1.28.0",
+    "url": "https://addons.mozilla.org/firefox/downloads/file/5286652/clearurls-1.28.0.xpi",
+    "hash": "sha256:693601ba1f21c6940374f76acc2dd4bd3201869b0fe10ab1b927b593ee2508d1"
+  },
+  "source_record_length": 252,
+  "source_record_sha256": "0ce70004995d7a983433d881ceafa12d6dbaf54db63af6bfb216337bc5f01810",
+  "xpi_length": 1226057,
+  "xpi_sha256": "693601ba1f21c6940374f76acc2dd4bd3201869b0fe10ab1b927b593ee2508d1",
+  "xpi_prefix4096_sha256": "af66ff20482b867da5f670e384f9f3ec025ffeddec6a269a5ae7c315c4a8f036",
+  "manifest_version": "1.28.0",
+  "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "unlimitedStorage",
+    "contextMenus",
+    "webNavigation",
+    "tabs",
+    "downloads"
+  ],
+  "optional_permissions": [],
+  "background": {
+    "scripts": [
+      "browser-polyfill.js",
+      "core_js/utils/Multimap.js",
+      "core_js/utils/URLHashParams.js",
+      "core_js/utils/decodeRedirectTarget.js",
+      "core_js/message_handler.js",
+      "external_js/ip-range-check.js",
+      "core_js/tools.js",
+      "core_js/badgedHandler.js",
+      "core_js/pureCleaning.js",
+      "core_js/context_menu.js",
+      "core_js/historyListener.js",
+      "clearurls.js",
+      "core_js/storage.js",
+      "core_js/watchdog.js",
+      "core_js/eTagFilter.js"
+    ]
+  },
+  "evidence": "D1/in/raw/{alma,void}/raw/0004-filesystem.out; full source-record digest and XPI size/prefix match; action validates full XPI digest before permanent installation"
+}

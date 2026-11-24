@@ -1,0 +1,74 @@
+
+ * IMPORTANT: 26 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+
+Calculating dependencies ... done!
+Dependency resolution took 0.30 s (backtrack: 0/20).
+
+
+>>> Verifying ebuild manifests
+
+>>> Emerging (1 of 1) app-text/tree-2.2.1::gentoo
+>>> Downloading 'http://distfiles.gentoo.org/distfiles/63/unix-tree-2.2.1.tar.bz2'
+--2026-11-23 16:13:53--  http://distfiles.gentoo.org/distfiles/63/unix-tree-2.2.1.tar.bz2
+Resolving distfiles.gentoo.org... 109.61.92.51, 109.61.92.53, 109.61.92.56, ...
+Connecting to distfiles.gentoo.org|109.61.92.51|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 56345 (55K) [application/x-bzip2]
+Saving to: '/var/cache/distfiles/unix-tree-2.2.1.tar.bz2.__download__'
+
+     0K .......... .......... .......... .......... .......... 90%  499K 0s
+    50K .....                                                 100%  873K=0.1s
+
+2026-11-23 16:13:54 (519 KB/s) - '/var/cache/distfiles/unix-tree-2.2.1.tar.bz2.__download__' saved [56345/56345]
+
+[32m * [39;49;00munix-tree-2.2.1.tar.bz2 BLAKE2B SHA512 size ;-) ...                   [34;01m[ [39;49;00m[32;01mok[39;49;00m[34;01m ][39;49;00m
+>>> Unpacking source...
+>>> Unpacking 'unix-tree-2.2.1.tar.bz2' to /var/tmp/portage/app-text/tree-2.2.1/work
+>>> Source unpacked in /var/tmp/portage/app-text/tree-2.2.1/work
+>>> Preparing source in /var/tmp/portage/app-text/tree-2.2.1/work/unix-tree-2.2.1 ...
+>>> Source prepared.
+>>> Configuring source in /var/tmp/portage/app-text/tree-2.2.1/work/unix-tree-2.2.1 ...
+>>> Source configured.
+>>> Compiling source in /var/tmp/portage/app-text/tree-2.2.1/work/unix-tree-2.2.1 ...
+make -j8 
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o tree.o tree.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o list.o list.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o hash.o hash.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o color.o color.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o file.o file.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o filter.o filter.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o info.o info.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o unix.o unix.c
+[01m[Ktree.c:[m[K In function ‘[01m[Kpatmatch[m[K’:
+[01m[Ktree.c:1196:15:[m[K [01;35m[Kwarning: [m[Kinitialization discards ‘[01m[Kconst[m[K’ qualifier from pointer target type [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-16.2.0/gcc/Warning-Options.html#index-Wdiscarded-qualifiers-Wdiscarded-qualifiers]8;;[m[K]
+ 1196 |   char *bar = [01;35m[Kstrchr[m[K(pat, '|');
+      |               [01;35m[K^~~~~~[m[K
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o xml.o xml.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o json.o json.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o html.o html.c
+x86_64-pc-linux-gnu-gcc -O2 -pipe -std=c11 -Wpedantic -Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion -DLARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c -o strverscmp.o strverscmp.c
+x86_64-pc-linux-gnu-gcc -Wl,-O1 -Wl,--as-needed -Wl,-z,pack-relative-relocs -o tree tree.o list.o hash.o color.o file.o filter.o info.o unix.o xml.o json.o html.o strverscmp.o
+>>> Source compiled.
+>>> Test phase [not enabled]: app-text/tree-2.2.1
+
+>>> Install app-text/tree-2.2.1 into /var/tmp/portage/app-text/tree-2.2.1/image
+>>> Completed installing app-text/tree-2.2.1 into /var/tmp/portage/app-text/tree-2.2.1/image
+
+ [32m*[0m Final size of build directory: 572 KiB
+ [32m*[0m Final size of installed tree:  192 KiB
+
+strip: x86_64-pc-linux-gnu-strip --strip-unneeded -N __gentoo_check_ldflags__ -R .comment -R .GCC.command.line -R .note.gnu.gold-version
+   /usr/bin/tree
+
+>>> Installing (1 of 1) app-text/tree-2.2.1::gentoo
+
+>>> Recording app-text/tree in "world" favorites file...
+
+>>> Completed (1 of 1) app-text/tree-2.2.1::gentoo
+
+ * GNU info directory index is up-to-date.
+
+ * IMPORTANT: 26 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+

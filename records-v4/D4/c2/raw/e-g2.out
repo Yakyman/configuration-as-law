@@ -1,0 +1,34 @@
+$ lab.sh run d4c2-guix --root --timeout 600 < e-g2.sh
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+For security reasons, the password you type will not be visible.
+
+== date
+2026-11-23T11:20:06Z
+== release
+guix (GNU Guix) 1.5.0
+/gnu/store/7w6pasllhkybg8ivwqy33bbg845w6yl4-system
+== declaration line
+/etc/config.scm
+20:                (supplementary-groups '("wheel" "netdev")))
+== id before
+users wheel netdev
+== gpasswd -d user wheel
+/run/current-system/profile/bin/gpasswd
+Removing user user from group wheel
+status=0
+== id after gpasswd
+users netdev
+== restore
+Adding user user to group wheel
+status=0
+users wheel netdev
+== date
+2026-11-23T11:20:06Z
+runner-status=0

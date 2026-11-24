@@ -1,0 +1,3036 @@
+boost-license1_92_0
+(none)
+(none)
+compat-usrmerge-tools
+(none)
+(none)
+crypto-policies
+(none)
+if not posix.access("/etc/crypto-policies/config") then
+    local policy = "DEFAULT"
+    local cf = io.open("/proc/sys/crypto/fips_enabled", "r")
+    if cf then
+        if cf:read() == "1" then
+            policy = "FIPS"
+        end
+        cf:close()
+    end
+    cf = io.open("/etc/crypto-policies/config", "w")
+    if cf then
+        cf:write(policy.."\n")
+        cf:close()
+    end
+    cf = io.open("/etc/crypto-policies/state/current", "w")
+    if cf then
+        cf:write(policy.."\n")
+        cf:close()
+    end
+    local policypath = "/usr/share/crypto-policies/"..policy
+    for fn in posix.files(policypath) do
+        if fn ~= "." and fn ~= ".." then
+            local backend = fn:gsub(".*/", ""):gsub("%..*", "")
+            local cfgfn = "/etc/crypto-policies/back-ends/"..backend..".config"
+            posix.unlink(cfgfn)
+            posix.symlink(policypath.."/"..fn, cfgfn)
+        end
+    end
+end
+
+cfg_path_libreswan = "/etc/crypto-policies/back-ends/libreswan.config"
+st = posix.stat(cfg_path_libreswan)
+if st and st.type == "link" then
+   posix.unlink(cfg_path_libreswan)
+end
+
+cfg_path_javasystem = "/etc/crypto-policies/back-ends/javasystem.config"
+st = posix.stat(cfg_path_javasystem)
+if st and st.type == "link" then
+   posix.unlink(cfg_path_javasystem)
+end
+
+cfg_path_opensslconfig = "/etc/crypto-policies/back-ends/openssl.config"
+st = posix.stat(cfg_path_opensslconfig)
+if st and st.type == "link" then
+   posix.unlink(cfg_path_opensslconfig)
+end
+system-user-root
+if not posix.access("/etc", "f") then
+  posix.mkdir("/etc")
+end
+if not posix.access("/etc/passwd", "f") then
+  file = io.open("/etc/passwd", "a+")
+  file:write("root:x:0:0:root:/root:/bin/bash\n")
+  file:close()
+  posix.chmod("/etc/passwd", 0644)
+end
+if not posix.access("/etc/group", "f") then
+  file = io.open("/etc/group", "a+")
+  file:write("root:x:0:\nshadow:x:15:\ntrusted:x:42:\nusers:x:100:\n")
+  file:close()
+  posix.chmod("/etc/group", 0644)
+end
+if not posix.access("/etc/shadow", "f") then
+  file = io.open("/etc/shadow", "a+")
+  local date = os.time()
+  date = math.floor(date / 86400)
+  file:write("root:*:", date, "::::::\n")
+  file:close()
+  posix.chown("/etc/shadow", 0, 15)
+  posix.chmod("/etc/shadow", 0640)
+end
+(none)
+filesystem
+needmigrate = false
+local dirs = {"/bin",
+  "/sbin",
+  "/lib64",
+  "/lib" }
+for i in pairs(dirs) do
+  local t = posix.stat(dirs[i], "type")
+  if t == nil then
+    posix.symlink("usr"..dirs[i], dirs[i])
+  elseif t == "directory" then
+    needmigrate = true
+  end
+end
+if needmigrate then
+  if posix.getenv("ZYPP_SINGLE_RPMTRANS") == "1" then
+    print("Warning: UsrMerge executed in single transcation mode")
+    if not posix.stat("/usr/lib/rpm/lua/usrmerge.lua") then
+      error("ERROR: compat-usrmerge file triggers not installed.\n!!! This will go horribly wrong. You need a rescue system now !!!")
+    end
+    rpm.define("_filesystem_need_posttrans_convertfs 1")
+  else
+    assert(os.execute("/usr/libexec/convertfs"))
+  end
+end
+
+(none)
+glibc
+(none)
+exec = rpm.execute
+
+-- First, get rid of platform-optimized libraries. We remove any we have
+-- ever built, since otherwise we might end up using some old leftover
+-- libraries when new ones aren't installed in their place anymore.
+libraries = { "libc.so.6", "libc.so.6.1", "libm.so.6", "libm.so.6.1",
+	      "librt.so.1", "libpthread.so.0", "libthread_db.so.1" }
+remove_dirs = {
+  "/usr/lib64/tls/"
+}
+for i, remove_dir in ipairs(remove_dirs) do
+  for j, library in ipairs(libraries) do
+    local file = remove_dir .. library
+    -- This file could be a symlink to library-2.44.so, so check
+    -- this and don't remove only the link, but also the library itself.
+    local link = posix.readlink(file)
+    if link then
+      if link:sub(1, 1) ~= "/" then link = remove_dir .. link end
+      os.remove(link)
+    end
+    os.remove(file)
+  end
+end
+if posix.access("/usr/sbin/ldconfig", "x") then
+  exec("/usr/sbin/ldconfig", "-X")
+end
+if posix.utime("/usr/lib64/gconv/gconv-modules.cache") then
+  exec("/usr/sbin/iconvconfig", "-o", "/usr/lib64/gconv/gconv-modules.cache",
+       "--nostdlib", "/usr/lib64/gconv")
+end
+libzstd1
+(none)
+(none)
+libz1
+(none)
+(none)
+libxml2-16
+(none)
+(none)
+libverto1
+(none)
+(none)
+libunistring5
+(none)
+(none)
+libudev1
+(none)
+(none)
+libtasn1-6
+(none)
+(none)
+libsqlite3-0
+(none)
+(none)
+libsasl2-3
+(none)
+(none)
+libpopt0
+(none)
+(none)
+libpcre2-8-0
+(none)
+(none)
+libnpth0
+(none)
+(none)
+libngtcp2-16
+(none)
+(none)
+libnghttp3-9
+(none)
+(none)
+libnghttp2-14
+(none)
+(none)
+libncurses6
+(none)
+(none)
+terminfo-base
+(none)
+(none)
+liblzma5
+(none)
+(none)
+liblua5_4-5
+(none)
+(none)
+libkeyutils1
+(none)
+(none)
+libjitterentropy3
+(none)
+(none)
+libgpg-error0
+(none)
+(none)
+libgmp10
+(none)
+(none)
+libgcc_s1
+(none)
+(none)
+libffi8
+(none)
+(none)
+libfa1
+(none)
+(none)
+libcom_err2
+(none)
+(none)
+libcap2
+(none)
+(none)
+libbz2-1
+(none)
+(none)
+libbrotlicommon1
+(none)
+(none)
+libattr1
+(none)
+(none)
+libacl1
+(none)
+(none)
+glibc-locale-base
+(none)
+(none)
+fillup
+(none)
+(none)
+libidn2-0
+(none)
+(none)
+libusb-1_0-0
+(none)
+(none)
+libselinux1
+(none)
+(none)
+libglib-2_0-0
+(none)
+(none)
+libreadline8
+(none)
+(none)
+libksba8
+(none)
+(none)
+libgcrypt20
+(none)
+(none)
+libassuan9
+(none)
+(none)
+libmpfr6
+(none)
+(none)
+libstdc++6
+(none)
+(none)
+libp11-kit0
+(none)
+(none)
+libaugeas0
+(none)
+(none)
+libbrotlidec1
+(none)
+(none)
+libpsl5
+(none)
+(none)
+bash
+(none)
+(none)
+bash-sh
+(none)
+(none)
+libyaml-cpp0_9
+(none)
+(none)
+libsigc-2_0-0
+(none)
+(none)
+libboost_thread1_92_0
+(none)
+(none)
+p11-kit
+(none)
+(none)
+p11-kit-tools
+(none)
+(none)
+pinentry
+(none)
+(none)
+libssh-config
+test -f /etc/libssh/libssh_server.config.rpmsave && mv -v /etc/libssh/libssh_server.config.rpmsave /etc/libssh/libssh_server.config.rpmsave.old ||:
+test -f /etc/libssh/libssh_client.config.rpmsave && mv -v /etc/libssh/libssh_client.config.rpmsave /etc/libssh/libssh_client.config.rpmsave.old ||:
+(none)
+hostname
+(none)
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units nis-domainname.service || :	
+fi
+gzip
+(none)
+(none)
+gawk
+(none)
+(none)
+coreutils
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+gpg2
+(none)
+:
+rpm-config-SUSE
+(none)
+(none)
+rpm
+(none)
+
+    PNAME=services 
+    SUBPNAME=-rpm 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi
+ca-certificates
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units ca-certificates.path ca-certificates.service ca-certificates-setup.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units ca-certificates.path ca-certificates.service ca-certificates-setup.service || :	
+fi
+ca-certificates-mozilla
+(none)
+update-ca-certificates || true
+libgpgme45
+(none)
+(none)
+libsolv-tools-base
+(none)
+(none)
+libopenssl3
+(none)
+
+	
+:										
+
+/sbin/ldconfig
+openssl
+(none)
+(none)
+openssl-3
+(none)
+if [ "$1" -gt 1 ] ; then
+    # Check if the packaged default config file for openssl-3, called openssl.cnf,
+    # is the original or if it has been modified and alert the user in that case
+    # that a copy of the original file openssl-orig.cnf can be used if needed.
+    cmp --silent /etc/ssl/openssl.cnf /etc/ssl/openssl-orig.cnf 2>/dev/null
+    if [ "$?" -eq 1 ] ; then
+        echo -e " The openssl-3 default config file openssl.cnf is different from" ;
+        echo -e " the original one shipped by the package. A copy of the original" ;
+        echo -e " file is packaged and named as openssl-orig.cnf if needed."
+    fi
+fi
+libzck1
+(none)
+(none)
+libngtcp2_crypto_ossl0
+(none)
+(none)
+libldap2
+(none)
+(none)
+krb5
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in krb5.conf ; do
+     test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+/sbin/ldconfig
+libssh4
+(none)
+(none)
+libcurl4
+(none)
+(none)
+libzypp
+test -f /etc/logrotate.d/zypp-history.lr.rpmsave && mv -v /etc/logrotate.d/zypp-history.lr.rpmsave /etc/logrotate.d/zypp-history.lr.rpmsave.old ||:
+test -f /etc/zypp/zypp.conf.rpmsave && mv -v /etc/zypp/zypp.conf.rpmsave /etc/zypp/zypp.conf.rpmsave.old ||:
+(none)
+zypper
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in logrotate.d/zypper.lr logrotate.d/zypp-refresh.lr; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+(none)
+bc
+(none)
+(none)
+branding-openSUSE
+(none)
+(none)
+btrfsprogs-udev-rules
+(none)
+(none)
+combustion
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+cpio
+(none)
+
+   : # install_info deprecated in favor of file triggers
+cracklib-dict-small
+(none)
+(none)
+curl
+(none)
+(none)
+dbus-broker-block-restart
+(none)
+(none)
+diffutils
+(none)
+(none)
+dosfstools
+(none)
+(none)
+envsubst
+(none)
+(none)
+file-magic
+(none)
+(none)
+findutils
+(none)
+(none)
+grep
+(none)
+(none)
+health-checker-plugins-MicroOS
+(none)
+(none)
+health-checker
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units health-checker.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units health-checker.service || :	
+fi										
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+hicolor-icon-theme
+(none)
+(none)
+libaio1
+(none)
+(none)
+libalternatives1
+(none)
+(none)
+libaudit1
+(none)
+(none)
+libbluetooth3
+(none)
+(none)
+libboost_filesystem1_92_0
+(none)
+(none)
+libbtrfs0
+(none)
+(none)
+libbtrfsutil1
+(none)
+(none)
+libcap-ng0
+(none)
+(none)
+libcbor0_14
+(none)
+(none)
+libcrypt1
+(none)
+(none)
+libdevmapper1_03
+(none)
+/sbin/ldconfig
+libdialog15
+(none)
+(none)
+libduktape207
+(none)
+(none)
+libeconf0
+(none)
+(none)
+libedit0
+(none)
+(none)
+libefivar1
+(none)
+(none)
+libelf1
+(none)
+(none)
+libexpat1
+(none)
+(none)
+libext2fs2
+(none)
+(none)
+libfreebl3
+(none)
+(none)
+libgmodule-2_0-0
+(none)
+(none)
+libgobject-2_0-0
+(none)
+(none)
+libinih0
+(none)
+(none)
+libjson-c5
+(none)
+(none)
+libkbdfile1
+(none)
+(none)
+libkmod2
+(none)
+(none)
+liblastlog2-2
+(none)
+(none)
+libleancrypto1
+(none)
+(none)
+liblz1
+(none)
+(none)
+liblz4-1
+(none)
+(none)
+liblzo2-2
+(none)
+(none)
+libmnl0
+(none)
+(none)
+libndp0
+(none)
+(none)
+libnettle9
+(none)
+(none)
+libnl-config
+(none)
+(none)
+libnss_usrfiles2
+(none)
+(none)
+libnuma1
+(none)
+(none)
+libpkgconf7
+(none)
+(none)
+libpng16-16
+(none)
+(none)
+libseccomp2
+(none)
+(none)
+libsemanage-conf
+(none)
+(none)
+libsepol2
+(none)
+(none)
+libslang2
+(none)
+(none)
+libsmartcols1
+(none)
+(none)
+libsnappy1
+(none)
+(none)
+libsystemd0
+(none)
+(none)
+libtextstyle0
+(none)
+(none)
+libtss2-mu0
+(none)
+(none)
+libtss2-rc0
+(none)
+(none)
+libtss2-tctildr0
+(none)
+(none)
+liburcu8
+(none)
+(none)
+liburing2
+(none)
+(none)
+libuuid1
+(none)
+(none)
+libwrap0
+(none)
+(none)
+libxml2-tools
+(none)
+(none)
+libxtables12
+(none)
+(none)
+libxxhash0
+(none)
+(none)
+libyajl2
+(none)
+(none)
+gpg-pubkey
+(none)
+(none)
+login_defs
+test -f /etc/login.defs.rpmsave && mv -v /etc/login.defs.rpmsave /etc/login.defs.rpmsave.old ||:
+(none)
+mandoc-bin
+(none)
+(none)
+mdadm
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units mdmonitor.service mdcheck_start.service mdcheck_continue.service mdmonitor-oneshot.service mdcheck_start.timer mdcheck_continue.timer mdmonitor-oneshot.timer || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units mdmonitor.service mdcheck_start.service mdcheck_continue.service mdmonitor-oneshot.service mdcheck_start.timer mdcheck_continue.timer mdmonitor-oneshot.timer || :	
+fi										
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+
+    PNAME=mdadm 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi
+mozilla-nspr
+(none)
+(none)
+ncurses-utils
+(none)
+(none)
+openSUSE-build-key
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units openSUSE-build-key-import.service openSUSE-build-key-import.timer || : 
+fi
+: >/var/lib/openSUSE-build-key/imported
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units openSUSE-build-key-import.service openSUSE-build-key-import.timer || :	
+fi										
+
+test -x /usr/bin/systemctl && systemctl enable openSUSE-build-key-import.timer && systemctl start openSUSE-build-key-import.timer || true
+openssh-common
+(none)
+(none)
+permctl
+(none)
+(none)
+pigz
+(none)
+(none)
+pkgconf-m4
+(none)
+(none)
+pv
+(none)
+(none)
+rpm-plugin-selinux
+(none)
+(none)
+sed
+(none)
+(none)
+shared-mime-info
+(none)
+(none)
+sndiff
+(none)
+(none)
+systemd-default-settings-branding-openSUSE
+(none)
+(none)
+systemd-default-settings
+(none)
+# Reloading PID1 is probably not enough as some changes will require
+# service restarts or even a reboot. But it might be useful in a few
+# cases so...
+[ -x /usr/bin/systemctl ] &&
+	/usr/bin/systemctl daemon-reload || :
+systemd-presets-common-SUSE
+
+# On initial installation, branding-preset-states does not yet exist, 
+# which is why we also check for the file to be present/executable 
+if [ $1 -gt 1 -a -x /usr/lib/systemd-presets-branding/branding-preset-states ] ; then 
+	# 
+	# Save the old state so we can detect which package have its 
+	# default changed later. 
+	# 
+	# Note: the old version of the script is used here. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states save 
+elif [ $1 -eq 1 ]; then 
+  touch /run/rpm-systemd-presets-branding-preset-system 
+fi 
+
+
+# On initial installation, branding-preset-states does not yet exist, 
+# which is why we also check for the file to be present/executable 
+if [ $1 -gt 1 -a -x /usr/lib/systemd-presets-branding/branding-preset-states ] ; then 
+	# 
+	# Save the old state so we can detect which package have its 
+	# default changed later. 
+	# 
+	# Note: the old version of the script is used here. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states save user 
+elif [ $1 -eq 1 ]; then 
+  touch /run/rpm-systemd-presets-branding-preset-user 
+fi
+
+if [ $1 -gt 1 ] ; then 
+	# 
+	# Now that the updated presets are installed, find the ones 
+	# that have been changed and apply "systemct preset" on them. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states apply-changes 
+fi 
+
+
+if [ $1 -gt 1 ] ; then 
+	# 
+	# Now that the updated presets are installed, find the ones 
+	# that have been changed and apply "systemct preset" on them. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states apply-changes user 
+fi
+systemd-rpm-macros
+(none)
+(none)
+thin-provisioning-tools
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+timezone
+(none)
+(none)
+vim-data-common
+(none)
+(none)
+xz
+(none)
+(none)
+zstd
+(none)
+(none)
+zypp-excludedocs
+(none)
+(none)
+zypp-no-multiversion
+(none)
+(none)
+zypp-no-recommends
+(none)
+(none)
+zypp-single-rpmtrans
+(none)
+(none)
+zypper-needs-restarting
+(none)
+(none)
+cracklib
+(none)
+(none)
+libcrack2
+(none)
+(none)
+alts
+(none)
+(none)
+libsubid6
+(none)
+(none)
+libauparse0
+(none)
+(none)
+libfido2-1
+(none)
+(none)
+perl-base
+(none)
+(none)
+libdevmapper-event1_03
+(none)
+(none)
+dialog
+(none)
+(none)
+libblkid1
+(none)
+(none)
+mokutil
+(none)
+(none)
+efibootmgr
+(none)
+(none)
+libdw1
+(none)
+(none)
+libbpf1
+(none)
+(none)
+libgudev-1_0-0
+(none)
+(none)
+zypp-boot-plugin
+(none)
+(none)
+libkfont0
+(none)
+(none)
+libkeymap1
+(none)
+(none)
+libzio1
+(none)
+(none)
+libmagic1
+(none)
+(none)
+libarchive13
+(none)
+(none)
+ethtool
+(none)
+(none)
+libhogweed7
+(none)
+(none)
+libnl3-200
+(none)
+(none)
+netcfg
+(none)
+(none)
+pkgconf
+(none)
+(none)
+libfreetype6
+(none)
+(none)
+selinux-tools
+(none)
+(none)
+libsemanage2
+(none)
+(none)
+busybox
+(none)
+(none)
+libnewt0_52
+(none)
+(none)
+rebootmgr
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units rebootmgr.service || : 
+fi										
+
+if [ -f /etc/rebootmgr.conf ] && [ ! -f /etc/rebootmgr/rebootmgr.conf.d/20-old-rebootmgr.conf ]; then
+    mkdir -p /etc/rebootmgr/rebootmgr.conf.d ||:
+    mv /etc/rebootmgr.conf /etc/rebootmgr/rebootmgr.conf.d/20-old-rebootmgr.conf
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units rebootmgr.service || :	
+fi
+libwtmpdb0
+(none)
+(none)
+libproc2-1
+(none)
+(none)
+coreutils-systemd
+(none)
+(none)
+gettext-runtime
+(none)
+(none)
+libtss2-tcti-device0
+(none)
+(none)
+libtss2-sys1
+(none)
+(none)
+gptfdisk
+(none)
+(none)
+man-online
+(none)
+(none)
+mozilla-nss-certs
+(none)
+(none)
+permissions-config
+(none)
+
+    PNAME=security 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+# apply all potentially changed permissions
+/usr/bin/permctl --system || :
+systemd-presets-branding-MicroOS
+
+# On initial installation, branding-preset-states does not yet exist, 
+# which is why we also check for the file to be present/executable 
+if [ $1 -gt 1 -a -x /usr/lib/systemd-presets-branding/branding-preset-states ] ; then 
+	# 
+	# Save the old state so we can detect which package have its 
+	# default changed later. 
+	# 
+	# Note: the old version of the script is used here. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states save 
+elif [ $1 -eq 1 ]; then 
+  touch /run/rpm-systemd-presets-branding-preset-system 
+fi 
+
+
+# On initial installation, branding-preset-states does not yet exist, 
+# which is why we also check for the file to be present/executable 
+if [ $1 -gt 1 -a -x /usr/lib/systemd-presets-branding/branding-preset-states ] ; then 
+	# 
+	# Save the old state so we can detect which package have its 
+	# default changed later. 
+	# 
+	# Note: the old version of the script is used here. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states save user 
+elif [ $1 -eq 1 ]; then 
+  touch /run/rpm-systemd-presets-branding-preset-user 
+fi
+
+if [ $1 -gt 1 ] ; then 
+	# 
+	# Now that the updated presets are installed, find the ones 
+	# that have been changed and apply "systemct preset" on them. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states apply-changes 
+fi 
+
+
+if [ $1 -gt 1 ] ; then 
+	# 
+	# Now that the updated presets are installed, find the ones 
+	# that have been changed and apply "systemct preset" on them. 
+	# 
+	/usr/lib/systemd-presets-branding/branding-preset-states apply-changes user 
+fi
+tar
+(none)
+(none)
+libpwquality1
+# Prepare for migration to /usr/lib; save any old .rpmsave
+for i in security/pwquality.conf; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+(none)
+vim-small
+if [ "$1" -gt 0 ] && [ -f /usr/sbin/update-alternatives ] && [ ! -e /usr/bin/vim-small ]; then
+    /usr/sbin/update-alternatives --remove vim /usr/bin/vim-small
+fi
+(none)
+openssh-clients
+# Prepare for migration to /usr/etc.
+test -f /etc/ssh/ssh_config.rpmsave && mv -v /etc/ssh/ssh_config.rpmsave /etc/ssh/ssh_config.rpmsave.old ||:
+(none)
+device-mapper
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units dm-event.service dm-event.socket || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units dm-event.service dm-event.socket || :	
+fi										
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+ssh-pairing
+(none)
+(none)
+xfsprogs
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units system-xfs_healer.slice xfs_healer_start.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units system-xfs_healer.slice xfs_healer_start.service || :	
+fi
+libmount1
+(none)
+(none)
+liblvm2cmd2_03
+(none)
+(none)
+libfdisk1
+(none)
+(none)
+e2fsprogs
+(none)
+/sbin/ldconfig
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+makedumpfile
+(none)
+(none)
+libasm1
+(none)
+(none)
+iproute2
+(none)
+
+	
+:
+file
+(none)
+(none)
+libgnutls30
+(none)
+(none)
+xen-libs
+(none)
+(none)
+pkgconf-pkg-config
+(none)
+(none)
+procps
+(none)
+(none)
+libtss2-esys0
+(none)
+(none)
+MicroOS-release-dvd
+(none)
+(none)
+libsoftokn3
+(none)
+(none)
+mozilla-nss
+(none)
+(none)
+permissions
+(none)
+(none)
+libcryptsetup12
+(none)
+(none)
+gio-branding-openSUSE
+(none)
+(none)
+libgio-2_0-0
+(none)
+/sbin/ldconfig
+
+	
+:
+glib2-tools
+(none)
+(none)
+elfutils
+(none)
+(none)
+less
+(none)
+(none)
+xen-tools-domU
+(none)
+(none)
+xkeyboard-config
+(none)
+rm -rf /var/lib/xkb/compiled/server*.xkm
+
+# Immutable mode (jsc#PED-14831)
+pam
+for i in securetty pam.d/other pam.d/common-account pam.d/common-auth pam.d/common-password pam.d/common-session \
+	security/faillock.conf security/group.conf security/limits.conf security/pam_env.conf security/access.conf \
+	security/namespace.conf security/namespace.init security/sepermit.conf ; do
+  test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+/sbin/ldconfig
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/sbin/unix_chkpwd || : 
+   fi 
+   
+
+	
+:
+iputils
+(none)
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/clockdiff || : 
+   fi
+cryptsetup
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+
+	
+:
+libqrtr-glib0
+(none)
+(none)
+libnm0
+(none)
+(none)
+libmm-glib0
+(none)
+(none)
+libmbim-glib4
+(none)
+(none)
+libxkbcommon0
+(none)
+(none)
+util-linux
+# move outdated pam.d/*.rpmsave files away
+for i in login remote runuser runuser-l su su-l ; do
+    test -f /etc/pam.d/${i}.rpmsave && mv -v /etc/pam.d/${i}.rpmsave /etc/pam.d/${i}.rpmsave.old ||:
+done
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/mount /usr/bin/umount || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/su || : 
+   fi 
+   
+mkdir -p /etc/blkid.conf.d /etc/issue.d
+
+
+# Display the message only once. Future versions may shrink the contents.
+# This is normally part of %posttrans, but we need to detect a fresh installation.
+if test $1 -ge 2 -a -d /var/adm/update-messages ; then
+  if ! grep -q "incompatible changes for unprivileged user" /var/adm/update-messages/util-linux-* 2>/dev/null ; then
+    cat >/var/adm/update-messages/util-linux-2.42.4-2.1-1 <<EOF
+New /etc/fstab limitations for mount(8)!
+
+This update introduces significant security hardening that may
+result in breaking or incompatible changes for unprivileged user
+mounts. The following changes are permanent security hardening
+measures and cannot be disabled. They apply to unprivileged
+(non-root) users:
+
+X-mount.nocanonicalize:
+
+  Paths must always be canonicalized for unprivileged users. The
+  X-mount.nocanonicalize option is now ignored for non-root users.
+
+X-mount.subdir:
+
+  The X-mount.subdir feature for detached subdirectories is
+  disabled for kernel < 6.15 for unprivileged users due to inherent
+  race conditions.
+
+Path canonicalization:
+
+  If LIBMOUNT_FORCE_MOUNT2 is set, mount target paths for user
+  mounts will no longer traverse directories writable by
+  unprivileged users to prevent TOCTOU races.
+
+Future util-linux or kernel versions can remove these restrictions.
+Follow the mount(8) man page.
+EOF
+  fi
+fi
+sudo
+# move outdated pam.d/*.rpmsave files away
+for i in sudo sudo-i ; do
+    test -f /etc/pam.d/${i}.rpmsave && mv -v /etc/pam.d/${i}.rpmsave /etc/pam.d/${i}.rpmsave.old ||:
+done
+[ -e  /etc/sudoers ] && chmod 0440 /etc/sudoers
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/sudo || : 
+   fi 
+   
+
+	
+:
+shadow-pw-mgmt
+(none)
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/chage || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/chfn || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/chsh || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/newgidmap || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/newuidmap || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/passwd || : 
+   fi 
+   
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units shadow.service shadow.timer || :	
+fi
+shadow
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units shadow.service shadow.timer || : 
+fi										
+
+for i in pam.d/chfn pam.d/chpasswd pam.d/chsh pam.d/groupadd pam.d/groupdel pam.d/groupmod pam.d/newusers pam.d/passwd pam.d/useradd pam.d/userdel pam.d/usermod; do
+  test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/gpasswd || : 
+   fi 
+   
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/newgrp || : 
+   fi
+pam-extra
+(none)
+(none)
+libqmi-glib5
+(none)
+(none)
+kbd
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units kbdsettings.service || : 
+fi										
+
+# move outdated pam.d/*.rpmsave files away
+test -f /etc/pam.d/vlock.rpmsave && mv -v /etc/pam.d/vlock.rpmsave /etc/pam.d/vlock.rpmsave.old ||:
+
+    PNAME=console 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+
+    PNAME=keyboard 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+# Variables deleted before Leap 15 and SLE 15
+
+    PNAME=keyboard 
+    DEF_VAL="no" 
+    DEL_TEMPL=/usr/share/fillup-templates/$PNAME.del 
+    rm -f $DEL_TEMPL 
+    for var in KEYTABLE COMPOSETABLE ; do 
+	printf "#\n%s=%s\n" "$var" "$DEF_VAL" >> $DEL_TEMPL 
+    done 
+    if [ -f /etc/sysconfig/$PNAME ] ; then 
+	/bin/fillup -q -t -r -i -d "=" /etc/sysconfig/$PNAME $DEL_TEMPL /etc/sysconfig/$PNAME.deleted.$$ 
+	test -f /etc/sysconfig/$PNAME.new && mv /etc/sysconfig/$PNAME.new /etc/sysconfig/$PNAME 
+    fi  
+    for i in $DEL_TEMPL /etc/sysconfig/$PNAME.deleted.$$ ; do 
+	if [ -f $i ] ; then 
+	    . $i 
+	    rm -f $i 
+	fi 
+    done
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units kbdsettings.service || :	
+fi										
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+update-bootloader
+(none)
+(none)
+policycoreutils
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in pam.d/run_init sestatus.conf ; do
+     test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+(none)
+libsnapper8
+# Migration from /etc/snapper to /usr/share/snapper
+for i in config-templates/default filters/base.txt filters/lvm.txt filters/x11.txt ; do
+    test -f /etc/snapper/${i}.rpmsave && mv -v /etc/snapper/${i}.rpmsave /etc/snapper/${i}.rpmsave.old ||:
+done
+/sbin/ldconfig
+
+    PNAME=snapper 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi
+libfuse3-4
+(none)
+(none)
+fuse3
+(none)
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/bin/fusermount3 || : 
+   fi
+growpart
+(none)
+(none)
+MicroOS-release
+(none)
+# Update from openSUSE-Tumbleweed-Kubic to openSUSE-MicroOS
+# Fix the baseproduct symlink and make sure, it exists
+if [ -L /etc/products.d/baseproduct ] ; then
+    PRODLINK=$(basename $(readlink -f /etc/products.d/baseproduct))
+    if [ "$PRODLINK"  = "openSUSE-Tumbleweed-Kubic.prod" -o "$PRODLINK"  = "openSUSE-MicroOS.prod" ]; then
+      rm -f /etc/products.d/baseproduct
+    fi
+fi
+if [ ! -e /etc/products.d/baseproduct ]; then
+    ln -sf MicroOS.prod /etc/products.d/baseproduct
+fi
+sysuser-shadow
+(none)
+(none)
+pam-config
+(none)
+if [ ! -f /etc/pam.d/common-auth-pc ] ; then
+  pam-config --debug --create --force
+else
+  pam-config --debug --update ||:
+fi
+shim
+(none)
+
+if test -x /usr/libexec/fde/fde-tpm-helper; then 
+  mkdir -p /run/fde-tpm-helper/ 
+  touch /run/fde-tpm-helper/update 
+  for bl in shim; do 
+    echo ${bl} >> /run/fde-tpm-helper/update 
+  done 
+fi 
+
+
+
+loader_type=`sed -n \
+"/^[^#]*LOADER_TYPE=/{s@.*=\(.*\)@\1@;s@^[\"']@@;s@[\"']\\$@@;p;q}" \
+/etc/sysconfig/bootloader \
+2>/dev/null || :` 
+for bl in grub2-efi; do 
+  if test "x${bl}" = "x$loader_type" ; then 
+    ! command -v mkdir >/dev/null || mkdir -p /run/update-bootloader 
+    [ ! -d /run/update-bootloader ] || > /run/update-bootloader/reinit 
+    break 
+  fi 
+done
+grub2-common
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units grub2-once.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units grub2-once.service || :	
+fi
+patterns-base-minimal_base
+(none)
+(none)
+system-user-tss
+/usr/sbin/sysusers2shadow system-user-tss.conf <<"EOF"
+u! tss 98 "TSS daemon" /var/lib/tpm
+EOF
+
+(none)
+system-user-nobody
+/usr/sbin/sysusers2shadow system-user-nobody.conf <<"EOF"
+g nogroup 65533
+u! nobody 65534 "nobody" /var/lib/nobody -
+EOF
+
+(none)
+system-user-lp
+/usr/sbin/sysusers2shadow system-user-lp.conf <<"EOF"
+u! lp - "Printing daemon" /var/spool/lpd
+EOF
+
+(none)
+system-group-kvm
+/usr/sbin/sysusers2shadow system-group-kvm.conf <<"EOF"
+g kvm 36
+EOF
+
+(none)
+system-group-hardware
+/usr/sbin/sysusers2shadow system-group-hardware.conf <<"EOF"
+g kmem    -     -
+g lock    -     -
+g tty     5     -
+g utmp    -     -
+g audio   -     -
+g cdrom   -     -
+g clock   -     -
+g dialout -     -
+g disk    -     -
+g input   -     -
+g render  -     -
+g sgx     -     -
+g tape    -     -
+g video   -     -
+EOF
+
+(none)
+system-group-audit
+/usr/sbin/sysusers2shadow system-group-audit.conf <<"EOF"
+g audit -
+EOF
+
+(none)
+dbus-1-common
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units dbus.socket || : 
+fi
+/usr/sbin/sysusers2shadow dbus.conf <<"EOF"
+u messagebus - "User for D-Bus" /run/dbus
+EOF
+
+if [ -e /var/lib/dbus/machine-id -a -e /etc/machine-id ]; then
+  cmp -s /var/lib/dbus/machine-id /etc/machine-id > /dev/null
+  if [ $? ]; then
+    rm -f /var/lib/dbus/machine-id
+  fi
+fi
+if [ ! -L /var/lib/dbus/machine-id ]; then
+  mkdir -p /var/lib/dbus/
+  ln -s /etc/machine-id /var/lib/dbus/machine-id
+fi
+
+	
+:										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units dbus.socket || :	
+fi
+wtmpdb
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units wtmpdb-update-boot.service wtmpdb-rotate.timer wtmpdbd.socket || : 
+fi
+
+	
+:										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units wtmpdb-update-boot.service wtmpdb-rotate.timer wtmpdbd.socket || :	
+fi										
+
+pam-config -a --wtmpdb --wtmpdb-skip_if=sshd
+lastlog2
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units lastlog2-import.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units lastlog2-import.service || :	
+fi										
+
+/usr/sbin/pam-config -a --lastlog2 --lastlog2-silent_if=gdm,gdm-password,lxdm,lightdm,mdm,sddm || :
+grub2-x86_64-efi
+(none)
+
+if test -x /usr/libexec/fde/fde-tpm-helper; then 
+  mkdir -p /run/fde-tpm-helper/ 
+  touch /run/fde-tpm-helper/update 
+  for bl in grub2-efi; do 
+    echo ${bl} >> /run/fde-tpm-helper/update 
+  done 
+fi 
+
+
+
+loader_type=`sed -n \
+"/^[^#]*LOADER_TYPE=/{s@.*=\(.*\)@\1@;s@^[\"']@@;s@[\"']\\$@@;p;q}" \
+/etc/sysconfig/bootloader \
+2>/dev/null || :` 
+for bl in grub2-efi; do 
+  if test "x${bl}" = "x$loader_type" ; then 
+    ! command -v mkdir >/dev/null || mkdir -p /run/update-bootloader 
+    [ ! -d /run/update-bootloader ] || > /run/update-bootloader/reinit 
+    break 
+  fi 
+done
+grub2-i386-pc
+(none)
+
+loader_type=`sed -n \
+"/^[^#]*LOADER_TYPE=/{s@.*=\(.*\)@\1@;s@^[\"']@@;s@[\"']\\$@@;p;q}" \
+/etc/sysconfig/bootloader \
+2>/dev/null || :` 
+for bl in grub2; do 
+  if test "x${bl}" = "x$loader_type" ; then 
+    ! command -v mkdir >/dev/null || mkdir -p /run/update-bootloader 
+    [ ! -d /run/update-bootloader ] || > /run/update-bootloader/reinit 
+    break 
+  fi 
+done
+libtss2-fapi-common
+(none)
+
+	
+:
+logrotate
+#only the timer can be enabled/disabled/masked !
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units logrotate.service logrotate.timer || : 
+fi
+
+    PNAME=logrotate 
+    DEF_VAL="no" 
+    DEL_TEMPL=/usr/share/fillup-templates/$PNAME.del 
+    rm -f $DEL_TEMPL 
+    for var in MAX_DAYS_FOR_LOG_FILES ; do 
+	printf "#\n%s=%s\n" "$var" "$DEF_VAL" >> $DEL_TEMPL 
+    done 
+    if [ -f /etc/sysconfig/$PNAME ] ; then 
+	/bin/fillup -q -t -r -i -d "=" /etc/sysconfig/$PNAME $DEL_TEMPL /etc/sysconfig/$PNAME.deleted.$$ 
+	test -f /etc/sysconfig/$PNAME.new && mv /etc/sysconfig/$PNAME.new /etc/sysconfig/$PNAME 
+    fi  
+    for i in $DEL_TEMPL /etc/sysconfig/$PNAME.deleted.$$ ; do 
+	if [ -f $i ] ; then 
+	    . $i 
+	    rm -f $i 
+	fi 
+    done
+# Move /var/lib/logrotate.status
+if [ -f /var/lib/logrotate.status -a ! -f /var/lib/misc/logrotate.status ]; then
+  mv /var/lib/logrotate.status /var/lib/misc/logrotate.status ||:
+fi
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units logrotate.service logrotate.timer || :	
+fi
+aaa_base
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units soft-reboot-cleanup.service || : 
+fi
+export LC_ALL=C
+
+if [ -e /etc/nsswitch.conf ]; then
+   if [ ! -f /bin/nsswitch-config ] ||
+      ! /bin/nsswitch-config --is_generated >/dev/null 2>&1; then
+        # /etc/nsswitch.conf has not been generated by nsswitch-config.
+        # So it has to be patched manually
+        #XXX Fix /etc/nsswitch.conf to include usrfiles [bsc#1162916]
+        for key in services protocols rpc ; do
+            if ! grep -q "^${key}:.*usrfiles" /etc/nsswitch.conf ; then
+                cp /etc/nsswitch.conf "/etc/nsswitch.conf.pre-usrfiles.${key}"
+                sed -i -e "s|^\(${key}:.*[[:space:]]\)files\([[:space:]].*\)*\$|\1files usrfiles\2|" /etc/nsswitch.conf
+            fi
+        done
+        # Fix /etc/nsswitch.conf to include systemd [bsc#1250513]
+        for key in passwd group shadow ; do
+            if ! grep -q "^${key}:.*systemd" /etc/nsswitch.conf ; then
+                cp /etc/nsswitch.conf "/etc/nsswitch.conf.pre-systemd.${key}"
+                sed -i "/^${key}:/ s/$/ systemd/" /etc/nsswitch.conf
+            fi
+        done
+    fi
+fi
+
+
+    PNAME=proxy 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+
+	
+:										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units soft-reboot-cleanup.service || :	
+fi
+systemd
+# We don't really need to enable these units explicitely since during
+# installation `systemctl preset-all` is executed at the end of the install
+# transaction by the branding preset package. However it might be needed when
+# upgrading from a previous version of systemd that didn't ship one of these
+# units.
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units remote-fs.target || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units getty@.service || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-journald-audit.socket || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-userdbd.service || : 
+fi
+if [ $1 -eq 1 ]; then
+        # Make /etc/machine-id an empty file during package installation. On the
+        # first boot, machine-id is initialized and either committed (if /etc/
+        # is writable) or the system/image runs with a transient machine ID,
+        # that changes on each boot (if the image is read-only). This is
+        # important for appliance builds to avoid an identical machine ID in all
+        # images.
+        touch     /etc/machine-id
+        chmod 444 /etc/machine-id
+
+        # Persistent journal is the default
+        mkdir -p /var/log/journal
+fi
+
+pam-config --add --systemd || :
+# Run ldconfig for nss-systemd and nss-myhostname NSS modules.
+/sbin/ldconfig
+
+# Reexecute the managers
+/usr/lib/systemd/systemd-update-helper system-reexec || :
+/usr/lib/systemd/systemd-update-helper user-reexec || :
+
+# See the comment in the 'pre' section about why we need to call 'systemd_pre'
+# macro.
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units remote-fs.target || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units getty@.service || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-journald-audit.socket || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-userdbd.service || :	
+fi										
+
+
+# Run the workarounds to fix the issues left by (very) old versions of systemd.
+/usr/lib/systemd/rpm/fixlet-systemd-post.sh $1 || :
+dbus-broker
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units dbus-broker.service || : 
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-user-units dbus-broker.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units dbus-broker.service || :	
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-user-units dbus-broker.service || :	
+fi
+libdbus-1-3
+(none)
+(none)
+grub2
+(none)
+(none)
+libtss2-fapi1
+(none)
+(none)
+util-linux-systemd
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units fstrim.service fstrim.timer || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units fstrim.service fstrim.timer || :	
+fi										
+
+# Migrate from issue-generator. Existed up to SLE16 GA
+if systemctl is-enabled --quiet issue-generator.service ; then
+    rm -f `grep -l '\\\\[46]' /run/issue.d/70-*.conf 2>/dev/null` 2>/dev/null
+    rm -f /run/issue
+fi
+# The old issue layout causes double printing in util-linux >= 2.41. Existed up to SLE16 GA
+if test -L /etc/issue ; then
+    if test "`readlink /etc/issue`" = ../run/issue ; then
+        rm /etc/issue
+    fi
+fi
+grub2-snapper-plugin
+(none)
+(none)
+grub2-branding-openSUSE
+(none)
+/usr/share/grub2/themes/openSUSE/activate-theme
+
+loader_type=`sed -n \
+"/^[^#]*LOADER_TYPE=/{s@.*=\(.*\)@\1@;s@^[\"']@@;s@[\"']\\$@@;p;q}" \
+/etc/sysconfig/bootloader \
+2>/dev/null || :` 
+for bl in grub2 grub2-efi; do 
+  if test "x${bl}" = "x$loader_type" ; then 
+    ! command -v mkdir >/dev/null || mkdir -p /run/update-bootloader 
+    [ ! -d /run/update-bootloader ] || > /run/update-bootloader/refresh 
+    break 
+  fi 
+done
+tpm2.0-tools
+(none)
+(none)
+selinux-autorelabel
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-tmpfiles-setup-sys.service || : 
+fi
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-tmpfiles-setup-sys.service || :	
+fi
+patterns-base-bootloader
+(none)
+(none)
+suse-module-tools
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units remount-tmpfs.service boot-sysctl.service kernel-sysctl.service || : 
+fi										
+
+# Avoid restoring old .rpmsave files in %posttrans
+for f in /etc/modprobe.d/00-system.conf.rpmsave /etc/modprobe.d/00-system-937216.conf.rpmsave /etc/modprobe.d/10-unsupported-modules.conf.rpmsave /etc/modprobe.d/50-blacklist.conf.rpmsave /etc/modprobe.d/60-blacklist_fs-*.conf.rpmsave /etc/modprobe.d/99-local.conf.rpmsave; do
+    if [ -f ${f} ]; then
+	mv -f ${f} ${f}.suse-module-tools
+    fi
+done
+if [ -f /etc/depmod.d/00-system.conf.rpmsave ]; then
+    mv -f /etc/depmod.d/00-system.conf.rpmsave \
+          /etc/depmod.d/00-system.conf.rpmsave.suse-module-tools
+fi
+exit 0
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units remount-tmpfs.service boot-sysctl.service kernel-sysctl.service || :	
+fi										
+
+exit 0
+kmod
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+udev
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units remote-cryptsetup.target || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-pstore.service || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-timesyncd.service || : 
+fi										
+
+
+# New installations uses the last compat symlink generation number (currently at
+# 2), which basically disables all compat symlinks. On old systems, the file
+# doesn't exist. This is equivalent to generation #1, which enables the creation
+# of all compat symlinks.
+if [ $1 -eq 1 ]; then
+        echo "COMPAT_SYMLINK_GENERATION=2" >/usr/lib/udev/compat-symlink-generation
+fi
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units remote-cryptsetup.target || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-pstore.service || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-timesyncd.service || :	
+fi
+dracut
+(none)
+# Check whether /var/run has been converted to a symlink.
+if [ ! -L /var/run ]; then
+    grep -q '^[ 	]*GRUB_CMDLINE_LINUX_DEFAULT=.*rd.convertfs' /etc/default/grub || \
+    sed -i '/^[ 	]*GRUB_CMDLINE_LINUX_DEFAULT.*/s/"$/ rd.convertfs"/' /etc/default/grub  || :
+    if ! grep --no-message 'add_dracutmodules+=" convertfs "' /etc/dracut.conf.d/05-convertfs.conf; then
+        cat >>/etc/dracut.conf.d/05-convertfs.conf<<EOF
+add_dracutmodules+=" convertfs "
+EOF
+    fi
+fi
+# Clean up after the conversion is done.
+if [ -L /var/run ] && [ -f /etc/dracut.conf.d/05-convertfs.conf ]; then
+    sed -i '/^[ 	]*GRUB_CMDLINE_LINUX_DEFAULT.*/s/rd.convertfs//' /etc/default/grub || :
+    [ -f /etc/dracut.conf.d/05-convertfs.conf ] && sed -i '/add_dracutmodules+="[ 	]*convertfs[ 	]*"/d' /etc/dracut.conf.d/05-convertfs.conf || :
+    [ -s /etc/dracut.conf.d/05-convertfs.conf ] || rm -f /etc/dracut.conf.d/05-convertfs.conf || :
+    [ -d /var/lock.lockmove~ ] && rm -rf /var/lock.lockmove~ || :
+    [ -d /var/run.runmove~ ] && rm -rf /var/run.runmove~ || :
+fi
+
+# Remove obsolete legacy fillup template for /etc/sysconfig/kernel.
+rm -f /var/adm/fillup-templates/sysconfig.kernel-mkinitrd
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+wpa_supplicant
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units wpa_supplicant.service || : 
+fi										
+
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in logrotate.d/wpa_supplicant ; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units wpa_supplicant.service || :	
+fi
+systemd-container
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-mountfsd.socket || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units systemd-nsresourced.socket || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units machines.target || : 
+fi
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-mountfsd.socket || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units systemd-nsresourced.socket || :	
+fi										
+
+/sbin/ldconfig
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units machines.target || :	
+fi
+snapper
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units snapper-boot.service snapper-boot.timer snapper-cleanup.service snapper-cleanup.timer snapper-timeline.service snapper-timeline.timer snapperd.service || : 
+fi										
+
+# Migration from /etc/logrotate.d to /usr/etc/logrotate.d
+test -f /etc/logrotate.d/snapper.rpmsave && mv -v /etc/logrotate.d/snapper.rpmsave /etc/logrotate.d/snapper.rpmsave.old ||:
+# special hack, since the macros were added much later than
+# the systemd timer
+if [ -f /etc/cron.hourly/suse.de-snapper ]; then
+ systemctl preset snapper-timeline.timer || :
+ systemctl is-enabled -q snapper-timeline.timer && systemctl start snapper-timeline.timer || :
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units snapper-boot.service snapper-boot.timer snapper-cleanup.service snapper-cleanup.timer snapper-timeline.service snapper-timeline.timer snapperd.service || :	
+fi
+rsync
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units rsyncd.service rsyncd.socket || : 
+fi										
+
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in logrotate.d/rsync rsyncd.conf rsyncd.secrets; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units rsyncd.service rsyncd.socket || :	
+fi
+live-langset-data
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units langset.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units langset.service || :	
+fi
+libpolkit-gobject-1-0
+(none)
+(none)
+libpolkit-agent-1-0
+(none)
+(none)
+polkit
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units polkit.service || : 
+fi
+/usr/sbin/sysusers2shadow polkitd.conf <<"EOF"
+u! polkitd - "User for polkitd"
+EOF
+
+
+   if [ -x /usr/bin/permctl ]; then 
+     /usr/bin/permctl -n --set --system /usr/libexec/polkit-1/polkit-agent-helper-1 || : 
+   fi 
+   
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units polkit.service || :	
+fi										
+
+
+	
+:
+growpart-generator
+(none)
+(none)
+chrony-pool-openSUSE
+test -f /etc/chrony.d/pool.conf.rpmsave && mv -v /etc/chrony.d/pool.conf.rpmsave /etc/chrony.d/pool.conf.rpmsave.old ||:
+(none)
+chrony
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units chronyd.service chrony-wait.service || : 
+fi										
+
+# Prepare for migration to /usr/etc; save any old .rpmsave
+for i in logrotate.d/chrony chrony.conf ; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+/usr/sbin/sysusers2shadow system-user-chrony.conf <<"EOF"
+u     chrony -  "Chrony Daemon"             /var/lib/chrony           -
+EOF
+
+
+    PNAME=chronyd 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+
+	
+:										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units chronyd.service chrony-wait.service || :	
+fi
+btrfsprogs
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+btrfsmaintenance
+# if the new service files don't exist, we migrate from
+# old version with old script, remove cron symlinks
+[ ! -f /usr/lib/systemd/system/btrfs-balance.timer -a -f /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh ]  && /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh uninstall
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units btrfsmaintenance-refresh.service btrfsmaintenance-refresh.path btrfs-balance.service btrfs-balance.timer btrfs-defrag.service btrfs-defrag.timer btrfs-scrub.service btrfs-scrub.timer btrfs-trim.service btrfs-trim.timer || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units btrfsmaintenance-refresh.service btrfsmaintenance-refresh.path btrfs-balance.service btrfs-balance.timer btrfs-defrag.service btrfs-defrag.timer btrfs-scrub.service btrfs-scrub.timer btrfs-trim.service btrfs-trim.timer || :	
+fi										
+
+
+    PNAME=btrfsmaintenance 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi
+audit-rules
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units audit-rules.service || : 
+fi
+if [ -f /etc/audit.rules ]; then
+   # If /etc/audit.rules exists, move into the expected default place /etc/audit/audit.rules.
+   mv /etc/audit.rules /etc/audit/audit.rules
+else
+   # We only expect /etc/audit/audit.rules to exist.  If it doesn't, augenrules --load will create
+   # it with the rules in /etc/audit/rules.d.
+   #
+   # If /etc/audit/rules.d is empty, copy the default rules file (no-rules).
+   files=`ls /etc/audit/rules.d/ 2>/dev/null | wc -w`
+   if [ "$files" -eq 0 ] ; then
+      touch /etc/audit/audit.rules
+      install -m 0600 /usr/share/audit-rules/10-no-audit.rules /etc/audit/rules.d/audit.rules
+      # Make the new rules active
+   fi
+   augenrules --load
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units audit-rules.service || :	
+fi
+audit
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units auditd.service || : 
+fi
+# Save existing auditd.conf if any (from old locations)
+if [ -f /etc/auditd.conf ]; then
+   mv /etc/audit/auditd.conf /etc/audit/auditd.conf.new
+   mv /etc/auditd.conf /etc/audit/auditd.conf
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units auditd.service || :	
+fi
+tpm2-0-tss
+(none)
+/usr/bin/udevadm trigger -s tpm -s tpmrm || :
+suse-module-tools-scriptlets
+(none)
+(none)
+qemu-guest-agent
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units qemu-guest-agent.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units qemu-guest-agent.service || :	
+fi										
+
+if [ -e /dev/virtio-ports/org.qemu.guest_agent.0 ]; then
+  /usr/bin/systemctl start qemu-guest-agent.service || :
+fi
+lvm2
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units blk-availability.service lvm2-monitor.service lvm2-lvmpolld.service lvm2-lvmpolld.socket || : 
+fi
+/sbin/ldconfig
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units blk-availability.service lvm2-monitor.service lvm2-lvmpolld.service lvm2-lvmpolld.socket || :	
+fi										
+
+# Use %tmpfiles_create when 13.2 is oldest in support scope
+/usr/bin/systemd-tmpfiles --create /usr/lib/tmpfiles.d/lvm2.conf || :
+kexec-tools
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units kexec-load.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units kexec-load.service || :	
+fi										
+
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+ignition
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units ignition-delete-config.service || : 
+fi
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all; 
+	
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units ignition-delete-config.service || :	
+fi
+NetworkManager-branding-openSUSE
+(none)
+(none)
+NetworkManager
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units NetworkManager.service NetworkManager-dispatcher.service nm-priv-helper.service || : 
+fi
+
+	
+:										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units NetworkManager.service NetworkManager-dispatcher.service nm-priv-helper.service || :	
+fi
+sysextmgr
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units sysextmgr.socket sysextmgr-cleanup.timer || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units sysextmgr.socket sysextmgr-cleanup.timer || :	
+fi
+ModemManager
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units ModemManager.service || : 
+fi
+:
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units ModemManager.service || :	
+fi
+read-only-root-fs
+(none)
+# Create /etc subvolume for fresh installations
+# Exception: The host's file system for KIWI builds may also be btrfs, but for KIWI
+# (indicator: /.kconfig is present) the script will be called later in disk.sh.
+if [ "$1" = 1 ] && [ "`findmnt -n -o FSTYPE -l /`" = "btrfs" ] && [ ! -e /.kconfig ]; then
+    /usr/libexec/setup-etc-subvol
+fi
+if [ ! -e /boot/writable -a "`findmnt -n -o FSTYPE -l /`" = "btrfs" ]; then
+    /usr/sbin/mksubvolume /boot/writable
+fi
+
+! command -v mkdir >/dev/null || mkdir -p /run/update-bootloader 
+[ ! -d /run/update-bootloader ] || > /run/update-bootloader/refresh
+libtukit8
+(none)
+(none)
+selinux-policy
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units cleanoldsepoldir.service || : 
+fi
+if [ ! -s /etc/selinux/config ]; then
+  # new install, use old sysconfig file if that exists,
+  # else create new one.
+  if [ -f  /etc/sysconfig/selinux-policy ]; then
+    mv /etc/sysconfig/selinux-policy /etc/selinux/config
+  else
+    echo "
+# This file controls the state of SELinux on the system.
+# SELinux can be completly disabled with the \"selinux=0\" kernel
+# commandline option.
+#
+# SELINUX= can take one of these two values:
+#     enforcing  - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+# Previously SELinux could be disabled by changing the value to
+# 'disabled'. This is deprecated and should not be used anymore.
+# If you want to disable SELinux add 'selinux=0' to the kernel
+# command line. For details see
+# https://github.com/SELinuxProject/selinux-kernel/wiki/DEPRECATE-runtime-disable
+SELINUX=enforcing
+# SELINUXTYPE= can take one of these three values:
+#     targeted - Targeted processes are protected,
+#     minimum - Modification of targeted policy. Only selected processes are protected.
+SELINUXTYPE=targeted
+
+" > /etc/selinux/config
+  fi
+  ln -sf ../selinux/config /etc/sysconfig/selinux-policy
+  /usr/sbin/restorecon /etc/selinux/config 2> /dev/null || :
+fi
+
+	
+:										
+
+if [ "$1" -eq 1 ]; then
+  pam-config -a --selinux
+fi
+# 2025-04-07 cahu:
+# Extremely ugly Workaround for t-u module removal issue
+# (see bsc#1221342 bsc#1238062 bsc#1230643 bsc#1230938)
+# This removes empty module folders in /var/lib/selinux that
+# are created by microOS' create-dirs-from-rpmdb on rollback when the
+# current policy has dropped the module that was still contained in an older
+# snapshot. That means the removed module will also NOT be contained
+# in previous snapshots. Also this can cause warnings during install due to rpmdb
+# still containing the path that was deleted, which should go away in the subsequent
+# installations.
+# Can be dropped once PED-12491 is implemented.
+if [ -n "${TRANSACTIONAL_UPDATE}" ]; then
+  for p in targeted minimum mls; do
+    if [ -d /etc/selinux/$p/active/modules/100 ]; then
+      find /etc/selinux/$p/active/modules/100 -type d -empty -delete -print
+    fi
+  done
+fi
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units cleanoldsepoldir.service || :	
+fi										
+
+exit 0
+selinux-policy-targeted
+
+if [ "$1" -ne 1 ] && [ -s /etc/selinux/config ]; then 
+  . /etc/selinux/config; 
+  FILE_CONTEXT=/etc/selinux/targeted/contexts/files/file_contexts; 
+  if [ "${SELINUXTYPE}" = targeted ] && [ -f ${FILE_CONTEXT} ]; then 
+    [ -f ${FILE_CONTEXT}.pre ] || cp -f ${FILE_CONTEXT} ${FILE_CONTEXT}.pre; 
+  fi; 
+  touch /etc/selinux/targeted/.rebuild; 
+  if [ -e /etc/selinux/targeted/.policy.sha512 ]; then 
+    POLICY_FILE=$(ls /etc/selinux/targeted/policy/policy.* | sort | head -1); 
+    sha512=$(sha512sum "$POLICY_FILE" | cut -d ' ' -f 1); 
+    checksha512=$(cat /etc/selinux/targeted/.policy.sha512); 
+    if [ "$sha512" = "$checksha512" ] ; then 
+      rm /etc/selinux/targeted/.rebuild; 
+    fi; 
+  fi; 
+fi; 
+
+
+# [This fragment needs bash.] 
+# PED-12492 (bsc#1221342): Snapper rollbacks can cause snapshots to still require the old /var/lib/selinux location. 
+# This part checks the state of the system and creates marker files for the rest of the migration. 
+# If necessary, it will create a backup of /var/lib/selinux. 
+previous_selinux_modules_dir="/var/lib/selinux"; 
+if [ $1 -ne 1 ] || [[ "$(ls -A ${previous_selinux_modules_dir} 2>/dev/null)" ]] || [ -f /etc/selinux/var_lib_selinux_deleted ]; then 
+    check_tmpfiles=(/etc/selinux/{temp_selinux_modules_dir_created,selinux_modules_migrated-targeted,var_lib_selinux_deleted}); 
+    check_btrfs_snapshot_etc=0; 
+    is_btrfs=0; 
+    # check if / is btrfs 
+    if findmnt -t btrfs / > /dev/null 2>&1; then 
+        is_btrfs=1; 
+        # check if /etc is on a snapshotted root subvolume 
+        if [[ $(btrfs subvolume list / | grep -c "@/etc") -gt 0 ]]; then 
+            check_btrfs_snapshot_etc=1; 
+            if [[ ! -f "${check_tmpfiles[1]}" || ! -f "${check_tmpfiles[2]}" ]]; then 
+                echo "--- WARNING: Non-default installation with separate subvolume for \`/etc\` detected. ---"; 
+                echo "---          Migration will continue but in case of rollback - manual intervention might be needed. ---"; 
+            elif [ -f "${check_tmpfiles[1]}" ]; then 
+                echo "---          If your system has non-snapshotted subvolume \`/etc\`, you need to reinstall selinux-policy packages after rollback."; 
+            elif [ -f "${check_tmpfiles[2]}" ]; then 
+                echo "--- INFO: SELinux policy modules are stored in \`/etc/selinux\`; ---"; 
+                echo "---       \`/var/lib/selinux\` removed. No action required. ---"; 
+            fi; 
+        fi; 
+    else 
+        if [[ ! -f "${check_tmpfiles[1]}" || ! -f "${check_tmpfiles[2]}" ]]; then 
+            echo "--- WARNING: Non-default installation with no btrfs \`/\` detected. ---"; 
+            echo "---          Migration will continue but in case of selinux-policy downgrade - manual intervention might be needed. ---"; 
+            echo "---          \`/var/lib/selinux\` will be deleted one month after migration ---"; 
+        elif [ -f "${check_tmpfiles[2]}" ]; then 
+            echo "--- INFO: SELinux policy modules are stored in \`/etc/selinux\`; ---"; 
+            echo "---       \`/var/lib/selinux\` removed. No action required. ---"; 
+	fi ; 
+    fi; 
+#------
+    # check if /var/lib/selinux has been migrated and print info 
+    if [[ ! -f "${check_tmpfiles[1]}" && ! -f "${check_tmpfiles[2]}" ]]; then 
+        echo; 
+        echo "--- WARNING: Beware this package changes installation of SELinux modules (and copy custom ones for smooth transition) from \`/var/lib/selinux\` to \`/etc/selinux\` ---"; 
+        echo "---          Also it installs service \`cleanoldsepoldir.service\` and script in \`/usr/libexec/selinux\` which helps you to identify not migrated modules (just in case of corner cases). ---"; 
+        echo "---          On boot service will run a script to check snapshots and DELETE \`/var/lib/selinux\` when no snapshots use this directory. ---"; 
+        echo; 
+        if [ "${is_btrfs}" -eq 0 ]; then 
+            echo "INFO: No btrfs on \`/\`, \`/var/lib/selinux\` backup needed."; 
+        elif [ "${check_btrfs_snapshot_etc}" -eq 0 ]; then 
+            echo "INFO: \`/etc\` on snapshotted root, \`/var/lib/selinux\` backup needed."; 
+        else 
+            echo "INFO: \`/etc\` on separated subvolume, \`/var/lib/selinux\` backup needed."; 
+        fi; 
+        # check /var/lib/dir state and create tmp directory of SELinux policy 
+        touch /etc/selinux/selinux_migration_pending-targeted; 
+        temp_selinux_module_dir="/var/lib/selinux_tmpbck"; 
+        if [ -d "${previous_selinux_modules_dir}" ]; then 
+            echo "INFO: Creating tmp copy of \`/var/lib/selinux\` to keep previous rollbacks work for selinux-policy-targeted."; 
+	    mkdir -p "${temp_selinux_module_dir}" && cp -a ${previous_selinux_modules_dir}/. ${temp_selinux_module_dir}/; 
+            echo "DO NOT DELETE THIS FILE - Part of SELinux policy migration - it will be deleted after installation of the package." > /etc/selinux/temp_selinux_modules_dir_created; 
+	else 
+	    echo "ERROR: ${previous_selinux_modules_dir} does not exists."; 
+        fi; 
+    else 
+      # reminder when new update package arrives 
+        if [ -f "${check_tmpfiles[1]}" ]; then 
+            echo "INFO: SELinux policy store root already in \`/etc/selinux\`."; 
+            echo "---   In case of issues with custom SELinux modules you can run \`/usr/libexec/selinux/cleanoldsepoldir.sh --check-custom-selinux-modules\` or RE-APPLY them manually. ---"; 
+            echo "---   Backup of modules if exists is in \`/var/lib/selinux/{minimum,sandbox,targeted,}/active\`. --- "; 
+            echo "---   \`/var/lib/selinux\` will be automaticaly DELETED once there are no snapshots with old path. ---"; 
+        fi; 
+        if [ -f "${check_tmpfiles[2]}" ]; then 
+            echo "INFO: SELinux policy modules are stored in \`/etc/selinux\`;"; 
+            echo "      \`/var/lib/selinux\` removed. No action required."; 
+        fi; 
+    fi; 
+else 
+    # in case of clean installation of the package create migration marker files 
+    if [ ! -f "/etc/selinux/selinux_modules_migrated-targeted" ]; then 
+        echo "DO NOT DELETE THIS FILE - Part of SELinux policy root path migration from \'/var/lib/selinux\' to \'/etc/selinux\'." > /etc/selinux/selinux_modules_migrated-targeted; 
+    else 
+        echo "INFO: Marker file selinux_modules_migrated-targeted exists."
+    fi;
+fi;
+
+
+# move from %posttrans to %post fixes boo#1264463
+
+# [This fragment needs bash.] 
+# PED-12492 (bsc#1221342): Snapper rollbacks can cause snapshots to still require the old /var/lib/selinux location. 
+# This part copies the custom local SELinux changes to /etc/selinux. 
+current_selinux_modules_dir="/etc/selinux"; 
+if [[ $1 -ne 1  || -f "${current_selinux_modules_dir}/selinux_migration_pending-targeted" ]]; then 
+    # rename tmp dir /var/lib/selinux_tmpbck to old /var/lib/selinux so we can keep it in case of rollback 
+    check_tmpfiles=(/etc/selinux/{temp_selinux_modules_dir_created,selinux_modules_migrated-targeted,var_lib_selinux_deleted}); 
+    custom_local_files_relative_path="/selinux/targeted/active"; 
+    previous_selinux_modules_dir="/var/lib/selinux"; 
+    temp_selinux_module_dir="/var/lib/selinux_tmpbck"; 
+    # Copy custom modules and local modifications to keep smooth transition to /etc/selinux for for selinux-policy-targeted 
+    if [[ -f "${check_tmpfiles[0]}" && ! -f "${check_tmpfiles[1]}" && ! -f "${check_tmpfiles[2]}" ]]; then 
+        if [ -d "${previous_selinux_modules_dir}" ]; then 
+            if [ -f "${current_selinux_modules_dir}/selinux_migration_pending-targeted" ]; then 
+                # Copy local modifications (.local files) 
+                check_local_files="pkeys ibendports ports interfaces nodes booleans seusers users users_extra file_contexts"; 
+                for f in ${check_local_files}; do 
+                    [ -e "${temp_selinux_module_dir}/targeted/active/${f}.local" ] && 
+                    cp -f "${temp_selinux_module_dir}/targeted/active/${f}.local" "${current_selinux_modules_dir}/targeted/active/${f}.local"; 
+                done; 
+                # Copy custom modules (200, 400, disabled) 
+                echo "INFO: Copying custom modules from ${previous_selinux_modules_dir} to ${current_selinux_modules_dir} for selinux-policy-targeted."; 
+                if [ -d "${temp_selinux_module_dir}/targeted/active/modules" ]; then 
+                    for d in 200 400 disabled; do 
+                        [ -d "${temp_selinux_module_dir}/targeted/active/modules/${d}" ] && 
+                        cp -a "${temp_selinux_module_dir}/targeted/active/modules/${d}" "${current_selinux_modules_dir}/targeted/active/modules/"; 
+                    done; 
+                fi; 
+               # Finalize this flavor 
+                echo "DO NOT DELETE THIS FILE - Part of SELinux policy migration" > ${current_selinux_modules_dir}/selinux_modules_migrated-targeted && 
+                rm --preserve-root=all -f "${current_selinux_modules_dir}/selinux_migration_pending-targeted"; 
+            fi; 
+            # Copy /var/lib/selinux_tmpback to /var/lib/selinux when no flavors missing migration 
+	    if ! ls "${current_selinux_modules_dir}"/ 2>/dev/null | grep -qE "selinux_migration_pending-(minimum|mls|targeted)$"; then 
+                if [[ "$(ls -A ${temp_selinux_module_dir} 2>/dev/null)" ]]; then 
+                    echo "INFO: All flavors migrated. Restoring /var/lib/selinux."; 
+                    find "${previous_selinux_modules_dir}" -mindepth 1 -delete 2>/dev/null && 
+                    cp -a "${temp_selinux_module_dir}/." "${previous_selinux_modules_dir}/" && 
+                    rm --preserve-root=all -rf "${temp_selinux_module_dir}" && 
+                    rm --preserve-root=all -f "${current_selinux_modules_dir}"/temp_selinux_modules_dir_created; 
+                    # check for possible not migrated custom modules 
+                    if [ ! -f "${check_tmpfiles[2]}" ]; then 
+                        [ -f "/usr/libexec/selinux/cleanoldsepoldir.sh" ] && /usr/libexec/selinux/cleanoldsepoldir.sh --check-custom-selinux-modules; 
+                    fi; 
+                else 
+                    echo "ERROR: Backup dir empty. Migration failure."; 
+                    exit 1; 
+                fi; 
+	    else 
+                echo "INFO: Not all flavors migrated. Not restoring /var/lib/selinux."; 
+            fi; 
+        else 
+            echo "ERROR: ${previous_selinux_modules_dir} does not exists."; 
+            exit 1; 
+        fi; 
+    fi; 
+fi;
+container-selinux
+
+if /usr/sbin/selinuxenabled; then 
+  if [ -e /etc/selinux/config ]; then 
+    . /etc/selinux/config 
+  fi 
+  _policytype=targeted 
+  if [ -z "${_policytype}" ]; then 
+    _policytype="targeted" 
+  fi 
+  if [ "${SELINUXTYPE}" = "${_policytype}" ]; then 
+    mkdir -p $(dirname /run/selinux-file_contexts.pre) 
+    [ -f /run/selinux-file_contexts.pre ] || cp -f /etc/selinux/${SELINUXTYPE}/contexts/files/file_contexts /run/selinux-file_contexts.pre 
+  fi 
+fi
+(none)
+openssh-server
+# Prepare for migration to /usr/etc.
+test -f /etc/pam.d/sshd.rpmsave && mv -v /etc/pam.d/sshd.rpmsave /etc/pam.d/sshd.rpmsave.old ||:
+test -f /etc/ssh/sshd_config.rpmsave && mv -v /etc/ssh/sshd_config.rpmsave /etc/ssh/sshd_config.rpmsave.old ||:
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units sshd.service sshd.socket || : 
+fi
+/usr/sbin/sysusers2shadow sshd.conf <<"EOF"
+u sshd - "SSH daemon" /var/lib/sshd
+EOF
+
+
+    PNAME=ssh 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units sshd.service sshd.socket || :	
+fi
+kernel-default
+run_if_exists() { 
+if [ -x "$1" ] ; then                   
+  "$@"                                  
+else                                    
+  echo Cannot execute "$1" >&2          
+fi                                      
+}                                       
+run_if_exists /usr/lib/module-init-tools/kernel-scriptlets/rpm-pre --name "kernel-default" \
+  --version "7.3.5" --release "1.1" --kernelrelease "7.3.5-1" \
+  --image "vmlinuz" --flavor "default" --variant "" \
+  --usrmerged "1" --certs "F8CEAA94" "$@"
+run_if_exists() { 
+if [ -x "$1" ] ; then                   
+  "$@"                                  
+else                                    
+  echo Cannot execute "$1" >&2          
+fi                                      
+}                                       
+run_if_exists /usr/lib/module-init-tools/kernel-scriptlets/rpm-post --name "kernel-default" \
+  --version "7.3.5" --release "1.1" --kernelrelease "7.3.5-1" \
+  --image "vmlinuz" --flavor "default" --variant "" \
+  --usrmerged "1" --certs "F8CEAA94" "$@"
+dracut-kiwi-lib
+(none)
+(none)
+kdump
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units kdump.service || : 
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units kdump-early.service || : 
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units kdump-notify.service || : 
+fi										
+
+exit 0
+# change only permission if the file exists before /etc/sysconfig/kdump
+# has been created from %{_fillupdir}/sysconfig.kdump
+change_permission=0
+if [ ! -f /etc/sysconfig/kdump ] ; then
+    change_permission=1
+fi
+
+    PNAME=kdump 
+    SUBPNAME= 
+    SYSC_TEMPLATE=/usr/share/fillup-templates/sysconfig.$PNAME$SUBPNAME 
+    # If template not in new /usr/share/fillup-templates, fallback to old TEMPLATE_DIR 
+    if [ ! -f $SYSC_TEMPLATE ] ; then 
+        TEMPLATE_DIR=/var/adm/fillup-templates 
+        SYSC_TEMPLATE=$TEMPLATE_DIR/sysconfig.$PNAME$SUBPNAME 
+    fi 
+    SD_NAME="" 
+     
+    
+    if [ -x /bin/fillup ] ; then 
+	if [ -f $SYSC_TEMPLATE ] ; then 
+	    echo "Updating /etc/sysconfig/$SD_NAME$PNAME ..." 
+	    mkdir -p /etc/sysconfig/$SD_NAME 
+	    touch /etc/sysconfig/$SD_NAME$PNAME 
+	    /bin/fillup -q /etc/sysconfig/$SD_NAME$PNAME $SYSC_TEMPLATE 
+	fi 
+    else 
+	echo "ERROR: fillup not found. This should not happen. Please compare" 
+	echo "/etc/sysconfig/$PNAME and $TEMPLATE_DIR/sysconfig.$PNAME and" 
+	echo "update by hand." 
+    fi 
+    
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units kdump.service || :	
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units kdump-early.service || :	
+fi										
+
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units kdump-notify.service || :	
+fi										
+
+# ensure newly added kdump-*.service is-enabled matches prior state
+if [ -x /usr/bin/systemctl ] && /usr/bin/systemctl is-enabled kdump.service &>/dev/null ; then
+	/usr/bin/systemctl reenable kdump.service || :
+fi
+if [ "$change_permission" = 1 ]; then
+    chmod 0600 /etc/sysconfig/kdump
+fi
+# if /var/log/dump is empty, make it a symlink to /var/crash
+if test -d /var/log/dump && rmdir /var/log/dump >/dev/null 2>&1 ||
+        ! test -d /var/log/dump ; then
+    ln -snf /var/crash /var/log/dump
+fi
+exit 0
+NetworkManager-tui
+(none)
+(none)
+NetworkManager-wwan
+(none)
+(none)
+microos-tools
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units printenv.service import-pubring-from-rpmdb.path import-pubring-from-rpmdb.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units printenv.service import-pubring-from-rpmdb.path import-pubring-from-rpmdb.service || :	
+fi
+tukit
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units create-dirs-from-rpmdb.service || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units prepare-nextroot-for-softreboot.service || : 
+fi
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units create-dirs-from-rpmdb.service || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units prepare-nextroot-for-softreboot.service || :	
+fi
+patterns-microos-selinux
+(none)
+(none)
+openssh
+(none)
+(none)
+dracut-kiwi-oem-repart
+(none)
+(none)
+jeos-firstboot
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units jeos-firstboot.service || : 
+fi
+
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units jeos-firstboot.service || :	
+fi
+NetworkManager-bluetooth
+(none)
+(none)
+tukit-snapper-plugin
+(none)
+(none)
+dracut-transactional-update
+(none)
+
+        ! command -v mkdir >/dev/null || mkdir -p /run/regenerate-initrd/; 
+	[ ! -d /run/regenerate-initrd ] || > /run/regenerate-initrd/all;
+patterns-microos-base
+(none)
+(none)
+transactional-update
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units transactional-update.service transactional-update.timer || : 
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper mark-install-system-units transactional-update-cleanup.service transactional-update-cleanup.timer || : 
+fi										
+
+# Prepare for migration of logrotate configuration to /usr/etc; save any old .rpmsave
+for i in logrotate.d/transactional-update ; do
+   test -f /etc/${i}.rpmsave && mv -v /etc/${i}.rpmsave /etc/${i}.rpmsave.old ||:
+done
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units transactional-update.service transactional-update.timer || :	
+fi										
+
+:
+	
+if [ -x /usr/lib/systemd/systemd-update-helper ]; then				
+	/usr/lib/systemd/systemd-update-helper install-system-units transactional-update-cleanup.service transactional-update-cleanup.timer || :	
+fi
+patterns-microos-defaults
+(none)
+(none)
+patterns-microos-basesystem
+(none)
+(none)
+transactional-update-zypp-config
+(none)
+(none)
+patterns-microos-base-zypper
+(none)
+(none)
+gpg-pubkey
+(none)
+(none)
+gpg-pubkey
+(none)
+(none)
+gpg-pubkey
+(none)
+(none)
+gpg-pubkey
+(none)
+(none)

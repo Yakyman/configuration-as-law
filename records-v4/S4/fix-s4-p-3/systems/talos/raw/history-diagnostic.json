@@ -1,0 +1,51 @@
+{
+  "first_night_code_path_mentions": [
+    {
+      "first_id": "talos-6ba0499338de982b118add0e",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/bridge"
+    },
+    {
+      "first_id": "talos-997f8af85b846cc0b08cb788",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/firewall"
+    },
+    {
+      "first_id": "talos-2123143dd59cfa8a65d89c2e",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/flannel"
+    },
+    {
+      "first_id": "talos-ef5794c4d65299a78f9d0ab3",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/host-local"
+    },
+    {
+      "first_id": "talos-c3bfa964520b20475dcaec7b",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/loopback"
+    },
+    {
+      "first_id": "talos-6c7e22c445534534f8821ef2",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/portmap"
+    }
+  ],
+  "first_timestamp": "2026/11/23 15:42:28.551981",
+  "installer_error": "error from node GUEST: rpc error: code = Unknown desc = log \"installer\" was not registered",
+  "last_timestamp": "2026/11/23 15:42:41.967185",
+  "lines": 257,
+  "selected_exact_diagnostics": [
+    "2026/11/23 15:42:28.551981 [talos] machined logger initialized",
+    "2026/11/23 15:42:28.569647 [talos] composed writable /etc overlay, bound read-only at /etc {\"component\": \"controller-runtime\"}",
+    "2026/11/23 15:42:29.408384 [talos] volume status {\"component\": \"controller-runtime\", \"controller\": \"block.VolumeManagerController\", \"volume\": \"STATE\", \"phase\": \"waiting -> ready\", \"location\": \"/dev/vda5\", \"parentLocation\": \"/dev/vda\"}",
+    "2026/11/23 15:42:29.418243 [talos] volume mount {\"component\": \"controller-runtime\", \"controller\": \"block.MountController\", \"mount_request.id\": \"STATE\", \"volume\": \"STATE\", \"source\": \"/dev/vda5\", \"target\": \"/system/state\", \"filesystem\": \"xfs\", \"read_only\": false, \"secure\": false, \"no_exec\": false, \"disable_access_time\": false, \"detached\": true}",
+    "2026/11/23 15:42:29.435391 [talos] volume unmount {\"component\": \"controller-runtime\", \"controller\": \"block.MountController\", \"volume\": \"STATE\", \"source\": \"/dev/vda5\", \"target\": \"/system/state\", \"filesystem\": \"xfs\"}",
+    "2026/11/23 15:42:29.764476 [talos] volume mount {\"component\": \"controller-runtime\", \"controller\": \"block.MountController\", \"mount_request.id\": \"STATE\", \"volume\": \"STATE\", \"source\": \"/dev/vda5\", \"target\": \"/system/state\", \"filesystem\": \"xfs\", \"read_only\": false, \"secure\": false, \"no_exec\": false, \"disable_access_time\": false, \"detached\": true}",
+    "2026/11/23 15:42:29.765838 [talos] volume remounted {\"component\": \"controller-runtime\", \"controller\": \"block.MountController\", \"mount_request.id\": \"STATE\", \"volume\": \"STATE\", \"read_only\": \"false -> true\"}",
+    "2026/11/23 15:42:29.779387 [talos] machine config loaded successfully {\"component\": \"controller-runtime\", \"controller\": \"config.AcquireController\", \"sources\": [\"state\"]}",
+    "2026/11/23 15:42:29.781782 [talos] install sequence: 0 phase(s)",
+    "2026/11/23 15:42:29.781787 [talos] install sequence: done: 5.631\u00b5s",
+    "2026/11/23 15:42:29.789106 [talos] volume unmount {\"component\": \"controller-runtime\", \"controller\": \"block.MountController\", \"volume\": \"STATE\", \"source\": \"/dev/vda5\", \"target\": \"/system/state\", \"filesystem\": \"xfs\"}"
+  ]
+}

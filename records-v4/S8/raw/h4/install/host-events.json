@@ -1,0 +1,57 @@
+[
+  {
+    "utc": "2026-11-23T19:00:50Z",
+    "event": "cut-request",
+    "command": {
+      "execute": "set_link",
+      "arguments": {
+        "name": "net0",
+        "up": false
+      }
+    }
+  },
+  {
+    "utc": "2026-11-23T19:00:50Z",
+    "event": "cut-response",
+    "replies": [
+      {
+        "return": {}
+      },
+      {
+        "return": {}
+      }
+    ]
+  },
+  {
+    "utc": "2026-11-23T19:03:39Z",
+    "event": "disconnected-observation-complete"
+  },
+  {
+    "utc": "2026-11-23T19:03:39Z",
+    "event": "restore-request",
+    "command": {
+      "execute": "set_link",
+      "arguments": {
+        "name": "net0",
+        "up": true
+      }
+    }
+  },
+  {
+    "utc": "2026-11-23T19:03:39Z",
+    "event": "restore-response",
+    "replies": [
+      {
+        "return": {}
+      },
+      {
+        "return": {}
+      }
+    ]
+  },
+  {
+    "utc": "2026-11-23T19:03:41Z",
+    "event": "transport-finished",
+    "exit": 0
+  }
+]

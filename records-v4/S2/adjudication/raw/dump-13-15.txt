@@ -1,0 +1,436 @@
+====================================================================================================
+OBJECT s2-1 family 13 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and persistent_backing (S2/facts.tsv:27093,27098); this is a documented preference type without an observed instance, so application of the on-computer object rule is not established.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] RECORD | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-14 | no
+       reason: Person-chosen theme value obeyed only by Firefox for that person; read as a value; it neither launches anything nor grants access, so S8.2-14 makes it a record of that program.
+       by_meaning: no | without_forbidding: yes
+  name: ['<Firefox-profile>/prefs.js: activated theme preference'] nfacts 25
+   L27081 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27083 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27087 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27089 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27093 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27094 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27096 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27098 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27100 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27102 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27103 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27104 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27105 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-10 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence (S2/facts.tsv:27145); the described executable has no observed instance. source_build_line is also unknown, preventing identification of a covering build line.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Executable copied by a CMake install rule. CMake documents installing but no removal, so it is not an installer and there is no package. Native code: program, built from a person's project, not a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['<prefix>/bin/<program>'] nfacts 26
+   L27132 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27135 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27139 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27141 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27144 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27145 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27146 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27148 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27150 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27152 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27154 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27155 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27156 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27157 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-11 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and specific_consumer (S2/facts.tsv:27171,27184); no observed library instance or concrete loading context establishes the applicable object and execution facts.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Shared library installed by a CMake rule; no installer and no package. Machine code run by a loading process: program; not built by the system from a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['<prefix>/lib/<library>.so'] nfacts 27
+   L27158 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27161 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27165 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27167 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27170 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27171 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27172 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27174 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27176 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27178 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27180 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27181 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27182 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27183 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27184 specific_consumer = UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+====================================================================================================
+OBJECT s2-12 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and source_build_line (S2/facts.tsv:27198,27210); generated-install-script behavior is documented, but no present script or exact covering derivation is established.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-9,S8.2-23,S8.2-16 | own line
+       reason: Generated CMake script executed by cmake -P or the install target: a file a program executes as code (S8.2-23), so a program; generated from a project, not from a line.
+       by_meaning: no | without_forbidding: yes
+  name: ['build/cmake_install.cmake'] nfacts 26
+   L27185 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27188 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27192 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27194 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27198 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27199 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27201 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27203 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27205 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27207 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27208 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27209 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27210 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-13 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and exact_bytes_or_selected_value (S2/facts.tsv:27224,27220); the described PATH assignment has no observed file instance or retained statements.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-9,S8.2-23 | own line
+       reason: Bash executes startup-file statements; a file a program executes as code counts as code even when it holds setting values (S8.2-23). The PATH assignment is part of that code: program, own line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['<shell-startup-file>: PATH assignment'] nfacts 27
+   L27211 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27214 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27218 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27220 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27224 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27225 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27227 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27229 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27231 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27233 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27234 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27235 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27236 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27237 writing_program = UNKNOWN: The editor or link-creation program is not named in the channel.
+====================================================================================================
+OBJECT s2-14 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and exact_bytes_or_selected_value (S2/facts.tsv:27251,27247); the description supplies an alias operation without an observed link or exact target value.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] SETTING-OWN | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-12,S8.2-14 | own line
+       reason: Person-created link: a chosen path value, not code. System-wide prefix: obeyed by the computer (Q3); personal prefix: it launches its target (S8.2-14). Either value gives a setting with its own line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['<prefix>/bin/<alias>'] nfacts 27
+   L27238 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27240 channel_tool_purpose = UNKNOWN: The channel does not identify the program used to create the link.
+   L27241 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27245 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27247 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27251 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27252 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27254 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27256 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27258 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27260 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27261 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27262 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27263 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27264 writing_program = UNKNOWN: The editor or link-creation program is not named in the channel.
+====================================================================================================
+OBJECT s2-15 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and source_build_line (S2/facts.tsv:27278,27290); replacement bytes are stipulated different, but no present executable or exact covering build line is identified.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Native executable rebuilt by a person's compiler run: code the computer can start (Q2); built from a person's sources, not by the system from a line.
+       by_meaning: no | without_forbidding: yes
+  name: ['./<program> (replacement)'] nfacts 26
+   L27265 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27268 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27272 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27274 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27277 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27278 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27279 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27281 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27283 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27285 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27287 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27288 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27290 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-16 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and specific_consumer (S2/facts.tsv:27304,27317); replacement semantics do not establish a present library instance or its concrete loading context.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Rebuilt shared library: machine code executed inside a loading process (Q2); built by a person's operation, not from a line.
+       by_meaning: no | without_forbidding: yes
+  name: ['./<library>.so (replacement)'] nfacts 27
+   L27291 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27294 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27298 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27300 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27303 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27304 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27305 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27307 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27309 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27311 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27313 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27314 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27316 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27317 specific_consumer = UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+====================================================================================================
+OBJECT s2-17 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and launch_change_access_behavior (S2/facts.tsv:27331,27330); plugin loading is documented, but no concrete plugin instance or capability set is supplied.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-9,S8.2-21,S8.2-16 | own line
+       reason: Locally built GCC plugin loaded into the compiler process: code executed through another program with its rights. Native in-process code is not confined (https://gcc.gnu.org/onlinedocs/gccint/Plugins.html), so S8.2-21 does not apply.
+       by_meaning: no | without_forbidding: yes
+  name: ['./<plugin>.so'] nfacts 27
+   L27318 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27321 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27325 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27327 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27330 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27331 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27332 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27334 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27336 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27338 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27341 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27342 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27343 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27344 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-18 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and package_name (S2/facts.tsv:27358,27359); unchanged packaged origin is stipulated for the channel, but a present instance and its covering package are unidentified.
+       by_meaning: yes: covered by containing package line for <packaged-plugin-path> | without_forbidding: yes
+  [c2] INSTALLED-PACKAGE | S8.2-7,S8.2-8,S8.2-16 | covered by the line of the package containing the plugin
+       reason: The channel states an unchanged plugin obtained in an installed package: obtained as part of such a package and remains as received (Q1).
+       by_meaning: yes: covered by the line of the package containing the plugin | without_forbidding: yes
+  name: ['<packaged-plugin-path>'] nfacts 27
+   L27345 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27348 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27352 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27354 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27357 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27358 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27359 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27361 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27363 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27365 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27368 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27369 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27371 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-19 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and source_build_line (S2/facts.tsv:27385,27397); plugin-enabled output is described without a present executable or exact covering build line.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Linked output of a plugin-enabled build: native code that runs as its own process (Q2); built by a person's operation, not from a line.
+       by_meaning: no | without_forbidding: yes
+  name: ['./a.out or <-o-path> (plugin-enabled build)'] nfacts 26
+   L27372 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27375 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27379 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27381 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27384 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27385 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27386 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27388 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27390 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27392 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27394 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27395 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27396 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27397 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-3 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and source_build_line (S2/facts.tsv:27411,27423); the channel describes native output and execution without identifying a present object or its recording source.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Native output of gcc, executed as a process: code (Q2); built from a person's source, not by the system from a recorded line.
+       by_meaning: no | without_forbidding: yes
+  name: ['./a.out or <-o-path>'] nfacts 26
+   L27398 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27401 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27405 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27407 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27410 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27411 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27412 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27414 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27416 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27418 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27420 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27421 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27422 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27423 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-5 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and persistent_backing (S2/facts.tsv:27463,27468); the unlinked intermediate is described without an observed object or its persistence being established.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-9,S8.2-20,S8.2-15 | undetermined
+       reason: Object file needing linking. Reading A: machine code the computer can execute after linking: PROGRAM-OWN. Reading B: a file that cannot be executed as it is (S8.2-20): not a program, gcc output: RECORD.
+       by_meaning: no | without_forbidding: yes
+  name: ['./<name>.o'] nfacts 26
+   L27450 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27453 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27457 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27459 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27462 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27463 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27464 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27466 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27468 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27470 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27472 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27473 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27474 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27475 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-6 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and remains_as_received (S2/facts.tsv:27489,27500); a described CMake recipe does not establish a present instance or whether package precedence applies.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-10,S8.2-23 | own line
+       reason: CMake evaluates the project file as a command language that can start processes: a file a program executes as code (S8.2-23), a program whoever wrote it (S8.2-10); no package provenance.
+       by_meaning: no | without_forbidding: yes
+  name: ['CMakeLists.txt'] nfacts 27
+   L27476 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27479 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27483 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27485 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27487 human_creation_or_bringing = UNKNOWN: B1 names the project recipe without stating whether the invoking person wrote it or brought it.
+   L27489 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27490 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27492 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27494 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27496 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27498 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27499 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27500 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27501 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27502 writing_program = UNKNOWN: The editor or link-creation program is not named in the channel.
+====================================================================================================
+OBJECT s2-7 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and source_build_line (S2/facts.tsv:27516,27528); documented try_run behavior does not identify a present copied executable or exact covering build input line.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.2-7,S8.2-9,S8.2-16 | own line
+       reason: Test executable that try_run built, ran and kept: code (Q2); built by a person's configure run, not from a line.
+       by_meaning: no | without_forbidding: yes
+  name: ['<try_run COPY_FILE destination>'] nfacts 26
+   L27503 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27506 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27510 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27512 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27515 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27516 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27517 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27519 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27521 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27523 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27525 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27526 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27527 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27528 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-8 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and persistent_backing (S2/facts.tsv:27542,27547); documented result-cache values are not an observation that this object exists on a computer.
+       by_meaning: no | without_forbidding: yes
+  [c2] RECORD | S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Computed compile/run results read by CMake as values: not code, not chosen by a person; CMake recorded them as it ran: program record (cache).
+       by_meaning: no | without_forbidding: yes
+  name: ['build/CMakeCache.txt: compile/run result entries'] nfacts 26
+   L27529 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27532 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27536 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27538 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27542 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27543 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27545 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27547 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27549 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27551 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27552 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27553 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27554 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-9 family 14 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and persistent_backing (S2/facts.tsv:27568,27573); a documented configure-log event does not establish the presence of a particular stored object.
+       by_meaning: no | without_forbidding: yes
+  [c2] RECORD | S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Configure-log event written and read as log data: not code, not chosen; CMake recorded it as it ran: program record (log).
+       by_meaning: no | without_forbidding: yes
+  name: ['<build>/CMakeFiles/CMakeConfigureLog.yaml: try_run event'] nfacts 26
+   L27555 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27558 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27562 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27564 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27568 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27569 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27571 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27573 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27575 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27577 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27578 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27579 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27580 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+====================================================================================================
+OBJECT s2-20 family 15 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and whole_file_executability (S2/facts.tsv:27593,27606); general recall behavior does not establish a present history file or whether its actual retained statements execute as a whole.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-9,S8.2-23,S8.2-4,S8.2-15 | undetermined
+       reason: Python statements a person can recall and resubmit. S8.2-9: code the computer can execute at a person's command (PROGRAM-OWN). S8.2-23: the interpreter only reads the file as values; resubmission is the person's action (RECORD, history).
+       by_meaning: no | without_forbidding: yes
+  name: ['~/.python_history'] nfacts 26
+   L27581 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27583 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27587 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27589 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27592 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27593 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27594 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27596 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27598 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27600 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27602 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27603 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27604 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27605 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27606 whole_file_executability = UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.
+====================================================================================================
+OBJECT s2-21 family 15 DIFF
+  [c1] UNKNOWN | S8.2-3 | undetermined
+       reason: Unknown observed_presence and whole_file_executability (S2/facts.tsv:27619,27632); shell history recall does not establish a present file or executable validity of its complete retained contents.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-9,S8.2-23,S8.2-4,S8.2-15 | undetermined
+       reason: Bash history; fc and history substitution execute recalled entries. S8.2-9: code executable at a person's command (PROGRAM-OWN). S8.2-23: bash reads the file into a list as values (RECORD, history).
+       by_meaning: no | without_forbidding: yes
+  name: ['<HISTFILE> (default ~/.bash_history)'] nfacts 26
+   L27607 actor_identity = UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+   L27609 choice_time = UNKNOWN: No UTC choice time is recorded for an identified instance.
+   L27613 effective_rights = UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+   L27615 exact_bytes_or_selected_value = UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+   L27618 launch_change_access_behavior = UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+   L27619 observed_presence = UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+   L27620 package_name = UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+   L27622 package_version = UNKNOWN: No delivering package version is given for an identified instance.
+   L27624 persistent_backing = UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+   L27626 primary_description = UNKNOWN: No person-designated primary description for this object is supplied by B1.
+   L27628 producer_version = UNKNOWN: No observed version of the writing/building program is given for an instance.
+   L27629 production_time = UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+   L27630 remains_as_received = UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+   L27631 source_build_line = UNKNOWN: No exact source/build line for this object is supplied by B1.
+   L27632 whole_file_executability = UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.

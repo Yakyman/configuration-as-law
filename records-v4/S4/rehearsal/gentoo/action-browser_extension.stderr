@@ -1,0 +1,115 @@
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/_distutils/dist.py:318: BuildBackendWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/_distutils/dist.py:318: BuildBackendWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/_distutils/cmd.py:119: BuildBackendWarning: bdist_wheel.universal is deprecated
+!!
+
+        ********************************************************************************
+        With Python 2.7 end-of-life, support for building universal wheels
+        (i.e., wheels that support both Python 2 and Python 3)
+        is being obviated.
+        Please discontinue using this option, or if you still need it,
+        file an issue with pypa/setuptools describing your use case.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+        ********************************************************************************
+
+!!
+  self.finalize_options()
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/_distutils/dist.py:318: BuildBackendWarning: Unknown distribution option: 'tests_require'
+  warnings.warn(msg)
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/dist.py:765: BuildBackendWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+/tmp/pip-build-env-0_q60wv1/overlay/lib/python3.14/site-packages/setuptools/_distutils/cmd.py:119: BuildBackendWarning: bdist_wheel.universal is deprecated
+!!
+
+        ********************************************************************************
+        With Python 2.7 end-of-life, support for building universal wheels
+        (i.e., wheels that support both Python 2 and Python 3)
+        is being obviated.
+        Please discontinue using this option, or if you still need it,
+        file an issue with pypa/setuptools describing your use case.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+        ********************************************************************************
+
+!!
+  self.finalize_options()
+0%0%0%0%8%27%53%79%91%97%98%100%
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+Exiting due to channel error.
+Exiting due to channel error.
+Traceback (most recent call last):
+  File "GUEST_HOME/.s4-actions/gentoo-firefox-addon.py", line 94, in <module>
+    browser_session(install=False)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "GUEST_HOME/.s4-actions/gentoo-firefox-addon.py", line 65, in browser_session
+    client.set_context('chrome')
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "GUEST_HOME/.local/lib/cal-marionette/marionette_driver/marionette.py", line 1603, in set_context
+    self._send_message("Marionette:SetContext", {"value": context})
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "GUEST_HOME/.local/lib/cal-marionette/marionette_driver/decorators.py", line 24, in _
+    return func(*args, **kwargs)
+  File "GUEST_HOME/.local/lib/cal-marionette/marionette_driver/marionette.py", line 780, in _send_message
+    self._handle_error(err)
+    ~~~~~~~~~~~~~~~~~~^^^^^
+  File "GUEST_HOME/.local/lib/cal-marionette/marionette_driver/marionette.py", line 792, in _handle_error
+    raise errors.lookup(error)(message, stacktrace=stacktrace)
+marionette_driver.errors.UnsupportedOperationException: System access is required. Start Firefox with the "MOZ_REMOTE_ALLOW_SYSTEM_ACCESS=1" environment variable set to enable it.
+stacktrace:
+	RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:14:8
+	WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:169:5
+	UnsupportedOperationError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:977:5
+	assert.that/<@chrome://remote/content/shared/webdriver/Assert.sys.mjs:581:13
+	assert.hasSystemAccess@chrome://remote/content/shared/webdriver/Assert.sys.mjs:136:4
+	set context@chrome://remote/content/marionette/driver.sys.mjs:451:19
+	setContext@chrome://remote/content/marionette/driver.sys.mjs:3401:5
+	dispatch@chrome://remote/content/marionette/server.sys.mjs:317:49
+	execute@chrome://remote/content/marionette/server.sys.mjs:289:16
+	onPacket/<@chrome://remote/content/marionette/server.sys.mjs:262:20
+	onPacket@chrome://remote/content/marionette/server.sys.mjs:263:9
+	_onJSONObjectReady/<@chrome://remote/content/marionette/transport.sys.mjs:493:20
+

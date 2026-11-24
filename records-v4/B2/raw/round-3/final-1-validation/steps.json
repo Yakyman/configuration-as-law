@@ -1,0 +1,710 @@
+[
+  {
+    "argv": [
+      "python3",
+      "build/build.py",
+      "--server"
+    ],
+    "ended_utc": "2026-11-23T15:10:51Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "controller",
+    "legacy_protocol": false,
+    "log": "peer-build.log",
+    "started_utc": "2026-11-23T15:09:02Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-cases",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:11:32Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-new.log",
+    "started_utc": "2026-11-23T15:10:51Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:13:27Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases.jsonl",
+    "started_utc": "2026-11-23T15:11:32Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "copy-out",
+      "bc3-final-1-cases",
+      "/var/lib/stand/bc3-evidence",
+      "[stand-root]/raw/round-3/final-1-validation/cases-evidence"
+    ],
+    "ended_utc": "2026-11-23T15:13:28Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-export.log",
+    "started_utc": "2026-11-23T15:13:27Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:13:28Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-filesystem-verify.jsonl",
+    "started_utc": "2026-11-23T15:13:28Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:13:48Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-verify.log",
+    "started_utc": "2026-11-23T15:13:28Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-cases"
+    ],
+    "ended_utc": "2026-11-23T15:13:50Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-cases-destroy.log",
+    "started_utc": "2026-11-23T15:13:48Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-objects",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:14:31Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-new.log",
+    "started_utc": "2026-11-23T15:13:50Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-objects",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:26:11Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects.jsonl",
+    "started_utc": "2026-11-23T15:14:31Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-objects",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:26:29Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-before-verify.log",
+    "started_utc": "2026-11-23T15:26:11Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "stop",
+      "bc3-final-1-objects"
+    ],
+    "ended_utc": "2026-11-23T15:26:32Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-stop.log",
+    "started_utc": "2026-11-23T15:26:29Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "start",
+      "bc3-final-1-objects"
+    ],
+    "ended_utc": "2026-11-23T15:27:12Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-start.log",
+    "started_utc": "2026-11-23T15:26:32Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-objects",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:27:31Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-reboot.jsonl",
+    "started_utc": "2026-11-23T15:27:12Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-objects",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:27:49Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-verify.log",
+    "started_utc": "2026-11-23T15:27:31Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "copy-out",
+      "bc3-final-1-objects",
+      "/var/lib/stand/round2-evidence",
+      "[stand-root]/raw/round-3/final-1-validation/objects-evidence"
+    ],
+    "ended_utc": "2026-11-23T15:27:51Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "objects-export.log",
+    "started_utc": "2026-11-23T15:27:49Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "copy-out",
+      "bc3-final-1-objects",
+      "/etc/stand/factory",
+      "[stand-root]/raw/round-3/final-1-validation/factory-export"
+    ],
+    "ended_utc": "2026-11-23T15:27:51Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "factory-export.log",
+    "started_utc": "2026-11-23T15:27:51Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-objects"
+    ],
+    "ended_utc": "2026-11-23T15:27:52Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-objects-destroy.log",
+    "started_utc": "2026-11-23T15:27:51Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-shell",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:28:32Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-new.log",
+    "started_utc": "2026-11-23T15:27:52Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:29:38Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell.jsonl",
+    "started_utc": "2026-11-23T15:28:32Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:29:57Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-before-verify.log",
+    "started_utc": "2026-11-23T15:29:38Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "stop",
+      "bc3-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T15:30:02Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-stop.log",
+    "started_utc": "2026-11-23T15:29:57Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "start",
+      "bc3-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T15:30:42Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-start.log",
+    "started_utc": "2026-11-23T15:30:02Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:30:42Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-reboot.jsonl",
+    "started_utc": "2026-11-23T15:30:42Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:31:01Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "shell-verify.log",
+    "started_utc": "2026-11-23T15:30:42Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T15:31:05Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-shell-destroy.log",
+    "started_utc": "2026-11-23T15:31:01Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-gate",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:31:46Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "gate-new.log",
+    "started_utc": "2026-11-23T15:31:05Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-gate",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:37:23Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "gate.jsonl",
+    "started_utc": "2026-11-23T15:31:46Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-gate",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:37:43Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "gate-verify.log",
+    "started_utc": "2026-11-23T15:37:23Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-gate"
+    ],
+    "ended_utc": "2026-11-23T15:37:45Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-gate-destroy.log",
+    "started_utc": "2026-11-23T15:37:43Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-tools",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:38:26Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "tools-new.log",
+    "started_utc": "2026-11-23T15:37:45Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/round4-driver.py",
+      "bc3-final-final-1"
+    ],
+    "ended_utc": "2026-11-23T15:55:07Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "round4",
+    "legacy_protocol": true,
+    "log": "carried-console.jsonl",
+    "started_utc": "2026-11-23T15:10:51Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/round3-driver.py",
+      "bc3-final-final-1-regressions",
+      "--peer-root",
+      "bc3-peer"
+    ],
+    "ended_utc": "2026-11-23T16:37:41Z",
+    "exit": 1,
+    "expected_exit": 0,
+    "lane": "round3",
+    "legacy_protocol": true,
+    "log": "regressions-console.jsonl",
+    "started_utc": "2026-11-23T15:10:51Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-tools",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:43:01Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "tools.jsonl",
+    "started_utc": "2026-11-23T15:38:26Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-tools",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:43:19Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "tools-verify.log",
+    "started_utc": "2026-11-23T16:43:01Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-tools"
+    ],
+    "ended_utc": "2026-11-23T16:43:22Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-tools-destroy.log",
+    "started_utc": "2026-11-23T16:43:19Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-supplement",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T16:44:02Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-new.log",
+    "started_utc": "2026-11-23T16:43:22Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-supplement",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:44:05Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-direct.jsonl",
+    "started_utc": "2026-11-23T16:44:02Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-supplement",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:45:47Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-extra.jsonl",
+    "started_utc": "2026-11-23T16:44:05Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-supplement",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:46:05Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-before-verify.log",
+    "started_utc": "2026-11-23T16:45:47Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "stop",
+      "bc3-final-1-supplement"
+    ],
+    "ended_utc": "2026-11-23T16:46:09Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-stop.log",
+    "started_utc": "2026-11-23T16:46:05Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "start",
+      "bc3-final-1-supplement"
+    ],
+    "ended_utc": "2026-11-23T16:46:49Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-start.log",
+    "started_utc": "2026-11-23T16:46:09Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-supplement",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:47:07Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "supplement-verify.log",
+    "started_utc": "2026-11-23T16:46:49Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-supplement"
+    ],
+    "ended_utc": "2026-11-23T16:47:11Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-final-1-supplement-destroy.log",
+    "started_utc": "2026-11-23T16:47:07Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/assemble-channel-examples.py",
+      "[stand-root]/raw/round-3/final-1-validation/carried-suite",
+      "bc3-example-final-1"
+    ],
+    "ended_utc": "2026-11-23T16:47:11Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "controller",
+    "legacy_protocol": true,
+    "log": "assemble.log",
+    "started_utc": "2026-11-23T16:47:11Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/combined-selftest.py",
+      "bc3-final-final-1-combined",
+      "bc3-example-final-1/combined",
+      "--peer-root",
+      "bc3-peer",
+      "--reboot"
+    ],
+    "ended_utc": "2026-11-23T16:56:43Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "controller",
+    "legacy_protocol": true,
+    "log": "combined-console.jsonl",
+    "started_utc": "2026-11-23T16:47:11Z"
+  }
+]

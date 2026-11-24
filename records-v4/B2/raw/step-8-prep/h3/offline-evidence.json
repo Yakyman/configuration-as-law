@@ -1,0 +1,26 @@
+{
+  "tmux_executables": [],
+  "tmux_named_support_files": [
+    "/usr/share/terminfo/t/tmux",
+    "/usr/share/terminfo/t/tmux-256color",
+    "/usr/share/vim/vim91/ftplugin/tmux.vim",
+    "/usr/share/vim/vim91/syntax/tmux.vim"
+  ],
+  "tmux_package_rows": [],
+  "distribution_base_rows": [
+    "base",
+    "package:base-files",
+    "package:base-passwd",
+    "package:dhcpcd-base",
+    "package:gcc-14-base:amd64",
+    "package:gettext-base",
+    "package:groff-base",
+    "package:linux-base",
+    "package:ncurses-base",
+    "package:netbase",
+    "package:perl-base",
+    "package:sgml-base"
+  ],
+  "declaration_sha256": "2e6946a893a04b121ef4687d82bc34fde2577e983ac0bfdc2ecf3ad4cdd79b4a",
+  "evidence_type": "offline declaration/source inspection; no execution attempt"
+}

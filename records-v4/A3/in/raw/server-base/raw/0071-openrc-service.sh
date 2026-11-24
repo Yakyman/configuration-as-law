@@ -1,0 +1,1 @@
+rc-status --all

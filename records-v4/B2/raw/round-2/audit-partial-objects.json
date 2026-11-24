@@ -1,0 +1,151 @@
+{
+  "audit_complete": false,
+  "checks": [
+    {
+      "check": "frozen-inputs",
+      "status": "validated"
+    },
+    {
+      "check": "object-suite",
+      "status": "validated"
+    },
+    {
+      "check": "independent-censuses",
+      "status": "validated"
+    },
+    {
+      "check": "whole-suite-fixed-inventories",
+      "status": "incomplete"
+    },
+    {
+      "check": "object-export-inventories",
+      "status": "incomplete"
+    },
+    {
+      "check": "native-regression-and-ancillary",
+      "status": "incomplete"
+    },
+    {
+      "check": "combined-every-line",
+      "status": "incomplete"
+    },
+    {
+      "check": "controller-lanes-cleanup",
+      "status": "incomplete"
+    }
+  ],
+  "controller_success_is_not_boundary_success": true,
+  "counts": {
+    "census:initial": {
+      "FACT_UNKNOWN": 65096,
+      "covered": 497,
+      "diagnostic": 58,
+      "unrecorded": 61
+    },
+    "census:installed": {
+      "FACT_UNKNOWN": 65129,
+      "covered": 510,
+      "diagnostic": 58,
+      "unrecorded": 61
+    },
+    "census:removed": {
+      "FACT_UNKNOWN": 65157,
+      "covered": 497,
+      "diagnostic": 58,
+      "unrecorded": 62
+    },
+    "census:unapplied-without-owners": {
+      "FACT_UNKNOWN": 65136,
+      "covered": 500,
+      "diagnostic": 58,
+      "unrecorded": 71
+    },
+    "census:with-attempts": {
+      "FACT_UNKNOWN": 65156,
+      "covered": 510,
+      "diagnostic": 59,
+      "unrecorded": 61
+    },
+    "objects": {
+      "after_reboot": 2,
+      "boolean_results": 52,
+      "failed": 3,
+      "passed": 49,
+      "pure_cases": 37
+    }
+  },
+  "errors": [],
+  "false_observations": [
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "UNRECORDED-BYTECODE",
+      "index": 31,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "EXTRACTED-CODE",
+      "index": 32,
+      "required": false
+    },
+    {
+      "classification": "built-in-tool path",
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "ALTERNATE-DATABASE",
+      "index": 34,
+      "required": false
+    }
+  ],
+  "hypothesis_outcome": "?",
+  "limitations": [
+    "Finite saved-evidence audit, not independent reproduction or variant acceptance.",
+    "Missing or malformed evidence never counts as a passed test; preserved false and untested rows remain separate."
+  ],
+  "missing": [
+    {
+      "check": "whole-suite-fixed-inventories",
+      "reason": "raw/round-2/final-1/shell.jsonl"
+    },
+    {
+      "check": "object-export-inventories",
+      "reason": "[Errno 2] No such file or directory: '[stand-root]/raw/round-2/final-1/carried-suite/factory-export/factory/machine.jsonl'"
+    },
+    {
+      "check": "native-regression-and-ancillary",
+      "reason": "raw/round-2/final-1/carried-suite/regressions/original/D01.log"
+    },
+    {
+      "check": "combined-every-line",
+      "reason": "example/round-2/combined/machine.jsonl"
+    },
+    {
+      "check": "controller-lanes-cleanup",
+      "reason": "raw/round-2/final-1/summary.json"
+    }
+  ],
+  "record_counts": {
+    "false_observations": 3,
+    "invalid_sections": 0,
+    "missing_sections": 5,
+    "untested_observations": 1
+  },
+  "untested_observations": [
+    {
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "INTERNAL-CODE-CAPABILITIES",
+      "index": 0,
+      "status": "UNTESTED"
+    }
+  ]
+}

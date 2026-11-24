@@ -1,0 +1,265 @@
+
+
+
+
+
+
+User Accounts (GNU Guix Reference Manual)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+--&gt;
+
+
+
+
+
+
+VersionVersion 1.5.0developmentsingle pagePDF DeutschEnglishEspañolFrançaisItalianoPortuguêsрусский中文; 汉语; 华语⊕
+
+
+
+Next: Keyboard Layout, Previous: Swap Space, Up: System Configuration   [Contents][Index]
+
+
+11.7 User Accounts
+
+
+
+
+User accounts and groups are entirely managed through the
+operating-system declaration. They are specified with the
+user-account and user-group forms:
+
+
+(user-account
+ (name "alice")
+ (group "users")
+ (supplementary-groups '("wheel" ;allow use of sudo, etc.
+ "audio" ;sound card
+ "video" ;video devices such as webcams
+ "cdrom")) ;the good ol' CD-ROM
+ (comment "Bob's sister"))
+
+
+Here’s a user account that uses a different shell and a custom home
+directory (the default would be "/home/bob"):
+
+
+(user-account
+ (name "bob")
+ (group "users")
+ (comment "Alice's bro")
+ (shell (file-append zsh "/bin/zsh"))
+ (home-directory "/home/robert"))
+
+
+When booting or upon completion of guix system reconfigure,
+the system ensures that only the user accounts and groups specified in
+the operating-system declaration exist, and with the specified
+properties. Thus, account or group creations or modifications made by
+directly invoking commands such as useradd are lost upon
+reconfiguration or reboot. This ensures that the system remains exactly
+as declared.
+
+
+Data Type: user-account 
+Objects of this type represent user accounts. The following members may
+be specified:
+
+
+name
+The name of the user account.
+
+
+group ¶
+This is the name (a string) or identifier (a number) of the user group
+this account belongs to.
+
+
+supplementary-groups (default: '())
+Optionally, this can be defined as a list of group names that this
+account belongs to.
+
+
+uid (default: #f)
+This is the user ID for this account (a number), or #f. In the
+latter case, a number is automatically chosen by the system when the
+account is created.
+
+
+comment (default: "")
+A comment about the account, such as the account owner’s full name.
+
+Note that, for non-system accounts, users are free to change their real
+name as it appears in /etc/passwd using the chfn
+command. When they do, their choice prevails over the system
+administrator’s choice; reconfiguring does not change their name.
+
+
+home-directory
+This is the name of the home directory for the account.
+
+
+create-home-directory? (default: #t)
+Indicates whether the home directory of this account should be created
+if it does not exist yet.
+
+
+shell (default: Bash)
+This is a G-expression denoting the file name of a program to be used as
+the shell (see G-Expressions). For example, you would refer to the
+Bash executable like this:
+
+
+(file-append bash "/bin/bash")
+
+
+... and to the Zsh executable like that:
+
+
+(file-append zsh "/bin/zsh")
+
+
+
+system? (default: #f)
+This Boolean value indicates whether the account is a “system”
+account. System accounts are sometimes treated specially; for instance,
+graphical login managers do not list them.
+
+
+
+password (default: #f)
+You would normally leave this field to #f, initialize user
+passwords as root with the passwd command, and then let
+users change it with passwd. Passwords set with
+passwd are of course preserved across reboot and
+reconfiguration.
+
+If you do want to set an initial password for an account, then
+this field must contain the encrypted password, as a string. You can use the
+crypt procedure for this purpose:
+
+
+(user-account
+ (name "charlie")
+ (group "users")
+
+ ;; Specify a SHA-512-hashed initial password.
+ (password (crypt "InitialPassword!" "$6$abc")))
+
+
+
+Note: The hash of this initial password will be available in a file in
+/gnu/store, readable by all the users, so this method must be used with
+care.
+
+
+See Passphrase Storage in The GNU C Library Reference Manual, for
+more information on password encryption, and Encryption in GNU
+Guile Reference Manual, for information on Guile’s crypt procedure.
+
+
+
+
+
+
+User group declarations are even simpler:
+
+
+(user-group (name "students"))
+
+
+
+Data Type: user-group 
+This type is for, well, user groups. There are just a few fields:
+
+
+name
+The name of the group.
+
+
+id (default: #f)
+The group identifier (a number). If #f, a new number is
+automatically allocated when the group is created.
+
+
+system? (default: #f)
+This Boolean value indicates whether the group is a “system” group.
+System groups have low numerical IDs.
+
+
+password (default: #f)
+What, user groups can have a password? Well, apparently yes. Unless
+#f, this field specifies the password of the group.
+
+
+
+
+
+For convenience, a variable lists all the basic user groups one may
+expect:
+
+
+Variable: %base-groups 
+This is the list of basic user groups that users and/or packages expect
+to be present on the system. This includes groups such as “root”,
+“wheel”, and “users”, as well as groups used to control access to
+specific devices such as “audio”, “disk”, and “cdrom”.
+
+
+
+Variable: %base-user-accounts 
+This is the list of basic system accounts that programs may expect to
+find on a GNU/Linux system, such as the “nobody” account.
+
+Note that the “root” account is not included here. It is a
+special-case and is automatically added whether or not it is specified.
+
+
+
+The Linux kernel also implements subordinate user and group IDs,
+or “subids”, which are used to map the ID of a user and group to
+several IDs inside separate name spaces—inside “containers”.
+See the subordinate user and group ID
+service, for information on how to configure it.
+
+
+
+
+
+Next: Keyboard Layout, Previous: Swap Space, Up: System Configuration   [Contents][Index]
+
+
+
+
+
+

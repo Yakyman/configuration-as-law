@@ -1,0 +1,1 @@
+The required W2/OBJECTS.tsv contains claim titles in its source column; those titles were exposed while reading the required input. No referenced result, classification, other party answer, comparison or adjudication was opened. Independence from the titles cannot be claimed.

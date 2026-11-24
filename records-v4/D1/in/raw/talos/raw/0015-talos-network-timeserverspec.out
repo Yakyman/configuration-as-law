@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "created": "2026-11-23T11:16:43Z",
+        "finalizers": [
+            "network.TimeServerSpecController"
+        ],
+        "id": "timeservers",
+        "namespace": "network",
+        "owner": "TimeServerMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "TimeServerSpecs.net.talos.dev",
+        "updated": "2026-11-23T11:16:43Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "layer": "default",
+        "timeServers": [
+            "time.cloudflare.com"
+        ],
+        "useNTS": true
+    }
+}

@@ -1,0 +1,199 @@
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "ata_piix",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:49Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 1,
+        "size": 40960,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "button",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 0,
+        "size": 16384,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "intel_rapl_common",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "dependencies": [
+            "intel_rapl_msr"
+        ],
+        "referenceCount": 1,
+        "size": 45056,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "intel_rapl_msr",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 0,
+        "size": 12288,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "psmouse",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 0,
+        "size": 155648,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "virtio_blk",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 1,
+        "size": 32768,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "virtio_net",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 0,
+        "size": 126976,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "virtio_pci",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "referenceCount": 0,
+        "size": 49152,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "virtio_pci_legacy_dev",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "dependencies": [
+            "virtio_pci"
+        ],
+        "referenceCount": 1,
+        "size": 12288,
+        "state": "Live"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "virtio_pci_modern_dev",
+        "namespace": "runtime",
+        "owner": "runtime.KernelModuleStatusController",
+        "phase": "running",
+        "type": "LoadedKernelModules.runtime.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "0x0000000000000000",
+        "dependencies": [
+            "virtio_pci"
+        ],
+        "referenceCount": 1,
+        "size": 20480,
+        "state": "Live"
+    }
+}

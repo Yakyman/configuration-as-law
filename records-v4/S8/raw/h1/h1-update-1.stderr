@@ -1,0 +1,8 @@
++1795459212.161136 3: set -eu
++1795459212.161151 4: printf 'ACTION_BEGIN h1.update-1\n'
++1795459212.161168 5: /usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\n' ed
++1795459212.164104 6: /usr/local/bin/apt-get upgrade --stand-catalog ed
+++1795459241.759447 7: /usr/bin/dpkg-query -W '-f=${Version}' ed
++1795459241.763106 7: test 1.21.1-1 = 1.21.1-1
++1795459241.763169 8: /usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\n' ed
++1795459241.766178 9: printf 'ACTION_DONE h1.update-1\n'

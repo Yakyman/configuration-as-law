@@ -1,0 +1,5 @@
+# Kind membership correction
+
+Use the original raw/counts.json membership ledger for unchanged classifications. Remove C7.07 from Installed object: its original extra Q1 clause was hypothetical, not the classification of either described file. The revised row removes that clause. The other changed rows retain their object kinds; history rows still contribute both Program and Program record, now as textual readings rather than unknown facts. C7.19 changes recording exemption, not its Q2 kind. Evidence additions do not change kinds. No other kind membership changes.
+
+Counts are nonexclusive row incidence for described objects and explicit classified branches, including both textual readings and known conditional branches. This does not count generic hypothetical rules, unidentified extra outputs, or the twelve M rows. Counts are not observations of particular installations. Branches such as packaged versus unpackaged existing executables remain explicit branches; C7.07 instead describes both inputs as Q2 programs.

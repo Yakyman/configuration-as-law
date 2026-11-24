@@ -1,0 +1,53 @@
+Package flatpak-1.18.0-2.el10_3.4.x86_64 is already installed.
+Dependencies resolved.
+================================================================================
+ Package                   Arch      Version                 Repository    Size
+================================================================================
+Upgrading:
+ flatpak                   x86_64    1.18.0-2.el10_3.5       appstream    2.0 M
+ flatpak-selinux           noarch    1.18.0-2.el10_3.5       appstream     23 k
+ flatpak-session-helper    x86_64    1.18.0-2.el10_3.5       appstream     44 k
+
+Transaction Summary
+================================================================================
+Upgrade  3 Packages
+
+Total download size: 2.0 M
+Downloading Packages:
+(1/3): flatpak-selinux-1.18.0-2.el10_3.5.noarch  94 kB/s |  23 kB     00:00    
+(2/3): flatpak-session-helper-1.18.0-2.el10_3.5 120 kB/s |  44 kB     00:00    
+(3/3): flatpak-1.18.0-2.el10_3.5.x86_64.rpm     3.2 MB/s | 2.0 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                           2.6 MB/s | 2.0 MB     00:00     
+AlmaLinux 10 - AppStream                        1.6 MB/s | 1.6 kB     00:00    
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : flatpak-session-helper-1.18.0-2.el10_3.5.x86_64        1/6 
+  Upgrading        : flatpak-selinux-1.18.0-2.el10_3.5.noarch               2/6 
+  Running scriptlet: flatpak-selinux-1.18.0-2.el10_3.5.noarch               2/6 
+  Running scriptlet: flatpak-1.18.0-2.el10_3.5.x86_64                       3/6 
+  Upgrading        : flatpak-1.18.0-2.el10_3.5.x86_64                       3/6 
+  Cleanup          : flatpak-1.18.0-2.el10_3.4.x86_64                       4/6 
+  Cleanup          : flatpak-selinux-1.18.0-2.el10_3.4.noarch               5/6 
+  Running scriptlet: flatpak-selinux-1.18.0-2.el10_3.4.noarch               5/6 
+  Cleanup          : flatpak-session-helper-1.18.0-2.el10_3.4.x86_64        6/6 
+  Running scriptlet: flatpak-session-helper-1.18.0-2.el10_3.4.x86_64        6/6 
+
+Upgraded:
+  flatpak-1.18.0-2.el10_3.5.x86_64                                              
+  flatpak-selinux-1.18.0-2.el10_3.5.noarch                                      
+  flatpak-session-helper-1.18.0-2.el10_3.5.x86_64                               
+
+Complete!
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+Installing runtime/org.gnome.Calculator.Locale/x86_64/stable
+Installing runtime/org.gnome.Platform.Locale/x86_64/51
+Installing runtime/org.gnome.Platform/x86_64/51
+Installing app/org.gnome.Calculator/x86_64/stable

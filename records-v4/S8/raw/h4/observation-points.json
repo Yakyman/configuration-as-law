@@ -1,0 +1,30 @@
+[
+  {
+    "actions_record": "commands.json",
+    "evidence": "install/guest.json",
+    "label": "h4-install-disconnected",
+    "status": "collected",
+    "valid_cut": true
+  },
+  {
+    "actions_record": "commands.json",
+    "evidence": "h4-install-restored.stdout",
+    "exit": 255,
+    "label": "h4-install-restored",
+    "status": "unavailable"
+  },
+  {
+    "actions_record": "commands.json",
+    "evidence": "h4-install-after-restored-retry.stdout",
+    "exit": 255,
+    "label": "h4-install-after-restored-retry",
+    "status": "unavailable"
+  },
+  {
+    "actions_record": "commands.json",
+    "evidence": "h4-end.stdout",
+    "exit": 255,
+    "label": "h4-end",
+    "status": "unavailable"
+  }
+]

@@ -1,0 +1,34 @@
+FX-S3-A-2 textual verification
+Recorded: 2026-11-23 13:39:52 UTC
+Operator checks only; independent acceptance pending. No empirical rerun.
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/ARGUMENT.md
+quotes checked: 39; not found in TEXT.md: 0
+Exit code: 0
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/QUESTIONS.md
+quotes checked: 1; not found in TEXT.md: 0
+Exit code: 0
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/FIX-S3-A-2.md
+quotes checked: 0; not found in TEXT.md: 0
+Exit code: 0
+S3/ARGUMENT.md: exact ID–sentence pairs 35; distinct 19; mismatches 0
+S3/QUESTIONS.md: exact ID–sentence pairs 1; distinct 1; mismatches 0
+S3/FIX-S3-A-2.md: exact ID–sentence pairs 0; distinct 0; mismatches 0
+
+Moment rows: 16; all byte-identical to before-copy.
+Part (b): byte-identical to before-copy.
+First line: STEP 3: (a) ?; (b) ?
+Finding dispositions: 1, 2, 3, 4, 5, 6, 7
+A-W2 conditional status and third reading in question 2: present.
+Preserved inputs and historical evidence: 24 files; mismatches 0.
+Complete diff written to S3/raw/fix-s3-a-2/changes.diff
+
+Current artifact SHA-256:
+5221cad755ba42563ae424dcb329a26ad017753a5076a205051766c3ba1f9c3d S3/ARGUMENT.md
+c8a008e7665ca43e3c7249767442dcce0e055ce8f5d198c3877c918905d0a08d S3/QUESTIONS.md
+95d979d0066ad02e0c14bed6a75ade1a5970587011bd07c7fe1756863227cc28 S3/FIX-S3-A-2.md
+47f52a619c989a9efc643a359074bceb6936716d4058c0c70e9c11d2829b9043 S3/raw/fix-s3-a-2/changes.diff
+b24ad7d90a90295a695f05a648cb7bdee454e61636efb24725b152ec3f3a4e5f S3/raw/fix-s3-a-2/verify.py
+fe3922fec66cfc6ef2aa38aaac13e9099b70e0202f93e6a7a9cedc3c0e4f9354 S3/raw/fix-s3-a-2/frozen-inputs.json
+
+Result: PASS

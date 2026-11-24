@@ -1,0 +1,641 @@
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/opt",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "",
+            "readOnly": false,
+            "requesterIDs": [
+                "/opt",
+                "service/cri-/opt"
+            ],
+            "requesters": [
+                "cri",
+                "service/cri"
+            ],
+            "volumeID": "/opt"
+        },
+        "target": "/opt"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/lib/cni",
+            "block.MountController-KUBELET",
+            "block.MountController-CRI",
+            "block.MountController-ETCD"
+        ],
+        "id": "/var/lib",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 8
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "EPHEMERAL",
+            "readOnly": false,
+            "requesterIDs": [
+                "k8s.KubeletServiceController-/var/lib",
+                "service/cri-/var/lib",
+                "service/etcd-/var/lib",
+                "service/kubelet-/var/lib"
+            ],
+            "requesters": [
+                "k8s.KubeletServiceController",
+                "service/cri",
+                "service/etcd",
+                "service/kubelet"
+            ],
+            "volumeID": "/var/lib"
+        },
+        "target": "/var/lib"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/lib/cni",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/lib",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/cri-/var/lib/cni"
+            ],
+            "requesters": [
+                "service/cri"
+            ],
+            "volumeID": "/var/lib/cni"
+        },
+        "target": "/var/lib/cni"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/lib/kubelet/seccomp/profiles"
+        ],
+        "id": "/var/lib/kubelet/seccomp",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "KUBELET",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/lib/kubelet/seccomp"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/lib/kubelet/seccomp"
+        },
+        "target": "/var/lib/kubelet/seccomp"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/lib/kubelet/seccomp/profiles",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/lib/kubelet/seccomp",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/lib/kubelet/seccomp/profiles"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/lib/kubelet/seccomp/profiles"
+        },
+        "target": "/var/lib/kubelet/seccomp/profiles"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/log/audit/kube"
+        ],
+        "id": "/var/log/audit",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "LOG",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/log/audit"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/log/audit"
+        },
+        "target": "/var/log/audit"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/log/audit/kube",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/log/audit",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/log/audit/kube"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/log/audit/kube"
+        },
+        "target": "/var/log/audit/kube"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/log/containers",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "LOG",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/log/containers"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/log/containers"
+        },
+        "target": "/var/log/containers"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/log/pods",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "LOG",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/kubelet-/var/log/pods"
+            ],
+            "requesters": [
+                "service/kubelet"
+            ],
+            "volumeID": "/var/log/pods"
+        },
+        "target": "/var/log/pods"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/mnt",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "EPHEMERAL",
+            "readOnly": false,
+            "requesterIDs": [
+                "/var/mnt",
+                "service/kubelet-/var/mnt"
+            ],
+            "requesters": [
+                "block.VolumeConfigController",
+                "service/kubelet"
+            ],
+            "volumeID": "/var/mnt"
+        },
+        "target": "/var/mnt"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/run/lock"
+        ],
+        "id": "/var/run",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 3
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/cri-/var/run"
+            ],
+            "requesters": [
+                "service/cri"
+            ],
+            "volumeID": "/var/run"
+        },
+        "target": "/var/run"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "/var/run/lock",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/run",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/cri-/var/run/lock"
+            ],
+            "requesters": [
+                "service/cri"
+            ],
+            "volumeID": "/var/run/lock"
+        },
+        "target": "/var/run/lock"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "CRI",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/lib",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/cri-CRI"
+            ],
+            "requesters": [
+                "service/cri"
+            ],
+            "volumeID": "CRI"
+        },
+        "target": "/var/lib/containerd"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountController-/var/lib",
+            "block.MountController-/var/mnt",
+            "block.MountController-LOG",
+            "block.MountStatusController"
+        ],
+        "id": "EPHEMERAL",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 5
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "xfs",
+        "projectQuotaSupport": true,
+        "readOnly": false,
+        "source": "/dev/vda6",
+        "spec": {
+            "detached": false,
+            "parentID": "",
+            "readOnly": false,
+            "requesterIDs": [
+                "EPHEMERAL"
+            ],
+            "requesters": [
+                "sequencer"
+            ],
+            "secure": true,
+            "volumeID": "EPHEMERAL"
+        },
+        "target": "/var"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController"
+        ],
+        "id": "ETCD",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/lib",
+            "readOnly": false,
+            "requesterIDs": [
+                "service/etcd-ETCD"
+            ],
+            "requesters": [
+                "service/etcd"
+            ],
+            "volumeID": "ETCD"
+        },
+        "target": "/var/lib/etcd"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/lib/kubelet/seccomp"
+        ],
+        "id": "KUBELET",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 4
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "/var/lib",
+            "readOnly": false,
+            "requesterIDs": [
+                "k8s.KubeletServiceController-KUBELET",
+                "service/kubelet-KUBELET"
+            ],
+            "requesters": [
+                "k8s.KubeletServiceController",
+                "service/kubelet"
+            ],
+            "volumeID": "KUBELET"
+        },
+        "target": "/var/lib/kubelet"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "block.MountStatusController",
+            "block.MountController-/var/log/audit",
+            "block.MountController-/var/log/containers",
+            "block.MountController-/var/log/pods"
+        ],
+        "id": "LOG",
+        "namespace": "runtime",
+        "owner": "block.MountController",
+        "phase": "running",
+        "type": "MountStatuses.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 6
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "detached": false,
+        "filesystem": "none",
+        "projectQuotaSupport": false,
+        "readOnly": false,
+        "source": "",
+        "spec": {
+            "detached": false,
+            "parentID": "EPHEMERAL",
+            "readOnly": false,
+            "requesterIDs": [
+                "runtime.LogPersistenceController-/var/log",
+                "service/kubelet-LOG"
+            ],
+            "requesters": [
+                "runtime.LogPersistenceController",
+                "service/kubelet"
+            ],
+            "volumeID": "LOG"
+        },
+        "target": "/var/log"
+    }
+}

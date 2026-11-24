@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "S4/fix-s4-p-3/neutralize.py", line 146, in <module>
+    result = handoff(args.source, args.destination, args.report)
+  File "S4/fix-s4-p-3/neutralize.py", line 102, in handoff
+    data, counts = transform(source / name, entries)
+                   ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "S4/fix-s4-p-3/neutralize.py", line 39, in transform
+    rows = list(csv.reader(io.StringIO(data.decode('utf-8'), newline=''), delimiter='\t'))
+_csv.Error: field larger than field limit (131072)

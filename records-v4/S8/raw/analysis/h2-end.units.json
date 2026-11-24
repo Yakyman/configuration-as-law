@@ -1,0 +1,678 @@
+{
+ "autovt@.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/autovt@.service",
+    "target": "getty@.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/autovt@.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.bluez.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/dbus-org.bluez.service",
+    "target": "/usr/lib/systemd/system/bluetooth.service",
+    "claims": [
+     "base",
+     "etc:/objects/1209"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/dbus-org.bluez.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1209"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.hostname1.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+    "target": "systemd-hostnamed.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.locale1.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+    "target": "systemd-localed.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.login1.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.login1.service",
+    "target": "systemd-logind.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.login1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.network1.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.network1.service",
+    "target": "/usr/lib/systemd/system/systemd-networkd.service",
+    "claims": [
+     "base",
+     "etc:/objects/1210"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.network1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1210"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.nm-dispatcher.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service",
+    "target": "/usr/lib/systemd/system/NetworkManager-dispatcher.service",
+    "claims": [
+     "base",
+     "etc:/objects/1211"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1211"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.resolve1.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.resolve1.service",
+    "target": "/usr/lib/systemd/system/systemd-resolved.service",
+    "claims": [
+     "base",
+     "etc:/objects/1212"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.resolve1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1212"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.timedate1.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+    "target": "systemd-timedated.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "dbus-org.freedesktop.timesync1.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.timesync1.service",
+    "target": "/usr/lib/systemd/system/systemd-timesyncd.service",
+    "claims": [
+     "base",
+     "etc:/objects/1213"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/dbus-org.freedesktop.timesync1.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1213"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "getty@.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/getty.target.wants/getty@tty1.service",
+    "target": "/usr/lib/systemd/system/getty@.service",
+    "claims": [
+     "base",
+     "etc:/objects/1217"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/getty@.service",
+    "kind": "file",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "kmod.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/kmod.service",
+    "target": "systemd-modules-load.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/kmod.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "procps.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/procps.service",
+    "target": "systemd-sysctl.service",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/procps.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "sshd-unix-local@.service": {
+  "links": [],
+  "unit_files": []
+ },
+ "sshd.service": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/sshd.service",
+    "target": "/usr/lib/systemd/system/ssh.service",
+    "claims": [
+     "base",
+     "etc:/objects/1251"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/etc/systemd/system/sshd.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "etc:/objects/1251"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "udev.service": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/udev.service",
+    "target": "systemd-udevd.service",
+    "claims": [
+     "base",
+     "package:udev"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/udev.service",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:udev"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "cloud-init-hotplugd.socket": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/cloud-config.target.wants/cloud-init-hotplugd.socket",
+    "target": "/usr/lib/systemd/system/cloud-init-hotplugd.socket",
+    "claims": [
+     "base",
+     "etc:/objects/1201"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/cloud-init-hotplugd.socket",
+    "kind": "file",
+    "claims": [
+     "base",
+     "package:cloud-init"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "systemd-networkd.socket": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/sockets.target.wants/systemd-networkd.socket",
+    "target": "/usr/lib/systemd/system/systemd-networkd.socket",
+    "claims": [
+     "base",
+     "etc:/objects/1245"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/systemd-networkd.socket",
+    "kind": "file",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "uuidd.socket": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/sockets.target.wants/uuidd.socket",
+    "target": "/usr/lib/systemd/system/uuidd.socket",
+    "claims": [
+     "base",
+     "etc:/objects/1246"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/uuidd.socket",
+    "kind": "file",
+    "claims": [
+     "base",
+     "package:uuid-runtime"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "ctrl-alt-del.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/ctrl-alt-del.target",
+    "target": "reboot.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/ctrl-alt-del.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "default.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/default.target",
+    "target": "graphical.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/default.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "remote-fs.target": {
+  "links": [
+   {
+    "path": "/etc/systemd/system/multi-user.target.wants/remote-fs.target",
+    "target": "/usr/lib/systemd/system/remote-fs.target",
+    "claims": [
+     "base",
+     "etc:/objects/1228"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/remote-fs.target",
+    "kind": "file",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel0.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel0.target",
+    "target": "poweroff.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel0.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel1.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel1.target",
+    "target": "rescue.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel1.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel2.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel2.target",
+    "target": "multi-user.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel2.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel3.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel3.target",
+    "target": "multi-user.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel3.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel4.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel4.target",
+    "target": "multi-user.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel4.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel5.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel5.target",
+    "target": "graphical.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel5.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ },
+ "runlevel6.target": {
+  "links": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel6.target",
+    "target": "reboot.target",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ],
+  "unit_files": [
+   {
+    "path": "/usr/lib/systemd/system/runlevel6.target",
+    "kind": "symlink",
+    "claims": [
+     "base",
+     "package:systemd"
+    ],
+    "matching": true
+   }
+  ]
+ }
+}

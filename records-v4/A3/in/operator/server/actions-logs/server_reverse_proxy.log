@@ -1,0 +1,16 @@
+Valid configuration
+Hostname: 3f825240e165
+IP: 127.0.0.1
+IP: ::1
+IP: 172.18.0.3
+RemoteAddr: 172.18.0.4:34260
+GET / HTTP/1.1
+Host: 127.0.0.1:18081
+User-Agent: curl/8.14.1
+Accept: */*
+Accept-Encoding: gzip
+Via: 1.1 Caddy
+X-Forwarded-For: 172.18.0.1
+X-Forwarded-Host: 127.0.0.1:18081
+X-Forwarded-Proto: http
+

@@ -1,0 +1,6 @@
+machine	utc	exit_status	duration_seconds	command
+alma	2026-11-23T16:27:40.355128+00:00	1	0.449	"python3 ""$S4_INPUTS/fix-s4-p-3/neutralize.py"" D1b/raw/alma D1b/handoff/alma --report D1b/handoff-audit/alma.json"
+void	2026-11-23T16:27:41.301546+00:00	0	0.946	"python3 ""$S4_INPUTS/fix-s4-p-3/neutralize.py"" D1b/raw/void D1b/handoff/void --report D1b/handoff-audit/void.json"
+gentoo	2026-11-23T16:27:52.951487+00:00	0	4.495	"python3 ""$S4_INPUTS/fix-s4-p-3/neutralize.py"" D1b/raw/gentoo D1b/handoff/gentoo --report D1b/handoff-audit/gentoo.json"
+microos	2026-11-23T16:28:11.322424+00:00	0	0.847	"python3 ""$S4_INPUTS/fix-s4-p-3/neutralize.py"" D1b/raw/microos D1b/handoff/microos --report D1b/handoff-audit/microos.json"
+talos	2026-11-23T16:28:16.770347+00:00	0	0.682	"python3 ""$S4_INPUTS/fix-s4-p-3/neutralize.py"" D1b/raw/talos D1b/handoff/talos --report D1b/handoff-audit/talos.json"

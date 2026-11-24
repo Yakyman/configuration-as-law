@@ -1,0 +1,578 @@
+{
+  "setting-origin": [
+    {
+      "id": "alma-1270901ac803f087770d4a03",
+      "kind": "L1:account",
+      "name": "root",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-18ded40433b6af01a8b11595",
+      "kind": "L1:account",
+      "name": "bin",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-09fe3e2ff1af708b3e2f3cc4",
+      "kind": "L1:account",
+      "name": "daemon",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-3a9032548c4616d565f24feb",
+      "kind": "L1:account",
+      "name": "adm",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-b2d0097b60aae99ae9ddedac",
+      "kind": "L1:account",
+      "name": "lp",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-2306394bc0f92c33d49a6439",
+      "kind": "L1:account",
+      "name": "sync",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-448646fafcede98990f077af",
+      "kind": "L1:account",
+      "name": "shutdown",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-986feb2c79e9e648fbc39e33",
+      "kind": "L1:account",
+      "name": "halt",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-013789c485cfe6ad406fb020",
+      "kind": "L1:account",
+      "name": "mail",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-adb91fb58b73a818d97424ca",
+      "kind": "L1:account",
+      "name": "operator",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    }
+  ],
+  "runtime-manager": [
+    {
+      "id": "alma-fab6357cc46e0afe3e20300f",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-1be76eae4b11dbcdae07b4eb",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-4129e3f409a79b3d38a21046",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-95ff055b8b66bf4cbca9f279",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-29a28d1283ab2c445bd3ccaf",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-c0411eed574d1c9e19fb3d05",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-7281b2c2ab87affb0fa1d77d",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-fa682c4e155d67c2da71234d",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-62edff09e6688088a39f7ac8",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    },
+    {
+      "id": "alma-dbfa31eb16cc5f0a78cfaf37",
+      "kind": "L1:service",
+      "name": "*",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) retains a missing-unit reference only in manager memory."
+    }
+  ],
+  "individual": [
+    {
+      "id": "alma-6f09e788229a52376c55f438",
+      "kind": "L1:timer",
+      "name": "Mon",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-02e882963b0a187029ce4d0f",
+      "kind": "L1:timer",
+      "name": "Mon",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-261a7a3a90e36b704dbc7001",
+      "kind": "L1:timer",
+      "name": "Mon",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-31f01d5991193d82156273f0",
+      "kind": "L1:timer",
+      "name": "Tue",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-41b45830fd2058744acb420f",
+      "kind": "L1:timer",
+      "name": "Tue",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-929c4159e2f3d0a81f68b64d",
+      "kind": "L1:timer",
+      "name": "Sun",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-5050a712c0f7de93aa46a2d0",
+      "kind": "L1:timer",
+      "name": "Mon",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE) computes this live timer schedule from timer configuration."
+    },
+    {
+      "id": "alma-84d725a8c827746aa63fabfa",
+      "kind": "L1:port",
+      "name": "udp",
+      "decision": "RUNTIME",
+      "reason": "Unidentified listening program (UNKNOWN creator decision); socket listing omits the owning program, but an open port is explicitly runtime-only."
+    },
+    {
+      "id": "alma-01179eb01996587945a7415d",
+      "kind": "L1:port",
+      "name": "udp",
+      "decision": "RUNTIME",
+      "reason": "Unidentified listening program (UNKNOWN creator decision); socket listing omits the owning program, but an open port is explicitly runtime-only."
+    },
+    {
+      "id": "alma-3750d52326e22d705da1ed0c",
+      "kind": "L1:port",
+      "name": "udp",
+      "decision": "RUNTIME",
+      "reason": "Unidentified listening program (UNKNOWN creator decision); socket listing omits the owning program, but an open port is explicitly runtime-only."
+    }
+  ],
+  "unchanged-package": [
+    {
+      "id": "alma-b6d46ec30f2a5544c8f034eb",
+      "kind": "L1:unit-file",
+      "name": "accounts-daemon.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-dd2e571f5cdae7a0aea00765",
+      "kind": "L1:unit-file",
+      "name": "alsa-card-wait@.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-603e2163557a3fa31b3f1153",
+      "kind": "L1:unit-file",
+      "name": "alsa-restore.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-395e07fd1415587cadf07f46",
+      "kind": "L1:unit-file",
+      "name": "alsa-state.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-fc8e6f4b3aebd52ec58570e2",
+      "kind": "L1:unit-file",
+      "name": "arp-ethers.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-2ba8c538abcd0c153252e88c",
+      "kind": "L1:unit-file",
+      "name": "atd.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-c719ee65ca6427a425f4f522",
+      "kind": "L1:unit-file",
+      "name": "audit-rules.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-751b49f4326ea93b25b6bb98",
+      "kind": "L1:unit-file",
+      "name": "auditd.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-3b2e8e00da65dbcf24bc87bd",
+      "kind": "L1:unit-file",
+      "name": "autovt@.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    },
+    {
+      "id": "alma-53fa364e2cf166bce33a9d60",
+      "kind": "L1:unit-file",
+      "name": "avahi-daemon.service",
+      "decision": "INSTALLED-PACKAGE",
+      "reason": "Unit file remains as received with its package; the first question decides before settings."
+    }
+  ],
+  "unit-origin": [
+    {
+      "id": "alma-d33e0438b1ccb4129ae9ab25",
+      "kind": "L1:unit-file",
+      "name": "dbus-org.bluez.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-e72dbb895ddd9bd0b38bf52a",
+      "kind": "L1:unit-file",
+      "name": "dbus-org.fedoraproject.FirewallD1.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-a4b5dace6048c24e81811995",
+      "kind": "L1:unit-file",
+      "name": "dbus-org.freedesktop.Avahi.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-6a26dbb966bac7d9fb0abda6",
+      "kind": "L1:unit-file",
+      "name": "dbus-org.freedesktop.ModemManager1.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-4c81a69e31ead4120098f60b",
+      "kind": "L1:unit-file",
+      "name": "dbus-org.freedesktop.nm-dispatcher.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-7cca1c6906c99a886e86a692",
+      "kind": "L1:unit-file",
+      "name": "dbus.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-37c4765f1bc3df9c50c7463a",
+      "kind": "L1:unit-file",
+      "name": "display-manager.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-5404dea0fe8c5190436c31c2",
+      "kind": "L1:user-unit-file",
+      "name": "user:dbus-org.bluez.obex.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-b40629803b933a2b052a5d96",
+      "kind": "L1:user-unit-file",
+      "name": "user:dbus.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    },
+    {
+      "id": "alma-0bd28f6010aed40c90735f95",
+      "kind": "L1:user-unit-file",
+      "name": "user:pipewire-session-manager.service",
+      "decision": "UNKNOWN",
+      "reason": "Default installation provenance versus later choice is not established; the required recording line depends on that fact."
+    }
+  ],
+  "runtime-firewall": [
+    {
+      "id": "alma-29c00ab03689c5595ac65e00",
+      "kind": "L1:firewall-table",
+      "name": "inet///firewalld/3",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-0c695f336bb265c216f7580d",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//mangle_PREROUTING/103",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-46c44d88c85808a30abe4396",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//mangle_PREROUTING_POLICIES/104",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-5d2eac647b1caffc0399f7fb",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_PREROUTING/106",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-b066134477290f823c90fa58",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_PREROUTING_POLICIES/107",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-4490b98ebd1bb292cf7be570",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_POSTROUTING/109",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-0e03ad75fcfbc172e17db3ed",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_POSTROUTING_POLICIES/110",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-aebda2823cfbe5da62e9eaec",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_OUTPUT/112",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-d0d13c64d97968b31767e4a5",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//nat_OUTPUT_POLICIES/113",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    },
+    {
+      "id": "alma-2f69e065457643db27086f00",
+      "kind": "L1:firewall-chain",
+      "name": "inet/firewalld//filter_PREROUTING/115",
+      "decision": "RUNTIME",
+      "reason": "firewalld (INSTALLED-PACKAGE) creates this live kernel firewall object; persistent configuration is a separate object."
+    }
+  ],
+  "runtime-process": [
+    {
+      "id": "alma-9a469fe77b60b9eee6cbc515",
+      "kind": "L1:process",
+      "name": "1",
+      "decision": "RUNTIME",
+      "reason": "systemd (INSTALLED-PACKAGE creator decision) executes this runtime-only process."
+    },
+    {
+      "id": "alma-75112624ed82d0e836f2ee39",
+      "kind": "L1:process",
+      "name": "10",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-77e5d61dde1f088c197037f2",
+      "kind": "L1:process",
+      "name": "1027",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-9df7398e97f9cabd55360708",
+      "kind": "L1:process",
+      "name": "1028",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-3e28697c90e169b6c550c7db",
+      "kind": "L1:process",
+      "name": "1029",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-777296add37822d2eea78d3e",
+      "kind": "L1:process",
+      "name": "1030",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-a1c243a655ffb692916a77b1",
+      "kind": "L1:process",
+      "name": "1031",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-bb2694c887ad035a89e32d81",
+      "kind": "L1:process",
+      "name": "1032",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-fd6b39a52e45b2be95e932c9",
+      "kind": "L1:process",
+      "name": "1033",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    },
+    {
+      "id": "alma-745b2a282c25d73ae65778f6",
+      "kind": "L1:process",
+      "name": "1034",
+      "decision": "RUNTIME",
+      "reason": "Unidentified executable (UNKNOWN creator decision); process is runtime-only, but executable identity was not captured."
+    }
+  ],
+  "runtime-kernel": [
+    {
+      "id": "alma-5af8cb1ac7d4e30d3d553dfd",
+      "kind": "L1:module-name",
+      "name": "8250",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-ca5ea4d08e696ec77a27abca",
+      "kind": "L1:module-name",
+      "name": "acpi",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-560aa70d01e89fade6df1603",
+      "kind": "L1:module-name",
+      "name": "acpi_x86",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-a9b6c7abd3408634d9f2b559",
+      "kind": "L1:module-name",
+      "name": "acpiphp",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-0b81fc9ad7e1a078a37e337f",
+      "kind": "L1:module-name",
+      "name": "amd_uncore",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-9de8441033d886077fa55e16",
+      "kind": "L1:module-name",
+      "name": "ata_generic",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-e2e9fc511c77b1af2b5f829d",
+      "kind": "L1:module-name",
+      "name": "ata_piix",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-c405862ece732c9908e94b15",
+      "kind": "L1:module-name",
+      "name": "battery",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-d3fafbd1cca07dee22d1c425",
+      "kind": "L1:module-name",
+      "name": "be2iscsi",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    },
+    {
+      "id": "alma-b0fee5f436b48c4afccef587",
+      "kind": "L1:module-name",
+      "name": "blake2b_generic",
+      "decision": "RUNTIME",
+      "reason": "Linux kernel (UNKNOWN creator decision: installed-image integrity unknown) creates this runtime-only sysfs registration."
+    }
+  ]
+}

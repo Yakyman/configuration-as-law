@@ -1,0 +1,9 @@
+source	id	by_meaning	without_forbidding	reason
+A3	gaming-0b9c75abae9461b0be7b041d	yes: covered by the cups package line	yes	Installed backend hard links belong to the cups installation; package recording permits installation and use. Evidence: S2/b1/evidence.md#cups.
+A3	gaming-4538cc406b1a701b2b46aa9a	no	yes	Downloaded update archive is installer cache, not the installed resources or a setting; retaining it needs no restriction. Evidence: S2/b1/evidence.md#steam.
+A3	gaming-7b8b804e906bab4f5a36ccf2	yes: covered by the cups package line	yes	The snmp backend shares its inode with unchanged cups package content; recording cups permits installation and execution. Evidence: S2/b1/evidence.md#cups.
+A3	gaming-92303a3b6a6e1ad452236f8b	no	yes	Compressed update archive is installer cache; the installed SDL library is a separate object. Cache retention forbids no ordinary action. Evidence: S2/b1/evidence.md#steam.
+A3	gaming-b9490dffe916c5dcc4575874	no	yes	Compressed update archive is installer cache; installed codecs are separate objects. Cache retention forbids no ordinary action. Evidence: S2/b1/evidence.md#steam.
+A3	server-0343cc0e3743fdc6279f4a3e	yes: covered by the K3s installation line	yes	Bundled coreutils is installed executable code obtained from K3s; recording its originating installation permits extraction and container operation. Evidence: S2/b1/evidence.md#k3s.
+A3	server-9c59629a43e8b28a746de9d5	yes: covered by the K3s installation line	yes	Bundled CNI is installed executable code obtained from K3s; recording its originating installation permits extraction and container networking. Evidence: S2/b1/evidence.md#k3s.
+A3	server-a1bf573f2de859142047fce6	yes: covered by the K3s installation line	yes	Extracted K3s executable implements the recorded installation; recording that installation permits extraction, service operation, and containers. Evidence: S2/b1/evidence.md#k3s.

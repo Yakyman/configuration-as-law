@@ -1,0 +1,174 @@
+== nixos-rebuild(8): switch / boot / test
+     switch
+	 Build and activate the new configuration, and make it the boot default. That is,  the	configuration
+	 is  added  to the GRUB boot menu as the default menu entry, so that subsequent reboots will boot the
+	 system into the new configuration. Previous configurations activated with  nixos-rebuild  switch  or
+	 nixos-rebuild boot remain available in the GRUB menu.
+
+	 Note  that  if you are using specializations, running just nixos-rebuild switch will switch you back
+	 to the unspecialized, base system —— in that case, you might want to use this instead:
+
+	     $ nixos-rebuild switch --specialisation your-specialisation-name
+
+	 This command will build all specialisations and make them bootable just like  regular	nixos-rebuild
+	 switch	 does  ——  the only thing different is that it will switch to given specialisation instead of
+	 the base system; it can be also used to switch from the base system into a specialised	 one,  or  to
+	 switch between specialisations.
+
+     boot
+	 Build	the new configuration and make it the boot default (as with nixos-rebuild switch), but do not
+	 activate it. That is, the system continues to run the previous configuration until the next reboot.
+
+     test
+	 Build and activate the new configuration, but do not add it to the GRUB boot menu. Thus, if you  re‐
+	 boot the system (or if it crashes), you will automatically revert to the default configuration (i.e.
+	 the configuration resulting from the last call to nixos-rebuild switch or nixos-rebuild boot).
+
+	 Note that if you are using specialisations, running just nixos-rebuild test will activate the unspe‐
+	 cialised, base system —— in that case, you might want to use this instead:
+
+	     $ nixos-rebuild test --specialisation your-specialisation-name
+
+	 This  command	can  be also used to switch from the base system into a specialised one, or to switch
+	 between specialisations.
+
+     build
+	 Build the new configuration, but neither activate it nor add it to the GRUB boot menu. It  leaves  a
+	 symlink  named result in the current directory, which points to the output of the top-level “system”
+	 derivation. This is essentially the same as doing
+
+	     $ nix-build /path/to/nixpkgs/nixos -A system
+
+== configuration.nix(5): users.mutableUsers
+     users.mutableUsers
+	 If set to ‘true’, you are free to add new users and groups to the system with the ordinary ‘useradd’
+	 and ‘groupadd’ commands. On system activation, the existing contents of the ‘/etc/passwd’ and ‘/etc/
+	 group’	 files	will  be merged with the contents generated from the ‘users.users’ and ‘users.groups’
+	 options. The initial password for a user will be set according to ‘users.users’, but existing	pass‐
+	 words will not be changed.
+
+	     Warning
+	     If	 set  to  ‘false’, the contents of the user and group files will simply be replaced on system
+	     activation. This also holds for the user passwords; all changed passwords will be reset  accord‐
+	     ing to the ‘users.users’ configuration on activation.
+
+	 Type: boolean
+
+	 Default:
+== configuration.nix(5): users.users.<name>.initialPassword
+     users.users.<name>.initialPassword
+	 Specifies the initial password for the user, i.e. the password assigned if the user does not already
+	 exist. If users.mutableUsers is true, the password can be changed subsequently using the passwd com‐
+	 mand.	Otherwise,  it’s  equivalent  to  setting  the	password option. The same caveat applies: the
+	 password specified here is world-readable in the Nix store, so it should only be used for guest  ac‐
+	 counts or passwords that will be changed promptly.
+
+	 The  initialHashedPassword, hashedPassword, initialPassword, password and hashedPasswordFile options
+	 all control what password is set for the user.
+
+	 In a system where systemd.sysusers.enable[1] is ‘false’, typically only one of hashedPassword, pass‐
+	 word, or hashedPasswordFile will be set.
+
+	 In a system where systemd.sysusers.enable[1] or  services.userborn.enable[2]  is  ‘true’,  typically
+	 only one of initialPassword, initialHashedPassword, or hashedPasswordFile will be set.
+== configuration.nix(5): users.users.<name>.extraGroups
+     users.users.<name>.extraGroups
+	 The user’s auxiliary groups.
+
+	 Type: list of string
+
+	 Default:
+
+	     [ ]
+
+== configuration.nix(5): environment.systemPackages
+     environment.systemPackages
+	 The  set  of packages that appear in /run/current-system/sw. These packages are automatically avail‐
+	 able to all users, and are automatically updated every time you rebuild  the  system  configuration.
+	 (The  latter  is  the main difference with installing them in the default profile, /nix/var/nix/pro‐
+	 files/default.
+
+	 Type: list of package
+
+	 Default:
+
+	     [ ]
+
+	 Example:
+== nix-env(1) name/description
+nix-env(1)				   General Commands Manual				   nix-env(1)
+
+Name
+     nix-env - manipulate or query Nix user environments
+
+Synopsis
+     nix-env  operation [options] [arguments…] [--option name value] [--arg name value] [--argstr name value]
+     [{--file | -f} path] [{--profile | -p} path] [--system-filter system] [--dry-run]
+
+Description
+     The command nix-env is used to manipulate Nix user environments. User environments are sets of  software
+     packages  available  to a user at some point in time. In other words, they are a synthesised view of the
+     programs available in the Nix store. There may be many user environments: different users can have	 dif‐
+     ferent environments, and individual users can switch between different environments.
+
+     nix-env  takes  exactly one operation flag which indicates the subcommand to be performed. The following
+     operations are available:
+
+     •	--install
+     •	--upgrade
+     •	--uninstall
+     •	--set
+     •	--set-flag
+     •	--query
+     •	--switch-profile
+     •	--list-generations
+     •	--delete-generations
+     •	--switch-generation
+     •	--rollback
+
+== nix-env --install(1)
+nix-env --install(1)			   General Commands Manual			 nix-env --install(1)
+
+Name
+     nix-env --install - add packages to user environment
+
+Synopsis
+     nix-env  {--install  |  -i}  args…	 [{--prebuilt-only  |  -b}]  [{--attr | -A}] [--from-expression] [-E]
+     [--from-profile path] [--preserve-installed | -P] [--remove-all | -r] [--priority priority]
+
+Description
+     The --install operation creates a new user environment.  It is based on the current  generation  of  the
+     active profile, to which a set of store paths described by args is added.
+
+     The arguments args map to store paths in a number of possible ways:
+
+     •	By default, args is a set of names denoting derivations in the default Nix expression.	These are re‐
+	alised,	 and  the  resulting output paths are installed.  Currently installed derivations with a name
+	equal to the name of a derivation being added are removed unless the option  --preserve-installed  is
+	specified.
+
+	If  there  are	multiple derivations matching a name in args that have the same name (e.g., gcc-3.3.6
+	and gcc-4.1.1), then the derivation with the highest priority is used. A derivation can define a pri‐
+	ority by declaring the meta.priority attribute. This attribute should be  a  number,  with  a  higher
+	value denoting a lower priority. The default priority is 5.
+
+	If there are multiple matching derivations with the same priority, then the derivation with the high‐
+	est version will be installed.
+
+	You can force the installation of multiple derivations with the same name by being specific about the
+	versions.  For	instance, nix-env --install gcc-3.3.6 gcc-4.1.1 will install both version of GCC (and
+	will probably cause a user environment conflict!).
+
+     •	If --attr / -A is specified, the arguments are attribute paths that select attributes  from  the  de‐
+	fault  Nix  expression.	  This	is  faster than using derivation names and unambiguous.	 Show the at‐
+	tribute paths of available packages with nix-env --query:
+
+     nix-env --query --available --attr-path
+
+     •	If --from-profile path is given, args is a set of names denoting installed store paths in the profile
+	path. This is an easy way to copy user environment elements from one profile to another.
+== which useradd gpasswd nix-env nix
+/run/current-system/sw/bin/useradd
+/run/current-system/sw/bin/gpasswd
+/run/current-system/sw/bin/nix-env
+/run/current-system/sw/bin/nix

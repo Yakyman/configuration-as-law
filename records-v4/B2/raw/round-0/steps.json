@@ -1,0 +1,70 @@
+[
+  {
+    "argv": [
+      "python3",
+      "build/build.py",
+      "--server"
+    ],
+    "ended_utc": "2026-11-23T06:00:07Z",
+    "exit": 0,
+    "log": "primary-build.log",
+    "root": ".",
+    "started_utc": "2026-11-23T05:58:10Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/build.py",
+      "--server"
+    ],
+    "ended_utc": "2026-11-23T06:02:23Z",
+    "exit": 0,
+    "log": "peer-build.log",
+    "root": "peer",
+    "started_utc": "2026-11-23T06:00:07Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/round4-driver.py",
+      "baseline",
+      "--regressions",
+      "--peer-root",
+      "peer"
+    ],
+    "ended_utc": "2026-11-23T08:01:43Z",
+    "exit": 0,
+    "log": "selftest-console.jsonl",
+    "root": ".",
+    "started_utc": "2026-11-23T06:02:28Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/assemble-channel-examples.py",
+      "raw/round-4/baseline",
+      "channel-example"
+    ],
+    "ended_utc": "2026-11-23T08:01:43Z",
+    "exit": 0,
+    "log": "assembly.log",
+    "root": ".",
+    "started_utc": "2026-11-23T08:01:43Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "build/combined-selftest.py",
+      "combined",
+      "channel-example/combined",
+      "--peer-root",
+      "peer",
+      "--reboot"
+    ],
+    "ended_utc": "2026-11-23T08:10:17Z",
+    "exit": 0,
+    "log": "combined-console.jsonl",
+    "root": ".",
+    "started_utc": "2026-11-23T08:01:43Z"
+  }
+]

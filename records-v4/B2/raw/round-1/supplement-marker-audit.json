@@ -1,0 +1,53 @@
+{
+  "corrected_source_sha256": "5e4dc0dc59711c80a46e547d254400c350726cf499c615a4eaeae3a2b88c757a",
+  "method": "Offline exact output-line audit of all five original BOUNDARY_FAILED records. No guest command repeated.",
+  "original_input_sha256": "01c8f72f22cbd0fb44c756905d03d61c9cf791edc94bf2607ee4eedbe999142c",
+  "rows": [
+    {
+      "exact_effect_observed": true,
+      "exit": 0,
+      "id": "RC-STARTUP",
+      "interpretation": "actual saved-code execution with unchanged declaration",
+      "original_status": "BOUNDARY_FAILED",
+      "stderr": "bash: cannot set terminal process group (1413): Inappropriate ioctl for device\nbash: no job control in this shell\n",
+      "stdout": "SAVED_RC_EXECUTED\n"
+    },
+    {
+      "exact_effect_observed": true,
+      "exit": 0,
+      "id": "EDITOR-SAVED-COMMANDS",
+      "interpretation": "actual saved-code execution with unchanged declaration",
+      "original_status": "BOUNDARY_FAILED",
+      "stderr": "",
+      "stdout": "SAVED_EDITOR_COMMAND_EXECUTED\n"
+    },
+    {
+      "exact_effect_observed": false,
+      "exit": 1,
+      "id": "SAVED-FFI",
+      "interpretation": "mapping denied; original detector matched source echoed in traceback",
+      "original_status": "BOUNDARY_FAILED",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import ctypes; d=ctypes.CDLL('/tmp/v4-extra-dh40pujh/unrecorded.so'); print(\"FFI_UNRECORDED_EXECUTED\",d.extra_value())\n                     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/ctypes/__init__.py\", line 390, in __init__\n    self._handle = _dlopen(self._name, mode)\n                   ~~~~~~~^^^^^^^^^^^^^^^^^^\nOSError: /tmp/v4-extra-dh40pujh/unrecorded.so: failed to map segment from shared object\n",
+      "stdout": ""
+    },
+    {
+      "exact_effect_observed": true,
+      "exit": 0,
+      "id": "JIT-SAVED-INPUT",
+      "interpretation": "actual saved-code execution with unchanged declaration",
+      "original_status": "BOUNDARY_FAILED",
+      "stderr": "",
+      "stdout": "JIT_SAVED_INPUT_EXECUTED 42\n"
+    },
+    {
+      "exact_effect_observed": true,
+      "exit": 0,
+      "id": "DISPATCHER-SAVED",
+      "interpretation": "actual saved-code execution with unchanged declaration",
+      "original_status": "BOUNDARY_FAILED",
+      "stderr": "",
+      "stdout": "DISPATCHER_SAVED_EXECUTED\n"
+    }
+  ],
+  "source_log": "final-1/supplement/extra.jsonl"
+}

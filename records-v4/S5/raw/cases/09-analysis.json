@@ -1,0 +1,160 @@
+{
+ "case": "09",
+ "steps": [
+  {
+   "phase": "fixture_result",
+   "path": "/home/stand/v4-direct/saved.py",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "role": "attempt",
+   "command": "python3 -B -c 'exec(open(\"saved.py\").read())'",
+   "rc": 0,
+   "stdout": "READ_EXEC_RAN\n",
+   "stderr": "",
+   "before_snapshot": "013a7fb326dd3dd96c14e9756244f79ad9018595c0aac64164b41494a78975e9.json",
+   "after_snapshot": "013a7fb326dd3dd96c14e9756244f79ad9018595c0aac64164b41494a78975e9.json",
+   "controller_flags": {
+    "marker_observed": true,
+    "refused": false,
+    "recorded": true,
+    "inline_write_verified": true,
+    "passed": null,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/home/stand/v4-direct/saved.py": {
+     "declaration": "home",
+     "generation": 5,
+     "inode": "6",
+     "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/home/stand/v4-direct/saved.py": {
+     "declaration": "home",
+     "generation": 5,
+     "inode": "6",
+     "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "role": "permitted",
+   "command": "python3 -B -c 'exec(open(\"saved.py\").read())'",
+   "rc": 0,
+   "stdout": "READ_EXEC_RAN\n",
+   "stderr": "",
+   "before_snapshot": "013a7fb326dd3dd96c14e9756244f79ad9018595c0aac64164b41494a78975e9.json",
+   "after_snapshot": "013a7fb326dd3dd96c14e9756244f79ad9018595c0aac64164b41494a78975e9.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": true,
+    "passed": true,
+    "permitted": true,
+    "attempt_closed": true
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/home/stand/v4-direct/saved.py": {
+     "declaration": "home",
+     "generation": 5,
+     "inode": "6",
+     "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/home/stand/v4-direct/saved.py": {
+     "declaration": "home",
+     "generation": 5,
+     "inode": "6",
+     "sha256": "85ff61eb43326de0b088852d16f37bc1bb299afd847569111a2c2f350087999e",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "DIRECT-READ-EXEC": true
+   }
+  }
+ ],
+ "problems": []
+}

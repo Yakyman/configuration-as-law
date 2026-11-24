@@ -1,0 +1,81 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "new",
+      "s8-second-h2",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T18:48:33.520804+00:00",
+    "exit": 0,
+    "name": "create",
+    "started_utc": "2026-11-23T18:47:54.494659+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h2"
+    ],
+    "ended_utc": "2026-11-23T18:54:38.155528+00:00",
+    "exit": 0,
+    "name": "h2-development",
+    "started_utc": "2026-11-23T18:48:33.521900+00:00",
+    "stdin_sha256": "b4c08e803a5aa2fef27c4c806c7b63d38386a58e1032de19a98f888a677dcfba"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h2",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T18:56:30.988802+00:00",
+    "exit": 0,
+    "name": "h2-end",
+    "started_utc": "2026-11-23T18:54:38.156156+00:00",
+    "stdin_sha256": "3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "stop",
+      "s8-second-h2"
+    ],
+    "ended_utc": "2026-11-23T18:56:33.564445+00:00",
+    "exit": 0,
+    "name": "stop",
+    "started_utc": "2026-11-23T18:56:31.523041+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "destroy",
+      "s8-second-h2"
+    ],
+    "ended_utc": "2026-11-23T18:56:33.679815+00:00",
+    "exit": 0,
+    "name": "destroy",
+    "started_utc": "2026-11-23T18:56:33.564954+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "list"
+    ],
+    "ended_utc": "2026-11-23T18:56:33.713163+00:00",
+    "exit": 0,
+    "name": "remaining-guests",
+    "started_utc": "2026-11-23T18:56:33.680346+00:00",
+    "stdin_sha256": null
+  }
+]

@@ -1,0 +1,10 @@
+{"starting": {"started_utc": "2026-11-23T05:58:10Z", "root": ".", "argv": ["python3", "build/build.py", "--server"], "log": "primary-build.log"}}
+{"started_utc": "2026-11-23T05:58:10Z", "root": ".", "argv": ["python3", "build/build.py", "--server"], "log": "primary-build.log", "exit": 0, "ended_utc": "2026-11-23T06:00:07Z"}
+{"starting": {"started_utc": "2026-11-23T06:00:07Z", "root": "peer", "argv": ["python3", "build/build.py", "--server"], "log": "peer-build.log"}}
+{"started_utc": "2026-11-23T06:00:07Z", "root": "peer", "argv": ["python3", "build/build.py", "--server"], "log": "peer-build.log", "exit": 0, "ended_utc": "2026-11-23T06:02:23Z"}
+{"starting": {"started_utc": "2026-11-23T06:02:28Z", "root": ".", "argv": ["python3", "build/round4-driver.py", "baseline", "--regressions", "--peer-root", "peer"], "log": "selftest-console.jsonl"}}
+{"started_utc": "2026-11-23T06:02:28Z", "root": ".", "argv": ["python3", "build/round4-driver.py", "baseline", "--regressions", "--peer-root", "peer"], "log": "selftest-console.jsonl", "exit": 0, "ended_utc": "2026-11-23T08:01:43Z"}
+{"starting": {"started_utc": "2026-11-23T08:01:43Z", "root": ".", "argv": ["python3", "build/assemble-channel-examples.py", "raw/round-4/baseline", "channel-example"], "log": "assembly.log"}}
+{"started_utc": "2026-11-23T08:01:43Z", "root": ".", "argv": ["python3", "build/assemble-channel-examples.py", "raw/round-4/baseline", "channel-example"], "log": "assembly.log", "exit": 0, "ended_utc": "2026-11-23T08:01:43Z"}
+{"starting": {"started_utc": "2026-11-23T08:01:43Z", "root": ".", "argv": ["python3", "build/combined-selftest.py", "combined", "channel-example/combined", "--peer-root", "peer", "--reboot"], "log": "combined-console.jsonl"}}
+{"started_utc": "2026-11-23T08:01:43Z", "root": ".", "argv": ["python3", "build/combined-selftest.py", "combined", "channel-example/combined", "--peer-root", "peer", "--reboot"], "log": "combined-console.jsonl", "exit": 0, "ended_utc": "2026-11-23T08:10:17Z"}

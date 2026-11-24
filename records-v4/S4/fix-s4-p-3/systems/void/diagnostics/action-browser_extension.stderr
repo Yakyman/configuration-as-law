@@ -1,0 +1,8 @@
+*** You are running in headless mode.
+Exception ignored while calling deallocator <function BaseProfile.__del__ at 0x7fc46c66d010>:
+Traceback (most recent call last):
+  File "GUEST_HOME/.local/lib/cal-marionette/mozprofile/profile.py", line 84, in __del__
+  File "GUEST_HOME/.local/lib/cal-marionette/mozprofile/profile.py", line 294, in cleanup
+  File "GUEST_HOME/.local/lib/cal-marionette/mozprofile/profile.py", line 92, in cleanup
+  File "GUEST_HOME/.local/lib/cal-marionette/mozfile/mozfile.py", line 214, in remove
+ImportError: sys.meta_path is None, Python is likely shutting down

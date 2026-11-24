@@ -1,0 +1,9 @@
+{
+  "expected": "Each fixture configuration installs and exports exact existing-format complete desired input; no case outcome observed",
+  "scenarios": {
+    "accounts": "stand-pkg install /usr/local/share/stand/bc4/package-alpha.json\nstand-pkg install /usr/local/share/stand/bc4/package-beta.json\n",
+    "both-owners": "stand-pkg install /usr/local/share/stand/bc4/removal/bc4-owner-a.json\nstand-pkg install /usr/local/share/stand/bc4/removal/bc4-owner-b.json\n",
+    "removal": "stand-pkg install /usr/local/share/stand/dev/worker-1.json\nstand-line add /usr/local/share/stand/dev/service.json\nstand-line add /usr/local/share/stand/dev/rule.json\n"
+  },
+  "utc": "2026-11-23T17:40:39Z"
+}

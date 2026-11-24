@@ -1,0 +1,409 @@
+{
+  "audit_complete": false,
+  "checks": [
+    {
+      "check": "frozen-inputs",
+      "status": "validated"
+    },
+    {
+      "check": "object-suite",
+      "status": "validated"
+    },
+    {
+      "check": "independent-censuses",
+      "status": "validated"
+    },
+    {
+      "check": "whole-suite-fixed-inventories",
+      "status": "incomplete"
+    },
+    {
+      "check": "object-export-inventories",
+      "status": "validated"
+    },
+    {
+      "check": "native-regression-and-ancillary",
+      "status": "validated"
+    },
+    {
+      "check": "combined-every-line",
+      "status": "incomplete"
+    },
+    {
+      "check": "controller-lanes-cleanup",
+      "status": "incomplete"
+    }
+  ],
+  "controller_success_is_not_boundary_success": true,
+  "counts": {
+    "census:initial": {
+      "FACT_UNKNOWN": 65096,
+      "covered": 497,
+      "diagnostic": 58,
+      "unrecorded": 61
+    },
+    "census:installed": {
+      "FACT_UNKNOWN": 65129,
+      "covered": 510,
+      "diagnostic": 58,
+      "unrecorded": 61
+    },
+    "census:removed": {
+      "FACT_UNKNOWN": 65157,
+      "covered": 497,
+      "diagnostic": 58,
+      "unrecorded": 62
+    },
+    "census:unapplied-without-owners": {
+      "FACT_UNKNOWN": 65136,
+      "covered": 500,
+      "diagnostic": 58,
+      "unrecorded": 71
+    },
+    "census:with-attempts": {
+      "FACT_UNKNOWN": 65156,
+      "covered": 510,
+      "diagnostic": 59,
+      "unrecorded": 61
+    },
+    "objects": {
+      "after_reboot": 2,
+      "boolean_results": 52,
+      "failed": 3,
+      "passed": 49,
+      "pure_cases": 37
+    },
+    "raw/round-2/final-1/carried-suite/applications-helper-availability.jsonl": {
+      "boolean_results": 1,
+      "failed": 0,
+      "passed": 1
+    },
+    "raw/round-2/final-1/gate.jsonl": {
+      "boolean_results": 9,
+      "failed": 0,
+      "passed": 9
+    },
+    "raw/round-2/final-1/shell-reboot.jsonl": {
+      "boolean_results": 1,
+      "failed": 0,
+      "passed": 1
+    },
+    "raw/round-2/final-1/shell.jsonl": {
+      "boolean_results": 28,
+      "failed": 6,
+      "passed": 22
+    },
+    "raw/round-2/final-1/supplement-direct.jsonl": {
+      "boolean_results": 17,
+      "failed": 5,
+      "passed": 12
+    },
+    "raw/round-2/final-1/supplement-extra.jsonl": {
+      "boolean_results": 16,
+      "failed": 4,
+      "passed": 12
+    },
+    "raw/round-2/final-1/tools.jsonl": {
+      "boolean_results": 86,
+      "failed": 1,
+      "passed": 85
+    }
+  },
+  "errors": [],
+  "false_observations": [
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "UNRECORDED-BYTECODE",
+      "index": 31,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "EXTRACTED-CODE",
+      "index": 32,
+      "required": false
+    },
+    {
+      "classification": "built-in-tool path",
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "ALTERNATE-DATABASE",
+      "index": 34,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "SAVED-SCRIPT",
+      "index": 23,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "SAVED-PIPE",
+      "index": 25,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "SAVED-SOURCE",
+      "index": 27,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "STARTUP-ENV",
+      "index": 29,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "PYTHON-IMPORT",
+      "index": 31,
+      "required": false
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/shell.jsonl",
+      "id": "PICKLE-CODE",
+      "index": 33,
+      "required": false
+    },
+    {
+      "classification": "built-in tool bypass",
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/tools.jsonl",
+      "id": "root-native-account-bypass",
+      "index": 178,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-direct.jsonl",
+      "id": "DIRECT-REDIRECT-STDIN",
+      "index": 27,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-direct.jsonl",
+      "id": "DIRECT-PROC-FD",
+      "index": 29,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-direct.jsonl",
+      "id": "DIRECT-READ-EXEC",
+      "index": 32,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-direct.jsonl",
+      "id": "DIRECT-AWK-FILE",
+      "index": 35,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-direct.jsonl",
+      "id": "DIRECT-SCRIPT-HELPER",
+      "index": 37,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "RC-STARTUP",
+      "index": 7,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "EDITOR-SAVED-COMMANDS",
+      "index": 12,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "JIT-SAVED-INPUT",
+      "index": 35,
+      "required": null
+    },
+    {
+      "classification": null,
+      "false_fields": [
+        "passed"
+      ],
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "DISPATCHER-SAVED",
+      "index": 49,
+      "required": null
+    }
+  ],
+  "hypothesis_outcome": "?",
+  "limitations": [
+    "Finite saved-evidence audit, not independent reproduction or variant acceptance.",
+    "Missing or malformed evidence never counts as a passed test; preserved false and untested rows remain separate."
+  ],
+  "missing": [
+    {
+      "check": "whole-suite-fixed-inventories",
+      "reason": "raw/round-2/final-1/combined: missing files a-apply.log, a-deliver.log, a-destroy.log, a-exact.jsonl, a-launch-appimage.log, a-launch-download.log, a-launch-flatpak.log, a-launch-native-wheel.log, a-launch-npm.log, a-launch-oci.log, a-launch-pip.log, a-launch-repository.log, a-launch-source-build.log, a-launch-updated-base.log, a-launch-user-service-program.log, a-new.log, a-reboot-exact.jsonl, a-reboot-verify.jsonl, a-schedule.jsonl, a-snapshot.json, a-start.log, a-stop.log, a-verify.jsonl, b-apply.log, b-deliver.log, b-destroy.log, b-exact.jsonl, b-launch-appimage.log, b-launch-download.log, b-launch-flatpak.log, b-launch-native-wheel.log, b-launch-npm.log, b-launch-oci.log, b-launch-pip.log, b-launch-repository.log, b-launch-source-build.log, b-launch-updated-base.log, b-launch-user-service-program.log, b-new.log, b-reboot-exact.jsonl, b-reboot-verify.jsonl, b-schedule.jsonl, b-snapshot.json, b-start.log, b-stop.log, b-verify.jsonl, events.jsonl, provenance.json, stand-compare.jsonl, summary.json"
+    },
+    {
+      "check": "combined-every-line",
+      "reason": "raw/round-2/final-1/combined/summary.json"
+    },
+    {
+      "check": "controller-lanes-cleanup",
+      "reason": "raw/round-2/final-1/summary.json"
+    }
+  ],
+  "record_counts": {
+    "false_observations": 19,
+    "invalid_sections": 0,
+    "missing_sections": 3,
+    "untested_observations": 13
+  },
+  "untested_observations": [
+    {
+      "file": "raw/round-2/final-1/objects.jsonl",
+      "id": "INTERNAL-CODE-CAPABILITIES",
+      "index": 0,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "EDITOR-PLUGIN-MODELINE",
+      "index": 13,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "GIT-HOOK",
+      "index": 14,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "GIT-LOCAL-ALIAS-FILTER",
+      "index": 15,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "MAKE-SAVED-RECIPE",
+      "index": 16,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "LIBRARY-FIXTURE-COMPILE",
+      "index": 18,
+      "status": "FIXTURE_READY"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "MEMFD-RUNTIME",
+      "index": 26,
+      "status": "RUNTIME_RESTRICTED_OR_UNAVAILABLE"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "JIT-RUNTIME",
+      "index": 32,
+      "status": "RUNTIME_EXECUTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "PROCESS-MEMORY-RUNTIME",
+      "index": 37,
+      "status": "RUNTIME_RESTRICTED_OR_UNAVAILABLE"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "BINFMT-REGISTER",
+      "index": 39,
+      "status": "FIXTURE_UNAVAILABLE"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "FOREIGN-INTERPRETER",
+      "index": 41,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/supplement-extra.jsonl",
+      "id": "BROWSER-EXTENSION",
+      "index": 52,
+      "status": "UNTESTED"
+    },
+    {
+      "file": "raw/round-2/final-1/carried-suite/regressions/original/D09.log",
+      "id": "real-radio-hardware",
+      "status": "UNTESTED"
+    }
+  ]
+}

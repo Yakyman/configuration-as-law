@@ -1,0 +1,229 @@
+{
+ "case": "06",
+ "steps": [
+  {
+   "role": "attempt",
+   "command": "python3 -B -c 'import pickle; p=b\"cbuiltins\\nprint\\n(S\\x27PICKLE_EXECUTED\\x27\\ntR.\"; open(\"serialized\",\"wb\").write(p); pickle.load(open(\"serialized\",\"rb\"))' ",
+   "rc": 0,
+   "stdout": "PICKLE_EXECUTED\n",
+   "stderr": "",
+   "before_snapshot": "95d9cdcb44070437823e158191ad125e9fb887c095e3000da37b7786ded58ba6.json",
+   "after_snapshot": "a42af6b22b3f7e0d053638bdc22381d2faf4d0bf8b6dfe36b4c824b4fa611902.json",
+   "controller_flags": {
+    "marker_observed": true,
+    "refused": false,
+    "recorded": true,
+    "inline_write_verified": true,
+    "passed": null,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "home": {
+     "generation": [
+      1,
+      3
+     ],
+     "added": [
+      {
+       "path": "/home/stand/serialized",
+       "inode": "5",
+       "sha256": "b26a48df0be6ba31e0b3db37a9a5ae0289f337bffd329fbe7ad72aa3390aaaa3",
+       "mode": "0o100644",
+       "uid": 1000,
+       "size": 39
+      }
+     ],
+     "removed": [],
+     "changed": [],
+     "unlinked_objects_after": []
+    },
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [
+    {
+     "fs": "home",
+     "generation": 2,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/serialized",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 3,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/serialized",
+       "b26a48df0be6",
+       true
+      ]
+     ]
+    }
+   ],
+   "coverage_before": {
+    "/home/stand/serialized": {
+     "declaration": "home",
+     "covered": false,
+     "reason": "no path row"
+    }
+   },
+   "coverage_after": {
+    "/home/stand/serialized": {
+     "declaration": "home",
+     "generation": 3,
+     "inode": "5",
+     "sha256": "b26a48df0be6ba31e0b3db37a9a5ae0289f337bffd329fbe7ad72aa3390aaaa3",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "role": "permitted",
+   "command": "python3 -B -c 'import pickle; p=b\"cbuiltins\\nprint\\n(S\\x27PICKLE_EXECUTED\\x27\\ntR.\"; open(\"serialized\",\"wb\").write(p); pickle.load(open(\"serialized\",\"rb\"))' ",
+   "rc": 0,
+   "stdout": "PICKLE_EXECUTED\n",
+   "stderr": "",
+   "before_snapshot": "a42af6b22b3f7e0d053638bdc22381d2faf4d0bf8b6dfe36b4c824b4fa611902.json",
+   "after_snapshot": "aac4c9f5a877e81dbe34cbc13e764d16c78882ecac579e348da5f871dad51796.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": true,
+    "passed": true,
+    "permitted": true,
+    "attempt_closed": true
+   },
+   "diff": {
+    "home": {
+     "generation": [
+      3,
+      5
+     ],
+     "added": [],
+     "removed": [],
+     "changed": [],
+     "unlinked_objects_after": []
+    },
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [
+    {
+     "fs": "home",
+     "generation": 4,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/serialized",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 5,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/serialized",
+       "b26a48df0be6",
+       true
+      ]
+     ]
+    }
+   ],
+   "coverage_before": {
+    "/home/stand/serialized": {
+     "declaration": "home",
+     "generation": 3,
+     "inode": "5",
+     "sha256": "b26a48df0be6ba31e0b3db37a9a5ae0289f337bffd329fbe7ad72aa3390aaaa3",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/home/stand/serialized": {
+     "declaration": "home",
+     "generation": 5,
+     "inode": "5",
+     "sha256": "b26a48df0be6ba31e0b3db37a9a5ae0289f337bffd329fbe7ad72aa3390aaaa3",
+     "mode": "0o100644",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "PICKLE-CODE": true
+   }
+  }
+ ],
+ "problems": []
+}

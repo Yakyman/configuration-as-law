@@ -1,0 +1,4116 @@
+{
+  "all_false_observations": [
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "SAVED-SCRIPT",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "SAVED-PIPE",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "SAVED-SOURCE",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "STARTUP-ENV",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "PYTHON-IMPORT",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/shell.jsonl",
+      "id": "PICKLE-CODE",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/tools.jsonl",
+      "id": "root-native-account-bypass",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "boundary_result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "id": "DIRECT-REDIRECT-STDIN",
+      "label": "suite-observation",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "id": "DIRECT-PROC-FD",
+      "label": "suite-observation",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "id": "DIRECT-READ-EXEC",
+      "label": "suite-observation",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "id": "DIRECT-AWK-FILE",
+      "label": "suite-observation",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "id": "DIRECT-SCRIPT-HELPER",
+      "label": "suite-observation",
+      "log": null,
+      "mode": null,
+      "phase": "result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/extra.jsonl",
+      "id": "RC-STARTUP",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "boundary_result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/extra.jsonl",
+      "id": "EDITOR-SAVED-COMMANDS",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "boundary_result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/extra.jsonl",
+      "id": "JIT-SAVED-INPUT",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "boundary_result"
+    },
+    {
+      "false_fields": [
+        "passed"
+      ],
+      "file": "final-2/supplement/extra.jsonl",
+      "id": "DISPATCHER-SAVED",
+      "label": "explicit-boundary",
+      "log": null,
+      "mode": null,
+      "phase": "boundary_result"
+    }
+  ],
+  "carried": {
+    "applications.jsonl": {
+      "assertions": 131,
+      "failed": [],
+      "file": "final-2/carried-suite/applications.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 131,
+      "result_rows": 131,
+      "sha256": "595402284de3a9354bcb275086f79c216ab4b31b451e97d35f6dd05c51a8e9c2",
+      "shell_routing": {
+        "adapter_source_sha256": "111ecd9b9f3857387dc0c2a38976150c880d20db615cca2f05a8f2b2fc7777b9",
+        "dynamic_bindings": [],
+        "marker_count": 59,
+        "markers": [
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak install /usr/local/share/stand/channels/flatpak.json"
+            ],
+            "after_expected_id": "flatpak-INSTALL-ordinary",
+            "after_record": 12
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak run round4-flatpak"
+            ],
+            "after_expected_id": "flatpak-TOOL-RUN-ordinary",
+            "after_record": 22
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-flatpak/app/files/bin/probe'"
+            ],
+            "after_expected_id": "flatpak-POSITIVE",
+            "after_record": 27
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak install flathub org.unrecorded.App"
+            ],
+            "after_expected_id": "flatpak-SYSTEM-ordinary",
+            "after_record": 29
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak update org.stand.Probe"
+            ],
+            "after_expected_id": "flatpak-UPDATE-ordinary",
+            "after_record": 33
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak --user install flathub org.unrecorded.App"
+            ],
+            "after_expected_id": "flatpak-USER-ordinary",
+            "after_record": 37
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak --installation=other install unrecorded.flatpak"
+            ],
+            "after_expected_id": "flatpak-ROOT-ordinary",
+            "after_record": 41
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak remote-add unrecorded https://invalid.example/repo"
+            ],
+            "after_expected_id": "flatpak-REMOTE-ordinary",
+            "after_record": 45
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak install --bundle unrecorded.flatpak"
+            ],
+            "after_expected_id": "flatpak-BUNDLE-ordinary",
+            "after_record": 49
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak install flathub org.unrecorded.Runtime"
+            ],
+            "after_expected_id": "flatpak-RUNTIME-ordinary",
+            "after_record": 53
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak override --filesystem=host org.stand.Probe"
+            ],
+            "after_expected_id": "flatpak-OVERRIDE-ordinary",
+            "after_record": 57
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak run --command=sh org.stand.Probe"
+            ],
+            "after_expected_id": "flatpak-ALT-COMMAND-ordinary",
+            "after_record": 61
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak run --devel org.stand.Probe"
+            ],
+            "after_expected_id": "flatpak-DEVEL-ordinary",
+            "after_record": 65
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/flatpak remove round4-flatpak"
+            ],
+            "after_expected_id": "flatpak-REMOVE",
+            "after_record": 73
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-flatpak/app/files/bin/probe'"
+            ],
+            "after_expected_id": "flatpak-REMOVED-ENTRY",
+            "after_record": 75
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-appimage install /usr/local/share/stand/channels/appimage.json"
+            ],
+            "after_expected_id": "appimage-INSTALL-ordinary",
+            "after_record": 91
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-appimage run round4-appimage"
+            ],
+            "after_expected_id": "appimage-TOOL-RUN-ordinary",
+            "after_record": 101
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-appimage/AppRun'"
+            ],
+            "after_expected_id": "appimage-POSITIVE",
+            "after_record": 106
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/local/share/stand/channels/appimage.artifact'"
+            ],
+            "after_expected_id": "APPIMAGE-DOWNLOADED",
+            "after_record": 108
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/local/share/stand/channels/appimage.artifact\t--appimage-mount'"
+            ],
+            "after_expected_id": "APPIMAGE-FUSE",
+            "after_record": 110
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-appimage/AppRun\t--appimage-update'"
+            ],
+            "after_expected_id": "APPIMAGE-SELF-UPDATE",
+            "after_record": 112
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/round4-AppRun'"
+            ],
+            "after_expected_id": "APPIMAGE-EXTRACTED",
+            "after_record": 114
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-appimage install /usr/local/share/stand/channels/appimage.artifact"
+            ],
+            "after_expected_id": "appimage-UNPINNED-ordinary",
+            "after_record": 116
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-appimage update --unrecorded"
+            ],
+            "after_expected_id": "appimage-SELF-UPDATE-ordinary",
+            "after_record": 120
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-appimage remove round4-appimage"
+            ],
+            "after_expected_id": "appimage-REMOVE",
+            "after_record": 124
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-appimage/AppRun'"
+            ],
+            "after_expected_id": "appimage-REMOVED-ENTRY",
+            "after_record": 126
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman install /usr/local/share/stand/channels/oci.json"
+            ],
+            "after_expected_id": "oci-INSTALL-ordinary",
+            "after_record": 144
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run round4-oci"
+            ],
+            "after_expected_id": "oci-TOOL-RUN-ordinary",
+            "after_record": 154
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-oci/bin/probe'"
+            ],
+            "after_expected_id": "oci-POSITIVE",
+            "after_record": 159
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman pull example.invalid/unrecorded:latest"
+            ],
+            "after_expected_id": "oci-PULL-TAG-ordinary",
+            "after_record": 164
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run example.invalid/unrecorded:latest"
+            ],
+            "after_expected_id": "oci-RUN-TAG-ordinary",
+            "after_record": 168
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman --root /home/stand/oci run unrecorded"
+            ],
+            "after_expected_id": "oci-ROOTLESS-ordinary",
+            "after_record": 172
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run -v /home/stand:/code unrecorded"
+            ],
+            "after_expected_id": "oci-BIND-ordinary",
+            "after_record": 176
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run --read-only=false unrecorded"
+            ],
+            "after_expected_id": "oci-OVERLAY-ordinary",
+            "after_record": 180
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman exec round4-oci /bin/sh"
+            ],
+            "after_expected_id": "oci-EXEC-ordinary",
+            "after_record": 184
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman exec round4-oci apt-get install hello"
+            ],
+            "after_expected_id": "oci-PACKAGE-INSTALL-ordinary",
+            "after_record": 188
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman build /home/stand"
+            ],
+            "after_expected_id": "oci-BUILD-RUN-ordinary",
+            "after_record": 192
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman load -i /usr/local/share/stand/channels/oci.artifact"
+            ],
+            "after_expected_id": "oci-LOAD-ordinary",
+            "after_record": 196
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman import /usr/local/share/stand/channels/oci.artifact"
+            ],
+            "after_expected_id": "oci-IMPORT-ordinary",
+            "after_record": 200
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman commit round4-oci unrecorded"
+            ],
+            "after_expected_id": "oci-COMMIT-ordinary",
+            "after_record": 204
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run --privileged unrecorded"
+            ],
+            "after_expected_id": "oci-PRIVILEGED-ordinary",
+            "after_record": 208
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run --pid=host unrecorded"
+            ],
+            "after_expected_id": "oci-HOST-NS-ordinary",
+            "after_record": 212
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman run --device=/dev/kvm unrecorded"
+            ],
+            "after_expected_id": "oci-DEVICE-ordinary",
+            "after_record": 216
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman --hooks-dir=/home/stand run unrecorded"
+            ],
+            "after_expected_id": "oci-HOOK-ordinary",
+            "after_record": 220
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman system service unix:/tmp/unrecorded.sock"
+            ],
+            "after_expected_id": "oci-API-ordinary",
+            "after_record": 224
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/runc\trun\tunrecorded'"
+            ],
+            "after_expected_id": "OCI-ALTERNATIVE-runc",
+            "after_record": 229
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/crun\trun\tunrecorded'"
+            ],
+            "after_expected_id": "OCI-ALTERNATIVE-crun",
+            "after_record": 232
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/bwrap\trun\tunrecorded'"
+            ],
+            "after_expected_id": "OCI-ALTERNATIVE-bwrap",
+            "after_record": 235
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman remove round4-oci"
+            ],
+            "after_expected_id": "oci-REMOVE",
+            "after_record": 237
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-oci/bin/probe'"
+            ],
+            "after_expected_id": "oci-REMOVED-ENTRY",
+            "after_record": 239
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman start round4-oci"
+            ],
+            "after_expected_id": "OCI-RETAINED-IMAGE",
+            "after_record": 241
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman remove round4-oci-image"
+            ],
+            "after_expected_id": "OCI-REMOVE-IMAGE",
+            "after_record": 243
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman install /usr/local/share/stand/channels/oci-hold.json"
+            ],
+            "after_expected_id": "OCI-HOLDER-INSTALL",
+            "after_record": 249
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-oci-hold/bin/probe'"
+            ],
+            "after_expected_id": "OCI-HOLDER-START",
+            "after_record": 251
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman remove round4-oci-hold"
+            ],
+            "after_expected_id": "OCI-HOLDER-REMOVE",
+            "after_record": 254
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-oci-hold/bin/probe'"
+            ],
+            "after_expected_id": "OCI-HOLDER-REMOVED-PATH",
+            "after_record": 257
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/round4-oci-hold-image/image.oci.tar'"
+            ],
+            "after_expected_id": "OCI-HOLDER-RETAINED-ARCHIVE",
+            "after_record": 259
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman start round4-oci-hold"
+            ],
+            "after_expected_id": "OCI-HOLDER-RESTART",
+            "after_record": 261
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/podman remove round4-oci-hold-image"
+            ],
+            "after_expected_id": "OCI-HOLDER-REMOVE-IMAGE",
+            "after_record": 263
+          }
+        ],
+        "ordered_markers_sha256": "97a17d9e5801a126cbf0cde66c4c3481fc173be2827ddbfc384abb0eae32e003",
+        "provenance": "Exact adapter transformation of SHA-pinned baseline expected commands; holder START uses the source-identical REMOVED-PATH entry; DOWNLOAD uses the pinned literal loopback fixture template with a bounded dynamic TCP port."
+      },
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T10:50:10Z"
+        }
+      ]
+    },
+    "events.jsonl": {
+      "assertions": 0,
+      "failed": [],
+      "file": "final-2/carried-suite/events.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 0,
+      "result_rows": 0,
+      "sha256": "d3f9c1764db0343387771e11980986a7c261cefaabe8e7e811d8d44fbfc4d6ae",
+      "summaries": [
+        {
+          "image_sha256": "3ad3bbaa805b65fb0f65487d15ca77a3702df04298fdfec3b5efeb254520ec21",
+          "independent_peer_requested": true,
+          "owned_vms_remaining": [],
+          "phase": "summary",
+          "regressions_requested": true,
+          "suite_exit": 0,
+          "suites": {
+            "applications": {
+              "example_export_exit": 0,
+              "metadata_exit": 0,
+              "suite_exit": 0,
+              "tested": true,
+              "verify_exit": 0
+            },
+            "language": {
+              "example_export_exit": 0,
+              "metadata_exit": 0,
+              "suite_exit": 0,
+              "tested": true,
+              "verify_exit": 0
+            },
+            "ordinary": {
+              "example_export_exit": 0,
+              "metadata_exit": 0,
+              "suite_exit": 0,
+              "tested": true,
+              "verify_exit": 0
+            },
+            "regressions": {
+              "controller_exit": 0,
+              "independent_peer_requested": true,
+              "tested": true
+            },
+            "system": {
+              "example_export_exit": 0,
+              "metadata_exit": 0,
+              "suite_exit": 0,
+              "tested": true,
+              "verify_exit": 0
+            }
+          },
+          "utc": "2026-11-23T12:15:26Z"
+        }
+      ]
+    },
+    "language.jsonl": {
+      "assertions": 79,
+      "failed": [],
+      "file": "final-2/carried-suite/language.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 79,
+      "result_rows": 79,
+      "sha256": "74829eeddbc6dd7e5e654a296d8f2ade9798752bcded7127b1604894c60da34f",
+      "shell_routing": {
+        "adapter_source_sha256": "111ecd9b9f3857387dc0c2a38976150c880d20db615cca2f05a8f2b2fc7777b9",
+        "dynamic_bindings": [],
+        "marker_count": 55,
+        "markers": [
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-INSTALL",
+            "after_record": 0
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-development/main.py'"
+            ],
+            "after_expected_id": "LANG-pip-RUN",
+            "after_record": 2
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --user six"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-0",
+            "after_record": 6
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --target /tmp/pkg six"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-1",
+            "after_record": 10
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --prefix /tmp/pkg six"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-2",
+            "after_record": 14
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install -e /tmp/source"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-3",
+            "after_record": 18
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install git+https://invalid.example/repo"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-4",
+            "after_record": 22
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --index-url https://invalid.example six"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-5",
+            "after_record": 26
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --config-settings x=y /tmp/source"
+            ],
+            "after_expected_id": "LANG-pip-BYPASS-6",
+            "after_record": 30
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-development/main.py\t/tmp/unrecorded'"
+            ],
+            "after_expected_id": "LANG-pip-EXTRA-ARGV",
+            "after_record": 34
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/python3.13\t/tmp/unrecorded'"
+            ],
+            "after_expected_id": "LANG-pip-RAW-INTERPRETER",
+            "after_record": 36
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/python3.13\t-m\tvenv\t/home/stand/unrecorded-venv'"
+            ],
+            "after_expected_id": "LANG-pip-VIRTUALENV",
+            "after_record": 38
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-BAD-HASH",
+            "after_record": 40
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-MISSING-DEPENDENCY",
+            "after_record": 42
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-HOOK-ARTIFACT",
+            "after_record": 44
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-RESTORE",
+            "after_record": 47
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-SOURCE-BACKEND",
+            "after_record": 49
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-DECLARE-NATIVE-ATTEMPT",
+            "after_record": 52
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-development/main.py'"
+            ],
+            "after_expected_id": "LANG-pip-MUTABLE-NATIVE-REFUSED",
+            "after_record": 54
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-AFTER-NATIVE-RESTORE",
+            "after_record": 56
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cp\t/usr/local/share/stand/language/pip.lock.json\t/opt/stand/pkgs/pip-development/main.py'"
+            ],
+            "after_expected_id": "LANG-pip-IMMUTABLE-WRITE",
+            "after_record": 58
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cp\t/opt/stand/pkgs/pip-development/main.py\t/home/stand/language-old-pip.py'"
+            ],
+            "after_expected_id": "LANG-pip-COPY-OLD",
+            "after_record": 60
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip remove language:pip:development"
+            ],
+            "after_expected_id": "LANG-pip-REMOVE",
+            "after_record": 62
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-development/main.py'"
+            ],
+            "after_expected_id": "LANG-pip-REMOVED-LAUNCH",
+            "after_record": 64
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/language-old-pip.py'"
+            ],
+            "after_expected_id": "LANG-pip-COPIED-LAUNCH",
+            "after_record": 66
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip.lock.json"
+            ],
+            "after_expected_id": "LANG-pip-REINSTALL",
+            "after_record": 68
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-INSTALL",
+            "after_record": 70
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/npm-development/main.js'"
+            ],
+            "after_expected_id": "LANG-npm-RUN",
+            "after_record": 72
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --global is-odd"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-0",
+            "after_record": 76
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --prefix /tmp/pkg is-odd"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-1",
+            "after_record": 80
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --workspace x is-odd"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-2",
+            "after_record": 84
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm link /tmp/source"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-3",
+            "after_record": 88
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm run preinstall"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-4",
+            "after_record": 92
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm start"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-5",
+            "after_record": 96
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm test"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-6",
+            "after_record": 100
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --ignore-scripts is-odd"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-7",
+            "after_record": 104
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --registry https://invalid.example is-odd"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-8",
+            "after_record": 108
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install git+https://invalid.example/repo"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-9",
+            "after_record": 112
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install /home/stand/unrecorded.tgz"
+            ],
+            "after_expected_id": "LANG-npm-BYPASS-10",
+            "after_record": 116
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/npm-development/main.js\t/tmp/unrecorded'"
+            ],
+            "after_expected_id": "LANG-npm-EXTRA-ARGV",
+            "after_record": 120
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/node\t/tmp/unrecorded'"
+            ],
+            "after_expected_id": "LANG-npm-RAW-INTERPRETER",
+            "after_record": 122
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-BAD-HASH",
+            "after_record": 124
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-MISSING-DEPENDENCY",
+            "after_record": 126
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.bad.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-HOOK-ARTIFACT",
+            "after_record": 128
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-RESTORE",
+            "after_record": 131
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cp\t/usr/local/share/stand/language/npm.lock.json\t/opt/stand/pkgs/npm-development/main.js'"
+            ],
+            "after_expected_id": "LANG-npm-IMMUTABLE-WRITE",
+            "after_record": 133
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cp\t/opt/stand/pkgs/npm-development/main.js\t/home/stand/language-old-npm.js'"
+            ],
+            "after_expected_id": "LANG-npm-COPY-OLD",
+            "after_record": 135
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm remove language:npm:development"
+            ],
+            "after_expected_id": "LANG-npm-REMOVE",
+            "after_record": 137
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/npm-development/main.js'"
+            ],
+            "after_expected_id": "LANG-npm-REMOVED-LAUNCH",
+            "after_record": 139
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/language-old-npm.js'"
+            ],
+            "after_expected_id": "LANG-npm-COPIED-LAUNCH",
+            "after_record": 141
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/npm install --stand-lock /usr/local/share/stand/language/npm.lock.json"
+            ],
+            "after_expected_id": "LANG-npm-REINSTALL",
+            "after_record": 143
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip install --stand-lock /usr/local/share/stand/language/pip-native.lock.json"
+            ],
+            "after_expected_id": "LANG-NATIVE-WHEEL-INSTALL",
+            "after_record": 145
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-native-development/main.py'"
+            ],
+            "after_expected_id": "LANG-NATIVE-WHEEL-IMPORT",
+            "after_record": 147
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/pip remove language:pip:native-development"
+            ],
+            "after_expected_id": "LANG-NATIVE-WHEEL-REMOVE",
+            "after_record": 149
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/pip-native-development/main.py'"
+            ],
+            "after_expected_id": "LANG-NATIVE-WHEEL-REMOVED-LAUNCH",
+            "after_record": 151
+          }
+        ],
+        "ordered_markers_sha256": "448c019eec98b9e6c744a2770296eb57d74452916ec4b539212ff83573c7f553",
+        "provenance": "Exact adapter transformation of SHA-pinned baseline expected commands; holder START uses the source-identical REMOVED-PATH entry; DOWNLOAD uses the pinned literal loopback fixture template with a bounded dynamic TCP port."
+      },
+      "summaries": [
+        {
+          "failed": [],
+          "summary": true,
+          "utc": "2026-11-23T10:40:59Z"
+        }
+      ]
+    },
+    "ordinary.jsonl": {
+      "assertions": 59,
+      "failed": [],
+      "file": "final-2/carried-suite/ordinary.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 59,
+      "result_rows": 59,
+      "sha256": "0d70128ad813df5bf487fbd864569fc46519d9fa56fdaa5b745b54bf713d4a7d",
+      "shell_routing": {
+        "adapter_source_sha256": "111ecd9b9f3857387dc0c2a38976150c880d20db615cca2f05a8f2b2fc7777b9",
+        "dynamic_bindings": [
+          {
+            "contract": "HTTPServer loopback bind with port zero; exact curl URL /development; resulting TCP port 1..65535",
+            "expected_id": "DOWNLOAD",
+            "port": 42957,
+            "source_sha256": "e72ef3e2d88a29f42127bf9979774a9067543365509843bec76e513ce74be9b7"
+          }
+        ],
+        "marker_count": 46,
+        "markers": [
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/curl\thttp://127.0.0.1:42957/development'"
+            ],
+            "after_expected_id": "DOWNLOAD",
+            "after_record": 0
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/downloaded-program'"
+            ],
+            "after_expected_id": "WRITE-downloaded-program",
+            "after_record": 2
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/downloaded-program'"
+            ],
+            "after_expected_id": "DOWNLOAD-INERT",
+            "after_record": 4
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/download.json'"
+            ],
+            "after_expected_id": "WRITE-download.json",
+            "after_record": 6
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-import install /home/stand/download.json"
+            ],
+            "after_expected_id": "DOWNLOAD-IMPORT",
+            "after_record": 8
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/downloaded/bin/program'"
+            ],
+            "after_expected_id": "DOWNLOAD-RUN",
+            "after_record": 10
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/downloaded-program'"
+            ],
+            "after_expected_id": "DOWNLOAD-UNRECORDED-COPY",
+            "after_record": 12
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/source.c'"
+            ],
+            "after_expected_id": "WRITE-source.c",
+            "after_record": 14
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/source.json'"
+            ],
+            "after_expected_id": "WRITE-source.json",
+            "after_record": 16
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-import source /home/stand/source.json"
+            ],
+            "after_expected_id": "SOURCE-RECORD",
+            "after_record": 18
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-build build source:source-example"
+            ],
+            "after_expected_id": "SOURCE-BUILD",
+            "after_record": 20
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/source-example.built'"
+            ],
+            "after_expected_id": "BUILD-INERT",
+            "after_record": 22
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-import install /home/stand/source-example.built.json"
+            ],
+            "after_expected_id": "BUILD-IMPORT",
+            "after_record": 24
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/source-example-built/bin/program'"
+            ],
+            "after_expected_id": "BUILD-RUN",
+            "after_record": 26
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-build build source:missing"
+            ],
+            "after_expected_id": "UNRECORDED-BUILD",
+            "after_record": 28
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cp\t/home/stand/source-example.built\t/opt/stand/pkgs/source-example-built/bin/program'"
+            ],
+            "after_expected_id": "MUTABLE-OUTPUT-OVERWRITE",
+            "after_record": 30
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-pkg install /usr/local/share/stand/dev/worker-1.json"
+            ],
+            "after_expected_id": "USER-SERVICE-PROGRAM",
+            "after_record": 32
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/systemctl --user add /usr/local/share/stand/dev/service.json"
+            ],
+            "after_expected_id": "USER-SERVICE",
+            "after_record": 34
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/timer.json'"
+            ],
+            "after_expected_id": "WRITE-timer.json",
+            "after_record": 36
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/systemd-run --user add-timer /home/stand/timer.json"
+            ],
+            "after_expected_id": "USER-TIMER",
+            "after_record": 38
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/schedule.json'"
+            ],
+            "after_expected_id": "WRITE-schedule.json",
+            "after_record": 40
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/crontab add /home/stand/schedule.json"
+            ],
+            "after_expected_id": "SCHEDULE-COMMAND",
+            "after_record": 42
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/systemctl --user enable unrecorded.service"
+            ],
+            "after_expected_id": "JOB-REFUSE-systemctl",
+            "after_record": 46
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/systemd-run --user /home/stand/unrecorded"
+            ],
+            "after_expected_id": "JOB-REFUSE-systemd-run",
+            "after_record": 50
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/crontab -"
+            ],
+            "after_expected_id": "JOB-REFUSE-crontab",
+            "after_record": 54
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/ordinary-document.txt'"
+            ],
+            "after_expected_id": "WRITE-ordinary-document.txt",
+            "after_record": 58
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/red\tordinary-document.txt'"
+            ],
+            "after_expected_id": "DOCUMENT-EDIT",
+            "after_record": 60
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/cat\t/home/stand/ordinary-document.txt'"
+            ],
+            "after_expected_id": "DOCUMENT-READ",
+            "after_record": 62
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/red\tordinary-document.txt'"
+            ],
+            "after_expected_id": "EDITOR-SHELL-REFUSED",
+            "after_record": 64
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/red\tordinary-document.txt'"
+            ],
+            "after_expected_id": "EDITOR-COMMAND-READ-REFUSED",
+            "after_record": 66
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/dd\t/home/stand/ordinary-page.html'"
+            ],
+            "after_expected_id": "WRITE-ordinary-page.html",
+            "after_record": 68
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/w3m\t/home/stand/ordinary-page.html'"
+            ],
+            "after_expected_id": "BROWSER",
+            "after_record": 70
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/nmcli add /usr/local/share/stand/dev/wifi.json"
+            ],
+            "after_expected_id": "WIFI-SAVED",
+            "after_record": 72
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/bluetoothctl add /usr/local/share/stand/dev/bluetooth.json"
+            ],
+            "after_expected_id": "BLUETOOTH-PREPARED",
+            "after_record": 74
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove schedule:scheduled-example:timer"
+            ],
+            "after_expected_id": "REMOVE-schedule:scheduled-example:timer",
+            "after_record": 79
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove schedule:scheduled-example:service"
+            ],
+            "after_expected_id": "REMOVE-schedule:scheduled-example:service",
+            "after_record": 81
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove round4-user-timer"
+            ],
+            "after_expected_id": "REMOVE-round4-user-timer",
+            "after_record": 83
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove dev-service"
+            ],
+            "after_expected_id": "REMOVE-dev-service",
+            "after_record": 85
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove dev-worker"
+            ],
+            "after_expected_id": "REMOVE-dev-worker",
+            "after_record": 87
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove import:source-example-built"
+            ],
+            "after_expected_id": "REMOVE-import:source-example-built",
+            "after_record": 89
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove source:source-example"
+            ],
+            "after_expected_id": "REMOVE-source:source-example",
+            "after_record": 91
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove import:downloaded"
+            ],
+            "after_expected_id": "REMOVE-import:downloaded",
+            "after_record": 93
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove dev-wifi"
+            ],
+            "after_expected_id": "REMOVE-dev-wifi",
+            "after_record": 95
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line remove dev-bluetooth"
+            ],
+            "after_expected_id": "REMOVE-dev-bluetooth",
+            "after_record": 97
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/downloaded/bin/program'"
+            ],
+            "after_expected_id": "REMOVED-DOWNLOAD",
+            "after_record": 99
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/home/stand/source-example.built'"
+            ],
+            "after_expected_id": "REMOVED-BUILD",
+            "after_record": 101
+          }
+        ],
+        "ordered_markers_sha256": "c832bb45931288509ab9b75b109bc8d5c2de438b10cf51bad85be5edf4b95c26",
+        "provenance": "Exact adapter transformation of SHA-pinned baseline expected commands; holder START uses the source-identical REMOVED-PATH entry; DOWNLOAD uses the pinned literal loopback fixture template with a bounded dynamic TCP port."
+      },
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T11:05:30Z"
+        }
+      ]
+    },
+    "regressions/powercuts.jsonl": {
+      "assertions": 9,
+      "failed": [],
+      "file": "final-2/carried-suite/regressions/powercuts.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 9,
+      "result_rows": 9,
+      "sha256": "920169261bd84d0491673febc2597d76d24406218452e3d46f63541ec154cae5",
+      "summaries": []
+    },
+    "regressions/round1.jsonl": {
+      "assertions": 166,
+      "failed": [],
+      "file": "final-2/carried-suite/regressions/round1.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 166,
+      "result_rows": 166,
+      "sha256": "5c7aa42b9e1de82c9dc1f8ebb870c902a42888d5a653f1c2e80db7bb664160a1",
+      "summaries": [
+        {
+          "event": "summary",
+          "failed": [],
+          "ok": true,
+          "tests": 166
+        }
+      ]
+    },
+    "regressions/round2.jsonl": {
+      "assertions": 133,
+      "failed": [],
+      "file": "final-2/carried-suite/regressions/round2.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 133,
+      "result_rows": 133,
+      "sha256": "41b6f2b0feea6f669831c058187768bdef737298bbc333e944755e4751f900ed",
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T12:12:16Z"
+        }
+      ]
+    },
+    "regressions/round3.jsonl": {
+      "assertions": 35,
+      "failed": [],
+      "file": "final-2/carried-suite/regressions/round3.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 35,
+      "result_rows": 35,
+      "sha256": "4e790a04d77b559341cc9c11416a1ff8afa2a4ebdd4e6dceadecda39e1e9aed4",
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T11:25:13Z"
+        }
+      ]
+    },
+    "system.jsonl": {
+      "assertions": 32,
+      "failed": [],
+      "file": "final-2/carried-suite/system.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 32,
+      "result_rows": 32,
+      "sha256": "3ff7e0261a7a9929721d919213fce76f466ae8c0ffbcc7bf149593fd5d0eeac0",
+      "shell_routing": {
+        "adapter_source_sha256": "111ecd9b9f3857387dc0c2a38976150c880d20db615cca2f05a8f2b2fc7777b9",
+        "dynamic_bindings": [],
+        "marker_count": 16,
+        "markers": [
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get install hello=2.10-5"
+            ],
+            "after_expected_id": "SYSTEM-REPOSITORY-INSTALL",
+            "after_record": 0
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/repository-hello/usr/bin/hello'"
+            ],
+            "after_expected_id": "SYSTEM-REPOSITORY-RUN",
+            "after_record": 2
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get upgrade --stand-catalog ed"
+            ],
+            "after_expected_id": "SYSTEM-BASE-UPDATE",
+            "after_record": 8
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/ed'"
+            ],
+            "after_expected_id": "SYSTEM-BASE-NEW-EXEC",
+            "after_record": 12
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get install hello"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-0",
+            "after_record": 18
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get install hello=0"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-1",
+            "after_record": 22
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get -o DPkg::Pre-Invoke::=/tmp/hook install hello"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-2",
+            "after_record": 26
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get install --root=/tmp/root hello"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-3",
+            "after_record": 30
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get upgrade --stand-catalog unknown"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-4",
+            "after_record": 34
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get upgrade"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-5",
+            "after_record": 38
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get install /tmp/unrecorded.deb"
+            ],
+            "after_expected_id": "SYSTEM-BYPASS-6",
+            "after_record": 42
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-line add /var/lib/stand/system-tampered.json"
+            ],
+            "after_expected_id": "SYSTEM-CATALOG-TAMPER",
+            "after_record": 46
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get remove system:base-state"
+            ],
+            "after_expected_id": "SYSTEM-UPDATE-REMOVE",
+            "after_record": 48
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/apt-get upgrade --stand-catalog ed"
+            ],
+            "after_expected_id": "SYSTEM-UPDATE-REAPPLY",
+            "after_record": 52
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/opt/stand/pkgs/repository-hello/usr/bin/hello'"
+            ],
+            "after_expected_id": "SYSTEM-REMOVED-HELLO",
+            "after_record": 58
+          },
+          {
+            "actual_command": [
+              "/usr/sbin/runuser",
+              "-u",
+              "stand",
+              "--",
+              "/usr/local/bin/stand-shell",
+              "-c",
+              "/usr/local/bin/stand-session -c 'run\t/usr/bin/ed'"
+            ],
+            "after_expected_id": "SYSTEM-REMOVED-ED-LAUNCH",
+            "after_record": 60
+          }
+        ],
+        "ordered_markers_sha256": "7b7f107fbeb0cc60aa95b3e3bab65c5b9f005106cf44d144f6de139aa6369cec",
+        "provenance": "Exact adapter transformation of SHA-pinned baseline expected commands; holder START uses the source-identical REMOVED-PATH entry; DOWNLOAD uses the pinned literal loopback fixture template with a bounded dynamic TCP port."
+      },
+      "summaries": [
+        {
+          "failed": [],
+          "summary": true,
+          "utc": "2026-11-23T10:54:56Z"
+        }
+      ]
+    }
+  },
+  "carried_false_observations_with_successful_controller": [],
+  "carried_regression_summary": {
+    "image_sha256": "3ad3bbaa805b65fb0f65487d15ca77a3702df04298fdfec3b5efeb254520ec21",
+    "independent_peer_supplied": true,
+    "regressions_run": true,
+    "suite_exit": 0,
+    "utc": "2026-11-23T12:15:25Z",
+    "vms_remaining": []
+  },
+  "carried_summary": {
+    "image_sha256": "3ad3bbaa805b65fb0f65487d15ca77a3702df04298fdfec3b5efeb254520ec21",
+    "independent_peer_requested": true,
+    "owned_vms_remaining": [],
+    "regressions_requested": true,
+    "suite_exit": 0,
+    "suites": {
+      "applications": {
+        "example_export_exit": 0,
+        "metadata_exit": 0,
+        "suite_exit": 0,
+        "tested": true,
+        "verify_exit": 0
+      },
+      "language": {
+        "example_export_exit": 0,
+        "metadata_exit": 0,
+        "suite_exit": 0,
+        "tested": true,
+        "verify_exit": 0
+      },
+      "ordinary": {
+        "example_export_exit": 0,
+        "metadata_exit": 0,
+        "suite_exit": 0,
+        "tested": true,
+        "verify_exit": 0
+      },
+      "regressions": {
+        "controller_exit": 0,
+        "independent_peer_requested": true,
+        "tested": true
+      },
+      "system": {
+        "example_export_exit": 0,
+        "metadata_exit": 0,
+        "suite_exit": 0,
+        "tested": true,
+        "verify_exit": 0
+      }
+    },
+    "utc": "2026-11-23T12:15:26Z"
+  },
+  "combined": {
+    "declaration_rows": 572,
+    "independent_build_origin": "two supplied separate roots; recipe-build provenance must additionally establish separate rebuilds",
+    "owned_vms_remaining": [],
+    "results": {
+      "a": {
+        "snapshot_complete": true,
+        "snapshot_exit": 0
+      },
+      "b": {
+        "snapshot_complete": true,
+        "snapshot_exit": 0
+      }
+    },
+    "snapshot_sides": [
+      "a",
+      "b"
+    ],
+    "suite_exit": 0
+  },
+  "combined_assertions": {
+    "assertions": 24,
+    "failed": [],
+    "file": "final-2/combined/events.jsonl",
+    "observations_without_boolean_verdict": 0,
+    "passed": 24,
+    "result_rows": 24,
+    "sha256": "9887dfb934d9484856520e159e85da0c4608296900c4c0a9eca138d3e9d31185",
+    "summaries": [
+      {
+        "declaration_rows": 572,
+        "independent_build_origin": "two supplied separate roots; recipe-build provenance must additionally establish separate rebuilds",
+        "owned_vms_remaining": [],
+        "phase": "summary",
+        "results": {
+          "a": {
+            "snapshot_complete": true,
+            "snapshot_exit": 0
+          },
+          "b": {
+            "snapshot_complete": true,
+            "snapshot_exit": 0
+          }
+        },
+        "snapshot_sides": [
+          "a",
+          "b"
+        ],
+        "suite_exit": 0,
+        "utc": "2026-11-23T12:23:04Z"
+      }
+    ]
+  },
+  "combined_declaration": {
+    "base_manifest_file_requirements": 0,
+    "inline_file_requirements": 61178,
+    "rows": 572,
+    "sha256": "7a5c9116f501dc280e1681970d1489c97b009509cc14e0c4048a82123d3b7284"
+  },
+  "controller": {
+    "controller_exit": 0,
+    "hypothesis_outcome": "?",
+    "peer_remaining": false,
+    "remaining_vms": [],
+    "steps": [
+      {
+        "argv": [
+          "python3",
+          "build/build.py",
+          "--server",
+          "--replace"
+        ],
+        "ended_utc": "2026-11-23T09:36:21Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "build.log",
+        "started_utc": "2026-11-23T09:34:50Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "new",
+          "v4-final-2-shell",
+          "stand"
+        ],
+        "ended_utc": "2026-11-23T09:36:59Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell-new.log",
+        "started_utc": "2026-11-23T09:36:22Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-shell"
+        ],
+        "ended_utc": "2026-11-23T09:36:59Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "login.log",
+        "started_utc": "2026-11-23T09:36:59Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-shell",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:37:48Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell.jsonl",
+        "started_utc": "2026-11-23T09:36:59Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "stop",
+          "v4-final-2-shell"
+        ],
+        "ended_utc": "2026-11-23T09:37:53Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell-stop.log",
+        "started_utc": "2026-11-23T09:37:48Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "start",
+          "v4-final-2-shell"
+        ],
+        "ended_utc": "2026-11-23T09:38:30Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell-start.log",
+        "started_utc": "2026-11-23T09:37:53Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-shell",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:38:31Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell-reboot.jsonl",
+        "started_utc": "2026-11-23T09:38:30Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-shell",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:38:45Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "shell-verify.log",
+        "started_utc": "2026-11-23T09:38:31Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "destroy",
+          "v4-final-2-shell"
+        ],
+        "ended_utc": "2026-11-23T09:38:48Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "v4-final-2-shell-destroy.log",
+        "started_utc": "2026-11-23T09:38:45Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "new",
+          "v4-final-2-gate",
+          "stand"
+        ],
+        "ended_utc": "2026-11-23T09:39:25Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "gate-new.log",
+        "started_utc": "2026-11-23T09:38:48Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-gate",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:43:24Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "gate.jsonl",
+        "started_utc": "2026-11-23T09:39:25Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-gate",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:43:37Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "gate-verify.log",
+        "started_utc": "2026-11-23T09:43:24Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "destroy",
+          "v4-final-2-gate"
+        ],
+        "ended_utc": "2026-11-23T09:43:40Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "v4-final-2-gate-destroy.log",
+        "started_utc": "2026-11-23T09:43:37Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "new",
+          "v4-final-2-tools",
+          "stand"
+        ],
+        "ended_utc": "2026-11-23T09:44:17Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "tools-new.log",
+        "started_utc": "2026-11-23T09:43:40Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-tools",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T10:32:01Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "tools.jsonl",
+        "started_utc": "2026-11-23T09:44:17Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-tools",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T10:32:15Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "tools-verify.log",
+        "started_utc": "2026-11-23T10:32:01Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "copy-out",
+          "v4-final-2-tools",
+          "/etc/stand/factory",
+          "[stand-root]/raw/round-1/final-2/factory"
+        ],
+        "ended_utc": "2026-11-23T10:32:16Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "factory-export.log",
+        "started_utc": "2026-11-23T10:32:15Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "destroy",
+          "v4-final-2-tools"
+        ],
+        "ended_utc": "2026-11-23T10:32:19Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "v4-final-2-tools-destroy.log",
+        "started_utc": "2026-11-23T10:32:16Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "build/build.py",
+          "--server"
+        ],
+        "ended_utc": "2026-11-23T10:33:50Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": false,
+        "log": "peer-build.log",
+        "started_utc": "2026-11-23T10:32:19Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "build/round4-driver.py",
+          "final-2",
+          "--regressions",
+          "--peer-root",
+          "round1-peer"
+        ],
+        "ended_utc": "2026-11-23T12:15:26Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": true,
+        "log": "regressions-console.jsonl",
+        "started_utc": "2026-11-23T10:33:50Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "build/assemble-channel-examples.py",
+          "[stand-root]/raw/round-1/final-2/carried-suite",
+          "round1-example"
+        ],
+        "ended_utc": "2026-11-23T12:15:26Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": true,
+        "log": "assemble.log",
+        "started_utc": "2026-11-23T12:15:26Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "build/combined-selftest.py",
+          "v4-final-2",
+          "round1-example/combined",
+          "--peer-root",
+          "round1-peer",
+          "--reboot"
+        ],
+        "ended_utc": "2026-11-23T12:23:04Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "legacy_protocol": true,
+        "log": "combined-console.jsonl",
+        "started_utc": "2026-11-23T12:15:26Z"
+      }
+    ],
+    "utc": "2026-11-23T12:23:04Z"
+  },
+  "controller_assertion_consistency": {
+    "carried": true,
+    "combined": true
+  },
+  "earlier_final_1_marker_audit": {
+    "corrected_source_sha256": "5e4dc0dc59711c80a46e547d254400c350726cf499c615a4eaeae3a2b88c757a",
+    "method": "Offline exact output-line audit of all five original BOUNDARY_FAILED records. No guest command repeated.",
+    "original_input_sha256": "01c8f72f22cbd0fb44c756905d03d61c9cf791edc94bf2607ee4eedbe999142c",
+    "rows": [
+      {
+        "exact_effect_observed": true,
+        "exit": 0,
+        "id": "RC-STARTUP",
+        "interpretation": "actual saved-code execution with unchanged declaration",
+        "original_status": "BOUNDARY_FAILED",
+        "stderr": "bash: cannot set terminal process group (1413): Inappropriate ioctl for device\nbash: no job control in this shell\n",
+        "stdout": "SAVED_RC_EXECUTED\n"
+      },
+      {
+        "exact_effect_observed": true,
+        "exit": 0,
+        "id": "EDITOR-SAVED-COMMANDS",
+        "interpretation": "actual saved-code execution with unchanged declaration",
+        "original_status": "BOUNDARY_FAILED",
+        "stderr": "",
+        "stdout": "SAVED_EDITOR_COMMAND_EXECUTED\n"
+      },
+      {
+        "exact_effect_observed": false,
+        "exit": 1,
+        "id": "SAVED-FFI",
+        "interpretation": "mapping denied; original detector matched source echoed in traceback",
+        "original_status": "BOUNDARY_FAILED",
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import ctypes; d=ctypes.CDLL('/tmp/v4-extra-dh40pujh/unrecorded.so'); print(\"FFI_UNRECORDED_EXECUTED\",d.extra_value())\n                     ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/ctypes/__init__.py\", line 390, in __init__\n    self._handle = _dlopen(self._name, mode)\n                   ~~~~~~~^^^^^^^^^^^^^^^^^^\nOSError: /tmp/v4-extra-dh40pujh/unrecorded.so: failed to map segment from shared object\n",
+        "stdout": ""
+      },
+      {
+        "exact_effect_observed": true,
+        "exit": 0,
+        "id": "JIT-SAVED-INPUT",
+        "interpretation": "actual saved-code execution with unchanged declaration",
+        "original_status": "BOUNDARY_FAILED",
+        "stderr": "",
+        "stdout": "JIT_SAVED_INPUT_EXECUTED 42\n"
+      },
+      {
+        "exact_effect_observed": true,
+        "exit": 0,
+        "id": "DISPATCHER-SAVED",
+        "interpretation": "actual saved-code execution with unchanged declaration",
+        "original_status": "BOUNDARY_FAILED",
+        "stderr": "",
+        "stdout": "DISPATCHER_SAVED_EXECUTED\n"
+      }
+    ],
+    "source_log": "final-1/supplement/extra.jsonl"
+  },
+  "factory_declaration": {
+    "base_manifest_file_requirements": 31256,
+    "inline_file_requirements": 29792,
+    "rows": 553,
+    "sha256": "c45b095cb0db71285b7de413549cde93c0c4c2e45b5a9bfa2526d0e31798cd53"
+  },
+  "hypothesis_outcome": "?",
+  "image": {
+    "mode": "0o444",
+    "sha256": "3ad3bbaa805b65fb0f65487d15ca77a3702df04298fdfec3b5efeb254520ec21"
+  },
+  "interpretation": "Implementation and compatible sealed-launch passes do not cancel saved-code or native built-in-tool boundary failures. False observations below include all validated assertion-bearing new, carried, and combined logs; no closure is inferred.",
+  "inventory_provenance": {
+    "carried_baseline_sha256": {
+      "applications.jsonl": "77eec48cd5786de2bce6725dc6f44681452bded18663a7f86bcdadc457469368",
+      "events.jsonl": "db8c69185e49569f944e4d933fa2609705057e279801264dff9198128a5a9203",
+      "language.jsonl": "6f0992f4d80a8be85392a90c9f08bbbea9cf6f866c69d32e17004a538092e6b9",
+      "ordinary.jsonl": "7805aa1e69a1e08747f29b0c83418043d7b09d97e4e72bc2925a977a0adbb5a7",
+      "regressions/powercuts.jsonl": "15a40f0378eae4adcb4f0526fde5660457c83b56c6e8ffe5a1684e7159f9f007",
+      "regressions/round1.jsonl": "fdda52fd26f4ca49eb46e417a4a68840fbbf582e73c7be36c9e9983cc18241e2",
+      "regressions/round2.jsonl": "6414a81479d2f834ed8fbee1c1dc085fc9595cd21396cae868aaf9b1dea4dda2",
+      "regressions/round3.jsonl": "506471ffba7a670f020cc1eb5de886934971da63e81c9a10384bf30d0d27305e",
+      "system.jsonl": "9eff66c5fea968c959e44c0df57a05979abd13146d9be605cdafb09d9b790252"
+    },
+    "combined_baseline_events_sha256": "a39c124bad0ccd250cecc6a1ff77f6ff698fdb6c5ec65bdc99914b8ada7c7183",
+    "main_controller": {
+      "expected_steps": [
+        {
+          "argv": [
+            "python3",
+            "build/build.py",
+            "--server",
+            "--replace"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "build.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "new",
+            "v4-final-2-shell",
+            "stand"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell-new.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-shell"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "login.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-shell",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell.jsonl"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "stop",
+            "v4-final-2-shell"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell-stop.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "start",
+            "v4-final-2-shell"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell-start.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-shell",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell-reboot.jsonl"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-shell",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "shell-verify.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "destroy",
+            "v4-final-2-shell"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "v4-final-2-shell-destroy.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "new",
+            "v4-final-2-gate",
+            "stand"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "gate-new.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-gate",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "gate.jsonl"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-gate",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "gate-verify.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "destroy",
+            "v4-final-2-gate"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "v4-final-2-gate-destroy.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "new",
+            "v4-final-2-tools",
+            "stand"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "tools-new.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-tools",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "tools.jsonl"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "run",
+            "v4-final-2-tools",
+            "--root"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "tools-verify.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "copy-out",
+            "v4-final-2-tools",
+            "/etc/stand/factory",
+            "[stand-root]/raw/round-1/final-2/factory"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "factory-export.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "lab.py",
+            "destroy",
+            "v4-final-2-tools"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "v4-final-2-tools-destroy.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "build/build.py",
+            "--server"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": false,
+          "log": "peer-build.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "build/round4-driver.py",
+            "final-2",
+            "--regressions",
+            "--peer-root",
+            "round1-peer"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": true,
+          "log": "regressions-console.jsonl"
+        },
+        {
+          "argv": [
+            "python3",
+            "build/assemble-channel-examples.py",
+            "[stand-root]/raw/round-1/final-2/carried-suite",
+            "round1-example"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": true,
+          "log": "assemble.log"
+        },
+        {
+          "argv": [
+            "python3",
+            "build/combined-selftest.py",
+            "v4-final-2",
+            "round1-example/combined",
+            "--peer-root",
+            "round1-peer",
+            "--reboot"
+          ],
+          "expected_exit": 0,
+          "legacy_protocol": true,
+          "log": "combined-console.jsonl"
+        }
+      ],
+      "source_sha256": "0394eb1a9b673447d2249b9a6fd563b060275db057d353f45639965f81af6c02",
+      "step_count": 22,
+      "steps_file_sha256": "93dd139709d8d1373394ddd2f75153d258e9306046a454c6cd067dee588b5d34"
+    },
+    "new": {
+      "gate.jsonl": {
+        "reviewed_result_count": 9,
+        "source": "build/v4-gate-selftest.py",
+        "source_sha256": "c3d05c40e71652c84ff349792bad1ec2f28c4dc07400829419434462e1f047dc"
+      },
+      "shell-reboot.jsonl": {
+        "reviewed_result_count": 1,
+        "source": "build/v4-shell-selftest.py",
+        "source_sha256": "b3a8601384c69a824406a4b32abd59727d3fd51d8d33bee9e3f7c444f509be52"
+      },
+      "shell.jsonl": {
+        "reviewed_result_count": 28,
+        "source": "build/v4-shell-selftest.py",
+        "source_sha256": "b3a8601384c69a824406a4b32abd59727d3fd51d8d33bee9e3f7c444f509be52"
+      },
+      "supplement/direct.jsonl": {
+        "reviewed_result_count": 17,
+        "source": "raw/round-1/final-2-supplement-inputs/v4-direct-selftest.py",
+        "source_sha256": "82bd871f23561397ff510a3c28b81294a045dfd97d6f120ccc3fb5380c5f0399"
+      },
+      "supplement/extra.jsonl": {
+        "reviewed_result_count": 21,
+        "source": "raw/round-1/final-2-supplement-inputs/v4-extra-selftest.py",
+        "source_sha256": "5e4dc0dc59711c80a46e547d254400c350726cf499c615a4eaeae3a2b88c757a"
+      },
+      "tools.jsonl": {
+        "reviewed_result_count": 86,
+        "source": "build/v4-tools-selftest.py",
+        "source_sha256": "a5bdeef26adb7f0cfa05ad43968ed50541ba4009bed7b266fb713f0ac25a5249"
+      }
+    },
+    "required_carried_files": [
+      "applications-examples-export.log",
+      "applications-examples/channel-examples/appimage.jsonl",
+      "applications-examples/channel-examples/flatpak.jsonl",
+      "applications-examples/channel-examples/oci.jsonl",
+      "applications-helper-availability.jsonl",
+      "applications-new.log",
+      "applications-verify.jsonl",
+      "applications.jsonl",
+      "bc4-final-2-applications-destroy.log",
+      "bc4-final-2-language-destroy.log",
+      "bc4-final-2-ordinary-destroy.log",
+      "bc4-final-2-system-destroy.log",
+      "events.jsonl",
+      "factory-export.log",
+      "factory-export/factory/base-files.json",
+      "factory-export/factory/machine.jsonl",
+      "language-examples-export.log",
+      "language-examples/channel-examples/npm.jsonl",
+      "language-examples/channel-examples/pip-native.jsonl",
+      "language-examples/channel-examples/pip.jsonl",
+      "language-new.log",
+      "language-verify.jsonl",
+      "language.jsonl",
+      "ordinary-examples-export.log",
+      "ordinary-examples/channel-examples/ordinary.jsonl",
+      "ordinary-new.log",
+      "ordinary-verify.jsonl",
+      "ordinary.jsonl",
+      "recipe-sha256.json",
+      "regressions-console.jsonl",
+      "regressions/bc3-bc4-final-2-copy-round3-selftest.py.log",
+      "regressions/bc3-bc4-final-2-destroy.log",
+      "regressions/bc3-bc4-final-2-new.log",
+      "regressions/bc3-inventory-bc4-final-2-copy-round3-inventory-test.py.log",
+      "regressions/bc3-inventory-bc4-final-2-destroy.log",
+      "regressions/bc3-inventory-bc4-final-2-new.log",
+      "regressions/bc3-peer-a-destroy.log",
+      "regressions/bc3-peer-a-new.log",
+      "regressions/bc3-peer-b-destroy.log",
+      "regressions/bc3-peer-b-new.log",
+      "regressions/bc3-regression1-bc4-final-2-copy-round1-selftest.py.log",
+      "regressions/bc3-regression1-bc4-final-2-destroy.log",
+      "regressions/bc3-regression1-bc4-final-2-new.log",
+      "regressions/bc3-regression2-bc4-final-2-copy-round2-probe.c.log",
+      "regressions/bc3-regression2-bc4-final-2-copy-round2-selftest.py.log",
+      "regressions/bc3-regression2-bc4-final-2-destroy.log",
+      "regressions/bc3-regression2-bc4-final-2-new.log",
+      "regressions/boot-attempts.json",
+      "regressions/boot-delay-cleanup.log",
+      "regressions/boot-delay-setup.log",
+      "regressions/boot-gate-stop.log",
+      "regressions/boot-order.jsonl",
+      "regressions/boot-start.log",
+      "regressions/independent-compare.json",
+      "regressions/independent-stand-compare.jsonl",
+      "regressions/inventory.jsonl",
+      "regressions/original-console.log",
+      "regressions/original/D01.log",
+      "regressions/original/D02.log",
+      "regressions/original/D03.log",
+      "regressions/original/D04.log",
+      "regressions/original/D05.log",
+      "regressions/original/D06.log",
+      "regressions/original/D07.log",
+      "regressions/original/D08.log",
+      "regressions/original/D09.log",
+      "regressions/original/D10-compare.jsonl",
+      "regressions/original/D10-peer-a.log",
+      "regressions/original/D10-peer-b.log",
+      "regressions/original/D10-summary.log",
+      "regressions/original/cleanup-cut.log",
+      "regressions/original/create-cut.log",
+      "regressions/original/create-dev.log",
+      "regressions/original/create-peer-a.log",
+      "regressions/original/create-peer-b.log",
+      "regressions/original/cut/last-success.json",
+      "regressions/original/destroy-dev.log",
+      "regressions/original/destroy-peer-a.log",
+      "regressions/original/destroy-peer-b.log",
+      "regressions/original/dev/evidence/added.json",
+      "regressions/original/dev/evidence/factory.json",
+      "regressions/original/dev/evidence/packages.tsv",
+      "regressions/original/example/factory/base-files.json",
+      "regressions/original/example/factory/machine.jsonl",
+      "regressions/original/export-cut.log",
+      "regressions/original/export-declaration-peer-a.log",
+      "regressions/original/export-declaration-peer-b.log",
+      "regressions/original/export-dev.log",
+      "regressions/original/export-example.log",
+      "regressions/original/export-peer-a.log",
+      "regressions/original/export-peer-b.log",
+      "regressions/original/peer-a/added.json",
+      "regressions/original/peer-a/dev-add/base-files.json",
+      "regressions/original/peer-a/dev-add/machine.jsonl",
+      "regressions/original/peer-b/added.json",
+      "regressions/original/peer-b/dev-add/base-files.json",
+      "regressions/original/peer-b/dev-add/machine.jsonl",
+      "regressions/peer-a-apply.log",
+      "regressions/peer-a-declaration-export.log",
+      "regressions/peer-a-snapshot-export.log",
+      "regressions/peer-a/added.json",
+      "regressions/peer-a/dev-add/base-files.json",
+      "regressions/peer-a/dev-add/machine.jsonl",
+      "regressions/peer-b-apply.log",
+      "regressions/peer-b-declaration-export.log",
+      "regressions/peer-b-snapshot-export.log",
+      "regressions/peer-b/added.json",
+      "regressions/peer-b/dev-add/base-files.json",
+      "regressions/peer-b/dev-add/machine.jsonl",
+      "regressions/powercuts.jsonl",
+      "regressions/round1.jsonl",
+      "regressions/round2.jsonl",
+      "regressions/round3.jsonl",
+      "regressions/summary.json",
+      "summary.json",
+      "system-examples-export.log",
+      "system-examples/channel-examples/repository.jsonl",
+      "system-examples/channel-examples/system-update.jsonl",
+      "system-new.log",
+      "system-state-export.log",
+      "system-state/channel-system-state/machine.jsonl",
+      "system-verify.jsonl",
+      "system.jsonl"
+    ],
+    "required_combined_files": [
+      "a-apply.log",
+      "a-deliver.log",
+      "a-destroy.log",
+      "a-exact.jsonl",
+      "a-launch-appimage.log",
+      "a-launch-download.log",
+      "a-launch-flatpak.log",
+      "a-launch-native-wheel.log",
+      "a-launch-npm.log",
+      "a-launch-oci.log",
+      "a-launch-pip.log",
+      "a-launch-repository.log",
+      "a-launch-source-build.log",
+      "a-launch-updated-base.log",
+      "a-launch-user-service-program.log",
+      "a-new.log",
+      "a-reboot-exact.jsonl",
+      "a-reboot-verify.jsonl",
+      "a-schedule.jsonl",
+      "a-snapshot.json",
+      "a-start.log",
+      "a-stop.log",
+      "a-verify.jsonl",
+      "b-apply.log",
+      "b-deliver.log",
+      "b-destroy.log",
+      "b-exact.jsonl",
+      "b-launch-appimage.log",
+      "b-launch-download.log",
+      "b-launch-flatpak.log",
+      "b-launch-native-wheel.log",
+      "b-launch-npm.log",
+      "b-launch-oci.log",
+      "b-launch-pip.log",
+      "b-launch-repository.log",
+      "b-launch-source-build.log",
+      "b-launch-updated-base.log",
+      "b-launch-user-service-program.log",
+      "b-new.log",
+      "b-reboot-exact.jsonl",
+      "b-reboot-verify.jsonl",
+      "b-schedule.jsonl",
+      "b-snapshot.json",
+      "b-start.log",
+      "b-stop.log",
+      "b-verify.jsonl",
+      "events.jsonl",
+      "provenance.json",
+      "stand-compare.jsonl",
+      "summary.json"
+    ]
+  },
+  "new": {
+    "gate.jsonl": {
+      "assertions": 9,
+      "failed": [],
+      "file": "final-2/gate.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 9,
+      "result_rows": 9,
+      "sha256": "40afd8d6714ef82893474f0b1c78f844af909d6794b83785b128c411fc64ec16",
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T09:43:24Z"
+        }
+      ]
+    },
+    "shell-reboot.jsonl": {
+      "assertions": 1,
+      "failed": [],
+      "file": "final-2/shell-reboot.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 1,
+      "result_rows": 1,
+      "sha256": "b92fa2fd0cc233596ffe560ecbf78ec050b75da805491edee96ffa5eb1d0ce4a",
+      "summaries": []
+    },
+    "shell.jsonl": {
+      "assertions": 28,
+      "failed": [
+        "SAVED-SCRIPT",
+        "SAVED-PIPE",
+        "SAVED-SOURCE",
+        "STARTUP-ENV",
+        "PYTHON-IMPORT",
+        "PICKLE-CODE"
+      ],
+      "file": "final-2/shell.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 22,
+      "result_rows": 28,
+      "sha256": "d6eb43d2d285c64140e1421aad165bb16f4477b7635e35a9fa42e4c21f603053",
+      "summaries": [
+        {
+          "boundary_failures": [
+            "SAVED-SCRIPT",
+            "SAVED-PIPE",
+            "SAVED-SOURCE",
+            "STARTUP-ENV",
+            "PYTHON-IMPORT",
+            "PICKLE-CODE"
+          ],
+          "hypothesis_outcome": "?",
+          "implemented_checks_passed": true,
+          "phase": "summary",
+          "utc": "2026-11-23T09:37:48Z"
+        }
+      ]
+    },
+    "supplement/direct.jsonl": {
+      "assertions": 17,
+      "failed": [
+        "DIRECT-REDIRECT-STDIN",
+        "DIRECT-PROC-FD",
+        "DIRECT-READ-EXEC",
+        "DIRECT-AWK-FILE",
+        "DIRECT-SCRIPT-HELPER"
+      ],
+      "file": "final-2/supplement/direct.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 12,
+      "result_rows": 17,
+      "sha256": "ebe8c79eea62f0cb25cbac56b80785d84b0768ecbf856a7cf1ef4e1e3b2b6c2d",
+      "summaries": [
+        {
+          "exit_semantics": "Observation controller completed; failed property/ordinary-work rows remain failures",
+          "failures": [
+            "DIRECT-REDIRECT-STDIN",
+            "DIRECT-PROC-FD",
+            "DIRECT-READ-EXEC",
+            "DIRECT-AWK-FILE",
+            "DIRECT-SCRIPT-HELPER"
+          ],
+          "hypothesis_outcome": "?",
+          "phase": "summary",
+          "result_count": 17,
+          "unavailable": [],
+          "utc": "2026-11-23T09:37:51Z"
+        }
+      ]
+    },
+    "supplement/extra.jsonl": {
+      "assertions": 16,
+      "failed": [
+        "RC-STARTUP",
+        "EDITOR-SAVED-COMMANDS",
+        "JIT-SAVED-INPUT",
+        "DISPATCHER-SAVED"
+      ],
+      "file": "final-2/supplement/extra.jsonl",
+      "observations_without_boolean_verdict": 5,
+      "passed": 12,
+      "result_rows": 21,
+      "sha256": "9cf246374f4a3902c9dd3052214462fc86a5039c8f353d9acfd62fe2f8559db6",
+      "summaries": [
+        {
+          "boundary_failures": [
+            "RC-STARTUP",
+            "EDITOR-SAVED-COMMANDS",
+            "JIT-SAVED-INPUT",
+            "DISPATCHER-SAVED"
+          ],
+          "closure_claim": false,
+          "hypothesis_outcome": "?",
+          "implementation_failures": [],
+          "phase": "summary",
+          "runtime_observations": [
+            {
+              "id": "MEMFD-RUNTIME",
+              "status": "RUNTIME_RESTRICTED_OR_UNAVAILABLE"
+            },
+            {
+              "id": "JIT-RUNTIME",
+              "status": "RUNTIME_EXECUTED"
+            },
+            {
+              "id": "PROCESS-MEMORY-RUNTIME",
+              "status": "RUNTIME_RESTRICTED_OR_UNAVAILABLE"
+            }
+          ],
+          "untested": [
+            "EDITOR-PLUGIN-MODELINE",
+            "GIT-HOOK",
+            "GIT-LOCAL-ALIAS-FILTER",
+            "MAKE-SAVED-RECIPE",
+            "FOREIGN-INTERPRETER",
+            "BROWSER-EXTENSION"
+          ],
+          "utc": "2026-11-23T09:39:09Z"
+        }
+      ]
+    },
+    "tools.jsonl": {
+      "assertions": 86,
+      "failed": [
+        "root-native-account-bypass"
+      ],
+      "file": "final-2/tools.jsonl",
+      "observations_without_boolean_verdict": 0,
+      "passed": 85,
+      "result_rows": 86,
+      "sha256": "3b8ce48f1fe2ad5ec7c54f63a9d853845be2c2c3470029644ef4b861147c5e2d",
+      "summaries": [
+        {
+          "failures": [],
+          "passed": true,
+          "phase": "summary",
+          "radio_hardware_tested": false,
+          "utc": "2026-11-23T10:32:01Z"
+        }
+      ]
+    }
+  },
+  "peer_image": {
+    "sha256": "b07ba3412ad2c975287e352247e1da2c666a058ddab24197df30816c1517afa3"
+  },
+  "readback": [
+    {
+      "bad": [],
+      "file": "final-2/shell-verify.log",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/gate-verify.log",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/tools-verify.log",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/supplement/before-reboot-verify.jsonl",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/supplement/after-reboot-verify.jsonl",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/carried-suite/applications-verify.jsonl",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/carried-suite/ordinary-verify.jsonl",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/carried-suite/system-verify.jsonl",
+      "ok": 553,
+      "rows": 553,
+      "sha256": "310e45e22d3485a91b16154be45f77eec237b61c50ad78454593822a89d808cc"
+    },
+    {
+      "bad": [],
+      "file": "final-2/carried-suite/language-verify.jsonl",
+      "ok": 555,
+      "rows": 555,
+      "sha256": "5d3c814cd5a48ac1a33ac2a08ea22ddb54c0d9d6c7187b7a6ef342f4d203661c"
+    },
+    {
+      "bad": [],
+      "file": "final-2/combined/a-verify.jsonl",
+      "ok": 572,
+      "rows": 572,
+      "sha256": "880fd3b0ffdcef9be197b28163d60936d69e954eaa82abd6257b414bf2337bcf"
+    },
+    {
+      "bad": [],
+      "file": "final-2/combined/a-reboot-verify.jsonl",
+      "ok": 572,
+      "rows": 572,
+      "sha256": "880fd3b0ffdcef9be197b28163d60936d69e954eaa82abd6257b414bf2337bcf"
+    },
+    {
+      "bad": [],
+      "file": "final-2/combined/b-verify.jsonl",
+      "ok": 572,
+      "rows": 572,
+      "sha256": "880fd3b0ffdcef9be197b28163d60936d69e954eaa82abd6257b414bf2337bcf"
+    },
+    {
+      "bad": [],
+      "file": "final-2/combined/b-reboot-verify.jsonl",
+      "ok": 572,
+      "rows": 572,
+      "sha256": "880fd3b0ffdcef9be197b28163d60936d69e954eaa82abd6257b414bf2337bcf"
+    }
+  ],
+  "supplement": {
+    "controller_exit": 0,
+    "exit_semantics": "Completion only; property and ordinary-work failures stay in result rows",
+    "hypothesis_outcome": "?",
+    "remaining_owned_vm": false,
+    "steps": [
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "new",
+          "v4-final-2-supplement",
+          "stand"
+        ],
+        "ended_utc": "2026-11-23T09:37:49Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "new.log",
+        "stdin_sha256": null,
+        "utc": "2026-11-23T09:37:13Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:37:51Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "direct.jsonl",
+        "stdin_sha256": "0b24a96ff5726d53901770c83e3764386c292f4b1e1018f7ef36e1c50a0551b7",
+        "utc": "2026-11-23T09:37:49Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:39:09Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "extra.jsonl",
+        "stdin_sha256": "f6d508ce38a0ac254fbdf5a89fd6bcb6d84a2171c689d155ef60340e2fcc0bf3",
+        "utc": "2026-11-23T09:37:51Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:39:23Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "before-reboot-verify.jsonl",
+        "stdin_sha256": "19e5ca3d08f07ca6dd6cd4e211ab8d718fae9b3713dd0b1120e1f600cfd48db8",
+        "utc": "2026-11-23T09:39:09Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:39:23Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "before-report.json",
+        "stdin_sha256": "c1d80e8099b0141128016aeed67a7032974fd5919902302276e1997533e9237d",
+        "utc": "2026-11-23T09:39:23Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "stop",
+          "v4-final-2-supplement"
+        ],
+        "ended_utc": "2026-11-23T09:39:25Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "stop.log",
+        "stdin_sha256": null,
+        "utc": "2026-11-23T09:39:23Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "start",
+          "v4-final-2-supplement"
+        ],
+        "ended_utc": "2026-11-23T09:40:02Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "start.log",
+        "stdin_sha256": null,
+        "utc": "2026-11-23T09:39:25Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:40:17Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "after-reboot-verify.jsonl",
+        "stdin_sha256": "19e5ca3d08f07ca6dd6cd4e211ab8d718fae9b3713dd0b1120e1f600cfd48db8",
+        "utc": "2026-11-23T09:40:02Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "run",
+          "v4-final-2-supplement",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T09:40:17Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "after-report.json",
+        "stdin_sha256": "c1d80e8099b0141128016aeed67a7032974fd5919902302276e1997533e9237d",
+        "utc": "2026-11-23T09:40:17Z"
+      },
+      {
+        "argv": [
+          "python3",
+          "lab.py",
+          "destroy",
+          "v4-final-2-supplement"
+        ],
+        "ended_utc": "2026-11-23T09:40:20Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "destroy.log",
+        "stdin_sha256": null,
+        "utc": "2026-11-23T09:40:17Z"
+      }
+    ],
+    "utc": "2026-11-23T09:40:20Z"
+  },
+  "supplement_reboot": {
+    "last_success_bytes_equal": true,
+    "utc": "2026-11-23T09:40:17Z"
+  }
+}

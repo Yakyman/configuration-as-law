@@ -1,0 +1,174 @@
+id	name	state	preset	pkgfile	pkg	integ	local_def	dropins	links
+alma-b6d46ec30f2a5544c8f034eb	accounts-daemon.service	enabled	enabled	/usr/lib/systemd/system/accounts-daemon.service	accountsservice	unchanged			/etc/systemd/system/graphical.target.wants/accounts-daemon.service@2026-11-23T05:52:40
+alma-fc8e6f4b3aebd52ec58570e2	arp-ethers.service	disabled	disabled	/usr/lib/systemd/system/arp-ethers.service	net-tools	unchanged			
+alma-2ba8c538abcd0c153252e88c	atd.service	enabled	enabled	/usr/lib/systemd/system/atd.service	at	unchanged			/etc/systemd/system/multi-user.target.wants/atd.service@2026-11-23T05:54:09
+alma-c719ee65ca6427a425f4f522	audit-rules.service	enabled	enabled	/usr/lib/systemd/system/audit-rules.service	audit-rules	unchanged			/etc/systemd/system/multi-user.target.wants/audit-rules.service@2026-11-23T05:53:30
+alma-751b49f4326ea93b25b6bb98	auditd.service	enabled	enabled	/usr/lib/systemd/system/auditd.service	audit	unchanged			/etc/systemd/system/multi-user.target.wants/auditd.service@2026-11-23T05:53:30
+alma-53fa364e2cf166bce33a9d60	avahi-daemon.service	enabled	enabled	/usr/lib/systemd/system/avahi-daemon.service	avahi	unchanged			/etc/systemd/system/dbus-org.freedesktop.Avahi.service@2026-11-23T05:52:39;/etc/systemd/system/multi-user.target.wants/avahi-daemon.service@2026-11-23T05:52:39
+alma-5b53edfd8d88df43e85f7f6e	blk-availability.service	disabled	disabled	/usr/lib/systemd/system/blk-availability.service	lvm2	unchanged			
+alma-91242fbab7f91af1ea3834b8	bluetooth.service	enabled	enabled	/usr/lib/systemd/system/bluetooth.service	bluez	unchanged			/etc/systemd/system/bluetooth.target.wants/bluetooth.service@2026-11-23T05:52:40;/etc/systemd/system/dbus-org.bluez.service@2026-11-23T05:52:40
+alma-8f18b6f0d17597da1f3f15b6	brltty.service	disabled	disabled	/usr/lib/systemd/system/brltty.service	brltty	unchanged			
+alma-b905d6d24bd05a828c549c76	canberra-system-bootup.service	disabled	disabled	/usr/lib/systemd/system/canberra-system-bootup.service	libcanberra	unchanged			
+alma-18764a09fb1a2145c5e00906	canberra-system-shutdown-reboot.service	disabled	disabled	/usr/lib/systemd/system/canberra-system-shutdown-reboot.service	libcanberra	unchanged			
+alma-8d37fb4a27b58d8008b005ff	canberra-system-shutdown.service	disabled	disabled	/usr/lib/systemd/system/canberra-system-shutdown.service	libcanberra	unchanged			
+alma-1447efd20441479504624176	chrony-wait.service	disabled	disabled	/usr/lib/systemd/system/chrony-wait.service	chrony	unchanged			
+alma-1384ba2feb75511a191f905f	chronyd-restricted.service	disabled	disabled	/usr/lib/systemd/system/chronyd-restricted.service	chrony	unchanged			
+alma-267c0f87fad81248cec68892	chronyd.service	enabled	enabled	/usr/lib/systemd/system/chronyd.service	chrony	unchanged			/etc/systemd/system/multi-user.target.wants/chronyd.service@2026-11-23T05:54:09
+alma-f93b03c494dbca150c151512	console-getty.service	disabled	disabled	/usr/lib/systemd/system/console-getty.service	systemd	unchanged			
+alma-381f1623ed667a46ceac5f77	crond.service	enabled	enabled	/usr/lib/systemd/system/crond.service	cronie	unchanged			/etc/systemd/system/multi-user.target.wants/crond.service@2026-11-23T05:52:50
+alma-04c7a39a22051b157a461f94	cups-browsed.service	disabled	disabled	/usr/lib/systemd/system/cups-browsed.service	cups-browsed	unchanged			
+alma-3a5873ac904ff01133b8fdd4	cups.service	enabled	enabled	/usr/lib/systemd/system/cups.service	cups	unchanged		/usr/lib/systemd/system/cups.service.d	/etc/systemd/system/multi-user.target.wants/cups.service@2026-11-23T05:53:54;/etc/systemd/system/printer.target.wants/cups.service@2026-11-23T05:53:54
+alma-8cf9b5f0b770d635edbeba9f	dbus-broker.service	enabled	enabled	/usr/lib/systemd/system/dbus-broker.service	dbus-broker	unchanged			/etc/systemd/system/dbus.service@2026-11-23T05:52:39;/etc/systemd/user/dbus.service@2026-11-23T05:52:39
+alma-862c4672d34961f82d60da5a	dbus-daemon.service	disabled	disabled	/usr/lib/systemd/system/dbus-daemon.service	dbus-daemon	unchanged			
+alma-d33e0438b1ccb4129ae9ab25	dbus-org.bluez.service	alias	-				/etc/systemd/system/dbus-org.bluez.service:symlink;/etc/systemd/system/dbus-org.bluez.service:symlink		/etc/systemd/system/dbus-org.bluez.service@2026-11-23T05:52:40
+alma-e72dbb895ddd9bd0b38bf52a	dbus-org.fedoraproject.FirewallD1.service	alias	-				/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service:symlink;/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service:symlink		/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service@2026-11-23T05:53:59
+alma-a4b5dace6048c24e81811995	dbus-org.freedesktop.Avahi.service	alias	-				/etc/systemd/system/dbus-org.freedesktop.Avahi.service:symlink;/etc/systemd/system/dbus-org.freedesktop.Avahi.service:symlink		/etc/systemd/system/dbus-org.freedesktop.Avahi.service@2026-11-23T05:52:39
+alma-6a26dbb966bac7d9fb0abda6	dbus-org.freedesktop.ModemManager1.service	alias	-				/etc/systemd/system/dbus-org.freedesktop.ModemManager1.service:symlink;/etc/systemd/system/dbus-org.freedesktop.ModemManager1.service:symlink		/etc/systemd/system/dbus-org.freedesktop.ModemManager1.service@2026-11-23T05:53:30
+alma-4c81a69e31ead4120098f60b	dbus-org.freedesktop.nm-dispatcher.service	alias	-				/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service:symlink;/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service:symlink		/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service@2026-11-23T05:52:40
+alma-7cca1c6906c99a886e86a692	dbus.service	alias	-				/etc/systemd/system/dbus.service:symlink;/etc/systemd/system/dbus.service:symlink		/etc/systemd/system/dbus.service@2026-11-23T05:52:39;/etc/systemd/user/dbus.service@2026-11-23T05:52:39
+alma-f5964e9adea47bb07d17d8f6	debug-shell.service	disabled	disabled	/usr/lib/systemd/system/debug-shell.service	systemd	unchanged			
+alma-37c4765f1bc3df9c50c7463a	display-manager.service	alias	-				/etc/systemd/system/display-manager.service:symlink;/etc/systemd/system/display-manager.service:symlink		/etc/systemd/system/display-manager.service@2026-11-23T05:53:57
+alma-0994d38607767f5ebec23981	dnf-system-upgrade.service	disabled	disabled	/usr/lib/systemd/system/dnf-system-upgrade.service	python3-dnf-plugins-core	unchanged			
+alma-4a3a4aa04f526793d97dba41	dnsmasq.service	disabled	disabled	/usr/lib/systemd/system/dnsmasq.service	dnsmasq	unchanged			
+alma-b54c22b3d335246030d36a39	fips-crypto-policy-overlay.service	enabled	enabled	/usr/lib/systemd/system/fips-crypto-policy-overlay.service	crypto-policies	unchanged			/etc/systemd/system/sysinit.target.wants/fips-crypto-policy-overlay.service@2026-11-23T05:52:39
+alma-9cd6df16ca1ea135effee67e	firewalld.service	enabled	enabled	/usr/lib/systemd/system/firewalld.service	firewalld	unchanged			/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service@2026-11-23T05:53:59;/etc/systemd/system/multi-user.target.wants/firewalld.service@2026-11-23T05:53:59
+alma-f6a4050cb01056b049e6844f	foomaticrip-upgrade.service	disabled	disabled	/usr/lib/systemd/system/foomaticrip-upgrade.service	cups-filters	unchanged			
+alma-8ffc3be5b8514ea1d7d69337	gdm.service	enabled	enabled	/usr/lib/systemd/system/gdm.service	gdm	unchanged			/etc/systemd/system/display-manager.service@2026-11-23T05:53:57
+alma-4bbb6edcfa118450847b5441	getty@.service	enabled	enabled	/usr/lib/systemd/system/getty@.service	systemd	unchanged			/etc/systemd/system/getty.target.wants/getty@tty1.service@2026-11-23T05:52:39
+alma-b41f03e49c4eb459d1246a90	gnome-headless-session@.service	disabled	disabled	/usr/lib/systemd/system/gnome-headless-session@.service	gdm	unchanged			
+alma-b0e6a3fc0caab81c83d1716d	gnome-remote-desktop-configuration.service	disabled	disabled	/usr/lib/systemd/system/gnome-remote-desktop-configuration.service	gnome-remote-desktop	unchanged			
+alma-d6ceb3c23b8ef124bd1f43a9	gnome-remote-desktop.service	disabled	disabled	/usr/lib/systemd/system/gnome-remote-desktop.service	gnome-remote-desktop	unchanged			
+alma-8d9d1d0e6a90c49529ac3c0d	hypervfcopyd.service	disabled	disabled	/usr/lib/systemd/system/hypervfcopyd.service	hypervfcopyd	unchanged			
+alma-9fdb906b8745a26705e1db70	irqbalance.service	enabled	enabled	/usr/lib/systemd/system/irqbalance.service	irqbalance	unchanged			/etc/systemd/system/multi-user.target.wants/irqbalance.service@2026-11-23T05:54:11
+alma-bd7daa280d889ba634267c1a	iscsi-init.service	disabled	disabled	/usr/lib/systemd/system/iscsi-init.service	iscsi-initiator-utils	unchanged			
+alma-e381ec8980e2f92ce8021cd7	iscsi-onboot.service	enabled	enabled	/usr/lib/systemd/system/iscsi-onboot.service	iscsi-initiator-utils	unchanged			/etc/systemd/system/sysinit.target.wants/iscsi-onboot.service@2026-11-23T05:52:50
+alma-4ad6c6213934fe9e51daa384	iscsi-starter.service	enabled	enabled	/usr/lib/systemd/system/iscsi-starter.service	iscsi-initiator-utils	unchanged			/etc/systemd/system/sysinit.target.wants/iscsi-starter.service@2026-11-23T05:52:50
+alma-6c635f49149b7ceef72c4223	iscsi.service	indirect	disabled	/usr/lib/systemd/system/iscsi.service	iscsi-initiator-utils	unchanged			
+alma-8140c619f2cccd544b3ab47d	iscsid.service	disabled	disabled	/usr/lib/systemd/system/iscsid.service	iscsi-initiator-utils	unchanged			
+alma-9ee9c20dd2026d9bc13b9434	iscsiuio.service	disabled	disabled	/usr/lib/systemd/system/iscsiuio.service	iscsi-initiator-utils-iscsiuio	unchanged			
+alma-0221f6ae4344968b368caa84	kdump.service	enabled	enabled	/usr/lib/systemd/system/kdump.service	kdump-utils	unchanged			/etc/systemd/system/multi-user.target.wants/kdump.service@2026-11-23T05:53:57
+alma-96a2b15a277cf5f8de7c9fdf	kpatch.service	disabled	disabled	/usr/lib/systemd/system/kpatch.service	kpatch	unchanged			
+alma-134a4ea9da4ecdff3f1f8398	kvm_stat.service	disabled	disabled	/usr/lib/systemd/system/kvm_stat.service	kernel-tools	unchanged			
+alma-67e18e91acf4609b7a4d578b	ledmon.service	disabled	disabled	/usr/lib/systemd/system/ledmon.service	ledmon	unchanged			
+alma-01c76e61934d7b4683648f76	libstoragemgmt.service	enabled	enabled	/usr/lib/systemd/system/libstoragemgmt.service	libstoragemgmt	unchanged			/etc/systemd/system/multi-user.target.wants/libstoragemgmt.service@2026-11-23T05:53:32
+alma-955d46a24ee604ce48eda195	low-memory-monitor.service	disabled	disabled	/usr/lib/systemd/system/low-memory-monitor.service	low-memory-monitor	unchanged			
+alma-032af47dd26cacf908acf157	lvm-devices-import.service	disabled	disabled	/usr/lib/systemd/system/lvm-devices-import.service	lvm2	unchanged			
+alma-34f66ecb301a19f7b071e456	lvm2-monitor.service	enabled	enabled	/usr/lib/systemd/system/lvm2-monitor.service	lvm2	unchanged			/etc/systemd/system/sysinit.target.wants/lvm2-monitor.service@2026-11-23T05:53:00
+alma-bcf24446f88f685ed46ae35e	man-db-restart-cache-update.service	disabled	disabled	/usr/lib/systemd/system/man-db-restart-cache-update.service	man-db	unchanged			
+alma-ce0bee46b498d949a8861145	mcelog.service	enabled	enabled	/usr/lib/systemd/system/mcelog.service	mcelog	unchanged			/etc/systemd/system/multi-user.target.wants/mcelog.service@2026-11-23T05:54:09
+alma-02dc5b0983bf03c13886297f	mdmonitor.service	enabled	enabled	/usr/lib/systemd/system/mdmonitor.service	mdadm	unchanged			/etc/systemd/system/multi-user.target.wants/mdmonitor.service@2026-11-23T05:53:30
+alma-70653266b2e6917da323c2db	microcode.service	disabled	disabled	/usr/lib/systemd/system/microcode.service	microcode_ctl	unchanged			
+alma-6a39aee4c33780eb564b0723	ModemManager.service	enabled	enabled	/usr/lib/systemd/system/ModemManager.service	ModemManager	unchanged			/etc/systemd/system/dbus-org.freedesktop.ModemManager1.service@2026-11-23T05:53:30;/etc/systemd/system/multi-user.target.wants/ModemManager.service@2026-11-23T05:53:30
+alma-c19c63f15dec366a97506f86	multipathd.service	enabled	enabled	/usr/lib/systemd/system/multipathd.service	device-mapper-multipath	unchanged			/etc/systemd/system/sysinit.target.wants/multipathd.service@2026-11-23T05:53:30
+alma-a15bb9aa6d8da6249a5803e1	netavark-dhcp-proxy.service	disabled	disabled	/usr/lib/systemd/system/netavark-dhcp-proxy.service	netavark	unchanged			
+alma-fcb2dacf2d4ac478c4536bdf	netavark-firewalld-reload.service	disabled	disabled	/usr/lib/systemd/system/netavark-firewalld-reload.service	netavark	unchanged			
+alma-402748946470048291e2f01e	netavark-nftables-reload.service	disabled	disabled	/usr/lib/systemd/system/netavark-nftables-reload.service	netavark	unchanged			
+alma-a44334c0e8c48ddd13ab87c2	NetworkManager-dispatcher.service	enabled	enabled	/usr/lib/systemd/system/NetworkManager-dispatcher.service	NetworkManager	unchanged			/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service@2026-11-23T05:52:40
+alma-313aed5f3e730d47534ae570	NetworkManager-wait-online.service	enabled	enabled	/usr/lib/systemd/system/NetworkManager-wait-online.service	NetworkManager	unchanged			/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service@2026-11-23T05:52:40
+alma-d90f8d977e50f4e1e5241f88	NetworkManager.service	enabled	enabled	/usr/lib/systemd/system/NetworkManager.service	NetworkManager	unchanged			/etc/systemd/system/multi-user.target.wants/NetworkManager.service@2026-11-23T05:52:40
+alma-8502756a4451a966482a0809	nftables.service	disabled	disabled	/usr/lib/systemd/system/nftables.service	nftables	unchanged			
+alma-82f0e879425eda63ddac8449	nis-domainname.service	disabled	disabled	/usr/lib/systemd/system/nis-domainname.service	hostname	unchanged			
+alma-e4108054d03d7f466ce97a22	nvmefc-boot-connections.service	enabled	enabled	/usr/lib/systemd/system/nvmefc-boot-connections.service	nvme-cli	unchanged			/etc/systemd/system/default.target.wants/nvmefc-boot-connections.service@2026-11-23T05:54:09
+alma-796c5a802401cdde10e6c048	nvmf-autoconnect.service	disabled	disabled	/usr/lib/systemd/system/nvmf-autoconnect.service	nvme-cli	unchanged			
+alma-71d89ca7e5691510f4c19bb0	podman-auto-update.service	disabled	disabled	/usr/lib/systemd/system/podman-auto-update.service	podman	unchanged			
+alma-5552b3ceee6b0ab0839b0c58	podman-clean-transient.service	disabled	disabled	/usr/lib/systemd/system/podman-clean-transient.service	podman	unchanged			
+alma-2604ef51c70578d519892bd1	podman-kube@.service	disabled	disabled	/usr/lib/systemd/system/podman-kube@.service	podman	unchanged			
+alma-aa0ffc9d22754c4d749ec9dd	podman-restart.service	disabled	disabled	/usr/lib/systemd/system/podman-restart.service	podman	unchanged			
+alma-5a4ac8b90836834cfc244333	podman.service	disabled	disabled	/usr/lib/systemd/system/podman.service	podman	unchanged			
+alma-4e60f02d01edad2e72fe50af	psacct.service	disabled	disabled	/usr/lib/systemd/system/psacct.service	psacct	unchanged			
+alma-88c0f40b80186b45928773bf	qemu-guest-agent.service	enabled	enabled	/usr/lib/systemd/system/qemu-guest-agent.service	qemu-guest-agent	unchanged			/etc/systemd/system/dev-virtio\x2dports-org.qemu.guest_agent.0.device.wants/qemu-guest-agent.service@2026-11-23T05:54:10
+alma-ece537184da3e4e5941ebe8e	ras-mc-ctl.service	disabled	disabled	/usr/lib/systemd/system/ras-mc-ctl.service	rasdaemon	unchanged			
+alma-d1a38487c268c66e3db360f5	rasdaemon.service	disabled	disabled	/usr/lib/systemd/system/rasdaemon.service	rasdaemon	unchanged			
+alma-5979198b1523e9e8195df68e	rpmdb-migrate.service	disabled	enabled	/usr/lib/systemd/system/rpmdb-migrate.service	rpm	unchanged			
+alma-15147e7885ba0fa16cd90853	rpmdb-rebuild.service	disabled	enabled	/usr/lib/systemd/system/rpmdb-rebuild.service	rpm	unchanged			
+alma-8b4c1b5ba4b964887c0169a0	rsyslog.service	enabled	enabled	/usr/lib/systemd/system/rsyslog.service	rsyslog	unchanged			/etc/systemd/system/multi-user.target.wants/rsyslog.service@2026-11-23T05:53:44
+alma-788937870bc9ba08a8c002b2	rtkit-daemon.service	enabled	enabled	/usr/lib/systemd/system/rtkit-daemon.service	rtkit	unchanged			/etc/systemd/system/graphical.target.wants/rtkit-daemon.service@2026-11-23T05:53:30
+alma-17fc518add6abd1305014605	selinux-autorelabel-mark.service	enabled	enabled	/usr/lib/systemd/system/selinux-autorelabel-mark.service	policycoreutils	unchanged			/etc/systemd/system/sysinit.target.wants/selinux-autorelabel-mark.service@2026-11-23T05:52:40
+alma-664a064b961733451480af59	selinux-check-proper-disable.service	disabled	disabled	/usr/lib/systemd/system/selinux-check-proper-disable.service	selinux-policy	unchanged			
+alma-51197638f5d4edb7a94f6c45	serial-getty@.service	indirect	disabled	/usr/lib/systemd/system/serial-getty@.service	systemd	unchanged			/run/systemd/generator/getty.target.wants/serial-getty@ttyS0.service@2026-11-23T11:17:44
+alma-d6a462f08f378f02d3269c50	smartd.service	enabled	enabled	/usr/lib/systemd/system/smartd.service	smartmontools	unchanged			/etc/systemd/system/multi-user.target.wants/smartd.service@2026-11-23T05:54:04
+alma-6cf6ce0b748bf470b7460427	speech-dispatcherd.service	disabled	disabled	/usr/lib/systemd/system/speech-dispatcherd.service	speech-dispatcher	unchanged			
+alma-0a81285378899160f84e8ad9	spice-vdagentd.service	indirect	enabled	/usr/lib/systemd/system/spice-vdagentd.service	spice-vdagent	unchanged			
+alma-f4079ea9f7bd7cc7c3287b18	ssh-host-keys-migration.service	disabled	disabled	/usr/lib/systemd/system/ssh-host-keys-migration.service	openssh-server	unchanged			
+alma-287b722b7236d7c2fa8de7d6	sshd-keygen@.service	disabled	disabled	/usr/lib/systemd/system/sshd-keygen@.service	openssh-server	unchanged			
+alma-fa2475f199d55cd023dca7b5	sshd.service	enabled	enabled	/usr/lib/systemd/system/sshd.service	openssh-server	unchanged			/etc/systemd/system/multi-user.target.wants/sshd.service@2026-11-23T05:54:09
+alma-b26fd3290adaba21cf776eb9	sshd@.service	indirect	disabled	/usr/lib/systemd/system/sshd@.service	openssh-server	unchanged			/run/systemd/generator/sshd-unix-local@.service@2026-11-23T11:17:44;/run/systemd/generator/sshd-vsock@.service@2026-11-23T11:17:44
+alma-5724af57f9546fee0becf244	sssd-autofs.service	indirect	disabled	/usr/lib/systemd/system/sssd-autofs.service	sssd-common	unchanged			
+alma-4cb0535fdb8b8c2cbe88b568	sssd-kcm.service	indirect	disabled	/usr/lib/systemd/system/sssd-kcm.service	sssd-kcm	unchanged			
+alma-18ffcf48e026754af42259bd	sssd-nss.service	indirect	disabled	/usr/lib/systemd/system/sssd-nss.service	sssd-common	unchanged			
+alma-e550f3df407e44374b67c34c	sssd-pac.service	indirect	disabled	/usr/lib/systemd/system/sssd-pac.service	sssd-common	unchanged			
+alma-88101624d9d01383c97b0cfe	sssd-pam.service	indirect	disabled	/usr/lib/systemd/system/sssd-pam.service	sssd-common	unchanged			
+alma-9cfb9d02af5625b6a7b071ad	sssd-ssh.service	indirect	disabled	/usr/lib/systemd/system/sssd-ssh.service	sssd-common	unchanged			
+alma-60a8eec4d8212479b095d9a4	sssd-sudo.service	indirect	disabled	/usr/lib/systemd/system/sssd-sudo.service	sssd-common	unchanged			
+alma-7204bd7b4e93c692c5987757	sssd.service	enabled	enabled	/usr/lib/systemd/system/sssd.service	sssd-common	unchanged			/etc/systemd/system/multi-user.target.wants/sssd.service@2026-11-23T05:53:31
+alma-3296e6761f18d5770826545c	switcheroo-control.service	enabled	enabled	/usr/lib/systemd/system/switcheroo-control.service	switcheroo-control	unchanged			/etc/systemd/system/graphical.target.wants/switcheroo-control.service@2026-11-23T05:53:32
+alma-a6fb92d5a8105b382e0dbd46	systemd-boot-check-no-failures.service	disabled	disabled	/usr/lib/systemd/system/systemd-boot-check-no-failures.service	systemd	unchanged			
+alma-aaf542bfbc950d3ab3f9ad76	systemd-boot-update.service	disabled	disabled	/usr/lib/systemd/system/systemd-boot-update.service	systemd-udev	unchanged			
+alma-6f68dddeb38961486fd78c02	systemd-confext.service	enabled	enabled	/usr/lib/systemd/system/systemd-confext.service	systemd	unchanged			/etc/systemd/system/sysinit.target.wants/systemd-confext.service@2026-11-23T05:52:39
+alma-367ce6094cc5cd99fe778ad1	systemd-network-generator.service	enabled	enabled	/usr/lib/systemd/system/systemd-network-generator.service	systemd	unchanged			/etc/systemd/system/sysinit.target.wants/systemd-network-generator.service@2026-11-23T05:52:39
+alma-60fd5d40277a8778cabdcfb2	systemd-pcrlock-file-system.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-file-system.service	systemd-udev	unchanged			
+alma-579b981a229156ec8b6b2076	systemd-pcrlock-firmware-code.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-firmware-code.service	systemd-udev	unchanged			
+alma-9a12ca34c594221ba008d983	systemd-pcrlock-firmware-config.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-firmware-config.service	systemd-udev	unchanged			
+alma-257a25a65027c21d825ec4f5	systemd-pcrlock-machine-id.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-machine-id.service	systemd-udev	unchanged			
+alma-64d4c24066ef6b02fa4dc4a8	systemd-pcrlock-make-policy.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-make-policy.service	systemd-udev	unchanged			
+alma-926f8f277d872106d70d5098	systemd-pcrlock-secureboot-authority.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-secureboot-authority.service	systemd-udev	unchanged			
+alma-77705f6b345bbc2ef9325cb5	systemd-pcrlock-secureboot-policy.service	disabled	disabled	/usr/lib/systemd/system/systemd-pcrlock-secureboot-policy.service	systemd-udev	unchanged			
+alma-763ab0b5117466c04d2b0024	systemd-pstore.service	enabled	enabled	/usr/lib/systemd/system/systemd-pstore.service	systemd-udev	unchanged			/etc/systemd/system/sysinit.target.wants/systemd-pstore.service@2026-11-23T05:53:46
+alma-681a12c25d037c20fee1a21b	systemd-remount-fs.service	enabled-runtime	disabled	/usr/lib/systemd/system/systemd-remount-fs.service	systemd-udev	unchanged			/run/systemd/generator/local-fs.target.wants/systemd-remount-fs.service@2026-11-23T11:17:44
+alma-9db1daaea4c3b1b7a2ddcce4	systemd-sysext.service	enabled	enabled	/usr/lib/systemd/system/systemd-sysext.service	systemd	unchanged			/etc/systemd/system/sysinit.target.wants/systemd-sysext.service@2026-11-23T05:52:39
+alma-bfa0493482c1cef6dabfdae7	systemd-sysupdate-reboot.service	indirect	disabled	/usr/lib/systemd/system/systemd-sysupdate-reboot.service	systemd	unchanged			
+alma-d1b3d2a502850578877c7217	systemd-sysupdate.service	indirect	disabled	/usr/lib/systemd/system/systemd-sysupdate.service	systemd	unchanged			
+alma-6f668e78cc286c021ee2f3ac	systemd-udev-load-credentials.service	disabled	disabled	/usr/lib/systemd/system/systemd-udev-load-credentials.service	systemd-udev	unchanged			
+alma-8c5d3d9ece88288401ff558b	systemd-userdbd.service	indirect	disabled	/usr/lib/systemd/system/systemd-userdbd.service	systemd	unchanged			
+alma-1a5ab2176751b30ad1faf9de	tuned-ppd.service	enabled	enabled	/usr/lib/systemd/system/tuned-ppd.service	tuned-ppd	unchanged			/etc/systemd/system/graphical.target.wants/tuned-ppd.service@2026-11-23T05:53:33
+alma-d6141a06dacb9a9a9d350c50	tuned.service	enabled	enabled	/usr/lib/systemd/system/tuned.service	tuned	unchanged			/etc/systemd/system/multi-user.target.wants/tuned.service@2026-11-23T05:53:33
+alma-f7f9163b939d1c99dfa78726	udisks2.service	enabled	enabled	/usr/lib/systemd/system/udisks2.service	udisks2	unchanged			/etc/systemd/system/graphical.target.wants/udisks2.service@2026-11-23T05:53:47
+alma-ac8e81a901d67192ed5c8e91	upower.service	enabled	enabled	/usr/lib/systemd/system/upower.service	upower	unchanged			/etc/systemd/system/graphical.target.wants/upower.service@2026-11-23T05:53:47
+alma-09a5589fa3207b4f96928577	vgauthd.service	enabled	disabled	/usr/lib/systemd/system/vgauthd.service	open-vm-tools	unchanged			/etc/systemd/system/vmtoolsd.service.requires/vgauthd.service@2026-11-23T05:53:44
+alma-351715e5229d869df4389bb7	vmtoolsd.service	enabled	enabled	/usr/lib/systemd/system/vmtoolsd.service	open-vm-tools	unchanged			/etc/systemd/system/multi-user.target.wants/vmtoolsd.service@2026-11-23T05:53:44
+alma-ae350694670ce195ad8a46f3	wpa_supplicant.service	disabled	disabled	/usr/lib/systemd/system/wpa_supplicant.service	wpa_supplicant	unchanged			
+alma-c0617e7f68c160c19e1a1386	wsdd.service	disabled	disabled	/usr/lib/systemd/system/wsdd.service	wsdd	unchanged			
+alma-c786078c0845f798f4a0fe0b	dnf-makecache.timer	enabled	enabled	/usr/lib/systemd/system/dnf-makecache.timer	dnf	unchanged			/etc/systemd/system/timers.target.wants/dnf-makecache.timer@2026-11-23T05:53:32
+alma-803a30b7767c86b1dba88521	fstrim.timer	enabled	enabled	/usr/lib/systemd/system/fstrim.timer	util-linux	unchanged			/etc/systemd/system/timers.target.wants/fstrim.timer@2026-11-23T05:52:39
+alma-9542ca24f09085db6db474c3	fwupd-refresh.timer	enabled	enabled	/usr/lib/systemd/system/fwupd-refresh.timer	fwupd	unchanged			/etc/systemd/system/timers.target.wants/fwupd-refresh.timer@2026-11-23T05:53:57
+alma-fb0823bb972c7f26c619fa8f	logrotate.timer	enabled	enabled	/usr/lib/systemd/system/logrotate.timer	logrotate	unchanged			/etc/systemd/system/timers.target.wants/logrotate.timer@2026-11-23T05:52:40
+alma-aacfff03e817d9f3b16a18a7	mdcheck_continue.timer	disabled	disabled	/usr/lib/systemd/system/mdcheck_continue.timer	mdadm	unchanged			
+alma-0e93ea435c1181b15dd3168d	mdcheck_start.timer	disabled	disabled	/usr/lib/systemd/system/mdcheck_start.timer	mdadm	unchanged			
+alma-b6ce86bcee88298ac0f67fcc	mdmonitor-oneshot.timer	disabled	disabled	/usr/lib/systemd/system/mdmonitor-oneshot.timer	mdadm	unchanged			
+alma-430b96dda4f32044de1dbfd5	plocate-updatedb.timer	enabled	enabled	/usr/lib/systemd/system/plocate-updatedb.timer	plocate	unchanged			/etc/systemd/system/timers.target.wants/plocate-updatedb.timer@2026-11-23T05:54:10
+alma-65d73052bbfca9c66b876817	podman-auto-update.timer	disabled	disabled	/usr/lib/systemd/system/podman-auto-update.timer	podman	unchanged			
+alma-8493b0a9e5db3615fae749ea	raid-check.timer	enabled	enabled	/usr/lib/systemd/system/raid-check.timer	mdadm	unchanged			/etc/systemd/system/timers.target.wants/raid-check.timer@2026-11-23T05:53:30
+alma-2e2b955a90f4f27535413f5e	systemd-sysupdate-reboot.timer	disabled	disabled	/usr/lib/systemd/system/systemd-sysupdate-reboot.timer	systemd	unchanged			
+alma-0b7e7576e319739b8bced26c	systemd-sysupdate.timer	disabled	disabled	/usr/lib/systemd/system/systemd-sysupdate.timer	systemd	unchanged			
+alma-0a30befbf0e7d45f45422a52	dbus-broker.service	enabled	enabled	/usr/lib/systemd/user/dbus-broker.service	dbus-broker	unchanged			/etc/systemd/system/dbus.service@2026-11-23T05:52:39;/etc/systemd/user/dbus.service@2026-11-23T05:52:39
+alma-ae0c42efbb6c60bb5903b870	dbus-daemon.service	disabled	disabled	/usr/lib/systemd/user/dbus-daemon.service	dbus-daemon	unchanged			
+alma-5404dea0fe8c5190436c31c2	dbus-org.bluez.obex.service	alias	-	/usr/lib/systemd/user/dbus-org.bluez.obex.service	bluez-obexd	unchanged	/etc/systemd/user/dbus-org.bluez.obex.service:symlink;/etc/systemd/user/dbus-org.bluez.obex.service:symlink		/etc/systemd/user/dbus-org.bluez.obex.service@2026-11-23T05:53:00
+alma-b40629803b933a2b052a5d96	dbus.service	alias	-				/etc/systemd/user/dbus.service:symlink;/etc/systemd/user/dbus.service:symlink		/etc/systemd/system/dbus.service@2026-11-23T05:52:39;/etc/systemd/user/dbus.service@2026-11-23T05:52:39
+alma-87cef88e525b6cfc03245a86	filter-chain.service	disabled	disabled	/usr/lib/systemd/user/filter-chain.service	pipewire	unchanged			
+alma-bec87364fbaae68d1d6bf738	gcr-ssh-agent.service	disabled	disabled	/usr/lib/systemd/user/gcr-ssh-agent.service	gcr	unchanged			
+alma-6c9a010313cc910a50997474	gnome-keyring-daemon.service	disabled	disabled	/usr/lib/systemd/user/gnome-keyring-daemon.service	gnome-keyring	unchanged			
+alma-372a3d936b28f598bc3f510a	gnome-remote-desktop-handover.service	disabled	disabled	/usr/lib/systemd/user/gnome-remote-desktop-handover.service	gnome-remote-desktop	unchanged			
+alma-451b05a9cf28d1e43f27fda1	gnome-remote-desktop-headless.service	disabled	disabled	/usr/lib/systemd/user/gnome-remote-desktop-headless.service	gnome-remote-desktop	unchanged			
+alma-6446b595d5390e3decd13d0b	gnome-remote-desktop.service	disabled	disabled	/usr/lib/systemd/user/gnome-remote-desktop.service	gnome-remote-desktop	unchanged			
+alma-7403f422b45923e426d936d8	mpris-proxy.service	disabled	disabled	/usr/lib/systemd/user/mpris-proxy.service	bluez	unchanged			
+alma-b1103d521f9d39b403f9d00e	obex.service	enabled	enabled	/usr/lib/systemd/user/obex.service	bluez-obexd	unchanged			/etc/systemd/user/dbus-org.bluez.obex.service@2026-11-23T05:53:00
+alma-50bde2740e91c2ea555c253c	org.freedesktop.IBus.session.GNOME.service	disabled	disabled	/usr/lib/systemd/user/org.freedesktop.IBus.session.GNOME.service	ibus	unchanged			
+alma-0dc58ed012a27909958831f2	p11-kit-server.service	disabled	disabled	/usr/lib/systemd/user/p11-kit-server.service	p11-kit-server	unchanged			
+alma-e3fde1e572913587ffe8695a	pipewire-pulse.service	disabled	disabled	/usr/lib/systemd/user/pipewire-pulse.service	pipewire-pulseaudio	unchanged			
+alma-0bd28f6010aed40c90735f95	pipewire-session-manager.service	alias	-				/etc/systemd/user/pipewire-session-manager.service:symlink;/etc/systemd/user/pipewire-session-manager.service:symlink		/etc/systemd/user/pipewire-session-manager.service@2026-11-23T05:54:22
+alma-467f609dabc1a59c75616a77	pipewire.service	disabled	disabled	/usr/lib/systemd/user/pipewire.service	pipewire	unchanged			
+alma-f02841cd846b946bb1c70716	podman-auto-update.service	disabled	disabled	/usr/lib/systemd/user/podman-auto-update.service	podman	unchanged			
+alma-7f7dab8c7a67b6ab6b8c02e1	podman-clean-transient.service	disabled	disabled	/usr/lib/systemd/user/podman-clean-transient.service	podman	unchanged			
+alma-11d2c6bdb67e89f88901275c	podman-kube@.service	disabled	disabled	/usr/lib/systemd/user/podman-kube@.service	podman	unchanged			
+alma-c88a39c886e1c4850847f27d	podman-restart.service	disabled	disabled	/usr/lib/systemd/user/podman-restart.service	podman	unchanged			
+alma-3fee3e835e707a551ee8cce8	podman.service	disabled	disabled	/usr/lib/systemd/user/podman.service	podman	unchanged			
+alma-ab2c1cb7f018299b6ccaa0d6	ssh-agent.service	indirect	disabled	/usr/lib/systemd/user/ssh-agent.service	openssh-clients	unchanged			
+alma-720eed9f6565215ba44a64ee	systemd-tmpfiles-setup.service	enabled	enabled	/usr/lib/systemd/user/systemd-tmpfiles-setup.service	systemd	unchanged			/etc/systemd/user/basic.target.wants/systemd-tmpfiles-setup.service@2026-11-23T05:52:39
+alma-e00b152c1b161e6fd106fdcc	tracker-miner-fs-3.service	disabled	disabled	/usr/lib/systemd/user/tracker-miner-fs-3.service	tracker-miners	unchanged			
+alma-56abb4d2dfdeb97c458d948d	wireplumber.service	enabled	enabled	/usr/lib/systemd/user/wireplumber.service	wireplumber	unchanged			/etc/systemd/user/pipewire-session-manager.service@2026-11-23T05:54:22;/etc/systemd/user/pipewire.service.wants/wireplumber.service@2026-11-23T05:54:22
+alma-e4d546198d274864aadef862	wireplumber@.service	disabled	disabled	/usr/lib/systemd/user/wireplumber@.service	wireplumber	unchanged			
+alma-3e56dc57646d495063156e31	xdg-desktop-portal-rewrite-launchers.service	disabled	disabled	/usr/lib/systemd/user/xdg-desktop-portal-rewrite-launchers.service	xdg-desktop-portal	unchanged			
+alma-d3e87e765d731d4b2c57fafa	xdg-user-dirs.service	enabled	enabled	/usr/lib/systemd/user/xdg-user-dirs.service	xdg-user-dirs	unchanged			/etc/systemd/user/graphical-session-pre.target.wants/xdg-user-dirs.service@2026-11-23T05:52:39
+alma-87ba7bf755f09c5e6d9cc026	grub-boot-success.timer	enabled	enabled	/usr/lib/systemd/user/grub-boot-success.timer	grub2-tools	unchanged			/etc/systemd/user/timers.target.wants/grub-boot-success.timer@2026-11-23T05:53:46
+alma-019b922031ad6c72e5bf6a2c	podman-auto-update.timer	disabled	disabled	/usr/lib/systemd/user/podman-auto-update.timer	podman	unchanged			
+alma-70e0c23c2727d9c36ad94387	systemd-tmpfiles-clean.timer	enabled	enabled	/usr/lib/systemd/user/systemd-tmpfiles-clean.timer	systemd	unchanged			/etc/systemd/user/timers.target.wants/systemd-tmpfiles-clean.timer@2026-11-23T05:52:39

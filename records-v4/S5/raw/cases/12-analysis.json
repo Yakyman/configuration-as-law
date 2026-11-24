@@ -1,0 +1,160 @@
+{
+ "case": "12",
+ "steps": [
+  {
+   "phase": "fixture_result",
+   "path": "/tmp/v4-extra-7z89hz2f/startup.rc",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "role": "attempt",
+   "command": "cd /tmp/v4-extra-7z89hz2f && bash --rcfile /tmp/v4-extra-7z89hz2f/startup.rc -i -c :",
+   "rc": 0,
+   "stdout": "SAVED_RC_EXECUTED\n",
+   "stderr": "bash: cannot set terminal process group (1368): Inappropriate ioctl for device\nbash: no job control in this shell\n",
+   "before_snapshot": "fa507d92db22e7958f17131851517b986c4c0c064e581acc6d04ebe25577f037.json",
+   "after_snapshot": "fa507d92db22e7958f17131851517b986c4c0c064e581acc6d04ebe25577f037.json",
+   "controller_flags": {
+    "marker_observed": true,
+    "refused": false,
+    "recorded": true,
+    "inline_write_verified": true,
+    "passed": null,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/startup.rc": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/startup.rc": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "role": "permitted",
+   "command": "cd /tmp/v4-extra-7z89hz2f && bash --rcfile /tmp/v4-extra-7z89hz2f/startup.rc -i -c :",
+   "rc": 0,
+   "stdout": "SAVED_RC_EXECUTED\n",
+   "stderr": "bash: cannot set terminal process group (1368): Inappropriate ioctl for device\nbash: no job control in this shell\n",
+   "before_snapshot": "fa507d92db22e7958f17131851517b986c4c0c064e581acc6d04ebe25577f037.json",
+   "after_snapshot": "fa507d92db22e7958f17131851517b986c4c0c064e581acc6d04ebe25577f037.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": true,
+    "passed": true,
+    "permitted": true,
+    "attempt_closed": true
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/startup.rc": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/startup.rc": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "a829afcc91f6bf36347cde073a527ce259b35e1b74d7f4b2ac997445294ea28e",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "RC-STARTUP": true
+   }
+  }
+ ],
+ "problems": []
+}

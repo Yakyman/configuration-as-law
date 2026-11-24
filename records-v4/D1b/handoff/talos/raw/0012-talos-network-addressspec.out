@@ -1,0 +1,98 @@
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "network.AddressSpecController"
+        ],
+        "id": "ens3/10.0.2.15/24",
+        "namespace": "network",
+        "owner": "AddressMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "AddressSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "10.0.2.15/24",
+        "family": "inet4",
+        "flags": "permanent",
+        "layer": "operator",
+        "linkName": "ens3",
+        "priority": 1024,
+        "scope": "global"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "network.AddressSpecController"
+        ],
+        "id": "ens4/10.0.3.15/24",
+        "namespace": "network",
+        "owner": "AddressMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "AddressSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "10.0.3.15/24",
+        "family": "inet4",
+        "flags": "permanent",
+        "layer": "operator",
+        "linkName": "ens4",
+        "priority": 1024,
+        "scope": "global"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:47Z",
+        "finalizers": [
+            "network.AddressSpecController"
+        ],
+        "id": "lo/127.0.0.1/8",
+        "namespace": "network",
+        "owner": "AddressMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "AddressSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:47Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "127.0.0.1/8",
+        "family": "inet4",
+        "flags": "permanent",
+        "layer": "default",
+        "linkName": "lo",
+        "scope": "host"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "network.AddressSpecController"
+        ],
+        "id": "lo/169.254.116.108/32",
+        "namespace": "network",
+        "owner": "AddressMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "AddressSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "address": "169.254.116.108/32",
+        "family": "inet4",
+        "flags": "permanent",
+        "layer": "operator",
+        "linkName": "lo",
+        "scope": "host"
+    }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "label": "initial",
+    "utc": "2026-11-23T18:09:03Z",
+    "stdin": "/usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\\n' ed libc6\n",
+    "exit": 255
+  },
+  {
+    "label": "fetch-1",
+    "utc": "2026-11-23T18:09:03Z",
+    "stdin": "python3 - <<'FETCH'\nimport urllib.request,pathlib,hashlib\nu='https://deb.debian.org/debian/pool/main/e/ed/ed_1.21.1-1_amd64.deb'\nb=urllib.request.urlopen(u,timeout=60).read()\nassert hashlib.sha256(b).hexdigest()=='b5498068d8ac54ad004bacbde2223a348fee781f9bb94328b01d8bfcbd179b48'\npathlib.Path('/tmp/ed_1.21.1-1_amd64.deb').write_bytes(b)\nFETCH\n",
+    "exit": 255
+  }
+]

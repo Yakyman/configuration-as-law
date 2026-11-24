@@ -1,0 +1,1 @@
+- RESOLVED:MIXED is used for MIXED groups whose members are all resolved; the template lists no decision word for such groups (author or weighting to confirm the reading).

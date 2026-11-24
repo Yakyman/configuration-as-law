@@ -1,0 +1,277 @@
+[
+  {
+    "label": "left-new",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "new",
+      "bc4-second-2a-left",
+      "stand"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:08:01Z"
+  },
+  {
+    "label": "left-stage-directory",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "mkdir -p /var/lib/stand/bc4-inputs\n",
+    "utc": "2026-11-23T18:08:40Z"
+  },
+  {
+    "label": "left-source-identities",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "sha256sum /var/lib/stand/bc4-inputs/*/declaration.json /var/lib/stand/bc4-inputs/*/blobs.json\n",
+    "utc": "2026-11-23T18:08:41Z"
+  },
+  {
+    "label": "left-install-1",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "stand-pkg install /usr/local/share/stand/bc4/package-alpha.json\n",
+    "utc": "2026-11-23T18:08:41Z"
+  },
+  {
+    "label": "left-install-2",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "stand-pkg install /usr/local/share/stand/bc4/package-beta.json\n",
+    "utc": "2026-11-23T18:09:16Z"
+  },
+  {
+    "label": "left-accounts-before-final",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "getent passwd bc4alpha bc4beta\nid bc4alpha\nid bc4beta\ngetent group bc4alpha bc4beta\n",
+    "utc": "2026-11-23T18:09:52Z"
+  },
+  {
+    "label": "left-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-2a\n",
+    "utc": "2026-11-23T18:09:52Z"
+  },
+  {
+    "label": "left-last-applied",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:10:41Z"
+  },
+  {
+    "label": "left-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-2a/declaration.json\n",
+    "utc": "2026-11-23T18:10:42Z"
+  },
+  {
+    "label": "right-new",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "new",
+      "bc4-second-2a-right",
+      "stand"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:10:52Z"
+  },
+  {
+    "label": "right-stage-directory",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "mkdir -p /var/lib/stand/bc4-inputs\n",
+    "utc": "2026-11-23T18:11:32Z"
+  },
+  {
+    "label": "right-source-identities",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "sha256sum /var/lib/stand/bc4-inputs/*/declaration.json /var/lib/stand/bc4-inputs/*/blobs.json\n",
+    "utc": "2026-11-23T18:11:33Z"
+  },
+  {
+    "label": "right-install-1",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "stand-pkg install /usr/local/share/stand/bc4/package-beta.json\n",
+    "utc": "2026-11-23T18:11:33Z"
+  },
+  {
+    "label": "right-install-2",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "stand-pkg install /usr/local/share/stand/bc4/package-alpha.json\n",
+    "utc": "2026-11-23T18:12:08Z"
+  },
+  {
+    "label": "right-accounts-before-final",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "getent passwd bc4alpha bc4beta\nid bc4alpha\nid bc4beta\ngetent group bc4alpha bc4beta\n",
+    "utc": "2026-11-23T18:12:43Z"
+  },
+  {
+    "label": "right-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-2a\n",
+    "utc": "2026-11-23T18:12:43Z"
+  },
+  {
+    "label": "right-last-applied",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:13:32Z"
+  },
+  {
+    "label": "right-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-2a/declaration.json\n",
+    "utc": "2026-11-23T18:13:32Z"
+  },
+  {
+    "label": "pair-diff",
+    "argv": [
+      "/usr/bin/python3",
+      "-B",
+      "build/bc4-compare.py",
+      "diff",
+      "[stand-root]/raw/round-4-second-party/case-2a/left-snapshot.stdout",
+      "[stand-root]/raw/round-4-second-party/case-2a/right-snapshot.stdout"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:13:43Z"
+  },
+  {
+    "label": "bc4-second-2a-left-final-reports",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-left",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json /var/lib/stand/last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:13:43Z"
+  },
+  {
+    "label": "bc4-second-2a-left-destroy",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "destroy",
+      "bc4-second-2a-left"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:13:43Z"
+  },
+  {
+    "label": "bc4-second-2a-right-final-reports",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-2a-right",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json /var/lib/stand/last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:13:46Z"
+  },
+  {
+    "label": "bc4-second-2a-right-destroy",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "destroy",
+      "bc4-second-2a-right"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:13:46Z"
+  }
+]

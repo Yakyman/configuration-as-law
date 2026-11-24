@@ -1,0 +1,31 @@
+{
+  "commit": "c9c975046f78e6e6d662deb801bd461ebd6a54ed",
+  "url": "https://raw.githubusercontent.com/Homebrew/install/c9c975046f78e6e6d662deb801bd461ebd6a54ed/uninstall.sh",
+  "sha256_full_source": "7e5576d1200bdf4fbd1fe38513f129139473ec39f04890ff5c7f1d05480af78a",
+  "excerpt": [
+    {
+      "line": 338,
+      "text": "then"
+    },
+    {
+      "line": 339,
+      "text": "  sudo_removal_paths+=(\"${HOMEBREW_REPOSITORY}/.git\")"
+    },
+    {
+      "line": 340,
+      "text": "elif [[ \"${HOMEBREW_REPOSITORY}\" == \"${HOMEBREW_PREFIX}/Homebrew\" ]]"
+    },
+    {
+      "line": 341,
+      "text": "then"
+    },
+    {
+      "line": 342,
+      "text": "  sudo_removal_paths+=(\"${HOMEBREW_REPOSITORY}\")"
+    },
+    {
+      "line": 343,
+      "text": "fi"
+    }
+  ]
+}

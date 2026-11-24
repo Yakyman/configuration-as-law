@@ -1,0 +1,98 @@
+{
+  "objects": 16375,
+  "matching": 8677,
+  "adjudicated": 7708,
+  "verdicts": {
+    "RESOLVED:INSTALLED-PACKAGE": 4832,
+    "GAP": 1364,
+    "RESOLVED:SETTING-OWN": 22,
+    "RESOLVED:INSTALLED-DERIVED": 317,
+    "RESOLVED:INSTALLED-OWN": 1,
+    "RESOLVED:RUNTIME": 345,
+    "UNKNOWN": 350,
+    "RESOLVED:PROGRAM-DERIVED": 37,
+    "RESOLVED:RECORD": 427,
+    "RESOLVED:PROGRAM-OWN": 7,
+    "RESOLVED:MATERIAL": 6
+  },
+  "unknown_by_kind": {
+    "L1:access-rule": 1,
+    "L1:account": 3,
+    "L1:container-image": 12,
+    "L1:group": 29,
+    "L1:package": 1,
+    "L1:saved-network": 1,
+    "L1:saved-network-file": 1,
+    "L1:sudo-access": 9,
+    "L1:unit-file": 248,
+    "L1:user-unit-file": 14,
+    "L2:code-ownership-unknown": 6,
+    "L2:code-ownership-unresolved": 4,
+    "L2:executable-code-outside-packages": 10,
+    "L2:image-container-store": 5,
+    "L2:opaque-directory": 6,
+    "L2:snapshot": 1,
+    "L2:stored-outside-packages": 453,
+    "L2:stored-ownership-unknown": 19,
+    "L2:stored-ownership-unresolved": 114
+  },
+  "unknown_by_machine": {
+    "d1-alma": 65,
+    "d1-microos": 754,
+    "d1-talos": 43,
+    "d1-void": 75
+  },
+  "additional_unknown": 1070,
+  "identified_unknown_union": 2007,
+  "candidate_counts": {
+    "archive-of-code": {
+      "d1-alma": 4,
+      "d1-microos": 1,
+      "d1-void": 4
+    },
+    "code-inside-program-package": {
+      "d1-alma": 1,
+      "d1-void": 1
+    },
+    "old-version-leftover": {
+      "d1-void": 1069
+    }
+  },
+  "per_machine": {
+    "alma": {
+      "objects": 6293,
+      "L1": 4605,
+      "L2": 1688,
+      "matching": 5065,
+      "adjudicated": 1230
+    },
+    "void": {
+      "objects": 3282,
+      "L1": 1214,
+      "L2": 2068,
+      "matching": 1701,
+      "adjudicated": 1586
+    },
+    "gentoo": {
+      "objects": 0,
+      "L1": 0,
+      "L2": 0,
+      "matching": 0,
+      "adjudicated": 0
+    },
+    "microos": {
+      "objects": 6522,
+      "L1": 1452,
+      "L2": 5070,
+      "matching": 1683,
+      "adjudicated": 4842
+    },
+    "talos": {
+      "objects": 278,
+      "L1": 225,
+      "L2": 53,
+      "matching": 228,
+      "adjudicated": 50
+    }
+  }
+}

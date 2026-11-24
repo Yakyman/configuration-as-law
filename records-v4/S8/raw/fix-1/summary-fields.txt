@@ -1,0 +1,240 @@
+== h1-after-restart-1
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': 'NoneType', 'current_pointer': '/var/lib/stand/generations/6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'FileNotFoundError', 'machine_generation': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': 'NoneType'}
+   boot_id <REDACTED>
+   census_entries 72981
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 0
+   claimed_but_no_matching_claim_count 0
+   code_root_copies dict: {'no_declared_counterpart_directory': 3171, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31245}
+   code_root_copies_not_matching list len 1
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 237, 'fs_generation_home': 1, 'fs_generation_shm': 1, 'fs_generation_tmp': 67, 'fs_generation_vartmp': 9, 'fs_paths_etc': 1342, 'fs_paths_home': 4, 'fs_paths_shm': 1, 'fs_paths_tmp': 9, 'fs_paths_vartmp': 6, 'machine_rows': 560, 'machine_rows_by_type': 'dict12', 'total_entries': 2015}
+   declaration_stable True
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T18:43:14.773802+00:00
+   evidence h1-after-restart-1.stdout
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 0
+   p2_filesystem_paths_checked 1362
+   p2_machine_mismatches dict: {}
+   p2_machine_rows_checked 560
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 436
+   packages_without_own_line list len 0
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': '0c067d665e06641d6b0d838fa35db2c6ccac0fdb9f82d852d4f45a0df13ca842', '/var/lib/stand-fs/home/current/declaration.json': 'e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': 'a48025c9c0442420acf381ccdc9ebe1ad49f6e48c23ee4e5e945e8c4a989e8ae', '/var/lib/stand-fs/vartmp/current/declaration.json': '90c721ff8bb31d1c85cf7ab6d5d046103d9a428a161832404cb10b7175dde512', '/var/lib/stand/current/base-files.json': 'NoneType', '/var/lib/stand/current/machine.jsonl': 'a9d46bab3c2e5c2d20f6038994d5f0fe01bdf4c986c1135030e055fca51c9efb'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1\n', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"0c067d665e06641d6b0d838fa35db2c6ccac0fdb9f82d852d4f45a0df13ca842","generation":237,"operation":"rename","status":"success","utc_epoch":1795459258.0397441}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455543.8802004}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"a48025c9c0442420acf381ccdc9ebe1ad49f6e48c23ee4e5e945e8c4a989e8ae","generation":67,"operation":"mkdir","status":"success","utc_epoch":1795459278.929058}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"90c721ff8bb31d1c85cf7ab6d5d046103d9a428a161832404cb10b7175dde512","generation":9,"operation":"mkdir","status":"success","utc_epoch":1795459278.940748}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T18:40:41Z"}\n', '/var/lib/stand/pending.json': 'dict2'}
+   started_utc 2026-11-23T18:41:24.222270+00:00
+   success_reports_stable True
+   unclaimed_changed_outside_code_root_copies list len 617
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 35033
+   unclaimed_total 41415
+   unclaimed_unchanged_by_kind dict: {'directory': 3469, 'file': 2904, 'symlink': 9}
+   unclaimed_unchanged_by_top_directory dict: {'/': 1, '/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 2, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1577, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1474, '/usr/src': 1, '/var': 1, '/var/.updated': 1}
+   unclaimed_unchanged_non_directories list len 2913
+== h1-after-restart-2
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': 'NoneType', 'current_pointer': '/var/lib/stand/generations/6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'FileNotFoundError', 'machine_generation': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': 'NoneType'}
+   boot_id <REDACTED>
+   census_entries 72982
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 0
+   claimed_but_no_matching_claim_count 0
+   code_root_copies dict: {'no_declared_counterpart_directory': 3171, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31245}
+   code_root_copies_not_matching list len 1
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 273, 'fs_generation_home': 1, 'fs_generation_shm': 1, 'fs_generation_tmp': 73, 'fs_generation_vartmp': 13, 'fs_paths_etc': 1342, 'fs_paths_home': 4, 'fs_paths_shm': 1, 'fs_paths_tmp': 10, 'fs_paths_vartmp': 6, 'machine_rows': 560, 'machine_rows_by_type': 'dict12', 'total_entries': 2016}
+   declaration_stable True
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T18:45:49.390155+00:00
+   evidence h1-after-restart-2.stdout
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 0
+   p2_filesystem_paths_checked 1363
+   p2_machine_mismatches dict: {}
+   p2_machine_rows_checked 560
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 436
+   packages_without_own_line list len 0
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': '4c804c244edb3878a7b610e92bf1aa2c292de1b16ce7ec40c52ee932856d35b4', '/var/lib/stand-fs/home/current/declaration.json': 'e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': '6fe6a0fdab269eb1ee5a007afd8b5f5a5347a057baf22f4bec5f7a334b0a65a3', '/var/lib/stand-fs/vartmp/current/declaration.json': 'b69534c560da1fcbfc9cb0daeab3a48404a349481c7bd91f4a0953fb6a09f6d8', '/var/lib/stand/current/base-files.json': 'NoneType', '/var/lib/stand/current/machine.jsonl': 'a9d46bab3c2e5c2d20f6038994d5f0fe01bdf4c986c1135030e055fca51c9efb'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1\n', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"4c804c244edb3878a7b610e92bf1aa2c292de1b16ce7ec40c52ee932856d35b4","generation":273,"operation":"rename","status":"success","utc_epoch":1795459413.0672116}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455543.8802004}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"6fe6a0fdab269eb1ee5a007afd8b5f5a5347a057baf22f4bec5f7a334b0a65a3","generation":73,"operation":"mkdir","status":"success","utc_epoch":1795459434.0920327}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"b69534c560da1fcbfc9cb0daeab3a48404a349481c7bd91f4a0953fb6a09f6d8","generation":13,"operation":"mkdir","status":"success","utc_epoch":1795459434.103128}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T18:40:41Z"}\n', '/var/lib/stand/pending.json': 'dict2'}
+   started_utc 2026-11-23T18:43:58.729203+00:00
+   success_reports_stable True
+   unclaimed_changed_outside_code_root_copies list len 682
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 35098
+   unclaimed_total 41415
+   unclaimed_unchanged_by_kind dict: {'directory': 3441, 'file': 2867, 'symlink': 9}
+   unclaimed_unchanged_by_top_directory dict: {'/': 1, '/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 2, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1577, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1474, '/usr/src': 1, '/var': 1, '/var/.updated': 1}
+   unclaimed_unchanged_non_directories list len 2876
+== h1-end
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': 'NoneType', 'current_pointer': '/var/lib/stand/generations/6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'FileNotFoundError', 'machine_generation': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': 'NoneType'}
+   boot_id <REDACTED>
+   census_entries 72982
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 0
+   claimed_but_no_matching_claim_count 0
+   code_root_copies dict: {'no_declared_counterpart_directory': 3171, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31245}
+   code_root_copies_not_matching list len 1
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 273, 'fs_generation_home': 1, 'fs_generation_shm': 1, 'fs_generation_tmp': 73, 'fs_generation_vartmp': 13, 'fs_paths_etc': 1342, 'fs_paths_home': 4, 'fs_paths_shm': 1, 'fs_paths_tmp': 10, 'fs_paths_vartmp': 6, 'machine_rows': 560, 'machine_rows_by_type': 'dict12', 'total_entries': 2016}
+   declaration_stable True
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T18:47:42.199474+00:00
+   evidence h1-end.stdout
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 0
+   p2_filesystem_paths_checked 1363
+   p2_machine_mismatches dict: {}
+   p2_machine_rows_checked 560
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 436
+   packages_without_own_line list len 0
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': '4c804c244edb3878a7b610e92bf1aa2c292de1b16ce7ec40c52ee932856d35b4', '/var/lib/stand-fs/home/current/declaration.json': 'e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': '6fe6a0fdab269eb1ee5a007afd8b5f5a5347a057baf22f4bec5f7a334b0a65a3', '/var/lib/stand-fs/vartmp/current/declaration.json': 'b69534c560da1fcbfc9cb0daeab3a48404a349481c7bd91f4a0953fb6a09f6d8', '/var/lib/stand/current/base-files.json': 'NoneType', '/var/lib/stand/current/machine.jsonl': 'a9d46bab3c2e5c2d20f6038994d5f0fe01bdf4c986c1135030e055fca51c9efb'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': '6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1\n', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"4c804c244edb3878a7b610e92bf1aa2c292de1b16ce7ec40c52ee932856d35b4","generation":273,"operation":"rename","status":"success","utc_epoch":1795459413.0672116}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455543.8802004}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"6fe6a0fdab269eb1ee5a007afd8b5f5a5347a057baf22f4bec5f7a334b0a65a3","generation":73,"operation":"mkdir","status":"success","utc_epoch":1795459434.0920327}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"b69534c560da1fcbfc9cb0daeab3a48404a349481c7bd91f4a0953fb6a09f6d8","generation":13,"operation":"mkdir","status":"success","utc_epoch":1795459434.103128}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"6dc280d64d0fc73fe945ca7b4cc7601dd9626d01eb893e15e7bf2c3f7e6c8ee1","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T18:40:41Z"}\n', '/var/lib/stand/pending.json': 'dict2'}
+   started_utc 2026-11-23T18:45:52.330028+00:00
+   success_reports_stable True
+   unclaimed_changed_outside_code_root_copies list len 682
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 35098
+   unclaimed_total 41415
+   unclaimed_unchanged_by_kind dict: {'directory': 3441, 'file': 2867, 'symlink': 9}
+   unclaimed_unchanged_by_top_directory dict: {'/': 1, '/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 2, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1577, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1474, '/usr/src': 1, '/var': 1, '/var/.updated': 1}
+   unclaimed_unchanged_non_directories list len 2876
+== h2-end
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': True, 'current_pointer': '/var/lib/stand/generations/cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'NoneType', 'machine_generation': 'cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': 'cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': True}
+   boot_id <REDACTED>
+   census_entries 73049
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 0
+   claimed_but_no_matching_claim_count 0
+   code_root_copies dict: {'no_declared_counterpart_directory': 3174, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31244}
+   code_root_copies_not_matching list len 1
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 597, 'fs_generation_home': 92, 'fs_generation_shm': 1, 'fs_generation_tmp': 63, 'fs_generation_vartmp': 5, 'fs_paths_etc': 1342, 'fs_paths_home': 15, 'fs_paths_shm': 1, 'fs_paths_tmp': 9, 'fs_paths_vartmp': 6, 'machine_rows': 561, 'machine_rows_by_type': 'dict12', 'total_entries': 2027}
+   declaration_stable True
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T18:56:29.058338+00:00
+   evidence h2-end.stdout
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 0
+   p2_filesystem_paths_checked 1373
+   p2_machine_mismatches dict: {}
+   p2_machine_rows_checked 561
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 436
+   packages_without_own_line list len 0
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': 'c9b19b7aa08b50b78d43ae065be325f667f35fd9609dc378d5bf3d133f0be159', '/var/lib/stand-fs/home/current/declaration.json': '5e772b8816799a86b2af01a8e2849dd5db3676a6e1770709f0d76705431ab854', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': 'c475141a287d842095dd651ec183a7ccf853ba245e14d977815e957706a6b416', '/var/lib/stand-fs/vartmp/current/declaration.json': '16288e6b437d6a4aeca3c8dca795e04f8021af758ea905f1e1f741037d465092', '/var/lib/stand/current/base-files.json': 'd74846ddc5152870e4321993f3617bdc0ad2203882cf8c0fa3ee53beb91ec97f', '/var/lib/stand/current/machine.jsonl': 'bd0fad22bc03207848e08003abf24b7e32cae51dd07f5edbe9132dc5af861fe9'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': 'cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c\n', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"c9b19b7aa08b50b78d43ae065be325f667f35fd9609dc378d5bf3d133f0be159","generation":597,"operation":"rename","status":"success","utc_epoch":1795460057.6436493}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"5e772b8816799a86b2af01a8e2849dd5db3676a6e1770709f0d76705431ab854","generation":92,"operation":"write","status":"success","utc_epoch":1795460078.0363102}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"c475141a287d842095dd651ec183a7ccf853ba245e14d977815e957706a6b416","generation":63,"operation":"mkdir","status":"success","utc_epoch":1795459708.1785345}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"16288e6b437d6a4aeca3c8dca795e04f8021af758ea905f1e1f741037d465092","generation":5,"operation":"mkdir","status":"success","utc_epoch":1795459708.1961403}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T18:54:37Z"}\n', '/var/lib/stand/pending.json': 'dict2'}
+   started_utc 2026-11-23T18:54:38.326296+00:00
+   success_reports_stable True
+   unclaimed_changed_outside_code_root_copies list len 672
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 35090
+   unclaimed_total 41473
+   unclaimed_unchanged_by_kind dict: {'directory': 3471, 'file': 2904, 'symlink': 8}
+   unclaimed_unchanged_by_top_directory dict: {'/': 1, '/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 1, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr': 1, '/usr/bin': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1577, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1477, '/usr/src': 1, '/var': 1}
+   unclaimed_unchanged_non_directories list len 2912
+== h3-end
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': True, 'current_pointer': '/var/lib/stand/generations/0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'NoneType', 'machine_generation': '0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': '0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': True}
+   boot_id <REDACTED>
+   census_entries 73558
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 0
+   claimed_but_no_matching_claim_count 0
+   code_root_copies dict: {'differs_from_declared_original': 2, 'no_declared_counterpart_directory': 3167, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31240}
+   code_root_copies_not_matching list len 3
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 192, 'fs_generation_home': 155, 'fs_generation_shm': 1, 'fs_generation_tmp': 744, 'fs_generation_vartmp': 5, 'fs_paths_etc': 1343, 'fs_paths_home': 40, 'fs_paths_shm': 1, 'fs_paths_tmp': 25, 'fs_paths_vartmp': 6, 'machine_rows': 559, 'machine_rows_by_type': 'dict12', 'total_entries': 2067}
+   declaration_stable True
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T18:59:43.695210+00:00
+   evidence h3-end.stdout
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 0
+   p2_filesystem_paths_checked 1415
+   p2_machine_mismatches dict: {'base': 'dict2'}
+   p2_machine_rows_checked 559
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 451
+   packages_without_own_line list len 15
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': 'a960b97caae70536d55af1371187a3f93a8f0759ab32094a95ca62a5896c2777', '/var/lib/stand-fs/home/current/declaration.json': '696c4457526375e3591e786b28a91a36c56ee76bb26d396a71a8cf48a15ecbc1', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': '662f905456c7886f9d99a386128ef81c26786570b4138d9a44f9677b03acd4dc', '/var/lib/stand-fs/vartmp/current/declaration.json': 'd9cba2e7e467c17321e9a76e235711eea46009e8482dec29b8057c40933bcec5', '/var/lib/stand/current/base-files.json': 'd74846ddc5152870e4321993f3617bdc0ad2203882cf8c0fa3ee53beb91ec97f', '/var/lib/stand/current/machine.jsonl': 'f55feb601ac3ca590a054b13c72337dfb30253a3457c7076c0877df4f2cddc00'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': '0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388\n', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"a960b97caae70536d55af1371187a3f93a8f0759ab32094a95ca62a5896c2777","generation":192,"operation":"rename","status":"success","utc_epoch":1795460263.8428476}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"696c4457526375e3591e786b28a91a36c56ee76bb26d396a71a8cf48a15ecbc1","generation":155,"operation":"chmod","status":"success","utc_epoch":1795460273.0006206}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"662f905456c7886f9d99a386128ef81c26786570b4138d9a44f9677b03acd4dc","generation":744,"operation":"write","status":"success","utc_epoch":1795460262.050793}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"d9cba2e7e467c17321e9a76e235711eea46009e8482dec29b8057c40933bcec5","generation":5,"operation":"mkdir","status":"success","utc_epoch":1795460245.8151445}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T17:39:52Z"}\n', '/var/lib/stand/pending.json': 'dict2'}
+   started_utc 2026-11-23T18:57:53.230241+00:00
+   success_reports_stable True
+   unclaimed_changed_outside_code_root_copies list len 1226
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 1227
+   unclaimed_total 41942
+   unclaimed_unchanged_by_kind dict: {'directory': 6719, 'file': 30375, 'special': 1, 'symlink': 3620}
+   unclaimed_unchanged_by_top_directory dict: {'/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 2, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1573, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1469, '/usr/src': 1, '/var': 1, '/var/.updated': 1, '/var/backups': 1, '/var/cache': 222}
+   unclaimed_unchanged_non_directories list len 33996
+== h4-install-disconnected
+   accounts_without_account_row list len 0
+   authority dict: {'content_identity_matches_receipt': True, 'current_pointer': '/var/lib/stand/generations/0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'filesystems': 'dict5', 'last_success_report': 'dict4', 'machine_FACT_UNKNOWN': 'NoneType', 'machine_generation': '0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'machine_identity_matches_receipt_offline': True, 'machine_identity_recomputed_offline': '0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388', 'machine_receipt_status': 'SUCCESS', 'selected_pointer_matches': True}
+   boot_id <REDACTED>
+   census_entries 72977
+   census_scan_errors list len 0
+   claimed_but_no_matching_claim list len 5
+   claimed_but_no_matching_claim_count 5
+   code_root_copies dict: {'differs_from_declared_original': 1, 'no_declared_counterpart_directory': 3167, 'no_declared_counterpart_special': 1, 'same_as_declared_original': 31241}
+   code_root_copies_not_matching list len 2
+   collection_error None
+   declaration_counts dict: {'fs_account_rows_etc': 93, 'fs_account_rows_home': 0, 'fs_account_rows_shm': 0, 'fs_account_rows_tmp': 0, 'fs_account_rows_vartmp': 0, 'fs_generation_etc': 381, 'fs_generation_home': 1, 'fs_generation_shm': 1, 'fs_generation_tmp': 63, 'fs_generation_vartmp': 5, 'fs_paths_etc': 1342, 'fs_paths_home': 4, 'fs_paths_shm': 1, 'fs_paths_tmp': 9, 'fs_paths_vartmp': 6, 'machine_rows': 559, 'machine_rows_by_type': 'dict12', 'total_entries': 2014}
+   declaration_stable False
+   enabled_units_without_unit_row list len 29
+   ended_utc 2026-11-23T19:03:39.128502+00:00
+   evidence install/guest.json (disconnected_observation)
+   format step8-observation-v1
+   groups_without_group_row list len 0
+   machine_rows_ids_by_type dict: {}
+   p2_filesystem_mismatch_fields dict: {'st_atime': 1, 'st_ctime': 1, 'st_mtime': 1}
+   p2_filesystem_mismatches_non_timestamp dict: {}
+   p2_filesystem_mismatches_timestamp_only list len 1
+   p2_filesystem_paths_checked 1362
+   p2_machine_mismatches dict: {'port:udp:1': 'dict1'}
+   p2_machine_rows_checked 559
+   p2_machine_unproved dict: {'boot': 'dict1', 'code-boundary': 'dict1'}
+   packages_installed 436
+   packages_without_own_line list len 0
+   primary_sha256 dict: {'/etc/stand/bc3-primary.json': '811be2b56a39f85966a6373c2af2dacf70699fb65a0473fcfeb7672e0f75f1cb', '/var/lib/stand-fs/etc/current/declaration.json': '5bc3280dcbaa15516d5bf91d60034a9e613d530c7c582b2b8eb1c34d891ebbf2', '/var/lib/stand-fs/home/current/declaration.json': 'e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56', '/var/lib/stand-fs/shm/current/declaration.json': '188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069', '/var/lib/stand-fs/tmp/current/declaration.json': 'bd9865a51735e283038284fe739fe12f6ab7226c135d2328b075a17ace007c92', '/var/lib/stand-fs/vartmp/current/declaration.json': 'c9648f7096cd74acb842255c804eb07360b156da1d3f5359bc65cbcefe77efff', '/var/lib/stand/current/base-files.json': 'd74846ddc5152870e4321993f3617bdc0ad2203882cf8c0fa3ee53beb91ec97f', '/var/lib/stand/current/machine.jsonl': 'f55feb601ac3ca590a054b13c72337dfb30253a3457c7076c0877df4f2cddc00'}
+   query_failures list len 7
+   reports dict: {'/run/stand-ready': 'dict2', '/var/lib/stand-fs/etc/current/success.json': '{"declaration_sha256":"5bc3280dcbaa15516d5bf91d60034a9e613d530c7c582b2b8eb1c34d891ebbf2","generation":381,"operation":"rename","status":"success","utc_epoch":1795460595.6734774}\n', '/var/lib/stand-fs/home/current/success.json': '{"declaration_sha256":"e673a639df73bc85df50b58ab8c8dedbb10243076b06a4f8de0ed20e572ccb56","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455543.8802004}\n', '/var/lib/stand-fs/shm/current/success.json': '{"declaration_sha256":"188070c4e663dcf665ee2a72f77e07a06f8461f9b7eae10880589e38d241c069","generation":1,"operation":"initial-application","status":"success","utc_epoch":1795455544.3796616}\n', '/var/lib/stand-fs/tmp/current/success.json': '{"declaration_sha256":"bd9865a51735e283038284fe739fe12f6ab7226c135d2328b075a17ace007c92","generation":63,"operation":"mkdir","status":"success","utc_epoch":1795460445.033031}\n', '/var/lib/stand-fs/vartmp/current/success.json': '{"declaration_sha256":"c9648f7096cd74acb842255c804eb07360b156da1d3f5359bc65cbcefe77efff","generation":5,"operation":"mkdir","status":"success","utc_epoch":1795460445.0516396}\n', '/var/lib/stand/complete-last-success.json': 'dict2', '/var/lib/stand/last-success.json': '{"declaration":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T17:39:52Z"}\n', '/var/lib/stand/pending.json': '{"candidate":"8824e9ebda42fa21a04ae7bbc1cb847f7e460255048d24dd03eb226323aaab1e","deadline":3635.632340666,"previous":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","recovery_deadline":3640.632340666,"supervisor":1385,"supervisor_identity":"3918","worker":1386,"worker_identity":"4'}
+   started_utc 2026-11-23T19:01:47.001246+00:00
+   success_reports_stable False
+   unclaimed_changed_outside_code_root_copies list len 615
+   unclaimed_changed_since_boundary list len 50
+   unclaimed_changed_since_boundary_count 35023
+   unclaimed_total 41414
+   unclaimed_unchanged_by_kind dict: {'directory': 3474, 'file': 2908, 'symlink': 9}
+   unclaimed_unchanged_by_top_directory dict: {'/': 1, '/boot': 1, '/boot/efi': 4, '/boot/grub': 5, '/home': 1, '/lost+found': 1, '/media': 1, '/mnt': 1, '/opt': 1, '/opt/stand': 1, '/root': 1, '/root/.ssh': 1, '/srv': 1, '/usr': 1, '/usr/bin': 1, '/usr/games': 1, '/usr/include': 117, '/usr/lib': 1577, '/usr/lib64': 1, '/usr/libexec': 11, '/usr/local': 37, '/usr/sbin': 1, '/usr/share': 1477, '/usr/src': 1, '/var': 1}
+   unclaimed_unchanged_non_directories list len 2917

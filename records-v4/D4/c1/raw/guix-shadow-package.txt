@@ -1,0 +1,15 @@
+Retrieved 2026-11-23 UTC
+URL https://codeberg.org/guix/guix/raw/tag/v1.5.0/gnu/packages/admin.scm
+(define-public shadow
+  (package
+    (name "shadow")
+    (version "4.13")
+    
+(synopsis "Authentication-related tools such as passwd, su, and login")
+    (description
+     "Shadow provides a number of authentication-related tools, including:
+login, passwd, su, groupadd, and useradd.")
+
+    ;; The `vipw' program is GPLv2+.
+    ;; libmisc/salt.c is public domain.
+    

@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "run",
+    "bc4-prepare-removal",
+    "--root"
+  ],
+  "stdin": "set -eu\nstand-pkg install /usr/local/share/stand/dev/worker-1.json\nstand-line add /usr/local/share/stand/dev/service.json\nstand-line add /usr/local/share/stand/dev/rule.json\nstand-verify\npython3 -B /usr/local/lib/stand/bc4_bundle.py export /var/lib/stand/bc4-export\n"
+}

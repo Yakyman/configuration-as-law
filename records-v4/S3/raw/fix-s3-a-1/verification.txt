@@ -1,0 +1,65 @@
+FX-S3-A-1 textual verification
+Recorded: 2026-11-23 13:32:40 UTC
+
+These are operator checks, not independent acceptance.
+No machine, empirical probe, or repeated case.
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/ARGUMENT.md
+quotes checked: 39; not found in TEXT.md: 0
+Exit code: 0
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/QUESTIONS.md
+quotes checked: 1; not found in TEXT.md: 0
+Exit code: 0
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/FIX-S3-A-1.md
+quotes checked: 0; not found in TEXT.md: 0
+Exit code: 0
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/raw/fix-s3-a-1/part-a-findings.md
+quotes checked: 4; not found in TEXT.md: 0
+Exit code: 0
+
+Command: /usr/bin/python3 -I bin/check_quotes.py S3/raw/fix-s3-a-1/part-b-findings.md
+quotes checked: 3; not found in TEXT.md: 0
+Exit code: 0
+
+S3/ARGUMENT.md: exact ID–sentence pairs 35; distinct 19; mismatches 0
+S3/QUESTIONS.md: exact ID–sentence pairs 1; distinct 1; mismatches 0
+S3/FIX-S3-A-1.md: exact ID–sentence pairs 0; distinct 0; mismatches 0
+S3/raw/fix-s3-a-1/part-a-findings.md: exact ID–sentence pairs 4; distinct 4; mismatches 0
+S3/raw/fix-s3-a-1/part-b-findings.md: exact ID–sentence pairs 3; distinct 3; mismatches 0
+
+Moment inventory: A0, A1, A2, A3, A4, A5, A6, I0, I1, I2, I3, I4, I5, B0, B1, B2
+Moment rows: 16; expected 16; exact declaration sentence present in each.
+Property duties: R(D) expands P1/P2/P4 for A/I rows; B rows state each property explicitly.
+First line: STEP 3: (a) ?; (b) ?
+Finding dispositions: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+Current word count: 4967 S3/ARGUMENT.md
+Current word count: 517 S3/QUESTIONS.md
+Current word count: 1119 S3/FIX-S3-A-1.md
+
+Frozen input comparison: 13 files; mismatches 0.
+Published text, supplement, review, checker and original raw files unchanged.
+
+Artifact SHA-256:
+ef48355f8dc2471b1133499fb776c1b77fbf1dd063f62d386f3330cfa4e9ef99  S3/ARGUMENT.md
+db4ba7fd23a872e756725c5c3f8bc16e7f70fb1f362701161e69e0696564c980  S3/QUESTIONS.md
+0ace5131d332b00fea91c0e8b65c8c687812ad6940bd651e792d84bf5d3edc31  S3/FIX-S3-A-1.md
+aa98b0303b33b3d8b6a90596181fcbe18ac50fae38314d3a8ca44b67403979b4  S3/raw/fix-s3-a-1/part-a-findings.md
+662d3852d76aeb951c5d64e454602ca7b9edd71b71cd05a6deac68eceeba86e2  S3/raw/fix-s3-a-1/part-b-findings.md
+6795f245e6a1e5a7a08cd50487e2d2bc15904a9e245d644f2a419f63a7af238e  S3/raw/fix-s3-a-1/before/ARGUMENT.md
+b8d8e15718852347efd549ef6b9f96fa3c5980f1c9b577712f4eb98180e98982  S3/raw/fix-s3-a-1/before/QUESTIONS.md
+d1777cf809c022fec462935cf838ac02bd3268f8c9d602e9fedd345415750ba2  S3/raw/fix-s3-a-1/changes.diff
+
+Publication identifier scan: 10 files; flagged files 0.
+English records and UTC dates checked by inspection.
+
+Reasoning limits:
+- Report receipt is not silently required; the external citation remains unexamined.
+- Saved-D1 assumptions are explicit; requirements differ under L/F without altering fixed text.
+- Dm supplies no independent escape and no additional tested case.
+- Provenance does not infer that the offline computer received account-B.
+- Reading-dependent questions retain ? under the unchanged committed rule.
+
+Result: PASS

@@ -1,0 +1,19 @@
+Isolated local checks only; no application or VM closure evidence.
+PASS typed dispatch useradd account
+PASS typed dispatch usermod account
+PASS typed dispatch userdel account
+PASS typed dispatch groupadd group
+PASS typed dispatch groupdel group
+PASS typed dispatch systemctl socket
+PASS typed dispatch systemctl service
+PASS typed dispatch systemctl timer
+PASS typed dispatch systemd-run service
+PASS typed dispatch systemd-run timer
+PASS typed dispatch crontab timer
+PASS typed dispatch at timer
+PASS typed dispatch nft rule
+PASS typed dispatch nmcli wifi
+PASS typed dispatch bluetoothctl bluetooth
+PASS wrong-kind removal refused
+PASS wrong-kind add refused
+PASS document write/append/read exact bytes

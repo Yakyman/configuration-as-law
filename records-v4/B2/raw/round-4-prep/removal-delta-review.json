@@ -1,0 +1,56 @@
+{
+  "case-3-before -> case-3-after": {
+    "filesystem_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "/apparmor.d/abstractions/stand-map": "Exact regenerated declaration-derived execution policy after the worker/service line deletion.",
+        "/ssh/sshd_config.d/00-stand.conf": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/launch.tsv": "Exact regenerated declaration-derived execution policy after the worker/service line deletion.",
+        "/stand/read-closure": "Exact regenerated declaration-derived execution policy after the worker/service line deletion.",
+        "/stand/stand-profiles": "Exact regenerated declaration-derived execution policy after the worker/service line deletion.",
+        "/systemd/system/multi-user.target.wants/stand-development.service": "Removed service-owned unit, enablement, security drop-in or private temporary namespace.",
+        "/systemd/system/stand-development.service": "Removed service-owned unit, enablement, security drop-in or private temporary namespace.",
+        "/systemd/system/stand-development.service.d": "Removed service-owned unit, enablement, security drop-in or private temporary namespace.",
+        "/systemd/system/stand-development.service.d/50-code-boundary.conf": "Removed service-owned unit, enablement, security drop-in or private temporary namespace."
+      },
+      "/var/lib/stand-fs/tmp/current/declaration.json": {
+        "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-b6IYGz": "Removed service-owned unit, enablement, security drop-in or private temporary namespace.",
+        "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-b6IYGz/tmp": "Removed service-owned unit, enablement, security drop-in or private temporary namespace."
+      },
+      "/var/lib/stand-fs/vartmp/current/declaration.json": {
+        "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-FQGkOV": "Removed service-owned unit, enablement, security drop-in or private temporary namespace.",
+        "/systemd-private-c66606fabab3467c87a51ccbc63667d7-stand-development.service-FQGkOV/tmp": "Removed service-owned unit, enablement, security drop-in or private temporary namespace."
+      }
+    },
+    "machine_deletion_exact": true,
+    "scope": "offline construction-input audit, not a case result",
+    "unexplained_semantic_changes": []
+  },
+  "case-4-both -> case-4-one": {
+    "filesystem_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "/apparmor.d/abstractions/stand-map": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/ssh/sshd_config.d/00-stand.conf": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/launch.tsv": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/read-closure": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/stand-profiles": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs."
+      }
+    },
+    "machine_deletion_exact": true,
+    "scope": "offline construction-input audit, not a case result",
+    "unexplained_semantic_changes": []
+  },
+  "case-4-one -> case-4-none": {
+    "filesystem_changes": {
+      "/var/lib/stand-fs/etc/current/declaration.json": {
+        "/apparmor.d/abstractions/stand-map": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/ssh/sshd_config.d/00-stand.conf": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/launch.tsv": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/read-closure": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs.",
+        "/stand/stand-profiles": "Same object bytes and chosen permissions/settings; incidental generation timestamps or replacement inode identity from ordinary application, retained in full exact inputs."
+      }
+    },
+    "machine_deletion_exact": true,
+    "scope": "offline construction-input audit, not a case result",
+    "unexplained_semantic_changes": []
+  }
+}

@@ -1,0 +1,37 @@
+VERDICT: AGREED
+
+Review RV-S2-R-2 of `S2/RESULT.md` after fix round 1. The review took no part in any earlier part of this step or in the fix. Inputs read: (not published: orchestration or scratch); `TEXT.md` Sections 8 and 9 and Appendix A; `SENTENCES.md`; `SUP1/step-2.md`; (not published: orchestration or scratch); `S2/REVIEW.md`; `S2/FIX-S2-R-1.md`; `S2/RESULT.md`; `S2/fix-s2-r-1/` (`rows.tsv`, `sample-adjudication.tsv`, `FACT-AUDIT.md`, `unknown-facts-audit.tsv`, `outcomes.tsv`, `signs.tsv`, `raw/counts.json`, `raw/validation.txt`, `raw/input-sha256.json`); `S2/adjudication/rows.tsv` and `S2/sample-adjudication.tsv` (frozen originals, for the diff); the answer columns of `S2/c1/decisions.tsv`, `S2/c2/decisions.tsv`, `S2/b1/answers.tsv` and `S2/b2/answers.tsv`; and only the (not published: direct evidence at least 2 MB) lines named below. All paths are relative to the night folder.
+
+## How each finding of RV-S2-R was handled
+
+- **Finding 1 (CUPS hard links): handled.** In `S2/fix-s2-r-1/sample-adjudication.tsv`, rows 2 and 4 are now `GAP`. A diff against the frozen `S2/sample-adjudication.tsv` shows that only these two rows changed. The two readings are the ones a2 had already written down: INSTALLED-PACKAGE, or else PROGRAM-DERIVED. The fix did not invent them. They are recorded as question 13 (`RESULT.md:134`) and are not settled. The accounting matches the minimal fix the review asked for: A3 291 / 0 / 2 / 7, D1 291 / 0 / 0 / 9, total 582 + 2 + 16 = 600, and sample outcome 0 by A.4.1 (`RESULT.md:35-37`, `raw/counts.json`). The b1/b2 answers for both rows now sit in the gap table and are verbatim. The expectation line stays "Met" (2 + 16 = 18 ≤ 20), and the result says plainly that this is not a threshold.
+- **Finding 2 (deciding facts on agreed-gap rows): handled.** The 11 named rows carry exactly 23 facts whose value starts with `UNKNOWN` in (not published: direct evidence at least 2 MB); this review recounted them per object (2,2,2,2,2,2,4,1,2,2,2). `unknown-facts-audit.tsv` has 23 entries. Each entry's evidence includes the original line of that UNKNOWN fact, and each gives a sentence-based reason. No unknown value has been filled in. For the container, the fix sets aside c1's INSTALLED-OWN alternative, using the frozen image resolution (`S2/adjudication/rows.tsv:51`: S8.1-4 read literally, so Docker is not an installer). The remaining pair, PROGRAM-OWN versus SETTING-OWN, is c2's own pair of decisions (`S2/c2/decisions.tsv`, row `developer-59a4ddfe60a8a1b18f6627c9`). Both members of that pair rest on known facts, and the choice between them goes to the author as question 6. Under `SUP1/step-2.md` ("Where the decision depends on a choice between two readings of a sentence, ... the object counts as receiving two decisions") family 8 stays 0 by the stated rule. No new rule is involved.
+- **Finding 3 (boot group): handled.** `void-386e90812bdecbec21d0785c` is now `FACT-UNKNOWN`, outcome `?` (`fix-s2-r-1/rows.tsv:29`). A diff of columns 1–5 against the frozen rows file shows only rows 29 (boot group) and 50 (container) changed. Totals: 17 rows 0, 84 `?`, 4 rows 1. These match the review's prediction. Family 4 stays 0 through its two separate archive rows.
+- **Finding 4 ("the same answer"): handled.** Both comparisons are printed and neither is adopted: 14/3 and 11/6 (`RESULT.md:60`, `signs.tsv`). This review recounted both from `signs.tsv`. The 3 rows that are not both under yes/no are `3bcbeded`, `d916e892` and `e56b4f80`. The 6 rows that are not both under the full answer add `0d4bff48`, `a6e5bb36` and `be5afc83`. The choice is added to question 12. No list is assigned.
+
+## Checks without a blocking finding
+
+- **Numbers.** In `fix-s2-r-1/rows.tsv` the verdicts are 51 AGREED, 41 FACT-UNKNOWN, 9 GAP and 4 RESOLVED (105 rows). The 17 zero rows are the 9 GAP rows plus 8 AGREED rows where both parties decided GAP-TWO: six in family 7, plus `3bcbeded` and `c354536d`. Per-family buckets in `outcomes.tsv` and `counts.json` match the table at `RESULT.md:13-27`: six families 0, nine `?`. The first line matches. Frozen inputs are unchanged: the SHA-256 of `S2/adjudication/rows.tsv`, `S2/sample-adjudication.tsv`, `S2/REVIEW.md` and `TEXT.md` equals the values in `raw/input-sha256.json`.
+- **Verbatim answers.** These match `S2/c1/decisions.tsv`, `S2/c2/decisions.tsv`, `S2/b1/answers.tsv` and `S2/b2/answers.tsv` column for column: the c1/c2 answers for `void-0d4bff48`, `server-be5afc83`, `developer-3bcbeded`, `developer-d916e892` and the container, and the b1/b2 answers for both CUPS rows and `server-0343cc0e`.
+- **Claim sample (8).** Each piece of evidence shows what the result or the audit claims:
+  1. `facts.tsv:19517,19524`: the container is running, and its workload runs as its own host-kernel process.
+  2. `19499,19503,19514,19519`: the operator chose the command, the port and the restart policy.
+  3. `19502`: Docker creates and removes containers; this is not a package receipt.
+  4. `18136,18065-18067,18137`: the boot group has six immediate entries, and the choice and as-received facts are UNKNOWN.
+  5. `20279,20298,20304,20309,20313`: the hook is a full 482-byte equal copy, can be invoked explicitly, has no retained trace, and its source package is unchanged.
+  6. `26705,26707`: the Dockerfile execution-rights and capability qualifications concern the resulting workload.
+  7. `26746,27047`: lefthook.yml was written by the operator, not received with a package.
+  8. `unknown-facts-audit.tsv`: all 23 entries cite their UNKNOWN line.
+- **Text discipline.** The container and CUPS cases are kept as two-reading gaps for the author and are not resolved. Unknown facts are not converted into gaps. The boot group was moved to `?`, not kept as 0. The result marks no family-12 group as `?` while marking the boot group `?`; `FACT-AUDIT.md` (family 12, last paragraph) states the factual difference behind this, which is consistent with the rule in `SUP1/step-2.md` "whose deciding facts are all known". No failure condition, denominator, expectation or sentence was changed. Quote checks: 21 quotes in `RESULT.md` and 5 in `FACT-AUDIT.md`, 0 not found.
+- **Scope.** Only revised adjudication and accounting files were written, in a new folder. No probe, machine or case was added. Nothing from the first night is cited. A scan of the new files for personal names, host names, home paths of our machines and vendor or system names found none.
+
+## Findings (non-blocking)
+
+1. **The container row's reason cell contradicts its new verdict.**
+   *Where:* `S2/fix-s2-r-1/rows.tsv:50`.
+   *Evidence:* The verdict is now `GAP` after the fix's own adjudication. The reason cell still begins with the old text "copied without adjudication (counts as decided, Section 9.2)" and then appends the FX-S2-R-1 adjudication.
+   *Minimal fix:* Label the old text as "Original reason (superseded by FX-S2-R-1):". The outcome does not change.
+2. **The introduction to the author's questions does not mention questions 11–13.**
+   *Where:* `S2/RESULT.md:119`.
+   *Evidence:* The sentence accounts only for questions 1–3, 8–10 and 4–7. Question 13 is the new confirmed sample gap from finding 1; question 11 is conditional and question 12 is about weighting.
+   *Minimal fix:* Add one clause: "question 11 is conditional on unknown facts, question 12 concerns the weighting lists, question 13 states the confirmed sample gap."

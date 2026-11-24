@@ -1,0 +1,120 @@
+[
+  {
+    "default_settings": [
+      {
+        "path": "/opt/stand/pkgs/v4-objects/default.conf"
+      }
+    ],
+    "derivations": [
+      {
+        "algorithm": "copy",
+        "path": "/opt/stand/pkgs/v4-objects/copy.py",
+        "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+      },
+      {
+        "algorithm": "python-bytecode",
+        "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+        "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+      }
+    ],
+    "files": [
+      {
+        "content_b64": "ZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCnByaW50KCJSRUNPUkRFRC1CWVRFQ09ERSIpCnByaW50KCJERUZBVUxULUxBTkdVQUdFOiIgKyBQYXRoKCIvb3B0L3N0YW5kL3BrZ3MvdjQtb2JqZWN0cy9kZWZhdWx0LmNvbmYiKS5yZWFkX3RleHQoKS5zdHJpcCgpLnNwbGl0KCI9IiwgMSlbMV0pCg==",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.py",
+        "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+        "uid": 0
+      },
+      {
+        "content_b64": "ZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCnByaW50KCJSRUNPUkRFRC1CWVRFQ09ERSIpCnByaW50KCJERUZBVUxULUxBTkdVQUdFOiIgKyBQYXRoKCIvb3B0L3N0YW5kL3BrZ3MvdjQtb2JqZWN0cy9kZWZhdWx0LmNvbmYiKS5yZWFkX3RleHQoKS5zdHJpcCgpLnNwbGl0KCI9IiwgMSlbMV0pCg==",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/copy.py",
+        "sha256": "1e9fb4a5d324dd3e4c4393b5ad9e9e46f322bc207845a543c12a1b53698f24e2",
+        "uid": 0
+      },
+      {
+        "content_b64": "8w0NCgMAAADtji0WujVaZuMAAAAAAAAAAAAAAAAHAAAAAAAAAPOgAAAAlQBTAFMBSwBKAXIBIABcAiIAUwI1AQAAAAAAACAAXAIiAFMDXAEiAFMENQEAAAAAAABSBwAAAAAAAAAAAAAAAAAAAAAAADUAAAAAAAAAUgkAAAAAAAAAAAAAAAAAAAAAAAA1AAAAAAAAAFILAAAAAAAAAAAAAAAAAAAAAAAAUwVTBjUCAAAAAAAAUwYFAAAALQAAADUBAAAAAAAAIABnBykI6QAAAAApAdoEUGF0aHoRUkVDT1JERUQtQllURUNPREV6EURFRkFVTFQtTEFOR1VBR0U6eicvb3B0L3N0YW5kL3BrZ3MvdjQtb2JqZWN0cy9kZWZhdWx0LmNvbmbaAT3pAQAAAE4pBtoHcGF0aGxpYnIDAAAA2gVwcmludNoJcmVhZF90ZXh02gVzdHJpcNoFc3BsaXSpAPMAAAAA2iQvb3B0L3N0YW5kL3BrZ3MvdjQtb2JqZWN0cy9zb3VyY2UucHnaCDxtb2R1bGU+cg4AAAABAAAAc0wAAADwAwEBAd0AGNkABdAGGdQAGtkABdAGGZlE0CFK0xxL1xxV0RxV0xxX1xxd0Rxd0xxf1xxl0Rxl0GZp0Gts0xxt0G5v0Rxw0QZw1QBxcgwAAAA=",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+        "sha256": "e1f7cddac69b3c39f4d91f1194530560a4f7249abb6dedfd97c4656ae70deb0e",
+        "uid": 0
+      },
+      {
+        "content_b64": "bGFuZ3VhZ2U9ZW4K",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/default.conf",
+        "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+        "uid": 0
+      }
+    ],
+    "id": "v4:objects",
+    "managed": true,
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-objects",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "files": [],
+    "id": "v4:meta",
+    "managed": true,
+    "package_dependencies": [
+      {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "version": "1"
+      }
+    ],
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-meta",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "files": [
+      {
+        "content_b64": "YWxwaGE9MQpiZXRhPTIK",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+        "sha256": "5d4f0c6a7441ec3302dfd4b081759ea6bc0dbfaa02edd450b962b8b302e2d5fb",
+        "uid": 0
+      }
+    ],
+    "id": "v4:noncode",
+    "managed": true,
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-noncode",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "id": "v4:printk",
+    "managed": true,
+    "name": "kernel.printk",
+    "reader": "sysctl",
+    "type": "setting",
+    "value": "3 4 1 7"
+  }
+]

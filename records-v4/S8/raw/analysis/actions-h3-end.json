@@ -1,0 +1,137 @@
+[
+ {
+  "action": "h3-prerequisites-fetch",
+  "command_record": "h3-prerequisites",
+  "started_utc": "2026-11-23T18:57:31.381188+00:00",
+  "ended_utc": "2026-11-23T18:57:43.944933+00:00",
+  "done": true,
+  "evidence": [
+   "h3-prerequisites.stdout",
+   "h3-prerequisites.stderr"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h3-prerequisites-install",
+  "command_record": "h3-prerequisites",
+  "started_utc": "2026-11-23T18:57:31.381188+00:00",
+  "ended_utc": "2026-11-23T18:57:43.944933+00:00",
+  "done": true,
+  "evidence": [
+   "h3-prerequisites.stdout",
+   "h3-prerequisites.stderr"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h3-prerequisites-readback",
+  "command_record": "h3-prerequisites",
+  "started_utc": "2026-11-23T18:57:31.381188+00:00",
+  "ended_utc": "2026-11-23T18:57:43.944933+00:00",
+  "done": true,
+  "evidence": [
+   "h3-prerequisites.stdout",
+   "h3-prerequisites.stderr"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h3-launcher-fetch",
+  "command_record": "h3-launcher",
+  "started_utc": "2026-11-23T18:57:43.945591+00:00",
+  "ended_utc": "2026-11-23T18:57:53.073836+00:00",
+  "done": true,
+  "evidence": [
+   "h3-launcher.stdout",
+   "h3-launcher.stderr"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h3-launcher-setup",
+  "command_record": "h3-launcher",
+  "started_utc": "2026-11-23T18:57:43.945591+00:00",
+  "ended_utc": "2026-11-23T18:57:53.073836+00:00",
+  "done": true,
+  "evidence": [
+   "h3-launcher.stdout",
+   "h3-launcher.stderr"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h3-game-install",
+  "command_record": "h3-launcher",
+  "started_utc": "2026-11-23T18:57:43.945591+00:00",
+  "ended_utc": "2026-11-23T18:57:53.073836+00:00",
+  "done": false,
+  "evidence": [
+   "h3-launcher.stdout",
+   "h3-launcher.stderr"
+  ],
+  "reason": "ACTION_BEGIN without ACTION_DONE (command failed, exit 1)"
+ },
+ {
+  "action": "h3-game-start-1",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-game-details-1",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-game-stop-1",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-launcher-self-update",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-game-start-2",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-game-details-2",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ },
+ {
+  "action": "h3-game-stop-2",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not reached: prerequisite failed"
+ }
+]

@@ -1,0 +1,2438 @@
+### F1 alma-37c4765f1bc3df9c50c7463a  [display-manager.service]  (member/related rows: 20)
+  - documented_service_behavior: Enabling creates links for later activation; starting a service spawns a daemon process. Preset applies distribution enable/disable defaults
+  - effect_scope: System service manager, not a program launched solely for one user
+  - execution: Service definition and links are read by systemd; enabled service can cause service executable(s) to start as separate host processes
+  - execution_rights: For system services, absent User=/Group= means system-manager default root at process launch. This states launch credentials, not every credential transition inside the daemon
+  - human_choice_time: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_chooser_role: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_value_choice: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - object_scope: One recorded account or service entry
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_transaction: UNKNOWN: No retained log identifies the exact process that created each enablement/alias link; timestamps are not process attribution
+  - recorded_value: display-manager.service                      alias           -
+  - recovered_unit_identity: Exact-version official repository RPM unit bytes have full SHA-256 equal to original retained RPM digest; original inventory marks this unit unchanged
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - unit_ExecStart: /usr/sbin/gdm
+  - unit_Group: No Group= directive in exact matched unit
+  - unit_User: No User= directive in exact matched unit
+  - unit_dropins: Retained complete filesystem traversal contains no avahi-daemon.service.d, avahi-.service.d, gdm.service.d, display-manager.service.d, or generic service.d directory; account for enabled alias link separately
+  - unit_file_package: rpm:gdm@47.0-32.el10_3.x86_64; /usr/lib/systemd/system/gdm.service; integrity=unchanged
+
+### F1 alma-53fa364e2cf166bce33a9d60  [avahi-daemon.service]  (member/related rows: 38)
+  - documented_service_behavior: Enabling creates links for later activation; starting a service spawns a daemon process. Preset applies distribution enable/disable defaults
+  - effect_scope: System service manager, not a program launched solely for one user
+  - execution: Service definition and links are read by systemd; enabled service can cause service executable(s) to start as separate host processes
+  - execution_rights: For system services, absent User=/Group= means system-manager default root at process launch. This states launch credentials, not every credential transition inside the daemon
+  - human_choice_time: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_chooser_role: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_value_choice: UNKNOWN: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - object_scope: One recorded account or service entry
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_transaction: UNKNOWN: No retained log identifies the exact process that created each enablement/alias link; timestamps are not process attribution
+  - recorded_value: avahi-daemon.service                         enabled         enabled
+  - recovered_unit_identity: Exact-version official repository RPM unit bytes have full SHA-256 equal to original retained RPM digest; original inventory marks this unit unchanged
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - unit_ExecStart: /usr/sbin/avahi-daemon -s
+  - unit_Group: No Group= directive in exact matched unit
+  - unit_User: No User= directive in exact matched unit
+  - unit_dropins: Retained complete filesystem traversal contains no avahi-daemon.service.d, avahi-.service.d, gdm.service.d, display-manager.service.d, or generic service.d directory; account for enabled alias link separately
+  - unit_file_package: rpm:avahi@0.9~rc2-3.el10.x86_64; /usr/lib/systemd/system/avahi-daemon.service; integrity=unchanged
+
+### F1 alma-71966c5e14f6b1d3115de310  [tss]  (member/related rows: 2)
+  - account_container_file_package: rpm:<REDACTED>; /etc/passwd; integrity=changed
+  - account_primary_gid: 59
+  - account_uid: 59
+  - documented_login_shell: nologin denies login when invoked as an account login shell
+  - documented_record_format: Account fields describe system login identities and numeric IDs; x indicates shadow password storage, not a visible password
+  - effect_scope: System identity, UID/GID and login-shell lookup; not limited to a personal application
+  - execution: Account database fields are read as identity values; the record is not itself executed
+  - generation_recipe_package: rpm:tpm2-tss@4.1.3-6.el10.x86_64; /usr/lib/sysusers.d/tpm2-tss.conf; integrity=unchanged
+  - historical_creation_time: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_producer: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_choice_time: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_value_choice: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - launch_or_access: Account has a nologin login shell, which refuses login when invoked. This does not prevent a privileged service from using the account UID without an interactive login
+  - login_shell: /usr/sbin/nologin
+  - object_scope: One recorded account or service entry
+  - package_as_received: UNKNOWN: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_mechanism: systemd-sysusers can create accounts from sysusers descriptions; a recipe match alone does not timestamp or prove the historical invocation
+  - recorded_value: tss:x:59:59:Account used for TPM access:/:/usr/sbin/nologin
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 alma-9a2b3f5598419c41bbb752af  [/etc/alternatives]  (member/related rows: 541)
+  - documented_link_behavior: A symbolic link stores another pathname; executing through it uses its target rather than treating the pathname text as source code
+  - effect_scope: System command selection
+  - execution: Symbolic links select command/manual targets; links contain target names rather than instructions. A command link can be followed when a caller executes its target
+  - execution_rights: Command target runs with caller credentials unless its target applies a privilege transition; link mode alone grants no elevated execution
+  - historical_creation_time: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_producer: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_choice_time: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_chooser_role: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_value_choice: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - launch_or_access: Command links expose target programs; manual-page links select documents. None of these links is itself an authentication credential
+  - object_scope: Immediate-child group of 45 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 alma-ade8ccca9c3e357d72437c37  [systemd-oom]  (member/related rows: 4)
+  - account_container_file_package: rpm:<REDACTED>; /etc/passwd; integrity=changed
+  - account_primary_gid: 999
+  - account_uid: 999
+  - documented_login_shell: nologin denies login when invoked as an account login shell
+  - documented_record_format: Account fields describe system login identities and numeric IDs; x indicates shadow password storage, not a visible password
+  - effect_scope: System identity, UID/GID and login-shell lookup; not limited to a personal application
+  - execution: Account database fields are read as identity values; the record is not itself executed
+  - historical_creation_time: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_producer: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_choice_time: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_value_choice: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - launch_or_access: Account has a nologin login shell, which refuses login when invoked. This does not prevent a privileged service from using the account UID without an interactive login
+  - login_shell: /sbin/nologin
+  - object_scope: One recorded account or service entry
+  - package_as_received: UNKNOWN: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_mechanism: systemd-sysusers can create accounts from sysusers descriptions; a recipe match alone does not timestamp or prove the historical invocation
+  - recorded_value: systemd-oom:x:999:999:systemd Userspace OOM Killer:/:/sbin/nologin
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 microos-13cd5b718c5e71a530a2bed1  [root]  (member/related rows: 1)
+  - account_primary_gid: 0
+  - account_uid: 0
+  - documented_record_format: Account fields describe system login identities and numeric IDs; x indicates shadow password storage, not a visible password
+  - effect_scope: System identity, UID/GID and login-shell lookup; not limited to a personal application
+  - execution: Account database fields are read as identity values; the record is not itself executed
+  - generation_recipe_package: rpm:<REDACTED>; /usr/lib/sysusers.d/system-user-root.conf; integrity=unchanged
+  - historical_creation_time: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_producer: UNKNOWN: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_choice_time: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_value_choice: UNKNOWN: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - launch_or_access: UID 0/GID 0 account has /bin/bash as its login shell. The passwd row does not contain an authentication credential or prove an enabled remote/password login route
+  - login_shell: /bin/bash
+  - object_scope: One recorded account or service entry
+  - package_as_received: UNKNOWN: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_mechanism: systemd-sysusers can create accounts from sysusers descriptions; a recipe match alone does not timestamp or prove the historical invocation
+  - recorded_value: root:x:0:0:root:<root-home>:/bin/bash
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 void-081c93f14c8fa7e6bfd59961  [/usr/bin]  (member/related rows: 301)
+  - documented_link_behavior: A symbolic link stores another pathname; executing through it uses its target rather than treating the pathname text as source code
+  - effect_scope: System command selection
+  - execution: Symbolic links select command/manual targets; links contain target names rather than instructions. A command link can be followed when a caller executes its target
+  - execution_rights: Command target runs with caller credentials unless its target applies a privilege transition; link mode alone grants no elevated execution
+  - historical_creation_time: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_producer: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_choice_time: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_chooser_role: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_value_choice: UNKNOWN: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - launch_or_access: Command links expose target programs; manual-page links select documents. None of these links is itself an authentication credential
+  - object_scope: Immediate-child group of 25 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 void-4768b27116e866909ce713da  [~/.local/node_modules/.bin]  (member/related rows: 26)
+  - documented_link_behavior: A symbolic link stores another pathname; executing through it uses its target rather than treating the pathname text as source code
+  - effect_scope: Command lookup in the user npm installation
+  - execution: Symbolic links select command/manual targets; links contain target names rather than instructions. A command link can be followed when a caller executes its target
+  - execution_rights: Command target runs with caller credentials unless its target applies a privilege transition; link mode alone grants no elevated execution
+  - launch_or_access: Command links expose target programs; manual-page links select documents. None of these links is itself an authentication credential
+  - object_scope: Immediate-child group of 2 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+  - person_choice: Operator requested cowsay installation; the two command link targets were selected by npm from package metadata
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: npm during the successful language_program ordinary action
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 void-65591628311f83a7842469aa  [/var/service/acpid]  (member/related rows: 17)
+  - effect_scope: Booted system service supervision
+  - enabling_link_package_listing: Neither /var/service/acpid nor /etc/runit/runsvdir/default/acpid appears as a payload path in the retained native package-files table. The exact link-creation transaction is separately unknown.
+  - execution: The link is followed to a service directory; runit executes its run script as a host process
+  - execution_rights: Configured system-service launch inherits initial root credentials through runit stage 2, runsvdir and runsv (inference from recovered scripts and documented init chain). No UID switch occurs in the recovered run script/configuration. This is the launch context, not a sampled live credential set or a claim about all later descendants.
+  - human_choice_time: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_chooser_role: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_value_choice: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - launch_or_access: A service-directory symlink enables runit supervision and service process startup
+  - launch_script_package: /etc/sv/acpid/run is recorded unchanged in acpid-2.0.34_4; this is the target script package, not ownership of the enabling link.
+  - object_scope: One recorded account or service entry
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_transaction: UNKNOWN: No exact link-creation process invocation retained; package update timestamps support timing but not individual writer identity
+  - recorded_value: /var/service/acpid; /etc/sv/acpid
+  - recovered_launch_command: The complete 70-byte run script matches the authoritative source and executes acpid -f with default OPTS=-l; the complete error-free traversal contains no /etc/sv/acpid/conf.
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F1 void-f1bd8c260127e9a626b5f82f  [/var/service/agetty-tty1]  (member/related rows: 16)
+  - effect_scope: Booted system service supervision
+  - enabling_link_package_listing: Neither /var/service/agetty-tty1 nor /etc/runit/runsvdir/default/agetty-tty1 appears as a payload path in the retained native package-files table. The exact link-creation transaction is separately unknown.
+  - execution: The link is followed to a service directory; runit executes its run script as a host process
+  - execution_rights: Configured system-service launch inherits initial root credentials through runit stage 2, runsvdir and runsv (inference from recovered scripts and documented init chain). No UID switch occurs in the recovered run script/configuration. This is the launch context, not a sampled live credential set or a claim about all later descendants.
+  - human_choice_time: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_chooser_role: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_value_choice: UNKNOWN: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - launch_or_access: A service-directory symlink enables runit supervision and service process startup
+  - launch_script_package: /etc/sv/agetty-generic/run and /etc/sv/agetty-tty1/conf are recorded unchanged in runit-void-20250212_4. The /etc/sv/agetty-tty1/run symlink is recorded changed against its package target; the observed target is ../agetty-generic/run.
+  - object_scope: One recorded account or service entry
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer_transaction: UNKNOWN: No exact link-creation process invocation retained; package update timestamps support timing but not individual writer identity
+  - recorded_value: /var/service/agetty-tty1; /etc/sv/agetty-tty1
+  - recovered_launch_command: The run symlink points to ../agetty-generic/run. Complete hashes recover the 281-byte script and 176-byte conf; they select getty or agetty by executable availability and call chpst -P, with GETTY_ARGS=--noclear on tty1, BAUD_RATE=38400 and TERM_NAME=linux.
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 alma-889f8cd2dae65a248533322a  [/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64]  (member/related rows: 347)
+  - additional_executable_member: The group also includes vmlinuz, a kernel boot image owned by kernel-core; the depmod-generated modules.* subset does not describe every group member
+  - additional_execution_context: vmlinuz is loaded for execution as the kernel by the boot path; this is host kernel execution, not a personal application process
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: depmod reads kernel modules to generate dependency and symbol lists
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: depmod is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: Kernel module dependency lookup
+  - object_scope: Immediate-child group of 29 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 alma-caff428f8364f0a663721a85  [/etc/dconf/db]  (member/related rows: 57)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: dconf update compiles keyfile directories into dconf databases
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: dconf update is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: UNKNOWN: Exact dconf keys and effective profile/lock selection were not dumped, so launch/access effects of every stored value cannot be excluded
+  - named_member_function: Desktop and login-manager values read through dconf
+  - object_scope: Immediate-child group of 5 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 microos-2ce40b9afb2194333071f853  [/.snapshots/1/snapshot/etc/selinux/targeted/active]  (member/related rows: 148)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: semodule manages SELinux policy modules and can rebuild the policy from its store
+  - generation_mechanism: semodule is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: SELinux policy loaded and enforced by kernel
+  - object_scope: Immediate-child group of 13 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 microos-a1f877f4c02acd2a5f9a0d97  [/usr/share/mime]  (member/related rows: 277)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: Scans packages/*.xml and combines them into generated MIME lookup files
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: update-mime-database is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: MIME identifiers, suffixes and sniffing rules consumed by applications
+  - object_scope: Immediate-child group of 25 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 microos-c111706edb49a56b42b0ff18  [/.snapshots/1/snapshot/etc]  (member/related rows: 1153)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: ldconfig constructs cache from shared libraries in specified/configured/trusted directories; ld.so consumes it
+  - generation_mechanism: ldconfig is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: Snapshot etc includes shared-library cache and many other files
+  - object_scope: Immediate-child group of 104 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 microos-dcce813055fa256ed012c87a  [/var/lib/ca-certificates/openssl]  (member/related rows: 5848)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: The distribution update-ca-certificates script calls update hooks with statedir=/var/lib/ca-certificates; this documents a generation mechanism, not a historical input list
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: update-ca-certificates is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: CA trust data affects acceptance of remote TLS peer identities; it is not evidence of a means of login to this computer
+  - named_member_function: Certificate trust lookup by TLS applications
+  - object_scope: Immediate-child group of 501 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 void-4ab73c90e99c24b1fb10c341  [/usr/share/mime/application]  (member/related rows: 5557)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: Scans packages/*.xml and combines them into generated MIME lookup files
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: update-mime-database is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: MIME descriptions consumed by applications
+  - object_scope: Immediate-child group of 505 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 void-982c71cf468c85befb1aa508  [/var/cache/ldconfig]  (member/related rows: 14)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: ldconfig constructs cache from shared libraries in specified/configured/trusted directories; ld.so consumes it
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: ldconfig is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Named generated index does not directly start a standalone process; consumers use its lookup information. Other aggregate members are separately bounded by member_content_execution_and_effects when present
+  - named_member_function: Shared library lookup/cache construction
+  - object_scope: Immediate-child group of 1 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F2 void-f2e5d5edfa5902c8aee7bace  [/etc/ssl/certs]  (member/related rows: 2714)
+  - derivation_input_set: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - documented_derivation: update-ca-certificates updates certificate directory and generates concatenated certificate bundle
+  - execution: Named database/cache/certificate entries are consumed as lookup or value data; execute-permission metadata for directories/symlinks is not evidence of code execution
+  - generation_mechanism: update-ca-certificates is associated with the named database/cache; the historical invocation and exact input closure require a retained log, not just this filename
+  - historical_creation_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_producer: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: CA trust data affects acceptance of remote TLS peer identities; it is not evidence of a means of login to this computer
+  - named_member_function: Certificate trust lookup by TLS applications
+  - object_scope: Immediate-child group of 226 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F3 void-0ffeda9e5b96728703a1b7ed  [/usr/lib/modules/6.12.11_1/kernel/drivers/gpu/drm/bridge/analogix]  (member/related rows: 24)
+  - current_loadability: UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - documented_execution: Module loader puts ELF code into kernel space, relocates it and calls its initialization function; the operation needs privilege
+  - earlier_package_version: linux6.12 changed from 6.12.11_1 to 6.12.118_1 in package_program
+  - execution: The named directory entry is traversed, not executed. Descendant .ko.zst files contain compressed kernel-module code; modules.* files contain lookup tables
+  - execution_rights: Loadable modules execute in kernel context, not as a standalone user process; loading requires a compatible kernel and permitted module-loading operation
+  - historical_creation_time: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_producer: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - launch_or_access: Kernel modules can affect kernel behavior when loaded; directory entries and dependency lists do not grant authentication access themselves
+  - object_scope: Immediate-child group of 2 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - person_choice: Operator invoked package_program; individual retained module bytes were not authored by that action
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - retention_mechanism: Void intentionally retains previous kernel versions during updates
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F3 void-2715a0cd9890aae192131492  [/usr/lib/modules/6.12.11_1]  (member/related rows: 156)
+  - current_loadability: UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - documented_execution: Module loader puts ELF code into kernel space, relocates it and calls its initialization function; the operation needs privilege
+  - earlier_package_version: linux6.12 changed from 6.12.11_1 to 6.12.118_1 in package_program
+  - execution: The named directory entry is traversed, not executed. Descendant .ko.zst files contain compressed kernel-module code; modules.* files contain lookup tables
+  - execution_rights: Loadable modules execute in kernel context, not as a standalone user process; loading requires a compatible kernel and permitted module-loading operation
+  - historical_creation_time: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_producer: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - launch_or_access: Kernel modules can affect kernel behavior when loaded; directory entries and dependency lists do not grant authentication access themselves
+  - object_scope: Immediate-child group of 14 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - person_choice: Operator invoked package_program; individual retained module bytes were not authored by that action
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - retention_mechanism: Void intentionally retains previous kernel versions during updates
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F3 void-7c442df1fb52f7545f18f9cb  [/usr/lib/modules]  (member/related rows: 13)
+  - current_loadability: UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - documented_execution: Module loader puts ELF code into kernel space, relocates it and calls its initialization function; the operation needs privilege
+  - earlier_package_version: linux6.12 changed from 6.12.11_1 to 6.12.118_1 in package_program
+  - execution: The named directory entry is traversed, not executed. Descendant .ko.zst files contain compressed kernel-module code; modules.* files contain lookup tables
+  - execution_rights: Loadable modules execute in kernel context, not as a standalone user process; loading requires a compatible kernel and permitted module-loading operation
+  - historical_creation_time: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_producer: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - launch_or_access: Kernel modules can affect kernel behavior when loaded; directory entries and dependency lists do not grant authentication access themselves
+  - object_scope: Immediate-child group of 1 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - person_choice: Operator invoked package_program; individual retained module bytes were not authored by that action
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - retention_mechanism: Void intentionally retains previous kernel versions during updates
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F3 void-b42866904294dd5e14707b80  [/usr/lib/modules/6.12.11_1/kernel]  (member/related rows: 112)
+  - current_loadability: UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - documented_execution: Module loader puts ELF code into kernel space, relocates it and calls its initialization function; the operation needs privilege
+  - earlier_package_version: linux6.12 changed from 6.12.11_1 to 6.12.118_1 in package_program
+  - execution: The named directory entry is traversed, not executed. Descendant .ko.zst files contain compressed kernel-module code; modules.* files contain lookup tables
+  - execution_rights: Loadable modules execute in kernel context, not as a standalone user process; loading requires a compatible kernel and permitted module-loading operation
+  - historical_creation_time: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_producer: UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - launch_or_access: Kernel modules can affect kernel behavior when loaded; directory entries and dependency lists do not grant authentication access themselves
+  - object_scope: Immediate-child group of 10 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - person_choice: Operator invoked package_program; individual retained module bytes were not authored by that action
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - retention_mechanism: Void intentionally retains previous kernel versions during updates
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 alma-2c25c1a886c5db421b08087b  [/boot/initramfs-0-rescue-8ef0d28cd1cb4a80b9baa123cb63ef20.img]  (member/related rows: 17)
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - historical_producer: UNKNOWN: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Stored file, archive contents not expanded
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 alma-c4a7c6d6eb439eb9d680a65e  [/boot/initramfs-6.12.0-264.16.1.el10_3.x86_64.img]  (member/related rows: 18)
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - historical_producer: UNKNOWN: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Stored file, archive contents not expanded
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 microos-62ccb03ff56e2af8ff91ff68  [/.snapshots/1/snapshot/boot]  (member/related rows: 157)
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/.vmlinuz-7.3.5-1-default.hmac:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unchanged; counterpart=/boot/.vmlinuz-7.3.5-1-default.hmac
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/System.map-7.3.5-1-default:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unchanged; counterpart=/boot/System.map-7.3.5-1-default
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/config-7.3.5-1-default:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unchanged; counterpart=/boot/config-7.3.5-1-default
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/initrd-7.3.5-1-default:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=changed; counterpart=/boot/initrd-7.3.5-1-default
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/initrd:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unknown; counterpart=/boot/initrd
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/sysctl.conf-7.3.5-1-default:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unchanged; counterpart=/boot/sysctl.conf-7.3.5-1-default
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/vmlinuz-7.3.5-1-default:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unchanged; counterpart=/boot/vmlinuz-7.3.5-1-default
+  - active_counterpart_manifest:/.snapshots/1/snapshot/boot/vmlinuz:61b052a32956ecde54853c21: rpm:kernel-default@7.3.5-1.1.x86_64; integrity=unknown; counterpart=/boot/vmlinuz
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/.vmlinuz-7.3.5-1-default.hmac: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/.vmlinuz.hmac: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/System.map-7.3.5-1-default: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/config-7.3.5-1-default: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/efi: "{""inode"": false, ""ctime"": false, ""size"": false, ""mode"": false, ""mtime"": false, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/grub2: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/initrd: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/initrd-7.3.5-1-default: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/mbrid: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/sysctl.conf-7.3.5-1-default: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/vmlinuz: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/vmlinuz-7.3.5-1-default: "{""inode"": true, ""ctime"": true, ""size"": true, ""mode"": true, ""mtime"": true, ""signature"": true}"
+  - active_counterpart_metadata_comparison:/.snapshots/1/snapshot/boot/writable: "{""inode"": false, ""ctime"": false, ""size"": true, ""mode"": true, ""mtime"": false, ""signature"": true}"
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - historical_producer: UNKNOWN: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Immediate-child group of 13 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:18:24.175891+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 void-0d4bff48fce03ced27aa83a4  [/boot/initramfs-6.12.118_1.img]  (member/related rows: 15)
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Stored file, archive contents not expanded
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: dracut run by kernel update for 6.12.118_1 and 6.18.64_1; GRUB found those initrds and the older 6.12.11_1 image
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 void-386e90812bdecbec21d0785c  [/boot]  (member/related rows: 70)
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Immediate-child group of 6 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: dracut run by kernel update for 6.12.118_1 and 6.18.64_1; GRUB found those initrds and the older 6.12.11_1 image
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F4 void-a6e5bb36a961f99d2e09e83e  [/boot/initramfs-6.18.64_1.img]  (member/related rows: 15)
+  - archive_execution_sequence: Kernel unpacks initramfs into rootfs and executes contained /init as PID 1; archive bytes are first parsed/unpacked, then contained code runs
+  - archive_member_inventory: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - documented_generator_purpose: dracut generates an initramfs/initrd image for a kernel version from system inputs
+  - execution_rights: Early boot init runs as a host PID 1 process with system startup authority; archive mode 0600/0644 is not a denial of contained-code execution
+  - human_choice_time: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_value_choice: UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - launch_or_access: Contained startup programs can load drivers, mount root and start system processes; this is not confined to a personal browser or virtual guest
+  - object_scope: Stored file, archive contents not expanded
+  - package_as_received: UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: dracut run by kernel update for 6.12.118_1 and 6.18.64_1; GRUB found those initrds and the older 6.12.11_1 image
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F5 alma-2ea4b9f74eb9ce06f9d317ff  [~/.mozilla/firefox/cal-check/extensions]  (member/related rows: 13)
+  - authoritative_candidate_prefix_match: One AMO candidate, advertised version 1.28.0, has size 1226057 and prefix4096 SHA-256 af66ff20482b867da5f670e384f9f3ec025ffeddec6a269a5ae7c315c4a8f036, matching both retained installed files. This proves only the matched 4096-byte range, not whole-archive identity
+  - candidate_manifest_byte_range: Candidate manifest.json compressed bytes occupy [14952,16628), with local ZIP header at 14909, entirely outside the retained first 4096 bytes
+  - documented_install_remove_unit: Browser Addons API installs an XPI by file path and uninstalls by add-on ID; temp=False selects non-temporary installation
+  - effective_extension_rights: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - execution: XPI archive is handled by Firefox; extension JavaScript is run by browser execution contexts, not by invoking the XPI as a native executable
+  - extension_external_program_launch: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_host_changes: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - installation_action: Operator browser_extension action downloaded ClearURLs via add-on service API, checked advertised payload hash, then invoked Addons.install(temp=False); action returned zero
+  - installed_addon_manifest_permissions: UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - installed_addon_version: UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - object_scope: Immediate-child group of 1 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+  - permission_documentation: downloads.open requires both downloads.open and downloads permissions; this conditional API fact does not establish actual installed permissions
+  - person_choice: Operator requested ClearURLs; script requested the then-current API release, without specifying a release number
+  - presence: Present in retained inventory; observation 2026-11-23T11:19:33.135514+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: Browser AddonManager through Marionette wrote installed XPI into the persistent profile; client quit/cleanup after installation
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F5 void-61a9a88ad2b852b6cf106db6  [~/.mozilla/firefox/cal-check/extensions]  (member/related rows: 13)
+  - authoritative_candidate_prefix_match: One AMO candidate, advertised version 1.28.0, has size 1226057 and prefix4096 SHA-256 af66ff20482b867da5f670e384f9f3ec025ffeddec6a269a5ae7c315c4a8f036, matching both retained installed files. This proves only the matched 4096-byte range, not whole-archive identity
+  - candidate_manifest_byte_range: Candidate manifest.json compressed bytes occupy [14952,16628), with local ZIP header at 14909, entirely outside the retained first 4096 bytes
+  - documented_install_remove_unit: Browser Addons API installs an XPI by file path and uninstalls by add-on ID; temp=False selects non-temporary installation
+  - effective_extension_rights: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - execution: XPI archive is handled by Firefox; extension JavaScript is run by browser execution contexts, not by invoking the XPI as a native executable
+  - extension_external_program_launch: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_host_changes: UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - installation_action: Operator browser_extension action downloaded ClearURLs via add-on service API, checked advertised payload hash, then invoked Addons.install(temp=False); action returned zero
+  - installed_addon_manifest_permissions: UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - installed_addon_version: UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - object_scope: Immediate-child group of 1 entries; not a recursive union or the entire directory contents with packaged entries restored
+  - package_as_received: UNKNOWN: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+  - permission_documentation: downloads.open requires both downloads.open and downloads permissions; this conditional API fact does not establish actual installed permissions
+  - person_choice: Operator requested ClearURLs; script requested the then-current API release, without specifying a release number
+  - presence: Present in retained inventory; observation 2026-11-23T11:21:54.603730+00:00
+  - primary_description_designation: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - producer: Browser AddonManager through Marionette wrote installed XPI into the persistent profile; client quit/cleanup after installation
+  - successful_application_source: UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+
+### F6 developer-cbe2f19f976b603f5bb42193  [~/.juliaup/bin/juliaup]  (member/related rows: 17)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: User Juliaup version selection/installation commands
+  - delivery: Operator ran official installer and then juliaup add lts; juliaup default release
+  - delivery_version: UNKNOWN: Julia 1.13.4 output identifies Julia, not the juliaup executable version
+  - derivation_inputs: Official install.julialang.org installer and selected Juliaup distribution
+  - execution_content: juliaup executable was invoked by the operator; separate guest process with UID 1000; can install/remove Julia versions in the user home
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator selected installation and release default, not the binary bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: juliaup can install/remove Julia executables in the user home and select version defaults; operator invoked it directly under UID 1000
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Official Juliaup installer wrote the executable under guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: juliaup self uninstall removes Juliaup; self update updates it
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-1fd35bf6b4019193bad37621  [~/.steam/debian-installation/ubuntu12_32/steam-runtime.old]  (member/related rows: 98)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: group combines files/directories; filename and mode alone do not establish every member execution path, rights or host-changing capability
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 14 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-495169019fec2fb328ec9636  [~/.steam/debian-installation/bin/hardwareupdater]  (member/related rows: 28)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: group combines files/directories; filename and mode alone do not establish every member execution path, rights or host-changing capability
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 4 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-4cf3d1cb3da5181824cbdf16  [~/.steam/debian-installation]  (member/related rows: 266)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: group combines files/directories; filename and mode alone do not establish every member execution path, rights or host-changing capability
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 38 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-5e400a5875aa136f688db7de  [~/.steam/debian-installation/steamui/sounds]  (member/related rows: 294)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: member filenames identify sound assets but bytes and consuming playback paths are not retained; lack of a shebang/mode is not a content proof
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 42 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-820d8fed19aa17b72181a2d7  [~/.steam/debian-installation/steamrt64/pv-runtime/steam-runtime-steamrt/steamrt3c_platform_3c.0.20260824.257593/files/share/i18n/locales/uz_UZ@cyrillic]  (member/related rows: 17)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: locale file bytes were not retained; executable mode alone does not establish interpreted or machine code
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F6 gaming-cfd36e0732b4def2d5ecaf69  [~/.steam/debian-installation/controller_base/images/api/knockout/shared_mouse_4.svg]  (member/related rows: 17)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Steam client/runtime and games started by the user; members include resources, executable helpers, shell scripts and working directories depending on object
+  - delivery: Distribution steam-installer was installed; operator launched steam and confirmed its first-run Install dialog; client downloaded and extracted its own update
+  - delivery_version: Bootstrap dpkg steam-installer version 1:1.0.0.79~ds-2; updater downloaded steam_client_ubuntu12 manifest version 1792618285 on 2026-11-23 11:16:20 UTC
+  - derivation_inputs: Distribution Steam bootstrap followed by steam_client_ubuntu12 updater download
+  - execution_content: UNKNOWN: SVG bytes were not retained; mode 0775 and a hash do not show whether this specific SVG embeds executable content
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: UNKNOWN: per-member content/loader trace is absent; updater installation rights are documented separately from object capabilities
+  - human_choice: Operator chose client installation and launch; script does not choose bytes of these client/runtime members
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: no complete historical content or consumer trace for every member; a resource filename/mode does not establish launch/access behavior
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Steam bootstrap/updater running as guest UID 1000
+  - producer_interval: Updater log: extraction 2026-11-23 11:17:38 UTC; installing update 11:18:03 UTC; file metadata provides individual ctimes
+  - producer_package_versions: dpkg:steam-installer version=1:1.0.0.79~ds-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - self_removal_behavior: Saved upstream bootstrap reset_steam preserves bootstrap/game/userdata/package directories, removes remaining STEAMROOT contents and reinstalls bootstrap; not observed being invoked on this guest
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-05617e28292b94b182cc73aa  [<brew-home>/.linuxbrew/Homebrew/.git/objects/45]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: Homebrew installation script fetched its repository under <brew-home>/.linuxbrew/Homebrew
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: Homebrew upstream installation script and repository download
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 2 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-216b547047e9bd323ef8a31b  [<brew-home>/.linuxbrew/Homebrew/.git/objects/3d]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: Homebrew installation script fetched its repository under <brew-home>/.linuxbrew/Homebrew
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: Homebrew upstream installation script and repository download
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-2cd27841286438a33a7be083  [~/Projects/scc/.git/refs/heads]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-3f398d23eb0fcf553dff5b42  [~/Projects/scc/.git/refs/remotes/origin]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-4fbf65b1725f19d2f17c9c20  [<brew-home>/.linuxbrew/Homebrew/.git/objects/info]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: Homebrew installation script fetched its repository under <brew-home>/.linuxbrew/Homebrew
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: Homebrew upstream installation script and repository download
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-53425eb85c9fbc80fd72ef81  [~/Projects/scc/.git/objects]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 2 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-6939a0c70bd7e159e638d411  [~/Projects/scc/.git/objects/pack]  (member/related rows: 21)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 3 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-6bf67733481480cdeaa37d0c  [<brew-home>/.linuxbrew/Homebrew/.git/refs/tags]  (member/related rows: 28)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: Homebrew installation script fetched its repository under <brew-home>/.linuxbrew/Homebrew
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: Homebrew upstream installation script and repository download
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 4 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-b33a49ff4891eb30d52c7e46  [~/Projects/scc/.git/refs]  (member/related rows: 21)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 3 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F7 developer-e6a1511f1247825437884782  [~/Projects/scc/.git/refs/remotes]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Git operations on this repository; no login/access grant or automatic launch specified by these files
+  - delivery: git clone --depth 1 https://github.com/boyter/scc.git
+  - delivery_version: Git repository objects/references, no separately versioned native package; individual object/reference filenames in member metadata
+  - derivation_inputs: scc remote Git repository, --depth 1 clone
+  - execution_content: Git reads compressed repository objects, packs and references as repository storage; these paths are not registered hooks or startup commands
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: These paths are Git object/reference storage, not the repository hook paths; fetched project contents can later be checked out and used separately
+  - human_choice: Operator selected repository/install action; no per-object or reference value edit in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Repository object/reference storage is read by Git; no launch or authentication directive is assigned to these paths in the committed actions
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Directory/file storage object, not itself a running process. Git consumes repository bytes in a Git process; no Git hook registration points to these storage objects
+  - producer: Git repository writing during operator-requested checkout; guest UID 1000
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 developer-59a4ddfe60a8a1b18f6627c9  [09c141f3e1d593ad5a36736a6ac33d0b25328f198ddea40271641fd379447a2a]  (member/related rows: 16)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/Projects/development-web/Dockerfile and index.html; FROM docker.io/library/busybox:stable
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - historical_creation_time: Docker container CreatedAt=2026-11-23 11:15:05 +0000 UTC
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 developer-78e8326714450972e0134fb6  [sha256:92f46737584608a97675555995ed284291fd2ef58b073921413c0c63baa2813a]  (member/related rows: 10)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/Projects/development-web/Dockerfile and index.html; FROM docker.io/library/busybox:stable
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - historical_creation_time: Docker recorded CreatedAt=2026-11-23 11:15:05 +0000 UTC; image timestamp is image build metadata, not local pull/arrival time
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 developer-fd23729ab637faddccc1bc3e  [/var/lib/docker]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/Projects/development-web/Dockerfile and index.html; FROM docker.io/library/busybox:stable
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - group_scope: Container store deliberately not expanded by collector
+  - historical_creation_time: UNKNOWN: inventory gives mtime/ctime, not creation time or a per-file write audit; a fresh machine cannot recover the old write event
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 developer-ffcb51cbd136cf2f6e7408cf  [/var/lib/containerd]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/Projects/development-web/Dockerfile and index.html; FROM docker.io/library/busybox:stable
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - group_scope: Container store deliberately not expanded by collector
+  - historical_creation_time: UNKNOWN: inventory gives mtime/ctime, not creation time or a per-file write audit; a fresh machine cannot recover the old write event
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 server-46f5ba6815bb94894157236c  [sha256:f9cf3e1f0066f0eb0c48707d864f0ac5941e9ff454a072077d97a4d278d07d73]  (member/related rows: 10)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/server-stack/compose.yaml and referenced registry images
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - historical_creation_time: Docker recorded CreatedAt=2026-11-18 21:32:20 +0000 UTC; image timestamp is image build metadata, not local pull/arrival time
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 server-bce2d2fe9dfb24c822a93809  [sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab]  (member/related rows: 10)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/server-stack/compose.yaml and referenced registry images
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - historical_creation_time: Docker recorded CreatedAt=2025-03-13 14:27:01 +0000 UTC; image timestamp is image build metadata, not local pull/arrival time
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F8 server-fc8e0ac75ce9ed64a08ff655  [sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0]  (member/related rows: 10)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker engine, build operations and container processes; persisted store survives the recorded guest restart
+  - delivery_version: Image/container ID, tag and created timestamp are in inventory_metadata; store directories contain the engine-managed state rather than one distribution version
+  - derivation_inputs: ~/server-stack/compose.yaml and referenced registry images
+  - execution_content: Images supply filesystem bytes to containers; container programs execute as host-kernel processes in namespaces
+  - execution_rights: UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+  - historical_creation_time: Docker recorded CreatedAt=2026-11-05 19:37:08 +0000 UTC; image timestamp is image build metadata, not local pull/arrival time
+  - host_change_capability: UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+  - human_choice: Operator chose image tags and Docker/Compose arguments in the action script
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - install_remove_behavior: Docker CLI creates/starts/removes containers and pulls/removes images as identified objects
+  - launch_access: Operator enabled Docker service; containers use restart unless-stopped; project publishes loopback HTTP ports
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Container workload runs as its own host-kernel process; stored image layers and engine directories persist independently of a particular process
+  - producer: Docker/containerd ran with root authorization; CLI invoked by operator
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-226fd83ddc29964f9bdb3d55  [~/.cache/uv/archive-v0/RtTu8BKtVjyKmNgo/ruff-0.17.6.data]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_removal_unit: Current uv documentation supports deleting all entries for one named package using uv cache clean ruff; no cache-removal action was performed in the retained run
+  - cached_distribution_version: ruff 0.17.6
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: ruff 0.17.6 wheel
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Expanded ruff wheel and metadata retained by uv; exact member types are listed separately; native ruff is installed by uv tool install.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: uv tool install ruff run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-28b0928f32a3bd540164f5c2  [~/Projects/scc/.cal-modcache/github.com/cloudflare/circl@v1.6.3/ot/simot]  (member/related rows: 21)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_documented_behavior: Module cache can be removed by go clean -modcache
+  - cached_distribution_version: github.com/cloudflare/circl v1.6.3
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: scc go.mod/go.sum
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Go source is input to compilation; it is not directly a native executable. The recorded build compiles scc and its dependencies; exact membership of each source file in that build is not logged.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 3 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: go mod download and go build run as guest UID 1000
+  - producer_package_versions: rpm:golang@1.27.4-2.fc45.x86_64 version=1.27.4-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-4bc7e8a9213ac909292c2e0a  [~/Projects/scc/.cal-modcache/github.com/go-git/go-billy/v5@v5.9.0]  (member/related rows: 105)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_documented_behavior: Module cache can be removed by go clean -modcache
+  - cached_distribution_version: github.com/go-git/go-billy/v5 v5.9.0
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: scc go.mod/go.sum
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Go source is input to compilation; it is not directly a native executable. The recorded build compiles scc and its dependencies; exact membership of each source file in that build is not logged.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 15 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: go mod download and go build run as guest UID 1000
+  - producer_package_versions: rpm:golang@1.27.4-2.fc45.x86_64 version=1.27.4-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-880c223d69d1d6670ff0f5f3  [~/.bun/install/cache/hookified]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_documented_behavior: Registry package downloads are retained in the global cache
+  - cache_removal_unit: bun pm cache rm removes the cache; this command was not run in the retained action
+  - cached_distribution_version: hookified 1.15.1 and 2.2.0 symlink entries
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: eslint dependency resolution from registry
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Package cache contains JavaScript/package metadata or symlinks to cached versions. Bun can execute JavaScript with user rights; no per-file execution trace retained.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 2 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: bun add --global eslint run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - symlink_target:~/.bun/install/cache/hookified/1.15.1@@@1: ~/.bun/install/cache/hookified@1.15.1@@@1
+  - symlink_target:~/.bun/install/cache/hookified/2.2.0@@@1: ~/.bun/install/cache/hookified@2.2.0@@@1
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-95ffe3a0117370c7c58c4a2c  [~/.local/share/gem/ruby/cache]  (member/related rows: 7)
+  - archive_delivery_unit: One retained lefthook-2.2.2.gem archive; RubyGems install obtained lefthook 2.2.2 and wrote its wrapper. No archive-removal operation was logged
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cached_distribution_version: lefthook 2.2.2
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: lefthook 2.2.2 gem
+  - documented_archive_removal: Upstream RubyGems 4.0.24 uninstalls a selected gem version and deletes its selected cached .gem file through spec.cache_file; this is documented source behavior, not an observed removal or proof of downstream source-byte identity.
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Compressed lefthook gem archive retained after installation; archive is input to RubyGems extraction, not a directly launched native file.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: gem install --user-install --no-document lefthook run as guest UID 1000
+  - producer_package_versions: rpm:<REDACTED> version=4.0.24-1.fc45.noarch
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-967f944eb81a27eff658797b  [~/.cache/uv/archive-v0/RtTu8BKtVjyKmNgo/ruff-0.17.6.dist-info]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_removal_unit: Current uv documentation supports deleting all entries for one named package using uv cache clean ruff; no cache-removal action was performed in the retained run
+  - cached_distribution_version: ruff 0.17.6
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: ruff 0.17.6 wheel
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Expanded ruff wheel and metadata retained by uv; exact member types are listed separately; native ruff is installed by uv tool install.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 2 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: uv tool install ruff run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-9e6d06f152c07e5c13f841e0  [~/Projects/scc/.cal-modcache/github.com/go-git/go-git]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_documented_behavior: Module cache can be removed by go clean -modcache
+  - cached_distribution_version: v5@v5.19.2
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: scc go.mod/go.sum
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Go source is input to compilation; it is not directly a native executable. The recorded build compiles scc and its dependencies; exact membership of each source file in that build is not logged.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: go mod download and go build run as guest UID 1000
+  - producer_package_versions: rpm:golang@1.27.4-2.fc45.x86_64 version=1.27.4-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-a69abe8bb84f8c032e1fc8ed  [~/.cache/uv/archive-v0]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_removal_unit: Current uv documentation supports deleting all entries for one named package using uv cache clean ruff; no cache-removal action was performed in the retained run
+  - cached_distribution_version: ruff 0.17.6
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: ruff 0.17.6 wheel
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Expanded ruff wheel and metadata retained by uv; exact member types are listed separately; native ruff is installed by uv tool install.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: uv tool install ruff run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-b62fee8be986a1229ba680e5  [~/.cache/uv/archive-v0/RtTu8BKtVjyKmNgo]  (member/related rows: 21)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_removal_unit: Current uv documentation supports deleting all entries for one named package using uv cache clean ruff; no cache-removal action was performed in the retained run
+  - cached_distribution_version: ruff 0.17.6
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: ruff 0.17.6 wheel
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Expanded ruff wheel and metadata retained by uv; exact member types are listed separately; native ruff is installed by uv tool install.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 3 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: uv tool install ruff run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-b8d0d1ff228a2993234f695a  [~/.bun/install/cache/yocto-queue@0.1.0@@@1]  (member/related rows: 35)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_documented_behavior: Registry package downloads are retained in the global cache
+  - cache_removal_unit: bun pm cache rm removes the cache; this command was not run in the retained action
+  - cached_distribution_version: yocto-queue 0.1.0
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: eslint dependency resolution from registry
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Package cache contains JavaScript/package metadata or symlinks to cached versions. Bun can execute JavaScript with user rights; no per-file execution trace retained.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 5 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: bun add --global eslint run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F9 developer-d1fbc4bd76f69c08a8b6ecf7  [python:ruff@~/.cache/uv/archive-v0/RtTu8BKtVjyKmNgo/ruff-0.17.6.dist-info]  (member/related rows: 6)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - cache_removal_unit: Current uv documentation supports deleting all entries for one named package using uv cache clean ruff; no cache-removal action was performed in the retained run
+  - cached_distribution_version: ruff 0.17.6
+  - consumer_scope: Package download/cache or build operations under the user account; no system-wide value selected by the cache path
+  - derivation_inputs: ruff 0.17.6 wheel
+  - execution_capabilities: UNKNOWN: no complete content/loader examination of every historical cached group member; metadata and tool-purpose documentation do not establish each member ability to launch or change the host
+  - execution_content: Expanded ruff wheel and metadata retained by uv; exact member types are listed separately; native ruff is installed by uv tool install.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: UNKNOWN: no per-member historical execution/loader trace; cache consumer has ordinary guest-user rights in the recorded actions
+  - human_choice: Operator selected project/tool; dependencies/cache bytes were obtained by the tool, not individually typed
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: complete executable and metadata content of all historical cached members was not retained; cache placement alone does not determine launches/access
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: uv tool install ruff run as guest UID 1000
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F10 developer-35549cad55c96268fcaf4f24  [~/.julia/juliaup/completions]  (member/related rows: 42)
+  - available_target_shells: Native inventory contains bash 5.3.15-2.fc45.x86_64; no native package named zsh, fish, elvish, nushell or powershell appears
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. No other equal complete-range signature found for the observed focal file or immediate members; this does not establish inequality when hashes are partial or originals were not traversed.
+  - completion_generation_documented: Current upstream Juliaup source writes completion files while adding its bin folder to shell startup scripts; historical version identity remains unretained
+  - consumer_scope: Interactive shell command completion for juliaup; each completion file is for the shell named by its filename
+  - derivation_inputs: Juliaup shell completion generation
+  - execution_content: Six shell completion files are recorded. Bash is installed. Current upstream generation emits shell functions and invokes juliaup for channel completion; historical file contents were not retained.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 6 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Scripts/Windows code execute with caller rights when loaded; no separate isolation boundary appears in the ordinary Wine/Ruby/shell action
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Current Juliaup completion generator invokes juliaup to list channels; historical generated bytes are not retained
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - other_target_shells: UNKNOWN: absence of native packages is not proof that a target interpreter could not be supplied by another installed program; historical completion bytes and interpreter-resolution trace not retained
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Juliaup installer
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F10 developer-3bcbeded8b7cf5aedc1382fb  [~/Projects/scc/.git/hooks/applypatch-msg.sample]  (member/related rows: 17)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. Complete-byte matches: ~/Projects/scc/.git/hooks/applypatch-msg.sample (482 bytes) = <brew-home>/.linuxbrew/Homebrew/.git/hooks/applypatch-msg.sample, /usr/share/git-core/templates/hooks/applypatch-msg.sample. Equal contents alone do not…
+  - consumer_scope: Git repository operations; executable sample hook is disabled for automatic hook dispatch by its .sample suffix
+  - copy_source_integrity: Entire 482-byte project hook equals /usr/share/git-core/templates/hooks/applypatch-msg.sample: both size=signature_bytes=482 and SHA-256=8bf35846bc3d90db12f711dd961292eb1c617b6f62c2c4e702706b71f2a897b2. Although the field is named prefix4096, all bytes are covered here.
+  - derivation_inputs: Git template /usr/share/git-core/templates/hooks/applypatch-msg.sample from installed rpm:git-core 2.55.0-2.fc45.x86_64; complete-byte equality to the project copy is established separately
+  - execution_content: Executable shebang file; .sample suffix does not activate the hook automatically; may be invoked explicitly as a script under caller rights.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: This shell hook has caller-user permissions when invoked explicitly; its .sample filename keeps it disabled for automatic Git hook dispatch. No special host privilege or separate sandbox is granted by that filename.
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: Sample hook is disabled under its .sample filename; explicit interpreter invocation is possible
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: git clone initializes repository hooks from templates
+  - producer_package_versions: rpm:git@2.55.0-2.fc45.x86_64 version=2.55.0-2.fc45.x86_64
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: Observed project copy is byte-for-byte equal to the installed template, whose full native-package digest is unchanged against rpm:git-core 2.55.0-2.fc45.x86_64 installation record. This establishes equality to the received package bytes; it does not assert no intermediate edits occurred.
+
+### F10 developer-bc1494f6f41c4c0f3175eb8c  [~/bin/lefthook]  (member/related rows: 17)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. No other equal complete-range signature found for the observed focal file or immediate members; this does not establish inequality when hashes are partial or originals were not traversed.
+  - consumer_scope: Ruby interpreter launches lefthook gem command for the user project
+  - derivation_inputs: lefthook 2.2.2 gem executable metadata
+  - execution_content: Generated shebang wrapper; called via lefthook install under UID 1000; can start child processes.
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: Scripts/Windows code execute with caller rights when loaded; no separate isolation boundary appears in the ordinary Wine/Ruby/shell action
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: RubyGems wrapper starts the lefthook gem entry point; lefthook install was invoked by operator
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: RubyGems installer
+  - producer_package_versions: rpm:<REDACTED> version=4.0.24-1.fc45.noarch
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+  - wrapper_generation: RubyGems generates executable wrappers by default
+
+### F10 gaming-542ab2b7a1cac1d1e2d23e7f  [~/Games/wine-tools/drive_c/windows/system32/wbem]  (member/related rows: 36)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. No other equal complete-range signature found for the observed focal file or immediate members; this does not establish inequality when hashes are partial or originals were not traversed.
+  - consumer_scope: Wine prefix for the user-requested Windows program; Wine/wineserver processes under guest UID 1000
+  - derivation_inputs: installed Wine files
+  - execution_content: Wine can load DOS/Windows executables and DLLs; prefix creation was logged by Wine. This does not establish executability of every member individually
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 5 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Scripts/Windows code execute with caller rights when loaded; no separate isolation boundary appears in the ordinary Wine/Ruby/shell action
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: exact launch/access effects of every historical Wine member are not retained
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Wine prefix initialization during wine invocation
+  - producer_package_versions: dpkg:libwine:amd64 version=9.0~repack-4build3; dpkg:libwine:i386 version=9.0~repack-4build3; dpkg:wine version=9.0~repack-4build3; dpkg:wine32:i386 version=9.0~repack-4build3; dpkg:wine64 version=9.0~repack-4build3; dpkg:winetricks version=20240105-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F10 gaming-85b507e7ce1d3c2a16693bb3  [~/Games/wine-tools/drive_c/windows/rundll.exe]  (member/related rows: 18)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. No other equal complete-range signature found for the observed focal file or immediate members; this does not establish inequality when hashes are partial or originals were not traversed.
+  - consumer_scope: Wine prefix for the user-requested Windows program; Wine/wineserver processes under guest UID 1000
+  - derivation_inputs: installed Wine files
+  - execution_content: Wine can load DOS/Windows executables and DLLs; prefix creation was logged by Wine. This does not establish executability of every member individually
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - host_change_capability: Scripts/Windows code execute with caller rights when loaded; no separate isolation boundary appears in the ordinary Wine/Ruby/shell action
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: exact launch/access effects of every historical Wine member are not retained
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Wine prefix initialization during wine invocation
+  - producer_package_versions: dpkg:libwine:amd64 version=9.0~repack-4build3; dpkg:libwine:i386 version=9.0~repack-4build3; dpkg:wine version=9.0~repack-4build3; dpkg:wine32:i386 version=9.0~repack-4build3; dpkg:wine64 version=9.0~repack-4build3; dpkg:winetricks version=20240105-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F10 gaming-fe91919b6bab6568dfdea112  [~/Games/wine-tools/drive_c/windows/syswow64]  (member/related rows: 5692)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. Complete-byte matches: ~/Games/wine-tools/drive_c/windows/syswow64/ddhelp.exe (1032 bytes) = ~/Games/wine-tools/drive_c/windows/syswow64/dosx.exe; ~/Games/wine-tools/drive_c/windows/syswow64/dosx.exe (1032 bytes) = ~/Games/wine-tools/dri…
+  - consumer_scope: Wine prefix for the user-requested Windows program; Wine/wineserver processes under guest UID 1000
+  - derivation_inputs: installed Wine files
+  - execution_content: Wine can load DOS/Windows executables and DLLs; prefix creation was logged by Wine. This does not establish executability of every member individually
+  - execution_rights: Actions invoke the corresponding consumer/producer as guest UID 1000; executable files normally run with that caller; no elevated invocation of these object paths is in the script
+  - group_scope: 813 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Scripts/Windows code execute with caller rights when loaded; no separate isolation boundary appears in the ordinary Wine/Ruby/shell action
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: UNKNOWN: exact launch/access effects of every historical Wine member are not retained
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: Wine prefix initialization during wine invocation
+  - producer_package_versions: dpkg:libwine:amd64 version=9.0~repack-4build3; dpkg:libwine:i386 version=9.0~repack-4build3; dpkg:wine version=9.0~repack-4build3; dpkg:wine32:i386 version=9.0~repack-4build3; dpkg:wine64 version=9.0~repack-4build3; dpkg:winetricks version=20240105-2
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:32.882113–11:19:41.297260 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F10 server-be5afc83ca654a448cd1fb60  [/var/lib/rancher/k3s/data/cni]  (member/related rows: 56)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - bounded_full_signature_comparison: Compared only files whose saved signature_bytes equals entire size; no equality inferred for partial signatures. No other equal complete-range signature found for the observed focal file or immediate members; this does not establish inequality when hashes are partial or originals were not traversed.
+  - consumer_scope: k3s container networking; symlinks resolve to the CNI multicall executable in the extracted k3s data directory
+  - derivation_inputs: k3s v1.37.2+k3s1 distribution binary
+  - execution_content: Eight symlinks to k3s CNI tools, used by the root-run container network setup; resolved targets appear in filesystem metadata.
+  - execution_rights: k3s is installed and started with root authorization; CNI networking runs in its root-managed runtime
+  - group_scope: 8 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Root-run CNI operations configure container networking on the guest
+  - human_choice: Operator chose invoking/installing the originating tool; action script does not write the resulting member bytes
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator invoked the installation, fetch or execution action; resulting bytes were written or downloaded by the named producer, not individually typed in the script
+  - launch_access: CNI tool links are used for network setup by k3s runtime
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - network_tool_purpose: Both k3s servers and agents run kubelet, container runtime and CNI
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Native user processes and/or interpreter-loaded members according to execution_content; historical per-member process/loader trace is not retained
+  - producer: k3s startup
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - symlink_target:/var/lib/rancher/k3s/data/cni/bandwidth: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/bridge: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/cni: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/firewall: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/flannel: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/host-local: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/loopback: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - symlink_target:/var/lib/rancher/k3s/data/cni/portmap: /var/lib/rancher/k3s/data/342d21a06834327c49d125902586b5c58038e4decca01ba829aa819ce4d1b586/bin/cni
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 developer-342e1a9fd229e3473b8c35b3  [/etc/systemd/system.control/user-1000.slice.d]  (member/related rows: 28)
+  - base_comparison: Same path/name occurs in untouched-base object inventory
+  - consumer_scope: systemd user-1000.slice resource controls for all processes in that user slice
+  - delivery_version: Producer service package versions are given where known; these generated files have no independent version field in inventory
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 4 immediate members; traversal_complete=True; not a recursive expansion
+  - historical_creation_time: UNKNOWN: inventory gives mtime/ctime, not creation time or a per-file write audit; a fresh machine cannot recover the old write event
+  - host_change_capability: systemd applies resource controls to the user slice
+  - human_choice: UNKNOWN: the writer/requester and exact resource values were not retained; filename and time alone cannot distinguish defaults from requested values
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: No direct creation or import of these files appears in the ordinary-action script; historical writer/requester limitations are recorded separately
+  - launch_access: Resource weights and memory protection are named by four drop-in filenames; files do not themselves name a launched executable
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: UNKNOWN: no writer audit or matching explicit set-property action; systemd stores property changes here but requester is not established
+  - producer_package_versions: rpm:systemd@262-3.fc45.x86_64 version=262-3.fc45.x86_64
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 developer-70be1c323890746c1a78c6f5  [/etc/firewalld/policies]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Host firewalld and container forwarding
+  - delivery_version: Producer service package versions are given where known; these generated files have no independent version field in inventory
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - historical_creation_time: UNKNOWN: inventory gives mtime/ctime, not creation time or a per-file write audit; a fresh machine cannot recover the old write event
+  - historical_writer: UNKNOWN: configuration-origin records created=unknown and no write audit; timestamp correlation does not identify the exact writer
+  - host_change_capability: Firewalld governs host forwarding; policy file is consumed as structured network values
+  - human_choice: Operator enabled Docker; no explicit firewall policy value was typed in action script
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: No direct creation or import of these files appears in the ordinary-action script; historical writer/requester limitations are recorded separately
+  - launch_access: docker-forwarding allows forwarding from ANY zone to docker zone
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: Docker documents creation of docker-forwarding policy; operator started Docker during ordinary action
+  - producer_package_versions: rpm:<REDACTED> version=2.5.2-1.fc45.noarch; rpm:docker-ce@29.10.0-1.fc45.x86_64 version=29.10.0-1.fc45.x86_64
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 gaming-1ba8cee6c38131f0b6c75952  [~/.config/pulse]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: PulseAudio-compatible audio service authentication cookie
+  - cookie_documented_role: PulseAudio normally authenticates clients using the same cookie used by its daemon
+  - delivery_version: Producer service package versions are given where known; these generated files have no independent version field in inventory
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: Readers/writers include the user audio session and its clients; actual cookie writer is not audited
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - historical_creation_time: UNKNOWN: inventory gives mtime/ctime, not creation time or a per-file write audit; a fresh machine cannot recover the old write event
+  - host_change_capability: Cookie can participate in audio-service authentication; actual historical enforcement is unretained
+  - human_choice: No cookie bytes are selected by action script; operator selected audio volume/mute separately
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: No direct creation or import of these files appears in the ordinary-action script; historical writer/requester limitations are recorded separately
+  - launch_access: UNKNOWN: historical server authentication configuration and this cookie use are not retained
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: UNKNOWN: cookie writer not audited; action starts audio clients and uses pactl; exact producing process is not retained
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 server-034bd74a045c24aa6dd19160  [/var/lib/rancher/k3s/server/db]  (member/related rows: 21)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: k3s control-plane, agent and container runtime on this guest
+  - delivery_version: Generated by/used with observed k3s v1.37.2+k3s1
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - effective_policies: UNKNOWN: full historical datastore rows were not retained; exact persisted commands/roles cannot be reconstructed
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 3 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: k3s control-plane and runtime manage guest workloads/networking; exact rights/embedded workload values not fully retained
+  - human_choice: Operator chose k3s options and workload deployment/service; generated keys/passwords and default component manifests were not individually selected
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: Operator enabled the originating service or invoked its clients; the script does not author the generated files individually; k3s workload values are separately authored in workload.yaml
+  - launch_access: Operator applied deployment and service workload through k3s kubectl; database files were later inventoried
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: k3s v1.37.2+k3s1 started as root; operator applied workload.yaml after node became ready
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 server-0a575e792deb53a2ae502487  [/var/lib/rancher/k3s/server/manifests/metrics-server]  (member/related rows: 49)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: k3s control-plane, agent and container runtime on this guest
+  - delivery_version: Generated by/used with observed k3s v1.37.2+k3s1
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 7 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: k3s control-plane and runtime manage guest workloads/networking; exact rights/embedded workload values not fully retained
+  - human_choice: Operator chose k3s options and workload deployment/service; generated keys/passwords and default component manifests were not individually selected
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: Operator enabled the originating service or invoked its clients; the script does not author the generated files individually; k3s workload values are separately authored in workload.yaml
+  - launch_access: Metrics-server deployment, service and access-role manifests are applied automatically by k3s
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: k3s v1.37.2+k3s1 started as root; operator applied workload.yaml after node became ready
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 server-7bf44e4e4a03c100b6ad395a  [/var/lib/rancher/k3s/agent]  (member/related rows: 112)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: k3s control-plane, agent and container runtime on this guest
+  - delivery_version: Generated by/used with observed k3s v1.37.2+k3s1
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - effective_permissions: UNKNOWN: complete historical credentials, role bindings and component configuration were not retained; no exact access set can be inferred
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 16 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: k3s control-plane and runtime manage guest workloads/networking; exact rights/embedded workload values not fully retained
+  - human_choice: Operator chose k3s options and workload deployment/service; generated keys/passwords and default component manifests were not individually selected
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: Operator enabled the originating service or invoked its clients; the script does not author the generated files individually; k3s workload values are separately authored in workload.yaml
+  - launch_access: Group includes kubeconfigs and credential/certificate files used by k3s components; names and metadata are listed individually
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: k3s v1.37.2+k3s1 started as root; operator applied workload.yaml after node became ready
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 server-c6809ad0393bc02f2943127a  [/var/lib/rancher/k3s/server/cred]  (member/related rows: 56)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: k3s control-plane, agent and container runtime on this guest
+  - delivery_version: Generated by/used with observed k3s v1.37.2+k3s1
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - effective_permissions: UNKNOWN: complete historical credentials, role bindings and component configuration were not retained; no exact access set can be inferred
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 8 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: k3s control-plane and runtime manage guest workloads/networking; exact rights/embedded workload values not fully retained
+  - human_choice: Operator chose k3s options and workload deployment/service; generated keys/passwords and default component manifests were not individually selected
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: Operator enabled the originating service or invoked its clients; the script does not author the generated files individually; k3s workload values are separately authored in workload.yaml
+  - launch_access: Group includes kubeconfigs and credential/certificate files used by k3s components; names and metadata are listed individually
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: k3s v1.37.2+k3s1 started as root; operator applied workload.yaml after node became ready
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F11 server-ddd20eb86c2fac35aad9742a  [/etc/rancher/node]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: k3s control-plane, agent and container runtime on this guest
+  - delivery_version: Generated by/used with observed k3s v1.37.2+k3s1
+  - derivation_inputs: UNKNOWN: no complete per-file derivation trace; action choices and documented generation behavior above do not reconstruct all historical inputs
+  - execution_content: UNKNOWN: full contents and parser execution paths for this historical group were not retained; file modes alone do not establish whether embedded fields can launch commands
+  - execution_rights: systemd/firewalld/k3s system services read these files with service rights; UID 0 owns their immediate files
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: k3s control-plane and runtime manage guest workloads/networking; exact rights/embedded workload values not fully retained
+  - human_choice: Operator chose k3s options and workload deployment/service; generated keys/passwords and default component manifests were not individually selected
+  - human_choice_time: Operator invocation timing is supplied by the recorded action interval/status and file metadata; no individual choice of generated bytes is recorded. The resource-drop-in requester is separately unknown.
+  - human_created_or_brought: Operator enabled the originating service or invoked its clients; the script does not author the generated files individually; k3s workload values are separately authored in workload.yaml
+  - launch_access: Node password authenticates node registration and certificate requests; generated randomly by agent
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Persistent stored files used by separately running services; they are not themselves the service process
+  - producer: k3s v1.37.2+k3s1 started as root; operator applied workload.yaml after node became ready
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F12 developer-d916e8927ebf41371ab8dd1d  [~/Projects/development-web]  (member/related rows: 14)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Docker build and restarted container service
+  - content: "Dockerfile: FROM docker.io/library/busybox:stable; WORKDIR /www; COPY index.html /www/index.html; EXPOSE 8080; CMD [""httpd"", ""-f"", ""-p"", ""8080"", ""-h"", ""/www""]; index.html: Development preview"
+  - delivery_version: Operator-written values, not identified as a versioned archive by the action; project directory also contains upstream files
+  - derivation_inputs: Literal content of operator action script; scc project additionally fetched from upstream Git
+  - execution_content: Docker build reads instructions as build input; CMD supplies container startup argument vector; no RUN instruction in this Dockerfile; root-authorized Docker starts container
+  - execution_rights: Docker build/run are invoked with root authorization; effective UID inside image not captured
+  - group_scope: 2 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Docker commands create stored image/container and host port mapping; container capability details are unretained
+  - human_choice: Operator wrote these values through the committed ordinary-action script on 2026-11-23 UTC
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator authored Dockerfile and index.html through the committed action script
+  - launch_access: Image CMD launches httpd; operator starts container with restart unless-stopped and loopback port publication
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Docker build reads Dockerfile; the resulting image CMD runs httpd as a container process on the guest kernel
+  - producer: Operator shell heredoc wrote Dockerfile and printf wrote index.html in the user-owned development-web directory
+  - reader_documented_behavior: Docker reads build instructions; CMD specifies default commands
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F12 developer-e56b4f802a20335d455ecb3a  [~/Projects/scc]  (member/related rows: 294)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: User project Git hook
+  - content: lefthook.yml: pre-commit jobs entry name whitespace; run: git diff --cached --check
+  - delivery_version: Operator-written values, not identified as a versioned archive by the action; project directory also contains upstream files
+  - derivation_inputs: Literal content of operator action script; scc project additionally fetched from upstream Git
+  - execution_content: lefthook install writes a Git pre-commit hook; lefthook reads YAML and runs the command under committing user rights; directory also contains fetched source and built scc
+  - execution_rights: lefthook launches sh with the invoking/committing user rights; recorded installation runs as UID 1000
+  - group_scope: 42 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Selected git diff command checks staged whitespace with user rights; shell execution can run commands under those rights
+  - human_choice: Operator wrote these values through the committed ordinary-action script on 2026-11-23 UTC
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator fetched the scc project and authored lefthook.yml through the committed action script
+  - launch_access: Git pre-commit hook launches lefthook command git diff --cached --check
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms; metadata.json reports package_ownership_complete=false.
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Git invokes its pre-commit hook; lefthook reads YAML and invokes sh to run git diff as a user process
+  - producer: Operator shell heredoc wrote lefthook.yml in the user-owned scc checkout
+  - reader_documented_behavior: lefthook run field is executed using sh
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:24.176340–11:15:23.677547 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F12 server-c354536d6d9a738329571706  [/etc/cron.d]  (member/related rows: 7)
+  - base_comparison: No equal path/name in untouched-base object inventory; inventory coverage limits still apply
+  - consumer_scope: Host cron service
+  - content: cal-maintenance: SHELL=/bin/sh; PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin; 17 * * * * root /usr/bin/date -u >> /var/log/cal-maintenance.log
+  - delivery_version: Operator-written values, not identified as a versioned archive by the action; project directory also contains upstream files
+  - derivation_inputs: Literal content of operator action script; scc project additionally fetched from upstream Git
+  - execution_content: cron reads schedule, environment and account fields; launches /bin/sh command as root at minute 17 each hour; cron service explicitly enabled
+  - execution_rights: cron invokes /bin/sh as root, explicitly named in the cron line
+  - group_scope: 1 immediate members; traversal_complete=True; not a recursive expansion
+  - host_change_capability: Cron command appends a UTC timestamp to a root-owned host log
+  - human_choice: Operator wrote these values through the committed ordinary-action script on 2026-11-23 UTC
+  - human_choice_time: Choice recorded in committed action script and exercised during the recorded action interval; exact drafting time/person identity beyond role operator is not recorded
+  - human_created_or_brought: Operator authored the cron environment and command fields through the committed action script
+  - launch_access: Cron launches date hourly as root
+  - native_package_manifest: No native-manager path match for object or immediate members in package-files.tsv; this does not settle other delivery mechanisms
+  - presence: Observed in post-restart inventory
+  - primary_description_designation: UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+  - primary_description_evidence: The supplied actions identify concrete input files/commands above; no designation of one as the primary description of this guest is recorded in those actions
+  - process_boundary: Cron daemon reads schedule and launches /bin/sh; date runs as a child process under root
+  - producer: Shell heredoc created cal-maintenance; install_root_file copied it to /etc/cron.d/cal-maintenance as root
+  - producer_package_versions: dpkg:cron version=3.0pl1-197; dpkg:cron-daemon-common version=3.0pl1-197
+  - reader_documented_behavior: Cron reads scheduling/environment fields and passes the command to a shell
+  - recorded_action_interval: Originating ordinary action occurred within 2026-11-23 11:13:43.838004–11:15:13.988466 UTC. Individual retained mtime/ctime are separately reported; they are not asserted to be creation timestamps.
+  - unchanged_since_receipt: UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+
+### F13 s2-1  [<Firefox-profile>/prefs.js: activated theme preference]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C8.08 a
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Firefox for the user of this profile
+  - derivation: User selection of a theme
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The selected value is read by Firefox, not supplied as executable statements.
+  - human_creation_or_bringing: A person chooses the value; Firefox stores it.
+  - launch_change_access_behavior: The selected theme value selects Firefox appearance; no program invocation or login/access permission is specified for that value.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The object is a user-chosen value stored in a profile; no package-supplied value is identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person chooses the theme in the described channel.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Firefox preference storage
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F13 s2-2  [<Firefox-profile>/prefs.js: home-page URL preference]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - additional_launch_or_access: UNKNOWN: No selected URL, protocol handler or target contents are recorded; behavior beyond page navigation cannot be established.
+  - channel_object: C8.08 b
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Firefox for the user of this profile
+  - derivation: User selection of a home page
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The URL is read as a navigation value; this object is not the fetched page or its scripts.
+  - human_creation_or_bringing: A person chooses the value; Firefox stores it.
+  - launch_change_access_behavior: The selected URL causes Firefox to open a page on the documented triggers.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The object is a user-chosen value stored in a profile; no package-supplied value is identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person chooses the home-page URL in the described channel.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Firefox preference storage
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-10  [<prefix>/bin/<program>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 a executable
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Programs/users invoking the installed path
+  - derivation: Built executable selected by project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The copied target is an executable; launch uses the operating-system loader.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake-generated install operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-11  [<prefix>/lib/<library>.so]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 a library
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Program loading the library
+  - derivation: Built library selected by project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Shared-library machine code is loaded into a consuming process.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake-generated install operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - specific_consumer: UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+
+### F14 s2-12  [build/cmake_install.cmake]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 b
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: CMake install operation
+  - derivation: Project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Executed by generated install target, CPack, or cmake -P.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The generated CMake installation script executes installation rules that write destinations; actual effects depend on rules and caller permissions.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake install() processing
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-13  [<shell-startup-file>: PATH assignment]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 c
+  - channel_tool_purpose: Bash: shell command execution and startup-file processing.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Shell reading that file and processes receiving exported PATH
+  - derivation: Person-selected command-search path
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Bash reads and executes startup-file statements; PATH changes command lookup.
+  - human_creation_or_bringing: Person writes the assignment.
+  - launch_change_access_behavior: The assignment changes shell command lookup; an assignment alone does not start a command.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Person-written startup assignment; no package-delivered bytes identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person chooses the PATH assignment in the described channel.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Person editing a shell startup file
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-14  [<prefix>/bin/<alias>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 d
+  - channel_tool_purpose: UNKNOWN: The channel does not identify the program used to create the link.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Command lookup/path resolution and target process
+  - derivation: Chosen target executable path
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: A link resolves to its target; invocation via the alias executes the target.
+  - human_creation_or_bringing: The person creates the link in the described channel.
+  - launch_change_access_behavior: Invocation via the stored alias reaches the target executable; the link does not by itself record a login permission.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Person-created link; no package delivery is stated.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person chooses a launch alias and its target.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Person creating a link
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-15  [./<program> (replacement)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.4 a executable
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Programs/users invoking that path
+  - derivation: New source/build inputs replacing earlier output
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Native executable can be started as a process in the described channel.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Compiler/build operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: The channel specifies replacement by different bytes at the same path.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-16  [./<library>.so (replacement)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.4 a library
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Program loading the replaced library
+  - derivation: New source/build inputs replacing earlier output
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Library code can execute within a process that loads it.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Compiler/build operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: The channel specifies replacement by different bytes at the same path.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - specific_consumer: UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+
+### F14 s2-17  [./<plugin>.so]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 a
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: GCC loading the plugin
+  - derivation: Plugin source and build inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: GCC loads the plugin into its own process; plugin extends compiler behavior.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - process_boundary: Loaded into the GCC process using dlopen or equivalent; no separate plugin process is specified.
+  - producer: Local compiler/linker build
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-18  [<packaged-plugin-path>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 b
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: GCC loading the plugin
+  - derivation: Installed package containing the plugin
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: GCC plugin module loaded into compiler process.
+  - human_creation_or_bringing: A person using the channel selects a plugin; the package supplies its bytes.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The channel explicitly specifies an unchanged plugin obtained in an installed package.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - process_boundary: Loaded into the GCC process using dlopen or equivalent; no separate plugin process is specified.
+  - producer: Package installation in the described channel
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: Yes, stipulated by the channel description; not an observed digest comparison.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-19  [./a.out or <-o-path> (plugin-enabled build)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 c
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Operating-system loader
+  - derivation: Source, linker inputs and compilation affected by the plugin
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Linked output can execute as its own process in the described channel.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Compiler/linker with plugin loaded
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-3  [./a.out or <-o-path>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 a
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Operating-system execution of the built file
+  - derivation: C source and linker inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The channel specifies native output then execution as a process.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: GCC compilation/linking
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-4  [./<name>.c]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 b
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: GCC reads source
+  - derivation: C source input; earlier origin not given
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Compilation is needed before the native execution described; source is compiler input.
+  - human_creation_or_bringing: UNKNOWN: B1 names the source input but does not identify its creator or whether the operator brought it.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: UNKNOWN: B1 names a C source input but gives no package-delivery provenance.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: UNKNOWN: The writing program or creator of the source is not identified.
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-5  [./<name>.o]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 d
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: Linker
+  - derivation: C source and compilation inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The described intermediate needs linking before execution; the linker consumes it.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: GCC compilation/assembly
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-6  [CMakeLists.txt]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 a recipe
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: CMake configuring this project
+  - derivation: Project build instructions
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: CMake evaluates this project file; its command language can start child processes.
+  - human_creation_or_bringing: UNKNOWN: B1 names the project recipe without stating whether the invoking person wrote it or brought it.
+  - launch_change_access_behavior: CMake commands in the recipe can invoke child processes; actual effects depend on its commands and caller permissions.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Project input; no package provenance is stated.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Project author
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-7  [<try_run COPY_FILE destination>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 a executable
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: CMake test execution and operating-system loader
+  - derivation: Source files passed to try_run
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: try_run builds and runs a test executable; COPY_FILE retains it when requested.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake try_run and invoked compiler/linker
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-8  [build/CMakeCache.txt: compile/run result entries]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 b cache
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: CMake configuring this project
+  - derivation: Build success/failure and test exit result
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: CMake reads cached results as values.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The named result/event values report compilation and execution; they are not commands in the documented file reader.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: These result values are calculated from compilation/run outcomes, rather than chosen by a person.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake try_run
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-9  [<build>/CMakeFiles/CMakeConfigureLog.yaml: try_run event]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 b log
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: People or tools inspecting the configure log
+  - derivation: Compile/run event details
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The event is written/read as log data.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The named result/event values report compilation and execution; they are not commands in the documented file reader.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: Event values are obtained from execution, rather than selected by a person.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: CMake during configuration
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F15 s2-20  [~/.python_history]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C7.06 b
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: User-run interactive Python session
+  - derivation: Retained user input from interactive sessions
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: History is loaded for recall/editing. Retained statements can be submitted to Python.
+  - human_creation_or_bringing: A person supplies input; the interpreter records the file.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person types input; the history facility chooses what to save under its configuration.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Interactive Python history facility
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - whole_file_executability: UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.
+
+### F15 s2-21  [<HISTFILE> (default ~/.bash_history)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C7.17 c
+  - choice_time: UNKNOWN: No UTC choice time is recorded for an identified instance.
+  - consumer: User-run shell and its history facility
+  - derivation: Retained shell history list entries
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - evidence_scope: Documentation-defined disk object; no inventory instance is identified by B1.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: History reading populates a list; recalled commands can be executed through fc or history substitution.
+  - human_creation_or_bringing: A person supplies commands; Bash writes the file.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - observed_presence: UNKNOWN: B1 specifies no machine observation or inventory object for this channel; current or first-night presence cannot be established.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - persistence: The channel names a saved disk file/value/link, not only a process.
+  - persistent_backing: UNKNOWN: The channel specifies a saved file but names no observed filesystem backing or restart survival.
+  - person_choice: A person types commands; configured history filters affect which entries are retained.
+  - primary_description: UNKNOWN: No person-designated primary description for this object is supplied by B1.
+  - producer: Bash history facility
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - production_time: UNKNOWN: The documented producing operation has no observed run or UTC timestamp in B1.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - whole_file_executability: UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.
+

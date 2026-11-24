@@ -1,0 +1,147 @@
+[
+  {
+    "argv": [
+      "python3",
+      "build/build.py",
+      "--server",
+      "--replace"
+    ],
+    "ended_utc": "2026-11-23T08:33:35Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "build.log",
+    "started_utc": "2026-11-23T08:31:55Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "v4-development-1-shell",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T08:34:15Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-new.log",
+    "started_utc": "2026-11-23T08:33:36Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-development-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:34:15Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "login.log",
+    "started_utc": "2026-11-23T08:34:15Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-development-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:35:19Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell.jsonl",
+    "started_utc": "2026-11-23T08:34:15Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "stop",
+      "v4-development-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:35:23Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-stop.log",
+    "started_utc": "2026-11-23T08:35:19Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "start",
+      "v4-development-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:36:04Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-start.log",
+    "started_utc": "2026-11-23T08:35:23Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-development-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:36:04Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-reboot.jsonl",
+    "started_utc": "2026-11-23T08:36:04Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-development-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:36:25Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-verify.log",
+    "started_utc": "2026-11-23T08:36:04Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "v4-development-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:36:26Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "v4-development-1-shell-destroy.log",
+    "started_utc": "2026-11-23T08:36:25Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "v4-development-1-tools",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T08:37:10Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "tools-new.log",
+    "started_utc": "2026-11-23T08:36:26Z"
+  }
+]

@@ -1,0 +1,18 @@
+2026-11-23 14:44:06 UTC
+PASS: sample keys unique, aligned and unchanged; 300 D1 + 300 A3.
+PASS: all 8 DOES-NOT-FOLLOW challenges adjudicated once; required TSV header and copied findings match.
+PASS: sample accounting: 582 shared FOLLOWS + 2 resolved original agreements + 16 factual unknowns = 600; 0 confirmed failures.
+PASS: fixed-family table contains all 105 IDs in their 15 correct families; outcomes 6 zero, 9 unknown.
+PASS: all 18 family gap rows reproduce both answer pairs verbatim; signs match the saved adjudication (15 both, 3 not both).
+PASS: all 8 sample answer pairs reproduced verbatim; none is treated as a confirmed gap.
+PASS: all 16 literal quotations in sample-adjudication.tsv match SENTENCES.md.
+PASS: output files contain no machine home paths or prohibited personal/role names.
+COMMAND: /usr/bin/python3 -I bin/check_quotes.py S2/RESULT.md
+quotes checked: 21; not found in TEXT.md: 0
+Exit code: 0
+
+Output SHA-256:
+bb4474fb19407dd297c36b49af0c6ef4b29733fe1a79754ab1637bb95e9d99dc  S2/RESULT.md
+8071d2d2a8eff0600e52f28b85d608b727dd2a3d64a7f8a3265728194b38444d  S2/sample-adjudication.tsv
+
+These are mechanical consistency checks. Substantive review RV-S2-R remains separate.

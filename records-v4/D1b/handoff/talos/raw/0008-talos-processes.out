@@ -1,0 +1,35 @@
+NODE        PID   STATE   THREADS   CPU-TIME   VIRTMEM   RESMEM   LABEL                                   COMMAND
+10.0.2.15   1     S       14        0.80       1.5 GB    131 MB   system_u:system_r:init_t:s0             /sbin/init
+10.0.2.15   343   S       8         0.11       1.4 GB    83 MB    system_u:system_r:dashboard_t:s0        /sbin/dashboard
+10.0.2.15   387   S       8         0.10       1.4 GB    78 MB    system_u:system_r:apid_t:s0             /apid
+10.0.2.15   554   S       8         0.06       1.4 GB    73 MB    system_u:system_r:trustd_t:s0           /trustd
+10.0.2.15   104   S       7         0.03       1.4 GB    71 MB    system_u:system_r:sandboxd_t:s0         /sbin/sandboxd
+10.0.2.15   648   S       10        0.22       2.0 GB    69 MB    system_u:system_r:kubelet_t:s0          /usr/local/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubeconfig --cert-dir=/var/lib/kubelet/pki --config=/etc/kubernetes/kubelet.yaml --hostname-override=talos-zjb-rrh --kubeconfig=/etc/kubernetes/kubeconfig-kubelet --node-ip=10.0.2.15
+10.0.2.15   431   S       8         0.08       1.3 GB    48 MB    system_u:system_r:pod_containerd_t:s0   /bin/containerd --address /run/containerd/containerd.sock --config /etc/cri/containerd.toml
+10.0.2.15   650   S       5         0.06       12 GB     47 MB    system_u:system_r:etcd_t:s0             /usr/local/bin/etcd --advertise-client-urls=https://10.0.2.15:2379 --auto-tls=false --cert-file=/system/secrets/etcd/server.crt --client-cert-auth=true --data-dir=/var/lib/etcd --feature-gates=InitialCorruptCheck=true --feature-gates=CompactHashCheck=true --initial-advertise-peer-urls=https://10.0.2.15:2380 --key-file=/system/secrets/etcd/server.key --listen-client-http-urls=https://0.0.0.0:2383 --listen-client-urls=https://0.0.0.0:2379 --listen-peer-urls=https://0.0.0.0:2380 --name=talos-zjb-rrh --peer-auto-tls=false --peer-cert-file=/system/secrets/etcd/peer.crt --peer-client-cert-auth=true --peer-key-file=/system/secrets/etcd/peer.key --peer-trusted-ca-file=/system/secrets/etcd/ca.crt --tls-min-version=TLS1.3 --trusted-ca-file=/system/secrets/etcd/ca.crt --watch-progress-notify-interval=5s
+10.0.2.15   108   S       7         0.07       1.3 GB    38 MB    system_u:system_r:sys_containerd_t:s0   /bin/containerd --address /system/run/containerd/containerd.sock --state /system/run/containerd --root /system/var/lib/containerd
+10.0.2.15   530   S       10        0.00       1.3 GB    11 MB    system_u:system_r:sys_containerd_t:s0   /usr/bin/containerd-shim-runc-v2 -namespace system -id trustd -address /system/run/containerd/containerd.sock
+10.0.2.15   597   S       10        0.01       1.3 GB    11 MB    system_u:system_r:pod_containerd_t:s0   /usr/bin/containerd-shim-runc-v2 -namespace system -id etcd -address /run/containerd/containerd.sock
+10.0.2.15   362   S       11        0.01       1.4 GB    11 MB    system_u:system_r:sys_containerd_t:s0   /usr/bin/containerd-shim-runc-v2 -namespace system -id apid -address /system/run/containerd/containerd.sock
+10.0.2.15   603   S       10        0.00       1.3 GB    10 MB    system_u:system_r:pod_containerd_t:s0   /usr/bin/containerd-shim-runc-v2 -namespace system -id kubelet -address /run/containerd/containerd.sock
+10.0.2.15   151   S       1         0.02       27 MB     6.9 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   139   S       1         0.02       27 MB     6.7 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   110   S       1         0.07       27 MB     6.6 MB   system_u:system_r:udev_t:s0             /sbin/systemd-udevd --resolve-names=never
+10.0.2.15   150   S       1         0.04       27 MB     6.5 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   135   S       1         0.01       27 MB     6.5 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   142   S       1         0.00       27 MB     6.2 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   141   S       1         0.00       27 MB     6.2 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   146   S       1         0.00       27 MB     6.1 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   148   S       1         0.01       27 MB     5.7 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   145   S       1         0.00       27 MB     5.7 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   154   S       1         0.00       27 MB     5.6 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   137   S       1         0.02       27 MB     5.5 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   143   S       1         0.00       27 MB     5.4 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   136   S       1         0.01       27 MB     5.4 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   133   S       1         0.01       27 MB     5.2 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   147   S       1         0.00       27 MB     5.2 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   134   S       1         0.01       27 MB     5.2 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   140   S       1         0.01       27 MB     5.1 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   149   S       1         0.00       27 MB     5.1 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   153   S       1         0.00       27 MB     4.7 MB   system_u:system_r:udev_t:s0             (udev-worker)
+10.0.2.15   138   S       1         0.00       27 MB     4.7 MB   system_u:system_r:udev_t:s0             (udev-worker)

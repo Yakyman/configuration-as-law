@@ -1,0 +1,216 @@
+{
+  "C3.5": {
+    "route": {
+      "before": "[BUILTIN] [GENERAL] general-purpose without superuser rights (S8.1-8); archive/executable launcher; mount is other built-in filesystem tool (S8.1-7); dedicated AppImage update functionality is other built-in tool under S8.1-7 [appimage](https://docs.appimage.org/user-guide/run-appimages.html) [appupdate](https://docs.appimage.org/packaging-guide/optional/updates.html)",
+      "after": "[GENERAL] archive extraction and application launching without superuser rights; these functions have no documented installation/configuration purpose meeting S8.1-7; manual copy/link/shell functions are expressly general-purpose under S8.1-8. [BUILTIN] the system mount utility configures filesystems (S8.1-7; S8.2-13), documented as part of util-linux. [UNKNOWN] bundled/external updater: the generic AppImage documentation does not identify the actual updater or establish its status as a program of the system under S8.1-7. No installer label is inferred without the installing-and-removing purpose of S8.1-4. [mount purpose](https://man7.org/linux/man-pages/man8/mount.8.html) [AppImage update modes](https://docs.appimage.org/packaging-guide/optional/updates.html). Evidence: SOURCES.md E078, E103."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» The output-program recording duty is established; whether the unidentified updater itself has the built-in-tool duty in S8.3-7 remains fact-unknown."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "FACT_UNKNOWN"
+    },
+    "reason": {
+      "before": "Code remains Q2 whether extracted or updated. The documented updater changes installed code; installation-and-removal purpose is not established, so it is not asserted to satisfy S8.1-4.",
+      "after": "Extracted and updated code remains Q2. Mount purpose is documented. The generic updater description does not identify the actual program or establish that it is a program of the system under S8.1-7."
+    }
+  },
+  "C4.3": {
+    "route": {
+      "before": "[BUILTIN] [GENERAL] general-purpose without superuser rights (S8.1-8); download/copy/sync S8.1-8; documented dedicated updater is other built-in S8.1-7 [curl](https://curl.se/docs/manpage.html) [appupdate](https://docs.appimage.org/packaging-guide/optional/updates.html)",
+      "after": "[GENERAL] download/copy/synchronization without superuser rights. The documented curl purpose is data transfer, not installation/configuration meeting S8.1-7; S8.1-8 explicitly covers copying, not downloading. [UNKNOWN] AppImage updater: the generic update-mode description does not identify the actual updater or establish a program of the system under S8.1-7; no S8.1-4 installing-and-removing purpose is inferred. [curl purpose](https://curl.se/docs/manpage.html) [AppImage update modes](https://docs.appimage.org/packaging-guide/optional/updates.html). Evidence: SOURCES.md E078, E079, E104."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» The output-program recording duty is established; whether the unidentified updater itself has the built-in-tool duty in S8.3-7 remains fact-unknown."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "FACT_UNKNOWN"
+    },
+    "reason": {
+      "before": "Ordinary download/copy/sync is general-purpose; the documented dedicated updater changes installed executable code and is a built-in tool under S8.1-7. Removing programs is required only for the installer label.",
+      "after": "Ordinary download/copy is general-purpose. The updater’s identity and status as a program of the system are unestablished. The output’s Q2 recording duty does not depend on resolving the acting route."
+    }
+  },
+  "C5.1": {
+    "route": {
+      "before": "[BUILTIN] specialized compiler/build/installation functionality whose documented purpose creates or replaces executable programs (S8.1-7; S8.2-10); no installing-and-removing purpose is inferred under S8.1-4. [GENERAL] separately invoked shell, manual copying/link creation or editor operations (S8.1-8). [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [CMake purpose and installation](https://cmake.org/cmake/help/latest/manual/cmake.1.html)",
+      "after": "TWO_WAYS for the specialized build/output operation: reading A [BUILTIN], documented executable production/replacement changes what is installed via S8.2-10, so falls under S8.1-7; reading B [GENERAL], compilation/build processing or copying an output is general-purpose work, with S8.1-8 expressly excluding copying and link creation; the text does not say which reading governs this functionality. Separately invoked shell, editor, manual copy and link operations are [GENERAL] (S8.1-8). [compiler purpose](https://gcc.gnu.org/onlinedocs/gcc/G_002b_002b-and-GCC.html) [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [build and install purpose](https://cmake.org/cmake/help/latest/manual/cmake.1.html). Evidence: SOURCES.md E083, E085, E093, E094; GAPS.md."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» Under reading A, S8.3-7 requires the acting build tool itself to record its changes. Under reading B, that tool-specific duty is not established; S8.3-6 and S8.3-8 still disallow an ordinary unrecorded installed-program change. The output recording duty under S8.2-1 and S8.2-16 is unchanged under both readings."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "Executable output reaches Q2. The generated-origin line is available only when the system itself builds or obtains that output from it.",
+      "after": "Executable output is decided. Its producer has two route readings: built-in because it changes installed programs, or general-purpose build/copy functionality. The text does not select the tool-specific recording obligation."
+    }
+  },
+  "C5.2": {
+    "route": {
+      "before": "[BUILTIN] specialized compiler/build/installation functionality whose documented purpose creates or replaces executable programs (S8.1-7; S8.2-10); no installing-and-removing purpose is inferred under S8.1-4. [GENERAL] separately invoked shell, manual copying/link creation or editor operations (S8.1-8). [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [CMake purpose and installation](https://cmake.org/cmake/help/latest/manual/cmake.1.html)",
+      "after": "TWO_WAYS for the specialized build/output operation: reading A [BUILTIN], documented executable production/replacement changes what is installed via S8.2-10, so falls under S8.1-7; reading B [GENERAL], compilation/build processing or copying an output is general-purpose work, with S8.1-8 expressly excluding copying and link creation; the text does not say which reading governs this functionality. Separately invoked shell, editor, manual copy and link operations are [GENERAL] (S8.1-8). [compiler purpose](https://gcc.gnu.org/onlinedocs/gcc/G_002b_002b-and-GCC.html) [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [build and install purpose](https://cmake.org/cmake/help/latest/manual/cmake.1.html). Evidence: SOURCES.md E083, E085, E093, E094; GAPS.md."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» Under reading A, S8.3-7 requires the acting build tool itself to record its changes. Under reading B, that tool-specific duty is not established; S8.3-6 and S8.3-8 still disallow an ordinary unrecorded installed-program change. The output recording duty under S8.2-1 and S8.2-16 is unchanged under both readings."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "Executed recipes and retained probes are Q2; cached numeric results are Q4. Temporary probe processes follow the generating/executing program.",
+      "after": "Executable output is decided. Its producer has two route readings: built-in because it changes installed programs, or general-purpose build/copy functionality. The text does not select the tool-specific recording obligation."
+    }
+  },
+  "C5.3": {
+    "route": {
+      "before": "[BUILTIN] specialized compiler/build/installation functionality whose documented purpose creates or replaces executable programs (S8.1-7; S8.2-10); no installing-and-removing purpose is inferred under S8.1-4. [GENERAL] separately invoked shell, manual copying/link creation or editor operations (S8.1-8). [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [CMake purpose and installation](https://cmake.org/cmake/help/latest/manual/cmake.1.html)",
+      "after": "TWO_WAYS for the specialized build/output operation: reading A [BUILTIN], documented executable production/replacement changes what is installed via S8.2-10, so falls under S8.1-7; reading B [GENERAL], compilation/build processing or copying an output is general-purpose work, with S8.1-8 expressly excluding copying and link creation; the text does not say which reading governs this functionality. Separately invoked shell, editor, manual copy and link operations are [GENERAL] (S8.1-8). [compiler purpose](https://gcc.gnu.org/onlinedocs/gcc/G_002b_002b-and-GCC.html) [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [build and install purpose](https://cmake.org/cmake/help/latest/manual/cmake.1.html). Evidence: SOURCES.md E083, E085, E093, E094; GAPS.md. The documented install target strengthens reading A; reading B treats its output copying/linking as the expressly excluded functionality. S8.1-8 names an installer exception, but no removing-programs purpose under S8.1-4 is established here."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» Under reading A, S8.3-7 requires the acting build tool itself to record its changes. Under reading B, that tool-specific duty is not established; S8.3-6 and S8.3-8 still disallow an ordinary unrecorded installed-program change. The output recording duty under S8.2-1 and S8.2-16 is unchanged under both readings."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "CMake installation and specialized build output change installed programs under S8.1-7; shell/copy/link operations remain general-purpose. Executable startup files are programs; separately chosen launch links are settings.",
+      "after": "Executable output is decided. Its producer has two route readings: built-in because it changes installed programs, or general-purpose build/copy functionality. The text does not select the tool-specific recording obligation."
+    }
+  },
+  "C5.4": {
+    "route": {
+      "before": "[BUILTIN] specialized compiler/linker replacing executable output, whose documented purpose changes installed programs (S8.1-7; S8.2-10). [GENERAL] manual user copying/editing (S8.1-8). [BREAKING] separately privileged direct replacement past the declaration outside built-in tools (S8.1-15, S8.1-16). [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html)",
+      "after": "TWO_WAYS for the specialized build/output operation: reading A [BUILTIN], documented executable production/replacement changes what is installed via S8.2-10, so falls under S8.1-7; reading B [GENERAL], compilation/build processing or copying an output is general-purpose work, with S8.1-8 expressly excluding copying and link creation; the text does not say which reading governs this functionality. Separately invoked shell, editor, manual copy and link operations are [GENERAL] (S8.1-8). [compiler purpose](https://gcc.gnu.org/onlinedocs/gcc/G_002b_002b-and-GCC.html) [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [build and install purpose](https://cmake.org/cmake/help/latest/manual/cmake.1.html). Evidence: SOURCES.md E083, E085, E093, E094; GAPS.md. [BREAKING] separately privileged direct replacement outside built-in tools past the declaration (S8.1-15, S8.1-16); this is not a claim that root use of a built-in tool is breaking."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» S8.1-15: «Breaking—a change to what is installed or settings, made past the declaration through the power of superuser privileges, outside the built-in tools: by writing directly to files, deleting, or disabling system mechanisms.» S8.1-16: «Breaking is a violation on the person’s part rather than a property of the system, and it refutes no property.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» S8.1-15: «Breaking—a change to what is installed or settings, made past the declaration through the power of superuser privileges, outside the built-in tools: by writing directly to files, deleting, or disabling system mechanisms.» S8.1-16: «Breaking is a violation on the person’s part rather than a property of the system, and it refutes no property.» Under reading A, S8.3-7 requires the acting build tool itself to record its changes. Under reading B, that tool-specific duty is not established; S8.3-6 and S8.3-8 still disallow an ordinary unrecorded installed-program change. The output recording duty under S8.2-1 and S8.2-16 is unchanged under both readings."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "Changed executable bytes fail the unchanged-package test and are programs. Specialized compilation is built-in; manual replacement uses the general-purpose or breaking route according to privileges and declaration bypass.",
+      "after": "Executable output is decided. Its producer has two route readings: built-in because it changes installed programs, or general-purpose build/copy functionality. The text does not select the tool-specific recording obligation."
+    }
+  },
+  "C5.5": {
+    "route": {
+      "before": "[BUILTIN] specialized compiler/build/installation functionality whose documented purpose creates or replaces executable programs (S8.1-7; S8.2-10); no installing-and-removing purpose is inferred under S8.1-4. [GENERAL] separately invoked shell, manual copying/link creation or editor operations (S8.1-8). [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [CMake purpose and installation](https://cmake.org/cmake/help/latest/manual/cmake.1.html)",
+      "after": "TWO_WAYS for the specialized build/output operation: reading A [BUILTIN], documented executable production/replacement changes what is installed via S8.2-10, so falls under S8.1-7; reading B [GENERAL], compilation/build processing or copying an output is general-purpose work, with S8.1-8 expressly excluding copying and link creation; the text does not say which reading governs this functionality. Separately invoked shell, editor, manual copy and link operations are [GENERAL] (S8.1-8). [compiler purpose](https://gcc.gnu.org/onlinedocs/gcc/G_002b_002b-and-GCC.html) [compiler output](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html) [build and install purpose](https://cmake.org/cmake/help/latest/manual/cmake.1.html). Evidence: SOURCES.md E083, E085, E093, E094; GAPS.md."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» Under reading A, S8.3-7 requires the acting build tool itself to record its changes. Under reading B, that tool-specific duty is not established; S8.3-6 and S8.3-8 still disallow an ordinary unrecorded installed-program change. The output recording duty under S8.2-1 and S8.2-16 is unchanged under both readings."
+    },
+    "status": {
+      "before": "DECIDED",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "Plugin execution through compiler rights satisfies Q2; installed unchanged plugin wins at Q1. No confinement capability is supplied that would meet S8.2-21.",
+      "after": "Executable output is decided. Its producer has two route readings: built-in because it changes installed programs, or general-purpose build/copy functionality. The text does not select the tool-specific recording obligation."
+    }
+  },
+  "C6.3": {
+    "leaves": {
+      "before": "a: transient unit registration and properties, with user transient unit files under $XDG_RUNTIME_DIR/systemd/transient; b: associated process/scope/socket/timer state. [run](https://www.freedesktop.org/software/systemd/man/latest/systemd-run.html) [unit](https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html) Evidence: SOURCES.md.",
+      "after": "a: transient unit registration and properties, with user transient unit files under $XDG_RUNTIME_DIR/systemd/transient; b: associated process/scope/socket/timer state. [run](https://www.freedesktop.org/software/systemd/man/latest/systemd-run.html) [unit](https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html) Evidence: SOURCES.md. User-mode load-path table: SOURCES.md E100."
+    }
+  },
+  "C7.06": {
+    "leaves": {
+      "before": "a=interactive definitions in interpreter memory; b=$HOME/.python_history with the default history configuration. [R01](https://docs.python.org/3/using/cmdline.html) [R05](https://docs.python.org/3/tutorial/interactive.html)",
+      "after": "a=interactive definitions in interpreter memory; b=$HOME/.python_history with the default history configuration. [R01](https://docs.python.org/3/using/cmdline.html) [R05](https://docs.python.org/3/tutorial/interactive.html); history-use evidence: SOURCES.md E005, E105."
+    },
+    "kind": {
+      "before": "a: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5); b: Q1=no; Q2=unknown (actual saved history syntax/executability absent); if executable then kind=program; Q1=no (not an unchanged installed-package member); Q2=yes, stop (S8.2-6, S8.2-9, S8.2-10, S8.2-23); otherwise Q3=no,Q4=kind=program record; Q1=no; Q2=no; Q3=no; Q4=program wrote non-code working state (S8.2-6, S8.2-15)",
+      "after": "a: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5); b: Q1 no; reading A: S8.2-23 applies to the documented history-file reader, which reads entries as values, so Q2 no, Q3 no, Q4 kind=program record (S8.2-15). Reading B: saved language statements are code the computer can execute at a person’s command (S8.2-9), so Q2 yes, kind=program (S8.2-10), stop; S8.2-6 says clarifications do not change question order. The text does not delimit only reads as values against this capability reading."
+    },
+    "record": {
+      "before": "a: no separate line; covered by the line of the program/setting creating it (S8.2-5); b: own/derived code line if executable; otherwise need not be recorded (S8.2-2, S8.2-15, S8.2-16)",
+      "after": "a: no separate line; covered by the line of the program/setting creating it (S8.2-5); b: reading A: need not be recorded (S8.2-2, S8.2-15, S8.2-23); reading B: own line or an actual source/build line (S8.2-16), not merely the interpreter line. The dispute is the scope of S8.2-23 versus S8.2-9, not an asserted unknown syntax fact."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» B1-9.3-command (local ID): «A command typed by a person is not considered a channel for bypassing the declaration.» B1-9.3-stream (local ID): «A separate case: a command downloads and executes code without saving it; after a reboot, nothing that was executed must be in force.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» B1-9.3-command (local ID): «A command typed by a person is not considered a channel for bypassing the declaration.» B1-9.3-stream (local ID): «A separate case: a command downloads and executes code without saving it; after a reboot, nothing that was executed must be in force.» For saved history, reading A creates no recording duty or P4 requirement for that record; reading B requires recording the program and forbids an ordinary unrecorded program change. The original typed command remains an action (S8.2-4)."
+    },
+    "status": {
+      "before": "FACT_UNKNOWN",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "The history file is documented, but its exact contents and executability are not specified; the original typed statements remain actions.",
+      "after": "History is read as values under S8.2-23, yet retained language statements fit the execution-capability reading of S8.2-9. The text does not delimit those readings; missing syntax is not used to choose between them."
+    }
+  },
+  "C7.07": {
+    "kind": {
+      "before": "a,b: kind=program; Q1=no (not an unchanged installed-package member); Q2=yes, stop (S8.2-6, S8.2-9, S8.2-10, S8.2-23) (Q1 instead wins if supplied unchanged in an installed package); c: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5)",
+      "after": "a,b: kind=program; Q1=no (not an unchanged installed-package member); Q2=yes, stop (S8.2-6, S8.2-9, S8.2-10, S8.2-23); c: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5)"
+    }
+  },
+  "C7.17": {
+    "leaves": {
+      "before": "a=invoked declared executable already present; b=process; c=optional shell history file selected by HISTFILE, retaining command text. [R03](https://tiswww.case.edu/php/chet/bash/bashref.html) [R21](https://man7.org/linux/man-pages/man2/execve.2.html)",
+      "after": "a=invoked declared executable already present; b=process; c=optional shell history file selected by HISTFILE, retaining command text. [R03](https://tiswww.case.edu/php/chet/bash/bashref.html) [R21](https://man7.org/linux/man-pages/man2/execve.2.html); history-use evidence: SOURCES.md E005, E105."
+    },
+    "kind": {
+      "before": "a: kind=installed object; Q1=yes, stop (S8.2-6, S8.2-7, S8.2-8) if packaged, otherwise kind=program; Q1=no (not an unchanged installed-package member); Q2=yes, stop (S8.2-6, S8.2-9, S8.2-10, S8.2-23); b: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5); c: Q1=no,Q2=yes if saved content is executable shell code, otherwise Q3=no,Q4=program record (S8.2-9, S8.2-15, S8.2-23)",
+      "after": "a: kind=installed object; Q1=yes, stop (S8.2-6, S8.2-7, S8.2-8) if packaged, otherwise kind=program; Q1=no (not an unchanged installed-package member); Q2=yes, stop (S8.2-6, S8.2-9, S8.2-10, S8.2-23); b: kind=runtime; exists only while the computer runs, not a separate object; follows creator program/setting before Q1-Q4 (S8.2-3, S8.2-5); c: Q1 no; reading A: S8.2-23 applies to the documented history-file reader, which reads entries as values, so Q2 no, Q3 no, Q4 kind=program record (S8.2-15). Reading B: saved language statements are code the computer can execute at a person’s command (S8.2-9), so Q2 yes, kind=program (S8.2-10), stop; S8.2-6 says clarifications do not change question order. The text does not delimit only reads as values against this capability reading."
+    },
+    "record": {
+      "before": "a: existing declaration line; b: no separate line; covered by the line of the program/setting creating it (S8.2-5); c: own/derived line if executable, otherwise need not be recorded",
+      "after": "a: existing declaration line; b: no separate line; covered by the line of the program/setting creating it (S8.2-5); c: reading A: need not be recorded (S8.2-2, S8.2-15, S8.2-23); reading B: own line or an actual source/build line (S8.2-16), not merely the interpreter line. The dispute is the scope of S8.2-23 versus S8.2-9, not an asserted unknown syntax fact."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» B1-9.3-command (local ID): «A command typed by a person is not considered a channel for bypassing the declaration.» B1-9.3-stream (local ID): «A separate case: a command downloads and executes code without saving it; after a reboot, nothing that was executed must be in force.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» B1-9.3-command (local ID): «A command typed by a person is not considered a channel for bypassing the declaration.» B1-9.3-stream (local ID): «A separate case: a command downloads and executes code without saving it; after a reboot, nothing that was executed must be in force.» For saved history, reading A creates no recording duty or P4 requirement for that record; reading B requires recording the program and forbids an ordinary unrecorded program change. The original typed command remains an action (S8.2-4)."
+    },
+    "status": {
+      "before": "FACT_UNKNOWN",
+      "after": "TWO_WAYS"
+    },
+    "reason": {
+      "before": "The typed command is excluded; recording saved history depends on its actual executable content, which this broad variant does not specify.",
+      "after": "History is read as values under S8.2-23, yet retained language statements fit the execution-capability reading of S8.2-9. The text does not delimit those readings; missing syntax is not used to choose between them."
+    }
+  },
+  "C7.19": {
+    "record": {
+      "before": "a: no separate runtime line, follows renderer/program (S8.2-5); b: saved code needs its own or actual source/build line (S8.2-16), unless it cannot itself launch programs or change installed objects/settings (S8.2-21); the cited sandbox purpose establishes no persistent changes but not the separate no-launch condition for all browser interfaces, so exemption unknown; non-code cache metadata need not be recorded (S8.2-2, S8.2-15); c: package/program line for every separate helper executable (S8.2-16, S8.2-22).",
+      "after": "a: no separate runtime line, follows renderer/program (S8.2-5); b: the saved generated web-page code runs inside the recorded renderer and need not be recorded under the express web-page example in S8.2-21; serialization for later reuse does not introduce a separate host execution route. Non-code cache metadata need not be recorded (S8.2-2, S8.2-15). c: package/program line for every separate helper executable (S8.2-16, S8.2-22). Evidence: SOURCES.md E096-E098. No general exemption for arbitrary browser-related executables is inferred."
+    },
+    "law": {
+      "before": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.»",
+      "after": "S8.3-6: «P4. Law. The system provides no ordinary path for changing what is installed and settings past the declaration.» S8.3-7: «Its tools for installation and configuration record changes in the declaration even when they run with superuser privileges: an installer does not install a program past the declaration but adds it to the declaration.» S8.3-8: «What is installed and settings can be changed past the declaration only by breaking.» B1-9.3-channel (local ID): «A channel is anything that such a command tries to leave behind: saving and running a file, registering a service, a timer or an autostart, changing a setting.» For b, apply the S8.2-21 web-page exemption; the cache need not receive a declaration line. The recorded renderer/helper executables remain subject to the quoted properties."
+    },
+    "status": {
+      "before": "FACT_UNKNOWN",
+      "after": "DECIDED"
+    },
+    "reason": {
+      "before": "Saved generated code is documented. Its S8.2-21 exemption additionally requires inability to launch programs; that capability restriction is not established by the cited no-persistent-changes sandbox purpose.",
+      "after": "The fixed variant is confined web-page code inside recorded renderer/helper programs. S8.2-21 expressly exempts that web-page code, including its reusable generated form; separate renderer/helper executables remain recorded."
+    }
+  },
+  "C9.5": {
+    "leaves": {
+      "before": "a: recorded container options for --privileged, --pid=host, --device and chosen mounts; b: hook JSON under /etc/containers/oci/hooks.d/*.json; c: hook executable at configured path; d: live device/mount/namespace access. [podman](https://docs.podman.io/en/latest/markdown/podman.1.html) [podrun](https://docs.podman.io/en/latest/markdown/podman-run.1.html) Evidence: SOURCES.md.",
+      "after": "a: recorded container options for --privileged, --pid=host, --device and chosen mounts; b: configured hook JSON under <hooks-dir>/*.json; /etc/containers/oci/hooks.d/*.json is one deprecated default for root callers when --hooks-dir is unset, not a universal rootless path; c: hook executable at configured path; d: live device/mount/namespace access. [podman](https://docs.podman.io/en/latest/markdown/podman.1.html) [podrun](https://docs.podman.io/en/latest/markdown/podman-run.1.html) Evidence: SOURCES.md. Exact options and hook-directory conditions: SOURCES.md E101-E102."
+    }
+  }
+}

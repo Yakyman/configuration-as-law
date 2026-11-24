@@ -1,0 +1,220 @@
+== 01 problems=[] stderr_file='' exit=0
+   attempt rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     fs home gen [1, 3] added [('/home/stand/saved.txt', '17415ceff55e', '0o100644')] removed [] changed [] unlinked []
+     audit [('home', 2, 'create', [('/home/stand/saved.txt', 'e3b0c44298fc')]), ('home', 3, 'write', [('/home/stand/saved.txt', '17415ceff55e')])]
+     cov before {'/home/stand/saved.txt': False} after {'/home/stand/saved.txt': (True, 3)}
+   permitted rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     fs home gen [3, 5] added [] removed [] changed [] unlinked []
+     audit [('home', 4, 'truncate', [('/home/stand/saved.txt', 'e3b0c44298fc')]), ('home', 5, 'write', [('/home/stand/saved.txt', '17415ceff55e')])]
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'SAVED-SCRIPT': True}}
+== 02 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/saved.txt', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   permitted rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   {'phase': 'summary', 'passed': True, 'results': {'SAVED-PIPE': True}}
+== 03 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/saved.txt', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   permitted rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   {'phase': 'summary', 'passed': True, 'results': {'SAVED-SOURCE': True}}
+== 04 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/saved.txt', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   permitted rc 0 out 'SAVED_CODE_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/saved.txt': True} after {'/home/stand/saved.txt': (True, 4)}
+   {'phase': 'summary', 'passed': True, 'results': {'STARTUP-ENV': True}}
+== 05 problems=[] stderr_file='' exit=0
+   attempt rc 0 out 'IMPORTED_UNRECORDED\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     fs home gen [1, 3] added [('/home/stand/loose_module.py', '7f938b43be06', '0o100644')] removed [] changed [] unlinked []
+     audit [('home', 2, 'create', [('/home/stand/loose_module.py', 'e3b0c44298fc')]), ('home', 3, 'write', [('/home/stand/loose_module.py', '7f938b43be06')])]
+     cov before {'/home/stand/loose_module.py': False} after {'/home/stand/loose_module.py': (True, 3)}
+   permitted rc 0 out 'IMPORTED_UNRECORDED\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     fs home gen [3, 5] added [] removed [] changed [] unlinked []
+     audit [('home', 4, 'truncate', [('/home/stand/loose_module.py', 'e3b0c44298fc')]), ('home', 5, 'write', [('/home/stand/loose_module.py', '7f938b43be06')])]
+     cov before {'/home/stand/loose_module.py': True} after {'/home/stand/loose_module.py': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'PYTHON-IMPORT': True}}
+== 06 problems=[] stderr_file='' exit=0
+   attempt rc 0 out 'PICKLE_EXECUTED\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     fs home gen [1, 3] added [('/home/stand/serialized', 'b26a48df0be6', '0o100644')] removed [] changed [] unlinked []
+     audit [('home', 2, 'create', [('/home/stand/serialized', 'e3b0c44298fc')]), ('home', 3, 'write', [('/home/stand/serialized', 'b26a48df0be6')])]
+     cov before {'/home/stand/serialized': False} after {'/home/stand/serialized': (True, 3)}
+   permitted rc 0 out 'PICKLE_EXECUTED\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     fs home gen [3, 5] added [] removed [] changed [] unlinked []
+     audit [('home', 4, 'truncate', [('/home/stand/serialized', 'e3b0c44298fc')]), ('home', 5, 'write', [('/home/stand/serialized', 'b26a48df0be6')])]
+     cov before {'/home/stand/serialized': True} after {'/home/stand/serialized': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'PICKLE-CODE': True}}
+== 07 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/v4-direct/saved.sh', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   permitted rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'DIRECT-REDIRECT-STDIN': True}}
+== 08 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/v4-direct/saved.sh', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   permitted rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'DIRECT-PROC-FD': True}}
+== 09 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/v4-direct/saved.py', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'READ_EXEC_RAN\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.py': True} after {'/home/stand/v4-direct/saved.py': (True, 5)}
+   permitted rc 0 out 'READ_EXEC_RAN\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.py': True} after {'/home/stand/v4-direct/saved.py': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'DIRECT-READ-EXEC': True}}
+== 10 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/v4-direct/saved.awk', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'AWK_FILE_RAN\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.awk': True} after {'/home/stand/v4-direct/saved.awk': (True, 5)}
+   permitted rc 0 out 'AWK_FILE_RAN\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.awk': True} after {'/home/stand/v4-direct/saved.awk': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'DIRECT-AWK-FILE': True}}
+== 11 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/home/stand/v4-direct/saved.sh', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   permitted rc 0 out 'SAVED_DIRECT_RAN' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/home/stand/v4-direct/saved.sh': True} after {'/home/stand/v4-direct/saved.sh': (True, 5)}
+   {'phase': 'summary', 'passed': True, 'results': {'DIRECT-SCRIPT-HELPER': True}}
+== 12 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/tmp/v4-extra-7z89hz2f/startup.rc', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_RC_EXECUTED\n' err 'bash: cannot set terminal process group (1368): Inappropriate ioctl for device\nbash: no job control in this shell\n'
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/startup.rc': True} after {'/tmp/v4-extra-7z89hz2f/startup.rc': (True, 67)}
+   permitted rc 0 out 'SAVED_RC_EXECUTED\n' err 'bash: cannot set terminal process group (1368): Inappropriate ioctl for device\nbash: no job control in this shell\n'
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/startup.rc': True} after {'/tmp/v4-extra-7z89hz2f/startup.rc': (True, 67)}
+   {'phase': 'summary', 'passed': True, 'results': {'RC-STARTUP': True}}
+== 13 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/tmp/v4-extra-7z89hz2f/commands.ed', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'SAVED_EDITOR_COMMAND_EXECUTED\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     fs tmp gen [67, 70] added [] removed [] changed [] unlinked []
+     audit [('tmp', 68, 'create', [('/tmp/tmpfetmlc4', 'e3b0c44298fc')]), ('tmp', 69, 'rename', [('/tmp/.fuse_hidden0000000600000001', 'e3b0c44298fc'), ('/tmp/tmpfetmlc4', '')]), ('tmp', 70, 'unlink', [('/tmp/.fuse_hidden0000000600000001', '')])]
+     cov before {'/tmp/v4-extra-7z89hz2f/commands.ed': True} after {'/tmp/v4-extra-7z89hz2f/commands.ed': (True, 70)}
+   permitted rc 0 out 'SAVED_EDITOR_COMMAND_EXECUTED\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     fs tmp gen [70, 73] added [] removed [] changed [] unlinked []
+     audit [('tmp', 71, 'create', [('/tmp/tmpfOPZb5Q', 'e3b0c44298fc')]), ('tmp', 72, 'rename', [('/tmp/.fuse_hidden0000000700000002', 'e3b0c44298fc'), ('/tmp/tmpfOPZb5Q', '')]), ('tmp', 73, 'unlink', [('/tmp/.fuse_hidden0000000700000002', '')])]
+     cov before {'/tmp/v4-extra-7z89hz2f/commands.ed': True} after {'/tmp/v4-extra-7z89hz2f/commands.ed': (True, 73)}
+   {'phase': 'summary', 'passed': True, 'results': {'EDITOR-SAVED-COMMANDS': True}}
+== 14 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/tmp/v4-extra-7z89hz2f/machine.bytes', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'JIT_SAVED_INPUT_EXECUTED 42\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/machine.bytes': True} after {'/tmp/v4-extra-7z89hz2f/machine.bytes': (True, 67)}
+   permitted rc 0 out 'JIT_SAVED_INPUT_EXECUTED 42\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/machine.bytes': True} after {'/tmp/v4-extra-7z89hz2f/machine.bytes': (True, 67)}
+   {'phase': 'summary', 'passed': True, 'results': {'JIT-SAVED-INPUT': True}}
+== 15 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/tmp/v4-extra-7z89hz2f/dispatcher.json', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   {'phase': 'dispatcher_install', 'rc': 0, 'stdout': 'SUCCESS 055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680\n', 'stderr': ''}
+   {'phase': 'fixture_result', 'path': '/tmp/v4-extra-7z89hz2f/instructions.ops', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   attempt rc 0 out 'DISPATCHER_SAVED_EXECUTED\n' err ''
+     flags {'marker_observed': True, 'refused': False, 'recorded': True, 'inline_write_verified': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/instructions.ops': True} after {'/tmp/v4-extra-7z89hz2f/instructions.ops': (True, 70)}
+   permitted rc 0 out 'DISPATCHER_SAVED_EXECUTED\n' err ''
+     flags {'inline_write_verified': True, 'passed': True, 'permitted': True, 'attempt_closed': True}
+     primary unchanged True + [] - []
+     audit []
+     cov before {'/tmp/v4-extra-7z89hz2f/instructions.ops': True} after {'/tmp/v4-extra-7z89hz2f/instructions.ops': (True, 70)}
+   {'phase': 'summary', 'passed': True, 'results': {'DISPATCHER-SAVED': True}}
+== 16 problems=[] stderr_file='' exit=0
+   root-native-account-bypass rc 0 out '' err ''
+     flags {'passed': True}
+     primary unchanged True + [] - []
+     fs etc gen [165, 255] added [] removed [] changed [('/etc/group', '61fac1d6', '68dd5f5d'), ('/etc/group-', '5cba3ae3', '61fac1d6'), ('/etc/gshadow', 'a1fedfd8', 'fdcbc49a'), ('/etc/gshadow-', '4f6b5c34', 'a1fedfd8'), ('/etc/passwd', '0ada7cbc', '4faf7868'), ('/etc/passwd-', '9f2e2454', '0ada7cbc'), ('/etc/shadow', '5123c567', '25154dc7'), ('/etc/shadow-', 'fc8de0f9', '5123c567'), ('/etc/subgid', '9404f8df', 'cf20fcf1'), ('/etc/subgid-', 'e3b0c442', '9404f8df'), ('/etc/subuid', '9404f8df', 'cf20fcf1'), ('/etc/subuid-', 'e3b0c442', '9404f8df')] unlinked []
+     audit [('etc', 166, 'create', [('/etc/passwd.1370', 'e3b0c44298fc')]), ('etc', 167, 'write', [('/etc/passwd.1370', '8a8cb552cf27')]), ('etc', 168, 'link', [('/etc/passwd.lock', '8a8cb552cf27')]), ('etc', 169, 'unlink', [('/etc/passwd.1370', '')]), ('etc', 170, 'create', [('/etc/group.1370', 'e3b0c44298fc')]), ('etc', 171, 'write', [('/etc/group.1370', '8a8cb552cf27')]), ('etc', 172, 'link', [('/etc/group.lock', '8a8cb552cf27')]), ('etc', 173, 'unlink', [('/etc/group.1370', '')]), ('etc', 174, 'create', [('/etc/gshadow.1370', 'e3b0c44298fc')]), ('etc', 175, 'write', [('/etc/gshadow.1370', '8a8cb552cf27')]), ('etc', 176, 'link', [('/etc/gshadow.lock', '8a8cb552cf27')]), ('etc', 177, 'unlink', [('/etc/gshadow.1370', '')]), ('etc', 178, 'create', [('/etc/subuid.1370', 'e3b0c44298fc')]), ('etc', 179, 'write', [('/etc/subuid.1370', '8a8cb552cf27')])]
+     account {'gecos': '', 'gid': 1998, 'groups': ['v4raw'], 'home': '/home/v4raw', 'name': 'v4raw', 'shell': '/usr/sbin/nologin', 'uid': 1998} rows [{'gecos': '', 'gid': 1998, 'group_ids': [1998], 'groups': ['v4raw'], 'home': '/home/v4raw', 'id': 'bc3:account:v4raw', 'name': 'v4raw', 'recording': 'own', 'shell': '/usr/sbin/nologin', 'source': '/etc/passwd', 'type': 'account', 'uid': 1998}, {'gid': 1998, 'id': 'bc3:group:v4raw', 'members': [], 'name': 'v4raw', 'recording': 'own', 'source': '/etc/group', 'type': 'group'}] parse_err None
+   {'phase': 'summary', 'passed': True, 'results': {'root-native-account-bypass': True}}
+== 17 problems=[] stderr_file='' exit=0
+   {'phase': 'fixture_result', 'path': '/tmp/bc3-personal.json', 'passed': True, 'rc': 0, 'stdout': '', 'stderr': ''}
+   ordinary-work rc 0 out 'TWO WORDS\nSUCCESS 58ab113243a7b612c57753e12c3d6c8b9c40ea80a4387a2eff3786f2b9087646\nPERSONAL_SCRIPT_OK:ordinary argument\nSUCCESS eed04a1ae204e2cde94bcf736cd5431680fba7769ba65345149e513fec79a691\nHe err ''
+     flags {'passed': True}
+     primary unchanged False + ['bc3-personal', 'repository:hello'] - []
+     fs etc gen [165, 237] added [] removed [] changed [('/etc/apparmor.d/abstractions/stand-map', 'b2bd83d8', 'a3f7be7a'), ('/etc/ssh/sshd_config.d/00-stand.conf', 'a2b9d0a3', 'a2b9d0a3'), ('/etc/stand/launch.tsv', 'e5c03ce4', '9d5c87a1'), ('/etc/stand/read-closure', 'eaa83954', '93c85b80'), ('/etc/stand/stand-profiles', '736e6952', '604b5c4d')] unlinked []
+     fs home gen [1, 11] added [('/home/stand/.w3m', '', '0o40700'), ('/home/stand/document.txt', '679f346e7bc8', '0o100644'), ('/home/stand/page.html', 'd07b95966d69', '0o100644')] removed [] changed [] unlinked []
+     fs tmp gen [66, 70] added [] removed [] changed [] unlinked []
+     audit [('etc', 166, 'create', [('/etc/ssh/sshd_config.d/.stand-o6sk2wkm', 'e3b0c44298fc')]), ('etc', 167, 'chmod', [('/etc/ssh/sshd_config.d/.stand-o6sk2wkm', 'e3b0c44298fc')]), ('etc', 168, 'chown', [('/etc/ssh/sshd_config.d/.stand-o6sk2wkm', 'e3b0c44298fc')]), ('etc', 169, 'write', [('/etc/ssh/sshd_config.d/.stand-o6sk2wkm', 'a2b9d0a32938')]), ('etc', 170, 'rename', [('/etc/ssh/sshd_config.d/.stand-o6sk2wkm', ''), ('/etc/ssh/sshd_config.d/00-stand.conf', 'a2b9d0a32938')]), ('etc', 171, 'create', [('/etc/stand/.stand-lh34te52', 'e3b0c44298fc')]), ('etc', 172, 'write', [('/etc/stand/.stand-lh34te52', '5e4b74f08d22')]), ('etc', 173, 'write', [('/etc/stand/.stand-lh34te52', '13e6e1731213')]), ('etc', 174, 'write', [('/etc/stand/.stand-lh34te52', '3486c7d9933e')]), ('etc', 175, 'write', [('/etc/stand/.stand-lh34te52', '559c252f6515')]), ('etc', 176, 'write', [('/etc/stand/.stand-lh34te52', 'f51719c0f180')]), ('etc', 177, 'write', [('/etc/stand/.stand-lh34te52', '589881cbd418')]), ('etc', 178, 'write', [('/etc/stand/.stand-lh34te52', 'fab538b73906')]), ('etc', 179, 'write', [('/etc/stand/.stand-lh34te52', 'e5ba87b5fec9')])]
+   {'phase': 'summary', 'passed': True, 'results': {'ordinary-work': True}}

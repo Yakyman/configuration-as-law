@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "qemu-system-x86_64",
+    "-enable-kvm",
+    "-m",
+    "4096",
+    "-smp",
+    "2",
+    "-display",
+    "none",
+    "-monitor",
+    "none",
+    "-serial",
+    "file:<stand-root>/vms/s8-second-h2/console.log",
+    "-drive",
+    "file=<stand-root>/vms/s8-second-h2/disk.qcow2,format=qcow2,if=virtio",
+    "-netdev",
+    "user,id=net0,hostfwd=tcp:127.0.0.1:45415-:22",
+    "-device",
+    "virtio-net-pci,netdev=net0,mac=<MAC>",
+    "-qmp",
+    "unix:<stand-root>/vms/s8-second-h2/qmp.sock,server=on,wait=off",
+    "-pidfile",
+    "<stand-root>/vms/s8-second-h2/qemu.pid"
+  ],
+  "metadata": {
+    "key": "keys/guest",
+    "operator_user": "root",
+    "port": 45415,
+    "qemu_args": [],
+    "system": "stand",
+    "transport": "ssh",
+    "unit": "stand-b910028b9fb8e0bc-1795459674527999850",
+    "user": "stand"
+  }
+}

@@ -1,0 +1,5262 @@
+PACKAGE:7zip
+
+PACKAGE:accountsservice
+
+PACKAGE:acl
+
+PACKAGE:adduser
+ /etc/adduser.conf 4869da5f5f508dfbc341342a272c36c8
+ /etc/deluser.conf 11a06baf8245fd8d690b99024d228c1f
+PACKAGE:adwaita-icon-theme
+
+PACKAGE:alsa-base
+ /etc/apm/scripts.d/alsa a7592b002de1eba28e79ba11c9ca3bc7
+ /etc/modprobe.d/alsa-base.conf 817bff6351a7321f5bbf000f39f587c0
+ /etc/modprobe.d/blacklist-modem.conf 83850631d180e0c064ee313d57cd7c86
+PACKAGE:alsa-topology-conf
+
+PACKAGE:alsa-ucm-conf
+
+PACKAGE:alsa-utils
+ /etc/init.d/alsa-utils c52e669945e1b6c4b77e00cefa21073a
+PACKAGE:amd64-microcode
+ /etc/default/amd64-microcode eaa8a5fa3fb59af4f0f55e851a6e9b20
+ /etc/modprobe.d/amd64-microcode-blacklist.conf 71327241f6583b34944e638a955aba91
+PACKAGE:anacron
+ /etc/anacrontab e022b65137f909235bb58591657b34f4
+ /etc/cron.d/anacron a6378d292f45739e117ec5cfd4d9a67b
+ /etc/cron.daily/0anacron a46c5cc26a2a6715d0155781ddd07a19
+ /etc/cron.monthly/0anacron 402ac7af3ebd2da5dddcd3712d776ae3
+ /etc/cron.weekly/0anacron b2c55b2905f28b3b53bdf3e2d66e830b
+ /etc/default/anacron 964d39a52b30de6627ba346001730f03
+ /etc/init.d/anacron cb16d990aa80ca20aee7ea2ab91ff714
+PACKAGE:apg
+ /etc/apg.conf 0ce80337a44589a92effbcde338f74e1
+PACKAGE:app-install-data
+ /etc/gnome-app-install/packages-whitelist f3c285e9b2c6b9ebd0dc5c38cab4678f
+PACKAGE:apparmor
+ /etc/apparmor.d/1password a9fbdb7bc17bb4c908208c2c51e35f33
+ /etc/apparmor.d/Discord 67bd979bd52072a84fc19480c5dd8ead
+ /etc/apparmor.d/MongoDB_Compass 3f33e671cd57320de31656afa9886136
+ /etc/apparmor.d/QtWebEngineProcess 0fe91825545b5a8375ad4f06219eb47b
+ /etc/apparmor.d/abi/3.0 f97e410509c5def279aa227c7de12e06
+ /etc/apparmor.d/abi/4.0 f17b0a97806d733b5b884d8a1c2fea37
+ /etc/apparmor.d/abi/kernel-5.4-outoftree-network 57b68acd4e6418fe5a06dc8c04713e3d
+ /etc/apparmor.d/abi/kernel-5.4-vanilla 77047e6f0b014fa8bf27681998382044
+ /etc/apparmor.d/abstractions/X a32594e00980d28c2bb31602cbc28b75
+ /etc/apparmor.d/abstractions/apache2-common 904b490fb92cef37b2fa236bfbc1630f
+ /etc/apparmor.d/abstractions/apparmor_api/change_profile ebc3b740aa2c79ff9a09f072e67ab569
+ /etc/apparmor.d/abstractions/apparmor_api/examine 7a0bb94ed3f1c4746e10159933e83376
+ /etc/apparmor.d/abstractions/apparmor_api/find_mountpoint 33f8d5e37df9caec4028d295c8988ba1
+ /etc/apparmor.d/abstractions/apparmor_api/introspect 9937e7f2a2ca88cd947570f18df7a942
+ /etc/apparmor.d/abstractions/apparmor_api/is_enabled 16256dfcfa3c4bc6f97a956fcc254fb5
+ /etc/apparmor.d/abstractions/aspell 0443ce39f2e74dde8bc99d67578ea777
+ /etc/apparmor.d/abstractions/audio c0ac7361d58a8c0b1b2ab3d440ca9577
+ /etc/apparmor.d/abstractions/authentication d21c8ea53bfc1712f086be6cd367194d
+ /etc/apparmor.d/abstractions/base e99d8381520f227b8eaf44b73ff026e2
+ /etc/apparmor.d/abstractions/bash 9663d039f0152b70cc659e4a25bef566
+ /etc/apparmor.d/abstractions/consoles 3414c1cb4c1a951888a84761d1455c6d
+ /etc/apparmor.d/abstractions/crypto 0b2705ea2a45989da8cbf6f72f633ecb
+ /etc/apparmor.d/abstractions/cups-client aa077a620ae08407f42e743bb9661165
+ /etc/apparmor.d/abstractions/dbus 5722cf7a9deb175a1ad0b2bd2311e358
+ /etc/apparmor.d/abstractions/dbus-accessibility 99eef485f32c58839618af9a5a4b355b
+ /etc/apparmor.d/abstractions/dbus-accessibility-strict 53a9eb9b0c2c0125eefa2990d2db5cf7
+ /etc/apparmor.d/abstractions/dbus-network-manager-strict 122f241d720192cb38d6967bc23e356f
+ /etc/apparmor.d/abstractions/dbus-session 35d364589e04be56979be11e2f7e31d5
+ /etc/apparmor.d/abstractions/dbus-session-strict 1181eeeb79d894eaf2744bf7033a06d8
+ /etc/apparmor.d/abstractions/dbus-strict 9d0a9ef3255f550687366cd4126f34d0
+ /etc/apparmor.d/abstractions/dconf 938d36cc227c44b57b754e28c574a895
+ /etc/apparmor.d/abstractions/dovecot-common c039273aaa213aca51a5213cdd15fed2
+ /etc/apparmor.d/abstractions/dri-common 1d2f9b132358d514c1f93560b1988acb
+ /etc/apparmor.d/abstractions/dri-enumerate c02e4d558bb87d573421e11268d3cb69
+ /etc/apparmor.d/abstractions/enchant cd0a41e810a99aeeab33aa7d074ff510
+ /etc/apparmor.d/abstractions/exo-open c9c0e92a3d96bd795af54343ca2f7247
+ /etc/apparmor.d/abstractions/fcitx 7b92a08259791096efa9ec4aaf42c65d
+ /etc/apparmor.d/abstractions/fcitx-strict 8516d9814d599c06054de013d935b383
+ /etc/apparmor.d/abstractions/fonts 2a254d9d6f5bc6ac1dc73214193083cd
+ /etc/apparmor.d/abstractions/freedesktop.org fddb3f108af4001f4a648e37ecfb1142
+ /etc/apparmor.d/abstractions/gio-open e056aa1df18785c584f2f8e734a865b6
+ /etc/apparmor.d/abstractions/gnome ce1abdbe93ac7d3d9da51b76616e7990
+ /etc/apparmor.d/abstractions/gnupg 2b9899ae239d51a6cd93ccc82c52d234
+ /etc/apparmor.d/abstractions/groff 9ac220293c87a17fbd9c8664231b7136
+ /etc/apparmor.d/abstractions/gtk c3e77ec5a57f6c5996749b636b257d40
+ /etc/apparmor.d/abstractions/gvfs-open 0aa5a1831e2f3321032fcbb78c75e17f
+ /etc/apparmor.d/abstractions/hosts_access 9932e0e59cf8a3b86aff275430db7f79
+ /etc/apparmor.d/abstractions/ibus cbdc8f7f4aa4192caa920edf6b27c101
+ /etc/apparmor.d/abstractions/kde 9d3df34ba20b1d1f2a171e6003a64a50
+ /etc/apparmor.d/abstractions/kde-globals-write 66b5c9d5f6b1be675ea41b93e2a40e86
+ /etc/apparmor.d/abstractions/kde-icon-cache-write 5812ee3c6e213036512c4dd28a45b0c0
+ /etc/apparmor.d/abstractions/kde-language-write f99c8ecacf0f94aafb402e4bda6ff9f0
+ /etc/apparmor.d/abstractions/kde-open5 dc4ab3305486c36b4fc34b8d075cb706
+ /etc/apparmor.d/abstractions/kerberosclient 70be1b7c525d98654011a7f0bf8b9634
+ /etc/apparmor.d/abstractions/ldapclient fa595508690d29fb8ef3bc7f35cd3d34
+ /etc/apparmor.d/abstractions/libpam-systemd bab0769af2d7ec03fb89ebcc7dba5133
+ /etc/apparmor.d/abstractions/likewise e2eff3c963b34543b78a2e7e92c2832b
+ /etc/apparmor.d/abstractions/mdns f60fb04172f264ca93dd91f376c6d198
+ /etc/apparmor.d/abstractions/mesa dbfd7cef67b616f33464ca9cf2ab1e5f
+ /etc/apparmor.d/abstractions/mir 3ca5ef4b46fdf1e182a96d6560ff26e1
+ /etc/apparmor.d/abstractions/mozc a3d1ff87b7822abd5fcaed6844dc296a
+ /etc/apparmor.d/abstractions/mysql b12fe1f2bbab642e5851c281986057d0
+ /etc/apparmor.d/abstractions/nameservice 36db55283ec502af766e70d12b517535
+ /etc/apparmor.d/abstractions/nis 30256a48a705a362b6bc496d2024aa3c
+ /etc/apparmor.d/abstractions/nss-systemd 7ed15a941f68ba8326ba03d6d282a4c1
+ /etc/apparmor.d/abstractions/nvidia 4927cd22ab0f892bc619cc0f1912923e
+ /etc/apparmor.d/abstractions/opencl 2760fba2c4606e11942737d471cd94e7
+ /etc/apparmor.d/abstractions/opencl-common 7d6341d69734db1e449b00784d465c70
+ /etc/apparmor.d/abstractions/opencl-intel dfdb37b0c1cf107e0831c70ef9c0aa39
+ /etc/apparmor.d/abstractions/opencl-mesa e157c360ed8cc0a1f5f883be73f2a416
+ /etc/apparmor.d/abstractions/opencl-nvidia 8d9e4c40933e8c9844f4b250fb89aed0
+ /etc/apparmor.d/abstractions/opencl-pocl dfedd51c459fac5805577d19471aa764
+ /etc/apparmor.d/abstractions/openssl fb8cf830a6be79f9c356e0d73f880ce4
+ /etc/apparmor.d/abstractions/orbit2 e7ac7aea7951ccb6e9078265f9a2b9ff
+ /etc/apparmor.d/abstractions/p11-kit ca4ba017568739d7150f162ec69036e0
+ /etc/apparmor.d/abstractions/perl e1913931bfed156d33fe313d49f5bd0d
+ /etc/apparmor.d/abstractions/php a09e568316649c33fcb743129e38e3a4
+ /etc/apparmor.d/abstractions/php-worker fa7a754d5b039a507084094a3d3a8e68
+ /etc/apparmor.d/abstractions/php5 cf013176d89542d9b5931cd1c6ff5096
+ /etc/apparmor.d/abstractions/postfix-common 48ff0b5d3ffd8a97e305c85ed7b10475
+ /etc/apparmor.d/abstractions/private-files 971749f2d6112faa125c848f739c8752
+ /etc/apparmor.d/abstractions/private-files-strict 3dd8bfaf6f4405b56e526de085087369
+ /etc/apparmor.d/abstractions/python f49e8327900da9b963678574057d49e3
+ /etc/apparmor.d/abstractions/qt5 225b633954b4552cd1e1a7b6c0034956
+ /etc/apparmor.d/abstractions/qt5-compose-cache-write 3cbd481cf1e9aadae90118b4614c9f7b
+ /etc/apparmor.d/abstractions/qt5-settings-write 2341b9405a1923ce1f7c614ac68138c0
+ /etc/apparmor.d/abstractions/recent-documents-write 57bfcdf4fc0f790c4a51f2678f4fdd17
+ /etc/apparmor.d/abstractions/ruby 647a1c14accb31774540d8b7e14811a5
+ /etc/apparmor.d/abstractions/samba 80ac5ea6902855b6e9cc84cf90c86a23
+ /etc/apparmor.d/abstractions/samba-rpcd dd45d69fae139d7d3121af8f2a28d884
+ /etc/apparmor.d/abstractions/smbpass 98782c8623443b1ac4477222824526ee
+ /etc/apparmor.d/abstractions/snap_browsers d62388a5173f6945ebb1f41b9ec5c07b
+ /etc/apparmor.d/abstractions/ssl_certs 5bf050da765885e2e2c3440d1ffe2d6a
+ /etc/apparmor.d/abstractions/ssl_keys f804c6623c0b8584153ca06051342c00
+ /etc/apparmor.d/abstractions/svn-repositories f281784467cdf8f7f830337a5ba7f5c9
+ /etc/apparmor.d/abstractions/transmission-common c1459adbbdbef0304bc0d1030fb55476
+ /etc/apparmor.d/abstractions/trash 77f74bce1c671f56cf013ec880664499
+ /etc/apparmor.d/abstractions/ubuntu-bittorrent-clients bc214039e36aed33834aefca14fcb9e1
+ /etc/apparmor.d/abstractions/ubuntu-browsers 1964f219262f91c8b97b3cab3c5b1a15
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/chromium-browser a1ceac1f3b12257a2db931106456eef9
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/java a9387035914b3de93f96c99418dd306a
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/kde fb384b79814196058f69c581734c2bf3
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/mailto 8ee5eeea9b891d9dd037cb16b37605a6
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/multimedia e8cda78bbc9882532d0f3c8048e85d7c
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/plugins-common a015fbc234f8ecba0c1db8d1c50efb0b
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/productivity 6fbd4a5744bbd882c3eec994bc6d0fb0
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/text-editors 3d486fae7348f69946dfd58f5b6e9747
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration 3a29e910c7229ebf8efb8d7186d82f6f
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration-xul d0ff22a6313a0fbf4a4f7da7b5576307
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/user-files ad32d9011654972455c717bbe978b705
+ /etc/apparmor.d/abstractions/ubuntu-console-browsers 6215673c66fd3e54cb6e1271f9aa0029
+ /etc/apparmor.d/abstractions/ubuntu-console-email 0ff7d2311f36eba04ef50ec8261de8de
+ /etc/apparmor.d/abstractions/ubuntu-email 3aef68a8ce2190e2b0c32f3889fe2fbb
+ /etc/apparmor.d/abstractions/ubuntu-feed-readers 6d9f88c53a369529a5ff52573a051d90
+ /etc/apparmor.d/abstractions/ubuntu-gnome-terminal 8063a4cbeb334a914c7bf2a65e5f2c3c
+ /etc/apparmor.d/abstractions/ubuntu-helpers 735892ffbbf93ee9973587aaa15bd0b0
+ /etc/apparmor.d/abstractions/ubuntu-konsole 3226c189b7aacae0b2616827fac54510
+ /etc/apparmor.d/abstractions/ubuntu-media-players edc01db2f2804479007c463b005d7708
+ /etc/apparmor.d/abstractions/ubuntu-unity7-base 9f95ccd27db1a6d581f512b6d8045d13
+ /etc/apparmor.d/abstractions/ubuntu-unity7-launcher 6a9c25f230ba41e8289514d9a8f0f87e
+ /etc/apparmor.d/abstractions/ubuntu-unity7-messaging 69b93d5b6693179432ec7c33e1f30434
+ /etc/apparmor.d/abstractions/ubuntu-xterm 7a896bda3883f05f19e46468fa01ec8b
+ /etc/apparmor.d/abstractions/user-download 2c764a6e080a4549661404fe74d2bef2
+ /etc/apparmor.d/abstractions/user-mail fc821b70bcb3f4735ae58cbc328f60cc
+ /etc/apparmor.d/abstractions/user-manpages da6ee9a1273a3544813d0d280814ceb4
+ /etc/apparmor.d/abstractions/user-tmp 637812127e85496565b15f092aa9028c
+ /etc/apparmor.d/abstractions/user-write 5b2101d68ba7e9e1bb58b9806672ae5a
+ /etc/apparmor.d/abstractions/video 3069d0fbea27eed63e8724084015b57e
+ /etc/apparmor.d/abstractions/vulkan bbed303bc8d8b2702d9d7f2fd7ed388a
+ /etc/apparmor.d/abstractions/wayland d8ef4acb801443585a0fa309234b63d7
+ /etc/apparmor.d/abstractions/web-data e46da21cb61d259f7410a72a32d2319d
+ /etc/apparmor.d/abstractions/winbind 489fca3c058879cff0c69f160f453e82
+ /etc/apparmor.d/abstractions/wutmp 9a4f59721ce850d90f5ca995f21e23b1
+ /etc/apparmor.d/abstractions/xad 40464a5c359d30d98d72702aba58255e
+ /etc/apparmor.d/abstractions/xdg-desktop 5a0a148ee79a27a546e5618ecc17a0f8
+ /etc/apparmor.d/abstractions/xdg-open 989de0df5dce3d28f223ec7e83288728
+ /etc/apparmor.d/balena-etcher 41dc7a55c7739f6ca133d29413a414e0
+ /etc/apparmor.d/brave c7e3828647deb93ba1524ba49f6b6c78
+ /etc/apparmor.d/buildah 692a0246f1d9bde5bcd97a1c540ea4bf
+ /etc/apparmor.d/busybox 69240224e4d5a5e2c6a7a9a84b39196f
+ /etc/apparmor.d/cam d1ac502776782c6b264cda89a769b509
+ /etc/apparmor.d/ch-checkns e6ed1d0331ec1651b1c117cfa791aca7
+ /etc/apparmor.d/ch-run 4e8f28caf0d00397377439eb470caa0c
+ /etc/apparmor.d/chrome 76e226068a9df356c67e7a3d470d1ebb
+ /etc/apparmor.d/code 0f9bad29b9cf3ea8ab27f6b6f3796129
+ /etc/apparmor.d/crun e098756fa8f9f1c8ca4049af47a74fd4
+ /etc/apparmor.d/devhelp bd1226d7e9b4988bb3933684a4406914
+ /etc/apparmor.d/element-desktop d39b0c4bff076ea329f5dbbaa82e2ba7
+ /etc/apparmor.d/epiphany 6bda34c482685db22cea75a6ad7476ea
+ /etc/apparmor.d/evolution b1f70bc4c650108fa213e8279225e0ec
+ /etc/apparmor.d/firefox f1829bd518068599ea95e4b5a58b64c1
+ /etc/apparmor.d/flatpak 6f8173f861fc3d78a5046d899d0b4b59
+ /etc/apparmor.d/foliate c92d766801e2ac02123e0db70b97ea55
+ /etc/apparmor.d/geary 6440c82a66a81d652075b99712a3cbda
+ /etc/apparmor.d/github-desktop 2122e73f32672b2e657ae1458eb26727
+ /etc/apparmor.d/goldendict de9f3bb31c80756ae55a31e8ed4a3be6
+ /etc/apparmor.d/ipa_verify df74e854eac8b988f15d8b21f3f5ae44
+ /etc/apparmor.d/kchmviewer b57ea6f66a082f50fc24ec3922bedd6f
+ /etc/apparmor.d/keybase de653466fa5c38e2dd697794250c10a9
+ /etc/apparmor.d/lc-compliance c6602ecb174135de2520abe7e2d66aeb
+ /etc/apparmor.d/libcamerify d61830a55b0f5803dcb120e38ff514da
+ /etc/apparmor.d/linux-sandbox 03ce2ec6971f9afeee6f7c2e9688baac
+ /etc/apparmor.d/local/README c2697f764b5164f3b9195857290df7df
+ /etc/apparmor.d/loupe 9cd53d4893feabf3a85bed91253b520f
+ /etc/apparmor.d/lsb_release 1cd1aa219c116e6ac7e406b7b080cf72
+ /etc/apparmor.d/lxc-attach 8e84c6f99b66f14957215c1ca65df341
+ /etc/apparmor.d/lxc-create 9c61264b7dcdec579c99143f3b219cdb
+ /etc/apparmor.d/lxc-destroy 3c5bf3780350b4854af5f6f1f6d86f39
+ /etc/apparmor.d/lxc-execute 4727b3eba3181e290839953309d2db87
+ /etc/apparmor.d/lxc-stop 4b96d873788cc6e9d064dd3bc495a4fe
+ /etc/apparmor.d/lxc-unshare a9053aae62b0daa1d7fd9e62bafdcbeb
+ /etc/apparmor.d/lxc-usernsexec 6bd0e80c5e92542b6b2d02352ee540ae
+ /etc/apparmor.d/mmdebstrap a7e1ac1d7f16053f735f3b44a67840ee
+ /etc/apparmor.d/msedge 285ddc96bdcca201f8ed35e38229a92a
+ /etc/apparmor.d/nautilus 57287a789351c7416b3d96538253ced2
+ /etc/apparmor.d/notepadqq 6c24799230bc8f06b33b3b461c7972c0
+ /etc/apparmor.d/nvidia_modprobe 35b7b433c83dc39cb5ae0537d68ba568
+ /etc/apparmor.d/obsidian 6bbf1654bfcd4ac1d702cd1adcfde542
+ /etc/apparmor.d/opam 52c194ff83de698797647437047841d3
+ /etc/apparmor.d/opera b09f37170593933806df51b1a2c136f9
+ /etc/apparmor.d/pageedit c20709c6b0a79f13e964d92f7eb81a2f
+ /etc/apparmor.d/plasmashell 24c4b944eb1f641f2df3020f9e4dc7df
+ /etc/apparmor.d/podman 6fc4a4758bb26d4d40a2762692195885
+ /etc/apparmor.d/polypane b1cd95df33baaf4384ef5c14492ba096
+ /etc/apparmor.d/privacybrowser dbb425e0980c7e1e9033b43aba864b76
+ /etc/apparmor.d/qcam 5952fc84b00d8aec0e8e9d805bd31af2
+ /etc/apparmor.d/qmapshack ce57b415f0b224b6b9e1674d3184568d
+ /etc/apparmor.d/qutebrowser 1c9fc541582fe736ecc9b7eae42c20ad
+ /etc/apparmor.d/rootlesskit a6718e232ff378f3271467a9124b4eea
+ /etc/apparmor.d/rpm 1d6b51dd975371cc952856f4a3d625a6
+ /etc/apparmor.d/rssguard cd9ed0429e53ea8b5d31e2d544585e5c
+ /etc/apparmor.d/runc 3335a9af57ce5e863930b6d03d53ba40
+ /etc/apparmor.d/sbuild 2ecb939ead7308849e09c616f28cc93d
+ /etc/apparmor.d/sbuild-abort 2e8ae36212b9d40f9e68f424737a10e1
+ /etc/apparmor.d/sbuild-adduser 377a8fe84a14a95af5428239f6eaa218
+ /etc/apparmor.d/sbuild-apt 8ec8122adf448bd38bc7d14dec1a8b72
+ /etc/apparmor.d/sbuild-checkpackages a2d5dffff77a59854ce8b0a3406202a2
+ /etc/apparmor.d/sbuild-clean 1baf8007c80c5e14eb8b7cee2a3148a0
+ /etc/apparmor.d/sbuild-createchroot 7082ab20a6deaed506ce47ed46d1ac90
+ /etc/apparmor.d/sbuild-destroychroot baec2cfed39dcfb723b91bf60bb2b8ec
+ /etc/apparmor.d/sbuild-distupgrade 58301d36e68764101a09375fe27ae9af
+ /etc/apparmor.d/sbuild-hold a7d34ec9bc5237c3032e088dc02bb3dd
+ /etc/apparmor.d/sbuild-shell 5be9b23fb7c9c8708e38f9ca27169f61
+ /etc/apparmor.d/sbuild-unhold 34d84c1f2c00b53eef7b6ce8a5220d71
+ /etc/apparmor.d/sbuild-update 9e972d4525d587f03c8ac532ccec53fe
+ /etc/apparmor.d/sbuild-upgrade f026f0679ab74b9ba54b89505420251e
+ /etc/apparmor.d/scide 69d5df4d85f2d888fc6f3a2a02ae710e
+ /etc/apparmor.d/signal-desktop 7e8b436217279ba903f2e9d84390a498
+ /etc/apparmor.d/slack dcc561b40dfc7cd959533469d8a07083
+ /etc/apparmor.d/slirp4netns 6143c40fcda8bec2f36e97e9ba7c20b5
+ /etc/apparmor.d/steam 26615466c8cae2bfb8300d7474cb864c
+ /etc/apparmor.d/stress-ng e3b5a8e8e142b48a79c4250371ac7a32
+ /etc/apparmor.d/surfshark 1b389518cbaf6005b81044bd61424fe0
+ /etc/apparmor.d/systemd-coredump fea0984f8368c0b1952b20b5d1727683
+ /etc/apparmor.d/thunderbird 43cea46111c67e0e66fe5765e8c73939
+ /etc/apparmor.d/toybox d00e2af7f00f3ef3383fcaaadac3e626
+ /etc/apparmor.d/transmission e28f72f28a5ae9fda179609a9d6d632f
+ /etc/apparmor.d/trinity 4a6f33f1d61c65a63138ad7f58e25d53
+ /etc/apparmor.d/tunables/alias 3a4f5cae71b044f38c481adbe3642b33
+ /etc/apparmor.d/tunables/apparmorfs e2074b490a25348fe38bb14a67189b50
+ /etc/apparmor.d/tunables/dovecot 337ca6dc41c0ae4c156a7b111c946bb4
+ /etc/apparmor.d/tunables/etc eaa7eb0aed2f57f233df1534219add7b
+ /etc/apparmor.d/tunables/global 5bcd8895cb67489d5b619d24c14af7b1
+ /etc/apparmor.d/tunables/home 18eda20e8b1a8d45955d582cd18dd621
+ /etc/apparmor.d/tunables/home.d/site.local 3b274206fb06833ee3e151e351dad51b
+ /etc/apparmor.d/tunables/kernelvars 1e1c274b547b8946eed0eff158300e03
+ /etc/apparmor.d/tunables/multiarch 580f535cd1df7ac32d04cac4974274cd
+ /etc/apparmor.d/tunables/multiarch.d/site.local 3c9eef1fbfb41fc452060086262e7bcb
+ /etc/apparmor.d/tunables/proc 2065e74ad990713ead4b32002acdc82c
+ /etc/apparmor.d/tunables/run 96ac843a343694802ade445fd351e43a
+ /etc/apparmor.d/tunables/securityfs 94e4dd81e625ebb7e0ceb02fbd492612
+ /etc/apparmor.d/tunables/share e11aafffd58011c5d832b98bc71372a7
+ /etc/apparmor.d/tunables/sys 30f2fdf4695c26642ea02b5a2063cfbc
+ /etc/apparmor.d/tunables/system dd94eef017cf91d8ea1ff5891aecab24
+ /etc/apparmor.d/tunables/xdg-user-dirs 7eeab5e5987a04857db2f367b07ab4bb
+ /etc/apparmor.d/tup 523fab6a982527f3477970aaa64b3e76
+ /etc/apparmor.d/tuxedo-control-center 53cb9b6edee094984349ab0a1a38efda
+ /etc/apparmor.d/unix-chkpwd 71f57a7d43d5dec3199b6ad95a97802f
+ /etc/apparmor.d/unprivileged_userns 588e4c06bb88ca522fd840c83117569f
+ /etc/apparmor.d/userbindmount 40677d9a5e9228b9203aa9b917b1dfab
+ /etc/apparmor.d/uwsgi-core 1563f58f3bd1b679b27c5093b766daf4
+ /etc/apparmor.d/vdens d5453365eeb2ef78bdabd230d2e528b6
+ /etc/apparmor.d/virtiofsd 7a292c9bcbf7ed74ae7e3df8ad325b7b
+ /etc/apparmor.d/vivaldi-bin 1838b1259fdf616a38b954132af05b30
+ /etc/apparmor.d/vpnns 0f96d656c110471b7f355107b9e0d366
+ /etc/apparmor.d/wike 5f663fc016cc49b2846bd749f0e54306
+ /etc/apparmor.d/wpcom 8f77cd143ac7083c6678368773a21034
+ /etc/apparmor/parser.conf 9d1488d81b7984033958e74dbad682ce
+ /etc/init.d/apparmor 42e157dc91f6554abefa2160c2bc42db
+PACKAGE:appstream
+ /etc/apt/apt.conf.d/50appstream 66866e97b789cd103a4f8e04c8a2d4ec
+PACKAGE:apt
+ /etc/apt/apt.conf.d/01-vendor-ubuntu c69ce53f5f0755e5ac4441702e820505
+ /etc/apt/apt.conf.d/01autoremove 879455db9b938ce287b23383629aedce
+ /etc/cron.daily/apt-compat 1400ab07a4a2905b04c33e3e93d42b7b
+ /etc/logrotate.d/apt 179f2ed4f85cbaca12fa3d69c2a4a1c3
+PACKAGE:apt-utils
+
+PACKAGE:aptdaemon
+ /etc/apt/apt.conf.d/20dbus ea231d256caa030328bee60cc4e9b56c
+ /etc/dbus-1/system.d/org.debian.apt.conf e0c8a5d2fbd0a727bdea215e32061e58
+PACKAGE:aptdaemon-data
+
+PACKAGE:aptitude
+ /etc/cron.daily/aptitude f934222d5eb13cb132e2751bdb023318
+ /etc/logrotate.d/aptitude fb66bc5dc8c13edbcb83cea15ff86959
+PACKAGE:aptitude-common
+
+PACKAGE:aptkit
+ /etc/apt/apt.conf.d/20aptkit 0242bc226fe841a0c93b046cb5eea17d
+PACKAGE:aspell
+
+PACKAGE:aspell-en
+
+PACKAGE:at-spi2-common
+
+PACKAGE:at-spi2-core
+ /etc/X11/Xsession.d/90qt-a11y afc7b6dfce4d98efa295023045b20424
+ /etc/environment.d/90qt-a11y.conf 4f76c97d1817370071bed644d921f142
+ /etc/xdg/Xwayland-session.d/00-at-spi da53e8f602edbb788b3cd6dbb056e45d
+ /etc/xdg/autostart/at-spi-dbus-bus.desktop b97f071f92cfc4af379984b27cbb7304
+PACKAGE:attr
+
+PACKAGE:avahi-autoipd
+ /etc/avahi/avahi-autoipd.action 2a6b538cce1bf0abf8d90cb74693a60b
+ /etc/dhcp/dhclient-enter-hooks.d/avahi-autoipd eb6a192ce374002226532a7199a7a94a
+ /etc/dhcp/dhclient-exit-hooks.d/zzz_avahi-autoipd 911bd916c7aab0ed9b8a6bceb9122a8c
+ /etc/network/if-down.d/avahi-autoipd 474077c828246c57e1f453f28dc2cb8c
+ /etc/network/if-up.d/avahi-autoipd e810e2f4cf1cea7b36a5cf82467b0a18
+PACKAGE:avahi-daemon
+ /etc/avahi/avahi-daemon.conf 3e7f5befd2c5823b96c3a64db447e60e
+ /etc/avahi/hosts 186990ae1edac95a88dbef6a36a07716
+PACKAGE:avahi-utils
+
+PACKAGE:baobab
+
+PACKAGE:base-files
+ /etc/debian_version 418bf63c34339f803ffaab19df71f611
+ /etc/dpkg/origins/debian c47b6815f67ad1aeccb0d4529bd0b990
+ /etc/dpkg/origins/ubuntu ea35901c45553c3451f60476be94d2d8
+ /etc/host.conf 89408008f2585c957c031716600d5a80
+ /etc/issue 3b3b5440080a9436c0f20bd7b7ff0391
+ /etc/issue.net d6139ad123509431195875e7fd50aefc
+ /etc/legal d41d8cd98f00b204e9800998ecf8427e
+ /etc/lsb-release 6795754f830988750bc60e4ba469859c
+ /etc/profile.d/01-locale-fix.sh 870346d97b16faac4a371b04ffe4cc2f
+ /etc/update-motd.d/00-header 3e2b31c72181b87149ff995e7202c0e3
+ /etc/update-motd.d/10-help-text 3e2b31c72181b87149ff995e7202c0e3
+ /etc/update-motd.d/50-motd-news 3e2b31c72181b87149ff995e7202c0e3
+PACKAGE:base-passwd
+
+PACKAGE:bash
+ /etc/bash.bashrc 3aa8b92d1dd6ddf4daaedc019662f1dc
+ /etc/skel/.bash_logout 22bfb8c1dd94b5f3813a2b25da67463f
+ /etc/skel/.bashrc 1f98b8f3f3c8f8927eca945d59dcc1c6
+ /etc/skel/.profile f4e81ade7d6f9fb342541152d08e7a97
+PACKAGE:bash-completion
+ /etc/bash_completion a81b3f1cb197219b815942f4fc7fa94e
+ /etc/profile.d/bash_completion.sh 4257431f99f10e5fbe86b39b6b9e5002
+PACKAGE:bc
+
+PACKAGE:bind9-dnsutils
+
+PACKAGE:bind9-host
+
+PACKAGE:bind9-libs:amd64
+
+PACKAGE:binutils
+
+PACKAGE:binutils-common:amd64
+ /etc/gprofng.rc f941ae51405517b50c5d27f48f3e05d9
+PACKAGE:binutils-x86-64-linux-gnu
+
+PACKAGE:blueman
+ /etc/xdg/autostart/blueman.desktop 63e13d477c6042bb3f2cd1971b6bbef7
+PACKAGE:bluetooth
+
+PACKAGE:bluez
+ /etc/bluetooth/input.conf ce3215368893042076fafce11db8962b
+ /etc/bluetooth/main.conf 2c213988ec131e73bf76149f2117711c
+ /etc/bluetooth/network.conf 0c7497c405b963382ff71789d0730abd
+ /etc/default/bluetooth 189d66a6a4f14ed849f0d26e60c73f67
+ /etc/init.d/bluetooth 33ed7811d65a775cf10f04c2e6ee3cbf
+PACKAGE:bluez-cups
+
+PACKAGE:bluez-obexd
+
+PACKAGE:bolt
+
+PACKAGE:brasero-common
+
+PACKAGE:brltty
+ /etc/brltty.conf e10a6e6d1b9db20c390f91b89050da21
+ /etc/brltty/Attributes/invleft_right.atb f1660605183413d33e5acea8b9d4b68d
+ /etc/brltty/Attributes/left_right.atb 287eb960120a4b5a39f80c977f671075
+ /etc/brltty/Attributes/upper_lower.atb b0380008eefe5914654cb15878f48021
+ /etc/brltty/Contraction/af.ctb 56fe6b260dff6b3e12cc7309d9cc7e8b
+ /etc/brltty/Contraction/am.ctb 8050fdb7e342689ce6aefba7588608a4
+ /etc/brltty/Contraction/countries.cti 2853fbb2b217dc10160f121e2c27df12
+ /etc/brltty/Contraction/de-1998.ctb 0a842123c882dba8c173384bd4ebac7b
+ /etc/brltty/Contraction/de-2015.ctb 1b3e2edfb0388b470e5f0964732e9e92
+ /etc/brltty/Contraction/de-g0.ctb 587fdc063060f018e3ced55472b32403
+ /etc/brltty/Contraction/de-g1.ctb 4591de78b3119b84823beabd144dc2b8
+ /etc/brltty/Contraction/de-g2.ctb 687889feecd6075e2b39c0ad63f3414b
+ /etc/brltty/Contraction/de-wort.cti df9efb753c388684e3af05b02d0d93c9
+ /etc/brltty/Contraction/de.ctb 32345fa7f519f43b52976b1a09f97eae
+ /etc/brltty/Contraction/en-ueb-g1.ctb 2e032e4fdf3cfb4a162d6b893af716d8
+ /etc/brltty/Contraction/en-ueb-g2.ctb e9f49b3cff5a4838f9683f3aaa8ff1a6
+ /etc/brltty/Contraction/en-us-g2.ctb c5197a765a54235130894a202e5e6b2a
+ /etc/brltty/Contraction/en.ctb f666f17a186898190fb9988ba2c9ef44
+ /etc/brltty/Contraction/en_US.ctb 03ea8b7bcff23a42d710186bcf61e12f
+ /etc/brltty/Contraction/es.ctb e23973b3d4a22a25e4c13ea999f524fc
+ /etc/brltty/Contraction/fr-g1.ctb 996f6c0fb2e60f2081a9b821c91170ee
+ /etc/brltty/Contraction/fr-g2.ctb af4bb438df5c24f0d53d351d8f19f2c0
+ /etc/brltty/Contraction/fr.ctb 4a701b2f733462bff4efb4426376a3f1
+ /etc/brltty/Contraction/ha.ctb 82ace102a8f14d15fcf9efa067ee9c04
+ /etc/brltty/Contraction/id.ctb c0ec1e5fa2ee66fe78814221ad79fcec
+ /etc/brltty/Contraction/ipa.ctb 691e329536a371e2d769800ae04a08dd
+ /etc/brltty/Contraction/ja.ctb 63e1a192614cc208b89b77850b4df8c2
+ /etc/brltty/Contraction/ko-g0.ctb 98536e34e64ea7abe34d058189060d84
+ /etc/brltty/Contraction/ko-g1.ctb 81867f8ca87bc05f59c97e823130a6f1
+ /etc/brltty/Contraction/ko-g2.ctb af3f1e2bcb1f07de78f040b2643f0a84
+ /etc/brltty/Contraction/ko.ctb 2d6ecaca077e6bd8843f9045f09bbd56
+ /etc/brltty/Contraction/latex-access.ctb 2b281d091fa0066d2423c85b77f21e4b
+ /etc/brltty/Contraction/letters-latin.cti 57aa355e0a88a29cc84f6040b4a8d297
+ /etc/brltty/Contraction/lt.ctb 3466ecf36016cc6393e3f4cef387ef34
+ /etc/brltty/Contraction/mg.ctb 272529887a03a864bf95e22cec3d895c
+ /etc/brltty/Contraction/mun.ctb c12fe9b058e333b4cf08370f246b3062
+ /etc/brltty/Contraction/nabcc.cti 0a197bb6e9a372d82507d6756f509329
+ /etc/brltty/Contraction/nl.ctb d3de3f7ddabd3637682c080f44cd6839
+ /etc/brltty/Contraction/none.ctb 2fd61a03ba5030ef0e906d9bcdb24657
+ /etc/brltty/Contraction/ny.ctb ab26a990f542601d228188ff844b2cb4
+ /etc/brltty/Contraction/pt.ctb c15ee72d55715bb07de4ab5a92db9dc2
+ /etc/brltty/Contraction/ru.ctb 7ffef99fc3772a5d673967344ac7485c
+ /etc/brltty/Contraction/si.ctb 28bac24d3ac3ed4360b010d06a0a7b0d
+ /etc/brltty/Contraction/spaces.cti 9cf18406703672dd96a9a424bebbfb42
+ /etc/brltty/Contraction/sw.ctb 57e087a6fca739fc743fb7e06cc4ac7f
+ /etc/brltty/Contraction/th.ctb 59914693022b578cb39b760e9b383950
+ /etc/brltty/Contraction/zh-tw.ctb f783b103bf858236b4bb0628d029d30f
+ /etc/brltty/Contraction/zh-tw.cti 0a3dee28b942191789f05572126ae867
+ /etc/brltty/Contraction/zh_TW.ctb 5747a952f998cdf7660fb01adc8f08b0
+ /etc/brltty/Contraction/zu.ctb d7d75a6c1af671ad9fd670e91286b303
+ /etc/brltty/Input/al/abt_basic.kti 0c9706d002356f08f35e609e011de258
+ /etc/brltty/Input/al/abt_extra.kti 96b8c44f28b75ea29cb4cf07f7683ab9
+ /etc/brltty/Input/al/abt_large.ktb 389013d852ab57db86e00b5e37871040
+ /etc/brltty/Input/al/abt_small.ktb e9e46d4dac52ce461b27fb8e5f839be2
+ /etc/brltty/Input/al/bc-etouch.kti f23912bb5540d9378776df7b632edc17
+ /etc/brltty/Input/al/bc-smartpad.kti 0995757e71cb46381b9c4688d5b62c29
+ /etc/brltty/Input/al/bc-thumb.kti d9a7ca35fb38edee1753ec24df09fedd
+ /etc/brltty/Input/al/bc.kti 1b20b3f6ebd3416a5c21374988cfbd13
+ /etc/brltty/Input/al/bc640.ktb 29c685aca7e33e043d394fa835aa4bf9
+ /etc/brltty/Input/al/bc680.ktb e22623acc36f928ae74a2e31f4f0ad95
+ /etc/brltty/Input/al/el.ktb 973807f63b2386b37aebd6d91302b766
+ /etc/brltty/Input/al/sat_common.kti a287268d3f8369666a9299710e8418bc
+ /etc/brltty/Input/al/sat_large.ktb e02d527c483570e34f90bf315ae0e600
+ /etc/brltty/Input/al/sat_nav.kti c0c589713f8704ad9a3448a02e6793cb
+ /etc/brltty/Input/al/sat_small.ktb 91e98c47d9d960569b88504422d168ed
+ /etc/brltty/Input/al/sat_speech.kti e4d13c2f63617f428cffc948e9e78799
+ /etc/brltty/Input/al/sat_tumblers.kti 926f56e37e46749a15ce62696ef5cc4b
+ /etc/brltty/Input/al/voyager.ktb 34e8ec0eceb91de583f0ac95e88639ad
+ /etc/brltty/Input/android-chords.kti 713fec232db8c112b5114a0e19ff9c01
+ /etc/brltty/Input/at/all.ktb 373e5a727e54940e5da047a475a81221
+ /etc/brltty/Input/ba/all.txt dba5ceb757d7a4118775f3c1b56d6e13
+ /etc/brltty/Input/bd/all.txt e074a6e5d7c8a990b0c553bdedc85d88
+ /etc/brltty/Input/bg/all.ktb dd5a78d8adc73ffb3ed7a4c719221eb8
+ /etc/brltty/Input/bl/18.txt e5f939d8e49888d2ac8673e14b118e91
+ /etc/brltty/Input/bl/40_m20_m40.txt 754440c01c84f579cd3a5471206661d3
+ /etc/brltty/Input/bm/NLS_Zoomax.ktb e164e4cd241aa334f0321c4af059724d
+ /etc/brltty/Input/bm/b2g.ktb e3e2a6e93db0f85bad1b3ceaa00f8986
+ /etc/brltty/Input/bm/b9b10.kti 575a30fdc324bf92191a583dd644da1a
+ /etc/brltty/Input/bm/b9b11b10.kti 0e92e1e25c0ac0ccc727816c17b8763c
+ /etc/brltty/Input/bm/command.kti 70a46ad2e78fafe43ef9b1d3a6c9d895
+ /etc/brltty/Input/bm/connect.ktb 29f4cfe57e5a63c7831fbc7844f4131a
+ /etc/brltty/Input/bm/conny.ktb 75be45dc93304ed1deef417990c3c105
+ /etc/brltty/Input/bm/d6.kti e148b705c35719dccb7dd794f21a7cc6
+ /etc/brltty/Input/bm/default.ktb 37fa43475d1254ee4cd9a15842f88a71
+ /etc/brltty/Input/bm/display6.kti 002d7a3fa8f42520b0bbc14c04fd777e
+ /etc/brltty/Input/bm/display7.kti 0eb8fd10f3195d33c0a7a40696c56eed
+ /etc/brltty/Input/bm/dm80p.ktb dd35e74fb733a4e98322f869f575dea4
+ /etc/brltty/Input/bm/emulate6.kti 224ab734095760283b97cf0c174df916
+ /etc/brltty/Input/bm/front10.kti 2e753e284ee512d42a27a6475d857a83
+ /etc/brltty/Input/bm/front6.kti 5058911d3a2afc0c39977ec1fe3f73b5
+ /etc/brltty/Input/bm/horizontal.kti 0ddede9c2c0a074ca0cd64b42f53fac1
+ /etc/brltty/Input/bm/inka.ktb 1909b9cd575bee14c19998d100f563de
+ /etc/brltty/Input/bm/joystick.kti 8daa44af40f6cfda1fc7e6404bc3fa99
+ /etc/brltty/Input/bm/keyboard.kti cc10ec73a1591ff7fed7c4ee9efae8c9
+ /etc/brltty/Input/bm/navpad.kti c441b9eeb179a3dc150c49ce0ed5b457
+ /etc/brltty/Input/bm/orbit.ktb 6f27257c5113723b27cfefc7cc511ccf
+ /etc/brltty/Input/bm/pro.ktb f328085ef36c3cdd344db420587af5a4
+ /etc/brltty/Input/bm/pronto.ktb cc7bf6d46056bd24aee247a132f0110d
+ /etc/brltty/Input/bm/pv.ktb f95e4476489b407a0962846fe016c895
+ /etc/brltty/Input/bm/rb.ktb 525124b0c4ed067067976bf842794bd4
+ /etc/brltty/Input/bm/routing.kti 24eb670a60d4933e1fd180cf60554134
+ /etc/brltty/Input/bm/routing6.kti 276b71aa70d158f8ec2e224166833f1b
+ /etc/brltty/Input/bm/routing7.kti db40939cfc18cc020a3d3324beb0a8d3
+ /etc/brltty/Input/bm/status.kti 4795d7c17fb45604c672e1d4ac7c9ca2
+ /etc/brltty/Input/bm/sv.ktb 810fa536aa46b73d9bc4b1fa979ed180
+ /etc/brltty/Input/bm/ultra.ktb 8a928971389a017dcba92fedad0518f0
+ /etc/brltty/Input/bm/v40.ktb 9420026c871f85325e2e886fd5683cec
+ /etc/brltty/Input/bm/v80.ktb e5c1608dbd8d6c36a9c8cd6bf60daab0
+ /etc/brltty/Input/bm/vertical.kti 0107358bf4a691f84e0c3573633adbd4
+ /etc/brltty/Input/bm/vk.ktb 083d490441b040caaa3895c6b717c481
+ /etc/brltty/Input/bm/wheels.kti bc55886a3008107c13cf6128d68f768e
+ /etc/brltty/Input/bn/all.ktb 3b511a58ea8b4abf8db0687c92ee252d
+ /etc/brltty/Input/bn/input.kti cf19ecba7525106ce30bbffdc73ee8f7
+ /etc/brltty/Input/bp/all.kti 0dd05c2c73c6328d5700d9120092d42a
+ /etc/brltty/Input/cb/all.ktb 4f2b573539887aff4356bfa8dd7a331a
+ /etc/brltty/Input/ce/all.ktb 13fe4bb6ab94ff3b48d7acb2f63be165
+ /etc/brltty/Input/ce/novem.ktb c88b315c12a4883e17af39c4677a713e
+ /etc/brltty/Input/chords.kti e31ac9f3bd36bdf8763a1730af08a7bb
+ /etc/brltty/Input/cn/all.ktb 9a0667e6ee0cc7d797e2157d1f1d34ae
+ /etc/brltty/Input/dp/all.ktb 07ba2f15ef0b924b3e0db1205b6683a8
+ /etc/brltty/Input/dp/function.kti ee1b2b1ea952a7a40bd0091c1752aa85
+ /etc/brltty/Input/dp/keyboard.kti 6260a3c009c77fef7532a1a857906d80
+ /etc/brltty/Input/dp/navigation.kti e2b864f6d86d96658b628848ead5b813
+ /etc/brltty/Input/dp/panfn4.ktb 812652f8dc9ce7898bd8472a071142ae
+ /etc/brltty/Input/dp/panning.kti 36988f0835356eb71ce9c549e363836d
+ /etc/brltty/Input/dp/routing.kti 5cc0c627309b36d33d2271384935d899
+ /etc/brltty/Input/dp/scroll.kti ba426863786f9500768aa7bcdd512de3
+ /etc/brltty/Input/ec/all.txt 557da62b605e5df3449bdda50916ee7c
+ /etc/brltty/Input/ec/spanish.txt b1b0fe80e08df375bd582d0b465c07d3
+ /etc/brltty/Input/eu/all.txt d0d28bc973a96a5294ca7b7411d6adc4
+ /etc/brltty/Input/eu/braille.kti 20a38de2b9e2f7ecaf2d89c9fdef1290
+ /etc/brltty/Input/eu/clio.ktb f10a94df7dcedec383e4ea4770c22916
+ /etc/brltty/Input/eu/common.kti 2ebbb92974ac4ff49f411c4e3b5713b8
+ /etc/brltty/Input/eu/esys_large.ktb c3177529ed66d85a2abfd7a2e57992d9
+ /etc/brltty/Input/eu/esys_medium.ktb 4d80832e5b796d6696c1f1e171e714ff
+ /etc/brltty/Input/eu/esys_small.ktb dd5841cc824f5dafce7b2cdcbd8239b0
+ /etc/brltty/Input/eu/esytime.ktb 2ae6daa7af8fdd67a5a8aec74784de94
+ /etc/brltty/Input/eu/iris.ktb 9f6803cb62d339183142a6b690780e21
+ /etc/brltty/Input/eu/joysticks.kti 32578fc415d79e2243eda9a2c9f3d4b5
+ /etc/brltty/Input/eu/routing.kti 470747315316345b2c4eced9e8aef956
+ /etc/brltty/Input/eu/sw12.kti 4b82fae2f380d3d61c6ec4cbf55cdb97
+ /etc/brltty/Input/eu/sw34.kti 2aa3756f49b423b1f3db4dde6c6b7120
+ /etc/brltty/Input/eu/sw56.kti 9152aaa8141db2358d3b0a6e95941207
+ /etc/brltty/Input/fa/all.ktb f998cab78b0769d49d2f334ac749b725
+ /etc/brltty/Input/fs/bumpers.kti 6ca34cc8e901c779c6fdd784c265bb98
+ /etc/brltty/Input/fs/common.kti 4f6aaf38baebc4f9a0b2ea3f4ae55725
+ /etc/brltty/Input/fs/focus.kti b961bc6720155c9457e800ba7501ee81
+ /etc/brltty/Input/fs/focus1.ktb 7b2c3be0d4be576e28d5f208d1a2cf4d
+ /etc/brltty/Input/fs/focus14.ktb b829a97d09d0787b0c0951f9997cf373
+ /etc/brltty/Input/fs/focus40.ktb e81a47ba17ec5168f612422760644015
+ /etc/brltty/Input/fs/focus80.ktb 5423b1df5d3e85e20d6b6829e8eb97b2
+ /etc/brltty/Input/fs/keyboard.kti 5330112fadc908c69df767c4f4fb66a0
+ /etc/brltty/Input/fs/pacmate.ktb 79bfe7361f9e27294b06993a4ca5aefa
+ /etc/brltty/Input/fs/rockers.kti cefaa455cb04b716400c7f4ad65fa3ff
+ /etc/brltty/Input/fs/speech.kti d290ad2dd054d6e3e68a6940bc01b093
+ /etc/brltty/Input/hd/mbl.ktb f8f4fafc70c9eb8c2b2fda1e5e6e009b
+ /etc/brltty/Input/hd/pfl.ktb 63c510a44927098f5beb5b367a9fa9ea
+ /etc/brltty/Input/hm/beetle.ktb 928c5ff6fb4a55f9a7ac980880e8866c
+ /etc/brltty/Input/hm/braille.kti 75ec445b543ccada0b746139ef5de861
+ /etc/brltty/Input/hm/common.kti 675dbd2355ad3ada9f03efaf329ad53b
+ /etc/brltty/Input/hm/contexts.kti 587ded0d4546533735b37600b5686555
+ /etc/brltty/Input/hm/edge.ktb f9ac52781d7de6e2b9f4fb065cf07456
+ /etc/brltty/Input/hm/f14.kti e91033b08aa4f2e99c2eaee0e10eb6e9
+ /etc/brltty/Input/hm/f18.kti 30cf7254cd149727763b46bbac7a03b4
+ /etc/brltty/Input/hm/fnkey.kti 6d079eae56e83ed3e90c35516062a9d7
+ /etc/brltty/Input/hm/left.kti 03a1bc76d3215051e6fb536f885d5c2a
+ /etc/brltty/Input/hm/letters.kti e89dd67fd7487f38d61e20cfcc1c2876
+ /etc/brltty/Input/hm/pan.ktb 191b75c4d1213a03c870c1fa41472a5a
+ /etc/brltty/Input/hm/pan.kti aa8706ede215f2d5925358e3528b5182
+ /etc/brltty/Input/hm/qwerty.ktb e5081985e07406b275d45fa567b13257
+ /etc/brltty/Input/hm/qwerty.kti 6edb91f4f8a4b66bccd687669c0d3556
+ /etc/brltty/Input/hm/right.kti 7f8c4d5b8af1de0a5ada4390fec82bb8
+ /etc/brltty/Input/hm/scroll.ktb 203307675d775c8d2f7ad13179ebac8f
+ /etc/brltty/Input/hm/scroll.kti e80b44046551af3f17bd525a610ec96f
+ /etc/brltty/Input/hm/sync.ktb 4f3e573403d0438276eb7d6fd14cdeef
+ /etc/brltty/Input/ht/ab.ktb a5da15f50eeebb37795d1d65425417bf
+ /etc/brltty/Input/ht/ab.kti 5b035adb369e44b5340927bd2d977280
+ /etc/brltty/Input/ht/ab_s.ktb ded4685b666ea409854310f2b3b1b815
+ /etc/brltty/Input/ht/ac4.ktb 232adbfe29f3961014c00b1363077967
+ /etc/brltty/Input/ht/alo.ktb e1ee2c7ad4ff12effcb9b81573910789
+ /etc/brltty/Input/ht/as40.ktb a8698f8f24d38cf958e8ade34c8763eb
+ /etc/brltty/Input/ht/bb.ktb cc70689236ae1f29a0971ff18c4b7977
+ /etc/brltty/Input/ht/bbp.ktb 27311fe282793f089aff663a0595a103
+ /etc/brltty/Input/ht/bkwm.ktb 47524bc478d44df5c39c0246c8ddec40
+ /etc/brltty/Input/ht/brln.ktb 7e571d4934765784545de59bb93ce3ea
+ /etc/brltty/Input/ht/bs.kti b74af2258d81e453601e795d9cfbbaa0
+ /etc/brltty/Input/ht/bs40.ktb d9764cd3d20ede95d320584cf7bdb1cf
+ /etc/brltty/Input/ht/bs80.ktb 4f9edccd33c48a96ca3efbace88a5fd9
+ /etc/brltty/Input/ht/cb40.ktb 8374a79a2af267eaa701786f9912bca7
+ /etc/brltty/Input/ht/dots.kti 463acb9bbe14f5542a7117a02fae1fdd
+ /etc/brltty/Input/ht/easy.ktb 5cbcee1f6e0560242d4476db68ca2ac5
+ /etc/brltty/Input/ht/input.kti 14a8a24c9527103e384bffefced4de9f
+ /etc/brltty/Input/ht/joystick.kti cbb5720f793786c0aaafdadb10602a81
+ /etc/brltty/Input/ht/keypad.kti 4d00f1bc85928ea246b09424dd4df3bd
+ /etc/brltty/Input/ht/mc88.ktb 0ae9d56982c4fb65e45872bdda3bffc3
+ /etc/brltty/Input/ht/mdlr.ktb e22ab09dd8d285c4dd2b766ed2d74dd9
+ /etc/brltty/Input/ht/me.kti 9c854086a8ffb94897b7ba50bbf2e69e
+ /etc/brltty/Input/ht/me64.ktb be0f2c46c68dcc635e36dd3ad80d2925
+ /etc/brltty/Input/ht/me88.ktb 5c98c0d34a930acb0eff96942c904a4f
+ /etc/brltty/Input/ht/rockers.kti 0cf0da2c178f493a9abd782368461b50
+ /etc/brltty/Input/ht/wave.ktb 75db47d0ac3c1a15e6663abca16b466a
+ /etc/brltty/Input/hw/B80.ktb 6f7c678fca10254232b5573f857defdb
+ /etc/brltty/Input/hw/BI14.ktb 898d1af352a36ceee047f08db9d231a3
+ /etc/brltty/Input/hw/BI20X.ktb 8cf05ff601aabd3478b46491bd46e90d
+ /etc/brltty/Input/hw/BI32.ktb 7f971774960cffe81edf8bb6369f1926
+ /etc/brltty/Input/hw/BI40.ktb 2232d057323abe4ad726f98c36e150a7
+ /etc/brltty/Input/hw/BI40X.ktb d02151b16cadaaf20185622162bc4884
+ /etc/brltty/Input/hw/C20.ktb d64497bd99eba6b6126ea8f2c12caa9b
+ /etc/brltty/Input/hw/M40.ktb bedafae637bd327e410cc2a5a6d38a5f
+ /etc/brltty/Input/hw/NLS.ktb d7572a1ef861c6045e1521f6475a397c
+ /etc/brltty/Input/hw/braille.kti 42ee3abf87f32526da71cc081aba2cbc
+ /etc/brltty/Input/hw/command.kti c136ded0c9ad6b7ffaeff46c11e8819a
+ /etc/brltty/Input/hw/joystick.kti 41595e0620921d504137a8932e328c91
+ /etc/brltty/Input/hw/one.ktb b74f725dcafd64a8e36f76e0d2452dca
+ /etc/brltty/Input/hw/routing.kti 24eb670a60d4933e1fd180cf60554134
+ /etc/brltty/Input/hw/thumb.kti d327f7badebda6955658c6c0513d9b0b
+ /etc/brltty/Input/hw/thumb_legacy.kti 89fcf2df7905cce9f802624fbffe0de4
+ /etc/brltty/Input/hw/touch.ktb fc81bd75516a129033920edc6165c451
+ /etc/brltty/Input/ic/bb.ktb 344fbf85925aa1e6e4b0cf1d0d281159
+ /etc/brltty/Input/ic/chords.kti 9149efb3bc10594000f5ff141a36b068
+ /etc/brltty/Input/ic/common.kti 9a7ba731acf4c9c656a1803c8bfc3362
+ /etc/brltty/Input/ic/nvda.ktb e715b1a903572959a68366c2e0b3fd14
+ /etc/brltty/Input/ic/route.kti 66fd083ad1da1bad4cc19a7bf1e98e4c
+ /etc/brltty/Input/ic/toggle.kti 541d1620caf878b57ed836b83772dd32
+ /etc/brltty/Input/ir/all.kti 2de0d3d8cd2965369940d6110bb903fd
+ /etc/brltty/Input/ir/brl.ktb d86a3f4e0ad5e486c26dc900850d1e94
+ /etc/brltty/Input/ir/pc.ktb 7321f938621f0efc34934a8214472e3c
+ /etc/brltty/Input/lb/all.txt bcbf6afd0accc850b10ae4e0192ce4b2
+ /etc/brltty/Input/lt/all.txt 99906cfe61aca9945ea0b92d888478f4
+ /etc/brltty/Input/mb/all.txt 772a3004115fe56f26bd6f0c7fd5213a
+ /etc/brltty/Input/md/common.kti da62c478bbe86f67b54cca2275045e5c
+ /etc/brltty/Input/md/default.ktb 2791172f1b50dfd2cef55652d70c48f5
+ /etc/brltty/Input/md/fk.ktb 8cc59abf466e4556bb4ec5e48a5f2efa
+ /etc/brltty/Input/md/fk_s.ktb 8857c168799261eee73f4ea6fb14312f
+ /etc/brltty/Input/md/fkeys.kti 0251ffd0ea73b2f01f942e93e7d7c118
+ /etc/brltty/Input/md/kbd.ktb db417ce3ee228bb91e572c03cb8f7692
+ /etc/brltty/Input/md/keyboard.kti 4df72911f3ea8588c0cfd1cce77fb53e
+ /etc/brltty/Input/md/status.kti 9c5927c134ad2cd0a6b48f4afa3e76f9
+ /etc/brltty/Input/menu.kti ba19923c4f58e17919d8aa9e4b2ee19f
+ /etc/brltty/Input/mm/common.kti 269fffe17c4f6757bfa4b1a17c4f64e9
+ /etc/brltty/Input/mm/pocket.ktb 07261634d24f776a708daba0ec122cda
+ /etc/brltty/Input/mm/smart.ktb 4f00396e6e5b3bd1f3eb008191be5fb0
+ /etc/brltty/Input/mn/all.txt d03d10247abdb76d5cfb3295dc17d314
+ /etc/brltty/Input/mt/bd1_3.ktb 92c7d60c5562f2ce4bf4cfd82d889746
+ /etc/brltty/Input/mt/bd1_3.kti 1b036460aabfaf766669ae8df942eae2
+ /etc/brltty/Input/mt/bd1_3s.ktb dbc73e14cf6e6e39622385c5ff3b4b9a
+ /etc/brltty/Input/mt/bd1_6.ktb 2e7c98c3cc3a323c3cdeb3f6175991df
+ /etc/brltty/Input/mt/bd1_6.kti 9bef857b60e4cadab9a6b743a57bf235
+ /etc/brltty/Input/mt/bd1_6s.ktb 16282b92331c900081702b477cd4c4df
+ /etc/brltty/Input/mt/bd2.ktb 7f9094a9b9130f6a284fdd8aec6eb49a
+ /etc/brltty/Input/mt/status.kti 6191f5e443db36b15c9b963ab5e39882
+ /etc/brltty/Input/nav.kti 65d576df8256d970b31ed0df5a511f70
+ /etc/brltty/Input/no/all.txt 92e6646e87d14db6b8e3da8f54384435
+ /etc/brltty/Input/np/all.ktb 30decea499c2abb84a2a1427afe12ee1
+ /etc/brltty/Input/pg/all.ktb b023a5237fc1692503f8541640ca1630
+ /etc/brltty/Input/pm/2d_l.ktb 065f1917ea5cd894b2172bd86f0b8a6d
+ /etc/brltty/Input/pm/2d_s.ktb c832c6b3ca90906dfcf1826f164600ad
+ /etc/brltty/Input/pm/bar.kti 1297de1f08dc207a584a5f50cc809bd3
+ /etc/brltty/Input/pm/c.ktb b3021d4917d3bcaa2f47f597e8660ab2
+ /etc/brltty/Input/pm/c_486.ktb 2bcc13606d27b9591ef45563d0a14f49
+ /etc/brltty/Input/pm/el2d_80s.ktb eb2965a8ba5f66a5147a10fc899f936a
+ /etc/brltty/Input/pm/el40c.ktb 7503aa131457e05b18391f216ad95ed7
+ /etc/brltty/Input/pm/el40s.ktb fbf20feaaa0332042cec678028309d0b
+ /etc/brltty/Input/pm/el60c.ktb 1d8aa14012b45d03045c827c8ec4a0d9
+ /etc/brltty/Input/pm/el66s.ktb 38714969d69e2b66e9bd61b42c9a6945
+ /etc/brltty/Input/pm/el70s.ktb 7ead2459aac8ec681cbc0961674a9115
+ /etc/brltty/Input/pm/el80_ii.ktb 53b1da76a196178c5a087e35aa76c218
+ /etc/brltty/Input/pm/el80c.ktb cac5d82a7117f16e2229a7e499b631cb
+ /etc/brltty/Input/pm/el80s.ktb f5885e0fcdbea540426450890a5b50c6
+ /etc/brltty/Input/pm/el_2d_40.ktb 4c6eae5862288d4a688aa29fd10fa9d2
+ /etc/brltty/Input/pm/el_2d_66.ktb b15942825cdf767048671ac73d753b64
+ /etc/brltty/Input/pm/el_2d_80.ktb 576eec8fd54f11068f91e07c47c27b56
+ /etc/brltty/Input/pm/el_40_p.ktb 3ffcc198263ace2cc844b6fbbf320d41
+ /etc/brltty/Input/pm/el_80.ktb 076f74f1338933f4dc54c7c381567cae
+ /etc/brltty/Input/pm/elb_tr_20.ktb 7348cb0ac30619667205dac867ac120e
+ /etc/brltty/Input/pm/elb_tr_32.ktb 1ae5d12e92cded4b270871574e695fbf
+ /etc/brltty/Input/pm/elba_20.ktb 35dcf7b930370c4f589e78669ef2284e
+ /etc/brltty/Input/pm/elba_32.ktb 76a1c69c174dadf4232931253b2cebbc
+ /etc/brltty/Input/pm/front13.kti d3fdb1bd230fd6ef2b9a0a4952b62dd5
+ /etc/brltty/Input/pm/front9.kti f88dafbe626afd35fefd8135374c34f7
+ /etc/brltty/Input/pm/ib_80.ktb b3bee042739c68aaa4e7517e8938957a
+ /etc/brltty/Input/pm/keyboard.kti d2471c2715250ecf36c1bf600343f8b7
+ /etc/brltty/Input/pm/keys.kti e28ae517f85873a428ac48c66e5b1f90
+ /etc/brltty/Input/pm/live.ktb 356fecbed3e5f1001f654c5dc214ab8b
+ /etc/brltty/Input/pm/routing.kti 9b442ce36a3037ae4ac915962f5d4cd9
+ /etc/brltty/Input/pm/status0.kti f921e5f664b3c2ea5cedcf62e8983998
+ /etc/brltty/Input/pm/status13.kti 808948be12b408fd2df79aa8b6ca0f9e
+ /etc/brltty/Input/pm/status2.kti 8cffe8bc636f16138d889b04ef6b30dd
+ /etc/brltty/Input/pm/status20.kti 391a9a54ef0cde5249dd284717b66087
+ /etc/brltty/Input/pm/status22.kti 851729227fff1bfafa75fb6dd91c256f
+ /etc/brltty/Input/pm/status4.kti 6ef1e3fa5a5b113d112cf7bfd4acabf6
+ /etc/brltty/Input/pm/switches.kti 7236c07fea2b751b0e96e54a1ae7d627
+ /etc/brltty/Input/pm/trio.ktb 1acbff6ec6b2a5fedc872a4c3fe960ab
+ /etc/brltty/Input/sk/bdp.ktb 538afa683cb4ec239ac65e25fa5df784
+ /etc/brltty/Input/sk/ntk.ktb 303d4dadeb815ed1512a46b410a4d93e
+ /etc/brltty/Input/speech.kti 9ec99dbfbd91ac1af673d46213510b56
+ /etc/brltty/Input/tn/all.txt 23c0fc87f0a12a893346003cb7b3af10
+ /etc/brltty/Input/toggle.kti 2a8d7b25e049db86155a335f32e2756f
+ /etc/brltty/Input/ts/nav.kti 647a60c5c4146d49ea77d33330e5c939
+ /etc/brltty/Input/ts/nav20.ktb 493c527e8b0ae0fe4d97a924c86d0aba
+ /etc/brltty/Input/ts/nav40.ktb 8abd61a3a75d8296fe892eab0777b6d6
+ /etc/brltty/Input/ts/nav80.ktb 18c2af15486fa4eed48164bd86ef40e7
+ /etc/brltty/Input/ts/nav_large.kti 2e907a93522f56ebf6a8549867f79c31
+ /etc/brltty/Input/ts/nav_small.kti 9d0de6b1957f7a4c1afe490091dac01d
+ /etc/brltty/Input/ts/pb.kti 94a641d4ec46be2e6ed7e9af09cd8079
+ /etc/brltty/Input/ts/pb40.ktb 060af01b4fdb17c29f63c3da1594fe67
+ /etc/brltty/Input/ts/pb65.ktb 9e41361297668ec762a2f4fbe1b45790
+ /etc/brltty/Input/ts/pb80.ktb 0fcb296d85a8ddb61a26dfc72922e005
+ /etc/brltty/Input/ts/pb_large.kti 76711aafd560a155033f87127c637375
+ /etc/brltty/Input/ts/pb_small.kti ee1f3cb9c207b3bc1ccc41e44bbc4ecc
+ /etc/brltty/Input/ts/routing.kti b3a2512aaf3455df0f3ca41c50e08931
+ /etc/brltty/Input/tt/all.txt 5e400435befcd7065b54dc3a44828144
+ /etc/brltty/Input/vd/all.txt 97f903d0978b084db8263547032842d2
+ /etc/brltty/Input/vo/all.ktb f65df1c1f0a086f0094a304ed7579d12
+ /etc/brltty/Input/vo/all.kti 9b9ef9a369bbf29db30ec2df0fc6ea02
+ /etc/brltty/Input/vo/bp.ktb 592ed6ace6c18e72e43af6332c823d6e
+ /etc/brltty/Input/vr/all.txt 59085d7eb62b63059e94574177580c0b
+ /etc/brltty/Input/vs/all.txt afbb69e3847180cf3a8a07eca591cdc8
+ /etc/brltty/Keyboard/braille.ktb 765f962a5997837d6e400cfd6476a32a
+ /etc/brltty/Keyboard/braille.kti 75a7237a701b5e710f41c3a9f732935a
+ /etc/brltty/Keyboard/desktop.ktb dce9c983d39b5dd7638b996d140b2e04
+ /etc/brltty/Keyboard/desktop.kti 5763520dae3a22491ef9bf770e4bfeae
+ /etc/brltty/Keyboard/keypad.ktb 2ba0beb9f41896e13555d4b76b18d767
+ /etc/brltty/Keyboard/kp_say.kti ef22ea5e050ccef5685200c3bfe9133d
+ /etc/brltty/Keyboard/kp_speak.kti 4056af0612deacde743ee4496fc952e4
+ /etc/brltty/Keyboard/laptop.ktb f3df2bc4eb20757b7bf8bb556d473875
+ /etc/brltty/Keyboard/sun_type6.ktb 63b5d9c56dc69a8fd97bb3df09c2c813
+ /etc/brltty/Text/alias.tti 440357ceae741c9ed44c4cb2689274cd
+ /etc/brltty/Text/ar.ttb 622daee23d9abf937fa83a258777990d
+ /etc/brltty/Text/as.ttb 5cc8b49fa2d9a4744160b822c7bedd0a
+ /etc/brltty/Text/ascii-basic.tti c2a410d618be5f75110396b49e948a45
+ /etc/brltty/Text/awa.ttb 356e69ac68724754c4fc447d80f76c69
+ /etc/brltty/Text/bengali.tti ba5ca00b35d16159f1545c15a83cbd8f
+ /etc/brltty/Text/bg.ttb dd6a914568cc78db3855bcdab03cffd1
+ /etc/brltty/Text/bh.ttb a79b2e29e0042775d0a0e59934d726e2
+ /etc/brltty/Text/blocks.tti 233603417bff1bc926a2190186f4a70b
+ /etc/brltty/Text/bn.ttb 775f3978ed4525f835aed05631deb392
+ /etc/brltty/Text/bo.ttb 498dcef797d96769f7302de1a7b09a45
+ /etc/brltty/Text/boxes.tti 1a7ee716d29a8068c8aebff43158d97d
+ /etc/brltty/Text/bra.ttb dfe33a2838f7e5a0fb797fdc560b23f3
+ /etc/brltty/Text/brf.ttb 466d623d02eb79fe89f9f980e44a2fef
+ /etc/brltty/Text/common.tti dab02cc80de42c8a6d81c9970cb1d732
+ /etc/brltty/Text/cs.ttb 094d3825674551ee861673d64cb0dc56
+ /etc/brltty/Text/ctl-latin.tti abaa08ae81b56092837247b3844f79f5
+ /etc/brltty/Text/cy.ttb 1d0f5d74dad1e01f8ecca27b18e508fb
+ /etc/brltty/Text/da-1252.ttb 4c860dd8ba0d01a8a9a4adbfcb264eb4
+ /etc/brltty/Text/da-lt.ttb 0b703db2587c4856542e1b05e6d0d6dd
+ /etc/brltty/Text/da.ttb 960b56402bd8ad6be81e71260237ea18
+ /etc/brltty/Text/de-chess.tti a7fec3a8cbd4650eded58e19e661e25e
+ /etc/brltty/Text/de.ttb f79467a7ce53b1c7f403ef70179cf196
+ /etc/brltty/Text/devanagari.tti 242dd335ec1a046a76dc33dd40604257
+ /etc/brltty/Text/dra.ttb df9cb61da199a86029f83bb6569147dc
+ /etc/brltty/Text/el.ttb 36fa5681ef1119fbe63f8481efd7b1f5
+ /etc/brltty/Text/en-chess.tti e7b6c5646e1e81ba4a31202bfbde032e
+ /etc/brltty/Text/en-na-ascii.tti 6bd136c675e54a0772d8d13f208bdd11
+ /etc/brltty/Text/en-nabcc.ttb 7652057523be4f15629e901f7ca39f93
+ /etc/brltty/Text/en.ttb 3901483c3bc52626fe8df4b565902ba3
+ /etc/brltty/Text/en_CA.ttb f0882f18d726627b7bceb7163ada97ef
+ /etc/brltty/Text/en_GB.ttb c51425dbdbd18363798fdbe5efaad80b
+ /etc/brltty/Text/en_US.ttb 9e84b8259c7b8d413bd6e77a29f3ee23
+ /etc/brltty/Text/eo.ttb 3576e4d3b5892785e288505469e77b3e
+ /etc/brltty/Text/es.ttb 14d379b400a923679cf32da6f8188478
+ /etc/brltty/Text/et.ttb d978c6f127bd915d14c731f6f1660647
+ /etc/brltty/Text/fi.ttb bb6b127e3c86c3b55a3ef3c93df081af
+ /etc/brltty/Text/fr-2007.ttb 63be4566b75ca1a4c11e524ed177053b
+ /etc/brltty/Text/fr-cbifs.ttb 627e4d0a00fb4637d6bf811d27806b82
+ /etc/brltty/Text/fr-vs.ttb d91330cd67d3f340eefc72c155ae3a9c
+ /etc/brltty/Text/fr.ttb 4d025d725dd562a464d951a802489670
+ /etc/brltty/Text/fr_CA.ttb e13f46b602a52d06718bf940ecd1a015
+ /etc/brltty/Text/fr_FR.ttb 3733b3784858316809318bdaf52c11a0
+ /etc/brltty/Text/ga.ttb a05fe56280a6b19c0b86509ec050e141
+ /etc/brltty/Text/gd.ttb c6eda44c92b89d5cdeca6e83abdf12de
+ /etc/brltty/Text/gon.ttb e20e30b11836d244f8d96b17867ff4a4
+ /etc/brltty/Text/greek.tti 2e7499e79929ccc9a39ae1ee1fbfc927
+ /etc/brltty/Text/gu.ttb 3e77b944cfe978c2fa6c87c111f7c2c8
+ /etc/brltty/Text/gujarati.tti ee13517840bc4fe75c52c2099faac289
+ /etc/brltty/Text/gurmukhi.tti d347ccc4340b9690fd0972856e9e1f78
+ /etc/brltty/Text/he.ttb ab26901639da59e8a0f64ecb3905c870
+ /etc/brltty/Text/hi.ttb cffb8d2d1c2892948f3622ebc5f6917c
+ /etc/brltty/Text/hr.ttb f9991c5f3fec42d158fe49bafea9dce7
+ /etc/brltty/Text/hu.ttb 1e7af16ee8df92cc090a72ed62ee153e
+ /etc/brltty/Text/hy.ttb ae0ac927de2c24fc71b0574bcaf54139
+ /etc/brltty/Text/is.ttb 965492b5abaaec4fba711cfca51c45dc
+ /etc/brltty/Text/it.ttb 55184dbb9a814a1dc57dc5a4c177f813
+ /etc/brltty/Text/kannada.tti f21e29968d458dc8b9100f38d606bb51
+ /etc/brltty/Text/kha.ttb 65d78939c60160e69768484ca9b56aaf
+ /etc/brltty/Text/kn.ttb 87ca1b683342a1b9317551732fe92872
+ /etc/brltty/Text/kok.ttb bb76b73af2e38c56a13ead6905b1a13c
+ /etc/brltty/Text/kru.ttb 04d6407610d0bb692a926876f683fa0c
+ /etc/brltty/Text/lt.ttb edd8f29618430b6a09cb1cbf3f747cf6
+ /etc/brltty/Text/ltr-alias.tti ce103f42ce3f7d692b94b1181c12149f
+ /etc/brltty/Text/ltr-cyrillic.tti 039a3e3a98fb9a93891d9dcf35523f78
+ /etc/brltty/Text/ltr-dot8.tti 8d31a45093303797d81793fa40d8770e
+ /etc/brltty/Text/ltr-latin.tti 061166fda8482f5f1da495f54621736d
+ /etc/brltty/Text/ltr-tibetan.tti b58df0464c4b931ad8bf21829cd8a739
+ /etc/brltty/Text/lv.ttb f3979520846b8942962d2bc8f7048c4b
+ /etc/brltty/Text/malayalam.tti 68030ecdbba0bd9174fbde8981f3c26d
+ /etc/brltty/Text/mg.ttb 2f2a650e4bbfa288328c7fe3c68023aa
+ /etc/brltty/Text/mi.ttb ee75bdd3867e761aaae384eb9b62f267
+ /etc/brltty/Text/ml.ttb 3085610f137dbab2888654f40ff6b379
+ /etc/brltty/Text/mni.ttb 2fff3ad42876a145d804f2186bb6ff20
+ /etc/brltty/Text/mr.ttb 7c075a1a6cd52f46349af9d826788c03
+ /etc/brltty/Text/mt.ttb 4bb5c6cafc2a3b50ef9aa63b41a5f940
+ /etc/brltty/Text/mun.ttb 35e01331adf59254f1a8188c0601fc82
+ /etc/brltty/Text/mwr.ttb d6cdfd8a080939166ad9a2ae522e6234
+ /etc/brltty/Text/ne.ttb 1c9e286fbc00827c7878a3627b770259
+ /etc/brltty/Text/new.ttb 45f094eccf78306ac789da86b2f5d733
+ /etc/brltty/Text/nl.ttb 607102b493dca33f064e1e44c2a21fa2
+ /etc/brltty/Text/nl_BE.ttb f0b69fe81c35d5322725a8db3bba5a3e
+ /etc/brltty/Text/nl_NL.ttb 6442fea933c7b2346b8dea5f96c47a84
+ /etc/brltty/Text/no-generic.ttb 2b55a944e430c512d2d21c13cd2faf28
+ /etc/brltty/Text/no-oup.ttb 6f1159242492990b0c2fee7ac106a15b
+ /etc/brltty/Text/no.ttb fb45eeeab43b20a7df0a799dd545c98d
+ /etc/brltty/Text/num-alias.tti a1cb198a08ca8c79f86c99482c08b7b2
+ /etc/brltty/Text/num-dot6.tti 9c5eec5c3b303cfec900711ac7a70263
+ /etc/brltty/Text/num-dot8.tti cf4c49819ab6cdc225410fdc47e29973
+ /etc/brltty/Text/num-french.tti b76c3424ab3d6d96fda9197261be59a5
+ /etc/brltty/Text/num-nemd8.tti ba589412fad51e8d7c6c66ee32424f01
+ /etc/brltty/Text/num-nemeth.tti b5a4ff8dda66a7070b18ec9db194cb4b
+ /etc/brltty/Text/nwc.ttb a805c9ec709b909ee4ffeacefd3f92d0
+ /etc/brltty/Text/or.ttb fb849581115ff008f1ed79fe659b1c4e
+ /etc/brltty/Text/oriya.tti b8109ece0637236655e5a601e3372487
+ /etc/brltty/Text/pa.ttb d40be96864738b9dfb9de50db6ccc3df
+ /etc/brltty/Text/pi.ttb f3d720d73a7d694b773573a1745be445
+ /etc/brltty/Text/pl.ttb e534dcebe0dcf6dbf68d1c168244152a
+ /etc/brltty/Text/pt.ttb a973e7ef4575fab455db1e6b729bafdc
+ /etc/brltty/Text/punc-alternate.tti b3ff809df0f4c7f87fcf08fd2feddbf6
+ /etc/brltty/Text/punc-basic.tti 9b31dbb19583c831fd591e53334d4725
+ /etc/brltty/Text/punc-tibetan.tti 41bd7d7f8287af72841e2bbe411929d9
+ /etc/brltty/Text/ro.ttb 2f3f8066bdace1ee1da9262c503447be
+ /etc/brltty/Text/ru.ttb 9f50a00ee570f90213aca5b252f907ae
+ /etc/brltty/Text/sa.ttb 71499a3a3dd84c4323ee0606c7d3a896
+ /etc/brltty/Text/sat.ttb 5cd7fd5df42648792912f2ee9b18cded
+ /etc/brltty/Text/sd.ttb 6598795c866d92c516b0f2daa34e6956
+ /etc/brltty/Text/se.ttb 06092e7492722a9d6b245f0555b0adee
+ /etc/brltty/Text/sk.ttb ba50305af19e185bceefc634927bc272
+ /etc/brltty/Text/sl.ttb 104d3ef4b6e5a156d3a15aacefe31ce9
+ /etc/brltty/Text/sv-1989.ttb 156d929ebc1219ab93142aa66695f708
+ /etc/brltty/Text/sv-1996.ttb eebe9337842ecf4a4a72fe415df7f4a0
+ /etc/brltty/Text/sv.ttb 4b33b8b1f49838602601fb622ddde3db
+ /etc/brltty/Text/sw.ttb c2176f756e8c313c197dc7c6e3bc835a
+ /etc/brltty/Text/ta.ttb 4a01a1c82054c72b1cf9eea106e79f75
+ /etc/brltty/Text/tamil.tti dbbd7e3b6ce79d4ee5a9395faec2d6e3
+ /etc/brltty/Text/te.ttb 046691e20fb4df4f9cbe8049536d4d7b
+ /etc/brltty/Text/telugu.tti bf3b32d2bbf6867ef8b09d32952e4720
+ /etc/brltty/Text/tr.ttb 5edc7ee2f40910d39591a86ff97a9800
+ /etc/brltty/Text/uk.ttb e8d5d63f3616cf843b39b5617d46feb8
+ /etc/brltty/Text/vi.ttb 1d06e7258b19b63be380e8d8ede03526
+ /etc/brltty/Text/win-1252.tti dca95e6f395c5040e80fc75312c2c8cb
+PACKAGE:bsdextrautils
+
+PACKAGE:bsdutils
+
+PACKAGE:btrfs-progs
+
+PACKAGE:bubblewrap
+
+PACKAGE:build-essential
+
+PACKAGE:bulky
+
+PACKAGE:busybox-initramfs
+
+PACKAGE:busybox-static
+
+PACKAGE:bzip2
+
+PACKAGE:ca-certificates
+
+PACKAGE:captain
+
+PACKAGE:casper
+ /etc/casper.conf 873654121350964ec51b3ccd8c0186cd
+PACKAGE:catdoc
+ /etc/catdocrc 9f5f0dfed17ee7568236212bfd714989
+PACKAGE:celluloid
+
+PACKAGE:cifs-utils
+ /etc/request-key.d/cifs.idmap.conf 4c95734a68b45b65a5dc7b108836427b
+ /etc/request-key.d/cifs.spnego.conf db5289bad3063aea58e1814380259a28
+PACKAGE:cinnamon
+
+PACKAGE:cinnamon-common
+ /etc/xdg/menus/cinnamon-applications.menu b3d70a4a8e5e2341f7a52e636f1f0ed5
+PACKAGE:cinnamon-control-center
+
+PACKAGE:cinnamon-control-center-data
+
+PACKAGE:cinnamon-control-center-dbg
+
+PACKAGE:cinnamon-dbg
+
+PACKAGE:cinnamon-desktop-data
+
+PACKAGE:cinnamon-l10n
+
+PACKAGE:cinnamon-screensaver
+ /etc/pam.d/cinnamon-screensaver 6db13401571f575bd03b96a501817be7
+PACKAGE:cinnamon-session
+
+PACKAGE:cinnamon-session-common
+ /etc/X11/Xsession.d/55cinnamon-session_gnomerc 85d6c975a44e8eebb9673ee99127a6bf
+PACKAGE:cinnamon-settings-daemon
+ /etc/xdg/autostart/cinnamon-settings-daemon-a11y-settings.desktop b256007daefea3e87631e7cef86bb58a
+ /etc/xdg/autostart/cinnamon-settings-daemon-automount.desktop 6d568890021f9632790a95ec8d467cb2
+ /etc/xdg/autostart/cinnamon-settings-daemon-background.desktop db9b75cbc4a4d97450b49970dbb0dce4
+ /etc/xdg/autostart/cinnamon-settings-daemon-clipboard.desktop 4f87de238a7e60995fb3168322868d3d
+ /etc/xdg/autostart/cinnamon-settings-daemon-color.desktop 9b67bf9cf4fcab47a797c1c604b80412
+ /etc/xdg/autostart/cinnamon-settings-daemon-housekeeping.desktop bed11241c7018bcf2cab8aa72f50a591
+ /etc/xdg/autostart/cinnamon-settings-daemon-keyboard.desktop 30a37768ceeb83131937d165f3f08c6a
+ /etc/xdg/autostart/cinnamon-settings-daemon-media-keys.desktop d18afb801970f47b89bbca416a8d52bf
+ /etc/xdg/autostart/cinnamon-settings-daemon-power.desktop 3f8234fa06e268bcd3475836a0389709
+ /etc/xdg/autostart/cinnamon-settings-daemon-print-notifications.desktop 37601792325825c44fa81460e6a27d74
+ /etc/xdg/autostart/cinnamon-settings-daemon-screensaver-proxy.desktop 8785091306bc60b87326b1d7a0f135d8
+ /etc/xdg/autostart/cinnamon-settings-daemon-settings-remap.desktop 2a1480d6e9d55de4fc1cc8c74f128621
+ /etc/xdg/autostart/cinnamon-settings-daemon-smartcard.desktop ed6ac4092080405cee519e699e3d58f6
+ /etc/xdg/autostart/cinnamon-settings-daemon-wacom.desktop d059c6bf90a36cadaafa5051b66ea4b4
+ /etc/xdg/autostart/cinnamon-settings-daemon-xsettings.desktop 8fe13e16e6580299f902d335c2a1cf10
+PACKAGE:circle-flags-svg
+
+PACKAGE:cjs
+
+PACKAGE:colord
+
+PACKAGE:colord-data
+
+PACKAGE:command-not-found
+ /etc/apt/apt.conf.d/50command-not-found 9bf399a111915919e5c6952f64a6f5eb
+ /etc/zsh_command_not_found 81c5c243d61731a56db6670038bf8509
+PACKAGE:console-setup
+
+PACKAGE:console-setup-linux
+ /etc/console-setup/compose.ARMSCII-8.inc fef36b61fb8b1cacc151ad3db127f777
+ /etc/console-setup/compose.CP1251.inc fef88d8c8dd4c726498003fd3cd84a7f
+ /etc/console-setup/compose.CP1255.inc c972a2e90938657e97b643366b98b2ed
+ /etc/console-setup/compose.CP1256.inc 5ea5e4d41da7a88f742863810e86144b
+ /etc/console-setup/compose.GEORGIAN-ACADEMY.inc b6d80f40abff7e8af236796ebaca0247
+ /etc/console-setup/compose.GEORGIAN-PS.inc cf45272b6bf35a22223b132600dc36c3
+ /etc/console-setup/compose.IBM1133.inc a31102602f7e7cab9738022b6c5469ae
+ /etc/console-setup/compose.ISIRI-3342.inc 5ada7fbba750192f11fa238add232ba9
+ /etc/console-setup/compose.ISO-8859-1.inc f22c32b3b801b60434016c975b5fb66e
+ /etc/console-setup/compose.ISO-8859-10.inc e5fce59617c839b56574c9e323d34686
+ /etc/console-setup/compose.ISO-8859-11.inc ad2f3cc7ee64602a790bad8a2a989243
+ /etc/console-setup/compose.ISO-8859-13.inc abbb4fb36d084295075305e33195bd4a
+ /etc/console-setup/compose.ISO-8859-14.inc 3a7519688a9cee5d5f90a5f74b854490
+ /etc/console-setup/compose.ISO-8859-15.inc 6fd4b1ba84bb627815f6119440e84906
+ /etc/console-setup/compose.ISO-8859-16.inc 8245c19b5262d8d23ca856587739eb20
+ /etc/console-setup/compose.ISO-8859-2.inc cd59fdcc7891012d905cdafd3704144a
+ /etc/console-setup/compose.ISO-8859-3.inc 904839fe56359e4822667d241c131f3a
+ /etc/console-setup/compose.ISO-8859-4.inc 414ddf28bfcc94a43191b134e264dfdd
+ /etc/console-setup/compose.ISO-8859-5.inc f861a4b0403490677e6d400f2d7129da
+ /etc/console-setup/compose.ISO-8859-6.inc 41ea36ea1c1a1c0c9bebdf0016395e1f
+ /etc/console-setup/compose.ISO-8859-7.inc 83ee498d8b5eba5ce8ba593b3036f832
+ /etc/console-setup/compose.ISO-8859-8.inc 9cceaa9f3312f89aba371d3c893f4e7b
+ /etc/console-setup/compose.ISO-8859-9.inc 2df0be84482af83b9d3e124e9ea37513
+ /etc/console-setup/compose.KOI8-R.inc b6a49ca842c8002b4e3de916f98d180e
+ /etc/console-setup/compose.KOI8-U.inc d59865b46fcb821935da42feb335c1c5
+ /etc/console-setup/compose.TIS-620.inc 31b73af83ef3993c128e2b983b9eaf89
+ /etc/console-setup/compose.VISCII.inc edf0e2f7abd0de5184ba5c6d27939af6
+ /etc/console-setup/remap.inc b72cfe32ffa93987f74c5cec9ac180fd
+ /etc/console-setup/vtrgb 1fb3c13c4fcfa8cc4131aba905df559e
+ /etc/console-setup/vtrgb.vga 302837772c14006c7956211e184acfbd
+ /etc/init.d/console-setup.sh 6d5b1d0c7a12da4e4f70836fe3fec827
+ /etc/init.d/keyboard-setup.sh 5746e83ec4ca1bda09967a00fe9266fb
+PACKAGE:coreutils
+
+PACKAGE:cpdb-backend-cups
+
+PACKAGE:cpio
+
+PACKAGE:cpp
+
+PACKAGE:cpp-13
+
+PACKAGE:cpp-13-x86-64-linux-gnu
+
+PACKAGE:cpp-x86-64-linux-gnu
+
+PACKAGE:cracklib-runtime
+ /etc/cracklib/cracklib.conf 17cc95388fe1c6600f475fc1378bc204
+ /etc/logcheck/ignore.d.paranoid/cracklib-runtime a309e8671caa59db4127b745b516fead
+PACKAGE:cron
+ /etc/default/cron bc9ab63f9e143d7338909d50494d552f
+ /etc/init.d/cron 36fb1d99878caaafe31e6397b4519323
+ /etc/pam.d/cron 11e788a7f7cd5477b10da2c7fd5ecdf0
+ /etc/supercat/spcrc-crontab f4a36df1ac8298dc249f712026bafff8
+ /etc/supercat/spcrc-crontab-light ed8b59882050d7de508a1eab088734e9
+PACKAGE:cron-daemon-common
+ /etc/cron.d/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/cron.daily/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/cron.hourly/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/cron.monthly/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/cron.weekly/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/cron.yearly/.placeholder e5e12910bf011222160404d7bdb824f2
+ /etc/crontab 85f7ff2020ac8c72212f076ddf33c0be
+PACKAGE:cryptsetup
+ /etc/default/cryptdisks 3e3b2248193105b5ecd9456c01ef3736
+ /etc/init.d/cryptdisks 8dd64a17dcefb1dd1a60eec286a6b502
+ /etc/init.d/cryptdisks-early 9c68271b34d88afd2764cdb203af9bd1
+PACKAGE:cryptsetup-bin
+
+PACKAGE:cryptsetup-initramfs
+ /etc/cryptsetup-initramfs/conf-hook 9a127a9edfca239740eba9197b0b901f
+PACKAGE:cups
+ /etc/cups/snmp.conf 47b8f1c3fecdc44e3d1fdee4b9eeb3f5
+PACKAGE:cups-browsed
+ /etc/apparmor.d/usr.sbin.cups-browsed dc3e4c19a2ee04feb70ae305232239f5
+ /etc/cups/cups-browsed.conf c8c5226ed41713b70ecd7670ffd81727
+PACKAGE:cups-bsd
+
+PACKAGE:cups-client
+
+PACKAGE:cups-common
+
+PACKAGE:cups-core-drivers
+
+PACKAGE:cups-daemon
+ /etc/apparmor.d/usr.sbin.cupsd 3994957558dd20cae0cc3a05aa38dd96
+ /etc/cups/cups-files.conf d961945ad674f24aa242282cdddabebc
+ /etc/init.d/cups e65fcf1c65d0f1dfd2495caba916da2c
+ /etc/logrotate.d/cups-daemon 7bd7f956a724d571799244af3cd530f6
+ /etc/pam.d/cups ff2488324854f7b1e892bb0df062d5f0
+ /etc/ufw/applications.d/cups 29e98a6d850da251e180c3d68dec2bd3
+PACKAGE:cups-filters
+ /etc/modules-load.d/cups-filters.conf 17d90fe8266719f45ad0e8879a05ca17
+PACKAGE:cups-filters-core-drivers
+
+PACKAGE:cups-ipp-utils
+
+PACKAGE:cups-pk-helper
+ /etc/dbus-1/system.d/org.opensuse.CupsPkHelper.Mechanism.conf 88437b04a9204bc4a5ab9172f42d31f6
+PACKAGE:cups-ppdc
+
+PACKAGE:cups-server-common
+
+PACKAGE:curl
+
+PACKAGE:dash
+
+PACKAGE:dbus
+ /etc/default/dbus 0d0f25a2f993509c857eb262f6e22015
+ /etc/init.d/dbus d78b20b35de983cf6f1475dcf8cb21a1
+PACKAGE:dbus-bin
+
+PACKAGE:dbus-daemon
+
+PACKAGE:dbus-session-bus-common
+
+PACKAGE:dbus-system-bus-common
+
+PACKAGE:dbus-user-session
+ /etc/X11/Xsession.d/20dbus_xdg-runtime f11c70d9f51a152cedf939d36ef038bf
+PACKAGE:dbus-x11
+ /etc/X11/Xsession.d/75dbus_dbus-launch 7e16a9fa2ead9d6596b655e417fda3ba
+ /etc/X11/Xsession.d/95dbus_update-activation-env 4bab1e315619cc23925ebfb07bd3193a
+PACKAGE:dc
+
+PACKAGE:dconf-cli
+
+PACKAGE:dconf-gsettings-backend:amd64
+
+PACKAGE:dconf-service
+
+PACKAGE:dcraw
+
+PACKAGE:dctrl-tools
+
+PACKAGE:debconf
+ /etc/apt/apt.conf.d/70debconf 7e9d09d5801a42b4926b736b8eeabb73
+ /etc/debconf.conf 1cd82ead5651f0753b1ff6d9b31bd235
+PACKAGE:debconf-i18n
+
+PACKAGE:debianutils
+
+PACKAGE:desktop-file-utils
+ /etc/gnome/defaults.list newconffile remove-on-upgrade
+PACKAGE:dhcpcd-base
+ /etc/dhcpcd.conf a4fa1b59d13b8f5590306a4a8c8f995c
+PACKAGE:dialog
+
+PACKAGE:dictionaries-common
+ /etc/emacs/site-start.d/50dictionaries-common.el 6e5295d702ddc90ac894acba3c2961b0
+PACKAGE:diffutils
+
+PACKAGE:dirmngr
+
+PACKAGE:distro-info
+
+PACKAGE:distro-info-data
+
+PACKAGE:dkms
+ /etc/dkms/framework.conf ecfeef24d463365c60617fd6d63270a6
+ /etc/kernel/header_postinst.d/dkms 079a9806807dd2d31db9aa06c26361c3
+ /etc/kernel/install.d/dkms 7a52b8bdfe0ffa26b30be23adbf03d69
+ /etc/kernel/postinst.d/dkms 079a9806807dd2d31db9aa06c26361c3
+ /etc/kernel/prerm.d/dkms a8c25542e7ba08eab22a4c483d384829
+ /etc/modprobe.d/dkms.conf 74452a1f23577a0bb30d764a895429d0
+PACKAGE:dmeventd
+
+PACKAGE:dmidecode
+
+PACKAGE:dmraid
+
+PACKAGE:dmsetup
+
+PACKAGE:dmz-cursor-theme
+
+PACKAGE:dns-root-data
+
+PACKAGE:dnsmasq-base
+
+PACKAGE:docbook-xml
+ /etc/sgml/docbook-xml.cat 09c9f5ea49819362a380990ede9d2a9c
+ /etc/sgml/docbook-xml/4.0/dbgenent.ent e12c1ec4ee0669dd4fad8aa06f51d650
+ /etc/sgml/docbook-xml/4.1.2/dbgenent.mod ff50724b83f8882fc9e8231523b01606
+ /etc/sgml/docbook-xml/4.2/dbgenent.mod 081cd00c46a110da400770eb9baf968b
+ /etc/sgml/docbook-xml/4.3/dbgenent.mod ce4a918789b89c9bd47e67ea708397e2
+ /etc/sgml/docbook-xml/4.4/dbgenent.mod 6d98c5fb728d6c773bb73a2fc36bdc16
+ /etc/sgml/docbook-xml/4.5/dbgenent.mod 4d0b7b6dc2397b03aef38f30878a66ee
+PACKAGE:dosfstools
+
+PACKAGE:dpkg
+ /etc/alternatives/README 7be88b21f7e386c8d5a8790c2461c92b
+ /etc/cron.daily/dpkg 94bb6c1363245e46256908a5d52ba4fb
+ /etc/dpkg/dpkg.cfg f4413ffb515f8f753624ae3bb365b81b
+ /etc/logrotate.d/alternatives 5fe0af6ce1505fefdc158d9e5dbf6286
+ /etc/logrotate.d/dpkg 9e25c8505966b5829785f34a548ae11f
+PACKAGE:dpkg-dev
+ /etc/dpkg/shlibs.default 1a2b9d0a869e2aa885ae3621c557fb95
+ /etc/dpkg/shlibs.override 84b1e69080569cc5c613a50887af5200
+PACKAGE:dpkg-repack
+
+PACKAGE:dracut-install
+
+PACKAGE:drawing
+
+PACKAGE:e2fsprogs
+ /etc/cron.d/e2scrub_all bc533e09f3b3d96bfe1633ad57eb7026
+ /etc/e2scrub.conf df38534cc670c70a91cf9b035845d244
+ /etc/mke2fs.conf 6e57073b9789a67a66b4681739445a38
+PACKAGE:ecryptfs-utils
+
+PACKAGE:ed
+
+PACKAGE:efibootmgr
+
+PACKAGE:eject
+
+PACKAGE:emacsen-common
+
+PACKAGE:enchant-2
+
+PACKAGE:espeak-ng-data:amd64
+
+PACKAGE:ethtool
+ /etc/network/if-pre-up.d/ethtool 09b4a447e5048a4ea0bc34732bd0278c
+ /etc/network/if-up.d/ethtool a522a7b2b1d3e2d9a06e9690674a5d38
+PACKAGE:evolution-data-server
+ /etc/xdg/autostart/org.gnome.Evolution-alarm-notify.desktop a7104700fa66f2c06fa66883c1793a70
+PACKAGE:evolution-data-server-common
+
+PACKAGE:exfat-fuse
+
+PACKAGE:exfatprogs
+
+PACKAGE:exif
+
+PACKAGE:fakeroot
+
+PACKAGE:fdisk
+
+PACKAGE:ffmpegthumbnailer
+
+PACKAGE:file
+
+PACKAGE:file-roller
+
+PACKAGE:finalrd
+
+PACKAGE:findutils
+
+PACKAGE:fingwit
+
+PACKAGE:firefox
+
+PACKAGE:firefox-locale-en
+
+PACKAGE:firmware-sof-signed
+
+PACKAGE:flatpak
+ /etc/X11/Xsession.d/20flatpak b3782efba0968e52b7a29c25abc98308
+ /etc/profile.d/flatpak.sh b3782efba0968e52b7a29c25abc98308
+PACKAGE:folder-color-switcher
+
+PACKAGE:fontconfig
+
+PACKAGE:fontconfig-config
+ /etc/fonts/conf.d/README ad6182d0b838d9d8f39219a37b88b24d
+ /etc/fonts/fonts.conf 9632eb1c8b4d81e0e300cd733a4beefe
+PACKAGE:fonts-dejavu-core
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans.conf 6488b24401e477e35aa71237054c8ada
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-serif.conf 0b01522fe76b4e5b8ab3d12383371348
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-sans.conf f7df7bba810dd953dd78212900f4dcad
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-serif.conf e90c678d46f49bb9d6ba469b64e80c0c
+ /etc/fonts/conf.avail/57-dejavu-sans.conf 2156c2353cfcc81f33150cf889193c28
+ /etc/fonts/conf.avail/57-dejavu-serif.conf 2604487cb2eee1bdb7010ea716faf408
+ /etc/fonts/conf.avail/58-dejavu-lgc-sans.conf b4a8f51e45aa24fdee47b3f838cc0205
+ /etc/fonts/conf.avail/58-dejavu-lgc-serif.conf 5f0b00e681b1f40b65dd336696ee0bbb
+PACKAGE:fonts-dejavu-mono
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-lgc-sans-mono.conf 10d6f2176d76ee9b89a19a17811257f2
+ /etc/fonts/conf.avail/20-unhint-small-dejavu-sans-mono.conf 0cbf30e4580c5a8570da071ab12c5e4d
+ /etc/fonts/conf.avail/57-dejavu-sans-mono.conf b9a76edd2aeb35cd1095e378963e2cdd
+ /etc/fonts/conf.avail/58-dejavu-lgc-sans-mono.conf d2ee39274982cb4f831783cff742c8bc
+PACKAGE:fonts-droid-fallback
+ /etc/fonts/conf.avail/65-droid-sans-fallback.conf b53978fe17be3c725aa002da2496257c
+PACKAGE:fonts-liberation
+
+PACKAGE:fonts-mathjax
+
+PACKAGE:fonts-noto-cjk
+
+PACKAGE:fonts-noto-color-emoji
+
+PACKAGE:fonts-noto-core
+ /etc/fonts/conf.avail/30-droid-noto.conf a34074694dce0a5ccc5844ec0a1315ea
+PACKAGE:fonts-noto-mono
+ /etc/fonts/conf.avail/30-droid-noto-mono.conf 3637d988826c19a1859d29b79ee01e87
+PACKAGE:fonts-opensymbol
+
+PACKAGE:fonts-ubuntu
+
+PACKAGE:fonts-urw-base35
+ /etc/X11/fonts/Type1/fonts-urw-base35.alias 32ee9a005b7c7a089bdd5a5c4ee19c89
+ /etc/X11/fonts/Type1/fonts-urw-base35.scale 1027533ffa7574e6b30b528d72287445
+ /etc/ghostscript/fontmap.d/10fonts-urw-base35.conf a97fb8d980202e59cc253c9c21bb2d30
+PACKAGE:foomatic-db-compressed-ppds
+
+PACKAGE:fprintd
+ /etc/fprintd.conf 8dcabaa2bdaf7bbbe48582b3bb4422e7
+PACKAGE:friendly-recovery
+
+PACKAGE:ftp
+
+PACKAGE:fuse3
+ /etc/fuse.conf ba9c9667f7df01ae7081d2c05d1d24e6
+PACKAGE:fwupd
+ /etc/fwupd/bios-settings.d/README.md ddf477498928cb9b5953201798e2947d
+ /etc/fwupd/fwupd.conf 37a4f57716b9e3ebd0716a53306665b7
+ /etc/fwupd/remotes.d/lvfs-testing.conf f17ef36a1e3b2fac99c80fec43a95789
+ /etc/fwupd/remotes.d/lvfs.conf 1b4ee2d77d3dcc455aede4e88aa0d58d
+ /etc/fwupd/remotes.d/vendor-directory.conf 4698ffce8713a32be2d3283310f41b39
+ /etc/grub.d/35_fwupd 0aee2d8010124fda2f52f5e9debc9fb2
+ /etc/pki/fwupd-metadata/GPG-KEY-Linux-Foundation-Metadata 2ace8894994764ae32e391bc0c68e398
+ /etc/pki/fwupd-metadata/GPG-KEY-Linux-Vendor-Firmware-Service 5abbdc42a8e3d9e60039ab658700ec71
+ /etc/pki/fwupd-metadata/LVFS-CA.pem d9dff488bd9051268984da014f0be43d
+ /etc/pki/fwupd/GPG-KEY-Linux-Foundation-Firmware de0622638572a2f6a6e29fa83f387eea
+ /etc/pki/fwupd/GPG-KEY-Linux-Vendor-Firmware-Service 5abbdc42a8e3d9e60039ab658700ec71
+ /etc/pki/fwupd/LVFS-CA.pem d9dff488bd9051268984da014f0be43d
+ /etc/update-motd.d/85-fwupd ded254e025601b203abb19ef3fdc88b9
+PACKAGE:fwupd-signed
+
+PACKAGE:g++
+
+PACKAGE:g++-13
+
+PACKAGE:g++-13-x86-64-linux-gnu
+
+PACKAGE:g++-x86-64-linux-gnu
+
+PACKAGE:gamemode
+ /etc/security/limits.d/10-gamemode.conf 87d696854467f7dd9ba49249af02c369
+PACKAGE:gamemode-daemon
+
+PACKAGE:gcc
+
+PACKAGE:gcc-13
+
+PACKAGE:gcc-13-base:amd64
+
+PACKAGE:gcc-13-x86-64-linux-gnu
+
+PACKAGE:gcc-14-base:amd64
+
+PACKAGE:gcc-x86-64-linux-gnu
+
+PACKAGE:gcr
+
+PACKAGE:gcr4
+
+PACKAGE:gdb
+ /etc/gdb/gdbinit e030dc891a3af1f7779429b5c0554c98
+PACKAGE:gdisk
+
+PACKAGE:genisoimage
+
+PACKAGE:geoclue-2.0
+ /etc/geoclue/geoclue.conf 6946289f7ba8121ee5fc2ac46b78f845
+ /etc/xdg/autostart/geoclue-demo-agent.desktop 0103d06ba39d32da3e537748b40a97a8
+PACKAGE:geocode-glib-common
+
+PACKAGE:geoip-database
+
+PACKAGE:gettext
+
+PACKAGE:gettext-base
+
+PACKAGE:ghostscript
+
+PACKAGE:gir1.2-accountsservice-1.0:amd64
+
+PACKAGE:gir1.2-atk-1.0:amd64
+
+PACKAGE:gir1.2-atspi-2.0:amd64
+
+PACKAGE:gir1.2-ayatanaappindicator3-0.1
+
+PACKAGE:gir1.2-camel-1.2:amd64
+
+PACKAGE:gir1.2-caribou-1.0
+
+PACKAGE:gir1.2-cinnamondesktop-3.0
+
+PACKAGE:gir1.2-clutter-1.0:amd64
+
+PACKAGE:gir1.2-clutter-gst-3.0:amd64
+
+PACKAGE:gir1.2-cmenu-3.0
+
+PACKAGE:gir1.2-cogl-1.0:amd64
+
+PACKAGE:gir1.2-coglpango-1.0:amd64
+
+PACKAGE:gir1.2-cvc-1.0
+
+PACKAGE:gir1.2-dbusmenu-glib-0.4:amd64
+
+PACKAGE:gir1.2-dee-1.0:amd64
+
+PACKAGE:gir1.2-ecal-2.0:amd64
+
+PACKAGE:gir1.2-edataserver-1.2:amd64
+
+PACKAGE:gir1.2-flatpak-1.0:amd64
+
+PACKAGE:gir1.2-freedesktop:amd64
+
+PACKAGE:gir1.2-gck-1:amd64
+
+PACKAGE:gir1.2-gcr-3:amd64
+
+PACKAGE:gir1.2-gdesktopenums-3.0:amd64
+
+PACKAGE:gir1.2-gdkpixbuf-2.0:amd64
+
+PACKAGE:gir1.2-girepository-2.0:amd64
+
+PACKAGE:gir1.2-gkbd-3.0:amd64
+
+PACKAGE:gir1.2-glib-2.0:amd64
+
+PACKAGE:gir1.2-gnomedesktop-3.0:amd64
+
+PACKAGE:gir1.2-graphene-1.0:amd64
+
+PACKAGE:gir1.2-gsound-1.0:amd64
+
+PACKAGE:gir1.2-gspell-1:amd64
+
+PACKAGE:gir1.2-gst-plugins-base-1.0:amd64
+
+PACKAGE:gir1.2-gstreamer-1.0:amd64
+
+PACKAGE:gir1.2-gtk-3.0:amd64
+
+PACKAGE:gir1.2-gtkclutter-1.0:amd64
+
+PACKAGE:gir1.2-gtksource-3.0:amd64
+
+PACKAGE:gir1.2-gtksource-4:amd64
+
+PACKAGE:gir1.2-gtop-2.0:amd64
+
+PACKAGE:gir1.2-gudev-1.0:amd64
+
+PACKAGE:gir1.2-handy-1:amd64
+
+PACKAGE:gir1.2-harfbuzz-0.0:amd64
+
+PACKAGE:gir1.2-ibus-1.0:amd64
+
+PACKAGE:gir1.2-ical-3.0:amd64
+
+PACKAGE:gir1.2-javascriptcoregtk-4.1:amd64
+
+PACKAGE:gir1.2-json-1.0:amd64
+
+PACKAGE:gir1.2-keybinder-3.0
+
+PACKAGE:gir1.2-matedesktop-2.0:amd64
+
+PACKAGE:gir1.2-matemenu-2.0:amd64
+
+PACKAGE:gir1.2-matepanelapplet-4.0:amd64
+
+PACKAGE:gir1.2-meta-muffin-0.0:amd64
+
+PACKAGE:gir1.2-nemo-3.0
+
+PACKAGE:gir1.2-nm-1.0:amd64
+
+PACKAGE:gir1.2-nma-1.0:amd64
+
+PACKAGE:gir1.2-notify-0.7:amd64
+
+PACKAGE:gir1.2-packagekitglib-1.0
+
+PACKAGE:gir1.2-pango-1.0:amd64
+
+PACKAGE:gir1.2-peas-1.0:amd64
+
+PACKAGE:gir1.2-polkit-1.0
+
+PACKAGE:gir1.2-rb-3.0:amd64
+
+PACKAGE:gir1.2-secret-1:amd64
+
+PACKAGE:gir1.2-soup-2.4:amd64
+
+PACKAGE:gir1.2-soup-3.0:amd64
+
+PACKAGE:gir1.2-timezonemap-1.0:amd64
+
+PACKAGE:gir1.2-udisks-2.0:amd64
+
+PACKAGE:gir1.2-upowerglib-1.0:amd64
+
+PACKAGE:gir1.2-vte-2.91:amd64
+
+PACKAGE:gir1.2-webkit2-4.1:amd64
+
+PACKAGE:gir1.2-wnck-3.0:amd64
+
+PACKAGE:gir1.2-xapp-1.0
+
+PACKAGE:gir1.2-xkl-1.0:amd64
+
+PACKAGE:gir1.2-xmlb-2.0:amd64
+
+PACKAGE:gir1.2-xreader
+
+PACKAGE:gir1.2-xviewer-3.0
+
+PACKAGE:gkbd-capplet
+
+PACKAGE:glib-networking:amd64
+
+PACKAGE:glib-networking-common
+
+PACKAGE:glib-networking-services
+
+PACKAGE:gnome-accessibility-themes
+
+PACKAGE:gnome-calculator
+
+PACKAGE:gnome-calendar
+
+PACKAGE:gnome-desktop3-data
+
+PACKAGE:gnome-disk-utility
+ /etc/xdg/autostart/org.gnome.SettingsDaemon.DiskUtilityNotify.desktop c21e23ebcd144a1bf83f768a70d94844
+PACKAGE:gnome-font-viewer
+
+PACKAGE:gnome-keyring
+ /etc/xdg/autostart/gnome-keyring-pkcs11.desktop a661ced07c218dc5b11838964e756f18
+ /etc/xdg/autostart/gnome-keyring-secrets.desktop b8c018805731a896697f1e6e1a1cf88f
+ /etc/xdg/autostart/gnome-keyring-ssh.desktop fd13ebe1e12ef8448e80ecde98460eba
+PACKAGE:gnome-keyring-pkcs11:amd64
+
+PACKAGE:gnome-menus
+ /etc/gnome/menus.blacklist 80d3d32969b70259008b7db79e73a5a1
+ /etc/xdg/menus/gnome-applications.menu 1d94f8fbab6881dc032f919255788e66
+PACKAGE:gnome-online-accounts
+
+PACKAGE:gnome-online-accounts-gtk
+
+PACKAGE:gnome-power-manager
+
+PACKAGE:gnome-screenshot
+
+PACKAGE:gnome-session-canberra
+
+PACKAGE:gnome-settings-daemon-common
+
+PACKAGE:gnome-system-monitor
+
+PACKAGE:gnome-terminal
+
+PACKAGE:gnome-terminal-data
+
+PACKAGE:gnome-themes-extra:amd64
+
+PACKAGE:gnome-themes-extra-data
+
+PACKAGE:gnupg
+
+PACKAGE:gnupg-utils
+
+PACKAGE:gpg
+
+PACKAGE:gpg-agent
+ /etc/X11/Xsession.d/90gpg-agent fbb9ce5e8e4ba5727090f0aa51b61a82
+ /etc/logcheck/ignore.d.server/gpg-agent 2d0fbc91a955ba69408ca033d7ae2455
+PACKAGE:gpgconf
+
+PACKAGE:gpgsm
+
+PACKAGE:gpgv
+
+PACKAGE:grep
+
+PACKAGE:groff-base
+ /etc/groff/man.local 0430e21404e7bde42b0e0fee0fd60c00
+ /etc/groff/mdoc.local 93e49c8bd131bfa85a469d836dd7a28a
+PACKAGE:grub-common
+ /etc/grub.d/00_header c63a5ca05b210afeee7c4174c8e47c1d
+ /etc/grub.d/05_debian_theme 7af00bf2d834b3104688c9cbf40b23b3
+ /etc/grub.d/10_linux ffcb156621de9f70a37e189176a83297
+ /etc/grub.d/10_linux_zfs 1e898a27f29acfd4133f45f5b4382628
+ /etc/grub.d/20_linux_xen 0d28e77b657224c9499fe10bacb75f5f
+ /etc/grub.d/25_bli e071d24e35e554a6e6446068f59715f6
+ /etc/grub.d/30_os-prober 9dfb165d3fb3dcd313c2f9abd6e84094
+ /etc/grub.d/30_uefi-firmware 2d918e14d15f40c01398a7534702870d
+ /etc/grub.d/40_custom babe7de352fe18de5a238569cf4b8a11
+ /etc/grub.d/41_custom 1d876baff8ca3841aa6ba057e881a2e4
+ /etc/grub.d/README be58f42dfe74feb6eeb98c6a843c743f
+ /etc/init.d/grub-common 088b8dfbff672d12dc501be54eeb64c6
+ /etc/pm/sleep.d/10_grub-common bc63b0c6613e95979446d17a88875d6a
+PACKAGE:grub-efi-amd64-bin
+
+PACKAGE:grub-efi-amd64-signed
+
+PACKAGE:grub-gfxpayload-lists
+
+PACKAGE:grub-pc
+
+PACKAGE:grub-pc-bin
+
+PACKAGE:grub2-common
+ /etc/kernel/postinst.d/zz-update-grub 5a98abefbfe97dbed36db7899251e433
+ /etc/kernel/postrm.d/zz-update-grub 5a98abefbfe97dbed36db7899251e433
+PACKAGE:gsettings-desktop-schemas
+
+PACKAGE:gstreamer1.0-alsa:amd64
+
+PACKAGE:gstreamer1.0-clutter-3.0:amd64
+
+PACKAGE:gstreamer1.0-gl:amd64
+
+PACKAGE:gstreamer1.0-gtk3:amd64
+
+PACKAGE:gstreamer1.0-packagekit
+
+PACKAGE:gstreamer1.0-pipewire:amd64
+
+PACKAGE:gstreamer1.0-plugins-base:amd64
+
+PACKAGE:gstreamer1.0-plugins-base-apps
+
+PACKAGE:gstreamer1.0-plugins-good:amd64
+
+PACKAGE:gstreamer1.0-tools
+
+PACKAGE:gstreamer1.0-x:amd64
+
+PACKAGE:gtk-update-icon-cache
+
+PACKAGE:gtk2-engines-murrine:amd64
+
+PACKAGE:gtk2-engines-pixbuf:amd64
+
+PACKAGE:gucharmap
+
+PACKAGE:gufw
+ /etc/gufw/app_profiles/0ad.jhansonxi 898146000157e8e839e4550e626d6254
+ /etc/gufw/app_profiles/0verkill.jhansonxi b21d3be68db7512d670deadb1ed55ab5
+ /etc/gufw/app_profiles/abuse.jhansonxi ca95e32c8af3843aad82946f380115bc
+ /etc/gufw/app_profiles/aleph-one.jhansonxi 5af8418ba42806b2ea9eac9200aa97ab
+ /etc/gufw/app_profiles/alienarena.jhansonxi 2b13f274977cb8bb09e5888671a87228
+ /etc/gufw/app_profiles/amanda.jhansonxi 4e5998e03b4d7a7f1b18b075a3ba642f
+ /etc/gufw/app_profiles/amule.gufw_app 36a89374b546d014a0ce913dceb18c46
+ /etc/gufw/app_profiles/armagetron-advanced.jhansonxi 50c305e118955690af284b56f66f9fba
+ /etc/gufw/app_profiles/armored-fist3.jhansonxi 4acbc9cc5d7d90f033058c2c456f2b41
+ /etc/gufw/app_profiles/assaultcube.gufw 0c68397b2291b13a6983a24dacfca594
+ /etc/gufw/app_profiles/asterisk.gufw_app 90e427923271b7e37f169c5dbf2daa11
+ /etc/gufw/app_profiles/balazar-iii.jhansonxi 1938b86f5a218241126a8d2ec4055ee9
+ /etc/gufw/app_profiles/battlefield-1942.jhansonxi 1eaacbc59fe6f5a9ca78f341477cdd35
+ /etc/gufw/app_profiles/bittorrent.jhansonxi 1060ebbd1a419fca4631175698602c93
+ /etc/gufw/app_profiles/bitwig.gufw b88a197ad9879a3850a3807fa4c17394
+ /etc/gufw/app_profiles/blobby-volley2.jhansonxi 062f63983cdb9aabf25af7037a768189
+ /etc/gufw/app_profiles/blood2.jhansonxi eab18827c878aa1e7c558dddd5453789
+ /etc/gufw/app_profiles/bos-wars.jhansonxi 9b6de2ac834897778f09e2c5f872cddb
+ /etc/gufw/app_profiles/bzflag.jhansonxi cb92c71d67f417e5874b7138a50296eb
+ /etc/gufw/app_profiles/camfrog.jhansonxi 40b46618bf0df2ac476551ec30bb52ac
+ /etc/gufw/app_profiles/castle-combat.jhansonxi ddef985e90c7ac071b73a8b33b9d6341
+ /etc/gufw/app_profiles/castle-vox.jhansonxi 99fd96a279ae7653e94e703cc4db9c24
+ /etc/gufw/app_profiles/chat.ufw_app 447db8454eccfb8ff6e92b65eb02f8a6
+ /etc/gufw/app_profiles/chocolatedoom.gufw 0079b73c5846005543956a0ae950c26a
+ /etc/gufw/app_profiles/chromecast.gufw ac135a8f4636a7e593866c605e6ad2cb
+ /etc/gufw/app_profiles/clonk.jhansonxi 59f7000d70be72bc4ce9ad6db15af059
+ /etc/gufw/app_profiles/comanche4.jhansonxi 90cc89c7f9f80a7192f7165bd1c53005
+ /etc/gufw/app_profiles/conquest.jhansonxi 5b403ba034341a5f63d050f671a62f09
+ /etc/gufw/app_profiles/crossfire.jhansonxi 0f6b02468e2df6c1092a0044c6c226bf
+ /etc/gufw/app_profiles/cs2d.jhansonxi 492901ea3c8ab549e94437c9a52344ec
+ /etc/gufw/app_profiles/cube2-sauerbraten.jhansonxi c8b1c4c792a1edb2962d0a638d2f8716
+ /etc/gufw/app_profiles/cups.gufw_service 18693e0b2923ccdc19ce07bc0201ae55
+ /etc/gufw/app_profiles/d2x-xl.jhansonxi 0f300ddc5031f685ae1311acce2d7a6b
+ /etc/gufw/app_profiles/daimonin.jhansonxi ee539255e4a6877cb003c57929caefd8
+ /etc/gufw/app_profiles/dark-horizons-lore-invasion.jhansonxi 77fbda67ff160fd22ddc3b5e6870c7d1
+ /etc/gufw/app_profiles/defcon.jhansonxi ebb53f5db69ff55088caa2cf09615248
+ /etc/gufw/app_profiles/delta-force-black-hawk-down.jhansonxi 634202ee82289a66ee01c04b19642f11
+ /etc/gufw/app_profiles/delta-force-land-warrior.jhansonxi ad115f71970e9cdd80fdc8ed5cb0f9fb
+ /etc/gufw/app_profiles/delta-force-task-force-dagger.jhansonxi c55fe00cf15bf813ba53d173a5cce238
+ /etc/gufw/app_profiles/delta-force-xtreme.jhansonxi 339dd75471a5a7060e5ce69ae3c4d4cb
+ /etc/gufw/app_profiles/delta-force.jhansonxi e8caef9409c7d1940ce0d6e5de0858fd
+ /etc/gufw/app_profiles/delta-force2.jhansonxi 622c12cea32343046a2ebd68d56f67b5
+ /etc/gufw/app_profiles/deluge.gufw_app 850e0ca573b5875431aa044ef03c1ee0
+ /etc/gufw/app_profiles/descent3.jhansonxi db0b20264574e7508ad93a0e98cc447f
+ /etc/gufw/app_profiles/diablo.jhansonxi e966369224d51097d6f5228a8b7f4d0e
+ /etc/gufw/app_profiles/diablo2.jhansonxi 8ba3207c97535ea01641b30768b5928d
+ /etc/gufw/app_profiles/digital-audio-access-protocol.jhansonxi 1924042f882b49f6d96d1c3665735818
+ /etc/gufw/app_profiles/directoryserver.ufw_app 4c1b762b58fd25db3bbfb348848b4312
+ /etc/gufw/app_profiles/directx.jhansonxi 688ad2e4688030257c299eb50fa5c931
+ /etc/gufw/app_profiles/dofus.gufw 908fafae177fe71fc9596690feed46df
+ /etc/gufw/app_profiles/domain-name-system.jhansonxi f0b88a37b8cab7381003f8ac67cf22b9
+ /etc/gufw/app_profiles/domination.jhansonxi e1e9e46b67b2b8e705f5caf37d7dfa9e
+ /etc/gufw/app_profiles/doom.jhansonxi a952ed1bfaa44d5821bc712d3d2bcb4d
+ /etc/gufw/app_profiles/doom3.jhansonxi 79216f3e3c77d2422e41a8121b191e07
+ /etc/gufw/app_profiles/doomsday.jhansonxi 77c11ca9cc23af2bc56bcbfca4c29a33
+ /etc/gufw/app_profiles/dopewars.jhansonxi 759ef2b6041a9fa67c711f9d778e6f23
+ /etc/gufw/app_profiles/dosbox.jhansonxi 18f778855a1fe3873d7740e4ef4a40d2
+ /etc/gufw/app_profiles/drakan-order-of-the-flame.jhansonxi a590b8651063d17b02d867f2143be8c2
+ /etc/gufw/app_profiles/dropbox.gufw_app dee1aeea0f85d4cea5e6f6ce8e405f41
+ /etc/gufw/app_profiles/dropbox.jhansonxi dce9934e5d7126ceaf596198007b2bec
+ /etc/gufw/app_profiles/dxx-rebirth.jhansonxi a4260572623093cf997c50dc7bf0f391
+ /etc/gufw/app_profiles/dynamic-host-configuration-protocol.jhansonxi a8d62ee42c6715f427c439aafadea9bb
+ /etc/gufw/app_profiles/eduke32.jhansonxi 0cf03eb5fabc95adc5b845b479e0c092
+ /etc/gufw/app_profiles/enemy-territory-quake-wars.jhansonxi b556483612e9b5f65251eff0be99e9a0
+ /etc/gufw/app_profiles/evil-islands-curse-of-the-lost-soul.jhansonxi 2d11fbf07bd10a7fe5ab24c07d3058f0
+ /etc/gufw/app_profiles/extensible-messaging-presence-protocol.jhansonxi 3f9800a766c8e8376fe15fe90aba1638
+ /etc/gufw/app_profiles/f-16-multirole-fighter.jhansonxi f38a80c09ddb7784c5f81382918d23da
+ /etc/gufw/app_profiles/f-22-lightning3.jhansonxi 5fa4f7f4ee49d5fab842d69f3540da6f
+ /etc/gufw/app_profiles/f-22-raptor.jhansonxi 9b224e1d057791e37c151913ad816138
+ /etc/gufw/app_profiles/file-transfer-protocol.jhansonxi 9a038b45b1ae2bb9a742cc7836ee0fbc
+ /etc/gufw/app_profiles/fileserver.ufw_app 69dd16590334f7d6eaa982adb34c5bb0
+ /etc/gufw/app_profiles/firefly-media-server.jhansonxi 03a140c9b770420934c32bde9fe959ad
+ /etc/gufw/app_profiles/foobillard.jhansonxi a50a945ed307680857fbbf797c40ea55
+ /etc/gufw/app_profiles/freeciv.jhansonxi 9759af8239700825449d14b1fcb33e07
+ /etc/gufw/app_profiles/freecol.jhansonxi eae7c88c2257f2833b49a38fd9a74199
+ /etc/gufw/app_profiles/freelords.jhansonxi ddd3511d6498a751c39a22e52c0f5c67
+ /etc/gufw/app_profiles/freeorion.jhansonxi 9d6f68b630b7f4d4e499460a7093c946
+ /etc/gufw/app_profiles/freespace2.jhansonxi c86e1a2755dc8798a9bc629f60958809
+ /etc/gufw/app_profiles/frostwire.jhansonxi 1b7a764af147dc7dc0617e1e68a5d5f6
+ /etc/gufw/app_profiles/frozen-bubble.jhansonxi 16c23b280e98d0c8cb74e572841f2d1e
+ /etc/gufw/app_profiles/ftp.gufw_service 98c9040e03d8f79a0a3ba4a861b3b026
+ /etc/gufw/app_profiles/full-metal-soccer.jhansonxi 6a714fc9694c3d8434ce28528443b969
+ /etc/gufw/app_profiles/gameranger.jhansonxi 08c41f57a4f6e5dd733d124ce266737e
+ /etc/gufw/app_profiles/gamers-internet-tunnel.jhansonxi 03a2df9bc7c9edd6bee3954fdabe1154
+ /etc/gufw/app_profiles/games-for-windows-live.jhansonxi 580eda44bbbaf33a85b13a3db15db848
+ /etc/gufw/app_profiles/gamespy.jhansonxi 4d455bce3822c025fd85c5335b7ff448
+ /etc/gufw/app_profiles/ggz-gaming-zone.jhansonxi e75bf0cfb0b112d0354aa95f1a7957a0
+ /etc/gufw/app_profiles/glest.jhansonxi 04e16a184fa9973b6dade5a1fb660e4b
+ /etc/gufw/app_profiles/globulation2.jhansonxi a18fc0781e2b0898ff13c448f84499fb
+ /etc/gufw/app_profiles/gnump3d.jhansonxi a532dee20bc1e231392a232bace7ebe0
+ /etc/gufw/app_profiles/gnunet.jhansonxi d0eefc4c709dd9f613ff2733c5020a48
+ /etc/gufw/app_profiles/gpsd.jhansonxi ec085e66d597ecd671b932255a5a4f2b
+ /etc/gufw/app_profiles/h323.jhansonxi 1d849e948b5b34607ed09d7360985107
+ /etc/gufw/app_profiles/hddtemp.jhansonxi c9c0b43831ab3e46ab88e2eefd8ba80c
+ /etc/gufw/app_profiles/heavy-gear-ii.jhansonxi f2ab0d83fa6736be6900adda2530e150
+ /etc/gufw/app_profiles/hedgewars.jhansonxi 65489da9fdb12ef88f36ecc57c9e5551
+ /etc/gufw/app_profiles/heretic2.jhansonxi 0cd6f42c2628163c12db602463a7d0eb
+ /etc/gufw/app_profiles/hexen2.jhansonxi 790d03a7e6d93d9625501b8456cf7684
+ /etc/gufw/app_profiles/homm3.jhansonxi b592958714e772cd0dd78cde895cf36e
+ /etc/gufw/app_profiles/hplip.gufw_app 0c126bcaa78020d1c2ac5363de5d756b
+ /etc/gufw/app_profiles/hypertext-transfer-protocol.jhansonxi fb170a34cc22de9de27486b17156a8ee
+ /etc/gufw/app_profiles/icecast.jhansonxi 5bc873403a6e02580559f58a40468d76
+ /etc/gufw/app_profiles/imaze.jhansonxi a5f604b8f10ac4310a209dbeb7e3a270
+ /etc/gufw/app_profiles/internet-printing-protocol.jhansonxi 6789b5941d841fbe4e49fded9048baca
+ /etc/gufw/app_profiles/internet-relay-chat.jhansonxi d9b21322946a6780c73c4cab9bf6dfd1
+ /etc/gufw/app_profiles/jellyfin.gufw 32cf3bab06d0d582622d038bf720a45d
+ /etc/gufw/app_profiles/joint-operations-typhoon-rising.jhansonxi ebcf99415a5a2d998ca41db7ef4fd826
+ /etc/gufw/app_profiles/kali.jhansonxi d77d6a16556c08ad538e553385cd7546
+ /etc/gufw/app_profiles/kde-connect.gufw dd71bffd6db726f07be1c95385f0e5ae
+ /etc/gufw/app_profiles/kingpin-life-of-crime.jhansonxi f1f3ae468aa59640ecfe6ad28da5137a
+ /etc/gufw/app_profiles/knights-and-Merchants-the-shattered-kingdom.jhansonxi 24ec317e82d715734f39b445e5006aac
+ /etc/gufw/app_profiles/kodi_remote.gufw f1d57c7f42de75e2b9764ee6e5f5fa21
+ /etc/gufw/app_profiles/kohan-is.jhansonxi e384d4fbba44c64fb165245dbfbe6e6b
+ /etc/gufw/app_profiles/ktorrent.gufw_app c08ba38024f85a7982cf6941bbb9012a
+ /etc/gufw/app_profiles/lbreakout2.jhansonxi 35d40b52af4a77f066b4db7cd2376d53
+ /etc/gufw/app_profiles/legends.jhansonxi 453982bc21470247dd540b0eeed7dad1
+ /etc/gufw/app_profiles/liquidwar.gufw dc48902d03881a6eb9d5004311aa8b2f
+ /etc/gufw/app_profiles/london-law.jhansonxi 0edaa2d27bf54a594ce421c2cf095222
+ /etc/gufw/app_profiles/lux.jhansonxi 1b781009580835df06fe167e5467e0b0
+ /etc/gufw/app_profiles/mailserver.ufw_app d278b0886ff1aa1d4bc0afdf4e55b00f
+ /etc/gufw/app_profiles/majesty-the-fantasy-kingdom-sim.jhansonxi d3d4267a616ef8bdf312bdebe5c0f0c8
+ /etc/gufw/app_profiles/maniadrive.jhansonxi 2e564febf22db0ce87c5777afa84353c
+ /etc/gufw/app_profiles/mechwarrior4.jhansonxi 6a37a5504150305c2586bb3652ebaf5e
+ /etc/gufw/app_profiles/megamek.jhansonxi decc4327abf8ab138614cebc1ebb246b
+ /etc/gufw/app_profiles/mig-29-fulcrum.jhansonxi 2c5f69b14f9271efcb33692f4cb0618c
+ /etc/gufw/app_profiles/minecraft.jhansonxi 2494fa18443774ff36ba5b47356928bd
+ /etc/gufw/app_profiles/minidlna.gufw d0a0e1afb2456c51a6b259050e3a4bc5
+ /etc/gufw/app_profiles/monopd.jhansonxi f61ffd40a44525072f110bfe7b264895
+ /etc/gufw/app_profiles/msn-gaming-zone.jhansonxi 2940721483f910e80faffa362dfa8cfd
+ /etc/gufw/app_profiles/multicast-dns.jhansonxi fda10f564076e96daab4b071575a842e
+ /etc/gufw/app_profiles/mumble.gufw 87a06745d204d8aafb3df2cfe52ea9ea
+ /etc/gufw/app_profiles/murmur.jhansonxi e403e0cbc4904e3e1255a9cc58247370
+ /etc/gufw/app_profiles/music-player-daemon.jhansonxi 60dc6da784ed1944f8eab3f739c69944
+ /etc/gufw/app_profiles/mysql.jhansonxi 626bdb71198116b00c316c92f3f9c276
+ /etc/gufw/app_profiles/myth2-soulblighter.jhansonxi e85e30ccdc06a6b4f5fa7140aa3be44a
+ /etc/gufw/app_profiles/mythtv.jhansonxi 026ce7f22f6fac5748ca5de3f5b33ef3
+ /etc/gufw/app_profiles/nagios.gufw_app 239b7db13d3a9019fc255ad80b5a101a
+ /etc/gufw/app_profiles/nascar-racing-4-2002-2003-season.jhansonxi 4f375f0bba45da5baf8e20da3154a8fe
+ /etc/gufw/app_profiles/nat-port-mapping-protocol.jhansonxi b755c8a9f3ed374e4afc4b961c5bff2f
+ /etc/gufw/app_profiles/netpanzer.jhansonxi 3a149c66ae2b701383ce54a82e4c5264
+ /etc/gufw/app_profiles/network-time-protocol.jhansonxi c6407969b048bff0bd4123c00f9b4f71
+ /etc/gufw/app_profiles/neverwinter-nights.jhansonxi 87bb46a92bf53e341e381210f176da21
+ /etc/gufw/app_profiles/nexuiz.jhansonxi 4f578fab6728213c994b901766ff4cde
+ /etc/gufw/app_profiles/nfs-kernel-server-32765.jhansonxi d1a69b0b02957d8e8202c7e309df29c3
+ /etc/gufw/app_profiles/nfs-kernel-server-4000.jhansonxi ab597b6b60b45828912dabce500954d0
+ /etc/gufw/app_profiles/nfs-kernel-server-4194.jhansonxi 382c5fadfcb29e14677540d495637d4b
+ /etc/gufw/app_profiles/nfs.gufw_service 8ae752c5f07f5cef4a6783b47509ec06
+ /etc/gufw/app_profiles/nicotine.gufw_app 49a80d12a6a4db8ad7c5dc570700b73e
+ /etc/gufw/app_profiles/nrpe.gufw_app 817a37cab4ffa950c02e025be411a516
+ /etc/gufw/app_profiles/nsclientplusplus.gufw_app 362335cc43576d3b18de3aefd565cb48
+ /etc/gufw/app_profiles/openarena.jhansonxi 1c63e05e5c3d93f69875391d0961645d
+ /etc/gufw/app_profiles/openmeetings.jhansonxi 3ff2a9538c24931ab2ebb5c0441fea31
+ /etc/gufw/app_profiles/openrpg.jhansonxi a9a3bf883840844837a290cd06ce0e0f
+ /etc/gufw/app_profiles/openttd.jhansonxi 7ae085c25c41362591409737a521e057
+ /etc/gufw/app_profiles/optimized-link-state-routing.jhansonxi 8d7085619ff8ef7254dcef8726c18f57
+ /etc/gufw/app_profiles/parsec.gufw_app b9f9c73107c8e9eb9de8b6db4d0aafd5
+ /etc/gufw/app_profiles/pennmush.jhansonxi f4d6a16a238152b2f0f31350c16180ba
+ /etc/gufw/app_profiles/pihole.gufw 0f3349401f04ddffceafbd94ff205445
+ /etc/gufw/app_profiles/pioneers.jhansonxi 2e5cc6d1b00b42cce2a9e9fe86bf5992
+ /etc/gufw/app_profiles/player-vs-player-gaming-network.jhansonxi 6ff0b3b5b2579dd63b1dd2bd3c53503b
+ /etc/gufw/app_profiles/plex.gufw_service 8eece3ff2afba6be9d7dfbdee47729ce
+ /etc/gufw/app_profiles/point-to-point-tunneling-protocol.jhansonxi ee9dae0e9d8ed809e090bc502fe04d77
+ /etc/gufw/app_profiles/postal.jhansonxi 4fdfb26248f297fe8c676b3c211149e2
+ /etc/gufw/app_profiles/postal2.jhansonxi d60fe6270eea230db139d1ea5158f930
+ /etc/gufw/app_profiles/postfix.gufw 06262bcee413ee79f56ac2409422cb3c
+ /etc/gufw/app_profiles/prey.jhansonxi 8a32897542d7c1ef3d938791b6125e3c
+ /etc/gufw/app_profiles/printserver.ufw_app 097f886b86f7918afd15f1ab6a4ca5c9
+ /etc/gufw/app_profiles/proxyserver.ufw_app 8db37919cb39f8d837de7f42656b4c91
+ /etc/gufw/app_profiles/pulseaudio.jhansonxi 2cc137247c19afdf711ad6598f3da54b
+ /etc/gufw/app_profiles/qbittorrent.gufw_app e23ab09c693a619f909c5c3645a383c6
+ /etc/gufw/app_profiles/quake.jhansonxi 35de631422767eb1ae90a64f35197655
+ /etc/gufw/app_profiles/quake2.jhansonxi f713c502667bf3e6bccb4b361c9aa70e
+ /etc/gufw/app_profiles/quake3.jhansonxi d7f13c90027c0577986e3cf4c818e8df
+ /etc/gufw/app_profiles/quake4.jhansonxi 312c451dca804052eaf533c681a609a6
+ /etc/gufw/app_profiles/railroad-tycoon-2.jhansonxi 51265252b15a9263d635f3cf48f86534
+ /etc/gufw/app_profiles/real-time-messaging-protocol.jhansonxi 981771ce8097c006e343b362886ff684
+ /etc/gufw/app_profiles/redeclipse.gufw 88421aeb5cf4f35f0f1db9c56cd26d07
+ /etc/gufw/app_profiles/remote-desktop-protocol.jhansonxi a7de1a3ecc287ab1f4fa8c4eb63cc565
+ /etc/gufw/app_profiles/rsync.jhansonxi d7b67595a734e3b34b77aa8516104bbd
+ /etc/gufw/app_profiles/rtcw-et.jhansonxi 3a0ce42fde67998befee8de14412a685
+ /etc/gufw/app_profiles/rune.jhansonxi 14d5af62dc9cc7de401c7013b96fbf6c
+ /etc/gufw/app_profiles/rygel.gufw ab38272e68afd3fb9ed86cb371e81f01
+ /etc/gufw/app_profiles/ryzom.gufw 987303b9aa4241d88ed8598efdf248a3
+ /etc/gufw/app_profiles/sacred.jhansonxi 420e188d144efa9a6f28db7267ec250b
+ /etc/gufw/app_profiles/samba.jhansonxi 34ae66e497373cae517c72fa7bb4acc3
+ /etc/gufw/app_profiles/sane.jhansonxi d6d568b18cad8619a23c4bb7c4a06596
+ /etc/gufw/app_profiles/savage-the-battle-for-newerth.jhansonxi 76a41437860e04ad2345d650860b34ee
+ /etc/gufw/app_profiles/savage2-a-tortured-soul.jhansonxi ff7c8a3eeb28286f411b344293577d3c
+ /etc/gufw/app_profiles/scorched-3d.jhansonxi 90177fb8366754a64b4384d5fc9b2b5f
+ /etc/gufw/app_profiles/serious-engine-dedicated-server.jhansonxi bbf17fa19d7fbfba7cbf17da463272fb
+ /etc/gufw/app_profiles/serious-sam.jhansonxi 125ce244781300c960376ff0b699fcef
+ /etc/gufw/app_profiles/serious-sam2.jhansonxi eda904aed453c27aee837e1b7977c1d7
+ /etc/gufw/app_profiles/session-initiation-protocol.jhansonxi 92b97dc737f9733592bd3ed8497eed55
+ /etc/gufw/app_profiles/session-traversal-utilities-nat.jhansonxi 5fbb79ac6a28a721d4b579ce2ec60d11
+ /etc/gufw/app_profiles/shogo-mobile-armour-division.jhansonxi 38a7127bdb87674c1854d0f3c9fda80e
+ /etc/gufw/app_profiles/sid-meiers-alpha-centauri.jhansonxi a3dc81f21fc31abcbf68a1882d53a6b4
+ /etc/gufw/app_profiles/sid-meiers-civilization-iv.jhansonxi 2c8fc8aea13ab2dcf0b8559d7b7ae10d
+ /etc/gufw/app_profiles/simple-service-discovery-protocol.jhansonxi 530e71f6d8d400956336128a3e2f2bc6
+ /etc/gufw/app_profiles/sin.jhansonxi 479e2418cda6a4b2b2087a147a75b2da
+ /etc/gufw/app_profiles/skype.gufw_app 3d2a08478a393404accc36193614450b
+ /etc/gufw/app_profiles/skype.jhansonxi 3ada34703ac172d67d37b7a87fe3e739
+ /etc/gufw/app_profiles/smplayer.gufw a464f6dd5cfbea9f6279a4178d7a0202
+ /etc/gufw/app_profiles/snowball-surprize.jhansonxi 14dac70569b41ca50001a341190b191a
+ /etc/gufw/app_profiles/soldier-of-fortune.jhansonxi aaaa446cdd93e7cea03abd771d99c4cd
+ /etc/gufw/app_profiles/spring.jhansonxi 9d8f9d80b51340e92010f6124be07b2e
+ /etc/gufw/app_profiles/ssh.gufw_service c06abd2c61ddec7192cbac54ef91658f
+ /etc/gufw/app_profiles/starcraft.jhansonxi 270c20ce4d3cf4f4580b207d03221fce
+ /etc/gufw/app_profiles/steam.gufw 5b7827e67ff14a33717802c5f47d27ae
+ /etc/gufw/app_profiles/steam.jhansonxi fb3d62f93022349d18b5445579b14fce
+ /etc/gufw/app_profiles/steel-storm.jhansonxi 00b86d6c76a20a8447e078c9d4f6f024
+ /etc/gufw/app_profiles/syslog.jhansonxi 98abf83339950ccb92bce80169e35243
+ /etc/gufw/app_profiles/tachyon-the-fringe.jhansonxi 580a5363f8682e0670da2bb1f5398cc5
+ /etc/gufw/app_profiles/teamspeak2.jhansonxi 15219058202b1cb8b6f7db90836969d1
+ /etc/gufw/app_profiles/teamspeak3.jhansonxi 525a08c8d9b69c46b40b669642e201d5
+ /etc/gufw/app_profiles/teamviewer.gufw e23a7f40122a091274aa9b441f73dfdc
+ /etc/gufw/app_profiles/teeworlds.gufw 4a8ebfe973b411d8586164464f22380e
+ /etc/gufw/app_profiles/telnet.jhansonxi 00950e2554d3c086c77d5de2b320c462
+ /etc/gufw/app_profiles/tether-game.jhansonxi 50bae067e9572fd2ddb8547cb1a68eb9
+ /etc/gufw/app_profiles/the-battle-for-wesnoth.jhansonxi 88c17d008460973a4e8f1f06161afd4b
+ /etc/gufw/app_profiles/the-mana-world.jhansonxi 05688ca2d7e21a82c0155a4ea5e41eb2
+ /etc/gufw/app_profiles/thinktanks.jhansonxi 04dc7032f8ea8997e689f363e51bdd51
+ /etc/gufw/app_profiles/thousand-parsec.jhansonxi 8f924685d1979ff3f931ad194ae1eef8
+ /etc/gufw/app_profiles/tor.jhansonxi 8d4e956500208101b58535fce19cb01e
+ /etc/gufw/app_profiles/toribash.jhansonxi af9f344f7ea0e1c35fc8c1366a6e1a40
+ /etc/gufw/app_profiles/transmission.gufw_app 30317f6345654e718296f603e742d324
+ /etc/gufw/app_profiles/transmissiondaemon.gufw_app 9b593d71c236eda019d47a1357ab66af
+ /etc/gufw/app_profiles/tremulous.gufw fba9f48e5a628872d46660ab58301e75
+ /etc/gufw/app_profiles/tremulous.jhansonxi 47403166f9aab5426c3c2063e08ad20b
+ /etc/gufw/app_profiles/tribes2.jhansonxi 2d2d9c37d4dfb59b16c01bd468cf2209
+ /etc/gufw/app_profiles/trivial-file-transfer-protocol.jhansonxi 3acf36c3b0869511537013c91b0d030e
+ /etc/gufw/app_profiles/tvheadend.gufw bfd4884448a6be0b062e3749c6031dd5
+ /etc/gufw/app_profiles/ubuntu_one.gufw_app ed6f8dcb09101f49727a98de209cfdd5
+ /etc/gufw/app_profiles/ufo-alien-invasion.jhansonxi f410a5c50c21c5ea8306ee674e61e0ce
+ /etc/gufw/app_profiles/upnp_apps.gufw 351d1371bd83c114c2dbaa5fcf0c1414
+ /etc/gufw/app_profiles/upsd.jhansonxi 43b7d68b4959f4efa564dc73b98d759c
+ /etc/gufw/app_profiles/ur-quan-masters.jhansonxi 0e4ce6c051655dab524a0e68d7047434
+ /etc/gufw/app_profiles/urban-terror.jhansonxi 036fa5c7cb1f35860e8c54100bdba5a6
+ /etc/gufw/app_profiles/usb-redirector.jhansonxi c3f47145fc66d06fc1f488ba4d1ab147
+ /etc/gufw/app_profiles/usbip.jhansonxi bf665f1e280b1eab553002f15f84f6b5
+ /etc/gufw/app_profiles/ut2004.jhansonxi 0eb97b979c7393144c17d728a775333b
+ /etc/gufw/app_profiles/vendettaonline.gufw c2e2aeff4b8208c2f2a761c50bb19a71
+ /etc/gufw/app_profiles/vibe-streamer.jhansonxi 932c282ca7228ff533445834ba4e247f
+ /etc/gufw/app_profiles/virtual-network-computing-server.jhansonxi 1c60da7a96fbdb2dde59e13df78cf3ba
+ /etc/gufw/app_profiles/vlc.jhansonxi eaae840eb11fc6cbeeb7a7240c13cfbc
+ /etc/gufw/app_profiles/vnc.gufw_service 272f256296915f5efa3ff017da5f33de
+ /etc/gufw/app_profiles/vuze.gufw_app fa5485b01a37f33f21239495e5eff45f
+ /etc/gufw/app_profiles/vuze_remote.gufw 4055cb743d23877052363f5f3e9c3abd
+ /etc/gufw/app_profiles/wakfu.gufw e8baf8de347ef61b8692735ef46bd103
+ /etc/gufw/app_profiles/warcraft2bne.jhansonxi 0e044ed1d03b66082d22cd7da60f7b51
+ /etc/gufw/app_profiles/warcraft3.jhansonxi 6aef32bb491901ab2aefa46908f2b1d6
+ /etc/gufw/app_profiles/warsow.jhansonxi ab8eef67ddd44dd7a7467240905295fc
+ /etc/gufw/app_profiles/warzone-2100.jhansonxi 1513d1f47c8eb9dc30b3898871d8eb2a
+ /etc/gufw/app_profiles/webcam-server.jhansonxi 62196139d35b41133082ce7eb82c349a
+ /etc/gufw/app_profiles/webmin.jhansonxi a2dde89d7361af927487830676e12b75
+ /etc/gufw/app_profiles/widelands.jhansonxi 7207158e86ba770689f4d3fe8a4e4629
+ /etc/gufw/app_profiles/windows-messenger.jhansonxi 004a5168b62c481dcdbe5a81a8311fe9
+ /etc/gufw/app_profiles/world-of-padman.jhansonxi d34be1bf16c4ce1f47176b834196e8ec
+ /etc/gufw/app_profiles/world-of-warcraft.jhansonxi 6927630a48d8d2edccf622d720735aa0
+ /etc/gufw/app_profiles/wormux.jhansonxi fc257ef9cb90191d7fba2f0c9ef8a298
+ /etc/gufw/app_profiles/xpilot.jhansonxi bec4a23031b57afcbee9050cff74981e
+ /etc/gufw/app_profiles/yang.jhansonxi 2237f40b3fcb0c62c4aba1583bc6422d
+ /etc/gufw/app_profiles/ysflight2000.jhansonxi 50a76e1af53400b218825b6eb7aed236
+PACKAGE:gvfs:amd64
+
+PACKAGE:gvfs-backends
+
+PACKAGE:gvfs-common
+
+PACKAGE:gvfs-daemons
+
+PACKAGE:gvfs-fuse
+
+PACKAGE:gvfs-libs:amd64
+
+PACKAGE:gzip
+
+PACKAGE:hdparm
+ /etc/hdparm.conf fe09abd1838cf3e012353933c5aa0dda
+PACKAGE:heif-gdk-pixbuf:amd64
+
+PACKAGE:hfsprogs
+
+PACKAGE:hicolor-icon-theme
+
+PACKAGE:hostname
+
+PACKAGE:hplip
+ /etc/dbus-1/system.d/com.hp.hplip.conf 3f3b1250ca68d54419d19d6ddf1b9ad4
+PACKAGE:hplip-data
+
+PACKAGE:html2text
+
+PACKAGE:humanity-icon-theme
+
+PACKAGE:hunspell-en-us
+
+PACKAGE:hwdata
+
+PACKAGE:hyphen-en-us
+
+PACKAGE:hypnotix
+
+PACKAGE:i965-va-driver:amd64
+
+PACKAGE:ibus
+ /etc/dconf/db/ibus.d/00-upstream-settings df2fea6735911e39fb49071e3920c207
+ /etc/dconf/profile/ibus 0f61b729d3b8cdad8b54d663f38dc652
+ /etc/xdg/Xwayland-session.d/10-ibus-x11 e16a10a0ef9af6b223f96ae7ad18f7aa
+PACKAGE:ibus-data
+
+PACKAGE:ibus-gtk:amd64
+
+PACKAGE:ibus-gtk3:amd64
+
+PACKAGE:ibus-gtk4:amd64
+
+PACKAGE:id3
+
+PACKAGE:ideviceinstaller
+
+PACKAGE:ieee-data
+
+PACKAGE:ifuse
+
+PACKAGE:iio-sensor-proxy
+
+PACKAGE:im-config
+ /etc/X11/Xsession.d/70im-config_launch c03795634a1f8b9053282f0b724ab47a
+ /etc/X11/xinit/xinputrc 8e9b9fc53454dd74818f6583b924c8e4
+ /etc/default/im-config a2495ca6848a8a6fbece324562abf795
+ /etc/profile.d/im-config_wayland.sh 4ed85111db68460cd213af951aba246c
+ /etc/xdg/autostart/im-launch.desktop 13bcc7e56afd18808a56136c90e48f0f
+PACKAGE:inetutils-telnet
+
+PACKAGE:info
+
+PACKAGE:init
+
+PACKAGE:init-system-helpers
+
+PACKAGE:initramfs-tools
+ /etc/initramfs-tools/update-initramfs.conf e2026d4603e7161efaccca519aeb1297
+ /etc/kernel/postinst.d/initramfs-tools c1cb0e052a2cdeef4f3257585c83c58d
+ /etc/kernel/postrm.d/initramfs-tools e7471d253a5b24e2fd85b40be4e43218
+PACKAGE:initramfs-tools-bin
+
+PACKAGE:initramfs-tools-core
+ /etc/initramfs-tools/initramfs.conf 37168abeabf36c927e6c3877b7a343b9
+PACKAGE:inputattach
+
+PACKAGE:install-info
+
+PACKAGE:intel-media-va-driver:amd64
+
+PACKAGE:intel-microcode
+ /etc/default/intel-microcode 6a68a0e6e2d2ef001f1a374ece3c8558
+ /etc/kernel/preinst.d/intel-microcode 4324b7d12701909b3a76bb5c6468a571
+ /etc/modprobe.d/intel-microcode-blacklist.conf 71327241f6583b34944e638a955aba91
+PACKAGE:inxi
+ /etc/inxi.conf c194e0fa019f14b0536030f76cd28971
+PACKAGE:ipp-usb
+ /etc/ipp-usb/ipp-usb.conf 423f41307a6ffc0e532378db5ab419e6
+PACKAGE:iproute2
+ /etc/iproute2/bpf_pinning fd070252e6e9996bd04d9d59e4ce21eb
+ /etc/iproute2/ematch_map 0e0f36cafc6a9cf76bc704cfd8f96ece
+ /etc/iproute2/group 3aea2c0e0dd75e13a5f8f48f2936915f
+ /etc/iproute2/nl_protos 393e42fa549d0974eb66d576675779c2
+ /etc/iproute2/rt_dsfield 4c80d267a84d350d89d88774efe48a0f
+ /etc/iproute2/rt_protos 35b7f1673d1d0486c4188fd06b46a410
+ /etc/iproute2/rt_protos.d/README 88e45597012c565f9a10ffef1bc14312
+ /etc/iproute2/rt_realms 7137bdf40e8d58c87ac7e3bba503767f
+ /etc/iproute2/rt_scopes 6298b8df09e9bda23ea7da49021ca457
+ /etc/iproute2/rt_tables a1313318d6778fe6b8c680248ef5a463
+ /etc/iproute2/rt_tables.d/README 18bfdabbd4d5b14eae350720ea5ff431
+PACKAGE:iptables
+
+PACKAGE:iputils-ping
+
+PACKAGE:iputils-tracepath
+
+PACKAGE:irqbalance
+ /etc/default/irqbalance fd441b2b501b7258a1043ba135736623
+ /etc/init.d/irqbalance fcb4a4d3f2770082bcbf0f3dc899b70c
+PACKAGE:isc-dhcp-client
+ /etc/apparmor.d/sbin.dhclient 9de14c8a0e6510f980ff448d85118505
+ /etc/dhcp/debug 521717b5f9e08db15893d3d062c59aeb
+ /etc/dhcp/dhclient-enter-hooks.d/resolved-enter 4ecfd14e38e7362cd6aeb3e438c2ec43
+ /etc/dhcp/dhclient-exit-hooks.d/resolved 716b09be4007df8a828a1af7b37baefc
+ /etc/dhcp/dhclient-exit-hooks.d/rfc3442-classless-routes c30784ea12e80abaaa8f2a9d5e0ad9c7
+ /etc/dhcp/dhclient.conf c3b6c3271031ab8e250a192f4eb18695
+PACKAGE:isc-dhcp-common
+
+PACKAGE:iso-codes
+
+PACKAGE:iso-flag-png
+
+PACKAGE:iucode-tool
+
+PACKAGE:jfsutils
+
+PACKAGE:kbd
+
+PACKAGE:kerneloops
+ /etc/dbus-1/system.d/kerneloops.conf 3a45a41fdff361d3539c4008cc7228e9
+ /etc/default/kerneloops cbfeaaf1731b73555fc5a750d02dbd2b
+ /etc/init.d/kerneloops 2e43c47bae9d14535654c575776a3d69
+ /etc/kerneloops.conf 58ebf76f11386308d7f2ddee09b3cf96
+PACKAGE:keyboard-configuration
+
+PACKAGE:keyboxd
+
+PACKAGE:keyutils
+ /etc/request-key.conf 8ad8d7d3deb6e3fbaaf483ed94fb6284
+PACKAGE:klibc-utils
+
+PACKAGE:kmod
+ /etc/depmod.d/ubuntu.conf 7c8439ef36b12e5f226b5dbfa20b8c2d
+ /etc/init.d/kmod 76fcb3d88797536529a112ea3365e1d9
+ /etc/modprobe.d/blacklist-ath_pci.conf d1da9bb08c2b0f56f3be93fd0e37946b
+ /etc/modprobe.d/blacklist-firewire.conf 9cc07a17e8e64f9cd35ff59c29debe69
+ /etc/modprobe.d/blacklist-framebuffer.conf 097e2142ae3e4dd2911eda7844ce0c18
+ /etc/modprobe.d/blacklist-rare-network.conf 8fb4b96124e461f53adceba9ca91f09a
+ /etc/modprobe.d/blacklist.conf 75f90164fe53985db48e7aa168bd5e7c
+ /etc/modprobe.d/iwlwifi.conf f27bc645e93e20c8e532325d190ac8ee
+PACKAGE:kpartx
+
+PACKAGE:kpartx-boot
+
+PACKAGE:krb5-locales
+
+PACKAGE:language-pack-en
+
+PACKAGE:language-pack-en-base
+
+PACKAGE:language-pack-gnome-en
+
+PACKAGE:language-pack-gnome-en-base
+
+PACKAGE:laptop-detect
+
+PACKAGE:less
+
+PACKAGE:libaa1:amd64
+
+PACKAGE:libabsl20220623t64:amd64
+
+PACKAGE:libabw-0.1-1:amd64
+
+PACKAGE:libaccountsservice0:amd64
+
+PACKAGE:libacl1:amd64
+
+PACKAGE:libadwaita-1-0:amd64
+
+PACKAGE:libaio1t64:amd64
+
+PACKAGE:libao-common
+ /etc/libao.conf 6e1c0182a9f224141f2db6b2ae3b8837
+PACKAGE:libao4:amd64
+
+PACKAGE:libaom3:amd64
+
+PACKAGE:libapparmor1:amd64
+
+PACKAGE:libappstream5:amd64
+
+PACKAGE:libapt-pkg6.0t64:amd64
+
+PACKAGE:libarchive13t64:amd64
+
+PACKAGE:libargon2-1:amd64
+
+PACKAGE:libasan8:amd64
+
+PACKAGE:libasound2-data
+
+PACKAGE:libasound2t64:amd64
+
+PACKAGE:libaspell15:amd64
+
+PACKAGE:libass9:amd64
+
+PACKAGE:libassuan0:amd64
+
+PACKAGE:libasyncns0:amd64
+
+PACKAGE:libatasmart4:amd64
+
+PACKAGE:libatk-adaptor:amd64
+ /etc/X11/Xsession.d/90atk-adaptor 4078a3f4ac00fc84e750302cad860730
+ /etc/environment.d/90atk-adaptor.conf 37f0e9966dd90df63360e1b6520f2a05
+PACKAGE:libatk-bridge2.0-0t64:amd64
+
+PACKAGE:libatk1.0-0t64:amd64
+
+PACKAGE:libatkmm-1.6-1v5:amd64
+
+PACKAGE:libatm1t64:amd64
+
+PACKAGE:libatomic1:amd64
+
+PACKAGE:libatopology2t64:amd64
+
+PACKAGE:libatspi2.0-0t64:amd64
+
+PACKAGE:libattr1:amd64
+ /etc/xattr.conf 743ca3f83ea263f1f56ad1f63f907bdb
+PACKAGE:libaudit-common
+ /etc/libaudit.conf cdc703f9d27f0d980271a9e95d0f18b2
+PACKAGE:libaudit1:amd64
+
+PACKAGE:libauthen-sasl-perl
+
+PACKAGE:libavahi-client3:amd64
+
+PACKAGE:libavahi-common-data:amd64
+
+PACKAGE:libavahi-common3:amd64
+
+PACKAGE:libavahi-core7:amd64
+
+PACKAGE:libavahi-glib1:amd64
+
+PACKAGE:libavc1394-0:amd64
+
+PACKAGE:libavcodec60:amd64
+
+PACKAGE:libavdevice60:amd64
+
+PACKAGE:libavfilter9:amd64
+
+PACKAGE:libavformat60:amd64
+
+PACKAGE:libavutil58:amd64
+
+PACKAGE:libayatana-appindicator3-1
+
+PACKAGE:libayatana-ido3-0.4-0:amd64
+
+PACKAGE:libayatana-indicator3-7:amd64
+
+PACKAGE:libbabeltrace1:amd64
+
+PACKAGE:libbinutils:amd64
+
+PACKAGE:libblas3:amd64
+
+PACKAGE:libblkid1:amd64
+
+PACKAGE:libblockdev-crypto3:amd64
+
+PACKAGE:libblockdev-fs3:amd64
+
+PACKAGE:libblockdev-loop3:amd64
+
+PACKAGE:libblockdev-mdraid3:amd64
+
+PACKAGE:libblockdev-nvme3:amd64
+
+PACKAGE:libblockdev-part3:amd64
+
+PACKAGE:libblockdev-swap3:amd64
+
+PACKAGE:libblockdev-utils3:amd64
+
+PACKAGE:libblockdev3:amd64
+ /etc/libblockdev/3/conf.d/00-default.cfg 1c5f41aec495d75f8dd4aaa952c6e563
+PACKAGE:libbluetooth3:amd64
+
+PACKAGE:libbluray2:amd64
+
+PACKAGE:libboost-iostreams1.83.0:amd64
+
+PACKAGE:libboost-locale1.83.0:amd64
+
+PACKAGE:libboost-thread1.83.0:amd64
+
+PACKAGE:libbpf1:amd64
+
+PACKAGE:libbrasero-media3-1:amd64
+
+PACKAGE:libbrlapi0.8:amd64
+
+PACKAGE:libbrotli1:amd64
+
+PACKAGE:libbs2b0:amd64
+
+PACKAGE:libbsd0:amd64
+
+PACKAGE:libburn4t64:amd64
+
+PACKAGE:libbytesize-common
+
+PACKAGE:libbytesize1:amd64
+
+PACKAGE:libbz2-1.0:amd64
+
+PACKAGE:libc-bin
+ /etc/bindresvport.blacklist 4c09213317e4e3dd3c71d74404e503c5
+ /etc/gai.conf 28fa76ff5a9e0566eaa1e11f1ce51f09
+ /etc/ld.so.conf 4317c6de8564b68d628c21efa96b37e4
+ /etc/ld.so.conf.d/libc.conf d4d833fd095fb7b90e1bb4a547f16de6
+PACKAGE:libc-dev-bin
+
+PACKAGE:libc6:amd64
+ /etc/ld.so.conf.d/x86_64-linux-gnu.conf d4e7a7b88a71b5ffd9e2644e71a0cfab
+PACKAGE:libc6-dbg:amd64
+
+PACKAGE:libc6-dev:amd64
+
+PACKAGE:libcaca0:amd64
+
+PACKAGE:libcairo-gobject-perl
+
+PACKAGE:libcairo-gobject2:amd64
+
+PACKAGE:libcairo-perl
+
+PACKAGE:libcairo-script-interpreter2:amd64
+
+PACKAGE:libcairo2:amd64
+
+PACKAGE:libcairomm-1.0-1v5:amd64
+
+PACKAGE:libcairomm-1.16-1:amd64
+
+PACKAGE:libcamel-1.2-64t64:amd64
+
+PACKAGE:libcanberra-gtk3-0t64:amd64
+
+PACKAGE:libcanberra-gtk3-module:amd64
+
+PACKAGE:libcanberra-pulse:amd64
+
+PACKAGE:libcanberra0t64:amd64
+
+PACKAGE:libcap-ng0:amd64
+
+PACKAGE:libcap2:amd64
+
+PACKAGE:libcap2-bin
+
+PACKAGE:libcaribou-common
+
+PACKAGE:libcaribou0:amd64
+
+PACKAGE:libcbor0.10:amd64
+
+PACKAGE:libcc1-0:amd64
+
+PACKAGE:libcdio-cdda2t64:amd64
+
+PACKAGE:libcdio-paranoia2t64:amd64
+
+PACKAGE:libcdio19t64:amd64
+
+PACKAGE:libcdparanoia0:amd64
+
+PACKAGE:libcdr-0.1-1:amd64
+
+PACKAGE:libcgi-fast-perl
+
+PACKAGE:libcgi-pm-perl
+
+PACKAGE:libchamplain-0.12-0:amd64
+
+PACKAGE:libchamplain-gtk-0.12-0:amd64
+
+PACKAGE:libchromaprint1:amd64
+
+PACKAGE:libcinnamon-control-center1:amd64
+
+PACKAGE:libcinnamon-desktop-dbg:amd64
+
+PACKAGE:libcinnamon-desktop4:amd64
+
+PACKAGE:libcinnamon-menu-3-0
+
+PACKAGE:libcinnamon-menu-3-0-dbg
+
+PACKAGE:libcjs-dbg
+
+PACKAGE:libcjs0:amd64
+
+PACKAGE:libcjson1:amd64
+
+PACKAGE:libclone-perl:amd64
+
+PACKAGE:libclucene-contribs1t64:amd64
+
+PACKAGE:libclucene-core1t64:amd64
+
+PACKAGE:libclutter-1.0-0:amd64
+
+PACKAGE:libclutter-1.0-common
+
+PACKAGE:libclutter-gst-3.0-0:amd64
+
+PACKAGE:libclutter-gtk-1.0-0:amd64
+
+PACKAGE:libcodec2-1.2:amd64
+
+PACKAGE:libcogl-common
+
+PACKAGE:libcogl-pango20:amd64
+
+PACKAGE:libcogl-path20:amd64
+
+PACKAGE:libcogl20:amd64
+
+PACKAGE:libcolamd3:amd64
+
+PACKAGE:libcolord2:amd64
+
+PACKAGE:libcolorhug2:amd64
+
+PACKAGE:libcom-err2:amd64
+
+PACKAGE:libcpdb2t64:amd64
+
+PACKAGE:libcrack2:amd64
+
+PACKAGE:libcrypt-dev:amd64
+
+PACKAGE:libcrypt1:amd64
+
+PACKAGE:libcryptsetup12:amd64
+
+PACKAGE:libctf-nobfd0:amd64
+
+PACKAGE:libctf0:amd64
+
+PACKAGE:libcups2t64:amd64
+
+PACKAGE:libcupsfilters2-common
+
+PACKAGE:libcupsfilters2t64:amd64
+
+PACKAGE:libcupsimage2t64:amd64
+
+PACKAGE:libcurl3t64-gnutls:amd64
+
+PACKAGE:libcurl4t64:amd64
+
+PACKAGE:libcvc-dbg:amd64
+
+PACKAGE:libcvc0:amd64
+
+PACKAGE:libcwidget4:amd64
+
+PACKAGE:libdaemon0:amd64
+
+PACKAGE:libdata-dump-perl
+
+PACKAGE:libdatrie1:amd64
+
+PACKAGE:libdav1d7:amd64
+
+PACKAGE:libdb5.3t64:amd64
+
+PACKAGE:libdbus-1-3:amd64
+
+PACKAGE:libdbus-glib-1-2:amd64
+
+PACKAGE:libdbusmenu-glib4:amd64
+
+PACKAGE:libdbusmenu-gtk3-4:amd64
+
+PACKAGE:libdc1394-25:amd64
+
+PACKAGE:libdconf1:amd64
+
+PACKAGE:libde265-0:amd64
+
+PACKAGE:libdebconfclient0:amd64
+
+PACKAGE:libdebuginfod-common
+ /etc/debuginfod/elfutils.urls c3a3857d0ea2d1def5ed11e03abff98a
+PACKAGE:libdebuginfod1t64:amd64
+
+PACKAGE:libdecor-0-0:amd64
+
+PACKAGE:libdee-1.0-4:amd64
+
+PACKAGE:libdeflate0:amd64
+
+PACKAGE:libdevmapper-event1.02.1:amd64
+
+PACKAGE:libdevmapper1.02.1:amd64
+
+PACKAGE:libdjvulibre-text
+
+PACKAGE:libdjvulibre21:amd64
+
+PACKAGE:libdmapsharing-4.0-3t64:amd64
+
+PACKAGE:libdmraid1.0.0.rc16:amd64
+
+PACKAGE:libdotconf0:amd64
+
+PACKAGE:libdouble-conversion3:amd64
+
+PACKAGE:libdpkg-perl
+
+PACKAGE:libdrm-amdgpu1:amd64
+
+PACKAGE:libdrm-common
+
+PACKAGE:libdrm-intel1:amd64
+
+PACKAGE:libdrm-nouveau2:amd64
+
+PACKAGE:libdrm-radeon1:amd64
+
+PACKAGE:libdrm2:amd64
+
+PACKAGE:libduktape207:amd64
+
+PACKAGE:libdv4t64:amd64
+
+PACKAGE:libdvdnav4:amd64
+
+PACKAGE:libdvdread8t64:amd64
+
+PACKAGE:libdw1t64:amd64
+
+PACKAGE:libe-book-0.1-1:amd64
+
+PACKAGE:libebackend-1.2-11t64:amd64
+
+PACKAGE:libebook-1.2-21t64:amd64
+
+PACKAGE:libebook-contacts-1.2-4t64:amd64
+
+PACKAGE:libecal-2.0-3:amd64
+
+PACKAGE:libecryptfs1:amd64
+
+PACKAGE:libedata-book-1.2-27t64:amd64
+
+PACKAGE:libedata-cal-2.0-2t64:amd64
+
+PACKAGE:libedataserver-1.2-27t64:amd64
+
+PACKAGE:libedataserverui-1.2-4t64:amd64
+
+PACKAGE:libedataserverui4-1.0-0t64:amd64
+
+PACKAGE:libedit2:amd64
+
+PACKAGE:libefiboot1t64:amd64
+
+PACKAGE:libefivar1t64:amd64
+
+PACKAGE:libegl-mesa0:amd64
+
+PACKAGE:libegl1:amd64
+
+PACKAGE:libelf1t64:amd64
+
+PACKAGE:libenchant-2-2:amd64
+
+PACKAGE:libencode-locale-perl
+
+PACKAGE:libeot0:amd64
+
+PACKAGE:libepoxy0:amd64
+
+PACKAGE:libepubgen-0.1-1:amd64
+
+PACKAGE:libespeak-ng1:amd64
+
+PACKAGE:libestr0:amd64
+
+PACKAGE:libetonyek-0.1-1:amd64
+
+PACKAGE:libevdev2:amd64
+
+PACKAGE:libevent-2.1-7t64:amd64
+
+PACKAGE:libexempi8:amd64
+
+PACKAGE:libexif12:amd64
+
+PACKAGE:libexiv2-27:amd64
+
+PACKAGE:libexpat1:amd64
+
+PACKAGE:libext2fs2t64:amd64
+
+PACKAGE:libexttextcat-2.0-0:amd64
+
+PACKAGE:libexttextcat-data
+
+PACKAGE:libextutils-depends-perl
+
+PACKAGE:libfakeroot:amd64
+ /etc/ld.so.conf.d/fakeroot-x86_64-linux-gnu.conf f9f2331782e9078d5472c77e1d9cd869
+PACKAGE:libfastjson4:amd64
+
+PACKAGE:libfcgi-perl
+
+PACKAGE:libfcgi0t64:amd64
+
+PACKAGE:libfdisk1:amd64
+
+PACKAGE:libffi8:amd64
+
+PACKAGE:libffmpegthumbnailer4v5:amd64
+
+PACKAGE:libfftw3-double3:amd64
+
+PACKAGE:libfftw3-single3:amd64
+
+PACKAGE:libfido2-1:amd64
+
+PACKAGE:libfile-basedir-perl
+
+PACKAGE:libfile-desktopentry-perl
+
+PACKAGE:libfile-fcntllock-perl
+
+PACKAGE:libfile-listing-perl
+
+PACKAGE:libfile-mimeinfo-perl
+
+PACKAGE:libflac12t64:amd64
+
+PACKAGE:libflashrom1:amd64
+
+PACKAGE:libflatpak0:amd64
+
+PACKAGE:libflite1:amd64
+
+PACKAGE:libfont-afm-perl
+
+PACKAGE:libfontconfig1:amd64
+
+PACKAGE:libfontenc1:amd64
+
+PACKAGE:libfprint-2-2
+
+PACKAGE:libfprint-2-tod1:amd64
+
+PACKAGE:libfreeaptx0:amd64
+
+PACKAGE:libfreehand-0.1-1
+
+PACKAGE:libfreetype6:amd64
+
+PACKAGE:libfribidi0:amd64
+
+PACKAGE:libftdi1-2:amd64
+
+PACKAGE:libfuse2t64:amd64
+
+PACKAGE:libfuse3-3:amd64
+
+PACKAGE:libfwupd2:amd64
+
+PACKAGE:libgail-3-0t64:amd64
+
+PACKAGE:libgail-common:amd64
+
+PACKAGE:libgail18t64:amd64
+
+PACKAGE:libgamemode0:amd64
+
+PACKAGE:libgamemodeauto0:amd64
+
+PACKAGE:libgbm1:amd64
+
+PACKAGE:libgcc-13-dev:amd64
+
+PACKAGE:libgcc-s1:amd64
+
+PACKAGE:libgck-1-0:amd64
+
+PACKAGE:libgck-2-2:amd64
+
+PACKAGE:libgcr-4-4:amd64
+
+PACKAGE:libgcr-base-3-1:amd64
+
+PACKAGE:libgcr-ui-3-1:amd64
+
+PACKAGE:libgcrypt20:amd64
+
+PACKAGE:libgd3:amd64
+
+PACKAGE:libgdata-common
+
+PACKAGE:libgdata22:amd64
+
+PACKAGE:libgdbm-compat4t64:amd64
+
+PACKAGE:libgdbm6t64:amd64
+
+PACKAGE:libgdk-pixbuf-2.0-0:amd64
+
+PACKAGE:libgdk-pixbuf2.0-bin
+
+PACKAGE:libgdk-pixbuf2.0-common
+
+PACKAGE:libgee-0.8-2:amd64
+
+PACKAGE:libgeoclue-2-0:amd64
+
+PACKAGE:libgeocode-glib-2-0:amd64
+
+PACKAGE:libgexiv2-2:amd64
+
+PACKAGE:libgfortran5:amd64
+
+PACKAGE:libgif7:amd64
+
+PACKAGE:libgirepository-1.0-1:amd64
+
+PACKAGE:libgl1:amd64
+
+PACKAGE:libgl1-mesa-dri:amd64
+
+PACKAGE:libglapi-mesa:amd64
+
+PACKAGE:libgles2:amd64
+
+PACKAGE:libglib-object-introspection-perl
+
+PACKAGE:libglib-perl:amd64
+
+PACKAGE:libglib2.0-0t64:amd64
+
+PACKAGE:libglib2.0-bin
+
+PACKAGE:libglib2.0-data
+
+PACKAGE:libglibmm-2.4-1t64:amd64
+
+PACKAGE:libglibmm-2.68-1t64:amd64
+
+PACKAGE:libglu1-mesa:amd64
+
+PACKAGE:libglvnd0:amd64
+
+PACKAGE:libglx-mesa0:amd64
+
+PACKAGE:libglx0:amd64
+
+PACKAGE:libgme0:amd64
+
+PACKAGE:libgmp10:amd64
+
+PACKAGE:libgnome-desktop-3-20t64:amd64
+
+PACKAGE:libgnomekbd-common
+
+PACKAGE:libgnomekbd8:amd64
+
+PACKAGE:libgnutls30t64:amd64
+ /etc/gnutls/config 35b37ffae94733dbef25088702ac3ba3
+PACKAGE:libgoa-1.0-0b:amd64
+
+PACKAGE:libgoa-1.0-common
+
+PACKAGE:libgoa-backend-1.0-2:amd64
+
+PACKAGE:libgomp1:amd64
+
+PACKAGE:libgpg-error0:amd64
+
+PACKAGE:libgpgme11t64:amd64
+
+PACKAGE:libgpgmepp6t64:amd64
+
+PACKAGE:libgphoto2-6t64:amd64
+
+PACKAGE:libgphoto2-l10n
+
+PACKAGE:libgphoto2-port12t64:amd64
+
+PACKAGE:libgpm2:amd64
+
+PACKAGE:libgpod-common
+
+PACKAGE:libgpod4t64:amd64
+
+PACKAGE:libgprofng0:amd64
+
+PACKAGE:libgraphene-1.0-0:amd64
+
+PACKAGE:libgraphite2-3:amd64
+
+PACKAGE:libgrilo-0.3-0:amd64
+
+PACKAGE:libgs-common
+
+PACKAGE:libgs10:amd64
+
+PACKAGE:libgs10-common
+
+PACKAGE:libgsf-1-114:amd64
+
+PACKAGE:libgsf-1-common
+
+PACKAGE:libgsf-bin
+
+PACKAGE:libgsm1:amd64
+
+PACKAGE:libgsound0t64:amd64
+
+PACKAGE:libgspell-1-2:amd64
+
+PACKAGE:libgspell-1-common
+
+PACKAGE:libgssapi-krb5-2:amd64
+
+PACKAGE:libgstreamer-gl1.0-0:amd64
+
+PACKAGE:libgstreamer-plugins-base1.0-0:amd64
+
+PACKAGE:libgstreamer-plugins-good1.0-0:amd64
+
+PACKAGE:libgstreamer1.0-0:amd64
+
+PACKAGE:libgtk-3-0t64:amd64
+ /etc/gtk-3.0/settings.ini 17193df36387c79f30763b729b8a49a9
+PACKAGE:libgtk-3-bin
+
+PACKAGE:libgtk-3-common
+ /etc/gtk-3.0/im-multipress.conf c358838e1789c1d4e6da7f525fc922cf
+PACKAGE:libgtk-4-1:amd64
+
+PACKAGE:libgtk-4-common
+
+PACKAGE:libgtk-layer-shell0
+
+PACKAGE:libgtk2.0-0t64:amd64
+
+PACKAGE:libgtk2.0-bin
+
+PACKAGE:libgtk2.0-common
+ /etc/gtk-2.0/im-multipress.conf c358838e1789c1d4e6da7f525fc922cf
+PACKAGE:libgtk3-perl
+
+PACKAGE:libgtkmm-3.0-1t64:amd64
+
+PACKAGE:libgtkmm-4.0-0:amd64
+
+PACKAGE:libgtksourceview-3.0-1:amd64
+
+PACKAGE:libgtksourceview-3.0-common
+
+PACKAGE:libgtksourceview-4-0:amd64
+
+PACKAGE:libgtksourceview-4-common
+
+PACKAGE:libgtop-2.0-11:amd64
+
+PACKAGE:libgtop2-common
+
+PACKAGE:libgucharmap-2-90-7:amd64
+
+PACKAGE:libgudev-1.0-0:amd64
+
+PACKAGE:libgusb2:amd64
+
+PACKAGE:libgutenprint-common
+
+PACKAGE:libgutenprint9
+
+PACKAGE:libgweather-4-0t64:amd64
+
+PACKAGE:libgweather-4-common
+
+PACKAGE:libgxps2t64:amd64
+
+PACKAGE:libhandy-1-0:amd64
+
+PACKAGE:libharfbuzz-gobject0:amd64
+
+PACKAGE:libharfbuzz-icu0:amd64
+
+PACKAGE:libharfbuzz0b:amd64
+
+PACKAGE:libheif-plugin-aomdec:amd64
+
+PACKAGE:libheif-plugin-libde265:amd64
+
+PACKAGE:libheif1:amd64
+
+PACKAGE:libhogweed6t64:amd64
+
+PACKAGE:libhpmud0:amd64
+
+PACKAGE:libhtml-form-perl
+
+PACKAGE:libhtml-format-perl
+
+PACKAGE:libhtml-parser-perl:amd64
+
+PACKAGE:libhtml-tagset-perl
+
+PACKAGE:libhtml-tree-perl
+
+PACKAGE:libhttp-cookies-perl
+
+PACKAGE:libhttp-daemon-perl
+
+PACKAGE:libhttp-date-perl
+
+PACKAGE:libhttp-message-perl
+
+PACKAGE:libhttp-negotiate-perl
+
+PACKAGE:libhunspell-1.7-0:amd64
+
+PACKAGE:libhwasan0:amd64
+
+PACKAGE:libhwy1t64:amd64
+
+PACKAGE:libhyphen0:amd64
+
+PACKAGE:libibus-1.0-5:amd64
+
+PACKAGE:libibverbs1:amd64
+
+PACKAGE:libical3t64:amd64
+
+PACKAGE:libice6:amd64
+
+PACKAGE:libicu74:amd64
+
+PACKAGE:libidn12:amd64
+
+PACKAGE:libidn2-0:amd64
+
+PACKAGE:libiec61883-0:amd64
+
+PACKAGE:libieee1284-3t64:amd64
+
+PACKAGE:libigdgmm12:amd64
+
+PACKAGE:libijs-0.35:amd64
+
+PACKAGE:libimagequant0:amd64
+
+PACKAGE:libimath-3-1-29t64:amd64
+
+PACKAGE:libimobiledevice-utils
+
+PACKAGE:libimobiledevice6:amd64
+
+PACKAGE:libinih1:amd64
+
+PACKAGE:libinput-bin
+
+PACKAGE:libinput10:amd64
+
+PACKAGE:libio-html-perl
+
+PACKAGE:libio-socket-ssl-perl
+
+PACKAGE:libip4tc2:amd64
+
+PACKAGE:libip6tc2:amd64
+
+PACKAGE:libipc-system-simple-perl
+
+PACKAGE:libipt2
+
+PACKAGE:libisl23:amd64
+
+PACKAGE:libisofs6t64:amd64
+
+PACKAGE:libitm1:amd64
+
+PACKAGE:libiw30t64:amd64
+
+PACKAGE:libjack-jackd2-0:amd64
+
+PACKAGE:libjansson4:amd64
+
+PACKAGE:libjavascriptcoregtk-4.1-0:amd64
+
+PACKAGE:libjavascriptcoregtk-6.0-1:amd64
+
+PACKAGE:libjbig0:amd64
+
+PACKAGE:libjbig2dec0:amd64
+
+PACKAGE:libjcat1:amd64
+
+PACKAGE:libjpeg-turbo8:amd64
+
+PACKAGE:libjpeg8:amd64
+
+PACKAGE:libjs-mathjax
+
+PACKAGE:libjson-c5:amd64
+
+PACKAGE:libjson-glib-1.0-0:amd64
+
+PACKAGE:libjson-glib-1.0-common
+
+PACKAGE:libjxl-tools
+
+PACKAGE:libjxl0.7:amd64
+
+PACKAGE:libk5crypto3:amd64
+
+PACKAGE:libkeybinder-3.0-0:amd64
+
+PACKAGE:libkeyutils1:amd64
+
+PACKAGE:libklibc:amd64
+
+PACKAGE:libkmod2:amd64
+
+PACKAGE:libkpathsea6:amd64
+
+PACKAGE:libkrb5-3:amd64
+
+PACKAGE:libkrb5support0:amd64
+
+PACKAGE:libksba8:amd64
+
+PACKAGE:liblangtag-common
+
+PACKAGE:liblangtag1:amd64
+
+PACKAGE:liblapack3:amd64
+
+PACKAGE:liblc3-1:amd64
+
+PACKAGE:liblcms2-2:amd64
+
+PACKAGE:liblcms2-utils
+
+PACKAGE:libldacbt-abr2:amd64
+
+PACKAGE:libldacbt-enc2:amd64
+
+PACKAGE:libldap2:amd64
+
+PACKAGE:libldb2:amd64
+
+PACKAGE:liblerc4:amd64
+
+PACKAGE:liblightdm-gobject-1-0:amd64
+
+PACKAGE:liblilv-0-0:amd64
+
+PACKAGE:liblirc-client0t64:amd64
+
+PACKAGE:libllvm20:amd64
+
+PACKAGE:liblmdb0:amd64
+
+PACKAGE:liblocale-gettext-perl
+
+PACKAGE:liblouis-data
+
+PACKAGE:liblouis20:amd64
+
+PACKAGE:liblouisutdml-bin
+
+PACKAGE:liblouisutdml-data
+
+PACKAGE:liblouisutdml9t64:amd64
+
+PACKAGE:liblsan0:amd64
+
+PACKAGE:libltdl7:amd64
+
+PACKAGE:liblua5.2-0:amd64
+
+PACKAGE:liblua5.4-0:amd64
+
+PACKAGE:liblvm2cmd2.03:amd64
+
+PACKAGE:liblwp-mediatypes-perl
+
+PACKAGE:liblwp-protocol-https-perl
+
+PACKAGE:liblz4-1:amd64
+
+PACKAGE:liblzma5:amd64
+
+PACKAGE:liblzo2-2:amd64
+
+PACKAGE:libmagic-mgc
+
+PACKAGE:libmagic1t64:amd64
+ /etc/magic 272913026300e7ae9b5e2d51f138e674
+ /etc/magic.mime 272913026300e7ae9b5e2d51f138e674
+PACKAGE:libmalcontent-0-0:amd64
+
+PACKAGE:libmanette-0.2-0:amd64
+
+PACKAGE:libmate-desktop-2-17t64:amd64
+
+PACKAGE:libmate-menu2:amd64
+
+PACKAGE:libmate-panel-applet-4-1:amd64
+
+PACKAGE:libmateweather-common
+
+PACKAGE:libmateweather1t64:amd64
+
+PACKAGE:libmaxminddb0:amd64
+
+PACKAGE:libmbedcrypto7t64:amd64
+
+PACKAGE:libmbim-glib4:amd64
+
+PACKAGE:libmbim-proxy
+
+PACKAGE:libmd0:amd64
+
+PACKAGE:libmd4c0:amd64
+
+PACKAGE:libmetacity3:amd64
+
+PACKAGE:libmhash2:amd64
+
+PACKAGE:libminiupnpc17:amd64
+
+PACKAGE:libmm-glib0:amd64
+
+PACKAGE:libmnl0:amd64
+
+PACKAGE:libmount1:amd64
+
+PACKAGE:libmozjs-115-0t64:amd64
+
+PACKAGE:libmp3lame0:amd64
+
+PACKAGE:libmpc3:amd64
+
+PACKAGE:libmpfr6:amd64
+
+PACKAGE:libmpg123-0t64:amd64
+
+PACKAGE:libmpv2:amd64
+
+PACKAGE:libmsgraph-0-1:amd64
+
+PACKAGE:libmspub-0.1-1:amd64
+
+PACKAGE:libmtdev1t64:amd64
+
+PACKAGE:libmtp-common
+
+PACKAGE:libmtp-runtime
+
+PACKAGE:libmtp9t64:amd64
+
+PACKAGE:libmuffin0:amd64
+
+PACKAGE:libmujs3:amd64
+
+PACKAGE:libmusicbrainz5-2:amd64
+
+PACKAGE:libmusicbrainz5cc2v5:amd64
+
+PACKAGE:libmwaw-0.3-3:amd64
+
+PACKAGE:libmysofa1:amd64
+
+PACKAGE:libmythes-1.2-0:amd64
+
+PACKAGE:libnatpmp1t64:amd64
+
+PACKAGE:libnautilus-extension4:amd64
+
+PACKAGE:libncurses6:amd64
+
+PACKAGE:libncursesw6:amd64
+
+PACKAGE:libndp0:amd64
+
+PACKAGE:libnemo-extension1:amd64
+
+PACKAGE:libneon27t64-gnutls:amd64
+
+PACKAGE:libnet-dbus-perl
+
+PACKAGE:libnet-http-perl
+
+PACKAGE:libnet-libidn-perl
+
+PACKAGE:libnet-ssleay-perl:amd64
+
+PACKAGE:libnetfilter-conntrack3:amd64
+
+PACKAGE:libnetplan1:amd64
+
+PACKAGE:libnettle8t64:amd64
+
+PACKAGE:libnewt0.52:amd64
+ /etc/newt/palette.original d41d8cd98f00b204e9800998ecf8427e
+ /etc/newt/palette.ubuntu ac72ec93d29d94ad06bb3180f16cefb1
+PACKAGE:libnfnetlink0:amd64
+
+PACKAGE:libnfs14:amd64
+
+PACKAGE:libnftables1:amd64
+
+PACKAGE:libnftnl11:amd64
+
+PACKAGE:libnghttp2-14:amd64
+
+PACKAGE:libnl-3-200:amd64
+ /etc/libnl-3/classid 3e07259e58674631830b152e983ca995
+ /etc/libnl-3/pktloc 7613dbc41b2dc3258195b6b6abd0f179
+PACKAGE:libnl-genl-3-200:amd64
+
+PACKAGE:libnl-route-3-200:amd64
+
+PACKAGE:libnm0:amd64
+
+PACKAGE:libnma-common
+
+PACKAGE:libnma-gtk4-0:amd64
+
+PACKAGE:libnma0:amd64
+
+PACKAGE:libnorm1t64:amd64
+
+PACKAGE:libnotify-bin
+
+PACKAGE:libnotify4:amd64
+
+PACKAGE:libnpth0t64:amd64
+
+PACKAGE:libnspr4:amd64
+
+PACKAGE:libnss-mdns:amd64
+
+PACKAGE:libnss-myhostname:amd64
+
+PACKAGE:libnss-systemd:amd64
+
+PACKAGE:libnss3:amd64
+
+PACKAGE:libntfs-3g89t64:amd64
+
+PACKAGE:libnuma1:amd64
+
+PACKAGE:libnvme1t64
+
+PACKAGE:libodfgen-0.1-1:amd64
+
+PACKAGE:libogg0:amd64
+
+PACKAGE:libopenal-data
+ /etc/openal/alsoft.conf c3c066879374fb8b7a8ecadb52fe2ec1
+PACKAGE:libopenal1:amd64
+
+PACKAGE:libopenexr-3-1-30:amd64
+
+PACKAGE:libopengl0:amd64
+
+PACKAGE:libopenjp2-7:amd64
+
+PACKAGE:libopenmpt0t64:amd64
+
+PACKAGE:libopus0:amd64
+
+PACKAGE:liborc-0.4-0t64:amd64
+
+PACKAGE:liborcus-0.18-0:amd64
+
+PACKAGE:liborcus-parser-0.18-0:amd64
+
+PACKAGE:libostree-1-1:amd64
+
+PACKAGE:libp11-kit0:amd64
+
+PACKAGE:libpackagekit-glib2-18:amd64
+
+PACKAGE:libpagemaker-0.0-0:amd64
+
+PACKAGE:libpam-cap:amd64
+ /etc/security/capability.conf 3d0f631b115f93405b44ab139322fa93
+PACKAGE:libpam-fingwit
+
+PACKAGE:libpam-fprintd:amd64
+
+PACKAGE:libpam-gnome-keyring:amd64
+
+PACKAGE:libpam-modules:amd64
+ /etc/security/access.conf dc21d0fd769d655b311d785670e5c6ae
+ /etc/security/faillock.conf 164da8ffb87f3074179bc60b71d0b99f
+ /etc/security/group.conf f1e26e8db6f7abd2d697d7dad3422c36
+ /etc/security/limits.conf 0b1967ff9042a716ce6b01cb999aa1f5
+ /etc/security/namespace.conf 6b3796403421d66db7defc46517711bc
+ /etc/security/namespace.init 260eb0c3368ffaaf861e003e27618476
+ /etc/security/pam_env.conf 89cc8702173d5cd51abc152ae9f8d6bc
+ /etc/security/pwhistory.conf d3a2ff35a85d2e8baf2d06b3c0944a74
+ /etc/security/sepermit.conf 3d82df292d497bbeaaf8ebef18cd14f1
+ /etc/security/time.conf 06e05c6079e839c8833ac7c3abfde192
+PACKAGE:libpam-modules-bin
+
+PACKAGE:libpam-runtime
+ /etc/pam.conf 87fc76f18e98ee7d3848f6b81b3391e5
+ /etc/pam.d/other 31aa7f2181889ffb00b87df4126d1701
+PACKAGE:libpam-systemd:amd64
+
+PACKAGE:libpam0g:amd64
+
+PACKAGE:libpango-1.0-0:amd64
+
+PACKAGE:libpangocairo-1.0-0:amd64
+
+PACKAGE:libpangoft2-1.0-0:amd64
+
+PACKAGE:libpangomm-1.4-1v5:amd64
+
+PACKAGE:libpangomm-2.48-1t64:amd64
+
+PACKAGE:libpangoxft-1.0-0:amd64
+
+PACKAGE:libpaper-utils
+
+PACKAGE:libpaper1:amd64
+
+PACKAGE:libparted2t64:amd64
+
+PACKAGE:libpcap0.8t64:amd64
+
+PACKAGE:libpcaudio0:amd64
+
+PACKAGE:libpci3:amd64
+
+PACKAGE:libpciaccess0:amd64
+
+PACKAGE:libpcre2-16-0:amd64
+
+PACKAGE:libpcre2-32-0:amd64
+
+PACKAGE:libpcre2-8-0:amd64
+
+PACKAGE:libpcsclite1:amd64
+
+PACKAGE:libpeas-1.0-0:amd64
+
+PACKAGE:libpeas-common
+
+PACKAGE:libperl5.38t64:amd64
+
+PACKAGE:libperlio-gzip-perl
+
+PACKAGE:libpgm-5.3-0t64:amd64
+
+PACKAGE:libphonenumber8:amd64
+
+PACKAGE:libpipeline1:amd64
+
+PACKAGE:libpipewire-0.3-0t64:amd64
+
+PACKAGE:libpipewire-0.3-modules:amd64
+
+PACKAGE:libpixman-1-0:amd64
+
+PACKAGE:libpkcs11-helper1t64:amd64
+
+PACKAGE:libpkgconf3:amd64
+
+PACKAGE:libplacebo338:amd64
+
+PACKAGE:libplist-2.0-4:amd64
+
+PACKAGE:libplymouth5:amd64
+
+PACKAGE:libpng16-16t64:amd64
+
+PACKAGE:libpocketsphinx3:amd64
+
+PACKAGE:libpolkit-agent-1-0:amd64
+
+PACKAGE:libpolkit-gobject-1-0:amd64
+
+PACKAGE:libpoppler-cpp0t64:amd64
+
+PACKAGE:libpoppler-glib8t64:amd64
+
+PACKAGE:libpoppler134:amd64
+
+PACKAGE:libpopt0:amd64
+
+PACKAGE:libportaudio2:amd64
+
+PACKAGE:libpostproc57:amd64
+
+PACKAGE:libppd2:amd64
+
+PACKAGE:libppd2-common
+
+PACKAGE:libproc2-0:amd64
+
+PACKAGE:libprotobuf-c1:amd64
+
+PACKAGE:libprotobuf32t64:amd64
+
+PACKAGE:libproxy1-plugin-gsettings:amd64
+
+PACKAGE:libproxy1-plugin-networkmanager:amd64
+
+PACKAGE:libproxy1v5:amd64
+
+PACKAGE:libpsl5t64:amd64
+
+PACKAGE:libpugixml1v5:amd64
+
+PACKAGE:libpulse-mainloop-glib0:amd64
+
+PACKAGE:libpulse0:amd64
+ /etc/pulse/client.conf 16bb1fd7704eae3f0e7dde080b83e197
+PACKAGE:libpwquality-common
+ /etc/security/pwquality.conf 679fa78b6ec12124527154c556af807c
+PACKAGE:libpwquality1:amd64
+
+PACKAGE:libpython3-stdlib:amd64
+
+PACKAGE:libpython3.12-minimal:amd64
+ /etc/python3.12/sitecustomize.py d6b276695157bde06a56ba1b2bc53670
+PACKAGE:libpython3.12-stdlib:amd64
+
+PACKAGE:libpython3.12t64:amd64
+
+PACKAGE:libqmi-glib5:amd64
+
+PACKAGE:libqmi-proxy
+
+PACKAGE:libqpdf29t64:amd64
+
+PACKAGE:libqrtr-glib0:amd64
+
+PACKAGE:libqt5core5t64:amd64
+
+PACKAGE:libqt5dbus5t64:amd64
+
+PACKAGE:libqt5gui5t64:amd64
+
+PACKAGE:libqt5network5t64:amd64
+
+PACKAGE:libqt5svg5:amd64
+
+PACKAGE:libqt5widgets5t64:amd64
+
+PACKAGE:libquadmath0:amd64
+
+PACKAGE:librabbitmq4:amd64
+
+PACKAGE:libraptor2-0:amd64
+
+PACKAGE:libraqm0:amd64
+
+PACKAGE:librasqal3t64:amd64
+
+PACKAGE:librav1e0:amd64
+
+PACKAGE:libraw1394-11:amd64
+
+PACKAGE:libraw23t64:amd64
+
+PACKAGE:librda-common
+
+PACKAGE:librda0:amd64
+
+PACKAGE:librdf0t64:amd64
+
+PACKAGE:libreadline8t64:amd64
+
+PACKAGE:libreiserfscore0t64
+
+PACKAGE:libreoffice-base-core
+
+PACKAGE:libreoffice-calc
+
+PACKAGE:libreoffice-common
+ /etc/apparmor.d/usr.lib.libreoffice.program.oosplash 700a25de762b027e8e0aea7b8de96861
+ /etc/apparmor.d/usr.lib.libreoffice.program.senddoc 5b9f36d519e7b09b2225f5cec57b39a7
+ /etc/apparmor.d/usr.lib.libreoffice.program.soffice.bin 11d6bb5a6c2b3b5c2d0af3b00fbd0e49
+ /etc/apparmor.d/usr.lib.libreoffice.program.xpdfimport 49dd8042dd48b85622ce9fd91ead17ec
+ /etc/libreoffice/psprint.conf 790d83dc92e0f2b4f8bf3290b38b55cd
+ /etc/libreoffice/soffice.sh a9a682983020c079c09de05a556f1811
+ /etc/libreoffice/sofficerc 4c8a10084824832f110ba4014b21acda
+PACKAGE:libreoffice-core
+
+PACKAGE:libreoffice-draw
+
+PACKAGE:libreoffice-gnome
+
+PACKAGE:libreoffice-gtk3
+
+PACKAGE:libreoffice-help-common
+
+PACKAGE:libreoffice-help-en-us
+
+PACKAGE:libreoffice-impress
+
+PACKAGE:libreoffice-style-colibre
+
+PACKAGE:libreoffice-uiconfig-calc
+
+PACKAGE:libreoffice-uiconfig-common
+
+PACKAGE:libreoffice-uiconfig-draw
+
+PACKAGE:libreoffice-uiconfig-impress
+
+PACKAGE:libreoffice-uiconfig-writer
+
+PACKAGE:libreoffice-writer
+
+PACKAGE:librest-1.0-0:amd64
+
+PACKAGE:librevenge-0.0-0:amd64
+
+PACKAGE:librhythmbox-core10:amd64
+
+PACKAGE:librist4:amd64
+
+PACKAGE:libroc0.3:amd64
+
+PACKAGE:librsvg2-2:amd64
+
+PACKAGE:librsvg2-common:amd64
+
+PACKAGE:librtmp1:amd64
+
+PACKAGE:librubberband2:amd64
+
+PACKAGE:libsamplerate0:amd64
+
+PACKAGE:libsane-common
+ /etc/sane.d/abaton.conf 51591e7ab98851effab49089323cb160
+ /etc/sane.d/agfafocus.conf 5eed67a9759c991553fa3055af023a33
+ /etc/sane.d/apple.conf 602eda3ecedd81ef751d9241becb9142
+ /etc/sane.d/artec.conf a6c84538ac935599010b2f8647763fb4
+ /etc/sane.d/artec_eplus48u.conf 37793e38db4e8d3077deccf59574f544
+ /etc/sane.d/avision.conf 8c8ad4cdee2520722b30dd55cf959a66
+ /etc/sane.d/bh.conf ed8e137983ae58a7bf038180b29737bd
+ /etc/sane.d/canon.conf 099d16dab225eaa121f1ba2f3af9f60a
+ /etc/sane.d/canon630u.conf 5fae93df3328f1915e3d26f77a8c3b9d
+ /etc/sane.d/canon_dr.conf 324ef4853dd3b10ea5ee20d25c7a98b7
+ /etc/sane.d/canon_lide70.conf b41e25cff0911da9e841da9dbd881468
+ /etc/sane.d/canon_pp.conf cb5572aa856a33b6d4a664f75b12419d
+ /etc/sane.d/cardscan.conf 9c5c8998c0b2bf2cb4c3d65572cad11b
+ /etc/sane.d/coolscan.conf b5a49230bc9b80a4358d966255d4697a
+ /etc/sane.d/coolscan2.conf 99f708bbb41c16cae21689810219f26d
+ /etc/sane.d/coolscan3.conf 4b21a365f8904cdac9364b03dd184dcb
+ /etc/sane.d/dc210.conf 706a20e6babc707e9a3d002b2c130af3
+ /etc/sane.d/dc240.conf 706a20e6babc707e9a3d002b2c130af3
+ /etc/sane.d/dc25.conf 33d22fb9c1a89c6401d8038fc7d4d9d1
+ /etc/sane.d/dell1600n_net.conf 460d4fc102dce06a4cfbd74d706a5821
+ /etc/sane.d/dll.conf a422c5417409f976594cf42ba77d6a1a
+ /etc/sane.d/dmc.conf 0731b2373c97cc98c5c42dd56e7fb05c
+ /etc/sane.d/epjitsu.conf 672e86f3c41daf44417fda5fe117499f
+ /etc/sane.d/epson.conf 8e6460297a25aa3d87f15c61ed1bc704
+ /etc/sane.d/epson2.conf cdf9d48d7055af06ae71cb7be2ce0a47
+ /etc/sane.d/epsonds.conf 2c53c63bce55cc1f2d8ac50291051949
+ /etc/sane.d/escl.conf 921c6515cda8b53b297e88707ac29cd5
+ /etc/sane.d/fujitsu.conf e847e4d99fc3af4b2d6aa66cfc65d463
+ /etc/sane.d/genesys.conf 07098078584990f754ea696692ee3b1d
+ /etc/sane.d/gphoto2.conf e8719416c6db84826a0e6989bc504313
+ /etc/sane.d/gt68xx.conf 2ee0d628b9f0ceac8f162a75eb22107d
+ /etc/sane.d/hp.conf 5328dfe188ece714bf9fdb7e26dc9d00
+ /etc/sane.d/hp3900.conf 87911391a86154be9ccdb69f7d784df4
+ /etc/sane.d/hp4200.conf 0656916d9805c3af1f81424354082501
+ /etc/sane.d/hp5400.conf 25848f289fb76aeb7f78e29ab323dbf8
+ /etc/sane.d/hpsj5s.conf 1d62cae3823a5e7eabed4782f2bcd957
+ /etc/sane.d/hs2p.conf a7b07bd2a66b8a562ccb64da03bd47da
+ /etc/sane.d/ibm.conf d5eab60adbaf729bb5bf781fc4c5409d
+ /etc/sane.d/kodak.conf 63774fc2dd277fbfc54b4a8f7ea4528d
+ /etc/sane.d/kodakaio.conf 95258c07a302e626079de703611ba8c8
+ /etc/sane.d/kvs1025.conf 1e499dabfb5bbbf7439a06b08f7e2af3
+ /etc/sane.d/leo.conf ca930f48c3eb229a42f75e1cd202372e
+ /etc/sane.d/lexmark.conf f5d92658f9dc0eb540ddc9d24fe3ffb1
+ /etc/sane.d/ma1509.conf 73a9fd7af5924e04054f43e2708f5059
+ /etc/sane.d/magicolor.conf 2302a9e97306507ce123589b94a0f661
+ /etc/sane.d/matsushita.conf 488159987217b24c3b894e04b06bf160
+ /etc/sane.d/microtek.conf 940c8db7e01ccaa6f2c5be2ca020ddf1
+ /etc/sane.d/microtek2.conf 75cb498c51441db57932a4895f7f0d96
+ /etc/sane.d/mustek.conf fe011ee10dcf736d248dfae201ebdf10
+ /etc/sane.d/mustek_pp.conf 336022031acb24c2cd7ab7f1404fe912
+ /etc/sane.d/mustek_usb.conf 5215ba7a35da6296d6190015416e1343
+ /etc/sane.d/nec.conf 5eed67a9759c991553fa3055af023a33
+ /etc/sane.d/net.conf 9e5860565491b3157e3c6e0af682b7a2
+ /etc/sane.d/p5.conf 27277daf6f7ed1f21de8c6a59d5b9488
+ /etc/sane.d/pie.conf 7bdb319bd61b19389e93ed85a1ed85d1
+ /etc/sane.d/pieusb.conf fe865d4b7a91aaeee0bdb48396810f6c
+ /etc/sane.d/pixma.conf ea1832a99220af4207c72dd280abaef7
+ /etc/sane.d/plustek.conf 2e8bc084d7579841a08cdce0a05e79a5
+ /etc/sane.d/plustek_pp.conf 1ce5ce7617565568d0805dfbee86b001
+ /etc/sane.d/qcam.conf 7a30e22cd391b7992646723df280f4fe
+ /etc/sane.d/ricoh.conf b1891143384a7308ec17d9e6ac836201
+ /etc/sane.d/rts8891.conf 3446a737f83b38c3b576d5bf2e5161ec
+ /etc/sane.d/s9036.conf 5eed67a9759c991553fa3055af023a33
+ /etc/sane.d/sceptre.conf 9d7e8954714b47042b849ddbd2530973
+ /etc/sane.d/sharp.conf 7f3027ead76f557ab7aa5462c1d2f9f7
+ /etc/sane.d/sm3840.conf 9b61359cbcc14b9be4d687b80b772bea
+ /etc/sane.d/snapscan.conf b349efcbcec257f5fca8372f1e47e7e0
+ /etc/sane.d/sp15c.conf 74fd71c4ea2c8c58bbaa2cecfee56f7c
+ /etc/sane.d/st400.conf b1587f9f8adafcaa86c8e0a371ae15e8
+ /etc/sane.d/stv680.conf 1a5a8d37f0de964bab25b3908fa907d5
+ /etc/sane.d/tamarack.conf d6f865e3be45993ecb14a951bae465fc
+ /etc/sane.d/teco1.conf 7976c7a3dd90fe100f30a23a29aaea89
+ /etc/sane.d/teco2.conf a770de18a683f0406ff52928ee617474
+ /etc/sane.d/teco3.conf 7b632784a85ec6ead7d26e8fd195dea5
+ /etc/sane.d/test.conf eaccee9d3fb610a691705ddf94b9ec11
+ /etc/sane.d/u12.conf 1ad837b7580899024a33b3e4a8bdd3d4
+ /etc/sane.d/umax.conf bf4a34f1425bda06c6c96e9b75c31ce2
+ /etc/sane.d/umax1220u.conf 2d36f1f6c15bbfeaf2049d59dcfefe05
+ /etc/sane.d/umax_pp.conf f9b7efaecbffb9a180961489fc893fc2
+ /etc/sane.d/xerox_mfp.conf 2affdd33eae66435fcf581709969f2ee
+PACKAGE:libsane-hpaio:amd64
+ /etc/hp/hplip.conf e9dcdacf8aa1da6a89cd6188240bb78e
+ /etc/sane.d/dll.d/hplip 60fc397b1570c0694184588f86d56807
+PACKAGE:libsane1:amd64
+
+PACKAGE:libsasl2-2:amd64
+
+PACKAGE:libsasl2-modules:amd64
+
+PACKAGE:libsasl2-modules-db:amd64
+
+PACKAGE:libsasl2-modules-gssapi-mit:amd64
+
+PACKAGE:libsbc1:amd64
+
+PACKAGE:libsdl2-2.0-0:amd64
+
+PACKAGE:libseccomp2:amd64
+
+PACKAGE:libsecret-1-0:amd64
+
+PACKAGE:libsecret-common
+
+PACKAGE:libselinux1:amd64
+
+PACKAGE:libsemanage-common
+ /etc/selinux/semanage.conf 8e8dfac33a09c1b53ca08bf6d4201b10
+PACKAGE:libsemanage2:amd64
+
+PACKAGE:libsensors-config
+ /etc/sensors.d/.placeholder d41d8cd98f00b204e9800998ecf8427e
+ /etc/sensors3.conf 41bd2b70a6ce64a21c2d1f70b9eed091
+PACKAGE:libsensors5:amd64
+
+PACKAGE:libsepol2:amd64
+
+PACKAGE:libserd-0-0:amd64
+
+PACKAGE:libsframe1:amd64
+
+PACKAGE:libsgutils2-1.46-2:amd64
+
+PACKAGE:libsharpyuv0:amd64
+
+PACKAGE:libshine3:amd64
+
+PACKAGE:libshout3:amd64
+
+PACKAGE:libsigc++-2.0-0v5:amd64
+
+PACKAGE:libsigc++-3.0-0:amd64
+
+PACKAGE:libsixel1:amd64
+
+PACKAGE:libslang2:amd64
+
+PACKAGE:libsm6:amd64
+
+PACKAGE:libsmartcols1:amd64
+
+PACKAGE:libsmbclient0:amd64
+
+PACKAGE:libsnapd-glib-2-1:amd64
+
+PACKAGE:libsnappy1v5:amd64
+
+PACKAGE:libsndfile1:amd64
+
+PACKAGE:libsndio7.0:amd64
+
+PACKAGE:libsnmp-base
+ /etc/snmp/snmp.conf 72b4d550c66b2221e3c418c34395cc66
+PACKAGE:libsnmp40t64:amd64
+
+PACKAGE:libsodium23:amd64
+
+PACKAGE:libsonic0:amd64
+
+PACKAGE:libsord-0-0:amd64
+
+PACKAGE:libsoup-2.4-1:amd64
+
+PACKAGE:libsoup-3.0-0:amd64
+
+PACKAGE:libsoup-3.0-common
+
+PACKAGE:libsoup-gnome-2.4-1:amd64
+
+PACKAGE:libsoup2.4-common
+
+PACKAGE:libsource-highlight-common
+
+PACKAGE:libsource-highlight4t64:amd64
+
+PACKAGE:libsoxr0:amd64
+
+PACKAGE:libspa-0.2-bluetooth:amd64
+
+PACKAGE:libspa-0.2-modules:amd64
+
+PACKAGE:libspectre1:amd64
+
+PACKAGE:libspeechd2:amd64
+
+PACKAGE:libspeex1:amd64
+
+PACKAGE:libspeexdsp1:amd64
+
+PACKAGE:libsphinxbase3t64:amd64
+
+PACKAGE:libsqlite3-0:amd64
+
+PACKAGE:libsratom-0-0:amd64
+
+PACKAGE:libsrt1.5-gnutls:amd64
+
+PACKAGE:libss2:amd64
+
+PACKAGE:libssh-4:amd64
+
+PACKAGE:libssh-gcrypt-4:amd64
+
+PACKAGE:libssl3t64:amd64
+
+PACKAGE:libstartup-notification0:amd64
+
+PACKAGE:libstdc++-13-dev:amd64
+
+PACKAGE:libstdc++6:amd64
+
+PACKAGE:libstemmer0d:amd64
+
+PACKAGE:libsuitesparseconfig7:amd64
+
+PACKAGE:libsvtav1enc1d1:amd64
+
+PACKAGE:libswresample4:amd64
+
+PACKAGE:libswscale7:amd64
+
+PACKAGE:libsystemd-shared:amd64
+
+PACKAGE:libsystemd0:amd64
+
+PACKAGE:libtag1v5:amd64
+
+PACKAGE:libtag1v5-vanilla:amd64
+
+PACKAGE:libtalloc2:amd64
+
+PACKAGE:libtasn1-6:amd64
+
+PACKAGE:libtcl8.6:amd64
+
+PACKAGE:libtcmalloc-minimal4t64:amd64
+
+PACKAGE:libtdb1:amd64
+
+PACKAGE:libteamdctl0:amd64
+
+PACKAGE:libtevent0t64:amd64
+
+PACKAGE:libtext-charwidth-perl:amd64
+
+PACKAGE:libtext-iconv-perl:amd64
+
+PACKAGE:libtext-wrapi18n-perl
+
+PACKAGE:libthai-data
+
+PACKAGE:libthai0:amd64
+
+PACKAGE:libtheora0:amd64
+
+PACKAGE:libtie-ixhash-perl
+
+PACKAGE:libtiff6:amd64
+
+PACKAGE:libtimedate-perl
+
+PACKAGE:libtimezonemap-data
+
+PACKAGE:libtimezonemap1:amd64
+
+PACKAGE:libtinfo6:amd64
+
+PACKAGE:libtirpc-common
+ /etc/netconfig ca8db53e3af4d735335c2607d21c7195
+PACKAGE:libtirpc3t64:amd64
+
+PACKAGE:libtotem-plparser-common
+
+PACKAGE:libtotem-plparser18:amd64
+
+PACKAGE:libtry-tiny-perl
+
+PACKAGE:libtsan2:amd64
+
+PACKAGE:libtspi1
+
+PACKAGE:libtss2-esys-3.0.2-0t64:amd64
+
+PACKAGE:libtss2-mu-4.0.1-0t64:amd64
+
+PACKAGE:libtss2-sys1t64:amd64
+
+PACKAGE:libtss2-tcti-cmd0t64:amd64
+
+PACKAGE:libtss2-tcti-device0t64:amd64
+
+PACKAGE:libtss2-tcti-mssim0t64:amd64
+
+PACKAGE:libtss2-tcti-swtpm0t64:amd64
+
+PACKAGE:libtwolame0:amd64
+
+PACKAGE:libubsan1:amd64
+
+PACKAGE:libuchardet0:amd64
+
+PACKAGE:libudev1:amd64
+
+PACKAGE:libudfread0:amd64
+
+PACKAGE:libudisks2-0:amd64
+
+PACKAGE:libunibreak5:amd64
+
+PACKAGE:libunistring5:amd64
+
+PACKAGE:libuno-cppu3t64
+
+PACKAGE:libuno-cppuhelpergcc3-3t64
+
+PACKAGE:libuno-purpenvhelpergcc3-3t64
+
+PACKAGE:libuno-sal3t64
+
+PACKAGE:libuno-salhelpergcc3-3t64
+
+PACKAGE:libunwind8:amd64
+
+PACKAGE:libupower-glib3:amd64
+
+PACKAGE:liburcu8t64:amd64
+
+PACKAGE:liburi-perl
+
+PACKAGE:liburing2:amd64
+
+PACKAGE:libusb-1.0-0:amd64
+
+PACKAGE:libusbmuxd6:amd64
+
+PACKAGE:libuuid1:amd64
+
+PACKAGE:libuv1t64:amd64
+
+PACKAGE:libv4l-0t64:amd64
+
+PACKAGE:libv4lconvert0t64:amd64
+
+PACKAGE:libva-drm2:amd64
+
+PACKAGE:libva-wayland2:amd64
+
+PACKAGE:libva-x11-2:amd64
+
+PACKAGE:libva2:amd64
+
+PACKAGE:libvdpau1:amd64
+ /etc/vdpau_wrapper.cfg bc89239208609c5d031b74c99a45747d
+PACKAGE:libvidstab1.1:amd64
+
+PACKAGE:libvisio-0.1-1:amd64
+
+PACKAGE:libvisual-0.4-0:amd64
+
+PACKAGE:libvisual-0.4-plugins:amd64
+
+PACKAGE:libvolume-key1:amd64
+
+PACKAGE:libvorbis0a:amd64
+
+PACKAGE:libvorbisenc2:amd64
+
+PACKAGE:libvorbisfile3:amd64
+
+PACKAGE:libvpl2
+
+PACKAGE:libvpx9:amd64
+
+PACKAGE:libvte-2.91-0:amd64
+
+PACKAGE:libvte-2.91-common
+ /etc/profile.d/vte-2.91.sh d713701b894685e338c42f2cf8af338f
+ /etc/profile.d/vte.csh 1f922824a6d29c466178d0834d17321c
+PACKAGE:libvulkan1:amd64
+
+PACKAGE:libwacom-bin
+
+PACKAGE:libwacom-common
+
+PACKAGE:libwacom9:amd64
+
+PACKAGE:libwavpack1:amd64
+
+PACKAGE:libwayland-client0:amd64
+
+PACKAGE:libwayland-cursor0:amd64
+
+PACKAGE:libwayland-egl1:amd64
+
+PACKAGE:libwayland-server0:amd64
+
+PACKAGE:libwbclient0:amd64
+
+PACKAGE:libwebkit2gtk-4.1-0:amd64
+
+PACKAGE:libwebkitgtk-6.0-4:amd64
+
+PACKAGE:libwebp7:amd64
+
+PACKAGE:libwebpdemux2:amd64
+
+PACKAGE:libwebpmux3:amd64
+
+PACKAGE:libwebrtc-audio-processing1:amd64
+
+PACKAGE:libwireplumber-0.4-0:amd64
+
+PACKAGE:libwmf-0.2-7:amd64
+
+PACKAGE:libwmf-0.2-7-gtk:amd64
+
+PACKAGE:libwmf0.2-7-gtk:amd64
+
+PACKAGE:libwmflite-0.2-7:amd64
+
+PACKAGE:libwnck-3-0:amd64
+
+PACKAGE:libwnck-3-common
+
+PACKAGE:libwoff1:amd64
+
+PACKAGE:libwpd-0.10-10:amd64
+
+PACKAGE:libwpg-0.3-3:amd64
+
+PACKAGE:libwps-0.4-4:amd64
+
+PACKAGE:libwrap0:amd64
+
+PACKAGE:libwww-perl
+
+PACKAGE:libwww-robotrules-perl
+
+PACKAGE:libx11-6:amd64
+
+PACKAGE:libx11-data
+
+PACKAGE:libx11-protocol-perl
+
+PACKAGE:libx11-xcb1:amd64
+
+PACKAGE:libx264-164:amd64
+
+PACKAGE:libx265-199:amd64
+
+PACKAGE:libxapian30:amd64
+
+PACKAGE:libxapp1:amd64
+ /etc/X11/Xsession.d/80xapp-gtk3-module a6b56017f8db3f7540252fe74ed58ff4
+PACKAGE:libxatracker2:amd64
+
+PACKAGE:libxau6:amd64
+
+PACKAGE:libxaw7:amd64
+
+PACKAGE:libxcb-damage0:amd64
+
+PACKAGE:libxcb-dri2-0:amd64
+
+PACKAGE:libxcb-dri3-0:amd64
+
+PACKAGE:libxcb-glx0:amd64
+
+PACKAGE:libxcb-icccm4:amd64
+
+PACKAGE:libxcb-image0:amd64
+
+PACKAGE:libxcb-keysyms1:amd64
+
+PACKAGE:libxcb-present0:amd64
+
+PACKAGE:libxcb-randr0:amd64
+
+PACKAGE:libxcb-render-util0:amd64
+
+PACKAGE:libxcb-render0:amd64
+
+PACKAGE:libxcb-res0:amd64
+
+PACKAGE:libxcb-shape0:amd64
+
+PACKAGE:libxcb-shm0:amd64
+
+PACKAGE:libxcb-sync1:amd64
+
+PACKAGE:libxcb-util1:amd64
+
+PACKAGE:libxcb-xfixes0:amd64
+
+PACKAGE:libxcb-xinerama0:amd64
+
+PACKAGE:libxcb-xinput0:amd64
+
+PACKAGE:libxcb-xkb1:amd64
+
+PACKAGE:libxcb-xv0:amd64
+
+PACKAGE:libxcb1:amd64
+
+PACKAGE:libxcomposite1:amd64
+
+PACKAGE:libxcursor1:amd64
+
+PACKAGE:libxcvt0:amd64
+
+PACKAGE:libxdamage1:amd64
+
+PACKAGE:libxdmcp6:amd64
+
+PACKAGE:libxdo3:amd64
+
+PACKAGE:libxext6:amd64
+
+PACKAGE:libxfixes3:amd64
+
+PACKAGE:libxfont2:amd64
+
+PACKAGE:libxft2:amd64
+
+PACKAGE:libxi6:amd64
+
+PACKAGE:libxinerama1:amd64
+
+PACKAGE:libxkbcommon-x11-0:amd64
+
+PACKAGE:libxkbcommon0:amd64
+
+PACKAGE:libxkbfile1:amd64
+
+PACKAGE:libxkbregistry0:amd64
+
+PACKAGE:libxklavier16:amd64
+
+PACKAGE:libxml-namespacesupport-perl
+
+PACKAGE:libxml-parser-perl
+
+PACKAGE:libxml-sax-base-perl
+
+PACKAGE:libxml-sax-expat-perl
+
+PACKAGE:libxml-sax-perl
+
+PACKAGE:libxml-twig-perl
+
+PACKAGE:libxml-xpathengine-perl
+
+PACKAGE:libxml2:amd64
+
+PACKAGE:libxmlb2:amd64
+
+PACKAGE:libxmlsec1t64:amd64
+
+PACKAGE:libxmlsec1t64-nss:amd64
+
+PACKAGE:libxmu6:amd64
+
+PACKAGE:libxmuu1:amd64
+
+PACKAGE:libxpm4:amd64
+
+PACKAGE:libxpresent1:amd64
+
+PACKAGE:libxrandr2:amd64
+
+PACKAGE:libxreaderdocument3
+
+PACKAGE:libxreaderview3
+
+PACKAGE:libxrender1:amd64
+
+PACKAGE:libxres1:amd64
+
+PACKAGE:libxshmfence1:amd64
+
+PACKAGE:libxslt1.1:amd64
+
+PACKAGE:libxss1:amd64
+
+PACKAGE:libxt6t64:amd64
+
+PACKAGE:libxtables12:amd64
+
+PACKAGE:libxtst6:amd64
+
+PACKAGE:libxv1:amd64
+
+PACKAGE:libxvidcore4:amd64
+
+PACKAGE:libxvmc1:amd64
+ /etc/X11/XvMCConfig 0976f2acc0790481782bab1a5c49d471
+PACKAGE:libxxf86dga1:amd64
+
+PACKAGE:libxxf86vm1:amd64
+
+PACKAGE:libxxhash0:amd64
+
+PACKAGE:libyajl2:amd64
+
+PACKAGE:libyaml-0-2:amd64
+
+PACKAGE:libyelp0:amd64
+
+PACKAGE:libzimg2:amd64
+
+PACKAGE:libzip4t64:amd64
+
+PACKAGE:libzix-0-0:amd64
+
+PACKAGE:libzmq5:amd64
+
+PACKAGE:libzstd1:amd64
+
+PACKAGE:libzvbi-common
+
+PACKAGE:libzvbi0t64:amd64
+
+PACKAGE:lightdm
+ /etc/apparmor.d/abstractions/lightdm 88d80d12163a9a2c842a1ea730b6cd8f
+ /etc/apparmor.d/abstractions/lightdm_chromium-browser e1195e34922a67fa219b8b95eaf9c305
+ /etc/apparmor.d/lightdm-guest-session e8e926463e3491f3e2ac97a7066a65d5
+ /etc/dbus-1/system.d/org.freedesktop.DisplayManager.conf b76b6b45d7f7ff533c51d7fc02be32f4
+ /etc/init.d/lightdm be2b1b20bec52a04c1a877477864e188
+ /etc/init/lightdm.conf 07304e5b3265b4fb82a2c94beb9b577e
+ /etc/lightdm/users.conf 495d2acda42d29736cf320534e1ba830
+ /etc/logrotate.d/lightdm b6068c54606c0499db9a39a05df76ce9
+ /etc/pam.d/lightdm 2dd7c9e477059afd6ba7c10e12454d68
+ /etc/pam.d/lightdm-autologin 28dd060554d1103ff847866658431ecf
+ /etc/pam.d/lightdm-greeter 986a40c1dd85dba7bf4cec98a5467740
+PACKAGE:lightdm-settings
+
+PACKAGE:linux-base
+ /etc/kernel/postinst.d/xx-update-initrd-links b41c8cb1275704cf344e3e87c84633b2
+PACKAGE:linux-firmware
+
+PACKAGE:linux-generic-hwe-24.04
+
+PACKAGE:linux-headers-6.14.0-37-generic
+
+PACKAGE:linux-headers-generic-hwe-24.04
+
+PACKAGE:linux-hwe-6.14-headers-6.14.0-37
+
+PACKAGE:linux-image-6.14.0-37-generic
+
+PACKAGE:linux-image-generic-hwe-24.04
+
+PACKAGE:linux-libc-dev:amd64
+
+PACKAGE:linux-modules-6.14.0-37-generic
+
+PACKAGE:linux-modules-extra-6.14.0-37-generic
+
+PACKAGE:linux-sound-base
+
+PACKAGE:linuxmint-keyring
+ /etc/apt/trusted.gpg.d/linuxmint-keyring.gpg 571c3024a5a42792461689942cc3d5d6
+PACKAGE:lm-sensors
+ /etc/init.d/lm-sensors 461d67f33993c4263f36ba010190be39
+PACKAGE:localechooser-data
+
+PACKAGE:locales
+ /etc/locale.alias e61078721cb3be18f48a8d4530b7201c
+PACKAGE:login
+ /etc/login.defs 6577ffcffe56502b0e9a79ee8e5bb8c6
+ /etc/pam.d/login d10e26d07799aaa674a125e89d525c39
+PACKAGE:logrotate
+ /etc/cron.daily/logrotate 31da718265eaaa2fdabcfb2743bda171
+ /etc/logrotate.conf 9290a646a62731e8afbdfb022ca8dff9
+ /etc/logrotate.d/btmp 55631862595faf6432786dc335eb3f44
+ /etc/logrotate.d/wtmp 46cd7ecb1810441bd450987a976f5540
+PACKAGE:logsave
+
+PACKAGE:lp-solve
+
+PACKAGE:lsb-release
+
+PACKAGE:lshw
+
+PACKAGE:lsof
+
+PACKAGE:lto-disabled-list
+
+PACKAGE:ltrace
+ /etc/ltrace.conf f67e1097893416df68c30b65ed908992
+PACKAGE:lvm2
+ /etc/lvm/lvm.conf 4a76bea425627b2b23faf920850753d8
+ /etc/lvm/lvmlocal.conf a149b0ec175b15065a7ae82c849e77c9
+ /etc/lvm/profile/cache-mq.profile 9df1883c03bac9d3041e75745cb5e0ec
+ /etc/lvm/profile/cache-smq.profile d27b7f0947c6ac21944c05e6098b9850
+ /etc/lvm/profile/command_profile_template.profile 3bab119bec857c31a53725da2d0a9408
+ /etc/lvm/profile/lvmdbusd.profile ffa904d375ce53ebb6befe7d65cf391a
+ /etc/lvm/profile/metadata_profile_template.profile bccbaf503cb8f0adb5b4f841f7c1f735
+ /etc/lvm/profile/thin-generic.profile f57ede2b5b249024766c51a223e15ed5
+ /etc/lvm/profile/thin-performance.profile f4de81439550553043e04f019a48a827
+ /etc/lvm/profile/vdo-small.profile da26d10e71e517a6f02ff0d53395e3c9
+PACKAGE:mailcap
+ /etc/mailcap.order ba07e08a7fe3741d0b8339127963190e
+PACKAGE:make
+
+PACKAGE:man-db
+ /etc/apparmor.d/usr.bin.man 4f614d75041882370498f7fe2d43a44b
+ /etc/cron.daily/man-db 62423d7fa68568c9c0aefceac182d9ea
+ /etc/cron.weekly/man-db eebc5bb3e1dac973301570da3f453334
+ /etc/manpath.config 6d70333de0a08c7a71018da458201eb6
+PACKAGE:manpages
+
+PACKAGE:mate-desktop
+
+PACKAGE:mate-desktop-common
+
+PACKAGE:mate-menus
+ /etc/xdg/menus/mate-applications.menu 6f64d7857d34dc119249b2dacf41eb2b
+ /etc/xdg/menus/mate-preferences-categories.menu c2e9accc28ed13d6098672a4c1ef16a8
+ /etc/xdg/menus/mate-settings.menu 4b38b22dc632bf6c96a61c78810f9237
+PACKAGE:mate-panel
+
+PACKAGE:mate-panel-common
+
+PACKAGE:mate-polkit
+
+PACKAGE:mate-polkit-common
+ /etc/xdg/autostart/polkit-mate-authentication-agent-1.desktop 1dcb30d5cdf4542b5574571d8ba9dc5b
+PACKAGE:mawk
+
+PACKAGE:mdadm
+ /etc/logcheck/ignore.d.server/mdadm 5782c2dd729cbc507d03d99f8142b4b1
+ /etc/logcheck/violations.d/mdadm efd87cec251921ce0642171eae5f3b73
+ /etc/modprobe.d/mdadm.conf d3be82c0f275d6c25b04d388baf9e836
+PACKAGE:media-player-info
+
+PACKAGE:media-types
+ /etc/mime.types e06b55a5d7cb8e9835e1caad087d1636
+PACKAGE:mesa-libgallium:amd64
+
+PACKAGE:mesa-utils
+
+PACKAGE:mesa-utils-bin:amd64
+
+PACKAGE:mesa-va-drivers:amd64
+
+PACKAGE:mesa-vdpau-drivers:amd64
+
+PACKAGE:mesa-vulkan-drivers:amd64
+
+PACKAGE:metacity
+
+PACKAGE:metacity-common
+
+PACKAGE:mint-artwork
+ /etc/X11/Xsession.d/99mint 20039e2119b171e28809334f8a347bff
+ /etc/lightdm/lightdm-gtk-greeter.conf.d/99_linuxmint.conf 5de0a42c43a298d15e8805f3b85d4d73
+ /etc/skel/.config/caja/desktop-metadata 3f559c4ef8c9bc0d6e1be001b383b9f5
+ /etc/skel/.gtkrc-2.0 5f1a60beb27e068e5a826d011dbcde11
+ /etc/skel/.gtkrc-xfce 71e6fe67830a4dca089ab5a1794db682
+PACKAGE:mint-backgrounds-wallpapers
+
+PACKAGE:mint-common
+
+PACKAGE:mint-cursor-themes
+
+PACKAGE:mint-info-cinnamon
+ /etc/lightdm/lightdm.conf.d/70-linuxmint.conf 967d8c22877cb22dda5455bd16731cf4
+ /etc/linuxmint/info 7013981e4b125e48bd6eeca659c5fdbe
+PACKAGE:mint-l-icons
+
+PACKAGE:mint-l-theme
+
+PACKAGE:mint-meta-cinnamon
+
+PACKAGE:mint-meta-core
+
+PACKAGE:mint-mirrors
+
+PACKAGE:mint-themes
+
+PACKAGE:mint-translations
+
+PACKAGE:mint-upgrade-info
+
+PACKAGE:mint-x-icons
+
+PACKAGE:mint-y-icons
+
+PACKAGE:mintbackup
+
+PACKAGE:mintchat
+ /etc/skel/.local/share/applications/webapp-OnlineChat4519.desktop 4151f11a83f4ce8dd534112841777669
+ /etc/skel/.local/share/ice/firefox/OnlineChat4519/chrome/userChrome.css 8513906b73374c7b03a57488c011376a
+ /etc/skel/.local/share/ice/firefox/OnlineChat4519/permissions.sqlite 263cfca48b6897e2186704f165c3eaca
+ /etc/skel/.local/share/ice/firefox/OnlineChat4519/prefs.js ff9671500bed5256152e60d22a70a59d
+ /etc/skel/.local/share/ice/firefox/OnlineChat4519/user.js a94fc684cd5349d2f905ba94eff7e0a2
+PACKAGE:mintdrivers
+ /etc/sudoers.d/mintdrivers 9f8b6f4859e6d5e5e18038494d8f1dbd
+PACKAGE:mintinstall
+
+PACKAGE:mintlocale
+
+PACKAGE:mintmenu
+
+PACKAGE:mintreport
+ /etc/xdg/autostart/mintreport.desktop f88032a89e19baee82f3b837891a0dbb
+PACKAGE:mintsources
+
+PACKAGE:mintstick
+
+PACKAGE:mintsysadm
+
+PACKAGE:mintsystem
+ /etc/apt/apt.conf.d/90mintsystem 01aa2bb570e95cf1fc2f406e7441c953
+ /etc/apt/preferences.d/official-extra-repositories.pref ed695e81141af177160b1ee1418bf6f7
+ /etc/bash_completion.d/apt-linux-mint 07b365ff8d503960e561e2627f5c4d88
+ /etc/init.d/mintsystem 6e7f04253725442d374fb725add12311
+ /etc/sudoers.d/0pwfeedback 49e708b22ffdd29589602c8413944f62
+PACKAGE:mintupdate
+ /etc/logrotate.d/mintupdate bbe1c6352b8ace6a94d56e08e78bed62
+ /etc/sudoers.d/mintupdate da39df163ddf43a2e5c3765f4bf0ab6d
+ /etc/xdg/autostart/mintupdate.desktop e32bbfc4a051c9d501f5c3228bece605
+PACKAGE:mintwelcome
+ /etc/xdg/autostart/mintwelcome.desktop 9c310a53472c1e7e5763e3c90af981ab
+PACKAGE:mobile-broadband-provider-info
+
+PACKAGE:modemmanager
+ /etc/dbus-1/system.d/org.freedesktop.ModemManager1.conf newconffile remove-on-upgrade
+PACKAGE:mokutil
+
+PACKAGE:mount
+
+PACKAGE:mousetweaks
+
+PACKAGE:mscompress
+
+PACKAGE:mtools
+ /etc/mtools.conf 659bb18a4490dcb17ad0b0139c2fb654
+PACKAGE:mtr-tiny
+
+PACKAGE:muffin
+
+PACKAGE:muffin-common
+
+PACKAGE:muffin-dbg
+
+PACKAGE:mythes-en-us
+
+PACKAGE:nano
+ /etc/nanorc be076483dde4364946fcf3d1ea5dce26
+PACKAGE:nautilus-data
+
+PACKAGE:ncurses-base
+ /etc/terminfo/README 45b6df19fb5e21f55717482fa7a30171
+PACKAGE:ncurses-bin
+
+PACKAGE:ncurses-term
+
+PACKAGE:nemo
+
+PACKAGE:nemo-data
+
+PACKAGE:nemo-dbg
+
+PACKAGE:nemo-emblems
+
+PACKAGE:nemo-fileroller
+
+PACKAGE:nemo-preview
+
+PACKAGE:nemo-share
+
+PACKAGE:neofetch
+
+PACKAGE:net-tools
+
+PACKAGE:netbase
+ /etc/ethertypes cd7fa874d85f7587e2ed11174d58cf83
+ /etc/protocols 0c247591a720f534fe543401bd4844d6
+ /etc/rpc 2d7748cd0feba2e43ee52d4d7f834188
+ /etc/services 3975f0d8c4e1ecb25f035edfb1ba27ac
+PACKAGE:netcat-openbsd
+
+PACKAGE:netplan-generator
+
+PACKAGE:netplan.io
+
+PACKAGE:network-manager
+ /etc/NetworkManager/NetworkManager.conf ff117aea5e8fc25e075df0f18a5f7b45
+ /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf 07590947643cfa18d31ffbd1dfa016c5
+PACKAGE:network-manager-config-connectivity-ubuntu
+
+PACKAGE:network-manager-gnome
+ /etc/xdg/autostart/nm-applet.desktop b1cc203e85d273f9adacceff4d95fd35
+PACKAGE:network-manager-openvpn
+
+PACKAGE:network-manager-openvpn-gnome
+
+PACKAGE:network-manager-pptp
+
+PACKAGE:network-manager-pptp-gnome
+
+PACKAGE:networkd-dispatcher
+ /etc/default/networkd-dispatcher 30d74108d00da7497f70395c32658a41
+PACKAGE:nftables
+ /etc/nftables.conf 4d4241fcd44b9a69b74f69d571f35a20
+PACKAGE:ntfs-3g
+
+PACKAGE:nvidia-prime-applet
+ /etc/xdg/autostart/nvidia-prime.desktop cec3903dc7a9eed41ca00ff5b01f8c7e
+PACKAGE:ocl-icd-libopencl1:amd64
+
+PACKAGE:onboard
+ /etc/xdg/autostart/onboard-autostart.desktop 6bd90da85d9158a4f62ed500d9d0abc2
+PACKAGE:onboard-common
+
+PACKAGE:openprinting-ppds
+
+PACKAGE:openssh-client
+ /etc/ssh/ssh_config d11fe67b3cd9180e1c0e888c5e5b93f6
+PACKAGE:openssh-server
+ /etc/default/ssh 500e3cf069fe9a7b9936108eb9d9c035
+ /etc/init.d/ssh 3649a6fe8c18ad1d5245fd91737de507
+ /etc/pam.d/sshd 8b4c7a12b031424b2a9946881da59812
+ /etc/ssh/moduli 366395e79244c54223455e5f83dafba3
+ /etc/ufw/applications.d/openssh-server 486b78d54b93cc9fdc950c1d52ff479e
+PACKAGE:openssh-sftp-server
+
+PACKAGE:openssl
+ /etc/ssl/openssl.cnf 953fe829df1b6f2b1b39c7742ab6d0b8
+PACKAGE:openvpn
+ /etc/default/openvpn 3c4d9d1b3f89320396784cc21a142a22
+ /etc/init.d/openvpn cf1bc30e71de3b3e4a2f05dc8bf095e4
+ /etc/network/if-down.d/openvpn 33ce4a4608a2f2e129c1feb05daa2f97
+ /etc/network/if-up.d/openvpn 5c1e39845a263f512b81ee62c1f37b92
+ /etc/openvpn/update-resolv-conf b75b20ba3fd750b33e47dd81e2c427a8
+PACKAGE:orca
+ /etc/xdg/autostart/orca-autostart.desktop 7f0e9693861b365f8525766743c56c5d
+PACKAGE:os-prober
+
+PACKAGE:p11-kit
+
+PACKAGE:p11-kit-modules:amd64
+
+PACKAGE:p7zip
+
+PACKAGE:p7zip-full
+
+PACKAGE:packagekit
+ /etc/dbus-1/system.d/org.freedesktop.PackageKit.conf newconffile remove-on-upgrade
+ /etc/PackageKit/PackageKit.conf 71da11578968301072133d233e91cd1e
+ /etc/PackageKit/Vendor.conf ea3d03c3310b5470d0273659815c312d
+ /etc/apt/apt.conf.d/20packagekit edd8462c9bfc2c453caa7d8650af0487
+PACKAGE:packagekit-tools
+
+PACKAGE:papirus-icon-theme
+
+PACKAGE:parted
+
+PACKAGE:passwd
+ /etc/default/useradd e03965d134c26725cbc51a57969da6c9
+ /etc/pam.d/chfn 4d466e00a348ba426130664d795e8afa
+ /etc/pam.d/chpasswd 9900720564cb4ee98b7da29e2d183cb2
+ /etc/pam.d/chsh a6e9b589e90009334ffd030d819290a6
+ /etc/pam.d/newusers 1454e29bfa9f2a10836563e76936cea5
+ /etc/pam.d/passwd eaf2ad85b5ccd06cceb19a3e75f40c63
+PACKAGE:patch
+
+PACKAGE:patchutils
+
+PACKAGE:pci.ids
+
+PACKAGE:pciutils
+
+PACKAGE:pcmciautils
+
+PACKAGE:perl
+ /etc/perl/Net/libnet.cfg fb2946cae573b8ed3d654a180d458733
+PACKAGE:perl-base
+
+PACKAGE:perl-modules-5.38
+
+PACKAGE:perl-openssl-defaults:amd64
+
+PACKAGE:pinentry-curses
+
+PACKAGE:pinentry-gnome3
+
+PACKAGE:pipewire:amd64
+
+PACKAGE:pipewire-alsa:amd64
+
+PACKAGE:pipewire-audio
+
+PACKAGE:pipewire-bin
+ /etc/security/limits.d/25-pw-rlimits.conf ce4cbe357938c9f0d99df4c09b6eb0d5
+PACKAGE:pipewire-pulse
+
+PACKAGE:pix
+
+PACKAGE:pix-data
+
+PACKAGE:pix-dbg
+
+PACKAGE:pkexec
+
+PACKAGE:pkg-config:amd64
+ /etc/dpkg/dpkg.cfg.d/pkg-config-hook-config newconffile remove-on-upgrade
+PACKAGE:pkgconf:amd64
+ /etc/dpkg/dpkg.cfg.d/pkgconf-hook-config newconffile remove-on-upgrade
+PACKAGE:pkgconf-bin
+
+PACKAGE:plocate
+ /etc/cron.daily/plocate cc6eae6613eea45fd178b0ccfef6516b
+ /etc/updatedb.conf ffb9bfa810c3fffcbcce69765a8e460e
+PACKAGE:plymouth
+ /etc/init.d/plymouth 707674e3b5b8fa048271dfe2490a0a09
+ /etc/init.d/plymouth-log 83b6676117e0e9b3f952e0fc625892ac
+ /etc/logrotate.d/bootlog 0f1e42d11052c238718996029ffb809b
+PACKAGE:plymouth-label
+
+PACKAGE:plymouth-theme-spinner
+
+PACKAGE:plymouth-theme-ubuntu-text
+
+PACKAGE:pm-utils
+ /etc/kernel/postinst.d/pm-utils 5b2be1c56ee085b4e54fd192a6d687aa
+ /etc/logrotate.d/pm-utils 9eb4057eeedc809f704b9b52701548db
+PACKAGE:policykit-1
+
+PACKAGE:policykit-1-gnome
+ /etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop 02949a0021a5a549bbe07f30f2897bf6
+PACKAGE:policykit-desktop-privileges
+
+PACKAGE:polkitd
+
+PACKAGE:poppler-data
+ /etc/ghostscript/cidfmap.d/90gs-cjk-resource-cns1.conf d3a491137506a332ab747c571e5bee33
+ /etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf 5ec7d7edc178ef73b1f6ac21a3cdc8a0
+ /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan1.conf 9502944d3a420a2763a36517679460f4
+ /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan2.conf 00d6b53125e159d61e2fd0a5056b4b4c
+ /etc/ghostscript/cidfmap.d/90gs-cjk-resource-korea1.conf 76ba5a8a08376075902594b9ecd902ed
+PACKAGE:poppler-utils
+
+PACKAGE:power-profiles-daemon
+
+PACKAGE:powermgmt-base
+
+PACKAGE:ppp
+ /etc/chatscripts/gprs 49518071cd909518f6c79480b69cd10c
+ /etc/chatscripts/pap 17dbbede1dc894aa6c6c4e8be5727c1d
+ /etc/logrotate.d/ppp 8434ebaff1b3b33bb0ea0bce523adfd3
+ /etc/pam.d/ppp cc163be3dbe4258e639238ccd5bcdea0
+ /etc/ppp/ip-down ee9ad288a3b018c1a44d4cd041a47c36
+ /etc/ppp/ip-down.d/0000usepeerdns 564950049780399368c82f5ab2f4780e
+ /etc/ppp/ip-pre-up 838abd801995f44736ac3f07948b20f8
+ /etc/ppp/ip-up 4957bb05c247cf848f36e00bbdfaa817
+ /etc/ppp/ip-up.d/0000usepeerdns d6fa4820562f7e967113b8b6c0a6c906
+ /etc/ppp/ipv6-down 7c88c8d027ff15926dff335e953d523f
+ /etc/ppp/ipv6-up 6535614392b180b338522e5d519305dc
+ /etc/ppp/options 8bf2e0b8499592fa1c119818fe5a326f
+PACKAGE:pptp-linux
+ /etc/ppp/options.pptp d7a9dcb92832f4bf6dae77bacde7462b
+PACKAGE:printer-driver-brlaser
+
+PACKAGE:printer-driver-c2esp
+
+PACKAGE:printer-driver-foo2zjs
+
+PACKAGE:printer-driver-foo2zjs-common
+
+PACKAGE:printer-driver-gutenprint
+
+PACKAGE:printer-driver-hpcups
+
+PACKAGE:printer-driver-m2300w
+
+PACKAGE:printer-driver-min12xxw
+
+PACKAGE:printer-driver-pnm2ppa
+
+PACKAGE:printer-driver-postscript-hp
+
+PACKAGE:printer-driver-ptouch
+
+PACKAGE:printer-driver-pxljr
+
+PACKAGE:printer-driver-sag-gdi
+
+PACKAGE:printer-driver-splix
+
+PACKAGE:procps
+ /etc/init.d/procps f9903aa0d9f2f10714269befb4cdba8f
+ /etc/sysctl.conf 72b7c827a9636cda7b3b371091ff2dce
+ /etc/sysctl.d/10-bufferbloat.conf 421a31e1c9eff34f39986fe122d9a583
+ /etc/sysctl.d/10-console-messages.conf 154f6f5c5810d10bb303fb6a8e907c6a
+ /etc/sysctl.d/10-ipv6-privacy.conf e9473d12b4a7069d6a3ca8b694511ddf
+ /etc/sysctl.d/10-kernel-hardening.conf f85fded186d1ad70c5f69ca6a88e4de6
+ /etc/sysctl.d/10-magic-sysrq.conf b3059f2835f17c97265433fdfdee358f
+ /etc/sysctl.d/10-map-count.conf a8d15ef17fb211df1e974382b8af95ad
+ /etc/sysctl.d/10-network-security.conf e2c60d912410543907a6c9ff21836ba8
+ /etc/sysctl.d/10-ptrace.conf 47f40494b2fc698e15549e0a4a79e81c
+ /etc/sysctl.d/10-zeropage.conf 8d7193abcc4dfedaf519dd03016a5e59
+ /etc/sysctl.d/README.sysctl 48e64ce233c8aba8e0693adf8cf4c464
+PACKAGE:psmisc
+
+PACKAGE:publicsuffix
+
+PACKAGE:pulseaudio-utils
+
+PACKAGE:python-apt-common
+
+PACKAGE:python-babel-localedata
+
+PACKAGE:python-nemo
+
+PACKAGE:python-tinycss2-common
+
+PACKAGE:python3
+
+PACKAGE:python3-apport
+
+PACKAGE:python3-apt
+
+PACKAGE:python3-aptdaemon
+
+PACKAGE:python3-aptdaemon.gtk3widgets
+
+PACKAGE:python3-babel
+
+PACKAGE:python3-blinker
+
+PACKAGE:python3-brlapi:amd64
+
+PACKAGE:python3-brotli
+
+PACKAGE:python3-bs4
+
+PACKAGE:python3-cairo
+
+PACKAGE:python3-certifi
+
+PACKAGE:python3-cffi-backend:amd64
+
+PACKAGE:python3-chardet
+
+PACKAGE:python3-click
+
+PACKAGE:python3-colorama
+
+PACKAGE:python3-commandnotfound
+
+PACKAGE:python3-configobj
+
+PACKAGE:python3-cryptography
+
+PACKAGE:python3-cups:amd64
+
+PACKAGE:python3-cupshelpers
+ /etc/cupshelpers/preferreddrivers.xml 50ef89e54f8f992f10f9641725046a69
+PACKAGE:python3-dbus
+
+PACKAGE:python3-debian
+
+PACKAGE:python3-defer
+
+PACKAGE:python3-deprecation
+
+PACKAGE:python3-dill
+
+PACKAGE:python3-distro
+
+PACKAGE:python3-eyed3
+
+PACKAGE:python3-filelock
+
+PACKAGE:python3-filetype
+
+PACKAGE:python3-gdbm:amd64
+
+PACKAGE:python3-gi
+
+PACKAGE:python3-gi-cairo
+
+PACKAGE:python3-gnupg
+
+PACKAGE:python3-html2text
+
+PACKAGE:python3-httplib2
+
+PACKAGE:python3-ibus-1.0
+
+PACKAGE:python3-icu
+
+PACKAGE:python3-idna
+
+PACKAGE:python3-ifaddr
+
+PACKAGE:python3-jwt
+
+PACKAGE:python3-launchpadlib
+
+PACKAGE:python3-lazr.restfulclient
+
+PACKAGE:python3-lazr.uri
+
+PACKAGE:python3-ldb
+
+PACKAGE:python3-libevdev
+
+PACKAGE:python3-louis
+
+PACKAGE:python3-lxml:amd64
+
+PACKAGE:python3-mako
+
+PACKAGE:python3-markdown
+
+PACKAGE:python3-markdown-it
+
+PACKAGE:python3-markupsafe
+
+PACKAGE:python3-mdurl
+
+PACKAGE:python3-minimal
+
+PACKAGE:python3-multiprocess
+
+PACKAGE:python3-mutagen
+
+PACKAGE:python3-nacl
+
+PACKAGE:python3-netaddr
+
+PACKAGE:python3-netifaces:amd64
+
+PACKAGE:python3-netplan
+
+PACKAGE:python3-oauthlib
+
+PACKAGE:python3-packaging
+
+PACKAGE:python3-pam
+
+PACKAGE:python3-parted
+
+PACKAGE:python3-pexpect
+
+PACKAGE:python3-pil:amd64
+
+PACKAGE:python3-pkg-resources
+
+PACKAGE:python3-png
+
+PACKAGE:python3-problem-report
+
+PACKAGE:python3-psutil
+
+PACKAGE:python3-ptyprocess
+
+PACKAGE:python3-pyasyncore
+
+PACKAGE:python3-pyatspi
+
+PACKAGE:python3-pycryptodome
+
+PACKAGE:python3-pycurl
+
+PACKAGE:python3-pyelftools
+
+PACKAGE:python3-pygments
+
+PACKAGE:python3-pyinotify
+
+PACKAGE:python3-pyparsing
+
+PACKAGE:python3-pyudev
+
+PACKAGE:python3-qrcode
+
+PACKAGE:python3-repolib
+
+PACKAGE:python3-requests
+
+PACKAGE:python3-requests-file
+
+PACKAGE:python3-rich
+
+PACKAGE:python3-samba
+
+PACKAGE:python3-setproctitle:amd64
+
+PACKAGE:python3-six
+
+PACKAGE:python3-soupsieve
+
+PACKAGE:python3-speechd
+
+PACKAGE:python3-systemd
+
+PACKAGE:python3-talloc:amd64
+
+PACKAGE:python3-tdb
+
+PACKAGE:python3-tinycss2
+
+PACKAGE:python3-tldextract
+
+PACKAGE:python3-typing-extensions
+
+PACKAGE:python3-tz
+
+PACKAGE:python3-unidecode
+
+PACKAGE:python3-uno
+
+PACKAGE:python3-urllib3
+
+PACKAGE:python3-wadllib
+
+PACKAGE:python3-webencodings
+
+PACKAGE:python3-websockets
+
+PACKAGE:python3-xapp
+
+PACKAGE:python3-xdg
+
+PACKAGE:python3-xkit
+
+PACKAGE:python3-xlib
+
+PACKAGE:python3-xlrd
+
+PACKAGE:python3-yaml
+
+PACKAGE:python3.12
+
+PACKAGE:python3.12-minimal
+
+PACKAGE:qt5-gtk-platformtheme:amd64
+
+PACKAGE:qt5-gtk2-platformtheme:amd64
+
+PACKAGE:qt5-style-plugin-cleanlooks:amd64
+
+PACKAGE:qt5-style-plugin-motif:amd64
+
+PACKAGE:qt5-style-plugin-plastique:amd64
+
+PACKAGE:qt5-style-plugins:amd64
+
+PACKAGE:qttranslations5-l10n
+
+PACKAGE:rdate
+
+PACKAGE:readline-common
+
+PACKAGE:reiserfsprogs
+
+PACKAGE:rename
+
+PACKAGE:rfkill
+
+PACKAGE:rhythmbox
+
+PACKAGE:rhythmbox-data
+
+PACKAGE:rhythmbox-plugin-tray-icon
+
+PACKAGE:rhythmbox-plugins
+
+PACKAGE:rpcsvc-proto
+
+PACKAGE:rsync
+ /etc/default/rsync b8fd9efa75e2bda2583b0d7c0892a073
+ /etc/init.d/rsync 59aa13cd1a70ff254a2991ad0c522ea5
+PACKAGE:rsyslog
+ /etc/apparmor.d/rsyslog.d/README 85ad3bd22e3539dff283a25c3c4e118e
+ /etc/apparmor.d/usr.sbin.rsyslogd ecb568ee9b5dcc6c74053465d88b8516
+ /etc/logcheck/ignore.d.server/rsyslog 58c2337cacd6a3296c2c9728fc3e52fd
+ /etc/logrotate.d/rsyslog 3f26282ac0106961634fe4efb9edc3f4
+ /etc/rsyslog.conf a14b59f17abdcfda417f99a99c030e67
+PACKAGE:rtkit
+
+PACKAGE:samba-common
+ /etc/pam.d/samba a69b859744494a52ecf10bb604544093
+ /etc/samba/gdbcommands 898c523d1c11feeac45538a65d00c838
+PACKAGE:samba-common-bin
+
+PACKAGE:samba-libs:amd64
+
+PACKAGE:sane-airscan
+ /etc/sane.d/airscan.conf d4debd3dcd1c02e91dbb4959b41561db
+ /etc/sane.d/dll.d/airscan ced64131dcc94157b2096844bc63ddc1
+PACKAGE:sane-utils
+ /etc/default/saned 66c8ea4bbf44b04bd482b00582cc20b0
+ /etc/init.d/saned 6d997c9924190b741f87a9e8eb7675c9
+ /etc/logrotate.d/sane-utils 3d721790f7f0acfddfa434fb6cd7542d
+ /etc/sane.d/saned.conf f68e0a92c8d4207a7d3f35c36f38ca3d
+PACKAGE:sbsigntool
+
+PACKAGE:seahorse
+
+PACKAGE:secureboot-db
+
+PACKAGE:sed
+
+PACKAGE:sensible-utils
+
+PACKAGE:session-migration
+
+PACKAGE:sgml-base
+
+PACKAGE:sgml-data
+ /etc/sgml/sgml-data.cat ad9884dac68f6b115523e826f5c9f2b9
+PACKAGE:shared-mime-info
+
+PACKAGE:shim-signed
+ /etc/kernel/postinst.d/zz-shim b9ccfa0ef5e49db7008b2e863b8bf633
+PACKAGE:simple-scan
+
+PACKAGE:slick-greeter
+
+PACKAGE:smbclient
+
+PACKAGE:sound-theme-freedesktop
+
+PACKAGE:speech-dispatcher
+ /etc/init.d/speech-dispatcher d2cdc7a4d1d042dfc9695debb29b224c
+ /etc/logrotate.d/speech-dispatcher 0dd0d772d193d79cd7b8194425d25af2
+ /etc/speech-dispatcher/clients/emacs.conf 1e4a735e3fe42e5f24703200e77c8ce0
+ /etc/speech-dispatcher/modules/cicero.conf c29f54ea617c5ef38752823acd245d20
+ /etc/speech-dispatcher/modules/dtk-generic.conf 5f1cf8376aa84aa72d59c012057992a3
+ /etc/speech-dispatcher/modules/epos-generic.conf a16d3cbb87c16a7a03fb5c126d1207ef
+ /etc/speech-dispatcher/modules/espeak-mbrola-generic.conf 4185a8f99c0dde326d70d15e1432d288
+ /etc/speech-dispatcher/modules/espeak-ng-mbrola-generic.conf 54d2c302f8e89fa41d780907d227b31a
+ /etc/speech-dispatcher/modules/espeak-ng-mbrola.conf b32de0b1116a129edaaf3878f6eeedc1
+ /etc/speech-dispatcher/modules/espeak-ng.conf dbece91224e335ea951cd6333769ae7f
+ /etc/speech-dispatcher/modules/espeak.conf 340130482a94881071fab886ca78ba66
+ /etc/speech-dispatcher/modules/festival.conf 108f1125ddfbdc7b348a6223f13547cd
+ /etc/speech-dispatcher/modules/flite.conf 8916ab57542f7218a56e8029acd4c662
+ /etc/speech-dispatcher/modules/llia_phon-generic.conf 5ac71c284dab2c1908241ed1a3f7ab9a
+ /etc/speech-dispatcher/modules/mary-generic.conf bba0ce3f124ce1c1e656e44c5e01a273
+ /etc/speech-dispatcher/modules/mimic3-generic.conf ca71be66a6a2a31ebd9e7e0a43aaa90c
+ /etc/speech-dispatcher/modules/openjtalk.conf 487624283659af32cc39276594030642
+ /etc/speech-dispatcher/modules/swift-generic.conf 1ff62911611a7be421b8086a4cd88f9f
+ /etc/speech-dispatcher/speechd.conf 1b1157a800f2f6590d854ae5f2377ff0
+PACKAGE:speech-dispatcher-audio-plugins:amd64
+
+PACKAGE:speech-dispatcher-espeak-ng
+
+PACKAGE:squashfs-tools
+
+PACKAGE:ssh-import-id
+ /etc/ssh/ssh_import_id 8bfa390040fbeeae70bec14f2dccaf11
+PACKAGE:ssl-cert
+
+PACKAGE:sticky
+ /etc/xdg/autostart/sticky.desktop 498a96d0936c55f97f4fafaeb0bd8fe3
+PACKAGE:strace
+
+PACKAGE:streamer
+
+PACKAGE:sudo
+ /etc/pam.d/sudo b3a1b916bf62a2cc3280f7f9b94844ff
+ /etc/pam.d/sudo-i ce9740f66cedf7716e26950abfe556fa
+ /etc/sudo.conf 8c714b777580faea54a2eb6d5f17ad1d
+ /etc/sudo_logsrvd.conf ad0ba586da300ae3ba46312ad744a6e2
+ /etc/sudoers 8c20cd717552790f2312db0981337945
+ /etc/sudoers.d/README bb1eba13940f331e91cfb9294d86a04f
+PACKAGE:switcheroo-control
+
+PACKAGE:syslinux
+
+PACKAGE:syslinux-common
+
+PACKAGE:syslinux-utils
+
+PACKAGE:system-config-printer
+ /etc/xdg/autostart/print-applet.desktop 33396cdef5681fdfafd8906c41779cc2
+PACKAGE:system-config-printer-common
+ /etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf 9bb57447f63b617b9d8ce1c6ac607eaa
+ /etc/dbus-1/system.d/com.redhat.PrinterDriversInstaller.conf 151d3bab9f2ea8e246e6262836a78411
+PACKAGE:system-config-printer-udev
+
+PACKAGE:system-tools-backends
+ /etc/dbus-1/system.d/org.freedesktop.SystemToolsBackends.conf 787f9c5e107fa8e1c178ce8439940e50
+PACKAGE:systemd
+ /etc/systemd/journald.conf 75b80e6a9f99a86a34e4772d6a98cd15
+ /etc/systemd/logind.conf 224fc79c1fee69b72ed4def02967ac6b
+ /etc/systemd/networkd.conf 189a57178c5ba90358b5e60b0afed34b
+ /etc/systemd/pstore.conf 8086c035fbf3bde72f2339a6ee50d2a4
+ /etc/systemd/sleep.conf a73525164051d35ff700a76eb7db3f68
+ /etc/systemd/system.conf c9f795de4c926f776ccb554b4e593f80
+ /etc/systemd/user.conf c13845a7cbc3e115e4c23949a3e2b917
+PACKAGE:systemd-coredump
+ /etc/systemd/coredump.conf 1e77e36405b00d9e460618c4ce4a4769
+PACKAGE:systemd-dev
+
+PACKAGE:systemd-hwe-hwdb
+
+PACKAGE:systemd-resolved
+ /etc/systemd/resolved.conf 34cadb9a0b5de37242f73c23ac354d05
+PACKAGE:systemd-sysv
+
+PACKAGE:systemd-timesyncd
+ /etc/dhcp/dhclient-exit-hooks.d/timesyncd 1f941d2a11991ff151fe74064f2b5cf4
+ /etc/systemd/timesyncd.conf e0877ff040d9c2541955eb1c1e856031
+PACKAGE:sysvinit-utils
+
+PACKAGE:t1utils
+
+PACKAGE:tar
+
+PACKAGE:tcl
+
+PACKAGE:tcl8.6
+
+PACKAGE:tcpdump
+ /etc/apparmor.d/usr.bin.tcpdump e6c5b5c0c144de30d497c7843b69ad81
+PACKAGE:telnet
+
+PACKAGE:thermald
+ /etc/thermald/thermal-cpu-cdev-order.xml 6bbb6d648ba2c70b9635e843818beebb
+ /etc/init/thermald.conf newconffile remove-on-upgrade
+ /etc/thermald/thermal-cpu-cdev-order.xml newconffile
+PACKAGE:thingy
+
+PACKAGE:thunderbird
+
+PACKAGE:thunderbird-locale-en
+
+PACKAGE:thunderbird-locale-en-us
+
+PACKAGE:time
+
+PACKAGE:timeshift
+ /etc/timeshift/default.json 5bfb650f933127e0575983c07a80e29a
+PACKAGE:tnftp
+
+PACKAGE:touchegg
+ /etc/xdg/autostart/touchegg.desktop 6c3537cf923f9c7796f34bb34b00bc1a
+PACKAGE:tpm-udev
+
+PACKAGE:transmission-common
+
+PACKAGE:transmission-gtk
+
+PACKAGE:tzdata
+
+PACKAGE:tzdata-legacy
+
+PACKAGE:ubuntu-dbgsym-keyring
+
+PACKAGE:ubuntu-drivers-common
+
+PACKAGE:ubuntu-keyring
+
+PACKAGE:ubuntu-mono
+
+PACKAGE:ubuntu-system-adjustments
+ /etc/NetworkManager/conf.d/ubuntu-system-adjustments.conf cebf1d0753c5b342724d3c4f92e526b9
+ /etc/apparmor.d/mint-chromium 7aac1b0e38b5eca6a74a66a8864608f0
+ /etc/apt/apt.conf.d/00mint 93f8781e421f017ef6577eb3461dc56b
+ /etc/apt/preferences.d/nosnap.pref a54c66b4f5d4780ca7dbfecb5a364487
+ /etc/default/grub.d/50_linuxmint.cfg 3dacba813a3683e93835ec737e72ba05
+ /etc/sysctl.d/20-apparmor-mint.conf b449961ccd58281b8c8467df36b54220
+ /etc/systemd/system.conf.d/50_linuxmint.conf fa89b8ccb7fb06ff5ec4dd50c7fd5c93
+ /etc/timeshift/restore-hooks.d/50_linuxmint 1fac395fee641a99a3c9863f95d1cc99
+ /etc/upstream-release/lsb-release 2905f264d23c0f09ae1c1b75b18dafd3
+PACKAGE:ucf
+ /etc/ucf.conf 5565b8b26108c49ba575ba452cd69b3e
+PACKAGE:udev
+ /etc/udev/iocost.conf fad2a2c4c34d796b6802bc62c19cc4ae
+ /etc/udev/udev.conf bf60be80a4cc51271a1618edf5a6d66f
+PACKAGE:udisks2
+ /etc/udisks2/mount_options.conf.example 50f7a472480e564c2fc1492f70df9e0b
+ /etc/udisks2/udisks2.conf a84103ddb12c6a515a5ccda87e6f7192
+PACKAGE:ufw
+ /etc/default/ufw a921dd9d167380b04de4bc911915ea44
+ /etc/init.d/ufw f68c845ae88149c45d0d938394d7832f
+ /etc/logrotate.d/ufw 969308e0ddfb74505f0da47b49ada218
+ /etc/rsyslog.d/20-ufw.conf 98e2f72c9c65ca8d6299886b524e80d1
+ /etc/ufw/sysctl.conf 7723079fc108eda8f57eddab3079c70a
+PACKAGE:uno-libs-private
+
+PACKAGE:untex
+
+PACKAGE:unzip
+
+PACKAGE:update-inetd
+
+PACKAGE:upower
+ /etc/UPower/UPower.conf 2b098b3a897395cf380f7b282eb97917
+PACKAGE:ure
+
+PACKAGE:usb-modeswitch
+ /etc/usb_modeswitch.conf b7f857804762b4a81a71c93a2fe1207f
+PACKAGE:usb-modeswitch-data
+
+PACKAGE:usb.ids
+
+PACKAGE:usbmuxd
+
+PACKAGE:usbutils
+
+PACKAGE:user-setup
+
+PACKAGE:util-linux
+ /etc/pam.d/runuser b8b44b045259525e0fae9e38fdb2aeeb
+ /etc/pam.d/runuser-l 2106ea05877e8913f34b2c77fa02be45
+ /etc/pam.d/su 60fbbe65c90d741bc0d380543cefe8af
+ /etc/pam.d/su-l 756fef5687fecc0d986e5951427b0c4f
+PACKAGE:uuid-runtime
+ /etc/init.d/uuidd 29b6e6ae2de1365c06806e18f18d8fab
+PACKAGE:va-driver-all:amd64
+
+PACKAGE:vim-common
+ /etc/vim/vimrc 39f4010c45bc0f6d1df420db9febaba8
+PACKAGE:vim-tiny
+ /etc/vim/vimrc.tiny 2eef1685cce57398be3763940dbced84
+PACKAGE:vulkan-tools
+
+PACKAGE:wamerican
+
+PACKAGE:warpinator
+ /etc/xdg/autostart/warpinator-autostart.desktop 2e2c3a175024e46831472b62a2cc36ed
+PACKAGE:wbritish
+
+PACKAGE:webapp-manager
+ /etc/xdg/menus/applications-merged/webapps.menu e2aa31ace87f40f0449777f372da472a
+PACKAGE:webp-pixbuf-loader:amd64
+
+PACKAGE:wget
+ /etc/wgetrc c43064699caf6109f4b3da0405c06ebb
+PACKAGE:whiptail
+
+PACKAGE:wireless-regdb
+
+PACKAGE:wireless-tools
+ /etc/network/if-post-down.d/wireless-tools 0d23a41c5a9fa42cb3e4130eb9e0d551
+ /etc/network/if-pre-up.d/wireless-tools ab74bdf4a9503ddd3322890b155c475e
+PACKAGE:wireplumber
+
+PACKAGE:wmctrl
+
+PACKAGE:wpasupplicant
+ /etc/dbus-1/system.d/wpa_supplicant.conf newconffile remove-on-upgrade
+ /etc/wpa_supplicant/action_wpa.sh ef3c806797e6ab9a31534e660f13a46e
+ /etc/wpa_supplicant/functions.sh f9e603d861675d118b4a438216e37e18
+ /etc/wpa_supplicant/ifupdown.sh 383a0432ca7f95ef00a360eb4449d529
+PACKAGE:x11-apps
+ /etc/X11/app-defaults/Bitmap 9af9c0989c2423f2b9a46e2c9f301ecf
+ /etc/X11/app-defaults/Bitmap-color 946b659d5d6c41b6840f5e0df10680d9
+ /etc/X11/app-defaults/Bitmap-nocase 083b6918e8d205a663bf9c42a3ddd11e
+ /etc/X11/app-defaults/Clock-color 71673f12989686ae7f582269ef7aeed6
+ /etc/X11/app-defaults/XCalc 8bed52d1349d24c932066e022300601a
+ /etc/X11/app-defaults/XCalc-color c2e66f815105e72b2ba3b9556783c7b5
+ /etc/X11/app-defaults/XClipboard daa3f5e325a6d091f6e2cdea6e36bc2e
+ /etc/X11/app-defaults/XClock 812dfcc6f6d83e2ae9da809c3bf11c67
+ /etc/X11/app-defaults/XClock-color 7b049809f0bca03c76480959e2e4db89
+ /etc/X11/app-defaults/XConsole 8a26518ea0a076d1f328cbcf7adebd2d
+ /etc/X11/app-defaults/XLoad 3ea554c7be110102e42e25d3d83c4134
+ /etc/X11/app-defaults/XLogo 5467ea978efb493a59766e93b7ed8f51
+ /etc/X11/app-defaults/XLogo-color 439375bf8e3b87f46eebf35f55a8dbb5
+ /etc/X11/app-defaults/XMore af46624bedc385811ea614861a58a601
+ /etc/X11/app-defaults/Xditview 49d35244a61618b60f17d3400f64a81e
+ /etc/X11/app-defaults/Xditview-chrtr 98a562569a7db396c9a0d2e6d414067e
+ /etc/X11/app-defaults/Xedit 013f41442eb431168793e1943779c8f3
+ /etc/X11/app-defaults/Xedit-color 59d7f0d96f4346ae0fe4904d46daf53c
+ /etc/X11/app-defaults/Xgc 744adc578acb239541e378eb16e337f7
+ /etc/X11/app-defaults/Xgc-color 8dfaceb0c12917fd0b1c77423f9f6a47
+ /etc/X11/app-defaults/Xmag 9d88fcab4261fb63f94baddeddfed52d
+ /etc/X11/app-defaults/Xman 1dfd5f7894ae4da2e8b3f743a0f1c239
+PACKAGE:x11-common
+ /etc/X11/Xreset 05d188ccac2f3360af8fe0c216640233
+ /etc/X11/Xreset.d/README b344c222b5daf81926fd3270df374b5f
+ /etc/X11/Xresources/x11-common b640adb1cd646ec097f8df5b6deca9f0
+ /etc/X11/Xsession 1ec5f844cc2d850a8d98aed509e3198c
+ /etc/X11/Xsession.d/20x11-common_process-args 6957432229b7305a40cb84a7a63edd4e
+ /etc/X11/Xsession.d/30x11-common_xresources 61cebe25ee0c64e981b88958dfee6f9c
+ /etc/X11/Xsession.d/35x11-common_xhost-local 3080616d080574d7b06c2b2a20af53dd
+ /etc/X11/Xsession.d/40x11-common_xsessionrc db544c8543d1cb3762b9859288e77040
+ /etc/X11/Xsession.d/50x11-common_determine-startup b4570043736ae7f22947067b6d28ab8d
+ /etc/X11/Xsession.d/60x11-common_xdg_path b4d4976a8dfa6ca2123f840fbfee76c7
+ /etc/X11/Xsession.d/90x11-common_ssh-agent 71116d351e6eab4ecce9b84229a4ece0
+ /etc/X11/Xsession.d/99x11-common_start 3874d5e8f3ec888f69adb126e223e168
+ /etc/X11/Xsession.options 210cd520efa87a5197cac01e10b3a84a
+ /etc/X11/rgb.txt 09ee098b83d94c7c046d6b55ebe84ae1
+ /etc/init.d/x11-common b121acab13ded0fb7e9bc90ad55c9a43
+PACKAGE:x11-session-utils
+ /etc/X11/app-defaults/XSm 34f161c4cba12ff40099e12b40e511d3
+ /etc/X11/xsm/system.xsm 2f4e2377a2862ec6bfc9b9dc8cf1172d
+PACKAGE:x11-utils
+ /etc/X11/app-defaults/Editres 6d5a5a799a78c744bc39ae05d723c5fc
+ /etc/X11/app-defaults/Editres-color 5ec5d0e8c953faaa06af647650f30ce6
+ /etc/X11/app-defaults/Viewres 4f77da598593ff07cda9d2d147a07772
+ /etc/X11/app-defaults/Viewres-color ff9c397a80443790a97b909050f63282
+ /etc/X11/app-defaults/XFontSel ce8235ba771b4092905451264fec68a4
+ /etc/X11/app-defaults/Xfd a8b4d28d2ad895e40cfb6fb9c69eeecd
+ /etc/X11/app-defaults/Xmessage eed84b35dde8b18e7dcfc80e75c1da67
+ /etc/X11/app-defaults/Xmessage-color ca383db9e4e9648bda0952ad6b8a2115
+PACKAGE:x11-xkb-utils
+
+PACKAGE:x11-xserver-utils
+ /etc/X11/app-defaults/Xvidtune 0493a0782b498e9f0dee51a4013a80e6
+PACKAGE:xapp-appimage-thumbnailer
+
+PACKAGE:xapp-epub-thumbnailer
+
+PACKAGE:xapp-jxl-thumbnailer
+
+PACKAGE:xapp-mp3-thumbnailer
+
+PACKAGE:xapp-ora-thumbnailer
+
+PACKAGE:xapp-raw-thumbnailer
+
+PACKAGE:xapp-symbolic-icons
+
+PACKAGE:xapp-thumbnailers-common
+
+PACKAGE:xapps-common
+ /etc/xdg/autostart/xapp-sn-watcher.desktop ffc5cae5fd12b5d1f334483960b49d05
+PACKAGE:xauth
+
+PACKAGE:xawtv-plugins:amd64
+
+PACKAGE:xbitmaps
+
+PACKAGE:xbrlapi
+ /etc/X11/Xsession.d/90xbrlapi 85509736ce4097dfcda5e5310d07fd26
+PACKAGE:xcvt
+
+PACKAGE:xdg-dbus-proxy
+
+PACKAGE:xdg-desktop-portal
+
+PACKAGE:xdg-desktop-portal-gtk
+
+PACKAGE:xdg-desktop-portal-xapp
+
+PACKAGE:xdg-user-dirs
+ /etc/xdg/autostart/xdg-user-dirs.desktop 284e639a243bfb86fc415ce448e8fa35
+ /etc/xdg/user-dirs.conf 602a95ec7fe4068512bebb712c41102d
+ /etc/xdg/user-dirs.defaults b8595963fe74aeb65e854ba9da7f1acb
+PACKAGE:xdg-user-dirs-gtk
+ /etc/xdg/autostart/user-dirs-update-gtk.desktop f5889853a41ffa4bc93539685ee39803
+PACKAGE:xdg-utils
+
+PACKAGE:xed
+
+PACKAGE:xed-common
+
+PACKAGE:xed-dbg
+
+PACKAGE:xfonts-base
+ /etc/X11/fonts/misc/xfonts-base.alias a8ec05d528431d4c9703b55a7efd67a8
+PACKAGE:xfonts-encodings
+
+PACKAGE:xfonts-scalable
+ /etc/X11/fonts/Type1/xfonts-scalable.scale b579d5c7759383647c486da590d60815
+PACKAGE:xfonts-utils
+
+PACKAGE:xfsprogs
+
+PACKAGE:xinit
+ /etc/X11/xinit/xinitrc c11ee025d7c11c6e0b7a90d76cb424d1
+ /etc/X11/xinit/xserverrc 50faa91e980a25adcd0de32020b340bb
+PACKAGE:xinput
+
+PACKAGE:xkb-data
+
+PACKAGE:xml-core
+ /etc/sgml/xml-core.cat 055ba0bd3154c0a58b9bf8a0c9ecf2fa
+PACKAGE:xorg
+
+PACKAGE:xorg-docs-core
+
+PACKAGE:xreader
+
+PACKAGE:xreader-common
+
+PACKAGE:xreader-dbg
+
+PACKAGE:xserver-common
+
+PACKAGE:xserver-xephyr
+
+PACKAGE:xserver-xorg
+
+PACKAGE:xserver-xorg-core
+
+PACKAGE:xserver-xorg-input-all
+
+PACKAGE:xserver-xorg-input-libinput
+
+PACKAGE:xserver-xorg-input-wacom
+
+PACKAGE:xserver-xorg-legacy
+
+PACKAGE:xserver-xorg-video-all
+
+PACKAGE:xserver-xorg-video-amdgpu
+
+PACKAGE:xserver-xorg-video-ati
+
+PACKAGE:xserver-xorg-video-fbdev
+
+PACKAGE:xserver-xorg-video-intel
+
+PACKAGE:xserver-xorg-video-nouveau
+
+PACKAGE:xserver-xorg-video-qxl
+
+PACKAGE:xserver-xorg-video-radeon
+
+PACKAGE:xserver-xorg-video-vesa
+
+PACKAGE:xserver-xorg-video-vmware
+
+PACKAGE:xviewer
+
+PACKAGE:xviewer-dbg
+
+PACKAGE:xviewer-plugins
+
+PACKAGE:xwayland
+
+PACKAGE:xxd
+
+PACKAGE:xz-utils
+
+PACKAGE:yaru-theme-icon
+
+PACKAGE:yelp
+
+PACKAGE:yelp-xsl
+
+PACKAGE:yt-dlp
+
+PACKAGE:zenity
+
+PACKAGE:zenity-common
+
+PACKAGE:zip
+
+PACKAGE:zlib1g:amd64
+
+PACKAGE:zstd
+

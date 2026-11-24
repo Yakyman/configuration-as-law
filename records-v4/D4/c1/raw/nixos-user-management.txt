@@ -1,0 +1,49 @@
+Retrieved 2026-11-23 UTC
+URL https://nixos.org/manual/nixos/stable/#sec-user-management
+NixOS supports both declarative and imperative styles of user
+management. In the declarative style, users are specified in
+configuration.nix
+.
+
+If you set
+users.mutableUsers
+to
+false, then the contents of
+/etc/passwd
+and
+/etc/group
+will be congruent
+to your NixOS configuration. For instance, if you remove a user from
+users.users
+and run nixos-rebuild, the user
+account will cease to exist. Also, imperative commands for managing users and
+groups, such as useradd, are no longer available. Passwords may still be
+assigned by setting the user’s
+hashedPassword
+option. A
+hashed password can be generated using
+mkpasswd
+.
+
+In the imperative style, users and groups are managed by commands such
+as
+useradd
+,
+groupmod
+and so on.
+
+A user can be deleted using
+userdel
+:
+The flag
+-r
+deletes the user’s home directory. Accounts can be
+modified using
+usermod
+. Unix groups can be managed using
+groupadd
+,
+groupmod
+and
+groupdel
+.

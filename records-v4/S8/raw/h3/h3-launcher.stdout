@@ -1,0 +1,58 @@
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+ACTION_BEGIN h3-launcher-fetch
+linuxgsm.sh: OK
+ACTION_DONE h3-launcher-fetch
+ACTION_BEGIN h3-launcher-setup
+fetching GitHub [ serverlist.csv ] ... OK
+Installed Wolfenstein: Enemy Territory server as wetserver
+
+./wetserver install
+
+ACTION_DONE h3-launcher-setup
+ACTION_BEGIN h3-game-install
+fetching GitHub [ core_modules.sh ] ... OK
+fetching GitHub [ core_legacy.sh ] ... OK
+fetching GitHub [ core_messages.sh ] ... OK
+fetching GitHub [ core_dl.sh ] ... OK
+fetching GitHub [ core_trap.sh ] ... OK
+fetching GitHub [ _default.cfg ] ... OK
+copying _default.cfg ... OK
+fetching GitHub [ check_ip.sh ] ... OK
+fetching GitHub [ info_game.sh ] ... OK
+fetching GitHub [ common.cfg ] ... OK
+fetching GitHub [ secrets-common.cfg ] ... OK
+fetching GitHub [ wetserver.cfg ] ... OK
+fetching GitHub [ secrets-wetserver.cfg ] ... OK
+fetching GitHub [ linuxgsm.sh ] ... OK
+fetching GitHub [ core_getopt.sh ] ... OK
+fetching GitHub [ command_install.sh ] ... OK
+fetching GitHub [ check.sh ] ... OK
+fetching GitHub [ check_version.sh ] ... OK
+fetching GitHub [ check_tmuxception.sh ] ... OK
+fetching GitHub [ check_permissions.sh ] ... OK
+[ ERROR ] Installing wetserver: Permissions issues found
+Information! The following files are not executable:
+File:/home/stand/s8-h3/lgsm/modules/core_modules.sh
+/home/stand/s8-h3/lgsm/modules/core_legacy.sh
+/home/stand/s8-h3/lgsm/modules/core_messages.sh
+/home/stand/s8-h3/lgsm/modules/core_dl.sh
+/home/stand/s8-h3/lgsm/modules/core_trap.sh
+/home/stand/s8-h3/lgsm/modules/check_ip.sh
+/home/stand/s8-h3/lgsm/modules/info_game.sh
+/home/stand/s8-h3/lgsm/modules/core_getopt.sh
+/home/stand/s8-h3/lgsm/modules/command_install.sh
+/home/stand/s8-h3/lgsm/modules/check.sh
+/home/stand/s8-h3/lgsm/modules/check_version.sh
+/home/stand/s8-h3/lgsm/modules/check_tmuxception.sh
+/home/stand/s8-h3/lgsm/modules/check_permissions.sh
+Information! Attempting to fix permissions issues
+[ FAIL ] Installing wetserver: Failed to resolve permissions issues
+fetching GitHub [ core_exit.sh ] ... OK
+lgsm/tmp/wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz: FAILED open or read
+ACTION_FAILED h3 line=38

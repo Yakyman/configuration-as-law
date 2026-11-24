@@ -1,0 +1,1 @@
+command -v runuser >/dev/null 2>&1 || exit 127; runuser -u chrony -- env HOME=/var/lib/chrony XDG_RUNTIME_DIR=/run/user/995 sh -c 'scope="$HOME/.local/share/flatpak"; test -d "$scope" || { printf "%s\n" "Default user Flatpak scope does not exist or is inaccessible" >&2; exit 125; }; FLATPAK_USER_DIR="$scope" flatpak --user list --app --columns=ref,version,origin'

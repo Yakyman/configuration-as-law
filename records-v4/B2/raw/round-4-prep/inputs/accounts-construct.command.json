@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "run",
+    "bc4-prepare-accounts",
+    "--root"
+  ],
+  "stdin": "set -eu\nstand-pkg install /usr/local/share/stand/bc4/package-alpha.json\nstand-pkg install /usr/local/share/stand/bc4/package-beta.json\nstand-verify\npython3 -B /usr/local/lib/stand/bc4_bundle.py export /var/lib/stand/bc4-export\n"
+}

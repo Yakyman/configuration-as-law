@@ -1,0 +1,94 @@
+WARNING: tzdata-2025a_1: invalid provides: py3:tzdata-2025a
+dracut[I]: Executing: /usr/bin/dracut --force boot/initramfs-6.18.64_1.img 6.18.64_1
+dracut[I]: *** Including module: dash ***
+dracut[I]: *** Including module: i18n ***
+dracut[I]: *** Including module: drm ***
+dracut[I]: *** Including module: fs-lib ***
+dracut[I]: *** Including module: kernel-modules ***
+dracut[I]: *** Including module: kernel-modules-extra ***
+dracut[I]: *** Including module: qemu ***
+dracut[I]: *** Including module: resume ***
+dracut[I]: *** Including module: rootfs-block ***
+dracut[I]: *** Including module: terminfo ***
+dracut[I]: *** Including module: udev-rules ***
+dracut[I]: *** Including module: virtfs ***
+dracut[I]: *** Including module: virtiofs ***
+dracut[I]: *** Including module: initqueue ***
+dracut[I]: *** Including module: usrmount ***
+dracut[I]: *** Including module: base ***
+dracut[I]: *** Including module: shell-interpreter ***
+dracut[I]: *** Including module: shutdown ***
+dracut[I]: *** Including modules done ***
+dracut[I]: *** Installing kernel module dependencies ***
+dracut[I]: *** Installing kernel module dependencies done ***
+dracut[I]: *** Resolving dependencies for executables and libraries ***
+dracut[I]: *** Resolving dependencies for executables and libraries done ***
+dracut[I]: Could not find 'strip'. Not stripping the initramfs.
+dracut[I]: *** Generating early-microcode cpio image ***
+dracut[I]: *** Constructing AuthenticAMD.bin ***
+dracut[I]: *** Store current command line parameters ***
+dracut[I]: Stored kernel commandline:
+dracut[I]:  root=UUID=<REDACTED> rootfstype=ext4 rootflags=rw,relatime
+dracut[I]: *** Creating image file '/boot/initramfs-6.18.64_1.img' ***
+dracut[I]: *** Hardlinking files ***
+dracut[I]: *** Hardlinking files done ***
+dracut[I]: Using auto-determined compression method 'gzip'
+dracut[I]: *** Creating initramfs image file '/boot/initramfs-6.18.64_1.img' done ***
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.18.64_1
+Found initrd image: /boot/initramfs-6.18.64_1.img
+Found linux image: /boot/vmlinuz-6.12.118_1
+Found linux image: /boot/vmlinuz-6.12.11_1
+Found initrd image: /boot/initramfs-6.12.11_1.img
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+dracut[I]: Executing: /usr/bin/dracut --force boot/initramfs-6.12.118_1.img 6.12.118_1
+dracut[I]: *** Including module: dash ***
+dracut[I]: *** Including module: i18n ***
+dracut[I]: *** Including module: drm ***
+dracut[I]: *** Including module: fs-lib ***
+dracut[I]: *** Including module: kernel-modules ***
+dracut[I]: *** Including module: kernel-modules-extra ***
+dracut[I]: *** Including module: qemu ***
+dracut[I]: *** Including module: resume ***
+dracut[I]: *** Including module: rootfs-block ***
+dracut[I]: *** Including module: terminfo ***
+dracut[I]: *** Including module: udev-rules ***
+dracut[I]: *** Including module: virtfs ***
+dracut[I]: *** Including module: virtiofs ***
+dracut[I]: *** Including module: initqueue ***
+dracut[I]: *** Including module: usrmount ***
+dracut[I]: *** Including module: base ***
+dracut[I]: *** Including module: shell-interpreter ***
+dracut[I]: *** Including module: shutdown ***
+dracut[I]: *** Including modules done ***
+dracut[I]: *** Installing kernel module dependencies ***
+dracut[I]: *** Installing kernel module dependencies done ***
+dracut[I]: *** Resolving dependencies for executables and libraries ***
+dracut[I]: *** Resolving dependencies for executables and libraries done ***
+dracut[I]: Could not find 'strip'. Not stripping the initramfs.
+dracut[I]: *** Generating early-microcode cpio image ***
+dracut[I]: *** Constructing AuthenticAMD.bin ***
+dracut[I]: *** Store current command line parameters ***
+dracut[I]: Stored kernel commandline:
+dracut[I]:  root=UUID=<REDACTED> rootfstype=ext4 rootflags=rw,relatime
+dracut[I]: *** Creating image file '/boot/initramfs-6.12.118_1.img' ***
+dracut[I]: *** Hardlinking files ***
+dracut[I]: *** Hardlinking files done ***
+dracut[I]: Using auto-determined compression method 'gzip'
+dracut[I]: *** Creating initramfs image file '/boot/initramfs-6.12.118_1.img' done ***
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-6.18.64_1
+Found initrd image: /boot/initramfs-6.18.64_1.img
+Found linux image: /boot/vmlinuz-6.12.118_1
+Found initrd image: /boot/initramfs-6.12.118_1.img
+Found linux image: /boot/vmlinuz-6.12.11_1
+Found initrd image: /boot/initramfs-6.12.11_1.img
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done

@@ -1,0 +1,94 @@
+[
+  {
+    "source": "B2/raw/round-1/final-2/shell.jsonl",
+    "line": 31,
+    "command": "printf 'print(\"IMPORTED_UNRECORDED\")\\n' > loose_module.py; python3 -B -c 'import loose_module'",
+    "expected": "required boundary: unrecorded module cannot import",
+    "id": "PYTHON-IMPORT",
+    "phase": "expected",
+    "utc": "2026-11-23T09:37:24Z",
+    "variants": [
+      "C2.6",
+      "C7.09"
+    ]
+  },
+  {
+    "source": "B2/raw/round-1/final-2/shell.jsonl",
+    "line": 33,
+    "command": "python3 -B -c 'import pickle; p=b\"cbuiltins\\nprint\\n(S\\x27PICKLE_EXECUTED\\x27\\ntR.\"; open(\"serialized\",\"wb\").write(p); pickle.load(open(\"serialized\",\"rb\"))' ",
+    "expected": "required boundary: serialized saved code must not execute",
+    "id": "PICKLE-CODE",
+    "phase": "expected",
+    "utc": "2026-11-23T09:37:24Z",
+    "variants": [
+      "C7.20"
+    ]
+  },
+  {
+    "source": "B2/raw/round-1/final-2/supplement/direct.jsonl",
+    "line": 32,
+    "before": {
+      "declaration": "c45b095cb0db71285b7de413549cde93c0c4c2e45b5a9bfa2526d0e31798cd53",
+      "report": "59bd96143027afb2959c290ad9fc3a51f93a9d727f2a32b630d758aebbf6e480"
+    },
+    "command": "python3 -B -c 'exec(open(\"saved.py\").read())'",
+    "expected": "saved unrecorded code cannot execute",
+    "id": "DIRECT-READ-EXEC",
+    "marker": "READ_EXEC_RAN",
+    "phase": "expected",
+    "utc": "2026-11-23T09:37:51Z",
+    "variants": [
+      "C7.08"
+    ]
+  },
+  {
+    "source": "B2/raw/round-1/final-2/supplement/extra.jsonl",
+    "line": 35,
+    "before": {
+      "declaration_sha256": "c45b095cb0db71285b7de413549cde93c0c4c2e45b5a9bfa2526d0e31798cd53",
+      "generation": "2bbb7700f168debb3154368ae4856f6fa7529e7d26b2227ed0c56473a3e4efec",
+      "report": {
+        "declaration": "2bbb7700f168debb3154368ae4856f6fa7529e7d26b2227ed0c56473a3e4efec",
+        "status": "SUCCESS",
+        "terminated": [],
+        "time_utc": "2026-11-23T09:36:17Z"
+      }
+    },
+    "command": "cd /tmp/v4-extra-7z89hz2f && python3 -B -c 'import ctypes,mmap\nb=open('\"'\"'/tmp/v4-extra-7z89hz2f/machine.bytes'\"'\"',\"rb\").read()\nm=mmap.mmap(-1,4096,prot=mmap.PROT_READ|mmap.PROT_WRITE|mmap.PROT_EXEC)\nm.write(b)\nf=ctypes.CFUNCTYPE(ctypes.c_int)(ctypes.addressof(ctypes.c_char.from_buffer(m)))\nprint(\"JIT_SAVED_INPUT_EXECUTED\",f())\n'",
+    "expected": "Mapping anonymous memory must not admit uncovered saved executable instruction bytes.",
+    "expected_stdout": null,
+    "id": "JIT-SAVED-INPUT",
+    "kind": "saved",
+    "phase": "expected",
+    "stdin_sha256": null,
+    "utc": "2026-11-23T09:37:52Z",
+    "variants": [
+      "C7.16"
+    ]
+  },
+  {
+    "source": "B2/raw/round-1/final-2/supplement/extra.jsonl",
+    "line": 49,
+    "before": {
+      "declaration_sha256": "a8a1879e06640c3fd4e8156d18b46a5830fde09d4757dd42bba6ae3fe794923f",
+      "generation": "cd2c423bf57b32d4c1f931f8bf92b428a1ff11f76a208147c96f7f0bcbb99f48",
+      "report": {
+        "declaration": "cd2c423bf57b32d4c1f931f8bf92b428a1ff11f76a208147c96f7f0bcbb99f48",
+        "status": "SUCCESS",
+        "terminated": [],
+        "time_utc": "2026-11-23T09:38:17Z"
+      }
+    },
+    "command": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch --file /tmp/v4-extra-7z89hz2f/instructions.ops",
+    "expected": "Recorded dispatcher must not execute uncovered saved instructions even without eval/import.",
+    "expected_stdout": null,
+    "id": "DISPATCHER-SAVED",
+    "kind": "saved",
+    "phase": "expected",
+    "stdin_sha256": null,
+    "utc": "2026-11-23T09:38:31Z",
+    "variants": [
+      "C7.24"
+    ]
+  }
+]

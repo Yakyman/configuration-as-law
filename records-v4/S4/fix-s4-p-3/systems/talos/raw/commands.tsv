@@ -1,0 +1,11 @@
+spdx-list	talosctl list --depth 1 /usr/share/spdx	30
+state-list	talosctl list --depth 2 /system/state	30
+boot-list	talosctl list --depth 3 /boot	30
+audit-history	talosctl logs auditd --tail -1	30
+resource-types	talosctl get rd -o json	30
+machined-history	talosctl logs machined --tail -1	30
+installer-history	talosctl logs installer --tail -1	30
+runtime-events	talosctl events --tail 1000	10
+spdx-document	talosctl read /usr/share/spdx/talos-amd64.spdx.json	30
+etc-status	talosctl get EtcFileStatuses.files.talos.dev -o json	30
+etc-spec	talosctl get EtcFileSpecs.files.talos.dev -o json	30

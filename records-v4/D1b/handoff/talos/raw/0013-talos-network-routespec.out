@@ -1,0 +1,60 @@
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "network.RouteSpecController"
+        ],
+        "id": "inet4/10.0.2.2//1024",
+        "namespace": "network",
+        "owner": "RouteMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "RouteSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "10.0.2.2",
+        "layer": "operator",
+        "outLinkName": "ens3",
+        "priority": 1024,
+        "protocol": "boot",
+        "scope": "global",
+        "src": "10.0.2.15",
+        "table": "main",
+        "type": "unicast"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "finalizers": [
+            "network.RouteSpecController"
+        ],
+        "id": "inet4/10.0.3.2//1024",
+        "namespace": "network",
+        "owner": "RouteMergeControllers.net.talos.dev",
+        "phase": "running",
+        "type": "RouteSpecs.net.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "dst": "",
+        "family": "inet4",
+        "flags": "",
+        "gateway": "10.0.3.2",
+        "layer": "operator",
+        "outLinkName": "ens4",
+        "priority": 1024,
+        "protocol": "boot",
+        "scope": "global",
+        "src": "10.0.3.15",
+        "table": "main",
+        "type": "unicast"
+    }
+}

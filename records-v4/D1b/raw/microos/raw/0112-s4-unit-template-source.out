@@ -1,0 +1,9 @@
+# /usr/lib/systemd/system/chrony-dnssrv@.service
+[Unit]
+Description=DNS SRV lookup of %I for chrony
+After=chronyd.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/chrony/helper update-dnssrv-servers %I

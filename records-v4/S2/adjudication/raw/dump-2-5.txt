@@ -1,0 +1,299 @@
+====================================================================================================
+OBJECT alma-889f8cd2dae65a248533322a family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown member_integrity for generated modules.* entries and package_as_received (S2/facts.tsv:1503); some kernel members are unchanged package contents, but the remaining members cannot receive definite decisions.
+       by_meaning: yes: covered by kernel-core and kernel-modules-core installation line, including module-index generation | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-16,S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Packaged unchanged members (vmlinuz, System.map, config, symvers, modules.builtin/order/block/drm) INSTALLED-PACKAGE; depmod outputs (modules.dep, alias, symbols, softdep, devname, .bin) GAP-TWO: S8.2-15 record vs S8.2-16 generated list INSTALLED-DERIVED.
+       by_meaning: yes: covered by the lines of packages kernel-core and kernel-modules-core | without_forbidding: yes
+  name: ['/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64'] nfacts 365
+   L1145 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1149 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1150 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1151 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1152 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1153 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1244 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/build:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1246 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.alias.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1247 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.alias:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1249 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.builtin.alias.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1250 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.builtin.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1253 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.dep.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1254 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.dep:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1255 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.devname:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1260 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.softdep:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1261 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.symbols.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1262 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.symbols:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1263 member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/source:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64 = UNKNOWN: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+   L1503 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L1505 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L1507 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT microos-2ce40b9afb2194333071f853 family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and member_code_or_values (S2/facts.tsv:1739,1591); this aggregate cannot be treated uniformly as generated policy data without its deciding member facts.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] MIXED | S8.2-11,S8.2-13,S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: commit_num and checksums: RECORD; policy.kern/linked generated from modules: GAP-TWO (S8.2-15 vs S8.2-16); booleans.local, seusers: UNKNOWN (human_value_choice; person-chosen access rules are SETTING-OWN).
+       by_meaning: yes: covered by the line of the SELinux policy package and own lines for local changes | without_forbidding: yes
+  name: ['/.snapshots/1/snapshot/etc/selinux/targeted/active'] nfacts 163
+   L1581 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1584 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1585 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1586 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1587 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1588 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1590 member_access_effects = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L1591 member_code_or_values = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L1631 member_launch_behavior = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L1739 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L1741 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L1743 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT microos-a1f877f4c02acd2a5f9a0d97 family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and derivation_input_set (S2/facts.tsv:2032,1744); documented MIME generation does not establish this group's original delivery or complete inputs.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Generated lookup data, not received, not code, not chosen. Reading A: questions in order give program record (S8.2-15). Reading B: S8.2-16 names a generated list as installed, covered by the line it was built from (INSTALLED-DERIVED).
+       by_meaning: yes: covered by the line of package shared-mime-info and the packages adding MIME definitions | without_forbidding: yes
+  name: ['/usr/share/mime'] nfacts 293
+   L1744 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1748 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1749 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1750 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1751 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L1752 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2032 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L2034 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L2036 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT microos-c111706edb49a56b42b0ff18 family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and member_code_or_values (S2/facts.tsv:3199,2047); the 104 immediate entries include more than ld.so.cache, so the cache's behavior cannot decide the group.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-11,S8.2-13,S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Members differ: packaged configuration files INSTALLED-PACKAGE if unchanged; hostname, locale, passwd SETTING; ld.so.cache GAP-TWO (S8.2-15 vs S8.2-16); .ignition-result.json RECORD; contents of many members unknown.
+       by_meaning: yes: covered by the package lines, with own lines for chosen settings | without_forbidding: yes
+  name: ['/.snapshots/1/snapshot/etc'] nfacts 1168
+   L2037 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2040 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2041 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2042 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2043 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2044 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L2046 member_access_effects = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L2047 member_code_or_values = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L2360 member_launch_behavior = UNKNOWN: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+   L3199 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L3201 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L3204 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT microos-dcce813055fa256ed012c87a family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and derivation_input_set (S2/facts.tsv:9063,3205); certificate-generation documentation does not establish this trust store's delivered bytes or selected inputs.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Generated trust store, not received, not code, not chosen. Reading A: questions in order give program record (S8.2-15). Reading B: S8.2-16 names a generated list as installed (INSTALLED-DERIVED).
+       by_meaning: yes: covered by the line of package ca-certificates | without_forbidding: yes
+  name: ['/var/lib/ca-certificates/openssl'] nfacts 5864
+   L3205 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L3209 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L3210 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L3211 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L3212 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L3213 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9063 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L9065 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L9068 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-4ab73c90e99c24b1fb10c341 family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and derivation_input_set (S2/facts.tsv:14637,9069); naming the MIME generator does not establish unchanged receipt of these 505 entries.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Generated lookup data, not received, not code, not chosen. Reading A: questions in order give program record (S8.2-15). Reading B: S8.2-16 names a generated list as installed, covered by the line it was built from (INSTALLED-DERIVED).
+       by_meaning: yes: covered by the line of package shared-mime-info | without_forbidding: yes
+  name: ['/usr/share/mime/application'] nfacts 5573
+   L9069 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9073 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9074 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9075 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9076 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L9077 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14637 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L14639 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L14641 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-982c71cf468c85befb1aa508 family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and historical_producer (S2/facts.tsv:14666,14647); a documented cache-generation mechanism does not prove the observed aux-cache's delivery or writer.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: ldconfig auxiliary cache, not received, not code, not chosen. Reading A: questions in order give program record (S8.2-15). Reading B: S8.2-16 names a generated list as installed, covered by the line it was built from (INSTALLED-DERIVED).
+       by_meaning: no | without_forbidding: yes
+  name: ['/var/cache/ldconfig'] nfacts 30
+   L14642 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14646 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14647 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14648 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14649 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14650 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14666 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L14668 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L14671 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-f2e5d5edfa5902c8aee7bace family 2 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and derivation_input_set (S2/facts.tsv:17397,14672); known certificate consumers do not establish unchanged package content or this generation's complete input set.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-6,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Generated lookup data, not received, not code, not chosen. Reading A: questions in order give program record (S8.2-15). Reading B: S8.2-16 names a generated list as installed, covered by the line it was built from (INSTALLED-DERIVED).
+       by_meaning: yes: covered by the line of package ca-certificates | without_forbidding: yes
+  name: ['/etc/ssl/certs'] nfacts 2730
+   L14672 derivation_input_set = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14676 historical_creation_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14677 historical_producer = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14678 human_choice_time = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14679 human_chooser_role = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L14680 human_value_choice = UNKNOWN: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+   L17397 package_as_received = UNKNOWN: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+   L17399 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L17401 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-2715a0cd9890aae192131492 family 3 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and historical_producer (S2/facts.tsv:17605,17447); retaining an earlier kernel does not establish the provenance and integrity of all 14 immediate members.
+       by_meaning: yes: covered by retained linux6.12 6.12.11_1 package line | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-9,S8.2-20,S8.2-16,S8.2-15 | undetermined
+       reason: kernel/ subtree: UNKNOWN (package_as_received, current_loadability; package name vs version reading of S8.2-7). modules.* depmod lists: GAP-TWO, S8.2-15 record vs S8.2-16 generated list.
+       by_meaning: yes: covered by the line of package linux6.12 | without_forbidding: yes
+  name: ['/usr/lib/modules/6.12.11_1'] nfacts 171
+   L17441 current_loadability = UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+   L17446 historical_creation_time = UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+   L17447 historical_producer = UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+   L17605 package_as_received = UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+   L17608 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L17611 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-7c442df1fb52f7545f18f9cb family 3 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received for the retained version directory (S2/facts.tsv:17633); this row contains one directory entry, not a recursively expanded set of executable modules.
+       by_meaning: yes: covered by retained linux6.12 6.12.11_1 package line | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-9,S8.2-20,S8.2-16,S8.2-15 | undetermined
+       reason: Single entry 6.12.11_1: its kernel/ subtree UNKNOWN (package_as_received, current_loadability, name-or-version reading), its modules.* lists GAP-TWO (S8.2-15 vs S8.2-16).
+       by_meaning: yes: covered by the line of package linux6.12 | without_forbidding: yes
+  name: ['/usr/lib/modules'] nfacts 28
+   L17612 current_loadability = UNKNOWN: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+   L17617 historical_creation_time = UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+   L17618 historical_producer = UNKNOWN: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+   L17633 package_as_received = UNKNOWN: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+   L17636 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L17639 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT microos-62ccb03ff56e2af8ff91ff68 family 4 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and archive_member_inventory (S2/facts.tsv:18019,17856); active-counterpart metadata does not certify every snapshot member or the archive's source closure.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: Unchanged kernel-default files (vmlinuz, config, System.map, sysctl.conf, hmac) INSTALLED-PACKAGE; initrd (changed, generated) GAP-TWO: PROGRAM-DERIVED via S8.2-9 vs RECORD via S8.2-23/S8.2-15; grub2, efi, mbrid, writable undecided.
+       by_meaning: yes: covered by the line of package kernel-default and the bootloader lines | without_forbidding: yes
+  name: ['/.snapshots/1/snapshot/boot'] nfacts 194
+   L17856 archive_member_inventory = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L17857 archive_source_modifiedness = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L17858 archive_source_package_versions = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L17861 historical_producer = UNKNOWN: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+   L17862 human_choice_time = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L17863 human_chooser_role = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L17864 human_value_choice = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18019 package_as_received = UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+   L18021 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18027 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-0d4bff48fce03ced27aa83a4 family 4 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and archive_source_package_versions (S2/facts.tsv:18051,18031); the logged dracut invocation identifies a producer but not unchanged package receipt or the complete archive inputs.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: dracut-built archive; kernel unpacks it and runs its /init. Reading A: code executed through the kernel (S8.2-9), built by the system: PROGRAM-DERIVED. Reading B: the archive is only unpacked as data (S8.2-23), a program's output: RECORD.
+       by_meaning: yes: covered by the line of package linux6.12 | without_forbidding: yes
+  name: ['/boot/initramfs-6.12.118_1.img'] nfacts 31
+   L18029 archive_member_inventory = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18030 archive_source_modifiedness = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18031 archive_source_package_versions = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18034 human_choice_time = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18035 human_chooser_role = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18036 human_value_choice = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18051 package_as_received = UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+   L18053 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18058 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-386e90812bdecbec21d0785c family 4 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and archive_member_inventory (S2/facts.tsv:18137,18060); six immediate /boot entries include old kernel data and archives with incomplete provenance.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] MIXED | S8.2-7,S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16,S8.2-20 | undetermined
+       reason: Initramfs images GAP-TWO (S8.2-9 PROGRAM-DERIVED vs S8.2-23 RECORD); config and vmlinuz of old 6.12.11_1 UNKNOWN (package_as_received; name-or-version reading of S8.2-7); grub directory undecided.
+       by_meaning: yes: covered by the kernel package lines and the bootloader line | without_forbidding: yes
+  name: ['/boot'] nfacts 86
+   L18060 archive_member_inventory = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18061 archive_source_modifiedness = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18062 archive_source_package_versions = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18065 human_choice_time = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18066 human_chooser_role = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18067 human_value_choice = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18137 package_as_received = UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+   L18139 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18144 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-a6e5bb36a961f99d2e09e83e family 4 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown package_as_received and archive_source_package_versions (S2/facts.tsv:18168,18148); the logged dracut invocation does not establish the archive's entire received or derived content.
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-15,S8.2-16 | undetermined
+       reason: dracut-built archive; kernel unpacks it and runs its /init. Reading A: code executed through the kernel (S8.2-9), built by the system: PROGRAM-DERIVED. Reading B: the archive is only unpacked as data (S8.2-23), a program's output: RECORD.
+       by_meaning: yes: covered by the line of package linux6.18 | without_forbidding: yes
+  name: ['/boot/initramfs-6.18.64_1.img'] nfacts 31
+   L18146 archive_member_inventory = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18147 archive_source_modifiedness = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18148 archive_source_package_versions = UNKNOWN: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+   L18151 human_choice_time = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18152 human_chooser_role = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18153 human_value_choice = UNKNOWN: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+   L18168 package_as_received = UNKNOWN: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+   L18170 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18175 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT alma-2ea4b9f74eb9ce06f9d317ff family 5 DIFF
+  [c1] INSTALLED-OWN | S8.2-6;S8.1-4;S8.1-5;S8.1-6;S8.2-7;S8.2-8;S8.2-16;S8.2-1 | own line
+       reason: The XPI is the whole installed add-on unit (S2/facts.tsv:18178,18183,18189). Question one does not require a whole package to remain unchanged; unknown permissions do not bypass its priority. https://firefox-source-docs.mozilla.org/python/marionette_driver.html
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] UNKNOWN | S8.1-4,S8.1-5,S8.1-6,S8.2-7,S8.2-16,S8.2-1,S8.2-21 | undetermined
+       reason: Firefox's built-in installer installed the XPI: a package (Q1), own line. Unknown: effective_extension_rights. If it cannot launch programs or change the host, S8.2-21 says need not be recorded, against S8.2-1.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['~/.mozilla/firefox/cal-check/extensions'] nfacts 31
+   L18179 effective_extension_rights = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18181 extension_external_program_launch = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18182 extension_host_changes = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18184 installed_addon_manifest_permissions = UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+   L18185 installed_addon_version = UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+   L18199 package_as_received = UNKNOWN: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+   L18203 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18206 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+====================================================================================================
+OBJECT void-61a9a88ad2b852b6cf106db6 family 5 DIFF
+  [c1] INSTALLED-OWN | S8.2-6;S8.1-4;S8.1-5;S8.1-6;S8.2-7;S8.2-8;S8.2-16;S8.2-1 | own line
+       reason: The sole XPI is installed and removed as an add-on unit (S2/facts.tsv:18209,18214,18220). Whole-package classification precedes questions about executable content and unknown extension permissions. https://firefox-source-docs.mozilla.org/python/marionette_driver.html
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] UNKNOWN | S8.1-4,S8.1-5,S8.1-6,S8.2-7,S8.2-16,S8.2-1,S8.2-21 | undetermined
+       reason: Firefox's built-in installer installed the XPI: a package (Q1), own line. Unknown: effective_extension_rights. If it cannot launch programs or change the host, S8.2-21 says need not be recorded, against S8.2-1.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['~/.mozilla/firefox/cal-check/extensions'] nfacts 31
+   L18210 effective_extension_rights = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18212 extension_external_program_launch = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18213 extension_host_changes = UNKNOWN: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+   L18215 installed_addon_manifest_permissions = UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+   L18216 installed_addon_version = UNKNOWN: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+   L18230 package_as_received = UNKNOWN: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+   L18234 primary_description_designation = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+   L18237 successful_application_source = UNKNOWN: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line

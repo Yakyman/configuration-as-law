@@ -1,0 +1,55 @@
+{
+  "adapters": {
+    "talos": {
+      "boundaries": 18,
+      "boundary_reasons": {
+        "workload-or-pseudo-boundary": 18
+      },
+      "content_by_root": {
+        "/etc": {
+          "ok": 35
+        },
+        "/opt": {
+          "ok": 6
+        },
+        "/var/lib/containerd": {
+          "ok": 5879,
+          "read-error": 17,
+          "size-changed": 1
+        },
+        "/var/lib/kubelet": {
+          "ok": 9,
+          "read-error": 14,
+          "size-changed": 2
+        },
+        "/var/log/containers": {},
+        "/var/system": {}
+      },
+      "content_ok": 5929,
+      "content_requested": 5963,
+      "content_status_counts": {
+        "ok": 5929,
+        "read-error": 31,
+        "size-changed": 3
+      },
+      "current_image_source_rows": 3,
+      "directories": 1219,
+      "expanded_members": 8503,
+      "listing_failures": 0,
+      "mountinfo_query_exit": 0,
+      "mountinfo_rows": 29,
+      "mountinfo_status": "ok",
+      "opaque_targets_listed": 6,
+      "source_query_exit": 0
+    }
+  },
+  "counts": {
+    "filesystem_complete": 0,
+    "level1": 226,
+    "level2": 53,
+    "objects": 279,
+    "package_files": 287,
+    "package_integrity_known": 0,
+    "package_ownership_complete": 1
+  }
+}

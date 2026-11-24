@@ -1,0 +1,513 @@
+PACKAGE NetworkManager
+preinstall scriptlet (using /bin/sh):
+if [ -f "/usr/lib/systemd/system/network-online.target.wants/NetworkManager-wait-online.service" ] ; then
+    # older versions used to install this file, effectively always enabling
+    # NetworkManager-wait-online.service. We no longer do that and rely on
+    # preset.
+    # But on package upgrade we must explicitly enable it (rh#1455704).
+    systemctl enable NetworkManager-wait-online.service || :
+fi
+postinstall scriptlet (using /bin/sh):
+# skip triggering if udevd isn't even accessible, e.g. containers or
+# rpm-ostree-based systems
+if [ -S /run/udev/control ]; then
+    /usr/bin/udevadm control --reload-rules || :
+    /usr/bin/udevadm trigger --subsystem-match=net || :
+fi
+
+test -x /usr/bin/firewall-cmd && firewall-cmd --reload --quiet || : 
+
+
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-system-units NetworkManager.service NetworkManager-wait-online.service NetworkManager-dispatcher.service nm-priv-helper.service || : 
+fi
+preuninstall scriptlet (using /bin/sh):
+if [ $1 -eq 0 ]; then
+    # Package removal, not upgrade
+    /bin/systemctl --no-reload disable NetworkManager.service >/dev/null 2>&1 || :
+
+    # Don't kill networking entirely just on package remove
+    #/bin/systemctl stop NetworkManager.service >/dev/null 2>&1 || :
+fi
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-system-units NetworkManager-wait-online.service NetworkManager-dispatcher.service nm-priv-helper.service || : 
+fi
+postuninstall scriptlet (using /bin/sh):
+# skip triggering if udevd isn't even accessible, e.g. containers or
+# rpm-ostree-based systems
+if [ -S /run/udev/control ]; then
+    /usr/bin/udevadm control --reload-rules || :
+    /usr/bin/udevadm trigger --subsystem-match=net || :
+fi
+
+test -x /usr/bin/firewall-cmd && firewall-cmd --reload --quiet || :
+PACKAGE alsa-utils
+preinstall scriptlet (using /bin/sh):
+if [ ! -r /usr/lib/systemd/system/alsa-state.service ]; then
+  [ -d /etc/alsa ] || mkdir -m 0755 /etc/alsa
+  echo "# Remove this file to disable the alsactl daemon mode" > \
+                                                    /etc/alsa/state-daemon.conf
+fi
+postinstall scriptlet (using /bin/sh):
+if [ -s /etc/alsa/asound.state -a ! -s /etc/asound.state ] ; then
+  mv /etc/alsa/asound.state /etc/asound.state
+fi
+if [ -s /etc/asound.state -a ! -s /var/lib/alsa/asound.state ] ; then
+  mv /etc/asound.state /var/lib/alsa/asound.state
+fi
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-system-units alsa-state.service || : 
+fi
+preuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-system-units alsa-state.service || : 
+fi
+postuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -ge 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package upgrade, not uninstall 
+    /usr/lib/systemd/systemd-update-helper mark-restart-system-units alsa-state.service || : 
+fi
+PACKAGE dconf
+postinstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-user-units dconf.service || : 
+fi
+preuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-user-units dconf.service || : 
+fi
+postuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -ge 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package upgrade, not uninstall 
+    /usr/lib/systemd/systemd-update-helper mark-restart-user-units dconf.service || : 
+fi
+posttrans scriptlet (using /bin/sh):
+/usr/bin/dconf update
+PACKAGE firewalld
+pretrans scriptlet (using <lua>):
+-- HACK: Old rpm versions had an untracked (%ghost) symlink for
+-- /etc/firewalld/firewalld.conf. RPM won't handle replacing the symlink due to
+-- "%config(noreplace)". As such, we remove the symlink here before attempting
+-- to install the new version which is a real file. Only replace the symlink if
+-- the target matches one of the previous package's expected targets.
+--
+-- Unfortunately this must be done in pretrans in order to occur before RPM
+-- makes decisions about file replacement.
+--
+local old_package_symlinks = {"firewalld-standard.conf", "firewalld-server.conf",
+                              "firewalld-workstation.conf"}
+local symlink_target = posix.readlink("/etc/firewalld/firewalld.conf")
+for k,v in ipairs(old_package_symlinks) do
+  if symlink_target == v then
+    posix.unlink("/etc/firewalld/firewalld.conf")
+    break
+  end
+end
+postinstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-system-units firewalld.service || : 
+fi
+preuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-system-units firewalld.service || : 
+fi
+postuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -ge 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package upgrade, not uninstall 
+    /usr/lib/systemd/systemd-update-helper mark-restart-system-units firewalld.service || : 
+fi
+PACKAGE gdm
+preinstall scriptlet (using /bin/sh):
+
+# generated from gdm.sysusers
+getent group 'gdm' >/dev/null || groupadd -f -g '42' -r 'gdm' || :
+if ! getent passwd 'gdm' >/dev/null; then
+    if ! getent passwd '42' >/dev/null; then
+        useradd -r -u '42' -g 'gdm' -d '/var/lib/gdm' -s '/usr/sbin/nologin' -c 'GNOME Display Manager' 'gdm' || :
+    else
+        useradd -r -g 'gdm' -d '/var/lib/gdm' -s '/usr/sbin/nologin' -c 'GNOME Display Manager' 'gdm' || :
+    fi
+fi
+postinstall scriptlet (using /bin/sh):
+# if the user already has a config file, then migrate it to the new
+# location; rpm will ensure that old file will be renamed
+
+custom=/etc/gdm/custom.conf
+
+if [ $1 -ge 2 ] ; then
+    if [ -f /usr/share/gdm/config/gdm.conf-custom ]; then
+        oldconffile=/usr/share/gdm/config/gdm.conf-custom
+    elif [ -f /etc/X11/gdm/gdm.conf ]; then
+        oldconffile=/etc/X11/gdm/gdm.conf
+    fi
+
+    # Comment out some entries from the custom config file that may
+    # have changed locations in the update.  Also move various
+    # elements to their new locations.
+
+    [ -n "$oldconffile" ] && sed \
+    -e 's@^command=/usr/X11R6/bin/X@#command=/usr/bin/Xorg@' \
+    -e 's@^Xnest=/usr/X11R6/bin/Xnest@#Xnest=/usr/X11R6/bin/Xnest@' \
+    -e 's@^BaseXsession=/etc/X11/xdm/Xsession@#BaseXsession=/etc/X11/xinit/Xsession@' \
+    -e 's@^BaseXsession=/etc/X11/gdm/Xsession@#&@' \
+    -e 's@^BaseXsession=/etc/gdm/Xsession@#&@' \
+    -e 's@^Greeter=/usr/bin/gdmgreeter@#Greeter=/usr/libexec/gdmgreeter@' \
+    -e 's@^RemoteGreeter=/usr/bin/gdmlogin@#RemoteGreeter=/usr/libexec/gdmlogin@' \
+    -e 's@^GraphicalTheme=Bluecurve@#&@' \
+    -e 's@^BackgroundColor=#20305a@#&@' \
+    -e 's@^DefaultPath=/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin@#&@' \
+    -e 's@^RootPath=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin@#&@' \
+    -e 's@^HostImageDir=/usr/share/hosts/@#HostImageDir=/usr/share/pixmaps/faces/@' \
+    -e 's@^LogDir=/var/log/gdm@#&@' \
+    -e 's@^PostLoginScriptDir=/etc/X11/gdm/PostLogin@#&@' \
+    -e 's@^PreLoginScriptDir=/etc/X11/gdm/PreLogin@#&@' \
+    -e 's@^PreSessionScriptDir=/etc/X11/gdm/PreSession@#&@' \
+    -e 's@^PostSessionScriptDir=/etc/X11/gdm/PostSession@#&@' \
+    -e 's@^DisplayInitDir=/var/run/gdm.pid@#&@' \
+    -e 's@^RebootCommand=/sbin/reboot;/sbin/shutdown -r now;/usr/sbin/shutdown -r now;/usr/bin/reboot@#&@' \
+    -e 's@^HaltCommand=/sbin/poweroff;/sbin/shutdown -h now;/usr/sbin/shutdown -h now;/usr/bin/poweroff@#&@' \
+    -e 's@^ServAuthDir=/var/gdm@#&@' \
+    -e 's@^Greeter=/usr/bin/gdmlogin@Greeter=/usr/libexec/gdmlogin@' \
+    -e 's@^RemoteGreeter=/usr/bin/gdmgreeter@RemoteGreeter=/usr/libexec/gdmgreeter@' \
+    $oldconffile > $custom
+fi
+
+if [ $1 -ge 2 -a -f $custom ] && grep -q /etc/X11/gdm $custom ; then
+   sed -i -e 's@/etc/X11/gdm@/etc/gdm@g' $custom
+fi
+
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-system-units gdm.service || : 
+fi
+preuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-system-units gdm.service || : 
+fi
+postuninstall program: /bin/sh
+PACKAGE rpm
+preinstall scriptlet (using /bin/sh):
+# Symlink all rpmdb files to the new location if we're still using /var/lib/rpm
+if [ ! -L /var/lib/rpm ] && [ -d /var/lib/rpm ]; then
+    mkdir -p /usr/lib/sysimage/rpm
+    rpmdb_files=$(find /var/lib/rpm -maxdepth 1 -type f | sed 's|^/var/lib/rpm/||g' | sort)
+    for rpmdb_file in ${rpmdb_files[@]}; do
+        ln -sfr /var/lib/rpm/${rpmdb_file} /usr/lib/sysimage/rpm/${rpmdb_file}
+    done
+fi
+posttrans scriptlet (using /bin/sh):
+if [ ! -L /var/lib/rpm ] && [ -d /var/lib/rpm ]; then
+    touch /var/lib/rpm/.migratedb
+fi
+if [ ! -d /var/lib/rpm ] && [ -d /usr/lib/sysimage/rpm ] && [ ! -f /usr/lib/sysimage/rpm/.rpmdbdirsymlink_created ]; then
+    ln -sfr /usr/lib/sysimage/rpm /var/lib/rpm
+    touch /usr/lib/sysimage/rpm/.rpmdbdirsymlink_created
+fi
+PACKAGE selinux-policy
+postinstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Initial installation 
+    /usr/lib/systemd/systemd-update-helper install-system-units selinux-check-proper-disable.service || : 
+fi 
+
+if [ ! -s /etc/selinux/config ]; then
+#
+#     New install so we will default to targeted policy
+#
+echo "
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#     enforcing - SELinux security policy is enforced.
+#     permissive - SELinux prints warnings instead of enforcing.
+#     disabled - No SELinux policy is loaded.
+# See also:
+# https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-selinux/#getting-started-with-selinux-selinux-states-and-modes
+#
+# NOTE: In earlier Fedora kernel builds, SELINUX=disabled would also
+# fully disable SELinux during boot. If you need a system with SELinux
+# fully disabled instead of SELinux running with no policy loaded, you
+# need to pass selinux=0 to the kernel command line. You can use grubby
+# to persistently set the bootloader to boot with selinux=0:
+#
+#    grubby --update-kernel ALL --args selinux=0
+#
+# To revert back to SELinux enabled:
+#
+#    grubby --update-kernel ALL --remove-args selinux
+#
+SELINUX=enforcing
+# SELINUXTYPE= can take one of these three values:
+#     targeted - Targeted processes are protected,
+#     mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+
+" > /etc/selinux/config
+
+     ln -sf ../selinux/config /etc/sysconfig/selinux
+     /usr/sbin/restorecon /etc/selinux/config 2> /dev/null || :
+else
+     . /etc/selinux/config
+fi
+exit 0
+preuninstall scriptlet (using /bin/sh):
+
+ 
+if [ $1 -eq 0 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package removal, not upgrade 
+    /usr/lib/systemd/systemd-update-helper remove-system-units selinux-check-proper-disable.service || : 
+fi
+postuninstall scriptlet (using /bin/sh):
+
+ 
+
+if [ $1 = 0 ]; then
+     /usr/sbin/setenforce 0 2> /dev/null
+     if [ ! -s /etc/selinux/config ]; then
+          echo "SELINUX=disabled" > /etc/selinux/config
+     else
+          sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+     fi
+fi
+exit 0
+PACKAGE selinux-policy-targeted
+pretrans scriptlet (using <lua>):
+
+local sysconfdir = rpm.expand("/etc") 
+local config_file = sysconfdir .. "/selinux/config" 
+local config_backup = sysconfdir .. "/selinux/.config_backup" 
+os.remove(config_backup) 
+if posix.stat(config_file) then 
+    local f = assert(io.open(config_file, "r"), "Failed to read " .. config_file) 
+    local content = f:read("*all") 
+    f:close() 
+    local backup = content:gsub("SELINUX", "BACKUP_SELINUX") 
+    local bf = assert(io.open(config_backup, "w"), "Failed to open " .. config_backup) 
+    bf:write(backup) 
+    bf:close() 
+end
+
+if posix.access ("/var/lib/selinux/targeted/active/modules/400/extra_varrun/cil", "r") then 
+  os.execute ("/usr/bin/rm -rf /var/lib/selinux/targeted/active/modules/400/extra_varrun") 
+end
+
+if posix.access ("/var/lib/selinux/targeted/active/modules/400/extra_binsbin/cil", "r") then 
+  os.execute ("/usr/bin/rm -rf /var/lib/selinux/targeted/active/modules/400/extra_binsbin") 
+end
+preinstall scriptlet (using /bin/sh):
+
+if [ $1 -ne 1 ] && [ -s /etc/selinux/config ]; then 
+     for MOD_NAME in ganesha ipa_custodia kdbus; do 
+        if [ -d /var/lib/selinux/targeted/active/modules/100/$MOD_NAME ]; then 
+           /usr/sbin/semodule -n -d $MOD_NAME 2> /dev/null; 
+        fi; 
+     done; 
+     . /etc/selinux/config; 
+     FILE_CONTEXT=/etc/selinux/targeted/contexts/files/file_contexts; 
+     if [ "${SELINUXTYPE}" = targeted -a -f ${FILE_CONTEXT} ]; then 
+        [ -f ${FILE_CONTEXT}.pre ] || cp -f ${FILE_CONTEXT} ${FILE_CONTEXT}.pre; 
+     fi; 
+     touch /etc/selinux/targeted/.rebuild; 
+     if [ -e /etc/selinux/targeted/.policy.sha512 ]; then 
+        POLICY_FILE=`ls /etc/selinux/targeted/policy/policy.* | sort | head -1` 
+        sha512=`sha512sum $POLICY_FILE | cut -d ' ' -f 1`; 
+	checksha512=`cat /etc/selinux/targeted/.policy.sha512`; 
+	if [ "$sha512" == "$checksha512" ] ; then 
+		rm /etc/selinux/targeted/.rebuild; 
+	fi; 
+   fi; 
+fi;
+postinstall scriptlet (using /bin/sh):
+
+if [ -f /etc/selinux/.config_backup ]; then 
+    . /etc/selinux/.config_backup; 
+else 
+    BACKUP_SELINUXTYPE=targeted; 
+fi; 
+if [ -s /etc/selinux/config ]; then 
+    . /etc/selinux/config; 
+    if ls /etc/selinux/$BACKUP_SELINUXTYPE/policy/policy.* &>/dev/null; then 
+        if [ "$BACKUP_SELINUXTYPE" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE='"$BACKUP_SELINUXTYPE"'/g' /etc/selinux/config; 
+        fi; 
+    elif [ "targeted" = "targeted" ]; then 
+        if [ "targeted" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config; 
+        fi; 
+    elif ! ls  /etc/selinux/$SELINUXTYPE/policy/policy.* &>/dev/null; then 
+        if [ "targeted" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config; 
+        fi; 
+    fi; 
+fi;
+exit 0
+postuninstall scriptlet (using /bin/sh):
+if [ $1 = 0 ]; then
+    if [ -s /etc/selinux/config ]; then
+        source /etc/selinux/config &> /dev/null || true
+    fi
+    if [ "$SELINUXTYPE" = "targeted" ]; then
+        /usr/sbin/setenforce 0 2> /dev/null
+        if [ ! -s /etc/selinux/config ]; then
+            echo "SELINUX=disabled" > /etc/selinux/config
+        else
+            sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+        fi
+    fi
+fi
+exit 0
+posttrans scriptlet (using /bin/sh):
+
+if [ -f /etc/selinux/.config_backup ]; then 
+    . /etc/selinux/.config_backup; 
+else 
+    BACKUP_SELINUXTYPE=targeted; 
+fi; 
+if [ -s /etc/selinux/config ]; then 
+    . /etc/selinux/config; 
+    if ls /etc/selinux/$BACKUP_SELINUXTYPE/policy/policy.* &>/dev/null; then 
+        if [ "$BACKUP_SELINUXTYPE" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE='"$BACKUP_SELINUXTYPE"'/g' /etc/selinux/config; 
+        fi; 
+    elif [ "targeted" = "targeted" ]; then 
+        if [ "targeted" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config; 
+        fi; 
+    elif ! ls  /etc/selinux/$SELINUXTYPE/policy/policy.* &>/dev/null; then 
+        if [ "targeted" != "$SELINUXTYPE" ]; then 
+            sed -i 's/^SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config; 
+        fi; 
+    fi; 
+fi;
+
+if [ -s /etc/selinux/config ]; then 
+    . /etc/selinux/config &> /dev/null || true; 
+fi; 
+if [ -e /etc/selinux/targeted/.rebuild ]; then 
+   rm /etc/selinux/targeted/.rebuild; 
+fi; 
+/usr/sbin/semodule -B -n -s targeted 2> /dev/null; 
+[ "${SELINUXTYPE}" == "targeted" ] && /usr/sbin/selinuxenabled && load_policy; 
+if [ $1 -eq 1 ]; then 
+   /usr/sbin/restorecon -R /root /var/log /run /etc/passwd* /etc/group* /etc/*shadow* 2> /dev/null; 
+else 
+
+if [ -s /etc/selinux/config ]; then 
+    . /etc/selinux/config &> /dev/null || true; 
+fi; 
+FILE_CONTEXT=/etc/selinux/targeted/contexts/files/file_contexts; 
+if /usr/sbin/selinuxenabled && [ "${SELINUXTYPE}" = targeted -a -f ${FILE_CONTEXT}.pre ]; then 
+     /usr/sbin/fixfiles -C ${FILE_CONTEXT}.pre restore &> /dev/null > /dev/null; 
+     rm -f ${FILE_CONTEXT}.pre; 
+fi; 
+# rebuilding the rpm database still can sometimes result in an incorrect context 
+/usr/sbin/restorecon -R /usr/lib/sysimage/rpm 
+# In some scenarios, /usr/bin/httpd is labelled incorrectly after sbin merge. 
+# Relabel all files under /usr/bin, in case they got installed before policy 
+# was updated and the labels were incorrect. 
+/usr/sbin/restorecon -R /usr/bin /usr/sbin 
+if /usr/sbin/restorecon -e /run/media -R /root /var/log /var/run /etc/passwd* /etc/group* /etc/*shadow* 2> /dev/null;then 
+    continue; 
+fi;
+fi;
+/usr/libexec/selinux/varrun-convert.sh targeted
+/usr/libexec/selinux/binsbin-convert.sh targeted
+/usr/sbin/restorecon -Ri /usr/lib/sysimage/rpm /var/lib/rpm /etc/mdevctl.d
+/usr/sbin/restorecon -Ri /usr/sbin /var/run
+PACKAGE setup
+postinstall scriptlet (using <lua>):
+for i, name in ipairs({"passwd", "shadow", "group", "gshadow"}) do
+   os.remove("/etc/"..name..".rpmnew")
+end
+if posix.access("/usr/bin/newaliases", "x") then
+  local pid = posix.fork()
+  if pid == 0 then
+    posix.redirect2null(1)
+    posix.exec("/usr/bin/newaliases")
+  elseif pid > 0 then
+    posix.wait(pid)
+  end
+end
+PACKAGE systemd
+preinstall scriptlet (using /bin/sh):
+getent group systemd-oom &>/dev/null || groupadd -r systemd-oom 2>&1 || :
+getent passwd systemd-oom &>/dev/null || useradd -r -l -g systemd-oom -d / -s /sbin/nologin -c "systemd Userspace OOM Killer" systemd-oom &>/dev/null || :
+postinstall scriptlet (using /bin/sh):
+systemd-machine-id-setup &>/dev/null || :
+
+[ $1 -eq 1 ] || exit 0
+
+[ -w /var ] && journalctl --update-catalog || :
+systemd-sysusers || :
+systemd-tmpfiles --create &>/dev/null || :
+
+# We reset the enablement of all services upon initial installation
+# https://bugzilla.redhat.com/show_bug.cgi?id=1118740#c23
+# This will fix up enablement of any preset services that got installed
+# before systemd due to rpm ordering problems:
+# https://bugzilla.redhat.com/show_bug.cgi?id=1647172.
+# We also do this for user units, see
+# https://fedoraproject.org/wiki/Changes/Systemd_presets_for_user_units.
+systemctl preset-all &>/dev/null || :
+systemctl --global preset-all &>/dev/null || :
+postuninstall scriptlet (using /bin/sh):
+if [ $1 -ge 1 ]; then
+  [ -w /var ] && journalctl --update-catalog || :
+
+  systemctl daemon-reexec || :
+
+  systemd-tmpfiles --create &>/dev/null || :
+fi
+
+
+ 
+if [ $1 -ge 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then 
+    # Package upgrade, not uninstall 
+    /usr/lib/systemd/systemd-update-helper mark-restart-system-units systemd-timedated.service systemd-hostnamed.service systemd-journald.service systemd-localed.service || : 
+fi 
+
+
+# FIXME: systemd-logind.service is excluded (https://github.com/systemd/systemd/pull/17558)
+
+# This is the expanded form of %systemd_user_daemon_reexec. We
+# can't use the macro because we define it ourselves.
+if [ $1 -ge 1 ] && [ -x "/usr/lib/systemd/systemd-update-helper" ]; then
+    # Package upgrade, not uninstall
+    /usr/lib/systemd/systemd-update-helper user-reexec || :
+fi

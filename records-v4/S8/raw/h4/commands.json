@@ -1,0 +1,154 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "new",
+      "s8-second-h4",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T19:00:49.983007+00:00",
+    "exit": 0,
+    "name": "create",
+    "started_utc": "2026-11-23T19:00:09.950395+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4"
+    ],
+    "ended_utc": "2026-11-23T19:00:50.199132+00:00",
+    "exit": 0,
+    "name": "h4-artifact-identity",
+    "started_utc": "2026-11-23T19:00:49.983935+00:00",
+    "stdin_sha256": "fa84e92693926d4de8cb78ab7a76b519e298331e8d468e3875be91cab5e30d95"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/cases-8/h4/cut-action.py",
+      "s8-second-h4",
+      "install",
+      "stand-pkg install /usr/local/share/stand/dev/worker-1.json",
+      "/usr/local/bin/stand-pkg",
+      "--observer",
+      "<stand-root>/cases-8/observe.py",
+      "--output",
+      "<stand-root>/raw/step-8-second-party/h4/install"
+    ],
+    "ended_utc": "2026-11-23T19:03:41.294293+00:00",
+    "exit": 0,
+    "name": "install-host-cut",
+    "started_utc": "2026-11-23T19:00:50.199478+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T19:03:41.960142+00:00",
+    "exit": 255,
+    "name": "h4-install-restored",
+    "started_utc": "2026-11-23T19:03:41.795666+00:00",
+    "stdin_sha256": "3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4"
+    ],
+    "ended_utc": "2026-11-23T19:03:42.125074+00:00",
+    "exit": 255,
+    "name": "install-restored-retry",
+    "started_utc": "2026-11-23T19:03:41.960625+00:00",
+    "stdin_sha256": "2a32c511fc701da4165d3548650b32341b6a9cb8745ba76af3428fb5995a0f34"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T19:03:42.290042+00:00",
+    "exit": 255,
+    "name": "h4-install-after-restored-retry",
+    "started_utc": "2026-11-23T19:03:42.125491+00:00",
+    "stdin_sha256": "3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4"
+    ],
+    "ended_utc": "2026-11-23T19:03:42.498225+00:00",
+    "exit": 255,
+    "name": "h4-development-prefix",
+    "started_utc": "2026-11-23T19:03:42.333363+00:00",
+    "stdin_sha256": "cdb4c67f63a3c10ce5cb5a7b36516b2ceea4d1926948658fc5247d5fc3e37fa3"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h4",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T19:03:42.563523+00:00",
+    "exit": 255,
+    "name": "h4-end",
+    "started_utc": "2026-11-23T19:03:42.498628+00:00",
+    "stdin_sha256": "3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "stop",
+      "s8-second-h4"
+    ],
+    "ended_utc": "2026-11-23T19:03:43.635493+00:00",
+    "exit": 0,
+    "name": "stop",
+    "started_utc": "2026-11-23T19:03:42.564337+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "destroy",
+      "s8-second-h4"
+    ],
+    "ended_utc": "2026-11-23T19:03:43.700885+00:00",
+    "exit": 0,
+    "name": "destroy",
+    "started_utc": "2026-11-23T19:03:43.636027+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "list"
+    ],
+    "ended_utc": "2026-11-23T19:03:43.733988+00:00",
+    "exit": 0,
+    "name": "remaining-guests",
+    "started_utc": "2026-11-23T19:03:43.701539+00:00",
+    "stdin_sha256": null
+  }
+]

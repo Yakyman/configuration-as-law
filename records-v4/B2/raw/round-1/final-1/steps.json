@@ -1,0 +1,206 @@
+[
+  {
+    "argv": [
+      "python3",
+      "build/build.py",
+      "--server",
+      "--replace"
+    ],
+    "ended_utc": "2026-11-23T08:44:34Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "build.log",
+    "started_utc": "2026-11-23T08:43:01Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "v4-final-1-shell",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T08:45:12Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-new.log",
+    "started_utc": "2026-11-23T08:44:34Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:45:13Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "login.log",
+    "started_utc": "2026-11-23T08:45:12Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:46:06Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell.jsonl",
+    "started_utc": "2026-11-23T08:45:13Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "stop",
+      "v4-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:46:11Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-stop.log",
+    "started_utc": "2026-11-23T08:46:06Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "start",
+      "v4-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:46:49Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-start.log",
+    "started_utc": "2026-11-23T08:46:11Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:46:49Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-reboot.jsonl",
+    "started_utc": "2026-11-23T08:46:49Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-shell",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:47:04Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "shell-verify.log",
+    "started_utc": "2026-11-23T08:46:49Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "v4-final-1-shell"
+    ],
+    "ended_utc": "2026-11-23T08:47:07Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "v4-final-1-shell-destroy.log",
+    "started_utc": "2026-11-23T08:47:04Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "v4-final-1-gate",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T08:47:45Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "gate-new.log",
+    "started_utc": "2026-11-23T08:47:07Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-gate",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:48:39Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "gate.jsonl",
+    "started_utc": "2026-11-23T08:47:45Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "v4-final-1-gate",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T08:48:54Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "gate-verify.log",
+    "started_utc": "2026-11-23T08:48:39Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "v4-final-1-gate"
+    ],
+    "ended_utc": "2026-11-23T08:48:58Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "v4-final-1-gate-destroy.log",
+    "started_utc": "2026-11-23T08:48:54Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "v4-final-1-tools",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T08:49:37Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "legacy_protocol": false,
+    "log": "tools-new.log",
+    "started_utc": "2026-11-23T08:48:58Z"
+  }
+]

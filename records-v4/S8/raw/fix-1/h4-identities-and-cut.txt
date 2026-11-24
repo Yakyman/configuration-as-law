@@ -1,0 +1,65 @@
+
+== identity_before ['boot_id', 'files', 'pointers', 'reports', 'utc']
+   boot_id <REDACTED>
+
+   files /etc/stand/bc3-primary.json -> sha256(len 874)=bf41986584b3
+   files /var/lib/stand-fs/etc/current/declaration.json -> sha256(len 387686)=4e6ee71c6b99
+   pointers /var/lib/stand-fs/etc/current -> /var/lib/stand-fs/etc/generations/00000000000000000237-43c16b92cfe548bb95336c0b368cea4a
+   reports /run/stand-ready -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand-fs/etc/current/success.json -> {"declaration_sha256":"170b86d236c9a71226177ededb6171fa5f424cf8fb1b9b600871bd0bd04f84b4","generation":237,"operation":"rename","status":"success","utc_epoch":1795460487.345993}
+
+   reports /var/lib/stand/complete-last-success.json -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand/last-success.json -> {"declaration":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T17:39:52Z"}
+
+   reports /var/lib/stand/pending.json -> {"candidate":"8824e9ebda42fa21a04ae7bbc1cb847f7e460255048d24dd03eb226323aaab1e","deadline":3635.632340666,"previous":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","recovery_deadli
+   utc 2026-11-23T19:01:47.001246+00:00
+
+== identity_at_comparison ['boot_id', 'files', 'pointers', 'reports', 'utc']
+   boot_id <REDACTED>
+
+   files /etc/stand/bc3-primary.json -> sha256(len 874)=bf41986584b3
+   files /var/lib/stand-fs/etc/current/declaration.json -> sha256(len 387680)=58e844016351
+   pointers /var/lib/stand-fs/etc/current -> /var/lib/stand-fs/etc/generations/00000000000000000381-109517d260c843acac0264aea60a613a
+   reports /run/stand-ready -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand-fs/etc/current/success.json -> {"declaration_sha256":"5bc3280dcbaa15516d5bf91d60034a9e613d530c7c582b2b8eb1c34d891ebbf2","generation":381,"operation":"rename","status":"success","utc_epoch":1795460595.6734774}
+
+   reports /var/lib/stand/complete-last-success.json -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand/last-success.json -> {"declaration":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T17:39:52Z"}
+
+   reports /var/lib/stand/pending.json -> {"candidate":"8824e9ebda42fa21a04ae7bbc1cb847f7e460255048d24dd03eb226323aaab1e","deadline":3635.632340666,"previous":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","recovery_deadli
+   utc 2026-11-23T19:03:28.714421+00:00
+
+== identity_after ['boot_id', 'files', 'pointers', 'reports', 'utc']
+   boot_id <REDACTED>
+
+   files /etc/stand/bc3-primary.json -> sha256(len 874)=bf41986584b3
+   files /var/lib/stand-fs/etc/current/declaration.json -> sha256(len 387681)=5a4f90c4b3d5
+   pointers /var/lib/stand-fs/etc/current -> /var/lib/stand-fs/etc/generations/00000000000000000386-04ca10ce74734f2cb523c18246450e1e
+   reports /run/stand-ready -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand-fs/etc/current/success.json -> {"declaration_sha256":"018d47b254066682a7c28f7e3a78f2024f93e1f610a12ab917ab92f4419c60a3","generation":386,"operation":"rename","status":"success","utc_epoch":1795460618.6414704}
+
+   reports /var/lib/stand/complete-last-success.json -> {"errno": 2, "error": "FileNotFoundError"}
+   reports /var/lib/stand/last-success.json -> {"declaration":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","status":"SUCCESS","terminated":[],"time_utc":"2026-11-23T17:39:52Z"}
+
+   reports /var/lib/stand/pending.json -> {"candidate":"8824e9ebda42fa21a04ae7bbc1cb847f7e460255048d24dd03eb226323aaab1e","deadline":3635.632340666,"previous":"0e9590be04d85ae8b053c8e99af1895696291adf9a1f4d27cf94e02723135388","recovery_deadli
+   utc 2026-11-23T19:03:39.100630+00:00
+
+dev-worker contexts:
+  .. ,\"uid\":0},{\"gid\":0,\"kind\":\"file\",\"mode\":420,\"path\":\"/usr/local/share/stand/bc4/removal/dev-worker.json\",\"sha256\":\"e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4\",\"uid\":0},{
+  .. ,\"uid\":0},{\"gid\":0,\"kind\":\"file\",\"mode\":420,\"path\":\"/usr/local/share/stand/bc4/removal/dev-worker.json\",\"sha256\":\"e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4\",\"uid\":0},{
+  .. ,\"uid\":0},{\"gid\":0,\"kind\":\"file\",\"mode\":420,\"path\":\"/usr/local/share/stand/bc4/removal/dev-worker.json\",\"sha256\":\"e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4\",\"uid\":0},{
+  .. ,\"uid\":0},{\"gid\":0,\"kind\":\"file\",\"mode\":420,\"path\":\"/usr/local/share/stand/bc4/removal/dev-worker.json\",\"sha256\":\"e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4\",\"uid\":0},{
+  .. 0453.777972, "st_nlink": 3, "st_size": 4096, "st_uid": 0, "uid": 0, "xattrs": {}}, "/opt/stand/pkgs/dev-worker": {"gid": 0, "kind": "directory", "mode": 493, "path": "/opt/stand/pkgs/dev-worker", "st_atime": 17
+  .. 0453.777972, "st_nlink": 3, "st_size": 4096, "st_uid": 0, "uid": 0, "xattrs": {}}, "/opt/stand/pkgs/dev-worker/bin": {"gid": 0, "kind": "directory", "mode": 493, "path": "/opt/stand/pkgs/dev-worker/bin", "st_at
+  .. uid": 0, "stable_while_reading": true, "uid": 0, "xattrs": {}}, "/usr/local/share/stand/bc4/removal/dev-worker.json": {"gid": 0, "head_base64": "eyJmaWxlcyI6W3siY29udGVudF9iNjQiOiJmMFZNUmdJQkFRQUFBQUFBQUFBQUFBT
+  .. QVlBQUFBRUFBQUFRQUFBQUE=", "kind": "file", "mode": 420, "path": "/usr/local/share/stand/bc4/removal/dev-worker.json", "sha256": "e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4", "st_atime": 17
+  .. eading": true, "uid": 0, "xattrs": {}}, "/var/lib/stand/code-root/usr/local/share/stand/bc4/removal/dev-worker.json": {"gid": 0, "head_base64": "eyJmaWxlcyI6W3siY29udGVudF9iNjQiOiJmMFZNUmdJQkFRQUFBQUFBQUFBQUFBT
+  .. ", "kind": "file", "mode": 420, "path": "/var/lib/stand/code-root/usr/local/share/stand/bc4/removal/dev-worker.json", "sha256": "e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4", "st_atime": 17
+  .. tion_relation": "review receipts and action evidence; never infer from pathname"}, "/opt/stand/pkgs/dev-worker": {"mandatory_classification": "FACT_UNKNOWN unless ordered facts are established by the record", "
+  .. tion_relation": "review receipts and action evidence; never infer from pathname"}, "/opt/stand/pkgs/dev-worker/bin": {"mandatory_classification": "FACT_UNKNOWN unless ordered facts are established by the record
+  .. view receipts and action evidence; never infer from pathname"}, "/usr/local/share/stand/bc4/removal/dev-worker.json": {"mandatory_classification": "FACT_UNKNOWN unless ordered facts are established by the recor
+  ..  evidence; never infer from pathname"}, "/var/lib/stand/code-root/usr/local/share/stand/bc4/removal/dev-worker.json": {"mandatory_classification": "FACT_UNKNOWN unless ordered facts are established by the recor
+  ..  "xattrs": {}}, {"gid": 0, "kind": "file", "mode": 420, "path": "/usr/local/share/stand/bc4/removal/dev-worker.json", "sha256": "e492111a14a577f683a7e6ec7e5b6cfa5f89bd8e9b03bfa8e85da638b53c32f4", "size": 21679,
+exit 1 stdout FAILED recovery incomplete: readback mismatch: port:udp:1; restoration mismatch: port:udp:1
+ stderr 
+times {'started_utc': '2026-11-23T19:00:50.353097+00:00', 'ready_utc': '2026-11-23T19:00:50.367457+00:00', 'cut_seen_utc': '2026-11-23T19:00:50.374448+00:00', 'finished_utc': '2026-11-23T19:01:46.995419+00:00', 'output_utc': '2026-11-23T19:03:39.237700+00:00', 'observation_finished_utc': '2026-11-23T19:03:39.136881+00:00'}

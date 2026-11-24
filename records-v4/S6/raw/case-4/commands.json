@@ -1,0 +1,169 @@
+[
+  {
+    "label": "single-new",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "new",
+      "bc4-second-4-single",
+      "stand"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:18:53Z"
+  },
+  {
+    "label": "single-stage-directory",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "mkdir -p /var/lib/stand/bc4-inputs\n",
+    "utc": "2026-11-23T18:19:32Z"
+  },
+  {
+    "label": "single-source-identities",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "sha256sum /var/lib/stand/bc4-inputs/*/declaration.json /var/lib/stand/bc4-inputs/*/blobs.json\n",
+    "utc": "2026-11-23T18:19:33Z"
+  },
+  {
+    "label": "both-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-4-both\n",
+    "utc": "2026-11-23T18:19:34Z"
+  },
+  {
+    "label": "both-packages",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "set -e\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-shared\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-a\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-b\ncat /var/lib/stand/objects.json\n",
+    "utc": "2026-11-23T18:20:19Z"
+  },
+  {
+    "label": "both-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-4-both/declaration.json\n",
+    "utc": "2026-11-23T18:20:19Z"
+  },
+  {
+    "label": "one-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-4-one\n",
+    "utc": "2026-11-23T18:20:30Z"
+  },
+  {
+    "label": "one-packages",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "set -e\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-shared\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-a\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-b\ncat /var/lib/stand/objects.json\n",
+    "utc": "2026-11-23T18:21:15Z"
+  },
+  {
+    "label": "one-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-4-one/declaration.json\n",
+    "utc": "2026-11-23T18:21:16Z"
+  },
+  {
+    "label": "none-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-4-none\n",
+    "utc": "2026-11-23T18:21:26Z"
+  },
+  {
+    "label": "none-packages",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "set -e\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-shared\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-a\npython3 -B /usr/local/lib/stand/bc4-compare.py package bc4-owner-b\ncat /var/lib/stand/objects.json\n",
+    "utc": "2026-11-23T18:22:11Z"
+  },
+  {
+    "label": "none-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-4-none/declaration.json\n",
+    "utc": "2026-11-23T18:22:12Z"
+  },
+  {
+    "label": "bc4-second-4-single-final-reports",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-4-single",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json /var/lib/stand/last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:22:22Z"
+  },
+  {
+    "label": "bc4-second-4-single-destroy",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "destroy",
+      "bc4-second-4-single"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:22:22Z"
+  }
+]

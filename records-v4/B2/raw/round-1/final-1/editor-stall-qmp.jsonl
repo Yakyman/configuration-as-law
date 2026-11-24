@@ -1,0 +1,5 @@
+{"phase": "expected", "purpose": "Inspect stalled editor installer; QEMU status and non-destructive kernel task dump only", "sources": ["https://www.qemu.org/docs/master/system/monitor.html", "https://www.kernel.org/doc/html/latest/admin-guide/sysrq.html"], "utc": "2026-11-23T09:22:05Z"}
+{"greeting": {"QMP": {"version": {"qemu": {"micro": 13, "minor": 0, "major": 10}, "package": "Debian 1:10.0.13+ds-0+deb13u1"}, "capabilities": ["oob"]}}, "utc": "2026-11-23T09:22:05Z"}
+{"request": {"execute": "qmp_capabilities", "id": 0}, "reply": {"return": {}, "id": 0}, "utc": "2026-11-23T09:22:05Z"}
+{"request": {"execute": "query-status", "id": 1}, "reply": {"return": {"status": "running", "running": true}, "id": 1}, "utc": "2026-11-23T09:22:05Z"}
+{"request": {"execute": "human-monitor-command", "arguments": {"command-line": "sendkey alt-sysrq-t"}, "id": 2}, "reply": {"return": "", "id": 2}, "utc": "2026-11-23T09:22:05Z"}

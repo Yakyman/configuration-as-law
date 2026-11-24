@@ -1,0 +1,2 @@
+- INSTALLED-DERIVED rows: the inventory records reason=dependency but no reverse-dependency fact; whether the requiring package is still installed ("of a recorded package", S8.2-16) is not observed.
+- The collector labels kernel pseudo filesystems other than tmpfs/ramfs (rpc_pipefs, nsfs) as persistence=persistent; RUNTIME rows on them were judged from the filesystem magic.

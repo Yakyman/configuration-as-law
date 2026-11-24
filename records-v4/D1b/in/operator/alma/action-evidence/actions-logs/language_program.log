@@ -1,0 +1,63 @@
+Last metadata expiration check: 0:00:38 ago on Mon Nov 23 16:15:35 2026.
+Dependencies resolved.
+================================================================================
+ Package            Arch     Version                          Repository   Size
+================================================================================
+Installing:
+ nodejs             x86_64   1:22.23.4-1.el10_2               appstream    53 k
+ nodejs-npm         x86_64   1:10.9.9-1.22.23.4.1.el10_2      appstream   2.4 M
+Installing dependencies:
+ nodejs-libs        x86_64   1:22.23.4-1.el10_2               appstream    20 M
+Installing weak dependencies:
+ nodejs-docs        noarch   1:22.23.4-1.el10_2               appstream   9.3 M
+ nodejs-full-i18n   x86_64   1:22.23.4-1.el10_2               appstream   8.9 M
+
+Transaction Summary
+================================================================================
+Install  5 Packages
+
+Total download size: 40 M
+Installed size: 216 M
+Downloading Packages:
+(1/5): nodejs-22.23.4-1.el10_2.x86_64.rpm       210 kB/s |  53 kB     00:00    
+(2/5): nodejs-full-i18n-22.23.4-1.el10_2.x86_64  13 MB/s | 8.9 MB     00:00    
+(3/5): nodejs-npm-10.9.9-1.22.23.4.1.el10_2.x86  27 MB/s | 2.4 MB     00:00    
+(4/5): nodejs-libs-22.23.4-1.el10_2.x86_64.rpm   26 MB/s |  20 MB     00:00    
+(5/5): nodejs-docs-22.23.4-1.el10_2.noarch.rpm  1.1 MB/s | 9.3 MB     00:08    
+--------------------------------------------------------------------------------
+Total                                           4.5 MB/s |  40 MB     00:08     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Running scriptlet: nodejs-1:22.23.4-1.el10_2.x86_64                       1/1 
+  Preparing        :                                                        1/1 
+  Installing       : nodejs-docs-1:22.23.4-1.el10_2.noarch                  1/5 
+  Installing       : nodejs-libs-1:22.23.4-1.el10_2.x86_64                  2/5 
+  Installing       : nodejs-full-i18n-1:22.23.4-1.el10_2.x86_64             3/5 
+  Installing       : nodejs-npm-1:10.9.9-1.22.23.4.1.el10_2.x86_64          4/5 
+  Installing       : nodejs-1:22.23.4-1.el10_2.x86_64                       5/5 
+  Running scriptlet: nodejs-1:22.23.4-1.el10_2.x86_64                       5/5 
+
+Installed:
+  nodejs-1:22.23.4-1.el10_2.x86_64                                              
+  nodejs-docs-1:22.23.4-1.el10_2.noarch                                         
+  nodejs-full-i18n-1:22.23.4-1.el10_2.x86_64                                    
+  nodejs-libs-1:22.23.4-1.el10_2.x86_64                                         
+  nodejs-npm-1:10.9.9-1.22.23.4.1.el10_2.x86_64                                 
+
+Complete!
+
+added 41 packages in 3s
+
+3 packages are looking for funding
+  run `npm fund` for details
+ __________
+< cal-test >
+ ----------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||

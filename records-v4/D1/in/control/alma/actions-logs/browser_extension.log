@@ -1,0 +1,118 @@
+Last metadata expiration check: 0:00:43 ago on Mon Nov 23 11:16:40 2026.
+Package firefox-153.6.0-1.el10_2.x86_64 is already installed.
+Package python3-3.12.16-2.el10_3.x86_64 is already installed.
+Dependencies resolved.
+================================================================================
+ Package           Architecture Version                   Repository       Size
+================================================================================
+Installing:
+ python3-pip       noarch       23.3.2-11.el10_2          appstream       2.9 M
+Upgrading:
+ firefox           x86_64       153.7.0-1.el10_3          appstream       128 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+Upgrade  1 Package
+
+Total download size: 131 M
+Downloading Packages:
+(1/2): python3-pip-23.3.2-11.el10_2.noarch.rpm  8.4 MB/s | 2.9 MB     00:00    
+(2/2): firefox-153.7.0-1.el10_3.x86_64.rpm       79 MB/s | 128 MB     00:01    
+--------------------------------------------------------------------------------
+Total                                            71 MB/s | 131 MB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : firefox-153.7.0-1.el10_3.x86_64                        1/3 
+  Running scriptlet: firefox-153.7.0-1.el10_3.x86_64                        1/3 
+  Installing       : python3-pip-23.3.2-11.el10_2.noarch                    2/3 
+  Running scriptlet: firefox-153.6.0-1.el10_2.x86_64                        3/3 
+  Cleanup          : firefox-153.6.0-1.el10_2.x86_64                        3/3 
+  Running scriptlet: firefox-153.6.0-1.el10_2.x86_64                        3/3 
+  Running scriptlet: firefox-153.7.0-1.el10_3.x86_64                        3/3 
+  Running scriptlet: firefox-153.6.0-1.el10_2.x86_64                        3/3 
+
+Upgraded:
+  firefox-153.7.0-1.el10_3.x86_64                                               
+Installed:
+  python3-pip-23.3.2-11.el10_2.noarch                                           
+
+Complete!
+Collecting marionette_driver
+  Downloading marionette_driver-3.8.0-py3-none-any.whl.metadata (1.6 kB)
+INFO: pip is looking at multiple versions of marionette-driver to determine which version is compatible with other requirements. This could take a while.
+  Downloading marionette_driver-3.7.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting mozrunner>=7.4.0 (from marionette_driver)
+  Downloading mozrunner-8.4.0-py2.py3-none-any.whl.metadata (1.6 kB)
+Collecting mozversion>=2.1.0 (from marionette_driver)
+  Downloading mozversion-2.4.0-py2.py3-none-any.whl.metadata (535 bytes)
+Collecting mozdevice<5,>=4.2.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozdevice-4.3.0-py2.py3-none-any.whl.metadata (953 bytes)
+Collecting mozfile>=1.2 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozfile-3.0.0-py2.py3-none-any.whl.metadata (777 bytes)
+Collecting mozinfo<2,>=0.7 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozinfo-1.2.3-py2.py3-none-any.whl.metadata (649 bytes)
+Collecting mozlog>=6.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozlog-8.1.0-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting mozprocess<2,>=1.3.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozprocess-1.4.0-py2.py3-none-any.whl.metadata (728 bytes)
+Collecting mozprofile~=3.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozprofile-3.0.0.tar.gz (28 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting six>=1.13.0 (from mozversion>=2.1.0->marionette_driver)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting distro>=1.4.0 (from mozinfo<2,>=0.7->mozrunner>=7.4.0->marionette_driver)
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting blessed>=1.19.1 (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading blessed-1.53.0-py3-none-any.whl.metadata (13 kB)
+Collecting mozterm (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading mozterm-1.0.0-py2.py3-none-any.whl.metadata (669 bytes)
+Collecting mozsystemmonitor (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading mozsystemmonitor-1.0.1-py2.py3-none-any.whl.metadata (475 bytes)
+Collecting wcwidth>=0.9.4 (from blessed>=1.19.1->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (26 kB)
+Collecting jinxed<3,>=2.1.1 (from blessed>=1.19.1->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading jinxed-2.1.1-py2.py3-none-any.whl.metadata (7.2 kB)
+Collecting psutil>=3.1.1 (from mozsystemmonitor->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Downloading marionette_driver-3.7.1-py3-none-any.whl (54 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.4/54.4 kB 3.9 MB/s eta 0:00:00
+Downloading mozrunner-8.4.0-py2.py3-none-any.whl (47 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.2/47.2 kB 5.8 MB/s eta 0:00:00
+Downloading mozversion-2.4.0-py2.py3-none-any.whl (4.3 kB)
+Downloading mozdevice-4.3.0-py2.py3-none-any.whl (49 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.8/49.8 kB 5.9 MB/s eta 0:00:00
+Downloading mozfile-3.0.0-py2.py3-none-any.whl (8.2 kB)
+Downloading mozinfo-1.2.3-py2.py3-none-any.whl (7.5 kB)
+Downloading mozlog-8.1.0-py2.py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.2/72.2 kB 5.4 MB/s eta 0:00:00
+Downloading mozprocess-1.4.0-py2.py3-none-any.whl (23 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading blessed-1.53.0-py3-none-any.whl (143 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 143.6/143.6 kB 8.8 MB/s eta 0:00:00
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading mozsystemmonitor-1.0.1-py2.py3-none-any.whl (8.5 kB)
+Downloading mozterm-1.0.0-py2.py3-none-any.whl (3.4 kB)
+Downloading jinxed-2.1.1-py2.py3-none-any.whl (110 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.6/110.6 kB 13.0 MB/s eta 0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 13.1 MB/s eta 0:00:00
+Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (822 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 822.7/822.7 kB 12.4 MB/s eta 0:00:00
+Building wheels for collected packages: mozprofile
+  Building wheel for mozprofile (pyproject.toml): started
+  Building wheel for mozprofile (pyproject.toml): finished with status 'done'
+  Created wheel for mozprofile: filename=mozprofile-3.0.0-py2.py3-none-any.whl size=22074 sha256=0c84bc0bc051f783bfbfa6f361b7d0665e7c9018e7945b0b8b2bedc17f682192
+  Stored in directory: /home/user/.cache/pip/wheels/2a/98/c2/385a3733e190ae2b170804566e081ce9690ad9154edfcc3e64
+Successfully built mozprofile
+Installing collected packages: jinxed, wcwidth, six, psutil, distro, mozterm, mozsystemmonitor, mozfile, blessed, mozlog, mozinfo, mozversion, mozprofile, mozprocess, mozdevice, mozrunner, marionette_driver
+Successfully installed blessed-1.53.0 distro-1.9.0 jinxed-2.1.1 marionette_driver-3.7.1 mozdevice-4.3.0 mozfile-3.0.0 mozinfo-1.2.3 mozlog-8.1.0 mozprocess-1.4.0 mozprofile-3.0.0 mozrunner-8.4.0 mozsystemmonitor-1.0.1 mozterm-1.0.0 mozversion-2.4.0 psutil-7.2.2 six-1.17.0 wcwidth-0.9.5

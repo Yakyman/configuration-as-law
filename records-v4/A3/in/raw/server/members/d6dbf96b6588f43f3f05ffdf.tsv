@@ -1,0 +1,16 @@
+path	type	mode	owner	size	mtime	executable	signature	persistence
+/run/systemd/generator/-.mount	file	0644	0:0	404	2026-11-23T11:15:21.124Z	False	sha256-prefix4096:db7419b9de12ad2e5ab8928c3ad3521bf46f4112d73bb1b5133d2e1f1eb22a08	runtime
+/run/systemd/generator/-.mount.wants	directory	0755	0:0	60	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/boot-efi.mount	file	0644	0:0	588	2026-11-23T11:15:21.124Z	False	sha256-prefix4096:67995eb8963c90ff01377094429d1a88f1060111140d10ef03b34fc9873318db	runtime
+/run/systemd/generator/getty.target.wants	directory	0755	0:0	60	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/local-fs.target.d	directory	0755	0:0	60	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/local-fs.target.requires	directory	0755	0:0	80	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/local-fs.target.wants	directory	0755	0:0	80	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/multi-user.target.wants	directory	0755	0:0	60	2026-11-23T11:15:21.132Z	True	not-regular	runtime
+/run/systemd/generator/netplan.stamp	file	0644	0:0	0	2026-11-23T11:15:21.132Z	False	sha256-prefix4096:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	runtime
+/run/systemd/generator/network-online.target.wants	directory	0755	0:0	60	2026-11-23T11:15:21.132Z	True	not-regular	runtime
+/run/systemd/generator/sockets.target.wants	directory	0755	0:0	60	2026-11-23T11:15:21.232Z	True	not-regular	runtime
+/run/systemd/generator/sshd-unix-local.socket	file	0644	0:0	279	2026-11-23T11:15:21.232Z	False	sha256-prefix4096:4c2e2b2389066481981043eb7ecc1f4f0d43ff6169aa5aa074911657180f729d	runtime
+/run/systemd/generator/sshd-unix-local@.service	symlink	0777	0:0	37	2026-11-23T11:15:21.232Z	True	not-regular	runtime
+/run/systemd/generator/swap.target.requires	directory	0755	0:0	60	2026-11-23T11:15:21.124Z	True	not-regular	runtime
+/run/systemd/generator/swap\x2dcal.swap	file	0644	0:0	175	2026-11-23T11:15:21.124Z	False	sha256-prefix4096:33bd020d5e078f7fae98fae7b2be62259f36ed6d4f14669c3c9e5f951b1da57b	runtime

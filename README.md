@@ -112,6 +112,61 @@ claims of the hypothesis that none of the four checks tests and the steps by whi
 neither `PROTOCOL.md` nor the outcomes of the four checks. The inputs and the expected result of each step are
 committed to `check-inputs-v4/supplement-1/` before the work on that step begins.
 
+## Version 4: results of its checks, and the plan of a reference implementation
+
+The fifth paper, «The “Configuration as Law” Hypothesis: Results of the Checks of Version 4, and a New Plan for Checking It», is published at <https://yakyman.com/configuration-as-law-v5.pdf> (page <https://yakyman.com/research>). The folder `records-v4/` holds the dated records of the third cycle and Supplement 1. The folder `analysis/` holds the two computations reported in Section 7.3. The records are dated 23 November 2026 (UTC). Earlier classifications, unsuccessful attempts, corrections and reviews remain beside the final results.
+
+Check 1 yielded **0** and check 4 yielded **1**. Checks 2 and 3 were **not conducted**. The outcome vector is **0 / not conducted / not conducted / 1**. An unperformed check is not an observation with outcome ?. Check 4 succeeded in assessing the existing systems; neither system was found to have the three properties.
+
+The outcomes of the eight steps of Supplement 1 are those of Table 4 of the fifth paper:
+
+| Step | Outcome |
+|---|---|
+| 1 | Understanding 0; Reproducibility ?; Removal ?. |
+| 2 | Six families 0; nine ?. In the sample of 600 agreements, 582 were established, 16 were undetermined, and two did not follow from the text. |
+| 3 | ? and ?. |
+| 4 | AlmaLinux ?; Void Linux 0; Gentoo 0; MicroOS ?; Talos Linux 0. |
+| 5 | One case 1; sixteen ?. |
+| 6 | Four cases 1; one ?. |
+| 7 | 0 for the procedure of weighting. |
+| 8 | ? in all four histories. |
+
+| Folder | Contents |
+|---|---|
+| `records-v4/TEXT.md`, `SENTENCES.md`, `PROTOCOL.md` | The fixed text, sentence numbering and order used for the checks. |
+| `records-v4/D1/`, `D1.stopped-before-observation/` | Check 1: inventories, two independent classifications and notes, comparison, adjudication, verification, corrections, questions and reviews; the earlier stopped attempt. |
+| `records-v4/D4/` | Check 4: two assessments, the raw experiments and their review. |
+| `records-v4/B2/` | Testbed description, construction rounds, review and retained small direct evidence. |
+| `records-v4/A2/`, `B1/`, `A3/`, `W0/`, `W1/`, `W2/` | Work beyond the plan, its results, corrections, questions and reviews; the comparison and adjudication of the lived-in machines. |
+| `records-v4/SUP1/`, `OP/` | Supplement 1, step texts including versions before review, nine reviews, and the independent assessment cited by the supplement. |
+| `records-v4/S1/` … `S8/`, `D1b/` | Arguments and cases of the eight steps, expectations recorded before observations, questions, corrections and reviews; step 4's original and delivered inventories, classifications, comparison, adjudication and handoff verification. |
+| `analysis/` | Two read-only Python 3 programs that compute the figures of Section 7.3. |
+
+To verify a number, start with the corresponding entry of section 6 of `MANIFEST.md` and the result and final review of that check or step. Follow their comparison, adjudication and correction tables. In `D1/` and `D1b/`, `in/` holds the input inventories, `c1/` and `c2/` the independent classifications, `compare/` their comparison, and `adjudication/` the decisions on disputes. In `D1b/`, `raw/` retains original observations and `handoff/` the delivered copies; these are not extra populations to add to the totals. `RESULT.md` and the last review distinguish original adjudication findings from the later verification of gaps. Earlier rounds are historical records, not additional observations.
+
+From the repository root, the computations of Section 7.3 require Python 3 and its standard library only:
+
+```sh
+python3 analysis/agreement_breakdown.py records-v4/D1/compare/joined.tsv
+python3 analysis/disagreement_adjudication.py records-v4/D1
+python3 analysis/agreement_breakdown.py records-v4/A3/compare/joined.tsv
+python3 analysis/disagreement_adjudication.py records-v4/A3
+python3 analysis/agreement_breakdown.py records-v4/D1b/compare/joined.tsv
+python3 analysis/disagreement_adjudication.py records-v4/D1b
+```
+
+Both programs only read their inputs. On these public copies, all six outputs equal the outputs on the source tables. To inspect retained compressed text records, use `zstd -dc FILE.zst`; the gzip-compressed action-evidence archive retains its original filename. Historical checksums inside records describe the original files at the time of the check. The file `records-v4/SHA256SUMS` gives the SHA-256 of every cleaned file in `records-v4/` and `analysis/`; section 6 of `MANIFEST.md` maps the entries of the paper’s records section to their files.
+
+The inputs committed before observations remain in the already-public `check-inputs-v4/`, including `supplement-1/`, its step instruments, cases, fixtures and sealed declarations. They are not copied into this results folder. Citations point to those existing paths. The fixed text, complete supplement history and step-4 handoff records explicitly required for this collection remain here even where an identical text was also committed as an input.
+
+Working records of how the checks were organised—task texts, schedules and execution logs—working directories, caches and adjudication scratch are omitted. Disk images and access credentials are omitted. Copies of distribution package metadata downloaded for fact-finding—repository indexes, package file lists and package manifests—and downloaded working source archives are omitted; the original distributions provide these materials. Inventories and membership tables actually collected on the test machines are retained within the size limits.
+
+For work beyond the plan, the testbed and steps of the supplement, cited raw evidence is retained where each file is below 2,000,000 bytes. The explicitly required comparison and adjudication tables are retained separately. For check 1 and the step-4 inventory, the general file ceiling is 20,000,000 bytes. The two larger `A3/compare/joined.tsv` and `D1b/compare/joined.tsv` tables are retained because the paper names them and Section 7.3 reads them. Large omitted snapshots, traces and indexes limit full reconstruction of those experiments. An unavailable local reference is marked “(not published: category)”.
+
+Privacy substitutions cover host identity and host home paths, the author's account identity, network addresses outside isolated test networks, hardware addresses, wireless names, machine and connection identifiers, access keys, tokens, fingerprints (including digests of identifier and access-key files) and email addresses. Performer labels are neutralized while preserving which classifications and reviews were independent. Third-party program and package names found on test machines remain observations. Local clocks are expressed in UTC; guest timestamps already in UTC and timezone-data filenames remain unchanged. Compressed observations remain byte-identical where no cleaning was necessary; those containing access credentials were cleaned and recompressed without changing their observation rows.
+
+No measurement, count, outcome or decision was changed. Every included table retains its source row count. The records retain the reported limitations, unknown facts and disagreements of reviews.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper
@@ -146,6 +201,7 @@ definitions does not resolve).
 | `check-inputs-v3/` | Inputs of the checks of version 3, committed before the first observation of each check. | third paper §4.1 |
 | `fourth-paper/`, `records-v3/`, `trial-v4/` | The fourth paper and the records of the second cycle; see «Version 3: results of its checks, and version 4» above. | fourth paper |
 | `check-inputs-v4/` | The order of the checks of version 4 (`PROTOCOL.md`) and the inputs of these checks, committed before the first observation of each check. | fourth paper §9 |
+| `fifth-paper/`, `records-v4/`, `analysis/` | The fifth paper and the records of the third cycle; see «Version 4: results of its checks, and the plan of a reference implementation» above. | fifth paper |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record

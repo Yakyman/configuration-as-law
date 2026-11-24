@@ -1,0 +1,36 @@
+S3 assembly verification
+Recorded: 2026-11-23 13:20:11 UTC
+
+Required command:
+/usr/bin/python3 -I bin/check_quotes.py S3/ARGUMENT.md
+quotes checked: 38; not found in TEXT.md: 0
+Exit code: 0
+
+Additional question-file check:
+/usr/bin/python3 -I bin/check_quotes.py S3/QUESTIONS.md
+quotes checked: 1; not found in TEXT.md: 0
+Exit code: 0
+
+Assembly assertions:
+ID-to-exact-sentence checks: 34; passed
+Moment rows: 16; declaration quote and property obligations present
+First line: passed; input hashes unchanged
+Argument size: 3909 words
+Exit code: 0
+
+Reasoning checks:
+- Both committed update events and the offline event have moment tables.
+- The update tables state old/new conflicting-value premises; they do not claim all multistep preparation violates P2.
+- P2 failure alone rejects the conjunction in a partial-state branch; P1 and P4 failure are not assumed automatically.
+- The strongest objection includes state, declaration and the actual success report in one indivisible event, including under interruption.
+- Intermediate successful applications are an additional objection to a universal D0/D1-only argument.
+- The source-only case distinguishes unknown facts, line-language semantics, and genuinely unspecified semantics.
+- Multiple permitted states are distinguished from inability to decide whether the retained state is permitted.
+- Both outcomes are questions under the committed rules; no external review result is asserted.
+- Assembly correction to raw/part-a.md: lack of a constructed implementation is not a reason to deny 1. The reason for (a) ? is the explicit rule for implementation-dependent violation.
+- Assembly clarification to raw/part-b.md: complete line semantics is a grounded reading of S8.1-12/P2, not an established validity restriction.
+- Questions about report mechanism are omitted because no undecidable moment is established and excluded design questions are not gaps.
+- No real-system behavioral premise, machine, experiment, or probe was used.
+
+Independent review RV-S3 remains outstanding.
+

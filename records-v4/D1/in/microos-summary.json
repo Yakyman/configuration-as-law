@@ -1,0 +1,60 @@
+{
+  "machine": "microos",
+  "release": "Snapshot20261121 plain x86_64 KVM/XEN image",
+  "inventory": true,
+  "total": 6522,
+  "counts": {
+    "L1:access-rule": 22,
+    "L1:account": 11,
+    "L1:driver": 109,
+    "L1:group": 32,
+    "L1:module-name": 197,
+    "L1:package": 376,
+    "L1:polkit-action": 123,
+    "L1:port": 4,
+    "L1:process": 133,
+    "L1:saved-network": 3,
+    "L1:service": 147,
+    "L1:sudo-access": 14,
+    "L1:timer": 12,
+    "L1:unit-file": 249,
+    "L1:user-service": 5,
+    "L1:user-timer": 1,
+    "L1:user-unit-file": 14,
+    "L2:executable-code-outside-packages": 1874,
+    "L2:image": 20,
+    "L2:snapshot": 2,
+    "L2:stored-outside-packages": 3174
+  },
+  "levels": {
+    "1": 1452,
+    "2": 5070
+  },
+  "packages_total": 376,
+  "package_reasons_known": 376,
+  "package_reason_share": "376/376 (100.00%)",
+  "packaged_files_total": 18575,
+  "packaged_file_integrity_known": 18246,
+  "packaged_file_integrity_share": "18246/18575 (98.23%)",
+  "ordinary_actions": "Not prescribed",
+  "lifecycle_statuses": {
+    "new": 0,
+    "collector": 0,
+    "destroy": 0
+  },
+  "failed_queries": 17,
+  "metadata": {
+    "utc": "2026-11-23T11:18:24.175891+00:00",
+    "machine": "d1-microos",
+    "system": "microos",
+    "duration": 31.308,
+    "filesystem_complete": true,
+    "package_ownership_complete": true,
+    "gaps": [
+      "user-root-service: not collected or incomplete (exit 1; raw/0039-user-root-service.out)",
+      "user-root-timer: not collected or incomplete (exit 1; raw/0040-user-root-timer.out)",
+      "user-root-unit-file: not collected or incomplete (exit 1; raw/0041-user-root-unit-file.out)"
+    ],
+    "ready_for_observation": false
+  }
+}

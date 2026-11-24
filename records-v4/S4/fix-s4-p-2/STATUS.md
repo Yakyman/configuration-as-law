@@ -1,0 +1,13 @@
+# Instrument status evidence
+
+2026-11-23 UTC. This is a preparation record, withheld from deciding parties. No status is an object decision or evidence-sufficiency ruling under the published text.
+
+`not-obtainable` retains TASK-S4-P's meaning: either item 1, a fact that cannot be recorded by any query with a stated reason, or item 4, three different attempts on the fact have failed to record it. Missing an implementation route is neither condition. A successful query exit need not obtain the requested fact; three rehearsals of the same query are not three different attempts.
+
+`checks/status-basis.tsv` audits all 15 previously labelled not-obtainable groups. V02 alone retains that status through the three saved installed/residual/cache reference routes; their failure concerns finding an old reference for unowned paths, not the query exit codes or availability of archives elsewhere. No group relies on item 1 in this revision. An unlogged event would be unrecoverable from current state alone, but the saved records do not establish that premise for every requested historical fact.
+
+Twelve groups are `attempt evidence incomplete`: A03/A04/A07/A09/A11, V03/V07, M03/M05/M11, T03/T05. Existing current-source observations remain available; the evidence for task-compliant exhaustion or query impossibility is not established. This label records unfinished preparation; it does not waive item 4 or pronounce the facts obtainable or unobtainable. V09/M14 are `not rehearsed`: targeted consumer/use queries, including the current-reader route analogous to A13, were never performed. No new machine run is claimed. These are the alternative labels permitted by review findings 1-2; the remaining work is disclosed rather than hidden in not-obtainable.
+
+`recordable` and `partial` keep their previous record-availability meanings: all named record types were exercised within their stated scope, or only part of the requested records/coverage succeeded. The unchanged 18 recordable groups exclude all partial and unfinished groups. G01 remains partial because two prescribed actions failed. System-level 4-of-5 reports the saved collector/action results, not completion of every fact rehearsal. Preparation is not independently accepted.
+
+Counts: 18 recordable, 12 partial, 1 not-obtainable, 12 attempt evidence incomplete, 2 not rehearsed = 45 groups. Accounting and source preservation are checked in `checks/accounting.json`. Matching scope remains fixed: seven RESULT-only IDs have no route; M04/M05 each have at most one structurally matchable ID. No classification rule, gap or failure condition changes.

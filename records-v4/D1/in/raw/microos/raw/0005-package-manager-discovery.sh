@@ -1,0 +1,1 @@
+PATH=/home/linuxbrew/.linuxbrew/bin:"$PATH"; export PATH; for p in dpkg-query rpm pacman apk xbps-query emerge flatpak snap npm pip pip3 pipx poetry uv pnpm yarn bun gem cargo conda composer luarocks go brew; do command -v "$p" >/dev/null 2>&1 && printf "%s\n" "$p"; done; :

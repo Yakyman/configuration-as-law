@@ -1,0 +1,82 @@
+{
+  "c3_search": "All joined rows: kind contains docker/container/image OR engine-store path OR original hole 3; no classification filter.",
+  "c3_scope": [
+    {
+      "status": "CONFIRMED",
+      "machine": "developer",
+      "rows": 1
+    },
+    {
+      "status": "CONFIRMED",
+      "machine": "server",
+      "rows": 3
+    },
+    {
+      "status": "EXCLUDED",
+      "machine": "developer",
+      "rows": 1
+    },
+    {
+      "status": "EXCLUDED",
+      "machine": "gaming",
+      "rows": 1
+    },
+    {
+      "status": "EXCLUDED",
+      "machine": "server",
+      "rows": 3
+    },
+    {
+      "status": "FACT_UNKNOWN",
+      "machine": "developer",
+      "rows": 2
+    },
+    {
+      "status": "FACT_UNKNOWN",
+      "machine": "server",
+      "rows": 5
+    }
+  ],
+  "c3_original": [
+    {
+      "status": "CONFIRMED",
+      "rows": 4
+    },
+    {
+      "status": "EXCLUDED",
+      "rows": 1
+    },
+    {
+      "status": "FACT_UNKNOWN",
+      "rows": 2
+    }
+  ],
+  "card4": [
+    {
+      "family": "Bun",
+      "disposition": "FACT-WRONG",
+      "rows": 344
+    },
+    {
+      "family": "Go",
+      "disposition": "FACT-WRONG",
+      "rows": 986
+    },
+    {
+      "family": "RubyGems",
+      "disposition": "FACT_UNKNOWN",
+      "rows": 1
+    },
+    {
+      "family": "uv",
+      "disposition": "FACT-WRONG",
+      "rows": 5
+    }
+  ],
+  "c6_extent": "Lower bound: developer 2, gaming 0, server 0; 23 original candidate groups remain FACT_UNKNOWN.",
+  "content_checks": 3,
+  "sample_impacts": {
+    "sample-resolved.tsv": [],
+    "sample-agreed.tsv": []
+  }
+}

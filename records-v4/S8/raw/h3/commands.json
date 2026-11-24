@@ -1,0 +1,95 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "new",
+      "s8-second-h3",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T18:57:31.380265+00:00",
+    "exit": 0,
+    "name": "create",
+    "started_utc": "2026-11-23T18:56:51.295397+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h3",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T18:57:43.944933+00:00",
+    "exit": 0,
+    "name": "h3-prerequisites",
+    "started_utc": "2026-11-23T18:57:31.381188+00:00",
+    "stdin_sha256": "fb41a0aaf9babe984054121f835abc68c108d97a52415e4aeb327cd5ae3affd9"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h3"
+    ],
+    "ended_utc": "2026-11-23T18:57:53.073836+00:00",
+    "exit": 1,
+    "name": "h3-launcher",
+    "started_utc": "2026-11-23T18:57:43.945591+00:00",
+    "stdin_sha256": "927812e2d34e6bbef083a1cbfc1081a564bc243dd8eb58d225c7550d7c0edb73"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "s8-second-h3",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T18:59:45.676812+00:00",
+    "exit": 0,
+    "name": "h3-end",
+    "started_utc": "2026-11-23T18:57:53.074550+00:00",
+    "stdin_sha256": "3aa84d89d5794cea2f03151cc54a606e399cc585f46988f5ada9be2c91beb6a8"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "stop",
+      "s8-second-h3"
+    ],
+    "ended_utc": "2026-11-23T18:59:49.261312+00:00",
+    "exit": 0,
+    "name": "stop",
+    "started_utc": "2026-11-23T18:59:46.207790+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "destroy",
+      "s8-second-h3"
+    ],
+    "ended_utc": "2026-11-23T18:59:49.325972+00:00",
+    "exit": 0,
+    "name": "destroy",
+    "started_utc": "2026-11-23T18:59:49.261655+00:00",
+    "stdin_sha256": null
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "list"
+    ],
+    "ended_utc": "2026-11-23T18:59:49.359014+00:00",
+    "exit": 0,
+    "name": "remaining-guests",
+    "started_utc": "2026-11-23T18:59:49.326571+00:00",
+    "stdin_sha256": null
+  }
+]

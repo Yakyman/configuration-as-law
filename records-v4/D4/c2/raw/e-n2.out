@@ -1,0 +1,44 @@
+$ lab.sh run d4c2-nixos --root --timeout 1500 < e-n2.sh
+== date
+2026-11-23T11:14:53Z
+== release
+26.05.14979.94c3211b0ee8 (Yarara)
+== declaration line
+12:    extraGroups = [ "wheel" ];
+== application 1: nixos-rebuild switch
+status=0
+building the system configuration...
+Checking switch inhibitors... done
+updating GRUB 2 menu...
+activating the configuration...
+setting up /etc...
+reloading user units for user...
+restarting the following user units: nixos-activation.service
+restarting sysinit-reactivation.target
+the following new units were started: sysinit-reactivation.target, systemd-tmpfiles-resetup.service
+Done. The new configuration is /nix/store/x6di70mc2v48h6i1924sarc20xv4yh2k-nixos-system-nixos-26.05.14979.94c3211b0ee8
+== id before
+users wheel
+== gpasswd -d user wheel
+Removing user user from group wheel
+status=0
+== id after gpasswd
+users
+== declaration unchanged
+1
+== application 2: nixos-rebuild switch
+status=0
+building the system configuration...
+Checking switch inhibitors... done
+updating GRUB 2 menu...
+activating the configuration...
+setting up /etc...
+reloading user units for user...
+restarting the following user units: nixos-activation.service
+restarting sysinit-reactivation.target
+Done. The new configuration is /nix/store/x6di70mc2v48h6i1924sarc20xv4yh2k-nixos-system-nixos-26.05.14979.94c3211b0ee8
+== id after application 2
+users wheel
+== date
+2026-11-23T11:15:04Z
+runner-status=0

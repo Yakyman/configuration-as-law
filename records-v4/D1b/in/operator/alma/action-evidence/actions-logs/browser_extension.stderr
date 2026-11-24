@@ -1,0 +1,8 @@
+*** You are running in headless mode.
+Exception ignored in: <function BaseProfile.__del__ at 0x7f1b1a7779c0>
+Traceback (most recent call last):
+  File "/home/user/.local/lib/cal-marionette/mozprofile/profile.py", line 84, in __del__
+  File "/home/user/.local/lib/cal-marionette/mozprofile/profile.py", line 294, in cleanup
+  File "/home/user/.local/lib/cal-marionette/mozprofile/profile.py", line 92, in cleanup
+  File "/home/user/.local/lib/cal-marionette/mozfile/mozfile.py", line 214, in remove
+ImportError: sys.meta_path is None, Python is likely shutting down

@@ -1,0 +1,1340 @@
+{
+ "case": "17",
+ "steps": [
+  {
+   "phase": "fixture_result",
+   "path": "/tmp/bc3-personal.json",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "role": "ordinary-work",
+   "command": "set -e\nmessage='two words'; f() { printf '%s\\n' \"$1\"; }; f \"$message\" | tr a-z A-Z > document.txt; cat < document.txt\nstand-pkg install /tmp/bc3-personal.json\n/opt/stand/pkgs/bc3-personal/bin/personal 'ordinary argument'\napt install hello=2.10-5\n/opt/stand/pkgs/repository-hello/usr/bin/hello\ncurl -fsS http://10.0.2.2:18753/index.html > page.html\nw3m -dump -config /etc/stand/w3m.conf http://10.0.2.2:18753/index.html\nprintf '1c\\nEdited document\\n.\\nw\\nq\\n' | ed -s document.txt\ncat document.txt\nprintf 'BC3_ORDINARY_COMPLETE\\n'\n",
+   "rc": 0,
+   "stdout": "TWO WORDS\nSUCCESS 58ab113243a7b612c57753e12c3d6c8b9c40ea80a4387a2eff3786f2b9087646\nPERSONAL_SCRIPT_OK:ordinary argument\nSUCCESS eed04a1ae204e2cde94bcf736cd5431680fba7769ba65345149e513fec79a691\nHello, world!\nBC3 NETWORK PAGE\nEdited document\nBC3_ORDINARY_COMPLETE\n",
+   "stderr": "",
+   "before_snapshot": "caac85d186aad5240d9479bfc459d81b36ac769411866c4f249700861cf549c5.json",
+   "after_snapshot": "4eafc779156258872d2a92201034f32c09db1de0a50d95285a937aacb7f79119.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": null,
+    "passed": true,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "etc": {
+     "generation": [
+      165,
+      237
+     ],
+     "added": [],
+     "removed": [],
+     "changed": [
+      {
+       "path": "/etc/apparmor.d/abstractions/stand-map",
+       "inode": "1357",
+       "sha256_before": "b2bd83d8c24c6159b5f0eb6a92e4fa5ad1d988387857a39389c4a594f975e3ef",
+       "sha256_after": "a3f7be7a02f9f01f82b2004be04c3de665164ea4d6b1719d5204a6b79419bb8f",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/ssh/sshd_config.d/00-stand.conf",
+       "inode": "1354",
+       "sha256_before": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+       "sha256_after": "a2b9d0a32938727259221c63a5d7c0e90035433be2afcfbd0c95f398857371e8",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/stand/launch.tsv",
+       "inode": "1356",
+       "sha256_before": "e5c03ce4fa5bf2eb548d3e32a984f3b9b5b2d93cf022cb083712fc30ebc2beeb",
+       "sha256_after": "9d5c87a10640f47e4203ad511440822c52327c9200753b81b28292f05e485fd5",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/stand/read-closure",
+       "inode": "1355",
+       "sha256_before": "eaa839540536418457d127a06cafa3b804c6f12b8fac295fe202fce2fea01468",
+       "sha256_after": "93c85b8000bf8a8ff2004076751b646b6d0b68eebfd4739ab6a6ca9ad8666dae",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/stand/stand-profiles",
+       "inode": "1358",
+       "sha256_before": "736e695221564a8f0675e8c6c561054183784bc3c063689f84b526c2f70a4c9d",
+       "sha256_after": "604b5c4d3768610205a926a213f818160056bad566b70e4f50f8e7796108838a",
+       "mode": "0o100644"
+      }
+     ],
+     "unlinked_objects_after": []
+    },
+    "home": {
+     "generation": [
+      1,
+      11
+     ],
+     "added": [
+      {
+       "path": "/home/stand/.w3m",
+       "inode": "7",
+       "sha256": null,
+       "mode": "0o40700",
+       "uid": 1000,
+       "size": 0
+      },
+      {
+       "path": "/home/stand/document.txt",
+       "inode": "5",
+       "sha256": "679f346e7bc88aef5c0dd1e55b83f6c44894eff81422ca2c6a76ff8aceec4535",
+       "mode": "0o100644",
+       "uid": 1000,
+       "size": 16
+      },
+      {
+       "path": "/home/stand/page.html",
+       "inode": "6",
+       "sha256": "d07b95966d69ee292b8388c9be7dbe4df1caee99e103d082f8bdd3a0bb7b488d",
+       "mode": "0o100644",
+       "uid": 1000,
+       "size": 43
+      }
+     ],
+     "removed": [],
+     "changed": [],
+     "unlinked_objects_after": []
+    },
+    "tmp": {
+     "generation": [
+      66,
+      70
+     ],
+     "added": [],
+     "removed": [],
+     "changed": [],
+     "unlinked_objects_after": []
+    },
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "4db349d063c9031b61246cac73aab61d1f80819240b6a2adbf4503b23496b9a0"
+     ],
+     "unchanged": false,
+     "rows_added": [
+      "bc3-personal",
+      "repository:hello"
+     ],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "eed04a1ae204e2cde94bcf736cd5431680fba7769ba65345149e513fec79a691",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T17:15:04Z"
+      }
+     ]
+    }
+   },
+   "audit": [
+    {
+     "fs": "etc",
+     "generation": 166,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-o6sk2wkm",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 167,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-o6sk2wkm",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 168,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-o6sk2wkm",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 169,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-o6sk2wkm",
+       "a2b9d0a32938",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 170,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-o6sk2wkm",
+       "",
+       false
+      ],
+      [
+       "/etc/ssh/sshd_config.d/00-stand.conf",
+       "a2b9d0a32938",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 171,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 172,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "5e4b74f08d22",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 173,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "13e6e1731213",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 174,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "3486c7d9933e",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 175,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "559c252f6515",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 176,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "f51719c0f180",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 177,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "589881cbd418",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 178,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "fab538b73906",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 179,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "e5ba87b5fec9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 180,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "14e0c086ac3c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 181,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "2b2e146d773c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 182,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "fe28cba57517",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 183,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "ae61b8838ff5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 184,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "ae61b8838ff5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 185,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "ae61b8838ff5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 186,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-lh34te52",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/read-closure",
+       "ae61b8838ff5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 187,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-meyog1w6",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 188,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-meyog1w6",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 189,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-meyog1w6",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 190,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-meyog1w6",
+       "ccf59edd920d",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 191,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-meyog1w6",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/launch.tsv",
+       "ccf59edd920d",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 192,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-k5wrmk54",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 193,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-k5wrmk54",
+       "b2bd83d8c24c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 194,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-k5wrmk54",
+       "b2bd83d8c24c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 195,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-k5wrmk54",
+       "b2bd83d8c24c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 196,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-k5wrmk54",
+       "",
+       false
+      ],
+      [
+       "/etc/apparmor.d/abstractions/stand-map",
+       "b2bd83d8c24c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 197,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-p9wongpv",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 198,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-p9wongpv",
+       "6595784be353",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 199,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-p9wongpv",
+       "6595784be353",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 200,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-p9wongpv",
+       "6595784be353",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 201,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-p9wongpv",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/stand-profiles",
+       "6595784be353",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 202,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-ld1sy3oc",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 203,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-ld1sy3oc",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 204,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-ld1sy3oc",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 205,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-ld1sy3oc",
+       "a2b9d0a32938",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 206,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/ssh/sshd_config.d/.stand-ld1sy3oc",
+       "",
+       false
+      ],
+      [
+       "/etc/ssh/sshd_config.d/00-stand.conf",
+       "a2b9d0a32938",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 207,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 208,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "c49e0fed7e53",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 209,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "32b0f848907a",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 210,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "f96d848af900",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 211,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "aecf20f572d9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 212,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "e2db8db3d8ef",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 213,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "5eb725a5e86f",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 214,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "31c7381f6059",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 215,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "5291b698f87e",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 216,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "b397fce4706c",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 217,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "d6e388862dc8",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 218,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "147010eb1467",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 219,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "93c85b8000bf",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 220,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "93c85b8000bf",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 221,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "93c85b8000bf",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 222,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-91dm8s_0",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/read-closure",
+       "93c85b8000bf",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 223,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-jkp2lxul",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 224,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-jkp2lxul",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 225,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-jkp2lxul",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 226,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-jkp2lxul",
+       "9d5c87a10640",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 227,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-jkp2lxul",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/launch.tsv",
+       "9d5c87a10640",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 228,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-yl7tu19z",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 229,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-yl7tu19z",
+       "a3f7be7a02f9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 230,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-yl7tu19z",
+       "a3f7be7a02f9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 231,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-yl7tu19z",
+       "a3f7be7a02f9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 232,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/apparmor.d/abstractions/.stand-yl7tu19z",
+       "",
+       false
+      ],
+      [
+       "/etc/apparmor.d/abstractions/stand-map",
+       "a3f7be7a02f9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 233,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-_knx0ltj",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 234,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-_knx0ltj",
+       "604b5c4d3768",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 235,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-_knx0ltj",
+       "604b5c4d3768",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 236,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-_knx0ltj",
+       "604b5c4d3768",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 237,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/stand/.stand-_knx0ltj",
+       "",
+       false
+      ],
+      [
+       "/etc/stand/stand-profiles",
+       "604b5c4d3768",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 2,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/document.txt",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 3,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/document.txt",
+       "e5ddcc7155f9",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 4,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/page.html",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 5,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/page.html",
+       "d07b95966d69",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 6,
+     "operation": "mkdir",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/.w3m",
+       "",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 7,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/.w3m/w3msrc2790-0.html",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 8,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/.w3m/w3msrc2790-0.html",
+       "d07b95966d69",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 9,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/.w3m/w3msrc2790-0.html",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 10,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/document.txt",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "home",
+     "generation": 11,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/home/stand/document.txt",
+       "679f346e7bc8",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "tmp",
+     "generation": 67,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/tmp/tmpfKSNgOq",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "tmp",
+     "generation": 68,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/tmp/.fuse_hidden0000000500000001",
+       "e3b0c44298fc",
+       true
+      ],
+      [
+       "/tmp/tmpfKSNgOq",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "tmp",
+     "generation": 69,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/tmp/.fuse_hidden0000000500000001",
+       "d2c15008ceb3",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "tmp",
+     "generation": 70,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/tmp/.fuse_hidden0000000500000001",
+       "",
+       false
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "ordinary-work": true
+   }
+  }
+ ],
+ "problems": []
+}

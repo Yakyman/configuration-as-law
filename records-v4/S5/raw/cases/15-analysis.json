@@ -1,0 +1,180 @@
+{
+ "case": "15",
+ "steps": [
+  {
+   "phase": "fixture_result",
+   "path": "/tmp/v4-extra-7z89hz2f/dispatcher.json",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "phase": "dispatcher_install",
+   "path": null,
+   "passed": null,
+   "rc": 0,
+   "stdout": "SUCCESS 055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680\n",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "phase": "fixture_result",
+   "path": "/tmp/v4-extra-7z89hz2f/instructions.ops",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "role": "attempt",
+   "command": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch --file /tmp/v4-extra-7z89hz2f/instructions.ops",
+   "rc": 0,
+   "stdout": "DISPATCHER_SAVED_EXECUTED\n",
+   "stderr": "",
+   "before_snapshot": "e414f8f2f629c1c2758fdb346cef815908b174b04b8ffc2868a9c5c692d652a3.json",
+   "after_snapshot": "e414f8f2f629c1c2758fdb346cef815908b174b04b8ffc2868a9c5c692d652a3.json",
+   "controller_flags": {
+    "marker_observed": true,
+    "refused": false,
+    "recorded": true,
+    "inline_write_verified": true,
+    "passed": null,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "e43c527ce739f371fadbd783f0016209ea99961ac54671cc83ca1f1ee53a14fa",
+      "e43c527ce739f371fadbd783f0016209ea99961ac54671cc83ca1f1ee53a14fa"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T17:13:13Z"
+      },
+      {
+       "declaration": "055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T17:13:13Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/instructions.ops": {
+     "declaration": "tmp",
+     "generation": 70,
+     "inode": "72",
+     "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/instructions.ops": {
+     "declaration": "tmp",
+     "generation": 70,
+     "inode": "72",
+     "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "role": "permitted",
+   "command": "/opt/stand/pkgs/v4-extra-dispatch/bin/dispatch --file /tmp/v4-extra-7z89hz2f/instructions.ops",
+   "rc": 0,
+   "stdout": "DISPATCHER_SAVED_EXECUTED\n",
+   "stderr": "",
+   "before_snapshot": "e414f8f2f629c1c2758fdb346cef815908b174b04b8ffc2868a9c5c692d652a3.json",
+   "after_snapshot": "e414f8f2f629c1c2758fdb346cef815908b174b04b8ffc2868a9c5c692d652a3.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": true,
+    "passed": true,
+    "permitted": true,
+    "attempt_closed": true
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "e43c527ce739f371fadbd783f0016209ea99961ac54671cc83ca1f1ee53a14fa",
+      "e43c527ce739f371fadbd783f0016209ea99961ac54671cc83ca1f1ee53a14fa"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T17:13:13Z"
+      },
+      {
+       "declaration": "055b80ab90d81d877b5c670fb0e72aa1cc6b64d9c0c08717d9bdaf0995136680",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T17:13:13Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/instructions.ops": {
+     "declaration": "tmp",
+     "generation": 70,
+     "inode": "72",
+     "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/instructions.ops": {
+     "declaration": "tmp",
+     "generation": 70,
+     "inode": "72",
+     "sha256": "08a7984a7805319b3b105b98c2da1d9efdfdf841c166266b74b8a803923be3ef",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "DISPATCHER-SAVED": true
+   }
+  }
+ ],
+ "problems": []
+}

@@ -1,0 +1,205 @@
+{
+   "filesystems": [
+      {
+         "target": "/",
+         "source": "/dev/vda3[/@/.snapshots/2/snapshot]",
+         "fstype": "btrfs",
+         "options": "ro,relatime,seclabel,discard=async,space_cache=v2,subvolid=269,subvol=/@/.snapshots/2/snapshot",
+         "children": [
+            {
+               "target": "/tmp",
+               "source": "tmpfs",
+               "fstype": "tmpfs",
+               "options": "rw,nosuid,nodev,seclabel,size=2000312k,nr_inodes=1048576,inode64,usrquota"
+            },{
+               "target": "/.snapshots",
+               "source": "/dev/vda3[/@/.snapshots]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=257,subvol=/@/.snapshots"
+            },{
+               "target": "/dev",
+               "source": "devtmpfs",
+               "fstype": "devtmpfs",
+               "options": "rw,nosuid,seclabel,size=4096k,nr_inodes=478939,mode=755,inode64",
+               "children": [
+                  {
+                     "target": "/dev/mqueue",
+                     "source": "mqueue",
+                     "fstype": "mqueue",
+                     "options": "rw,nosuid,nodev,noexec,relatime,seclabel"
+                  },{
+                     "target": "/dev/hugepages",
+                     "source": "hugetlbfs",
+                     "fstype": "hugetlbfs",
+                     "options": "rw,nosuid,nodev,relatime,seclabel,pagesize=2M"
+                  },{
+                     "target": "/dev/shm",
+                     "source": "tmpfs",
+                     "fstype": "tmpfs",
+                     "options": "rw,nosuid,nodev,seclabel,inode64,usrquota"
+                  },{
+                     "target": "/dev/pts",
+                     "source": "devpts",
+                     "fstype": "devpts",
+                     "options": "rw,nosuid,noexec,relatime,seclabel,gid=5,mode=600,ptmxmode=000"
+                  }
+               ]
+            },{
+               "target": "/boot/grub2/i386-pc",
+               "source": "/dev/vda3[/@/boot/grub2/i386-pc]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=266,subvol=/@/boot/grub2/i386-pc"
+            },{
+               "target": "/etc",
+               "source": "/dev/vda3[/@/.snapshots/2/snapshot/etc]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=270,subvol=/@/.snapshots/2/snapshot/etc"
+            },{
+               "target": "/sys",
+               "source": "sysfs",
+               "fstype": "sysfs",
+               "options": "rw,nosuid,nodev,noexec,relatime,seclabel",
+               "children": [
+                  {
+                     "target": "/sys/fs/selinux",
+                     "source": "selinuxfs",
+                     "fstype": "selinuxfs",
+                     "options": "rw,nosuid,noexec,relatime"
+                  },{
+                     "target": "/sys/kernel/debug",
+                     "source": "debugfs",
+                     "fstype": "debugfs",
+                     "options": "rw,nosuid,nodev,noexec,relatime,seclabel"
+                  },{
+                     "target": "/sys/kernel/tracing",
+                     "source": "tracefs",
+                     "fstype": "tracefs",
+                     "options": "rw,nosuid,nodev,noexec,relatime,seclabel"
+                  },{
+                     "target": "/sys/fs/fuse/connections",
+                     "source": "fusectl",
+                     "fstype": "fusectl",
+                     "options": "rw,nosuid,nodev,noexec,relatime"
+                  },{
+                     "target": "/sys/kernel/security",
+                     "source": "securityfs",
+                     "fstype": "securityfs",
+                     "options": "rw,nosuid,nodev,noexec,relatime"
+                  },{
+                     "target": "/sys/fs/cgroup",
+                     "source": "cgroup2",
+                     "fstype": "cgroup2",
+                     "options": "rw,nosuid,nodev,noexec,relatime,seclabel,nsdelegate,memory_recursiveprot,memory_hugetlb_accounting"
+                  },{
+                     "target": "/sys/fs/pstore",
+                     "source": "none",
+                     "fstype": "pstore",
+                     "options": "rw,nosuid,nodev,noexec,relatime,seclabel"
+                  },{
+                     "target": "/sys/firmware/efi/efivars",
+                     "source": "efivarfs",
+                     "fstype": "efivarfs",
+                     "options": "rw,nosuid,nodev,noexec,relatime"
+                  },{
+                     "target": "/sys/fs/bpf",
+                     "source": "bpf",
+                     "fstype": "bpf",
+                     "options": "rw,nosuid,nodev,noexec,relatime,mode=700"
+                  },{
+                     "target": "/sys/kernel/config",
+                     "source": "configfs",
+                     "fstype": "configfs",
+                     "options": "rw,nosuid,nodev,noexec,relatime"
+                  }
+               ]
+            },{
+               "target": "/root",
+               "source": "/dev/vda3[/@/root]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=261,subvol=/@/root"
+            },{
+               "target": "/var",
+               "source": "/dev/vda3[/@/var]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=263,subvol=/@/var"
+            },{
+               "target": "/proc",
+               "source": "proc",
+               "fstype": "proc",
+               "options": "rw,nosuid,nodev,noexec,relatime",
+               "children": [
+                  {
+                     "target": "/proc/sys/fs/binfmt_misc",
+                     "source": "systemd-1",
+                     "fstype": "autofs",
+                     "options": "rw,relatime,fd=42,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=7655"
+                  }
+               ]
+            },{
+               "target": "/run",
+               "source": "tmpfs",
+               "fstype": "tmpfs",
+               "options": "rw,nosuid,nodev,seclabel,size=800124k,nr_inodes=819200,mode=755,inode64",
+               "children": [
+                  {
+                     "target": "/run/credentials/systemd-journald.service",
+                     "source": "none",
+                     "fstype": "tmpfs",
+                     "options": "ro,nosuid,nodev,noexec,relatime,nosymfollow,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap"
+                  },{
+                     "target": "/run/credentials/getty@tty1.service",
+                     "source": "none",
+                     "fstype": "tmpfs",
+                     "options": "ro,nosuid,nodev,noexec,relatime,nosymfollow,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap"
+                  },{
+                     "target": "/run/credentials/serial-getty@ttyS0.service",
+                     "source": "none",
+                     "fstype": "tmpfs",
+                     "options": "ro,nosuid,nodev,noexec,relatime,nosymfollow,seclabel,size=1024k,nr_inodes=1024,mode=700,inode64,noswap"
+                  },{
+                     "target": "/run/user/1000",
+                     "source": "tmpfs",
+                     "fstype": "tmpfs",
+                     "options": "rw,nosuid,nodev,relatime,seclabel,size=400060k,nr_inodes=100015,mode=700,uid=1000,gid=1000,inode64"
+                  }
+               ]
+            },{
+               "target": "/home",
+               "source": "/dev/vda3[/@/home]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=259,subvol=/@/home"
+            },{
+               "target": "/boot/grub2/x86_64-efi",
+               "source": "/dev/vda3[/@/boot/grub2/x86_64-efi]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=267,subvol=/@/boot/grub2/x86_64-efi"
+            },{
+               "target": "/boot/writable",
+               "source": "/dev/vda3[/@/boot/writable]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=264,subvol=/@/boot/writable"
+            },{
+               "target": "/opt",
+               "source": "/dev/vda3[/@/opt]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=260,subvol=/@/opt"
+            },{
+               "target": "/srv",
+               "source": "/dev/vda3[/@/srv]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=262,subvol=/@/srv"
+            },{
+               "target": "/usr/local",
+               "source": "/dev/vda3[/@/usr/local]",
+               "fstype": "btrfs",
+               "options": "rw,relatime,seclabel,discard=async,space_cache=v2,subvolid=265,subvol=/@/usr/local"
+            },{
+               "target": "/boot/efi",
+               "source": "/dev/vda2",
+               "fstype": "vfat",
+               "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro"
+            }
+         ]
+      }
+   ]
+}

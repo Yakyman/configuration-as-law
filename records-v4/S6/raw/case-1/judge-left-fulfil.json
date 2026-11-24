@@ -1,0 +1,27 @@
+{
+ "mismatch_count": 2,
+ "by_line_and_kind": [
+  [
+   "boot",
+   "NOT DECIDABLE FROM GUEST (host VM argv required)",
+   1
+  ],
+  [
+   "code-boundary",
+   "NOT DECIDABLE BY READBACK (prose requirement; collector limitation)",
+   1
+  ]
+ ],
+ "mismatches": [
+  {
+   "line": "boot",
+   "what": "NOT DECIDABLE FROM GUEST (host VM argv required)",
+   "guest_cmdline": "BOOT_IMAGE=/boot/vmlinuz-6.12.117+deb13-amd64 root=PARTUUID=<REDACTED> ro console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 consoleblank=0\n"
+  },
+  {
+   "line": "code-boundary",
+   "what": "NOT DECIDABLE BY READBACK (prose requirement; collector limitation)",
+   "limitation": "Kernel profile names/enforcement and exact policy inputs do not prove the semantic prose requirement."
+  }
+ ]
+}

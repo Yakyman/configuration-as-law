@@ -1,0 +1,350 @@
+{
+  "bounded_stream": true,
+  "event_types": {
+    "AddressEvent": 5,
+    "MachineStatusEvent": 13,
+    "PhaseEvent": 28,
+    "SequenceEvent": 6,
+    "ServiceStateEvent": 69,
+    "TaskEvent": 42
+  },
+  "first_night_code_path_mentions": [
+    {
+      "first_id": "talos-6ba0499338de982b118add0e",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/bridge"
+    },
+    {
+      "first_id": "talos-997f8af85b846cc0b08cb788",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/firewall"
+    },
+    {
+      "first_id": "talos-2123143dd59cfa8a65d89c2e",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/flannel"
+    },
+    {
+      "first_id": "talos-ef5794c4d65299a78f9d0ab3",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/host-local"
+    },
+    {
+      "first_id": "talos-c3bfa964520b20475dcaec7b",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/loopback"
+    },
+    {
+      "first_id": "talos-6c7e22c445534534f8821ef2",
+      "literal_mentions": 0,
+      "path": "/opt/cni/bin/portmap"
+    }
+  ],
+  "lines": 327,
+  "sequence_phase_task_payloads": [
+    {
+      "message": "initialize             START",
+      "type": "SequenceEvent"
+    },
+    {
+      "message": "systemRequirements     START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "enforceKSPPRequirements   START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "enforceKSPPRequirements   STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "systemRequirements     STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "earlyServices          START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "startSandboxd          START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startMachined          START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "waitForUdevd           START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startApid              START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startAuditd            START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startSyslogd           START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startContainerd        START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startSandboxd          STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startApid              STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startAuditd            STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startSyslogd           STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "waitForUdevd           STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startMachined          STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startContainerd        STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "earlyServices          STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "meta                   START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "reloadMeta             START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "reloadMeta             STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "meta                   STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "dashboard              START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "startDashboard         START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startDashboard         STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "dashboard              STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "config                 START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "loadConfig             START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "loadConfig             STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "config                 STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "initialize             STOP",
+      "type": "SequenceEvent"
+    },
+    {
+      "message": "install                START",
+      "type": "SequenceEvent"
+    },
+    {
+      "message": "install                STOP",
+      "type": "SequenceEvent"
+    },
+    {
+      "message": "boot                   START",
+      "type": "SequenceEvent"
+    },
+    {
+      "message": "memorySizeCheck        START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "memorySizeCheck        START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "memorySizeCheck        STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "memorySizeCheck        STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "diskSizeCheck          START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "diskSizeCheck          START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "diskSizeCheck          STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "diskSizeCheck          STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "env                    START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "waitForCARoots         START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "setUserEnvVars         START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "setUserEnvVars         STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "waitForCARoots         STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "env                    STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "dbus                   START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "startDBus              START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startDBus              STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "dbus                   STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "ephemeral              START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "mountEphemeralPartition   START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "mountEphemeralPartition   STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "ephemeral              STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "promotableVolumes      START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "mountPromotableSystemPartitions   START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "mountPromotableSystemPartitions   STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "promotableVolumes      STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "userDisks              START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "mountUserDisks         START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "mountUserDisks         STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "userDisks              STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "userSetup              START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "writeUserFiles         START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "writeUserFiles         STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "userSetup              STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "startEverything        START",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "startAllServices       START",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startAllServices       STOP",
+      "type": "TaskEvent"
+    },
+    {
+      "message": "startEverything        STOP",
+      "type": "PhaseEvent"
+    },
+    {
+      "message": "boot                   STOP",
+      "type": "SequenceEvent"
+    }
+  ]
+}

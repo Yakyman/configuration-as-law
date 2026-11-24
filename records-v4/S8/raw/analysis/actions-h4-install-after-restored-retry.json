@@ -1,0 +1,247 @@
+[
+ {
+  "action": "h4.install",
+  "command_record": "install-host-cut",
+  "started_utc": "2026-11-23T19:00:50.353097+00:00",
+  "ended_utc": "2026-11-23T19:01:46.995419+00:00",
+  "done": false,
+  "evidence": [
+   "install/guest.json (exit, stdout)"
+  ],
+  "reason": "installer exit 1 while disconnected: FAILED recovery incomplete: readback mismatch: port:udp:1; restoration mismatch: port:udp:1"
+ },
+ {
+  "action": "h4.install-network-down",
+  "command_record": "install-host-cut",
+  "started_utc": "2026-11-23T19:00:50Z",
+  "ended_utc": "2026-11-23T19:00:50.374448+00:00",
+  "done": true,
+  "evidence": [
+   "install/host-events.json",
+   "install/guest.json (active_at_cut, carrier_at_cut, valid_cut=true)"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h4.install-network-restored",
+  "command_record": "install-host-cut",
+  "started_utc": "2026-11-23T19:03:39Z",
+  "ended_utc": "2026-11-23T19:03:41Z",
+  "done": true,
+  "evidence": [
+   "install/host-events.json",
+   "install/guest.json (carrier_at_output ens3=1)"
+  ],
+  "reason": null
+ },
+ {
+  "action": "h4.install-restored-retry-if-failed",
+  "command_record": "install-restored-retry",
+  "started_utc": "2026-11-23T19:03:41.960625+00:00",
+  "ended_utc": "2026-11-23T19:03:42.125074+00:00",
+  "done": false,
+  "evidence": [
+   "install-restored-retry.stdout",
+   "install-restored-retry.stderr"
+  ],
+  "reason": "unavailable: guest session exited 255 (no login) at 2026-11-23T19:03:42.125074+00:00; see commands.json"
+ },
+ {
+  "action": "h4.worker-run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.development-network-down",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.development-network-restored",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.development-restored-retry-if-failed",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.fetch",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.original.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.original.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.edit",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.edited.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.1.edited.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.fetch",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.original.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.original.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.edit",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.edited.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.2.edited.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.fetch",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.original.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.original.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.edit",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.edited.build",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ },
+ {
+  "action": "h4.dev.h2.3.edited.run",
+  "command_record": null,
+  "started_utc": null,
+  "ended_utc": null,
+  "done": false,
+  "evidence": [],
+  "reason": "not yet reached"
+ }
+]

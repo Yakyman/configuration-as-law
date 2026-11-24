@@ -1,0 +1,72 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "new",
+      "bc3-final-1-regression-suffix",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T16:41:57Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "new.log",
+    "started_utc": "2026-11-23T16:40:53Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-regression-suffix",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:41:57Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "copy.log",
+    "started_utc": "2026-11-23T16:41:57Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc3-final-1-regression-suffix",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T16:50:14Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "suffix.jsonl",
+    "started_utc": "2026-11-23T16:41:57Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "copy-out",
+      "bc3-final-1-regression-suffix",
+      "/var/lib/stand/bc3-round2-continuation",
+      "[stand-root]/raw/round-3/final-1-continuation/evidence"
+    ],
+    "ended_utc": "2026-11-23T16:50:14Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "export.log",
+    "started_utc": "2026-11-23T16:50:14Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "destroy",
+      "bc3-final-1-regression-suffix"
+    ],
+    "ended_utc": "2026-11-23T16:50:16Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "log": "destroy.log",
+    "started_utc": "2026-11-23T16:50:14Z"
+  }
+]

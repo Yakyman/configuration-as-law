@@ -1,0 +1,1 @@
+- The inventory marks files "ownership unresolved" by literal path; under merged /usr (/bin -> usr/bin etc.) 5 473 such gentoo paths are, by canonical path, files of packages recorded unchanged (see part-gentoo.notes.md section 1).

@@ -1,0 +1,398 @@
+[
+  {
+    "family": 13,
+    "object": "s2-1",
+    "machine": "unspecified",
+    "name": "<Firefox-profile>/prefs.js: activated theme preference",
+    "channel": "C8.08 a",
+    "form": "A selected preference value retained in the profile file",
+    "producer": "Firefox preference storage",
+    "derive": "User selection of a theme",
+    "execution": "The selected value is read by Firefox, not supplied as executable statements.",
+    "consumer": "Firefox for the user of this profile",
+    "keys": [
+      "pref",
+      "theme"
+    ],
+    "origin": "The object is a user-chosen value stored in a profile; no package-supplied value is identified.",
+    "choice": "A person chooses the theme in the described channel.",
+    "human": "A person chooses the value; Firefox stores it."
+  },
+  {
+    "family": 13,
+    "object": "s2-2",
+    "machine": "unspecified",
+    "name": "<Firefox-profile>/prefs.js: home-page URL preference",
+    "channel": "C8.08 b",
+    "form": "A selected URL retained in the profile file",
+    "producer": "Firefox preference storage",
+    "derive": "User selection of a home page",
+    "execution": "The URL is read as a navigation value; this object is not the fetched page or its scripts.",
+    "consumer": "Firefox for the user of this profile",
+    "keys": [
+      "pref",
+      "home"
+    ],
+    "origin": "The object is a user-chosen value stored in a profile; no package-supplied value is identified.",
+    "choice": "A person chooses the home-page URL in the described channel.",
+    "human": "A person chooses the value; Firefox stores it."
+  },
+  {
+    "family": 14,
+    "object": "s2-3",
+    "machine": "unspecified",
+    "name": "./a.out or <-o-path>",
+    "channel": "C5.1 a",
+    "form": "Native linked executable",
+    "producer": "GCC compilation/linking",
+    "derive": "C source and linker inputs",
+    "execution": "The channel specifies native output then execution as a process.",
+    "consumer": "Operating-system execution of the built file",
+    "keys": [
+      "gcc",
+      "exec"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-4",
+    "machine": "unspecified",
+    "name": "./<name>.c",
+    "channel": "C5.1 b",
+    "form": "C source file",
+    "producer": "UNKNOWN: The writing program or creator of the source is not identified.",
+    "derive": "C source input; earlier origin not given",
+    "execution": "Compilation is needed before the native execution described; source is compiler input.",
+    "consumer": "GCC reads source",
+    "keys": [
+      "gcc"
+    ],
+    "origin": "UNKNOWN: B1 names a C source input but gives no package-delivery provenance.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "UNKNOWN: B1 names the source input but does not identify its creator or whether the operator brought it."
+  },
+  {
+    "family": 14,
+    "object": "s2-5",
+    "machine": "unspecified",
+    "name": "./<name>.o",
+    "channel": "C5.1 d",
+    "form": "Unlinked object file",
+    "producer": "GCC compilation/assembly",
+    "derive": "C source and compilation inputs",
+    "execution": "The described intermediate needs linking before execution; the linker consumes it.",
+    "consumer": "Linker",
+    "keys": [
+      "gcc"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-6",
+    "machine": "unspecified",
+    "name": "CMakeLists.txt",
+    "channel": "C5.2 a recipe",
+    "form": "Project file with CMake-language commands",
+    "producer": "Project author",
+    "derive": "Project build instructions",
+    "execution": "CMake evaluates this project file; its command language can start child processes.",
+    "consumer": "CMake configuring this project",
+    "keys": [
+      "cmake",
+      "child"
+    ],
+    "origin": "Project input; no package provenance is stated.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "UNKNOWN: B1 names the project recipe without stating whether the invoking person wrote it or brought it."
+  },
+  {
+    "family": 14,
+    "object": "s2-7",
+    "machine": "unspecified",
+    "name": "<try_run COPY_FILE destination>",
+    "channel": "C5.2 a executable",
+    "form": "Copied configure-test executable",
+    "producer": "CMake try_run and invoked compiler/linker",
+    "derive": "Source files passed to try_run",
+    "execution": "try_run builds and runs a test executable; COPY_FILE retains it when requested.",
+    "consumer": "CMake test execution and operating-system loader",
+    "keys": [
+      "run",
+      "exec"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-8",
+    "machine": "unspecified",
+    "name": "build/CMakeCache.txt: compile/run result entries",
+    "channel": "C5.2 b cache",
+    "form": "Cached result values",
+    "producer": "CMake try_run",
+    "derive": "Build success/failure and test exit result",
+    "execution": "CMake reads cached results as values.",
+    "consumer": "CMake configuring this project",
+    "keys": [
+      "run",
+      "cmake"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "These result values are calculated from compilation/run outcomes, rather than chosen by a person.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-9",
+    "machine": "unspecified",
+    "name": "<build>/CMakeFiles/CMakeConfigureLog.yaml: try_run event",
+    "channel": "C5.2 b log",
+    "form": "YAML event in the configure log",
+    "producer": "CMake during configuration",
+    "derive": "Compile/run event details",
+    "execution": "The event is written/read as log data.",
+    "consumer": "People or tools inspecting the configure log",
+    "keys": [
+      "run",
+      "log"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "Event values are obtained from execution, rather than selected by a person.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-10",
+    "machine": "unspecified",
+    "name": "<prefix>/bin/<program>",
+    "channel": "C5.3 a executable",
+    "form": "Executable copied by install rules",
+    "producer": "CMake-generated install operation",
+    "derive": "Built executable selected by project install rules",
+    "execution": "The copied target is an executable; launch uses the operating-system loader.",
+    "consumer": "Programs/users invoking the installed path",
+    "keys": [
+      "install",
+      "exec"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-11",
+    "machine": "unspecified",
+    "name": "<prefix>/lib/<library>.so",
+    "channel": "C5.3 a library",
+    "form": "Shared library copied by install rules",
+    "producer": "CMake-generated install operation",
+    "derive": "Built library selected by project install rules",
+    "execution": "Shared-library machine code is loaded into a consuming process.",
+    "consumer": "Program loading the library",
+    "keys": [
+      "install"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-12",
+    "machine": "unspecified",
+    "name": "build/cmake_install.cmake",
+    "channel": "C5.3 b",
+    "form": "Generated CMake script",
+    "producer": "CMake install() processing",
+    "derive": "Project install rules",
+    "execution": "Executed by generated install target, CPack, or cmake -P.",
+    "consumer": "CMake install operation",
+    "keys": [
+      "install",
+      "cmake",
+      "child"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-13",
+    "machine": "unspecified",
+    "name": "<shell-startup-file>: PATH assignment",
+    "channel": "C5.3 c",
+    "form": "Persisted shell assignment",
+    "producer": "Person editing a shell startup file",
+    "derive": "Person-selected command-search path",
+    "execution": "Bash reads and executes startup-file statements; PATH changes command lookup.",
+    "consumer": "Shell reading that file and processes receiving exported PATH",
+    "keys": [
+      "bash"
+    ],
+    "origin": "Person-written startup assignment; no package-delivered bytes identified.",
+    "choice": "A person chooses the PATH assignment in the described channel.",
+    "human": "Person writes the assignment."
+  },
+  {
+    "family": 14,
+    "object": "s2-14",
+    "machine": "unspecified",
+    "name": "<prefix>/bin/<alias>",
+    "channel": "C5.3 d",
+    "form": "Symbolic link to an executable",
+    "producer": "Person creating a link",
+    "derive": "Chosen target executable path",
+    "execution": "A link resolves to its target; invocation via the alias executes the target.",
+    "consumer": "Command lookup/path resolution and target process",
+    "keys": [
+      "symlink",
+      "exec"
+    ],
+    "origin": "Person-created link; no package delivery is stated.",
+    "choice": "A person chooses a launch alias and its target.",
+    "human": "The person creates the link in the described channel."
+  },
+  {
+    "family": 14,
+    "object": "s2-15",
+    "machine": "unspecified",
+    "name": "./<program> (replacement)",
+    "channel": "C5.4 a executable",
+    "form": "Executable bytes replacing previous contents at the same path",
+    "producer": "Compiler/build operation",
+    "derive": "New source/build inputs replacing earlier output",
+    "execution": "Native executable can be started as a process in the described channel.",
+    "consumer": "Programs/users invoking that path",
+    "keys": [
+      "gcc",
+      "exec"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-16",
+    "machine": "unspecified",
+    "name": "./<library>.so (replacement)",
+    "channel": "C5.4 a library",
+    "form": "Shared-library bytes replacing previous contents at the same path",
+    "producer": "Compiler/build operation",
+    "derive": "New source/build inputs replacing earlier output",
+    "execution": "Library code can execute within a process that loads it.",
+    "consumer": "Program loading the replaced library",
+    "keys": [
+      "gcc"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-17",
+    "machine": "unspecified",
+    "name": "./<plugin>.so",
+    "channel": "C5.5 a",
+    "form": "Locally built compiler plugin shared library",
+    "producer": "Local compiler/linker build",
+    "derive": "Plugin source and build inputs",
+    "execution": "GCC loads the plugin into its own process; plugin extends compiler behavior.",
+    "consumer": "GCC loading the plugin",
+    "keys": [
+      "plugin",
+      "plugin-load",
+      "gcc"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 14,
+    "object": "s2-18",
+    "machine": "unspecified",
+    "name": "<packaged-plugin-path>",
+    "channel": "C5.5 b",
+    "form": "Unchanged plugin obtained in an installed package",
+    "producer": "Package installation in the described channel",
+    "derive": "Installed package containing the plugin",
+    "execution": "GCC plugin module loaded into compiler process.",
+    "consumer": "GCC loading the plugin",
+    "keys": [
+      "plugin",
+      "plugin-load"
+    ],
+    "origin": "The channel explicitly specifies an unchanged plugin obtained in an installed package.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "A person using the channel selects a plugin; the package supplies its bytes."
+  },
+  {
+    "family": 14,
+    "object": "s2-19",
+    "machine": "unspecified",
+    "name": "./a.out or <-o-path> (plugin-enabled build)",
+    "channel": "C5.5 c",
+    "form": "Generated executable",
+    "producer": "Compiler/linker with plugin loaded",
+    "derive": "Source, linker inputs and compilation affected by the plugin",
+    "execution": "Linked output can execute as its own process in the described channel.",
+    "consumer": "Operating-system loader",
+    "keys": [
+      "gcc",
+      "plugin",
+      "exec"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "No person-chosen value is specified; a person invokes the operation.",
+    "human": "The described operation is initiated by a person; the named producer writes the output."
+  },
+  {
+    "family": 15,
+    "object": "s2-20",
+    "machine": "unspecified",
+    "name": "~/.python_history",
+    "channel": "C7.06 b",
+    "form": "Saved interactive Python history entries",
+    "producer": "Interactive Python history facility",
+    "derive": "Retained user input from interactive sessions",
+    "execution": "History is loaded for recall/editing. Retained statements can be submitted to Python.",
+    "consumer": "User-run interactive Python session",
+    "keys": [
+      "python",
+      "readline"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "A person types input; the history facility chooses what to save under its configuration.",
+    "human": "A person supplies input; the interpreter records the file."
+  },
+  {
+    "family": 15,
+    "object": "s2-21",
+    "machine": "unspecified",
+    "name": "<HISTFILE> (default ~/.bash_history)",
+    "channel": "C7.17 c",
+    "form": "Saved shell command text",
+    "producer": "Bash history facility",
+    "derive": "Retained shell history list entries",
+    "execution": "History reading populates a list; recalled commands can be executed through fc or history substitution.",
+    "consumer": "User-run shell and its history facility",
+    "keys": [
+      "bash"
+    ],
+    "origin": "Generated locally in the described operation; not described as package-delivered bytes.",
+    "choice": "A person types commands; configured history filters affect which entries are retained.",
+    "human": "A person supplies commands; Bash writes the file."
+  }
+]

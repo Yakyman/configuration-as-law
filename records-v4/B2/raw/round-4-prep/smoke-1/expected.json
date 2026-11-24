@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-23T17:34:37Z",
+  "expected": "one package creates its exact account; complete exported description reapplies with exact bytes and successful machine/filesystem readback",
+  "scope": "fixture integration only; no step-6 case",
+  "stdin": "set -eu\nstand-pkg install /usr/local/share/stand/bc4/package-alpha.json\ngetent passwd bc4alpha\npython3 -B /usr/local/lib/stand/bc4_bundle.py export /var/lib/stand/bc4-smoke-input\npython3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-smoke-input\n"
+}

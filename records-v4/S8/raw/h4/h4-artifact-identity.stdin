@@ -1,0 +1,3 @@
+#!/bin/bash
+PS4='+${EPOCHREALTIME} ${LINENO}: '; set -x
+printf '%s\n' 'cc7a77f4e8cb92e2db65c112f17cce425bf966980ff239772bf500599d1ff2ba  /usr/local/share/stand/dev/worker-1.json' | sha256sum -c -

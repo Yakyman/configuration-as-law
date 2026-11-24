@@ -1,0 +1,64 @@
+{
+  "adapters": {
+    "talos": {
+      "boundaries": 18,
+      "boundary_reasons": {
+        "workload-or-pseudo-boundary": 18
+      },
+      "content_by_root": {
+        "/etc": {
+          "ok": 35
+        },
+        "/opt": {
+          "ok": 6
+        },
+        "/var/lib/containerd": {
+          "archive-error": 10,
+          "ok": 5887
+        },
+        "/var/lib/kubelet": {
+          "archive-error": 16,
+          "ok": 9
+        },
+        "/var/log/containers": {},
+        "/var/system": {}
+      },
+      "content_copy_status_counts": {
+        "archive-error": 26
+      },
+      "content_error_categories": {
+        "archive-error": 3,
+        "not-found": 23
+      },
+      "content_ok": 5937,
+      "content_read_status_counts": {
+        "ok": 5937,
+        "read-error": 23,
+        "size-changed": 3
+      },
+      "content_requested": 5963,
+      "content_status_counts": {
+        "archive-error": 26,
+        "ok": 5937
+      },
+      "current_image_source_rows": 3,
+      "directories": 1219,
+      "expanded_members": 8503,
+      "listing_failures": 0,
+      "mountinfo_query_exit": 0,
+      "mountinfo_rows": 29,
+      "mountinfo_status": "ok",
+      "opaque_targets_listed": 6,
+      "source_query_exit": 0
+    }
+  },
+  "counts": {
+    "filesystem_complete": 0,
+    "level1": 217,
+    "level2": 53,
+    "objects": 270,
+    "package_files": 287,
+    "package_integrity_known": 0,
+    "package_ownership_complete": 1
+  }
+}

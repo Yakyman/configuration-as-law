@@ -1,0 +1,615 @@
+
+
+
+
+
+
+Using the Configuration System (GNU Guix Reference Manual)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+--&gt;
+
+
+
+
+
+
+VersionVersion 1.5.0developmentsingle pagePDF DeutschEnglishEspañolFrançaisItalianoPortuguêsрусский中文; 汉语; 华语⊕
+
+
+
+Next: operating-system Reference, Previous: Getting Started, Up: System Configuration   [Contents][Index]
+
+
+11.2 Using the Configuration System
+
+The previous section showed the overall workflow you would follow when
+administering a Guix System machine (see Getting Started). Let’s now see in more detail what goes into the system
+configuration file.
+
+The operating system is configured by providing an
+operating-system declaration in a file that can then be passed to
+the guix system command (see Invoking guix system), as
+we’ve seen before. A simple setup, with the default Linux-Libre kernel,
+initial RAM disk, and a couple of system services added to those
+provided by default looks like this:
+
+
+
+;; -*- mode: scheme; -*-
+;; This is an operating system configuration template
+;; for a "bare bones" setup, with no X11 display server.
+
+(use-modules (gnu))
+(use-service-modules networking ssh)
+(use-package-modules screen ssh)
+
+(operating-system
+ (host-name "komputilo")
+ (timezone "Europe/Berlin")
+ (locale "en_US.utf8")
+
+ ;; Boot in "legacy" BIOS mode, assuming /dev/sdX is the
+ ;; target hard disk, and "my-root" is the label of the target
+ ;; root file system.
+ (bootloader (bootloader-configuration
+ (bootloader grub-bootloader)
+ (targets '("/dev/sdX"))))
+ ;; It's fitting to support the equally bare bones ‘-nographic’
+ ;; QEMU option, which also nicely sidesteps forcing QWERTY.
+ (kernel-arguments (list "console=ttyS0,115200"))
+ (file-systems (cons (file-system
+ (device (file-system-label "my-root"))
+ (mount-point "/")
+ (type "ext4"))
+ %base-file-systems))
+
+ ;; This is where user accounts are specified. The "root"
+ ;; account is implicit, and is initially created with the
+ ;; empty password.
+ (users (cons (user-account
+ (name "alice")
+ (comment "Bob's sister")
+ (group "users")
+
+ ;; Adding the account to the "wheel" group
+ ;; makes it a sudoer. Adding it to "audio"
+ ;; and "video" allows the user to play sound
+ ;; and access the webcam.
+ (supplementary-groups '("wheel"
+ "audio" "video")))
+ %base-user-accounts))
+
+ ;; Globally-installed packages.
+ (packages (cons screen %base-packages))
+
+ ;; Add services to the baseline: a DHCP client and an SSH
+ ;; server. You may wish to add an NTP service here.
+ (services (append (list (service dhcpcd-service-type)
+ (service openssh-service-type
+ (openssh-configuration
+ (openssh openssh-sans-x)
+ (port-number 2222))))
+ %base-services)))
+
+
+The configuration is declarative.
+It is code in the Scheme programming language; the whole
+(operating-system …) expression produces a record
+with a number of fields.
+Some of the fields defined
+above, such as host-name and bootloader, are mandatory.
+Others, such as packages and services, can be omitted, in
+which case they get a default value. See operating-system Reference,
+for details about all the available fields.
+
+Below we discuss the meaning of some of the most important fields.
+
+
+Troubleshooting: The configuration file is a Scheme program and you might get the syntax
+or semantics wrong as you get started. Syntactic issues such as
+misplaced parentheses can often be identified by reformatting your file:
+
+
+guix style -f config.scm
+
+
+The Cookbook has a short section to get started with the Scheme
+programming language that explains the fundamentals, which you will find
+helpful when hacking your configuration. See A Scheme Crash Course in GNU Guix Cookbook.
+
+
+
+Bootloader
+Globally-Visible Packages
+System Services
+Inspecting Services
+Instantiating the System
+The Programming Interface
+
+
+Bootloader
+
+
+
+
+
+The bootloader field describes the method that will be used to boot
+your system. Machines based on Intel processors can boot in “legacy” BIOS
+mode, as in the example above. However, more recent machines rely instead on
+the Unified Extensible Firmware Interface (UEFI) to boot. In that case,
+the bootloader field should contain something along these lines:
+
+
+(bootloader-configuration
+ (bootloader grub-efi-bootloader)
+ (targets '("/boot/efi")))
+
+
+See Bootloader Configuration, for more information on the available
+configuration options.
+
+
+
+Globally-Visible Packages
+
+
+The packages field lists packages that will be globally visible
+on the system, for all user accounts—i.e., in every user’s PATH
+environment variable—in addition to the per-user profiles
+(see Invoking guix package). The %base-packages variable
+provides all the tools one would expect for basic user and administrator
+tasks—including the GNU Core Utilities, the GNU Networking Utilities,
+the mg lightweight text editor, find, grep,
+etc. The example above adds GNU Screen to those,
+taken from the (gnu packages screen)
+module (see Package Modules). The
+(list package output) syntax can be used to add a specific output
+of a package:
+
+
+(use-modules (gnu packages))
+(use-modules (gnu packages dns))
+
+(operating-system
+ ;; ...
+ (packages (cons (list isc-bind "utils")
+ %base-packages)))
+
+
+
+Referring to packages by variable name, like isc-bind above, has
+the advantage of being unambiguous; it also allows typos and such to be
+diagnosed right away as “unbound variables”. The downside is that one
+needs to know which module defines which package, and to augment the
+use-package-modules line accordingly. To avoid that, one can use
+the specification->package procedure of the (gnu packages)
+module, which returns the best package for a given name or name and
+version:
+
+
+(use-modules (gnu packages))
+
+(operating-system
+ ;; ...
+ (packages (append (map specification->package
+ '("tcpdump" "htop" "gnupg@2.0"))
+ %base-packages)))
+
+
+
+When a package has more than one output it can be a challenge to refer to a
+specific output instead of just to the standard out output. For these
+situations one can use the specifications->packages procedure from
+the (gnu packages) module. For example:
+
+
+(use-modules (gnu packages))
+
+(operating-system
+ ;; ...
+ (packages (append (specifications->packages
+ '("git" "git:send-email"))
+ %base-packages)))
+
+
+
+
+
+System Services
+
+
+
+The services field lists system services to be made
+available when the system starts (see Services).
+The operating-system declaration above specifies that, in
+addition to the basic services, we want the OpenSSH secure shell
+daemon listening on port 2222 (see openssh-service-type). Under the hood,
+openssh-service-type arranges so that sshd is started with the
+right command-line options, possibly with supporting configuration files
+generated as needed (see Defining Services).
+
+
+
+Occasionally, instead of using the base services as is, you will want to
+customize them. To do this, use modify-services (see modify-services) to modify the list.
+
+For example, suppose you want to modify
+guix-daemon and Mingetty (the console log-in) in the
+%base-services list (see %base-services). To do that, you can write the following in
+your operating system declaration:
+
+
+(define %my-services
+ ;; My very own list of services.
+ (modify-services %base-services
+ (guix-service-type config =>
+ (guix-configuration
+ (inherit config)
+ ;; Fetch substitutes from example.org.
+ (substitute-urls
+ (list "https://example.org/guix"
+ "https://ci.guix.gnu.org"))))
+ (mingetty-service-type config =>
+ (mingetty-configuration
+ (inherit config)
+ ;; Automatically log in as "guest".
+ (auto-login "guest")))))
+
+(operating-system
+ ;; …
+ (services %my-services))
+
+
+This changes the configuration—i.e., the service parameters—of the
+guix-service-type instance, and that of all the
+mingetty-service-type instances in the %base-services list
+(see see the cookbook for how to
+auto-login one user to a specific TTY in GNU Guix Cookbook)).
+Observe how this is accomplished: first, we arrange for the original
+configuration to be bound to the identifier config in the
+body, and then we write the body so that it evaluates to the
+desired configuration. In particular, notice how we use inherit
+to create a new configuration which has the same values as the old
+configuration, but with a few modifications.
+
+
+The configuration for a typical “desktop” usage, with an encrypted
+root partition, a swap file on the root partition, the X11 display
+server, GNOME and Xfce (users can choose which of these desktop
+environments to use at the log-in screen by pressing F1), network
+management, power management, and more, would look like this:
+
+
+;; -*- mode: scheme; -*-
+;; This is an operating system configuration template
+;; for a "desktop" setup with GNOME and Xfce where the
+;; root partition is encrypted with LUKS, and a swap file.
+
+(use-modules (gnu) (gnu system nss) (guix utils)
+ (guix packages))
+(use-service-modules desktop sddm xorg)
+(use-package-modules gnome)
+
+(operating-system
+ (host-name "antelope")
+ (timezone "Europe/Paris")
+ (locale "en_US.utf8")
+
+ ;; Choose US English keyboard layout. The "altgr-intl"
+ ;; variant provides dead keys for accented characters.
+ (keyboard-layout (keyboard-layout "us" "altgr-intl"))
+
+ ;; Use the UEFI variant of GRUB with the EFI System
+ ;; Partition mounted on /boot/efi.
+ (bootloader (bootloader-configuration
+ (bootloader grub-efi-bootloader)
+ (targets '("/boot/efi"))
+ (keyboard-layout keyboard-layout)))
+
+ ;; Specify a mapped device for the encrypted root partition.
+ ;; The UUID is that returned by 'cryptsetup luksUUID'.
+ (mapped-devices
+ (list (mapped-device
+ (source (uuid "<REDACTED>"))
+ (target "my-root")
+ (type luks-device-mapping))))
+
+ (file-systems (append
+ (list (file-system
+ (device (file-system-label "my-root"))
+ (mount-point "/")
+ (type "ext4")
+ (dependencies mapped-devices))
+ (file-system
+ (device (uuid "1234-ABCD" 'fat))
+ (mount-point "/boot/efi")
+ (type "vfat")))
+ %base-file-systems))
+
+ ;; Specify a swap file for the system, which resides on the
+ ;; root file system.
+ (swap-devices (list (swap-space
+ (target "/swapfile"))))
+
+ ;; Create user `bob' with `alice' as its initial password.
+ (users (cons (user-account
+ (name "bob")
+ (comment "Alice's brother")
+ (password (crypt "alice" "$6$abc"))
+ (group "students")
+ (supplementary-groups '("wheel" "netdev"
+ "audio" "video")))
+ %base-user-accounts))
+
+ ;; Add the `students' group
+ (groups (cons* (user-group
+ (name "students"))
+ %base-groups))
+
+ ;; This is where we specify system-wide packages.
+ (packages (append (list
+ ;; for user mounts
+ gvfs)
+ %base-packages))
+
+ ;; Add GNOME and Xfce---we can choose at the log-in screen
+ ;; by clicking the gear. Use the "desktop" services, which
+ ;; include the X11 log-in service, networking with
+ ;; NetworkManager, and more.
+ (services (if (supported-package? gnome
+ (or (and=> (%current-target-system)
+ gnu-triplet->nix-system)
+ (%current-system)))
+ (append (list (service gnome-desktop-service-type)
+ (service xfce-desktop-service-type)
+ (set-xorg-configuration
+ (xorg-configuration
+ (keyboard-layout keyboard-layout))))
+ %desktop-services)
+
+ ;; FIXME: Since Gnome depends on Rust and Rust is currently
+ ;; unavailable on some platforms, we use MATE here instead of
+ ;; GNOME.
+ (append (list (service mate-desktop-service-type)
+ (service xfce-desktop-service-type)
+ (set-xorg-configuration
+ (xorg-configuration
+ (keyboard-layout keyboard-layout))))
+ %desktop-services)))
+
+ ;; Allow resolution of '.local' host names with mDNS.
+ (name-service-switch %mdns-host-lookup-nss))
+
+
+A graphical system with a choice of lightweight window managers
+instead of full-blown desktop environments would look like this:
+
+
+;; -*- mode: scheme; -*-
+;; This is an operating system configuration template
+;; for a "desktop" setup without full-blown desktop
+;; environments.
+
+(use-modules (gnu) (gnu system nss))
+(use-service-modules desktop)
+(use-package-modules bootloaders emacs emacs-xyz ratpoison suckless wm
+ xorg)
+
+(operating-system
+ (host-name "antelope")
+ (timezone "Europe/Paris")
+ (locale "en_US.utf8")
+
+ ;; Use the UEFI variant of GRUB with the EFI System
+ ;; Partition mounted on /boot/efi.
+ (bootloader (bootloader-configuration
+ (bootloader grub-efi-bootloader)
+ (targets '("/boot/efi"))))
+
+ ;; Assume the target root file system is labelled "my-root",
+ ;; and the EFI System Partition has UUID 1234-ABCD.
+ (file-systems (append
+ (list (file-system
+ (device (file-system-label "my-root"))
+ (mount-point "/")
+ (type "ext4"))
+ (file-system
+ (device (uuid "1234-ABCD" 'fat))
+ (mount-point "/boot/efi")
+ (type "vfat")))
+ %base-file-systems))
+
+ (users (cons (user-account
+ (name "alice")
+ (comment "Bob's sister")
+ (group "users")
+ (supplementary-groups '("wheel" "netdev"
+ "audio" "video")))
+ %base-user-accounts))
+
+ ;; Add a bunch of window managers; we can choose one at
+ ;; the log-in screen with F1.
+ (packages (append (list
+ ;; window managers
+ ratpoison i3-wm i3status dmenu
+ emacs emacs-exwm emacs-desktop-environment
+ ;; terminal emulator
+ xterm)
+ %base-packages))
+
+ ;; Use the "desktop" services, which include the X11
+ ;; log-in service, networking with NetworkManager, and more.
+ (services %desktop-services)
+
+ ;; Allow resolution of '.local' host names with mDNS.
+ (name-service-switch %mdns-host-lookup-nss))
+
+
+This example refers to the /boot/efi file system by its UUID,
+1234-ABCD. Replace this UUID with the right UUID on your system,
+as returned by the blkid command.
+
+See Desktop Services, for the exact list of services provided by
+%desktop-services.
+
+Again, %desktop-services is just a list of service objects. If
+you want to remove services from there, you can do so using the
+procedures for list filtering (see SRFI-1 Filtering and
+Partitioning in GNU Guile Reference Manual). For instance, the
+following expression returns a list that contains all the services in
+%desktop-services minus the Avahi service:
+
+
+(remove (lambda (service)
+ (eq? (service-kind service) avahi-service-type))
+ %desktop-services)
+
+
+Alternatively, the modify-services macro can be used:
+
+
+(modify-services %desktop-services
+ (delete avahi-service-type))
+
+
+
+
+Inspecting Services
+
+
+
+
+As you work on your system configuration, you might wonder why some
+system service doesn’t show up or why the system is not as you expected.
+There are several ways to inspect and troubleshoot problems.
+
+
+First, you can inspect the dependency graph of Shepherd services like
+so:
+
+
+guix system shepherd-graph /etc/config.scm | \
+ guix shell xdot -- xdot -
+
+
+This lets you visualize the Shepherd services as defined in
+/etc/config.scm. Each box is a service as would be shown by
+sudo herd status on the running system, and each arrow denotes
+a dependency (in the sense that if service A depends on B,
+then B must be started before A).
+
+
+Not all “services” are Shepherd services though, since Guix System
+uses a broader definition of the term (see Services). To visualize
+system services and their relations at a higher level, run:
+
+
+guix system extension-graph /etc/config.scm | \
+ guix shell xdot -- xdot -
+
+
+This lets you view the service extension graph: how services
+“extend” each other, for instance by contributing to their
+configuration. See Service Composition, to understand the meaning of
+this graph.
+
+Last, you may also find it useful to inspect your system configuration
+at the REPL (see Using Guix Interactively). Here is an example
+session:
+
+
+$ guix repl
+scheme@(guix-user)> ,use (gnu)
+scheme@(guix-user)> (define os (load "config.scm"))
+scheme@(guix-user)> ,pp (map service-kind (operating-system-services os))
+$1 = (#<service-type localed cabba93>
+ …)
+
+
+See Service Reference, to learn about the Scheme interface to
+manipulate and inspect services.
+
+
+
+Instantiating the System
+
+
+
+Assuming the operating-system declaration
+is stored in the config.scm
+file, the sudo guix system reconfigure config.scm command
+instantiates that configuration, and makes it the default boot
+entry. See Getting Started, for an overview.
+
+The normal way to change the system configuration is by updating this
+file and re-running guix system reconfigure. One should never
+have to touch files in /etc or to run commands that modify the
+system state such as useradd or grub-install. In
+fact, you must avoid that since that would not only void your warranty
+but also prevent you from rolling back to previous versions of your
+system, should you ever need to.
+
+
+
+The Programming Interface
+
+At the Scheme level, the bulk of an operating-system declaration
+is instantiated with the following monadic procedure (see The Store Monad):
+
+
+Monadic Procedure: operating-system-derivation os
+Return a derivation that builds os, an operating-system
+object (see Derivations).
+
+The output of the derivation is a single directory that refers to all
+the packages, configuration files, and other supporting files needed to
+instantiate os.
+
+
+This procedure is provided by the (gnu system) module. Along
+with (gnu services) (see Services), this module contains the
+guts of Guix System. Make sure to visit it!
+
+
+
+
+
+
+
+Next: operating-system Reference, Previous: Getting Started, Up: System Configuration   [Contents][Index]
+
+
+
+
+
+

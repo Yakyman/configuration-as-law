@@ -1,0 +1,142 @@
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
+ Image docker.io/traefik/whoami:v1.11.0 Pulling 
+ Image docker.io/library/caddy:2-alpine Pulling 
+ Image docker.io/library/postgres:17-alpine Pulling 
+ b88a5d98edb6 Pulling fs layer 0B
+ 3bfefdb8e856 Pulling fs layer 0B
+ 517559d123bd Pulling fs layer 0B
+ 329a9259bb19 Pulling fs layer 0B
+ c795bf66a383 Pulling fs layer 0B
+ 881fc932939e Pulling fs layer 0B
+ 347a7fa9ed72 Pulling fs layer 0B
+ 5bc1f3ef349d Pulling fs layer 0B
+ 3834788888c5 Pulling fs layer 0B
+ 3f914992e3e0 Pulling fs layer 0B
+ 24f325000f63 Pulling fs layer 0B
+ 13615ce8532d Pulling fs layer 0B
+ 4f4fb700ef54 Pulling fs layer 0B
+ 881fc932939e Pulling fs layer 0B
+ e3a802d3a0a9 Pulling fs layer 0B
+ c4d6974dbf71 Pulling fs layer 0B
+ 5000c332a1cc Pulling fs layer 0B
+ b88a5d98edb6 Download complete 0B
+ 3bfefdb8e856 Download complete 0B
+ 517559d123bd Download complete 0B
+ 329a9259bb19 Downloading 901.1kB
+ 347a7fa9ed72 Download complete 0B
+ c795bf66a383 Downloading 5.243MB
+ 5bc1f3ef349d Download complete 0B
+ 329a9259bb19 Download complete 0B
+ c795bf66a383 Downloading 15.73MB
+ 881fc932939e Downloading 1.049MB
+ 3834788888c5 Download complete 0B
+ 881fc932939e Downloading 1.049MB
+ c795bf66a383 Downloading 22.02MB
+ 881fc932939e Downloading 3.854MB
+ 881fc932939e Downloading 3.854MB
+ c795bf66a383 Downloading 33.55MB
+ 881fc932939e Download complete 0B
+ 881fc932939e Extracting 1B
+ 881fc932939e Download complete 0B
+ 881fc932939e Extracting 1B
+ c795bf66a383 Downloading 42.99MB
+ 881fc932939e Extracting 1B
+ 881fc932939e Extracting 1B
+ 3f914992e3e0 Downloading 1.049MB
+ c795bf66a383 Downloading 52.43MB
+ 881fc932939e Extracting 1B
+ 881fc932939e Extracting 1B
+ 3f914992e3e0 Download complete 0B
+ c795bf66a383 Downloading 62.91MB
+ 881fc932939e Extracting 1B
+ 881fc932939e Pull complete 0B
+ 13615ce8532d Download complete 0B
+ 24f325000f63 Download complete 0B
+ 13615ce8532d Pull complete 0B
+ 24f325000f63 Pull complete 0B
+ 3f914992e3e0 Pull complete 0B
+ Image docker.io/traefik/whoami:v1.11.0 Pulled 
+ c795bf66a383 Downloading 73.4MB
+ 881fc932939e Extracting 1B
+ 4f4fb700ef54 Download complete 0B
+ c795bf66a383 Downloading 83.89MB
+ 881fc932939e Extracting 1B
+ e3a802d3a0a9 Download complete 0B
+ c795bf66a383 Downloading 93.32MB
+ 881fc932939e Extracting 1B
+ 5000c332a1cc Downloading 1.049MB
+ c795bf66a383 Downloading 101.7MB
+ 881fc932939e Extracting 1B
+ 5000c332a1cc Downloading 3.146MB
+ c795bf66a383 Downloading 104.9MB
+ 881fc932939e Extracting 1B
+ 5000c332a1cc Downloading 7.34MB
+ c4d6974dbf71 Downloading 1.049MB
+ c795bf66a383 Downloading 111.1MB
+ 881fc932939e Extracting 1B
+ c4d6974dbf71 Download complete 0B
+ 5000c332a1cc Downloading 13.63MB
+ c4d6974dbf71 Extracting 1B
+ c795bf66a383 Downloading 112.6MB
+ 881fc932939e Extracting 1B
+ 5000c332a1cc Downloading 18.13MB
+ f4183d0ed1bf Downloading 316.2kB
+ c4d6974dbf71 Extracting 1B
+ c795bf66a383 Download complete 0B
+ 5bc1f3ef349d Pull complete 0B
+ 5000c332a1cc Download complete 0B
+ ed4aeb1ef3c3 Download complete 0B
+ f4183d0ed1bf Download complete 0B
+ e3a802d3a0a9 Pull complete 0B
+ c4d6974dbf71 Pull complete 0B
+ fc266ea8b801 Download complete 0B
+ 3bfefdb8e856 Pull complete 0B
+ 329a9259bb19 Pull complete 0B
+ 5000c332a1cc Extracting 1B
+ c795bf66a383 Extracting 1B
+ d6bd5d959dd4 Download complete 0B
+ c795bf66a383 Extracting 1B
+ 4f4fb700ef54 Pull complete 0B
+ 4f4fb700ef54 Pull complete 0B
+ 5000c332a1cc Pull complete 0B
+ Image docker.io/library/caddy:2-alpine Pulled 
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ c795bf66a383 Extracting 1B
+ b88a5d98edb6 Pull complete 0B
+ 517559d123bd Pull complete 0B
+ 347a7fa9ed72 Pull complete 0B
+ 3834788888c5 Pull complete 0B
+ c795bf66a383 Pull complete 0B
+ Image docker.io/library/postgres:17-alpine Pulled 
+ Network cal-server_default Creating 
+ Volume cal-server_database Creating 
+ Volume cal-server_caddy-config Creating 
+ Volume cal-server_caddy-data Creating 
+ Volume cal-server_database Created 
+ Volume cal-server_caddy-config Created 
+ Volume cal-server_caddy-data Created 
+ Network cal-server_default Created 
+ Container cal-server-db-1 Creating 
+ Container cal-server-web-1 Creating 
+ Container cal-server-web-1 Created 
+ Container cal-server-proxy-1 Creating 
+ Container cal-server-db-1 Created 
+ Container cal-server-proxy-1 Created 
+ Container cal-server-db-1 Starting 
+ Container cal-server-web-1 Starting 
+ Container cal-server-db-1 Started 
+ Container cal-server-web-1 Started 
+ Container cal-server-proxy-1 Starting 
+ Container cal-server-proxy-1 Started 
+ Container cal-server-proxy-1 Waiting 
+ Container cal-server-db-1 Waiting 
+ Container cal-server-web-1 Waiting 
+ Container cal-server-proxy-1 Healthy 
+ Container cal-server-web-1 Healthy 
+ Container cal-server-db-1 Healthy 

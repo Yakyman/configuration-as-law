@@ -1,0 +1,5 @@
+# Assembled collector verification
+
+Written 2026-11-23 UTC before the fourth fresh run. The third run's structured parser returned one target-key import event with all measured fields: preceding safe DNF install command in the same log segment, full fingerprint matching the key suffix, key source path, and following success message. No command was rejected by the privacy grammar. Primary-source field meanings remain those in KEY-PLAN.md. This is evidence of a retained logged operation; no explicit/dependent label is emitted.
+
+The next run verifies the assembled collector, using unchanged collector files plus key_events.collect(ctx), on a new copy after unchanged ordinary actions. Expected result: collector exit 0 and one object-linked key event with complete measured fields. The inventories and query payloads are deleted unread; only coverage, stderr, aggregate counts, timings and cleanup proof are retained. The wrapper assembles the original extended collector and the new adapter without editing earlier files. This reruns the changed assembled instrument, not the completed historical search failures.

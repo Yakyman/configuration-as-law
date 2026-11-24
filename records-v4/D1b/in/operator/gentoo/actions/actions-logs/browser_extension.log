@@ -1,0 +1,115 @@
+
+ * IMPORTANT: 26 news items need reading for repository 'gentoo'.
+ * Use eselect news read to view new items.
+
+Calculating dependencies ... done!
+Dependency resolution took 0.19 s (backtrack: 0/20).
+
+Collecting marionette_driver
+  Downloading marionette_driver-3.8.0-py3-none-any.whl.metadata (1.6 kB)
+INFO: pip is looking at multiple versions of marionette-driver to determine which version is compatible with other requirements. This could take a while.
+  Downloading marionette_driver-3.7.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting mozrunner>=7.4.0 (from marionette_driver)
+  Downloading mozrunner-8.4.0-py2.py3-none-any.whl.metadata (1.6 kB)
+Collecting mozversion>=2.1.0 (from marionette_driver)
+  Downloading mozversion-2.4.0-py2.py3-none-any.whl.metadata (535 bytes)
+Collecting mozdevice<5,>=4.2.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozdevice-4.3.0-py2.py3-none-any.whl.metadata (953 bytes)
+Collecting mozfile>=1.2 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozfile-3.0.0-py2.py3-none-any.whl.metadata (777 bytes)
+Collecting mozinfo<2,>=0.7 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozinfo-1.2.3-py2.py3-none-any.whl.metadata (649 bytes)
+Collecting mozlog>=6.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozlog-8.1.0-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting mozprocess<2,>=1.3.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozprocess-1.4.0-py2.py3-none-any.whl.metadata (728 bytes)
+Collecting mozprofile~=3.0 (from mozrunner>=7.4.0->marionette_driver)
+  Downloading mozprofile-3.0.0.tar.gz (28 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting distro>=1.4.0 (from mozinfo<2,>=0.7->mozrunner>=7.4.0->marionette_driver)
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting six<2,>=1.13.0 (from mozprofile~=3.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting blessed>=1.19.1 (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading blessed-1.53.0-py3-none-any.whl.metadata (13 kB)
+Collecting mozterm (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading mozterm-1.0.0-py2.py3-none-any.whl.metadata (669 bytes)
+Collecting mozsystemmonitor (from mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading mozsystemmonitor-1.0.1-py2.py3-none-any.whl.metadata (475 bytes)
+Collecting wcwidth>=0.9.4 (from blessed>=1.19.1->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (26 kB)
+Collecting jinxed<3,>=2.1.1 (from blessed>=1.19.1->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading jinxed-2.1.1-py2.py3-none-any.whl.metadata (7.2 kB)
+Collecting psutil>=3.1.1 (from mozsystemmonitor->mozlog>=6.0->mozrunner>=7.4.0->marionette_driver)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Downloading marionette_driver-3.7.1-py3-none-any.whl (54 kB)
+Downloading mozrunner-8.4.0-py2.py3-none-any.whl (47 kB)
+Downloading mozdevice-4.3.0-py2.py3-none-any.whl (49 kB)
+Downloading mozinfo-1.2.3-py2.py3-none-any.whl (7.5 kB)
+Downloading mozprocess-1.4.0-py2.py3-none-any.whl (23 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading mozfile-3.0.0-py2.py3-none-any.whl (8.2 kB)
+Downloading mozlog-8.1.0-py2.py3-none-any.whl (72 kB)
+Downloading blessed-1.53.0-py3-none-any.whl (143 kB)
+Downloading jinxed-2.1.1-py2.py3-none-any.whl (110 kB)
+Downloading mozversion-2.4.0-py2.py3-none-any.whl (4.3 kB)
+Downloading wcwidth-0.9.5-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (822 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 822.7/822.7 kB 3.4 MB/s  0:00:00
+Downloading mozsystemmonitor-1.0.1-py2.py3-none-any.whl (8.5 kB)
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading mozterm-1.0.0-py2.py3-none-any.whl (3.4 kB)
+Building wheels for collected packages: mozprofile
+  Building wheel for mozprofile (pyproject.toml): started
+  Building wheel for mozprofile (pyproject.toml): finished with status 'done'
+  Created wheel for mozprofile: filename=mozprofile-3.0.0-py2.py3-none-any.whl size=22205 sha256=8bd2907ec59532a06b9edb8d36e238ab0f8ed90abfd283ea3401d0b06f09d9ab
+  Stored in directory: /home/user/.cache/pip/wheels/40/8f/0b/d808189c2e26aa4a5f606f2921820952459398a6f69f10925d
+Successfully built mozprofile
+Installing collected packages: jinxed, wcwidth, six, psutil, distro, mozterm, mozsystemmonitor, mozfile, blessed, mozlog, mozinfo, mozversion, mozprofile, mozprocess, mozdevice, mozrunner, marionette_driver
+  Creating /tmp/pip-target-3ufoqhf3/bin
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/distro to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/structlog to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/mozinfo to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/mozversion to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/diff-profiles to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/mozprofile to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/view-profile to 755
+  changing mode of /tmp/pip-target-3ufoqhf3/bin/mozrunner to 755
+
+Successfully installed blessed-1.53.0 distro-1.9.0 jinxed-2.1.1 marionette_driver-3.7.1 mozdevice-4.3.0 mozfile-3.0.0 mozinfo-1.2.3 mozlog-8.1.0 mozprocess-1.4.0 mozprofile-3.0.0 mozrunner-8.4.0 mozsystemmonitor-1.0.1 mozterm-1.0.0 mozversion-2.4.0 psutil-7.2.2 six-1.17.0 wcwidth-0.9.5
+1795450629324	Marionette	INFO	Listening on port 2828
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1795450630183	Marionette	INFO	Stopped listening on port 2828
+console.error: RSLoader: 
+  Failed to retrieve recipes from Remote Settings
+  Message: Error: Shutdown started
+  Stack:
+    ShutdownStartedError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1577:5
+listener@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:747:35
+@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:306:31
+trigger@resource://gre/modules/AsyncShutdown.sys.mjs:773:23
+trigger@resource://gre/modules/AsyncShutdown.sys.mjs:811:11
+_wait@resource://gre/modules/AsyncShutdown.sys.mjs:941:15
+wait@resource://gre/modules/AsyncShutdown.sys.mjs:922:34
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:573:10
+
+console.error: ExperimentAPI: 
+  Failed to enable RemoteSettingsExperimentLoader:
+  Message: Error: Shutdown started
+  Stack:
+    ShutdownStartedError@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:1577:5
+listener@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:747:35
+@resource://nimbus/lib/RemoteSettingsExperimentLoader.sys.mjs:306:31
+trigger@resource://gre/modules/AsyncShutdown.sys.mjs:773:23
+trigger@resource://gre/modules/AsyncShutdown.sys.mjs:811:11
+_wait@resource://gre/modules/AsyncShutdown.sys.mjs:941:15
+wait@resource://gre/modules/AsyncShutdown.sys.mjs:922:34
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:573:10
+
+1795450630615	Marionette	INFO	Listening on port 2828
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt

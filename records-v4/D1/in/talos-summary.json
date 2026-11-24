@@ -1,0 +1,52 @@
+{
+  "machine": "talos",
+  "release": "1.14.6",
+  "inventory": true,
+  "total": 278,
+  "counts": {
+    "L1:block-device": 4,
+    "L1:container": 2,
+    "L1:container-image": 12,
+    "L1:kernel-module": 10,
+    "L1:mount": 13,
+    "L1:mount-resource": 18,
+    "L1:network-configuration": 11,
+    "L1:network-state": 42,
+    "L1:package": 1,
+    "L1:process": 34,
+    "L1:service": 12,
+    "L1:socket": 66,
+    "L2:code-ownership-unknown": 7,
+    "L2:opaque-directory": 11,
+    "L2:stored-ownership-unknown": 35
+  },
+  "levels": {
+    "1": 225,
+    "2": 53
+  },
+  "second_level_rows": 53,
+  "second_level_obtained_rows_above_zero": true,
+  "package_reasons": {
+    "explicit": 1
+  },
+  "packages_total": 1,
+  "package_reasons_known": 1,
+  "package_reason_share": "1/1 (100%)",
+  "packaged_files_total": 287,
+  "packaged_file_integrity": {
+    "unknown": 287
+  },
+  "packaged_file_integrity_known": 0,
+  "packaged_file_integrity_share": "0/287 (0%)",
+  "ordinary_actions": "Not prescribed",
+  "status": {
+    "started": "2026-11-23T11:16:37Z",
+    "new_rc": "0",
+    "collect_rc": "0",
+    "destroy_rc": "0",
+    "finished": "2026-11-23T11:17:10Z"
+  },
+  "execution_deviations": [],
+  "coverage": "53 second-level rows are exposed API listings only; full filesystem coverage is false. Extension parser gap, traversal depth/count limits, unknown persistence and complete package ownership/manifest limitations are retained in raw/talos/metadata.json. No query returned a nonzero status. No hypothesis outcome assigned.",
+  "copy_files_verified": 296
+}

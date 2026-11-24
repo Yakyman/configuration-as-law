@@ -1,0 +1,246 @@
+{
+ "packages": {
+  "../B2/cases-8/h1/ed_1.21.1-1_amd64.deb": {
+   "control": "e6c9e6a05c29e85cbadbf4f5e16b6eb45926cf727f4eb4568f004948831b3625",
+   "md5sums": "33d670bf51015252b2d03606ae75c23be945925fff7fe691e67437f1505632b4",
+   "postinst": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+   "prerm": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2"
+  },
+  "../B2/cases-8/h1/ed_1.22.5-1_amd64.deb": {
+   "control": "f7565a875e95313601db0361e59cf685404e7abae57abfbfa251da4a08fc98f0",
+   "md5sums": "16d43fba55f51ba98928fee8ae88666a9adac097e7d4cedaeac64c72991abc7e",
+   "postinst": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+   "prerm": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2"
+  }
+ },
+ "observations": {
+  "raw/h1/h1-after-restart-1.stdout.xz": {
+   "/var/lib/dpkg/info/ed.postinst": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+    "target": null,
+    "st_mtime": 1673853117.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.prerm": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2",
+    "target": null,
+    "st_mtime": 1673853117.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.list": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "b7b4b42f148c1df6a9041d7674bc7c53ed23758fa13cb65dba73b0b3e1719350",
+    "target": null,
+    "st_mtime": 1795459252.32,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/info/ed.md5sums": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "33d670bf51015252b2d03606ae75c23be945925fff7fe691e67437f1505632b4",
+    "target": null,
+    "st_mtime": 1795459252.32,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/alternatives/editor": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "60e3ad56db3a95d7fda5c8e8ef42023ab4b6283ecce8160d2810423590cecc69",
+    "target": null,
+    "st_mtime": 1795455540.824,
+    "claims": []
+   },
+   "/etc/alternatives/editor": {
+    "kind": "symlink",
+    "mode": 511,
+    "sha256": null,
+    "target": "/bin/nano",
+    "st_mtime": 1777850261.0,
+    "claims": [
+     "base",
+     "etc:/objects/38"
+    ]
+   },
+   "ed_dpkg_query": 436
+  },
+  "raw/h1/h1-after-restart-2.stdout.xz": {
+   "/var/lib/dpkg/info/ed.postinst": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+    "target": null,
+    "st_mtime": 1777275000.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.prerm": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2",
+    "target": null,
+    "st_mtime": 1777275000.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.list": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "b7b4b42f148c1df6a9041d7674bc7c53ed23758fa13cb65dba73b0b3e1719350",
+    "target": null,
+    "st_mtime": 1795459407.368,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/info/ed.md5sums": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "33d670bf51015252b2d03606ae75c23be945925fff7fe691e67437f1505632b4",
+    "target": null,
+    "st_mtime": 1795459407.372,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/alternatives/editor": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "60e3ad56db3a95d7fda5c8e8ef42023ab4b6283ecce8160d2810423590cecc69",
+    "target": null,
+    "st_mtime": 1795459397.968544,
+    "claims": []
+   },
+   "/etc/alternatives/editor": {
+    "kind": "symlink",
+    "mode": 511,
+    "sha256": null,
+    "target": "/bin/nano",
+    "st_mtime": 1777850261.0,
+    "claims": [
+     "base",
+     "etc:/objects/38"
+    ]
+   },
+   "ed_dpkg_query": 436
+  },
+  "raw/h1/h1-end.stdout.xz": {
+   "/var/lib/dpkg/info/ed.postinst": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+    "target": null,
+    "st_mtime": 1777275000.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.prerm": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2",
+    "target": null,
+    "st_mtime": 1777275000.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.list": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "b7b4b42f148c1df6a9041d7674bc7c53ed23758fa13cb65dba73b0b3e1719350",
+    "target": null,
+    "st_mtime": 1795459407.368,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/info/ed.md5sums": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "33d670bf51015252b2d03606ae75c23be945925fff7fe691e67437f1505632b4",
+    "target": null,
+    "st_mtime": 1795459407.372,
+    "claims": [
+     "system:base-state"
+    ]
+   },
+   "/var/lib/dpkg/alternatives/editor": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "60e3ad56db3a95d7fda5c8e8ef42023ab4b6283ecce8160d2810423590cecc69",
+    "target": null,
+    "st_mtime": 1795459397.968544,
+    "claims": []
+   },
+   "/etc/alternatives/editor": {
+    "kind": "symlink",
+    "mode": 511,
+    "sha256": null,
+    "target": "/bin/nano",
+    "st_mtime": 1777850261.0,
+    "claims": [
+     "base",
+     "etc:/objects/38"
+    ]
+   },
+   "ed_dpkg_query": 436
+  },
+  "raw/h2/h2-end.stdout.xz": {
+   "/var/lib/dpkg/info/ed.postinst": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ea4dd70eafb09e2e825848d574e05c5fd95b99f7164586978294bd3a984db6d4",
+    "target": null,
+    "st_mtime": 1673853117.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.prerm": {
+    "kind": "file",
+    "mode": 493,
+    "sha256": "ac415ea55b32c8ff11b6bcf46c413f7a8d4a1effa67214edeeb5a44e0a5c93b2",
+    "target": null,
+    "st_mtime": 1673853117.0,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.list": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "18df3043b918b097d9f39bd43722470f8239bdb1770f770c4756b2933232df3e",
+    "target": null,
+    "st_mtime": 1795455541.028,
+    "claims": []
+   },
+   "/var/lib/dpkg/info/ed.md5sums": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "28aab0fbd2f53fba6c705043980a422c15550f7f8ef1778a8dd71c4bb5861d20",
+    "target": null,
+    "st_mtime": 1795455541.028,
+    "claims": []
+   },
+   "/var/lib/dpkg/alternatives/editor": {
+    "kind": "file",
+    "mode": 420,
+    "sha256": "60e3ad56db3a95d7fda5c8e8ef42023ab4b6283ecce8160d2810423590cecc69",
+    "target": null,
+    "st_mtime": 1795455540.824,
+    "claims": []
+   },
+   "/etc/alternatives/editor": {
+    "kind": "symlink",
+    "mode": 511,
+    "sha256": null,
+    "target": "/bin/nano",
+    "st_mtime": 1777850261.0,
+    "claims": [
+     "base",
+     "etc:/objects/38"
+    ]
+   },
+   "ed_dpkg_query": 436
+  }
+ }
+}

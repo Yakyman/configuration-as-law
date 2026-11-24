@@ -1,0 +1,201 @@
+# D1 sample rows 151–300: evidence and review notes
+
+Only the authorized text, sample, inventory, and public primary documentation were consulted. Each sample row was matched to its original collector row after removing its system prefix. Every available immediate-member file was read; member counts were checked. This audits required recording routes, not actual declaration compliance.
+
+S8.2-5 settles runtime observations before the questions. Unknown executable identity cannot change the RUNTIME label. Service status rows are distinguished from stored unit files. Package dependency reasons establish required derived routes without requiring an already-compliant declaration. Package content findings use unchanged integrity, never ownership alone. For Alma module directories, the captured `/lib` symlink targets `usr/lib`, allowing exact manifest path normalization.
+
+## Primary documentation consulted
+
+- https://www.kernel.org/doc/Documentation/filesystems/sysfs.txt : “sysfs is a ram-based filesystem initially based on ramfs.” This corroborates transient sysfs representations; it does not classify on-disk module files.
+- https://pip.pypa.io/en/stable/topics/caching/ : “A new cache format is now used, stored in a directory called `http-v2`”. General cache conventions cannot establish actual member contents or provenance.
+- https://docs.npmjs.com/cli/v11/commands/npm-cache/ : consulted for cache conventions; no row-specific facts obtained.
+
+## Rules and manual inspection IDs
+
+- `runtime-process` (20 rows): manual inspection `alma-cd8cd6726699e4cd3a1607f0`, `alma-ce1592439869715704bc034c`, `alma-d69b7091ea7ff6e151730867`, `alma-e1334932224d14f7e2a12ec6`, `alma-e63e2bd2d1cfb62253393b7a`, `alma-e6a3bf5df2e7e25d2891f265`, `alma-ecb131c86d3d0a4118f1f41e`, `alma-eeca10e3f9922d2832ecd12f`, `alma-eff33478161ef0e9e0725697`, `alma-f482171c3f19578307e6c540`.
+- `package-dependency` (32 rows): manual inspection `alma-d1e82dfe5dfa8bc00a8f08cb`, `alma-d4ae4f1211f7ea591f692102`, `alma-db5546a2fb3ab95003db24ba`, `alma-e355ab6dd2de0bdf330321a4`, `alma-ea92d93f9491d50b922aabb3`, `microos-1c51fba0bcf53529bbb0cc42`, `microos-20a17bf9d6f1a28c79107e16`, `microos-22f728f0d24fe3718ee6c662`, `microos-2314cc94f4970441f6ba0ab6`, `microos-404b39a1aac216cfdc436d03`.
+- `unchanged-package-content` (14 rows): manual inspection `alma-dae798bd869335c95346496a`, `alma-de151a7f7035961014ce4f14`, `alma-df523783b1cc824f053204b0`, `alma-e51fcfee7bd6cc90ffdec3a5`, `alma-e5b174cc0bad72a081d1bcc6`, `alma-ea00e7aeb0b9fc801a69c6e0`, `microos-1c8660669b09faecb4ef354b`, `microos-5f0ae35f15e20b9d9966ca69`, `microos-da379d4ddbeba24e99c5df3b`, `void-49d10596db20ade226c836d1`.
+- `record-immediate-directories` (13 rows): manual inspection `alma-db40cf668b18489f7e3a1231`, `alma-e676dd80ba9b33f05c801db4`, `microos-5f125bab705e750a5bbebbae`, `void-1e146361237174a23f6cffb7`, `void-2c550b728e1034555753a6f2`, `void-3ae10590cff9287351530f03`, `void-56891d8a9573ef4955707d42`, `void-5f113a2f83f0ad6410640711`, `void-72bc6a73389130b57e18dd9e`, `void-76783c06626fba4297418a2a`.
+- `runtime-driver` (6 rows): manual inspection `alma-ec3d12768ff90ea08c42e9c3`, `microos-45797bd534a40ba9dad3e1eb`, `microos-c8fb1fe9caa90fd884a93cee`, `microos-d2d082d554b13405c2a0dc85`, `void-0ae6b3e05a215b63746c9705`, `void-8ef524de0bceed6f8b21615d`.
+- `runtime-firewall-rule` (2 rows): manual inspection `alma-f37b16fbbae40286b6b86d58`, `alma-f3df9cec283527f4550de8de`.
+- `cache-content-unknown` (5 rows): manual inspection `alma-f5ab3aad000b60bbc3ac8948`, `void-12f32d2564ec32286c1c2b07`, `void-699cd2b65d15f73d24572000`, `void-9d09e92bf4395146455c4fb1`, `void-e2089ad0c038bd9d897b2a5e`.
+- `package-explicit` (4 rows): manual inspection `microos-03bada333883a9711e622802`, `microos-a6c507edb3c6a4df91c75b3e`, `microos-d4fdffe22dab833aabe799c0`, `void-1cccca1d50dee9738694e965`.
+- `runtime-unit-file` (1 rows): manual inspection `microos-135bf562f7e471dafc32c00b`.
+- `runtime-stored` (11 rows): manual inspection `microos-5b813b0150e9d2fd0379fe2b`, `microos-7246f4b197dc8351aea29b76`, `microos-7b36f6deb3d46cab50278ce4`, `microos-94f85c5164f7f32700ec4074`, `microos-cb054ea541f5436e46203799`, `void-2fa61c8fe1a20ab6d179c187`, `void-34cf1e3823b549f2d60737a2`, `void-45bd4e9436ca6b59ee9083ef`, `void-87355ed1f447fabbf67ade28`, `void-c3266eeb4787f46d677077d4`.
+- `runtime-service` (5 rows): manual inspection `microos-5d68363bd154b3b8995614b6`, `microos-5e0b08de63d1d9b4acb8316e`, `microos-8ae34443a05c061da84d0cc5`, `microos-ce7f61be61e84c611851a42e`, `microos-df5db76ab27a0fe62205ea8c`.
+- `runtime-module-name` (19 rows): manual inspection `microos-5daf925f2d7791059fdc7e92`, `microos-8d753669284a6d82fa226332`, `microos-9c3586946c9c496900cd7f20`, `microos-a8c2fae716f40b3a63eaee3f`, `microos-b2e6bee1e5879bcc53aac4bf`, `microos-e4f22fa69e1b56f49758960f`, `void-0c958efb088d7648c5d68a61`, `void-0ea9eab37dab9c2c6c25350b`, `void-1df21b3affb3f17029afe865`, `void-21ca315bdf900c5f267a08b8`.
+- `runtime-timer` (1 rows): manual inspection `microos-fdd9199b60a450c6ea9e679e`.
+- `runtime-network-state` (2 rows): manual inspection `talos-0d356dbed0f7fff446f4f8e5`, `talos-829dd5ad7cf3a00f5a31cec8`.
+- `runtime-socket` (2 rows): manual inspection `talos-380f8868bcaa19b810085ca0`, `talos-555a2e3a32a654473a1432af`.
+- `runtime-mount-resource` (1 rows): manual inspection `talos-6bbaab687adf3605094a0dd9`.
+- `runtime-mount` (1 rows): manual inspection `talos-ddab60763fbc32fbb252a7d4`.
+- `runtime-firewall-ipv4` (1 rows): manual inspection `void-09b6bd9051447f5126bd70c5`.
+- `record-cache-index` (3 rows): manual inspection `void-11a3ebd50e696a1fd4e44552`, `void-26ab1a0554c980b13e4f0716`, `void-deaaa036c907f0e7560eab59`.
+- `runtime-firewall-ipv6` (1 rows): manual inspection `void-241000ed4e0e2bcfbbb7e55f`.
+- `derived-bytecode` (6 rows): manual inspection `void-2c567203c09929530f574347`, `void-64f807eea51a72c5b3d5c194`, `void-82335a579965452209c4a2ce`, `void-c82314e625965e4aa43ff00c`, `void-e3685df6e9bb6ccff76bf54f`, `void-eb5e45fee0c4f84f963d2d84`.
+
+All 150 original records were inspected. Homogeneous rules were applied only after their fact predicates were checked. Every small rule has all IDs listed above; larger rules list at least ten.
+
+## Per-row evidence
+
+- `alma-cd8cd6726699e4cd3a1607f0` — `runtime-process`; `D1/in/raw/alma/objects.tsv#cd8cd6726699e4cd3a1607f0`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-ce1592439869715704bc034c` — `runtime-process`; `D1/in/raw/alma/objects.tsv#ce1592439869715704bc034c`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-d1e82dfe5dfa8bc00a8f08cb` — `package-dependency`; `D1/in/raw/alma/objects.tsv#d1e82dfe5dfa8bc00a8f08cb`; `D1/in/raw/alma/raw/0015-packages-rpm.out`; `D1/in/raw/alma/raw/0016-package-reasons-dnf.out`; `D1/in/raw/alma/raw/0017-metadata-read-0.out`; `D1/in/raw/alma/raw/0018-package-selected-groups-dnf.out`.
+- `alma-d4ae4f1211f7ea591f692102` — `package-dependency`; `D1/in/raw/alma/objects.tsv#d4ae4f1211f7ea591f692102`; `D1/in/raw/alma/raw/0015-packages-rpm.out`; `D1/in/raw/alma/raw/0016-package-reasons-dnf.out`; `D1/in/raw/alma/raw/0017-metadata-read-0.out`; `D1/in/raw/alma/raw/0018-package-selected-groups-dnf.out`.
+- `alma-d69b7091ea7ff6e151730867` — `runtime-process`; `D1/in/raw/alma/objects.tsv#d69b7091ea7ff6e151730867`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-dae798bd869335c95346496a` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#dae798bd869335c95346496a`; `D1/in/raw/alma/raw/0206-polkit-action.out`; `D1/in/raw/alma/raw/0226-metadata-read-0.out`; (not published: over 20 MB).
+- `alma-db40cf668b18489f7e3a1231` — `record-immediate-directories`; `D1/in/raw/alma/objects.tsv#db40cf668b18489f7e3a1231`; (not published: over 20 MB); `D1/in/raw/alma/members/db40cf668b18489f7e3a1231.tsv`; immediate member types {'directory': 1}.
+- `alma-db5546a2fb3ab95003db24ba` — `package-dependency`; `D1/in/raw/alma/objects.tsv#db5546a2fb3ab95003db24ba`; `D1/in/raw/alma/raw/0015-packages-rpm.out`; `D1/in/raw/alma/raw/0016-package-reasons-dnf.out`; `D1/in/raw/alma/raw/0017-metadata-read-0.out`; `D1/in/raw/alma/raw/0018-package-selected-groups-dnf.out`.
+- `alma-de151a7f7035961014ce4f14` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#de151a7f7035961014ce4f14`; (not published: over 20 MB); `D1/in/raw/alma/members/de151a7f7035961014ce4f14.tsv`; (not published: over 20 MB); immediate member types {'file': 1}.
+- `alma-df523783b1cc824f053204b0` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#df523783b1cc824f053204b0`; `D1/in/raw/alma/raw/0007-metadata-read-128.out`; (not published: over 20 MB).
+- `alma-e1334932224d14f7e2a12ec6` — `runtime-process`; `D1/in/raw/alma/objects.tsv#e1334932224d14f7e2a12ec6`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-e355ab6dd2de0bdf330321a4` — `package-dependency`; `D1/in/raw/alma/objects.tsv#e355ab6dd2de0bdf330321a4`; `D1/in/raw/alma/raw/0015-packages-rpm.out`; `D1/in/raw/alma/raw/0016-package-reasons-dnf.out`; `D1/in/raw/alma/raw/0017-metadata-read-0.out`; `D1/in/raw/alma/raw/0018-package-selected-groups-dnf.out`.
+- `alma-e51fcfee7bd6cc90ffdec3a5` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#e51fcfee7bd6cc90ffdec3a5`; `D1/in/raw/alma/raw/0006-metadata-read-64.out`; (not published: over 20 MB).
+- `alma-e5b174cc0bad72a081d1bcc6` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#e5b174cc0bad72a081d1bcc6`; `D1/in/raw/alma/raw/0197-unit-file.out`; (not published: over 20 MB).
+- `alma-e63e2bd2d1cfb62253393b7a` — `runtime-process`; `D1/in/raw/alma/objects.tsv#e63e2bd2d1cfb62253393b7a`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-e676dd80ba9b33f05c801db4` — `record-immediate-directories`; `D1/in/raw/alma/objects.tsv#e676dd80ba9b33f05c801db4`; (not published: over 20 MB); `D1/in/raw/alma/members/e676dd80ba9b33f05c801db4.tsv`; immediate member types {'directory': 2}.
+- `alma-e6a3bf5df2e7e25d2891f265` — `runtime-process`; `D1/in/raw/alma/objects.tsv#e6a3bf5df2e7e25d2891f265`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-ea00e7aeb0b9fc801a69c6e0` — `unchanged-package-content`; `D1/in/raw/alma/objects.tsv#ea00e7aeb0b9fc801a69c6e0`; (not published: over 20 MB); `D1/in/raw/alma/members/ea00e7aeb0b9fc801a69c6e0.tsv`; (not published: over 20 MB); immediate member types {'file': 7}.
+- `alma-ea92d93f9491d50b922aabb3` — `package-dependency`; `D1/in/raw/alma/objects.tsv#ea92d93f9491d50b922aabb3`; `D1/in/raw/alma/raw/0015-packages-rpm.out`; `D1/in/raw/alma/raw/0016-package-reasons-dnf.out`; `D1/in/raw/alma/raw/0017-metadata-read-0.out`; `D1/in/raw/alma/raw/0018-package-selected-groups-dnf.out`.
+- `alma-ec3d12768ff90ea08c42e9c3` — `runtime-driver`; `D1/in/raw/alma/objects.tsv#ec3d12768ff90ea08c42e9c3`; `D1/in/raw/alma/raw/0213-driver-names.out`.
+- `alma-ecb131c86d3d0a4118f1f41e` — `runtime-process`; `D1/in/raw/alma/objects.tsv#ecb131c86d3d0a4118f1f41e`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-eeca10e3f9922d2832ecd12f` — `runtime-process`; `D1/in/raw/alma/objects.tsv#eeca10e3f9922d2832ecd12f`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-eff33478161ef0e9e0725697` — `runtime-process`; `D1/in/raw/alma/objects.tsv#eff33478161ef0e9e0725697`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-f37b16fbbae40286b6b86d58` — `runtime-firewall-rule`; `D1/in/raw/alma/objects.tsv#f37b16fbbae40286b6b86d58`; `D1/in/raw/alma/raw/0202-firewall-nft.out`.
+- `alma-f3df9cec283527f4550de8de` — `runtime-firewall-rule`; `D1/in/raw/alma/objects.tsv#f3df9cec283527f4550de8de`; `D1/in/raw/alma/raw/0202-firewall-nft.out`.
+- `alma-f482171c3f19578307e6c540` — `runtime-process`; `D1/in/raw/alma/objects.tsv#f482171c3f19578307e6c540`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-f569410d7adb28b79f363c08` — `runtime-process`; `D1/in/raw/alma/objects.tsv#f569410d7adb28b79f363c08`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `alma-f5ab3aad000b60bbc3ac8948` — `cache-content-unknown`; `D1/in/raw/alma/objects.tsv#f5ab3aad000b60bbc3ac8948`; (not published: over 20 MB); `D1/in/raw/alma/members/f5ab3aad000b60bbc3ac8948.tsv`; immediate member types {'file': 2}.
+- `alma-fb208f71d1f77621c0ea87b8` — `runtime-process`; `D1/in/raw/alma/objects.tsv#fb208f71d1f77621c0ea87b8`; `D1/in/raw/alma/raw/0211-process-executables.out`.
+- `microos-03bada333883a9711e622802` — `package-explicit`; `D1/in/raw/microos/objects.tsv#03bada333883a9711e622802`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-135bf562f7e471dafc32c00b` — `runtime-unit-file`; `D1/in/raw/microos/objects.tsv#135bf562f7e471dafc32c00b`; `D1/in/raw/microos/raw/0022-unit-file.out`.
+- `microos-1c51fba0bcf53529bbb0cc42` — `package-dependency`; `D1/in/raw/microos/objects.tsv#1c51fba0bcf53529bbb0cc42`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-1c8660669b09faecb4ef354b` — `unchanged-package-content`; `D1/in/raw/microos/objects.tsv#1c8660669b09faecb4ef354b`; `D1/in/raw/microos/raw/0031-polkit-action.out`; `D1/in/raw/microos/raw/0051-metadata-read-0.out`; `D1/in/raw/microos/package-files.tsv`.
+- `microos-20a17bf9d6f1a28c79107e16` — `package-dependency`; `D1/in/raw/microos/objects.tsv#20a17bf9d6f1a28c79107e16`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-22f728f0d24fe3718ee6c662` — `package-dependency`; `D1/in/raw/microos/objects.tsv#22f728f0d24fe3718ee6c662`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-2314cc94f4970441f6ba0ab6` — `package-dependency`; `D1/in/raw/microos/objects.tsv#2314cc94f4970441f6ba0ab6`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-404b39a1aac216cfdc436d03` — `package-dependency`; `D1/in/raw/microos/objects.tsv#404b39a1aac216cfdc436d03`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-45797bd534a40ba9dad3e1eb` — `runtime-driver`; `D1/in/raw/microos/objects.tsv#45797bd534a40ba9dad3e1eb`; `D1/in/raw/microos/raw/0038-driver-names.out`.
+- `microos-4d22fa8e0e019aed61fab93d` — `package-dependency`; `D1/in/raw/microos/objects.tsv#4d22fa8e0e019aed61fab93d`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-5b813b0150e9d2fd0379fe2b` — `runtime-stored`; `D1/in/raw/microos/objects.tsv#5b813b0150e9d2fd0379fe2b`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/5b813b0150e9d2fd0379fe2b.tsv`; immediate member types {'symlink': 1}.
+- `microos-5bf4184eccda296d3cf46681` — `package-dependency`; `D1/in/raw/microos/objects.tsv#5bf4184eccda296d3cf46681`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-5d68363bd154b3b8995614b6` — `runtime-service`; `D1/in/raw/microos/objects.tsv#5d68363bd154b3b8995614b6`; `D1/in/raw/microos/raw/0020-service.out`.
+- `microos-5daf925f2d7791059fdc7e92` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#5daf925f2d7791059fdc7e92`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-5e0b08de63d1d9b4acb8316e` — `runtime-service`; `D1/in/raw/microos/objects.tsv#5e0b08de63d1d9b4acb8316e`; `D1/in/raw/microos/raw/0020-service.out`.
+- `microos-5f0ae35f15e20b9d9966ca69` — `unchanged-package-content`; `D1/in/raw/microos/objects.tsv#5f0ae35f15e20b9d9966ca69`; `D1/in/raw/microos/raw/0031-polkit-action.out`; `D1/in/raw/microos/raw/0051-metadata-read-0.out`; `D1/in/raw/microos/package-files.tsv`.
+- `microos-5f125bab705e750a5bbebbae` — `record-immediate-directories`; `D1/in/raw/microos/objects.tsv#5f125bab705e750a5bbebbae`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/5f125bab705e750a5bbebbae.tsv`; immediate member types {'directory': 1}.
+- `microos-5f5116b874ba895f7da9e8e5` — `package-dependency`; `D1/in/raw/microos/objects.tsv#5f5116b874ba895f7da9e8e5`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-7246f4b197dc8351aea29b76` — `runtime-stored`; `D1/in/raw/microos/objects.tsv#7246f4b197dc8351aea29b76`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/7246f4b197dc8351aea29b76.tsv`; immediate member types {'directory': 1}.
+- `microos-7885ee315685bffc61474a9c` — `package-dependency`; `D1/in/raw/microos/objects.tsv#7885ee315685bffc61474a9c`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-7b36f6deb3d46cab50278ce4` — `runtime-stored`; `D1/in/raw/microos/objects.tsv#7b36f6deb3d46cab50278ce4`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/7b36f6deb3d46cab50278ce4.tsv`; immediate member types {'symlink': 1}.
+- `microos-7b8ab745dec0ca58d3fcbc8c` — `package-dependency`; `D1/in/raw/microos/objects.tsv#7b8ab745dec0ca58d3fcbc8c`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-7c48c6868c2f5e20efb0edef` — `package-dependency`; `D1/in/raw/microos/objects.tsv#7c48c6868c2f5e20efb0edef`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-7eadc0934555e96efe9b3ed3` — `package-dependency`; `D1/in/raw/microos/objects.tsv#7eadc0934555e96efe9b3ed3`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-8ae34443a05c061da84d0cc5` — `runtime-service`; `D1/in/raw/microos/objects.tsv#8ae34443a05c061da84d0cc5`; `D1/in/raw/microos/raw/0020-service.out`.
+- `microos-8d753669284a6d82fa226332` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#8d753669284a6d82fa226332`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-8e321d04d0063e7fb1fe6f35` — `package-dependency`; `D1/in/raw/microos/objects.tsv#8e321d04d0063e7fb1fe6f35`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-94f85c5164f7f32700ec4074` — `runtime-stored`; `D1/in/raw/microos/objects.tsv#94f85c5164f7f32700ec4074`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/94f85c5164f7f32700ec4074.tsv`; immediate member types {'symlink': 2}.
+- `microos-9c3586946c9c496900cd7f20` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#9c3586946c9c496900cd7f20`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-9e40c3d9ade558bb5b19b189` — `package-dependency`; `D1/in/raw/microos/objects.tsv#9e40c3d9ade558bb5b19b189`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-a6c507edb3c6a4df91c75b3e` — `package-explicit`; `D1/in/raw/microos/objects.tsv#a6c507edb3c6a4df91c75b3e`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-a8c2fae716f40b3a63eaee3f` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#a8c2fae716f40b3a63eaee3f`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-b2e6bee1e5879bcc53aac4bf` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#b2e6bee1e5879bcc53aac4bf`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-c8fb1fe9caa90fd884a93cee` — `runtime-driver`; `D1/in/raw/microos/objects.tsv#c8fb1fe9caa90fd884a93cee`; `D1/in/raw/microos/raw/0038-driver-names.out`.
+- `microos-cb054ea541f5436e46203799` — `runtime-stored`; `D1/in/raw/microos/objects.tsv#cb054ea541f5436e46203799`; `D1/in/raw/microos/raw/0004-filesystem.out`; `D1/in/raw/microos/members/cb054ea541f5436e46203799.tsv`; immediate member types {'symlink': 2}.
+- `microos-ce7f61be61e84c611851a42e` — `runtime-service`; `D1/in/raw/microos/objects.tsv#ce7f61be61e84c611851a42e`; `D1/in/raw/microos/raw/0020-service.out`.
+- `microos-d2d082d554b13405c2a0dc85` — `runtime-driver`; `D1/in/raw/microos/objects.tsv#d2d082d554b13405c2a0dc85`; `D1/in/raw/microos/raw/0038-driver-names.out`.
+- `microos-d4fdffe22dab833aabe799c0` — `package-explicit`; `D1/in/raw/microos/objects.tsv#d4fdffe22dab833aabe799c0`; `D1/in/raw/microos/raw/0007-packages-rpm.out`; `D1/in/raw/microos/raw/0008-package-reasons-dnf.out`; `D1/in/raw/microos/raw/0009-metadata-read-0.out`.
+- `microos-da379d4ddbeba24e99c5df3b` — `unchanged-package-content`; `D1/in/raw/microos/objects.tsv#da379d4ddbeba24e99c5df3b`; `D1/in/raw/microos/raw/0031-polkit-action.out`; `D1/in/raw/microos/raw/0051-metadata-read-0.out`; `D1/in/raw/microos/package-files.tsv`.
+- `microos-df5db76ab27a0fe62205ea8c` — `runtime-service`; `D1/in/raw/microos/objects.tsv#df5db76ab27a0fe62205ea8c`; `D1/in/raw/microos/raw/0020-service.out`.
+- `microos-e4f22fa69e1b56f49758960f` — `runtime-module-name`; `D1/in/raw/microos/objects.tsv#e4f22fa69e1b56f49758960f`; `D1/in/raw/microos/raw/0037-module-names.out`.
+- `microos-fdd9199b60a450c6ea9e679e` — `runtime-timer`; `D1/in/raw/microos/objects.tsv#fdd9199b60a450c6ea9e679e`; `D1/in/raw/microos/raw/0021-timer.out`.
+- `talos-0bc874346da246e30e75149c` — `runtime-process`; `D1/in/raw/talos/objects.tsv#0bc874346da246e30e75149c`; `D1/in/raw/talos/raw/0008-talos-processes.out`.
+- `talos-0d356dbed0f7fff446f4f8e5` — `runtime-network-state`; `D1/in/raw/talos/objects.tsv#0d356dbed0f7fff446f4f8e5`; `D1/in/raw/talos/raw/0018-talos-network-routes.out`.
+- `talos-380f8868bcaa19b810085ca0` — `runtime-socket`; `D1/in/raw/talos/objects.tsv#380f8868bcaa19b810085ca0`; `D1/in/raw/talos/raw/0019-talos-ports.out`.
+- `talos-555a2e3a32a654473a1432af` — `runtime-socket`; `D1/in/raw/talos/objects.tsv#555a2e3a32a654473a1432af`; `D1/in/raw/talos/raw/0019-talos-ports.out`.
+- `talos-6bbaab687adf3605094a0dd9` — `runtime-mount-resource`; `D1/in/raw/talos/objects.tsv#6bbaab687adf3605094a0dd9`; `D1/in/raw/talos/raw/0003-talos-block-mount-resources.out`.
+- `talos-829dd5ad7cf3a00f5a31cec8` — `runtime-network-state`; `D1/in/raw/talos/objects.tsv#829dd5ad7cf3a00f5a31cec8`; `D1/in/raw/talos/raw/0016-talos-network-links.out`.
+- `talos-bf60d36222001e15d959e4b8` — `runtime-process`; `D1/in/raw/talos/objects.tsv#bf60d36222001e15d959e4b8`; `D1/in/raw/talos/raw/0008-talos-processes.out`.
+- `talos-ddab60763fbc32fbb252a7d4` — `runtime-mount`; `D1/in/raw/talos/objects.tsv#ddab60763fbc32fbb252a7d4`; `D1/in/raw/talos/raw/0004-talos-mounts.out`.
+- `void-0118e5f906afa952dae880aa` — `package-dependency`; `D1/in/raw/void/objects.tsv#0118e5f906afa952dae880aa`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-09b6bd9051447f5126bd70c5` — `runtime-firewall-ipv4`; `D1/in/raw/void/objects.tsv#09b6bd9051447f5126bd70c5`; `D1/in/raw/void/raw/0066-firewall-ipv4.out`.
+- `void-0ae6b3e05a215b63746c9705` — `runtime-driver`; `D1/in/raw/void/objects.tsv#0ae6b3e05a215b63746c9705`; `D1/in/raw/void/raw/0076-driver-names.out`.
+- `void-0c958efb088d7648c5d68a61` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#0c958efb088d7648c5d68a61`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-0ea9eab37dab9c2c6c25350b` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#0ea9eab37dab9c2c6c25350b`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-11a3ebd50e696a1fd4e44552` — `record-cache-index`; `D1/in/raw/void/objects.tsv#11a3ebd50e696a1fd4e44552`; (not published: over 20 MB); `D1/in/raw/void/members/11a3ebd50e696a1fd4e44552.tsv`; immediate member types {'file': 1}.
+- `void-1262813a27013e63d6a9dfc0` — `package-dependency`; `D1/in/raw/void/objects.tsv#1262813a27013e63d6a9dfc0`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-12f32d2564ec32286c1c2b07` — `cache-content-unknown`; `D1/in/raw/void/objects.tsv#12f32d2564ec32286c1c2b07`; (not published: over 20 MB); `D1/in/raw/void/members/12f32d2564ec32286c1c2b07.tsv`; immediate member types {'file': 1}.
+- `void-1cccca1d50dee9738694e965` — `package-explicit`; `D1/in/raw/void/objects.tsv#1cccca1d50dee9738694e965`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-1df21b3affb3f17029afe865` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#1df21b3affb3f17029afe865`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-1e146361237174a23f6cffb7` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#1e146361237174a23f6cffb7`; (not published: over 20 MB); `D1/in/raw/void/members/1e146361237174a23f6cffb7.tsv`; immediate member types {'directory': 1}.
+- `void-21ca315bdf900c5f267a08b8` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#21ca315bdf900c5f267a08b8`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-241000ed4e0e2bcfbbb7e55f` — `runtime-firewall-ipv6`; `D1/in/raw/void/objects.tsv#241000ed4e0e2bcfbbb7e55f`; `D1/in/raw/void/raw/0067-firewall-ipv6.out`.
+- `void-26ab1a0554c980b13e4f0716` — `record-cache-index`; `D1/in/raw/void/objects.tsv#26ab1a0554c980b13e4f0716`; (not published: over 20 MB); `D1/in/raw/void/members/26ab1a0554c980b13e4f0716.tsv`; immediate member types {'file': 1}.
+- `void-28a28c88ce7a51d7f0f76c30` — `package-dependency`; `D1/in/raw/void/objects.tsv#28a28c88ce7a51d7f0f76c30`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-2b98b1d1af7f2592c0b97d14` — `runtime-process`; `D1/in/raw/void/objects.tsv#2b98b1d1af7f2592c0b97d14`; `D1/in/raw/void/raw/0074-process-executables.out`.
+- `void-2c550b728e1034555753a6f2` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#2c550b728e1034555753a6f2`; (not published: over 20 MB); `D1/in/raw/void/members/2c550b728e1034555753a6f2.tsv`; immediate member types {'directory': 1}.
+- `void-2c567203c09929530f574347` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#2c567203c09929530f574347`; (not published: over 20 MB); `D1/in/raw/void/members/2c567203c09929530f574347.tsv`; immediate member types {'file': 4}.
+- `void-2de12459652ad42881a4cfff` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#2de12459652ad42881a4cfff`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-2fa61c8fe1a20ab6d179c187` — `runtime-stored`; `D1/in/raw/void/objects.tsv#2fa61c8fe1a20ab6d179c187`; (not published: over 20 MB); `D1/in/raw/void/members/2fa61c8fe1a20ab6d179c187.tsv`; immediate member types {'symlink': 10}.
+- `void-34cf1e3823b549f2d60737a2` — `runtime-stored`; `D1/in/raw/void/objects.tsv#34cf1e3823b549f2d60737a2`; (not published: over 20 MB); `D1/in/raw/void/members/34cf1e3823b549f2d60737a2.tsv`; immediate member types {'file': 1}.
+- `void-3ae10590cff9287351530f03` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#3ae10590cff9287351530f03`; (not published: over 20 MB); `D1/in/raw/void/members/3ae10590cff9287351530f03.tsv`; immediate member types {'directory': 1}.
+- `void-45bd4e9436ca6b59ee9083ef` — `runtime-stored`; `D1/in/raw/void/objects.tsv#45bd4e9436ca6b59ee9083ef`; (not published: over 20 MB); `D1/in/raw/void/members/45bd4e9436ca6b59ee9083ef.tsv`; immediate member types {'file': 1, 'directory': 1}.
+- `void-49d10596db20ade226c836d1` — `unchanged-package-content`; `D1/in/raw/void/objects.tsv#49d10596db20ade226c836d1`; `D1/in/raw/void/raw/0069-polkit-action.out`; `D1/in/raw/void/raw/0089-metadata-read-0.out`; `D1/in/raw/void/package-files.tsv`.
+- `void-4a8ec509a356bd4eb75bc029` — `runtime-process`; `D1/in/raw/void/objects.tsv#4a8ec509a356bd4eb75bc029`; `D1/in/raw/void/raw/0074-process-executables.out`.
+- `void-4f2c4c69cdf7297383693777` — `runtime-process`; `D1/in/raw/void/objects.tsv#4f2c4c69cdf7297383693777`; `D1/in/raw/void/raw/0074-process-executables.out`.
+- `void-50572aaa7cbff23d967c2ffe` — `unchanged-package-content`; `D1/in/raw/void/objects.tsv#50572aaa7cbff23d967c2ffe`; `D1/in/raw/void/raw/0089-metadata-read-0.out`; `D1/in/raw/void/package-files.tsv`.
+- `void-56891d8a9573ef4955707d42` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#56891d8a9573ef4955707d42`; (not published: over 20 MB); `D1/in/raw/void/members/56891d8a9573ef4955707d42.tsv`; immediate member types {'directory': 1}.
+- `void-5f113a2f83f0ad6410640711` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#5f113a2f83f0ad6410640711`; (not published: over 20 MB); `D1/in/raw/void/members/5f113a2f83f0ad6410640711.tsv`; immediate member types {'directory': 1}.
+- `void-64f807eea51a72c5b3d5c194` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#64f807eea51a72c5b3d5c194`; (not published: over 20 MB); `D1/in/raw/void/members/64f807eea51a72c5b3d5c194.tsv`; immediate member types {'file': 26}.
+- `void-699cd2b65d15f73d24572000` — `cache-content-unknown`; `D1/in/raw/void/objects.tsv#699cd2b65d15f73d24572000`; (not published: over 20 MB); `D1/in/raw/void/members/699cd2b65d15f73d24572000.tsv`; immediate member types {'file': 2}.
+- `void-6dcf65db83372a9f99b680bf` — `package-dependency`; `D1/in/raw/void/objects.tsv#6dcf65db83372a9f99b680bf`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-6ed36d7b25e43ab4d6d3c9b2` — `package-dependency`; `D1/in/raw/void/objects.tsv#6ed36d7b25e43ab4d6d3c9b2`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-72bc6a73389130b57e18dd9e` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#72bc6a73389130b57e18dd9e`; (not published: over 20 MB); `D1/in/raw/void/members/72bc6a73389130b57e18dd9e.tsv`; immediate member types {'directory': 1}.
+- `void-76783c06626fba4297418a2a` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#76783c06626fba4297418a2a`; (not published: over 20 MB); `D1/in/raw/void/members/76783c06626fba4297418a2a.tsv`; immediate member types {'directory': 1}.
+- `void-7b3677c6db76fd4408ad167f` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#7b3677c6db76fd4408ad167f`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-80500b8525ba1a7efd08b887` — `runtime-process`; `D1/in/raw/void/objects.tsv#80500b8525ba1a7efd08b887`; `D1/in/raw/void/raw/0074-process-executables.out`.
+- `void-82335a579965452209c4a2ce` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#82335a579965452209c4a2ce`; (not published: over 20 MB); `D1/in/raw/void/members/82335a579965452209c4a2ce.tsv`; immediate member types {'file': 10}.
+- `void-87355ed1f447fabbf67ade28` — `runtime-stored`; `D1/in/raw/void/objects.tsv#87355ed1f447fabbf67ade28`; (not published: over 20 MB); `D1/in/raw/void/members/87355ed1f447fabbf67ade28.tsv`; immediate member types {'directory': 18, 'socket': 2, 'file': 5}.
+- `void-8c4acdb4b42df8d592b67e25` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#8c4acdb4b42df8d592b67e25`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-8d901f7c033ff1b1f1321bd1` — `package-dependency`; `D1/in/raw/void/objects.tsv#8d901f7c033ff1b1f1321bd1`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-8ef443cd153375560b25d4fd` — `package-dependency`; `D1/in/raw/void/objects.tsv#8ef443cd153375560b25d4fd`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-8ef524de0bceed6f8b21615d` — `runtime-driver`; `D1/in/raw/void/objects.tsv#8ef524de0bceed6f8b21615d`; `D1/in/raw/void/raw/0076-driver-names.out`.
+- `void-97224c0dfb91f81a0e86c2ac` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#97224c0dfb91f81a0e86c2ac`; (not published: over 20 MB); `D1/in/raw/void/members/97224c0dfb91f81a0e86c2ac.tsv`; immediate member types {'directory': 1}.
+- `void-9a9f54aeecfbd336eba88091` — `package-dependency`; `D1/in/raw/void/objects.tsv#9a9f54aeecfbd336eba88091`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-9d09e92bf4395146455c4fb1` — `cache-content-unknown`; `D1/in/raw/void/objects.tsv#9d09e92bf4395146455c4fb1`; (not published: over 20 MB); `D1/in/raw/void/members/9d09e92bf4395146455c4fb1.tsv`; immediate member types {'file': 1}.
+- `void-a3057a2a2b9cea3c16df2a12` — `package-dependency`; `D1/in/raw/void/objects.tsv#a3057a2a2b9cea3c16df2a12`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-a7631c52415c88c01b663260` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#a7631c52415c88c01b663260`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-acccc311d68209e3a729b359` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#acccc311d68209e3a729b359`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-adc18047cf9bcbd8ce616750` — `package-dependency`; `D1/in/raw/void/objects.tsv#adc18047cf9bcbd8ce616750`; `D1/in/raw/void/raw/0005-metadata-read-0.out`.
+- `void-aec38147617e8e307152e4af` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#aec38147617e8e307152e4af`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-b8fa16caa24f44b8114928c1` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#b8fa16caa24f44b8114928c1`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-b959cf67f46eee66279a6b19` — `unchanged-package-content`; `D1/in/raw/void/objects.tsv#b959cf67f46eee66279a6b19`; (not published: over 20 MB); `D1/in/raw/void/package-files.tsv`.
+- `void-bc4f73b22cad973e345191a9` — `unchanged-package-content`; `D1/in/raw/void/objects.tsv#bc4f73b22cad973e345191a9`; `D1/in/raw/void/raw/0089-metadata-read-0.out`; `D1/in/raw/void/package-files.tsv`.
+- `void-bca61a3ec519e9b687e37aca` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#bca61a3ec519e9b687e37aca`; (not published: over 20 MB); `D1/in/raw/void/members/bca61a3ec519e9b687e37aca.tsv`; immediate member types {'directory': 1}.
+- `void-c3256cccf762bb3f22a365fb` — `package-dependency`; `D1/in/raw/void/objects.tsv#c3256cccf762bb3f22a365fb`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-c3266eeb4787f46d677077d4` — `runtime-stored`; `D1/in/raw/void/objects.tsv#c3266eeb4787f46d677077d4`; (not published: over 20 MB); `D1/in/raw/void/members/c3266eeb4787f46d677077d4.tsv`; immediate member types {'fifo': 2, 'file': 4}.
+- `void-c6a25a95030c130382088dfc` — `package-dependency`; `D1/in/raw/void/objects.tsv#c6a25a95030c130382088dfc`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-c82314e625965e4aa43ff00c` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#c82314e625965e4aa43ff00c`; (not published: over 20 MB); `D1/in/raw/void/members/c82314e625965e4aa43ff00c.tsv`; immediate member types {'file': 26}.
+- `void-cf6cf12a82fca98a7ffce175` — `record-immediate-directories`; `D1/in/raw/void/objects.tsv#cf6cf12a82fca98a7ffce175`; (not published: over 20 MB); `D1/in/raw/void/members/cf6cf12a82fca98a7ffce175.tsv`; immediate member types {'directory': 1}.
+- `void-de1fe6cc77ef458001963e74` — `unchanged-package-content`; `D1/in/raw/void/objects.tsv#de1fe6cc77ef458001963e74`; `D1/in/raw/void/raw/0089-metadata-read-0.out`; `D1/in/raw/void/package-files.tsv`.
+- `void-deaaa036c907f0e7560eab59` — `record-cache-index`; `D1/in/raw/void/objects.tsv#deaaa036c907f0e7560eab59`; (not published: over 20 MB); `D1/in/raw/void/members/deaaa036c907f0e7560eab59.tsv`; immediate member types {'file': 1}.
+- `void-df0fbbd13715304208fc0b53` — `runtime-process`; `D1/in/raw/void/objects.tsv#df0fbbd13715304208fc0b53`; `D1/in/raw/void/raw/0074-process-executables.out`.
+- `void-e2089ad0c038bd9d897b2a5e` — `cache-content-unknown`; `D1/in/raw/void/objects.tsv#e2089ad0c038bd9d897b2a5e`; (not published: over 20 MB); `D1/in/raw/void/members/e2089ad0c038bd9d897b2a5e.tsv`; immediate member types {'file': 1}.
+- `void-e3685df6e9bb6ccff76bf54f` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#e3685df6e9bb6ccff76bf54f`; (not published: over 20 MB); `D1/in/raw/void/members/e3685df6e9bb6ccff76bf54f.tsv`; immediate member types {'file': 4}.
+- `void-e54cf557a02c20a512b35709` — `runtime-stored`; `D1/in/raw/void/objects.tsv#e54cf557a02c20a512b35709`; (not published: over 20 MB); `D1/in/raw/void/members/e54cf557a02c20a512b35709.tsv`; immediate member types {'fifo': 2, 'file': 4}.
+- `void-eb5e45fee0c4f84f963d2d84` — `derived-bytecode`; `D1/in/raw/void/objects.tsv#eb5e45fee0c4f84f963d2d84`; (not published: over 20 MB); `D1/in/raw/void/members/eb5e45fee0c4f84f963d2d84.tsv`; immediate member types {'file': 6}.
+- `void-f0f3e9bc5448eb77685115b6` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#f0f3e9bc5448eb77685115b6`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-f382c7466faa7e1241370a96` — `package-dependency`; `D1/in/raw/void/objects.tsv#f382c7466faa7e1241370a96`; `D1/in/raw/void/raw/0011-metadata-read-0.out`.
+- `void-f872e990ab90e83321e8eeca` — `runtime-module-name`; `D1/in/raw/void/objects.tsv#f872e990ab90e83321e8eeca`; `D1/in/raw/void/raw/0075-module-names.out`.
+- `void-fba57ff8fb4fac64bf1f3e53` — `runtime-process`; `D1/in/raw/void/objects.tsv#fba57ff8fb4fac64bf1f3e53`; `D1/in/raw/void/raw/0074-process-executables.out`.
+
+## Supplementary evidence checks
+
+- Polkit policy bytes were decoded from the retained NDJSON `data` fields. Each exact action identifier was found in an XML `id` attribute; the same `path` has unchanged package-file integrity. The per-row references above name the precise retained output.
+- Directory-only cache groups mean their immediate listed directories, not recursively contained payloads. Their type, ownership, timing, and documented cache/journal layout support working-state provenance. npm activity is retained in `D1/in/control/void/actions-logs/actions-logs/language_program.log`; package activity is retained in `D1/in/control/alma/actions-logs/language_program.log` and the corresponding retained status files.
+- https://docs.npmjs.com/cli/v11/commands/npm-cache/ : “npm stores cache data in an opaque directory within the configured `cache`, named `_cacache`.” This supports cache layout, not the executable status of arbitrary payloads.
+- https://github.com/npm/cacache/blob/main/lib/entry-index.js : `const stringified = JSON.stringify(entry)`; `obj = JSON.parse(pieces[1])`. The index writer serializes entries, creates parent directories, and appends indexed JSON; the reader parses values. This resolves index records separately from opaque cached contents.
+- https://www.freedesktop.org/software/systemd/man/latest/journald.conf.html documents persistent journal storage under `/var/log/journal`; only the immediate directory member was classified.
+- Bytecode generation is established by decoded package database `D1/in/raw/void/raw/0011-metadata-read-0.out`, record `/var/db/xbps/pkgdb-0.38.plist`: `python3` and `python3-pip` both have `state=installed` and installation time 2026-11-23 11:20 UTC. Retained `install-script` fields invoke the post-install pycompile trigger, selecting Python 3.14, recursively compiling its library directory and the pip module. Every sampled source counterpart has unchanged integrity in `D1/in/raw/void/package-files.tsv`; observed bytecode times fall within 11:20:29–11:20:33 UTC. Thus these are installation-generated compiled copies, not an unsupported inference from filenames alone.
+- https://github.com/void-linux/void-packages/blob/master/Manual.md#pycompile : “The pycompile trigger is responsible for compiling python code into native bytecode and removing generated bytecode.” The documented trigger compiles selected directories and modules during installation. Source checks covered all 76 bytecode members of the six sampled groups (4, 26, 10, 26, 4, 6); duplicate manifest owners were retained, not collapsed into a guessed origin.
+- Remaining payload unknowns are actual files in HTTP body or content-addressed caches. Parent directories alone do not establish their code status. No archive was expanded and no machine was probed.

@@ -1,0 +1,29 @@
++1795460264.100702 4: set -e
++1795460264.100720 5: trap 'printf "ACTION_FAILED h3 line=%s\n" "$LINENO"' ERR
++1795460264.100885 26: printf 'ACTION_BEGIN h3-launcher-fetch\n'
++1795460264.100896 27: mkdir -p s8-h3
++1795460264.109408 28: cd s8-h3
++1795460264.109617 29: export LGSM_GITHUBBRANCH=50dc4e551b661b9d1fa39c291068a16a66056aff
++1795460264.109627 29: LGSM_GITHUBBRANCH=50dc4e551b661b9d1fa39c291068a16a66056aff
++1795460264.109697 30: curl --fail --location --output linuxgsm.sh https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/50dc4e551b661b9d1fa39c291068a16a66056aff/linuxgsm.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 22167  100 22167    0     0  89491      0 --:--:-- --:--:-- --:--:-- 89744
++1795460264.371876 31: printf '%s\n' '3063de7f3bf025976dcd11693af84bbe78b43564c3174129d524c7b3c16f5707  linuxgsm.sh'
++1795460264.371911 31: sha256sum --check -
++1795460264.373889 32: printf 'ACTION_DONE h3-launcher-fetch\n'
++1795460264.373907 33: printf 'ACTION_BEGIN h3-launcher-setup\n'
++1795460264.373915 34: bash linuxgsm.sh wetserver
++1795460264.898742 35: printf 'ACTION_DONE h3-launcher-setup\n'
++1795460264.898764 36: printf 'ACTION_BEGIN h3-game-install\n'
++1795460264.898773 37: bash wetserver auto-install
+/home/stand/s8-h3/lgsm/modules/info_game.sh: line 2718: /usr/bin/jq: Permission denied
+/home/stand/s8-h3/lgsm/modules/info_game.sh: line 2719: /usr/bin/jq: Permission denied
+/home/stand/s8-h3/lgsm/modules/info_game.sh: line 2720: /usr/bin/jq: Permission denied
+Cannot open netlink socket: Permission denied
+tee: /home/stand/s8-h3/log/script/wetserver-script.log: No such file or directory
++1795460273.010602 38: printf '%s\n' 'ac359aebe0bf8fd568341876e3a8992d7c562ee6fdc4a8906bdbab47eae66cf3  lgsm/tmp/wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz'
++1795460273.010644 38: sha256sum --check -
+sha256sum: lgsm/tmp/wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz: No such file or directory
+sha256sum: WARNING: 1 listed file could not be read
+++1795460273.012174 38: printf 'ACTION_FAILED h3 line=%s\n' 38

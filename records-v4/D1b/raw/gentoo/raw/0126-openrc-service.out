@@ -1,0 +1,47 @@
+Runlevel: nonetwork
+ local                                                             [  started  ]
+Runlevel: default
+ sshd                                                              [  started  ]
+ dhcpcd                                                            [  started  ]
+ netmount                                                          [  started  ]
+ docker                                                            [  started  ]
+ local                                                             [  started  ]
+Runlevel: shutdown
+ killprocs                                                         [  stopped  ]
+ savecache                                                         [  stopped  ]
+ mount-ro                                                          [  stopped  ]
+Runlevel: boot
+ hwclock                                                           [  started  ]
+ loopback                                                          [  started  ]
+ termencoding                                                      [  started  ]
+ modules                                                           [  started  ]
+ fsck                                                              [  started  ]
+ root                                                              [  started  ]
+ mtab                                                              [  started  ]
+ swap                                                              [  started  ]
+ localmount                                                        [  started  ]
+ sysctl                                                            [  started  ]
+ bootmisc                                                          [  started  ]
+ keymaps                                                           [  started  ]
+ save-keymaps                                                      [  started  ]
+ procfs                                                            [  started  ]
+ binfmt                                                            [  started  ]
+ save-termencoding                                                 [  started  ]
+ systemd-tmpfiles-setup                                            [  started  ]
+ seedrng                                                           [  started  ]
+ hostname                                                          [  started  ]
+Runlevel: sysinit
+ sysfs                                                             [  started  ]
+ cgroups                                                           [  started  ]
+ devfs                                                             [  started  ]
+ udev                                                              [  started  ]
+ dmesg                                                             [  started  ]
+ kmod-static-nodes                                                 [  started  ]
+ systemd-tmpfiles-setup-dev                                        [  started  ]
+ udev-trigger                                                      [  started  ]
+Dynamic Runlevel: hotplugged
+ user.user                                                            [ failed ]
+Dynamic Runlevel: needed/wanted
+ containerd                                                        [  started  ]
+Dynamic Runlevel: manual
+ user.user                                                            [ failed ]

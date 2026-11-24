@@ -1,0 +1,1 @@
+nft -j list ruleset

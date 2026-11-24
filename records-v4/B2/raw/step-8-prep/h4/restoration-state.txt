@@ -1,0 +1,19 @@
+ready-status:0
+UNCONN 0      0             0.0.0.0:5355 0.0.0.0:*
+UNCONN 0      0          127.0.0.54:53   0.0.0.0:*
+UNCONN 0      0       127.0.0.53%lo:53   0.0.0.0:*
+UNCONN 0      0      10.0.2.15%ens3:68   0.0.0.0:*
+UNCONN 0      0                [::]:5355    [::]:*
+○ stand-watchdog.service - Recover abandoned declaration transactions
+     Loaded: loaded (/etc/systemd/system/stand-watchdog.service; static)
+     Active: inactive (dead) since Mon 2026-11-23 18:12:48 UTC; 96ms ago
+ Invocation: cb2b6361a764495395aa7d2de1068007
+TriggeredBy: ● stand-watchdog.timer
+    Process: 4231 ExecStart=/usr/local/bin/stand-watchdog (code=exited, status=0/SUCCESS)
+   Main PID: 4231 (code=exited, status=0/SUCCESS)
+   Mem peak: 11.8M
+        CPU: 43ms
+
+Nov 23 18:12:48 [guest] systemd[1]: Starting stand-watchdog.service - Recover abandoned declaration transactions...
+Nov 23 18:12:48 [guest] systemd[1]: stand-watchdog.service: Deactivated successfully.
+Nov 23 18:12:48 [guest] systemd[1]: Finished stand-watchdog.service - Recover abandoned declaration transactions.

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-23T17:50:53Z",
+  "source": "bc3_filesystem.py apply_description and fixed case-3-before filesystem path maps",
+  "question": "Can the active-service fixture complete replay with a fresh PrivateTmp namespace and exact target filesystem descriptions?",
+  "expected": "complete replay succeeds or explicitly refuses an incompatible open handle; no refusal can be called readiness",
+  "scope": "one fixture application only; no pair comparison, removed process observation, opposite order or case outcome"
+}

@@ -1,0 +1,166 @@
+{
+  "machine": "server",
+  "base": "debian-server",
+  "actions": [
+    {
+      "action": "server_prerequisites",
+      "exit_status": 0,
+      "seconds": 48
+    },
+    {
+      "action": "server_compose",
+      "exit_status": 0,
+      "seconds": 18
+    },
+    {
+      "action": "server_orchestrator",
+      "exit_status": 0,
+      "seconds": 19
+    },
+    {
+      "action": "server_reverse_proxy",
+      "exit_status": 0,
+      "seconds": 0
+    },
+    {
+      "action": "server_database",
+      "exit_status": 0,
+      "seconds": 1
+    },
+    {
+      "action": "server_binary_service",
+      "exit_status": 0,
+      "seconds": 2
+    },
+    {
+      "action": "server_scheduled_jobs",
+      "exit_status": 0,
+      "seconds": 1
+    },
+    {
+      "action": "server_firewall",
+      "exit_status": 0,
+      "seconds": 0
+    },
+    {
+      "action": "server_account",
+      "exit_status": 0,
+      "seconds": 0
+    },
+    {
+      "action": "server_kernel_parameters",
+      "exit_status": 0,
+      "seconds": 0
+    },
+    {
+      "action": "server_swap",
+      "exit_status": 0,
+      "seconds": 2
+    },
+    {
+      "action": "server_automatic_updates",
+      "exit_status": 0,
+      "seconds": 0
+    },
+    {
+      "action": "server_log_rotation",
+      "exit_status": 0,
+      "seconds": 0
+    }
+  ],
+  "actions_complete": true,
+  "restart_count": 1,
+  "boot_id_changed": true,
+  "inventories": {
+    "server": {
+      "collector_exit": 0,
+      "objects": 3287,
+      "by_kind": {
+        "1 access-rule": 39,
+        "1 account": 30,
+        "1 docker-container": 3,
+        "1 docker-image": 3,
+        "1 driver": 100,
+        "1 firewall-chain": 86,
+        "1 firewall-ipv4": 244,
+        "1 firewall-ipv6": 77,
+        "1 firewall-rule": 203,
+        "1 firewall-table": 8,
+        "1 group": 57,
+        "1 module-name": 211,
+        "1 package": 392,
+        "1 polkit-action": 92,
+        "1 port": 26,
+        "1 process": 162,
+        "1 service": 129,
+        "1 sudo-access": 13,
+        "1 timer": 11,
+        "1 unit-file": 176,
+        "1 user-service": 3,
+        "1 user-unit-file": 6,
+        "2 executable-code-outside-packages": 444,
+        "2 image": 14,
+        "2 image-container-store": 5,
+        "2 stored-outside-packages": 753
+      },
+      "utc": "2026-11-23T11:16:01.418934+00:00",
+      "machine": "a3-server",
+      "system": "debian-server",
+      "duration": 33.653,
+      "filesystem_complete": true,
+      "package_ownership_complete": true,
+      "gaps": [
+        "user-root-service: not collected or incomplete (exit 1; raw/0089-user-root-service.out)",
+        "user-root-timer: not collected or incomplete (exit 1; raw/0090-user-root-timer.out)",
+        "user-root-unit-file: not collected or incomplete (exit 1; raw/0091-user-root-unit-file.out)",
+        "user-calops-service: not collected or incomplete (exit 1; raw/0101-user-calops-service.out)",
+        "user-calops-timer: not collected or incomplete (exit 1; raw/0102-user-calops-timer.out)",
+        "user-calops-unit-file: not collected or incomplete (exit 1; raw/0103-user-calops-unit-file.out)"
+      ],
+      "ready_for_observation": false
+    },
+    "server-base": {
+      "collector_exit": 0,
+      "objects": 2247,
+      "by_kind": {
+        "1 access-rule": 37,
+        "1 account": 28,
+        "1 driver": 100,
+        "1 group": 53,
+        "1 module-name": 170,
+        "1 package": 355,
+        "1 polkit-action": 92,
+        "1 port": 11,
+        "1 process": 124,
+        "1 service": 116,
+        "1 sudo-access": 9,
+        "1 timer": 8,
+        "1 unit-file": 162,
+        "1 user-service": 1,
+        "1 user-unit-file": 5,
+        "2 executable-code-outside-packages": 371,
+        "2 image": 14,
+        "2 stored-outside-packages": 591
+      },
+      "utc": "2026-11-23T11:16:45.465908+00:00",
+      "machine": "a3-server-base",
+      "system": "debian-server",
+      "duration": 29.995,
+      "filesystem_complete": true,
+      "package_ownership_complete": true,
+      "gaps": [
+        "user-root-service: not collected or incomplete (exit 1; raw/0086-user-root-service.out)",
+        "user-root-timer: not collected or incomplete (exit 1; raw/0087-user-root-timer.out)",
+        "user-root-unit-file: not collected or incomplete (exit 1; raw/0088-user-root-unit-file.out)"
+      ],
+      "ready_for_observation": false
+    }
+  },
+  "clones_destroyed": true,
+  "copy_verification": {
+    "files": 2015,
+    "mismatches": []
+  },
+  "deviations": [],
+  "acceptance": "Pending independent review; operator verification is not acceptance."
+}

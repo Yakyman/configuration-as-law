@@ -1,0 +1,118 @@
+{
+  "changed_source_files": [],
+  "continuation_summary": {
+    "controller_exit": 0,
+    "hypothesis_outcome": "?",
+    "owned_guest_remaining": false,
+    "scope": "unattempted suffix only; prior FIFO failure and original aborted suite remain",
+    "steps": [
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "lab.py",
+          "new",
+          "bc3-final-1-regression-suffix",
+          "stand"
+        ],
+        "ended_utc": "2026-11-23T16:41:57Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "new.log",
+        "started_utc": "2026-11-23T16:40:53Z"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "lab.py",
+          "run",
+          "bc3-final-1-regression-suffix",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T16:41:57Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "copy.log",
+        "started_utc": "2026-11-23T16:41:57Z"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "lab.py",
+          "run",
+          "bc3-final-1-regression-suffix",
+          "--root"
+        ],
+        "ended_utc": "2026-11-23T16:50:14Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "suffix.jsonl",
+        "started_utc": "2026-11-23T16:41:57Z"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "lab.py",
+          "copy-out",
+          "bc3-final-1-regression-suffix",
+          "/var/lib/stand/bc3-round2-continuation",
+          "[stand-root]/raw/round-3/final-1-continuation/evidence"
+        ],
+        "ended_utc": "2026-11-23T16:50:14Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "export.log",
+        "started_utc": "2026-11-23T16:50:14Z"
+      },
+      {
+        "argv": [
+          "/usr/bin/python3",
+          "lab.py",
+          "destroy",
+          "bc3-final-1-regression-suffix"
+        ],
+        "ended_utc": "2026-11-23T16:50:16Z",
+        "exit": 0,
+        "expected_exit": 0,
+        "log": "destroy.log",
+        "started_utc": "2026-11-23T16:50:14Z"
+      }
+    ],
+    "utc": "2026-11-23T16:50:16Z"
+  },
+  "controller_exit": 1,
+  "declaration": {
+    "path": "raw/round-3/final-1/offline-declaration/declaration.json",
+    "sha256": "4fd6f7acbc4e9d110dbd3513b4b42aace2b775d99f9f90341f86fb64e33bda57"
+  },
+  "image": {
+    "mode": "0o444",
+    "path": "base/stand.qcow2",
+    "sha256": "5641c3c34e08dba60ae7f97511fae33d4dde48dba0ef5d93db93ab6faeb3cb79",
+    "size": 1522073600
+  },
+  "peer_remaining": false,
+  "remaining_owned_vms": [],
+  "scope": "Final retained-image/source and cleanup readback; regression failure is preserved.",
+  "source_files_checked": 77,
+  "units": {
+    "cal-bc3-final-1-continuation.service": {
+      "ActiveState": "inactive",
+      "ExecMainStatus": "0",
+      "LoadState": "not-found",
+      "SubState": "dead"
+    },
+    "cal-bc3-final-1-validation.service": {
+      "ActiveState": "failed",
+      "ExecMainStatus": "1",
+      "LoadState": "loaded",
+      "SubState": "failed"
+    },
+    "cal-bc3-network.service": {
+      "ActiveState": "inactive",
+      "ExecMainStatus": "0",
+      "LoadState": "not-found",
+      "SubState": "dead"
+    }
+  },
+  "utc": "2026-11-23T16:59:01Z"
+}

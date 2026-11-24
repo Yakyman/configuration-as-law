@@ -1,0 +1,455 @@
+========== R1 rpm packages by dnf reason 45 rows
+developer-adace3ff93d390f5f20468bb | rpm:micro@2.0.15-3.fc45.x86_64 | INSTALLED-OWN | Q1: a package installed on the computer; dnf records reason user (explicit), so no other line obtains it: a line of its own
+developer-03ae8d81719aee482d47b7fe | rpm:docker-ce@29.10.0-1.fc45.x86_64 | INSTALLED-OWN | Q1: a package installed on the computer; dnf records reason user (explicit), so no other line obtains it: a line of its own
+developer-60e33259995ec8ec0f3027b3 | rpm:golang-bin@1.27.4-2.fc45.x86_64 | INSTALLED-DERIVED | Q1: a package installed on the computer; dnf records dependency, so it is a package installed as a dependency of a recorded package
+developer-af9c0a608cc0f364c46b411d | rpm:ruby@4.0.9-40.fc45.x86_64 | INSTALLED-OWN | Q1: a package installed on the computer; dnf records reason user (explicit), so no other line obtains it: a line of its own
+developer-f7aa5e692becc0c5c61e0e8b | rpm:<REDACTED> | INSTALLED-DERIVED | Q1: a package installed on the computer; dnf records dependency, so it is a package installed as a dependency of a recorded package
+developer-41e633b9828b9d4c6b54075c | rpm:rubygem-bigdecimal@4.0.1-40.fc45.x86_64 | INSTALLED-DERIVED | Q1: a package installed on the computer; dnf records weak dependency, so it is a package installed as a dependency of a recorded package
+developer-49cfece694819e34b0b2bdc2 | rpm:glibc-all-langpacks@2.44-2.fc45.x86_64 | INSTALLED-DERIVED | Q1: a package; dnf native reason group: obtained by the system from a group (a list), not chosen individually, so the group line covers it
+developer-3d78f74ecf21220545a26372 | rpm:<REDACTED> | INSTALLED-DERIVED | Q1: a package installed on the computer; dnf records weak dependency, so it is a package installed as a dependency of a recorded package
+developer-a9c234e9e53100aaefb19797 | rpm:libgomp@16.2.1-3.fc45.x86_64 | INSTALLED-DERIVED | Q1: a package installed on the computer; dnf records dependency, so it is a package installed as a dependency of a recorded package
+developer-27b851a1b6fae6ac0ac93d84 | rpm:docker-buildx-plugin@0.39.1-1.fc45.x86_64 | INSTALLED-OWN | Q1: a package installed on the computer; dnf records reason user (explicit), so no other line obtains it: a line of its own
+========== R2 npm packages under bun global 78 rows
+developer-33258a0a7d8a25f745dc5d62 | npm:esutils@/home/user/.bun/install/global/node_modules/esutils | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-a68d7b9e3275c4e05b099159 | npm:@eslint/config-array@/home/user/.bun/install/global/node_modules/@eslint/config-array | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-e9d6250588941d53ae0aafdf | npm:@humanfs/core@/home/user/.bun/install/global/node_modules/@humanfs/core | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-b0e682fa031f5ba17f817367 | npm:@humanwhocodes/retry@/home/user/.bun/install/global/node_modules/@humanwhocodes/retry | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-74660fbb0b0234f75654baf7 | npm:fast-levenshtein@/home/user/.bun/install/global/node_modules/fast-levenshtein | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-56fa9b372bbe5ab119b83cea | npm:optionator@/home/user/.bun/install/global/node_modules/optionator | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-6c15a536e991b17af73a8e09 | npm:@types/json-schema@/home/user/.bun/install/global/node_modules/@types/json-schema | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-00214b07b4d92d07e427d616 | npm:@eslint/plugin-kit@/home/user/.bun/install/global/node_modules/@eslint/plugin-kit | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-ba60fedd55c56d0023fa36a7 | on-stable-stringify@/home/user/.bun/install/global/node_modules/fast-json-stable-stringify | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+developer-ad8ffcefb997f57554f14aa0 | npm:esrecurse@/home/user/.bun/install/global/node_modules/esrecurse | INSTALLED-DERIVED | Q1: package installed by bun; only eslint was requested ("78 packages installed"), so this one is a dependency of the recorded eslint package
+========== R3 rpm-shipped gems 76 rows
+developer-61e112614ae10c7f28291e6f | gem:net-imap-0.6.4.1 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-fcef9d7bc832dffac259befa | gem:zlib-3.2.3 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-4a46a493c0e5f865a24ef2fd | gem:erb-6.0.7 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-9a364d90a5ece1bfadd78be6 | gem:etc-1.4.6 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-cfb5a8d1fc19e1ab2f875ead | gem:timeout-0.6.0 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-2d3dda893cd66ebd463fa9fe | gem:error_highlight-0.7.2 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-2c425af7b032e32349298def | gem:net-pop-0.1.2 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-bd09f6b5aef9f19750f63155 | gem:strscan-3.1.6 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-7bc1eb4a8f3c15bc6a06b7c4 | gem:ruby2_keywords-0.0.5 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+developer-8d7d5abd632778912e79e87c | gem:net-smtp-0.5.1 | INSTALLED-PACKAGE | Q1: gem obtained as part of an installed rpm (ruby-default-gems, ruby-bundled-gems, rubygem-*); covered by that rpm package line
+========== R4 processes 74 rows
+developer-443867e2e1377d066a5c11d1 | 18458 | RUNTIME | A process exists only while running; it belongs to the inventory probe started by the operator's command (ACTION)
+developer-b62957c281f1ae18457eb314 | 555 | RUNTIME | A process exists only while running; readlink of /proc/PID/exe failed (kernel thread); it belongs to the kernel (kernel package, INSTALLED-PACKAGE)
+developer-937321895032a5d5a7c9f42e | 617 | RUNTIME | A process exists only while running; it belongs to /usr/libexec/rtkit-daemon (package file, INSTALLED-PACKAGE)
+developer-e0c7c1f53cdb3be53703d00b | 616 | RUNTIME | A process exists only while running; it belongs to /usr/lib/polkit-1/polkitd (package file, INSTALLED-PACKAGE)
+developer-d9c2ff76e2ac3a590a6f37f7 | 776 | RUNTIME | A process exists only while running; readlink of /proc/PID/exe failed (kernel thread); it belongs to the kernel (kernel package, INSTALLED-PACKAGE)
+developer-84937f4020d30556c36d468c | 611 | RUNTIME | A process exists only while running; it belongs to the python3 interpreter (INSTALLED-PACKAGE) running a system daemon
+developer-bf1af4d29a45db7b71509aa3 | 618 | RUNTIME | A process exists only while running; it belongs to /usr/lib/systemd/systemd-homed (package file, INSTALLED-PACKAGE)
+developer-283f01e91790e326c3a1cc17 | 614 | RUNTIME | A process exists only while running; it belongs to /usr/bin/chronyd (package file, INSTALLED-PACKAGE)
+developer-3a5b794cef745cb302d4192d | 1510 | RUNTIME | A process exists only while running; it belongs to /usr/lib/systemd/systemd-executor (package file, INSTALLED-PACKAGE)
+developer-b7ba42aa58253622baa46f6e | 447 | RUNTIME | A process exists only while running; readlink of /proc/PID/exe failed (kernel thread); it belongs to the kernel (kernel package, INSTALLED-PACKAGE)
+========== R5 netfilter rows 531 rows
+developer-c7631bc86f8dcb5c92defa04 | inet/firewalld/filter_IN_policy_allow-host-ipv6//266 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-622117fae8f4e752e272fac8 | inet/firewalld/filter_FWD_FedoraWorkstation//235 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-3c90d9045a752f71df644503 | inet/firewalld//filter_IN_docker_allow/368 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-aae8bec781f0d76c2466beb4 | inet/firewalld//filter_IN_FedoraWorkstation_allow/168 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-4480ed86f01ca53827ebec0a | inet/firewalld/mangle_PRE_policy_allow-host-ipv6//294 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-bca3ed55d2e4136925ccea4f | inet/firewalld/filter_FWD_docker//425 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-3048732cb47990a547780147 | :OUTPUT | RUNTIME | Kernel netfilter state exists only while running; created by dockerd (docker-ce, INSTALLED-PACKAGE) started by docker.service (SETTING-OWN)
+developer-a3ba5d636a3c6c0967aca85c | inet/firewalld/filter_OUTPUT//133 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-b99beb97d3a0428ce9f9b11a | inet/firewalld/filter_IN_FedoraWorkstation//169 | RUNTIME | Kernel netfilter state exists only while running; created by firewalld (INSTALLED-PACKAGE; service SETTING-DEFAULT) from its zone/policy configuration
+developer-c228cab35ad9f242cbc69702 | ip/filter//FORWARD/6 | RUNTIME | Kernel netfilter state exists only while running; created by dockerd (docker-ce, INSTALLED-PACKAGE) started by docker.service (SETTING-OWN)
+========== R6 Julia package trees 1851 rows
+developer-679b0f10bc92d69c148c5d86 | ome/user/.julia/juliaup/julia-1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/Tar/docs/src | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      -1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/Tar/docs/src/index.md file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+developer-ca03c9631a64ab60c1d85978 | .julia/juliaup/julia-1.10.14+0.x64.linux.gnu/share/julia/test/depot/packages/Foo/I05Qq/src | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      4+0.x64.linux.gnu/share/julia/test/depot/packages/Foo/I05Qq/src/Foo.jl file False 2026-11-23T11:13:56 -> INSTALLED-PACKAGE
+developer-e89e91463ce10afd82756696 | juliaup/julia-1.13.4+0.x64.linux.gnu/share/julia/test/project/Extensions/ImplicitEnv/A/src | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      4.linux.gnu/share/julia/test/project/Extensions/ImplicitEnv/A/src/A.jl file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+developer-8f544d1498c9e1af77ff037d | ome/user/.julia/juliaup/julia-1.13.4+0.x64.linux.gnu/share/doc/julia/html/en/assets/themes | INSTALLED-PACKAGE | All 6 members: file of a Julia version package, unchanged since installation
+      .linux.gnu/share/doc/julia/html/en/assets/themes/catppuccin-frappe.css file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+      4.linux.gnu/share/doc/julia/html/en/assets/themes/catppuccin-latte.css file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+      nux.gnu/share/doc/julia/html/en/assets/themes/catppuccin-macchiato.css file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+      4.linux.gnu/share/doc/julia/html/en/assets/themes/catppuccin-mocha.css file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+developer-76637395404a642ec66647e7 | .4+0.x64.linux.gnu/share/julia/stdlib/v1.13/Pkg/test/test_packages/AllowReresolveTest/test | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      tdlib/v1.13/Pkg/test/test_packages/AllowReresolveTest/test/runtests.jl file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+developer-46d74e0686c02619fe909c6d | /home/user/.julia/juliaup/julia-1.13.4+0.x64.linux.gnu/share/julia/compiled/v1.13/Markdown | INSTALLED-PACKAGE | All 4 members: file of a Julia version package, unchanged since installation
+      3.4+0.x64.linux.gnu/share/julia/compiled/v1.13/Markdown/AREjX_6GHOL.ji file False 2026-11-23T11:13:49 -> INSTALLED-PACKAGE
+      3.4+0.x64.linux.gnu/share/julia/compiled/v1.13/Markdown/AREjX_6GHOL.so file True 2026-11-23T11:13:49 -> INSTALLED-PACKAGE
+      3.4+0.x64.linux.gnu/share/julia/compiled/v1.13/Markdown/AREjX_J66sq.ji file False 2026-11-23T11:13:49 -> INSTALLED-PACKAGE
+      3.4+0.x64.linux.gnu/share/julia/compiled/v1.13/Markdown/AREjX_J66sq.so file True 2026-11-23T11:13:49 -> INSTALLED-PACKAGE
+developer-f6aa12e01683bd2ca9ea8938 | ome/user/.julia/juliaup/julia-1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/SHA/docs/src | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      -1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/SHA/docs/src/index.md file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+developer-b932ebf498047204398f8f49 | ser/.julia/juliaup/julia-1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/FileWatching/docs | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      -1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/FileWatching/docs/src directory True  -> INSTALLED-PACKAGE
+developer-3d14ba0bde8e43dffa5bcf2c | aup/julia-1.13.4+0.x64.linux.gnu/share/julia/stdlib/v1.13/Pkg/test/test_packages/FailBuild | INSTALLED-PACKAGE | All 3 members: file of a Julia version package, unchanged since installation
+      share/julia/stdlib/v1.13/Pkg/test/test_packages/FailBuild/Project.toml file False 2026-11-23T11:13:50 -> INSTALLED-PACKAGE
+      nux.gnu/share/julia/stdlib/v1.13/Pkg/test/test_packages/FailBuild/deps directory True  -> INSTALLED-PACKAGE
+      inux.gnu/share/julia/stdlib/v1.13/Pkg/test/test_packages/FailBuild/src directory True  -> INSTALLED-PACKAGE
+developer-aa1b5400666a47c4202d72d6 | +0.x64.linux.gnu/share/julia/stdlib/v1.10/Pkg/test/test_packages/PackageWithDependency/src | INSTALLED-PACKAGE | All 1 members: file of a Julia version package, unchanged since installation
+      /test/test_packages/PackageWithDependency/src/PackageWithDependency.jl file False 2026-11-23T11:13:56 -> INSTALLED-PACKAGE
+========== R7 bun global packages 271 rows
+developer-c8b2febdc47c29c1b76f6a63 | /home/user/.bun/install/global/node_modules/@humanfs/node/dist | INSTALLED-PACKAGE | All 3 members: file of an npm package, unchanged since installation
+      me/user/.bun/install/global/node_modules/@humanfs/node/dist/index.d.ts file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      user/.bun/install/global/node_modules/@humanfs/node/dist/node-fsx.d.ts file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      user/.bun/install/global/node_modules/@humanfs/node/dist/node-hfs.d.ts file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-3c2b5efb77db4dbb4aa23223 | /home/user/.bun/install/global/node_modules/@humanfs/node/src | INSTALLED-PACKAGE | All 2 members: file of an npm package, unchanged since installation
+      /home/user/.bun/install/global/node_modules/@humanfs/node/src/index.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      me/user/.bun/install/global/node_modules/@humanfs/node/src/node-hfs.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-111f950089af0c336b509949 | /home/user/.bun/install/global/node_modules/natural-compare | INSTALLED-PACKAGE | All 3 members: file of an npm package, unchanged since installation
+      /home/user/.bun/install/global/node_modules/natural-compare/README.md file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      /home/user/.bun/install/global/node_modules/natural-compare/index.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      ome/user/.bun/install/global/node_modules/natural-compare/package.json file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-54d475f0b73f6b3e4e8f9671 | /home/user/.bun/install/global/node_modules/json-stable-stringify-without-jsonify/example | INSTALLED-PACKAGE | All 4 members: file of an npm package, unchanged since installation
+      /node_modules/json-stable-stringify-without-jsonify/example/key_cmp.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      l/node_modules/json-stable-stringify-without-jsonify/example/nested.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      obal/node_modules/json-stable-stringify-without-jsonify/example/str.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      ode_modules/json-stable-stringify-without-jsonify/example/value_cmp.js file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-e2fa766da6240ad09560bf0a | /home/user/.bun/install/global/node_modules/@eslint/plugin-kit/dist | INSTALLED-PACKAGE | All 2 members: file of an npm package, unchanged since installation
+      home/user/.bun/install/global/node_modules/@eslint/plugin-kit/dist/cjs directory True  -> INSTALLED-PACKAGE
+      home/user/.bun/install/global/node_modules/@eslint/plugin-kit/dist/esm directory True  -> INSTALLED-PACKAGE
+developer-6d5ef5f9a7718af07ec36c8a | /home/user/.bun/install/global/node_modules/flatted/python | INSTALLED-PACKAGE | All 1 members: file of an npm package, unchanged since installation
+      /home/user/.bun/install/global/node_modules/flatted/python/flatted.py file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-372014b2910fad6fad91da8e | /home/user/.bun/install/global/node_modules/uri-js/dist/esnext/index.js.map | INSTALLED-PACKAGE | Q1 first: obtained as part of an installed package and unchanged since installation (ctime inside install window): installed object, package line
+developer-c24c1663de86f53ee19a40d7 | nstall/global/node_modules/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys | INSTALLED-PACKAGE | All 5 members: file of an npm package, unchanged since installation
+      eslint-community/eslint-utils/node_modules/eslint-visitor-keys/LICENSE file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      lint-community/eslint-utils/node_modules/eslint-visitor-keys/README.md file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      s/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys/dist directory True  -> INSTALLED-PACKAGE
+      es/@eslint-community/eslint-utils/node_modules/eslint-visitor-keys/lib directory True  -> INSTALLED-PACKAGE
+developer-9525b3125a695f0dd69aa605 | /home/user/.bun/install/global/node_modules/balanced-match | INSTALLED-PACKAGE | All 4 members: file of an npm package, unchanged since installation
+      /home/user/.bun/install/global/node_modules/balanced-match/LICENSE.md file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      /home/user/.bun/install/global/node_modules/balanced-match/README.md file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      /home/user/.bun/install/global/node_modules/balanced-match/dist directory True  -> INSTALLED-PACKAGE
+      home/user/.bun/install/global/node_modules/balanced-match/package.json file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+developer-cbf3a4e54d0bc5321c12f50a | /home/user/.bun/install/global/node_modules/@eslint-community/eslint-utils | INSTALLED-PACKAGE | All 10 members: file of an npm package, unchanged since installation
+      bun/install/global/node_modules/@eslint-community/eslint-utils/LICENSE file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      n/install/global/node_modules/@eslint-community/eslint-utils/README.md file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      install/global/node_modules/@eslint-community/eslint-utils/index.d.mts file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+      /install/global/node_modules/@eslint-community/eslint-utils/index.d.ts file False 2026-11-23T11:14:02 -> INSTALLED-PACKAGE
+========== R8 bun cache 421 rows
+developer-36acb5e83e0d43825d627db3 | /home/user/.bun/install/cache/isexe@2.0.0@@@1/test | PROGRAM-DERIVED | All 1 members: code in bun package cache, obtained by bun for the eslint line
+      /home/user/.bun/install/cache/isexe@2.0.0@@@1/test/basic.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+developer-572eea2e5c07380f9559e3e4 | /home/user/.bun/install/cache/ajv@6.15.0@@@1 | MIXED | MIXED: 6 RECORD (bun package cache (manifests, data, directories)); 1 PROGRAM-DERIVED (code in bun package cache, obtained by bun for the eslint line)
+      /home/user/.bun/install/cache/ajv@6.15.0@@@1/.tonic_example.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+      /home/user/.bun/install/cache/ajv@6.15.0@@@1/LICENSE file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/ajv@6.15.0@@@1/README.md file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/ajv@6.15.0@@@1/dist directory True  -> RECORD
+developer-f291c43a0a58060a36ae69e1 | /home/user/.bun/install/cache/eslint@10.15.0@@@1/lib/cli-engine/formatters | MIXED | MIXED: 4 PROGRAM-DERIVED (code in bun package cache, obtained by bun for the eslint line); 1 RECORD (bun package cache (manifests, data, directories))
+      ache/eslint@10.15.0@@@1/lib/cli-engine/formatters/formatters-meta.json file False 2026-11-23T11:14:02 -> RECORD
+      bun/install/cache/eslint@10.15.0@@@1/lib/cli-engine/formatters/html.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+      che/eslint@10.15.0@@@1/lib/cli-engine/formatters/json-with-metadata.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+      bun/install/cache/eslint@10.15.0@@@1/lib/cli-engine/formatters/json.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+developer-7458c2b96c9674a66b366add | /home/user/.bun/install/cache/uri-js@4.4.1@@@1/dist/esnext/uri.d.ts | RECORD | Not code here; written by a program as it ran: program record
+developer-37e91a536ba8fff45f744389 | /home/user/.bun/install/cache/@humanfs/core@0.19.2@@@1 | RECORD | All 5 members: bun package cache (manifests, data, directories)
+      /home/user/.bun/install/cache/@humanfs/core@0.19.2@@@1/LICENSE file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/@humanfs/core@0.19.2@@@1/README.md file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/@humanfs/core@0.19.2@@@1/dist directory True  -> RECORD
+      /home/user/.bun/install/cache/@humanfs/core@0.19.2@@@1/package.json file False 2026-11-23T11:14:02 -> RECORD
+developer-573dc84d4423691f441cbfd1 | /home/user/.bun/install/cache/uri-js@4.4.1@@@1/LICENSE | RECORD | Not code here; written by a program as it ran: program record
+developer-1eddb8449a1d79aa23506ab1 | /home/user/.bun/install/cache/keyv@5.6.0@@@1 | RECORD | All 4 members: bun package cache (manifests, data, directories)
+      /home/user/.bun/install/cache/keyv@5.6.0@@@1/LICENSE file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/keyv@5.6.0@@@1/README.md file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/keyv@5.6.0@@@1/dist directory True  -> RECORD
+      /home/user/.bun/install/cache/keyv@5.6.0@@@1/package.json file False 2026-11-23T11:14:02 -> RECORD
+developer-59b37763101dda48156bd929 | /home/user/.bun/install/cache/json-schema-traverse@0.4.1@@@1 | MIXED | MIXED: 6 RECORD (bun package cache (manifests, data, directories)); 1 PROGRAM-DERIVED (code in bun package cache, obtained by bun for the eslint line)
+      e/user/.bun/install/cache/json-schema-traverse@0.4.1@@@1/.eslintrc.yml file False 2026-11-23T11:14:02 -> RECORD
+      ome/user/.bun/install/cache/json-schema-traverse@0.4.1@@@1/.travis.yml file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/json-schema-traverse@0.4.1@@@1/LICENSE file False 2026-11-23T11:14:02 -> RECORD
+      /home/user/.bun/install/cache/json-schema-traverse@0.4.1@@@1/README.md file False 2026-11-23T11:14:02 -> RECORD
+developer-b1ace3f2f0f8760a1b351ef7 | /home/user/.bun/install/cache/flatted@3.4.4@@@1/golang/pkg | RECORD | All 1 members: bun package cache (manifests, data, directories)
+      /home/user/.bun/install/cache/flatted@3.4.4@@@1/golang/pkg/flatted directory True  -> RECORD
+developer-d6212afaacd014b4d64bbaaa | /home/user/.bun/install/cache/@eslint/config-array@0.23.6@@@1/dist/esm/std__path | PROGRAM-DERIVED | All 2 members: code in bun package cache, obtained by bun for the eslint line
+      tall/cache/@eslint/config-array@0.23.6@@@1/dist/esm/std__path/posix.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+      ll/cache/@eslint/config-array@0.23.6@@@1/dist/esm/std__path/windows.js file False 2026-11-23T11:14:02 -> PROGRAM-DERIVED
+========== R9 Homebrew checkout 594 rows
+developer-faecdc9d2bb66be06532500c | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/os/mac/hardware/cpu | PROGRAM-OWN | All 1 members: Homebrew code (Ruby/shell) placed by a person-run install script
+      xbrew/Homebrew/Library/Homebrew/extend/os/mac/hardware/cpu/hardware.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-ae7ca9bf4814c8f141d78439 | uxbrew/Homebrew/Library/Homebrew/vendor/bundle/ruby/4.0.0/gems/elftools-2.2.0/lib/elftools | MIXED | MIXED: 12 PROGRAM-OWN (Homebrew code (Ruby/shell) placed by a person-run install script); 4 MATERIAL (directory of the downloaded Homebrew checkout)
+      ew/vendor/bundle/ruby/4.0.0/gems/elftools-2.2.0/lib/elftools/constants directory True  -> MATERIAL
+      vendor/bundle/ruby/4.0.0/gems/elftools-2.2.0/lib/elftools/constants.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      brew/vendor/bundle/ruby/4.0.0/gems/elftools-2.2.0/lib/elftools/dynamic directory True  -> MATERIAL
+      w/vendor/bundle/ruby/4.0.0/gems/elftools-2.2.0/lib/elftools/dynamic.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-5b0ca0d6f405c8c810905fd5 | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/sorbet/rbi/dsl/rubo_cop/cask/ast | MATERIAL | All 2 members: non-code file of the downloaded Homebrew checkout (docs, data)
+      ebrew/Library/Homebrew/sorbet/rbi/dsl/rubo_cop/cask/ast/cask_block.rbi file False 2026-11-23T11:15:18 -> MATERIAL
+      /Homebrew/Library/Homebrew/sorbet/rbi/dsl/rubo_cop/cask/ast/stanza.rbi file False 2026-11-23T11:15:18 -> MATERIAL
+developer-1ad7b43bf1bf2f60fc4a4028 | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/test/services | MIXED | MIXED: 4 PROGRAM-OWN (Homebrew code (Ruby/shell) placed by a person-run install script); 1 MATERIAL (directory of the downloaded Homebrew checkout)
+      nuxbrew/.linuxbrew/Homebrew/Library/Homebrew/test/services/cli_spec.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      uxbrew/Homebrew/Library/Homebrew/test/services/formula_wrapper_spec.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      ew/.linuxbrew/Homebrew/Library/Homebrew/test/services/formulae_spec.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      me/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/test/services/system directory True  -> MATERIAL
+developer-56c881eebc9d580b045c66bc | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/cask/dsl | MIXED | MIXED: 11 PROGRAM-OWN (Homebrew code (Ruby/shell) placed by a person-run install script); 1 MATERIAL (non-code file of the downloaded Homebrew checkout (docs, d
+      /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/cask/dsl/base.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      ome/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/cask/dsl/caveats.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      uxbrew/.linuxbrew/Homebrew/Library/Homebrew/cask/dsl/conflicts_with.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      e/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/cask/dsl/container.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-e7e2bd8fc3a477d540dd47c4 | /Homebrew/vendor/bundle/ruby/4.0.0/gems/sorbet-runtime-0.6.13640/lib/types/private/methods | PROGRAM-OWN | All 7 members: Homebrew code (Ruby/shell) placed by a person-run install script
+      .0/gems/sorbet-runtime-0.6.13640/lib/types/private/methods/_methods.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      /sorbet-runtime-0.6.13640/lib/types/private/methods/call_validation.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      bet-runtime-0.6.13640/lib/types/private/methods/call_validation_2_7.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      ems/sorbet-runtime-0.6.13640/lib/types/private/methods/decl_builder.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-2f1aac18cceca7a98655895b | /support/fixtures/cask/aged_caskroom/pre-receipt-rb/.metadata/1.0/20250101000000.000/Casks | PROGRAM-OWN | All 1 members: Homebrew code (Ruby/shell) placed by a person-run install script
+      re-receipt-rb/.metadata/1.0/20250101000000.000/Casks/pre-receipt-rb.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-85429eee4a0f9d66b96c79f0 | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/shims/mac/super | MATERIAL | All 1 members: directory of the downloaded Homebrew checkout
+      ome/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/shims/mac/super/bin directory True  -> MATERIAL
+developer-eaeb6da805d1c1884b12555a | /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/blank | PROGRAM-OWN | All 10 members: Homebrew code (Ruby/shell) placed by a person-run install script
+      e/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/blank/array.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      xbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/blank/false_class.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      me/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/blank/hash.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+      nuxbrew/.linuxbrew/Homebrew/Library/Homebrew/extend/blank/nil_class.rb file False 2026-11-23T11:15:18 -> PROGRAM-OWN
+developer-f0c70c4f9ec590183f1f3de0 | /home/linuxbrew/.linuxbrew/Homebrew/.vscode/ruby-lsp-activate.sh | PROGRAM-OWN | Not part of a package; code executable here (Q2): Homebrew code (Ruby/shell) placed by a person-run install script; no line builds it: line of its own
+========== R10 Homebrew prefix and Cellar 215 rows
+developer-303e7af087530a624b2f4b25 | /home/linuxbrew/.linuxbrew/bin | RECORD | All 2 members: brew link written by the install script (not code); hello link written by brew link (not code)
+      /home/linuxbrew/.linuxbrew/bin/brew symlink True  -> RECORD
+      /home/linuxbrew/.linuxbrew/bin/hello symlink True  -> RECORD
+developer-af16a47b2b77eb44089610c4 | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/lv | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      e/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/lv/LC_MESSAGES directory True  -> INSTALLED-PACKAGE
+developer-6333cf15cca29790b883fe3c | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/bg | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      e/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/bg/LC_MESSAGES directory True  -> INSTALLED-PACKAGE
+developer-0361093c5518f3bc959587af | /home/linuxbrew/.linuxbrew/var/homebrew/linked | RECORD | All 1 members: brew record of the linked keg
+      /home/linuxbrew/.linuxbrew/var/homebrew/linked/hello symlink True  -> RECORD
+developer-da0f83e3035426a83d257705 | /home/linuxbrew/.linuxbrew/share/locale/el/LC_MESSAGES | RECORD | All 1 members: link (man, doc, info, locale) written by brew link; not code
+      /home/linuxbrew/.linuxbrew/share/locale/el/LC_MESSAGES/hello.mo symlink True  -> RECORD
+developer-504886de449af61f102ae272 | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/da/LC_MESSAGES | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      ew/.linuxbrew/Cellar/hello/2.12.3/share/locale/da/LC_MESSAGES/hello.mo file False 2026-11-23T11:15:22 -> INSTALLED-PACKAGE
+developer-fb29a9ff45f491b6e6fe5846 | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/eo/LC_MESSAGES | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      ew/.linuxbrew/Cellar/hello/2.12.3/share/locale/eo/LC_MESSAGES/hello.mo file False 2026-11-23T11:15:22 -> INSTALLED-PACKAGE
+developer-acf622850b88138f29989fe6 | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/cs | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      e/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/cs/LC_MESSAGES directory True  -> INSTALLED-PACKAGE
+developer-10ff7951098339992fe442bf | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/sv | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      e/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/locale/sv/LC_MESSAGES directory True  -> INSTALLED-PACKAGE
+developer-ef767df669c457238d263797 | /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/info | INSTALLED-PACKAGE | All 1 members: file of the hello bottle, unchanged since installation
+      /home/linuxbrew/.linuxbrew/Cellar/hello/2.12.3/share/info/hello.info file False 2026-11-23T11:15:22 -> INSTALLED-PACKAGE
+========== R11 scc project tree 383 rows
+developer-866d127011f5b3349ff3ddad | /home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5 | MIXED | MIXED: 7 MATERIAL (directory of the cloned project); 2 PROGRAM-OWN (code file of the cloned project executable here)
+      home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5/.gitignore file False 2026-11-23T11:14:08 -> MATERIAL
+      /home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5/LICENSE file False 2026-11-23T11:14:08 -> MATERIAL
+      /home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5/Makefile file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      /home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5/README.md file False 2026-11-23T11:14:08 -> MATERIAL
+developer-2c1cf2c92d8832719ee686ab | /home/user/Projects/scc/vendor/github.com/go-git/go-git/v5/plumbing/transport | MIXED | MIXED: 7 MATERIAL (directory of the cloned project); 1 PROGRAM-OWN (code file of the cloned project executable here)
+      jects/scc/vendor/github.com/go-git/go-git/v5/plumbing/transport/client directory True  -> MATERIAL
+      ts/scc/vendor/github.com/go-git/go-git/v5/plumbing/transport/common.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      rojects/scc/vendor/github.com/go-git/go-git/v5/plumbing/transport/file directory True  -> MATERIAL
+      Projects/scc/vendor/github.com/go-git/go-git/v5/plumbing/transport/git directory True  -> MATERIAL
+developer-49686859d7e09c304655b23a | /home/user/Projects/scc/vendor/github.com/Microsoft/go-winio | MIXED | MIXED: 11 PROGRAM-OWN (code file of the cloned project executable here); 10 MATERIAL (non-code file of the cloned project (docs, data, foreign-language code))
+      /user/Projects/scc/vendor/github.com/Microsoft/go-winio/.gitattributes file False 2026-11-23T11:14:07 -> MATERIAL
+      home/user/Projects/scc/vendor/github.com/Microsoft/go-winio/.gitignore file False 2026-11-23T11:14:07 -> MATERIAL
+      e/user/Projects/scc/vendor/github.com/Microsoft/go-winio/.golangci.yml file False 2026-11-23T11:14:07 -> MATERIAL
+      home/user/Projects/scc/vendor/github.com/Microsoft/go-winio/CODEOWNERS file False 2026-11-23T11:14:07 -> MATERIAL
+developer-0997991ce6c36bf1d464b5fc | /home/user/Projects/scc/examples/shared_extension/verilog | MATERIAL | All 1 members: non-code file of the cloned project (docs, data, foreign-language code)
+      /user/Projects/scc/examples/shared_extension/verilog/button_debounce.v file False 2026-11-23T11:14:07 -> MATERIAL
+developer-02c252037019691412121cbf | /home/user/Projects/scc/vendor/github.com/go-git/go-git/v5/storage/filesystem/dotgit | MIXED | MIXED: 7 PROGRAM-OWN (code file of the cloned project executable here); 1 MATERIAL (non-code file of the cloned project (docs, data, foreign-language code))
+      vendor/github.com/go-git/go-git/v5/storage/filesystem/dotgit/dotgit.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      -git/go-git/v5/storage/filesystem/dotgit/dotgit_rewrite_packed_refs.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      github.com/go-git/go-git/v5/storage/filesystem/dotgit/dotgit_setref.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      vendor/github.com/go-git/go-git/v5/storage/filesystem/dotgit/reader.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+developer-408554e7f54732c22e808e75 | /home/user/Projects/scc/examples/shared_extension | MATERIAL | All 3 members: directory of the cloned project
+      /home/user/Projects/scc/examples/shared_extension/coq directory True  -> MATERIAL
+      /home/user/Projects/scc/examples/shared_extension/verilog directory True  -> MATERIAL
+      /home/user/Projects/scc/examples/shared_extension/vlang directory True  -> MATERIAL
+developer-7d922a432b3a47c159d8b478 | /home/user/Projects/scc/vendor/golang.org/x/crypto/argon2 | MIXED | MIXED: 5 PROGRAM-OWN (code file of the cloned project executable here); 1 MATERIAL (non-code file of the cloned project (docs, data, foreign-language code))
+      /home/user/Projects/scc/vendor/golang.org/x/crypto/argon2/argon2.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      /home/user/Projects/scc/vendor/golang.org/x/crypto/argon2/blake2b.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      me/user/Projects/scc/vendor/golang.org/x/crypto/argon2/blamka_amd64.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      ome/user/Projects/scc/vendor/golang.org/x/crypto/argon2/blamka_amd64.s file False 2026-11-23T11:14:08 -> MATERIAL
+developer-4df01afc948e0d33feb04a2b | /home/user/Projects/scc/vendor/github.com/ProtonMail | MATERIAL | All 1 members: directory of the cloned project
+      /home/user/Projects/scc/vendor/github.com/ProtonMail/go-crypto directory True  -> MATERIAL
+developer-0c2556703ef638841a0bcc1c | /home/user/Projects/scc/vendor/github.com/go-git/go-billy/v5/memfs | PROGRAM-OWN | All 2 members: code file of the cloned project executable here
+      user/Projects/scc/vendor/github.com/go-git/go-billy/v5/memfs/memory.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+      ser/Projects/scc/vendor/github.com/go-git/go-billy/v5/memfs/storage.go file False 2026-11-23T11:14:08 -> PROGRAM-OWN
+developer-60965e34ebf0e29465df2295 | /home/user/Projects/scc/vendor/github.com/cloudflare/circl/ecc | MATERIAL | All 1 members: directory of the cloned project
+      me/user/Projects/scc/vendor/github.com/cloudflare/circl/ecc/goldilocks directory True  -> MATERIAL
+========== R12 Go module cache 1165 rows
+developer-a5d4d92ee596597a53a0b569 | /home/user/Projects/scc/.cal-modcache/github.com/emirpasic/gods@v1.18.1/lists | MIXED | MIXED: 3 RECORD (Go module cache data/directories); 1 PROGRAM-OWN (Go module source in module cache, downloaded for a person's build)
+      ts/scc/.cal-modcache/github.com/emirpasic/gods@v1.18.1/lists/arraylist directory True  -> RECORD
+      .cal-modcache/github.com/emirpasic/gods@v1.18.1/lists/doublylinkedlist directory True  -> RECORD
+      cts/scc/.cal-modcache/github.com/emirpasic/gods@v1.18.1/lists/lists.go file False 2026-11-23T11:14:17 -> PROGRAM-OWN
+      .cal-modcache/github.com/emirpasic/gods@v1.18.1/lists/singlylinkedlist directory True  -> RECORD
+developer-df1d72de57942bb0d50bbddc | home/user/Projects/scc/.cal-modcache/github.com/go-git/go-git/v5@v5.19.2/internal/revision | PROGRAM-OWN | All 5 members: Go module source in module cache, downloaded for a person's build
+      dcache/github.com/go-git/go-git/v5@v5.19.2/internal/revision/parser.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+      e/github.com/go-git/go-git/v5@v5.19.2/internal/revision/parser_test.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+      cache/github.com/go-git/go-git/v5@v5.19.2/internal/revision/scanner.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+      /github.com/go-git/go-git/v5@v5.19.2/internal/revision/scanner_test.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+developer-8e68a35c43fe2c85c78cb1f0 | /home/user/Projects/scc/.cal-modcache/github.com/emirpasic/gods@v1.18.1/trees/binaryheap | PROGRAM-OWN | All 4 members: Go module source in module cache, downloaded for a person's build
+      cache/github.com/emirpasic/gods@v1.18.1/trees/binaryheap/binaryheap.go file False 2026-11-23T11:14:17 -> PROGRAM-OWN
+      /github.com/emirpasic/gods@v1.18.1/trees/binaryheap/binaryheap_test.go file False 2026-11-23T11:14:17 -> PROGRAM-OWN
+      odcache/github.com/emirpasic/gods@v1.18.1/trees/binaryheap/iterator.go file False 2026-11-23T11:14:17 -> PROGRAM-OWN
+      he/github.com/emirpasic/gods@v1.18.1/trees/binaryheap/serialization.go file False 2026-11-23T11:14:17 -> PROGRAM-OWN
+developer-36b68d5c50fb866dd813265c | /home/user/Projects/scc/.cal-modcache/cache/download/github.com/boyter/simplecache/@v | RECORD | All 6 members: Go module cache data/directories
+      scc/.cal-modcache/cache/download/github.com/boyter/simplecache/@v/list file False 2026-11-23T11:14:08 -> RECORD
+      thub.com/boyter/simplecache/@v/v0.0.0-20260310220729-445661819a53.info file False 2026-11-23T11:14:11 -> RECORD
+      thub.com/boyter/simplecache/@v/v0.0.0-20260310220729-445661819a53.lock file False 2026-11-23T11:14:14 -> RECORD
+      ithub.com/boyter/simplecache/@v/v0.0.0-20260310220729-445661819a53.mod file False 2026-11-23T11:14:08 -> RECORD
+developer-8520f1bbe308cb1ec790ec70 | home/user/Projects/scc/.cal-modcache/github.com/go-git/go-git/v5@v5.19.2/plumbing/protocol | RECORD | All 1 members: Go module cache data/directories
+      l-modcache/github.com/go-git/go-git/v5@v5.19.2/plumbing/protocol/packp directory True  -> RECORD
+developer-98497de27fe00342d838c94b | /home/user/Projects/scc/.cal-modcache/github.com/go-git/go-git/v5@v5.19.2/storage/test | PROGRAM-OWN | All 1 members: Go module source in module cache, downloaded for a person's build
+      ache/github.com/go-git/go-git/v5@v5.19.2/storage/test/storage_suite.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+developer-4683c0b58af94c75de7c3782 | /home/user/Projects/scc/.cal-modcache/github.com/google/uuid@v1.6.0/.github | RECORD | All 3 members: Go module cache data/directories
+      cts/scc/.cal-modcache/github.com/google/uuid@v1.6.0/.github/CODEOWNERS file False 2026-11-23T11:14:18 -> RECORD
+      .cal-modcache/github.com/google/uuid@v1.6.0/.github/release-please.yml file False 2026-11-23T11:14:18 -> RECORD
+      ects/scc/.cal-modcache/github.com/google/uuid@v1.6.0/.github/workflows directory True  -> RECORD
+developer-15956ea73c4a843e2ff54723 | ome/user/Projects/scc/.cal-modcache/github.com/cloudflare/circl@v1.6.3/sign/mldsa/testdata | RECORD | All 3 members: Go module cache data/directories
+      .com/cloudflare/circl@v1.6.3/sign/mldsa/testdata/ML-DSA-keyGen-FIPS204 directory True  -> RECORD
+      .com/cloudflare/circl@v1.6.3/sign/mldsa/testdata/ML-DSA-sigGen-FIPS204 directory True  -> RECORD
+      .com/cloudflare/circl@v1.6.3/sign/mldsa/testdata/ML-DSA-sigVer-FIPS204 directory True  -> RECORD
+developer-a0e1441a66e97a6f30005670 | cc/.cal-modcache/github.com/go-git/go-git/v5@v5.19.2/plumbing/transport/http/internal/test | PROGRAM-OWN | All 2 members: Go module source in module cache, downloaded for a person's build
+      /go-git/v5@v5.19.2/plumbing/transport/http/internal/test/proxy_test.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+      /go-git/v5@v5.19.2/plumbing/transport/http/internal/test/test_utils.go file False 2026-11-23T11:14:15 -> PROGRAM-OWN
+developer-1edc82d6c0039cd78c86fd11 | /home/user/Projects/scc/.cal-modcache/golang.org/x/crypto@v0.53.0/chacha20poly1305 | MIXED | MIXED: 9 PROGRAM-OWN (Go module source in module cache, downloaded for a person's build); 1 RECORD (Go module cache data/directories)
+      cache/golang.org/x/crypto@v0.53.0/chacha20poly1305/chacha20poly1305.go file False 2026-11-23T11:14:16 -> PROGRAM-OWN
+      golang.org/x/crypto@v0.53.0/chacha20poly1305/chacha20poly1305_amd64.go file False 2026-11-23T11:14:16 -> PROGRAM-OWN
+      /golang.org/x/crypto@v0.53.0/chacha20poly1305/chacha20poly1305_amd64.s file False 2026-11-23T11:14:16 -> RECORD
+      lang.org/x/crypto@v0.53.0/chacha20poly1305/chacha20poly1305_generic.go file False 2026-11-23T11:14:16 -> PROGRAM-OWN
+========== R13 Go build cache 257 rows
+developer-ac78bae1601bb68233bcbcc4 | /home/user/.cache/go-build/4b | RECORD | All 8 members: Go build cache entry (compiled outputs, not executable)
+      /4b/4b0faaee109ed434a3fa85df2ebd1777245f9d9a7ecc1f83269e0d3372e0ff23-a file False 2026-11-23T11:14:21 -> RECORD
+      /4b/4b0fb6684c0472bd786c606d5e290995df1cc5bb98add8e7c80e25087e7a4224-d file False 2026-11-23T11:14:21 -> RECORD
+      /4b/4b27eeecaf6e3a5e9d7f646fe6a48cefea145217ab330d60bfe08609296d1124-a file False 2026-11-23T11:14:31 -> RECORD
+      /4b/4b2c2a84c897ff8bf9ea1ffd5b65ea88aca5b49140101cac760f4bde3855ea9e-d file False 2026-11-23T11:14:32 -> RECORD
+developer-d4cd7bfbba17a026517cc68e | /home/user/.cache/go-build/b7 | RECORD | All 14 members: Go build cache entry (compiled outputs, not executable)
+      /b7/b704d60d355295fe6ff50fe6532b38c823a1fa1a22257b577d4c1f01552bea06-a file False 2026-11-23T11:14:39 -> RECORD
+      /b7/b706dd02f76797eb17e312ee59131cd3cab72e3f7dcf968eb8ad1da153df5743-d file False 2026-11-23T11:14:40 -> RECORD
+      /b7/b71970180882ce954388334b184c62531c271b060bf02290ecc19d6723873be4-a file False 2026-11-23T11:14:23 -> RECORD
+      /b7/b727829f15006d9bd2c492ae900f30e83f10bc7b8595d07264e7609eb44bad9e-d file False 2026-11-23T11:14:38 -> RECORD
+developer-62c23583599848d7b48cec63 | /home/user/.cache/go-build/c2 | RECORD | All 9 members: Go build cache entry (compiled outputs, not executable)
+      /c2/c200899009f2758eaf86e1df1a844113987a2ef02a5b5d76908e1eac3aea7611-d file False 2026-11-23T11:14:41 -> RECORD
+      /c2/c21dd47848375f65190fa48d81d03955853e6608a05de8806eb45fcf7890196a-d file False 2026-11-23T11:14:27 -> RECORD
+      /c2/c23ea52268c01c11ed2702e8223d6f98cb8281d70a6af6217fc3a8561a58439b-a file False 2026-11-23T11:14:30 -> RECORD
+      /c2/c23f332c01cfc47f96003ee4b85927d96ada58814a67272aaee9cd8641985cac-d file False 2026-11-23T11:14:26 -> RECORD
+developer-72080ff59343e3e1053d6ba8 | /home/user/.cache/go-build/15 | RECORD | All 20 members: Go build cache entry (compiled outputs, not executable)
+      /15/150169fdff2908aa1bd3ca30a8d361401c81777a56c6b4ff4f5a5c3c174d4ca3-d file False 2026-11-23T11:14:31 -> RECORD
+      /15/150518606bf589fcbe4994b54a7cc0f7086e5d0eea1cd387a23464866bb26166-a file False 2026-11-23T11:14:30 -> RECORD
+      /15/15106637726d6cade9381c0c7418333437fb2a482c30961d7ae84e8d386411ae-a file False 2026-11-23T11:14:29 -> RECORD
+      /15/1512d33590b16b4178206e7829f71a014a0721f2cc8f3c32572d347a571c6b47-d file False 2026-11-23T11:14:32 -> RECORD
+developer-021bde761fef9193085f6409 | /home/user/.cache/go-build/2f | RECORD | All 12 members: Go build cache entry (compiled outputs, not executable)
+      /2f/2f150b760ae9c72bf863a30e6e5641da309e324ba41a5352acd897feb0f108c5-a file False 2026-11-23T11:14:31 -> RECORD
+      /2f/2f1543f574858970ce7a2d72c8b888d0a892798ebeda6e5331857b19fc7cf620-a file False 2026-11-23T11:14:28 -> RECORD
+      /2f/2f32fcf506e292f8fd47100fd666b3fdf521449cba331c4f9f6144c9b1204d8b-a file False 2026-11-23T11:14:24 -> RECORD
+      /2f/2f3e087941e128a07a79adb80e99839d3d04725fda8be9ab966114b41e1794fe-a file False 2026-11-23T11:14:40 -> RECORD
+developer-9cfe3cd62af5cad35e6acd1c | /home/user/.cache/go-build/d0 | RECORD | All 11 members: Go build cache entry (compiled outputs, not executable)
+      /d0/d032cf7bdaa13ca2f572b110b31e546a2916eef82459e94b06f6bf6fc2406522-a file False 2026-11-23T11:14:21 -> RECORD
+      /d0/d037479a6b1606262f45c464c0a62959ba595d195c0b36e48775dcacc806fcfd-a file False 2026-11-23T11:14:22 -> RECORD
+      /d0/d03a1580f6eca8b927c6f6641635a32726aff3ed95c29f652e4ae306c6406b6f-a file False 2026-11-23T11:14:21 -> RECORD
+      /d0/d057629e491a68c25cd1f879f12449293c3ca204f306eb840fc966076ff7496b-a file False 2026-11-23T11:14:42 -> RECORD
+developer-ad7a656b46121d0a3bb8271c | /home/user/.cache/go-build/29 | RECORD | All 17 members: Go build cache entry (compiled outputs, not executable)
+      /29/2905bc4558bccc69365bd1c5740741fc4862b6d3e156c4bc821a254265ae142d-a file False 2026-11-23T11:14:22 -> RECORD
+      /29/290610310ab33726126e4502c1375de30b016cab38a31fb05a1d6d275372eab6-d file False 2026-11-23T11:14:29 -> RECORD
+      /29/2907ffd2ae1f7432a53e2cd417ca07cbf63c3d41b53baf6df31ccadb8e749029-a file False 2026-11-23T11:14:21 -> RECORD
+      /29/290cb8cf86b14e1abaf4abbe0aa07469a978cf2044dc0281aae0b3b3208247aa-a file False 2026-11-23T11:14:21 -> RECORD
+developer-23f52a9471d9718724fb944b | /home/user/.cache/go-build/9f | RECORD | All 13 members: Go build cache entry (compiled outputs, not executable)
+      /9f/9f18694b1d0c10e0b9a8119b4ebcf511f2ab05a7cf1c9327f5f2daa2ed721533-a file False 2026-11-23T11:14:38 -> RECORD
+      /9f/9f189d4c7d3de44a41f3d0d3bc71d47d5ee389193d2b12fe56476907bbe5b1bb-a file False 2026-11-23T11:14:32 -> RECORD
+      /9f/9f199da2fb5542b20ac3224a1b4776a7605309feb5ec7c4821fccccb5ab39de6-a file False 2026-11-23T11:14:21 -> RECORD
+      /9f/9f2188566fa3959df274876165d904adb42d95bde9121f0b0618ad3d5a813896-d file False 2026-11-23T11:14:26 -> RECORD
+developer-2ba43df2358630fb671c294e | /home/user/.cache/go-build/40 | RECORD | All 8 members: Go build cache entry (compiled outputs, not executable)
+      /40/4013f4aa69ced366002797422dcdb71932be08b0374723e260334d8d429b036f-d file False 2026-11-23T11:14:22 -> RECORD
+      /40/40274f21406d3fbfe1e4b44538cb901a0816398f46156edb436897f7ec5b54b6-d file False 2026-11-23T11:14:26 -> RECORD
+      /40/407024eb42b57b6a72881073bd288fbeac98f46597a8ce01a8a2cc35bfa2f611-a file False 2026-11-23T11:14:38 -> RECORD
+      /40/407ea1e58d7e6f2f3c0c1430075045b8213d19ed4734194867aaabf0f48a8134-a file False 2026-11-23T11:14:31 -> RECORD
+developer-1789cdc9fa7bc0bc1e756d05 | /home/user/.cache/go-build/3c | RECORD | All 14 members: Go build cache entry (compiled outputs, not executable)
+      /3c/3c07c175f415c428bde64e6fef98f5117008f28c84c4a613fe17e7a944c367c8-d file False 2026-11-23T11:14:21 -> RECORD
+      /3c/3c088ef3f4f18640b347ef7ee78c697fd4395543ffb29e609d217e76309e5ca5-d file False 2026-11-23T11:14:27 -> RECORD
+      /3c/3c2ad11209f53971864468c391060cd62eb9bfd4caf119912d092eaf88adea24-a file False 2026-11-23T11:14:32 -> RECORD
+      /3c/3c455a6ea712a8576bfb7b0eac294e78480ced50f75fed49ca740bf8e9a4ffec-a file False 2026-11-23T11:14:27 -> RECORD
+========== R14 runtime trees 160 rows
+developer-29e0e54310bc54f4bd737781 | /run/udev/links/disk\x2fby-partuuid\x2f73042bef-76b0-47b0-876b-550eca3748be | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd-udevd (systemd-udev package file, INSTALLED-PACKAGE)
+      nks/disk\x2fby-partuuid\x2f73042bef-76b0-47b0-876b-550eca3748be/b253:1 symlink True  -> RUNTIME
+developer-d8c82be937425f3a2714f20f | /run/systemd/io.systemd.StorageProvider | RUNTIME | All 2 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd and its services (systemd package files, INSTALLED-PA
+      /run/systemd/io.systemd.StorageProvider/block socket False  -> RUNTIME
+      /run/systemd/io.systemd.StorageProvider/fs socket False  -> RUNTIME
+developer-7cc98b97da311e96c6dfe85e | /run/udev/links/disk\x2fby-label\x2ffedora_fedora | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd-udevd (systemd-udev package file, INSTALLED-PACKAGE)
+      /run/udev/links/disk\x2fby-label\x2ffedora_fedora/b253:3 symlink True  -> RUNTIME
+developer-0ef8e3143aa4fbe5cf1d2228 | /run/user/1000/systemd | RUNTIME | All 13 members exist only while running (tmpfs, pseudo file system or service lifetime); created by the user systemd instance user@1000.service (INSTALLED-PACKA
+      /run/user/1000/systemd/generator.late directory True  -> RUNTIME
+      /run/user/1000/systemd/inaccessible directory True  -> RUNTIME
+      /run/user/1000/systemd/io.systemd.AskPassword socket False  -> RUNTIME
+      /run/user/1000/systemd/io.systemd.Import socket False  -> RUNTIME
+developer-1823a6c15272550982af6ae4 | /var/tmp/systemd-private-5c0b3cee9ea448b2a620474d404ff679-chronyd.service-eI73UJ | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd PrivateTmp= of the service unit, removed at service s
+      md-private-5c0b3cee9ea448b2a620474d404ff679-chronyd.service-eI73UJ/tmp directory True  -> RUNTIME
+developer-e9742bdc22cf2e4beb72b875 | /tmp/systemd-private-5c0b3cee9ea448b2a620474d404ff679-NetworkManager.service-RPDScs | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd PrivateTmp= of service units and systemd-tmpfiles (IN
+      ate-5c0b3cee9ea448b2a620474d404ff679-NetworkManager.service-RPDScs/tmp directory True  -> RUNTIME
+developer-d8deb3f7e7d9b7ed77178048 | /run/udev/links/disk\x2fby-uuid\x2f4ec674dd-c055-4a3e-9f68-b01260ecc6c3 | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd-udevd (systemd-udev package file, INSTALLED-PACKAGE)
+      v/links/disk\x2fby-uuid\x2f4ec674dd-c055-4a3e-9f68-b01260ecc6c3/b251:0 symlink True  -> RUNTIME
+developer-ad049be7fc84b4e2033c8217 | /run/udev/links/disk\x2fby-diskseq\x2f4 | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd-udevd (systemd-udev package file, INSTALLED-PACKAGE)
+      /run/udev/links/disk\x2fby-diskseq\x2f4/b251:0 symlink True  -> RUNTIME
+developer-bcf9c367d105e86dec70b0cb | /docker/runtime-runc/moby/09c141f3e1d593ad5a36736a6ac33d0b25328f198ddea40271641fd379447a2a | RUNTIME | All 1 members exist only while running (tmpfs, pseudo file system or service lifetime); created by dockerd (docker-ce file, INSTALLED-PACKAGE) started by docker
+      1f3e1d593ad5a36736a6ac33d0b25328f198ddea40271641fd379447a2a/state.json file False  -> RUNTIME
+developer-790bfb88293b645aa68bf3ec | /run/systemd/transient | RUNTIME | All 3 members exist only while running (tmpfs, pseudo file system or service lifetime); created by systemd and its services (systemd package files, INSTALLED-PA
+      09c141f3e1d593ad5a36736a6ac33d0b25328f198ddea40271641fd379447a2a.scope file False  -> RUNTIME
+      c141f3e1d593ad5a36736a6ac33d0b25328f198ddea40271641fd379447a2a.scope.d directory True  -> RUNTIME
+      /run/systemd/transient/session-7.scope file False  -> RUNTIME
+========== R15 /var/cache records 58 rows
+developer-c4a22e672a8fcf730bd68d47 | /var/cache/man/local | RECORD | All 11 members: package-manager / man-db cache
+      /var/cache/man/local/CACHEDIR.TAG file False  -> RECORD
+      /var/cache/man/local/cat1 directory True  -> RECORD
+      /var/cache/man/local/cat2 directory True  -> RECORD
+      /var/cache/man/local/cat3 directory True  -> RECORD
+developer-1cd23c18894c0cc477c8ba8f | /var/cache/PackageKit/45 | RECORD | All 1 members: package-manager / man-db cache
+      /var/cache/PackageKit/45/metadata directory True  -> RECORD
+developer-f3ca214b2449237048a8a48a | /var/cache/PackageKit/45/metadata/updates-6f655cd2c39e9765 | RECORD | All 3 members: package-manager / man-db cache
+      var/cache/PackageKit/45/metadata/updates-6f655cd2c39e9765/metalink.xml file False  -> RECORD
+      /var/cache/PackageKit/45/metadata/updates-6f655cd2c39e9765/repodata directory True  -> RECORD
+      /var/cache/PackageKit/45/metadata/updates-6f655cd2c39e9765/solv directory True  -> RECORD
+developer-cf2c0dc4ac3cde9ee5bcbe9f | /var/cache/man/ko | RECORD | All 6 members: package-manager / man-db cache
+      /var/cache/man/ko/CACHEDIR.TAG file False  -> RECORD
+      /var/cache/man/ko/cat1 directory True  -> RECORD
+      /var/cache/man/ko/cat5 directory True  -> RECORD
+      /var/cache/man/ko/cat7 directory True  -> RECORD
+developer-9eb01aa1bd924cc2d9814d92 | /var/cache/libdnf5/docker-ce-stable-69bd76e8d8d96a63/solv | RECORD | All 2 members: package-manager / man-db cache
+      cker-ce-stable-69bd76e8d8d96a63/solv/docker-ce-stable-updateinfo.solvx file False  -> RECORD
+      e/libdnf5/docker-ce-stable-69bd76e8d8d96a63/solv/docker-ce-stable.solv file False  -> RECORD
+developer-9512f5fb14019fbad63a0265 | /var/cache/man/de | RECORD | All 6 members: package-manager / man-db cache
+      /var/cache/man/de/CACHEDIR.TAG file False  -> RECORD
+      /var/cache/man/de/cat1 directory True  -> RECORD
+      /var/cache/man/de/cat3 directory True  -> RECORD
+      /var/cache/man/de/cat5 directory True  -> RECORD
+developer-b18942244cf40aafde94a3ba | /var/cache/PackageKit/45/metadata/docker-ce-stable-69bd76e8d8d96a63 | RECORD | All 2 members: package-manager / man-db cache
+      ache/PackageKit/45/metadata/docker-ce-stable-69bd76e8d8d96a63/repodata directory True  -> RECORD
+      ar/cache/PackageKit/45/metadata/docker-ce-stable-69bd76e8d8d96a63/solv directory True  -> RECORD
+developer-124d1926819770671dd1cd42 | /var/cache/man/tr | RECORD | All 6 members: package-manager / man-db cache
+      /var/cache/man/tr/CACHEDIR.TAG file False  -> RECORD
+      /var/cache/man/tr/cat1 directory True  -> RECORD
+      /var/cache/man/tr/cat5 directory True  -> RECORD
+      /var/cache/man/tr/cat7 directory True  -> RECORD
+developer-a7bd0248c98e0d5f216c72f6 | /var/cache/man/pt_BR | RECORD | All 6 members: package-manager / man-db cache
+      /var/cache/man/pt_BR/CACHEDIR.TAG file False  -> RECORD
+      /var/cache/man/pt_BR/cat1 directory True  -> RECORD
+      /var/cache/man/pt_BR/cat5 directory True  -> RECORD
+      /var/cache/man/pt_BR/cat7 directory True  -> RECORD
+developer-6f9a52bcac80bffc6cfb44b7 | /var/cache/PackageKit/45/metadata/docker-ce-stable-69bd76e8d8d96a63/solv | RECORD | All 2 members: package-manager / man-db cache
+      cker-ce-stable-69bd76e8d8d96a63/solv/docker-ce-stable-updateinfo.solvx file False  -> RECORD
+      /metadata/docker-ce-stable-69bd76e8d8d96a63/solv/docker-ce-stable.solv file False  -> RECORD
+========== R16 SELinux module store 19 rows
+developer-827de59a22caf840fe290dd6 | /var/lib/selinux/targeted/active/modules/200/passt | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/passt/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/passt/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/passt/lang_ext file False  -> SETTING-DEFAULT
+developer-7629071caf08bf76d4faebb6 | /var/lib/selinux/targeted/active/modules/200/flatpak | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/flatpak/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/flatpak/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/flatpak/lang_ext file False  -> SETTING-DEFAULT
+developer-1fbc6f4255b06cd8b6eae86c | /var/lib/selinux/targeted/active/modules/200/swtpm | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/swtpm/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm/lang_ext file False  -> SETTING-DEFAULT
+developer-415845ec28d649347ee0a93d | /var/lib/selinux/targeted/active/modules/200/NetworkManager-ssh | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/NetworkManager-ssh/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/NetworkManager-ssh/hll file False  -> SETTING-DEFAULT
+      ar/lib/selinux/targeted/active/modules/200/NetworkManager-ssh/lang_ext file False  -> SETTING-DEFAULT
+developer-32429ba275af6dd0c28aa7dd | /var/lib/selinux/targeted/active/modules/200/swtpm_libvirt | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/swtpm_libvirt/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm_libvirt/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm_libvirt/lang_ext file False  -> SETTING-DEFAULT
+developer-b6a60ac96d1daf216eb32707 | /var/lib/selinux/targeted/active/modules/200/pasta | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/pasta/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/pasta/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/pasta/lang_ext file False  -> SETTING-DEFAULT
+developer-5ed3ca80705d356b0f6b5deb | /var/lib/selinux/targeted/active/modules | SETTING-DEFAULT | All 4 members: policy module store directory rewritten by semodule during package installation
+      /var/lib/selinux/targeted/active/modules/100 directory True  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200 directory True  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/400 directory True  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/disabled directory True  -> SETTING-DEFAULT
+developer-cc5c652eaf47718e492adad6 | /var/lib/selinux/targeted/active/modules/400/docker-af-alg-deny | SETTING-DEFAULT | All 2 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/400/docker-af-alg-deny/cil file False  -> SETTING-DEFAULT
+      ar/lib/selinux/targeted/active/modules/400/docker-af-alg-deny/lang_ext file False  -> SETTING-DEFAULT
+developer-c3578867a926b34eaf097e2b | /var/lib/selinux/targeted/active/modules/200/pesto | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/pesto/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/pesto/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/pesto/lang_ext file False  -> SETTING-DEFAULT
+developer-e8c8e2ba0a562dc2de20f182 | /var/lib/selinux/targeted/active/modules/200/swtpm_svirt | SETTING-DEFAULT | All 3 members: SELinux policy module (access rules) installed by package scriptlet at installation
+      /var/lib/selinux/targeted/active/modules/200/swtpm_svirt/cil file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm_svirt/hll file False  -> SETTING-DEFAULT
+      /var/lib/selinux/targeted/active/modules/200/swtpm_svirt/lang_ext file False  -> SETTING-DEFAULT

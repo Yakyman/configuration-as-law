@@ -1,0 +1,8 @@
++1795459397.704341 3: set -eu
++1795459397.704356 4: printf 'ACTION_BEGIN h1.update-2\n'
++1795459397.704408 5: python3 -B -
++1795459397.921036 14: /usr/bin/dpkg --install /tmp/ed_1.22.5-1_amd64.deb
+++1795459398.224998 15: /usr/bin/dpkg-query -W '-f=${Version}' ed
++1795459398.228365 15: test 1.22.5-1 = 1.22.5-1
++1795459398.228428 16: /usr/bin/dpkg-query -W '-f=${Package} ${Version} ${db:Status-Status}\n' ed
++1795459398.231654 17: printf 'ACTION_DONE h1.update-2\n'

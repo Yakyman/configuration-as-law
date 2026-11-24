@@ -1,0 +1,1 @@
+- Case 3, v4: does 'the system itself built' in S8.2-16 include a compiled copy built by a program that is not a program of the system (e.g. one in the home directory)? Reading A: yes, covered by the line of the source code. Reading B: no, the copy needs a line of its own. Both readings require recording.

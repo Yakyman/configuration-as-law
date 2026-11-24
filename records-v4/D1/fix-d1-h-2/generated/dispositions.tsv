@@ -1,0 +1,9 @@
+id	suggested_extent_status	reason
+alma-b348893f7f3225378d1776eb	EXCLUDED	Only member is empty .rpmdbdirsymlink_created marker; no generated list.
+microos-230864c607d1cffde69583f3	FACT_UNKNOWN	Inactive snapshot database; no snapshot-root package inventory or full database equality evidence linking list to currently installed packages.
+microos-26589cb9ed52782be3a8594c	GAP_CARD_2	Active RPM package database contains installed-package metadata queried by saved rpm -qa command; lock is not itself a list.
+void-d93aa75e717dd4c26802d474	GAP_CARD_2	Saved full pkgdb XML lists installed package versions and installation state; other members need not all be lists.
+alma-22d9524df6813c1275345f42	FACT_UNKNOWN	Fontconfig cache members are saved as metadata and prefix hashes; cached font directories and package provenance are not captured.
+alma-d15f2f63f27850d00f28f708	FACT_UNKNOWN	Fontconfig cache and directory tag; cached font source and installed-package derivation absent.
+void-a861eb17053cb23311e16fcf	FACT_UNKNOWN	Fontconfig cache plus compatibility symlinks and tag; cached font source and installed-package derivation absent.
+microos-7cc2a7c5eef50507eed81020	FACT_UNKNOWN	Solver cache cookie, solv and index have metadata and prefix hashes only; source package set not decoded.

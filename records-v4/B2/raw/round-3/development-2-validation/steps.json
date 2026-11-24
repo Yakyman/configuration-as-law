@@ -1,0 +1,98 @@
+[
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "new",
+      "bc3-development-2-cases",
+      "stand"
+    ],
+    "ended_utc": "2026-11-23T15:03:42Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-new.log",
+    "started_utc": "2026-11-23T15:03:03Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-development-2-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:05:23Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases.jsonl",
+    "started_utc": "2026-11-23T15:03:42Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "copy-out",
+      "bc3-development-2-cases",
+      "/var/lib/stand/bc3-evidence",
+      "[stand-root]/raw/round-3/development-2-validation/cases-evidence"
+    ],
+    "ended_utc": "2026-11-23T15:05:24Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-export.log",
+    "started_utc": "2026-11-23T15:05:23Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-development-2-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:05:24Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-filesystem-verify.jsonl",
+    "started_utc": "2026-11-23T15:05:24Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "run",
+      "bc3-development-2-cases",
+      "--root"
+    ],
+    "ended_utc": "2026-11-23T15:05:42Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "cases-verify.log",
+    "started_utc": "2026-11-23T15:05:24Z"
+  },
+  {
+    "argv": [
+      "python3",
+      "lab.py",
+      "destroy",
+      "bc3-development-2-cases"
+    ],
+    "ended_utc": "2026-11-23T15:05:45Z",
+    "exit": 0,
+    "expected_exit": 0,
+    "lane": "components",
+    "legacy_protocol": false,
+    "log": "bc3-development-2-cases-destroy.log",
+    "started_utc": "2026-11-23T15:05:42Z"
+  }
+]

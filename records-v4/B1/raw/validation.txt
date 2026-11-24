@@ -1,0 +1,12 @@
+Validation: final CHANNELS-V4.tsv, GAPS.md and SOURCES.md, 2026-11-23 UTC.
+PASS: exactly 88 unchanged identifier/name strings in original order, independently compared with the first column of the authorized previous CHANNELS.md.
+PASS: eight required nonempty columns; 89 physical TSV lines including header; no duplicate variants.
+PASS: statuses limited to the four requested labels; every reason at most 40 whitespace-separated words.
+PASS: every referenced S8.1/S8.2/S8.3 sentence ID exists in SENTENCES.md.
+PASS: every quoted numbered law sentence matches SENTENCES.md exactly after removal of Markdown emphasis.
+PASS: every quoted locally labelled Section 9.3 or Appendix A.4.3 passage occurs in TEXT.md after whitespace normalization.
+PASS: all directly linked table source URLs have an entry in SOURCES.md.
+PASS: gap membership is exactly C8.08; no NOT_DECIDED row omitted.
+PASS: no source-ledger excerpt exceeds 25 words.
+PASS: no prohibited personal name, host name, host home path, or private provenance identifier found by the publication-record scan.
+Count membership: counts.json. Independent semantic acceptance: ../review.md. Required quote-check output: check-quotes.txt.

@@ -1,0 +1,120 @@
+[
+  {
+    "default_settings": [
+      {
+        "path": "/opt/stand/pkgs/v4-objects/default.conf"
+      }
+    ],
+    "derivations": [
+      {
+        "algorithm": "copy",
+        "path": "/opt/stand/pkgs/v4-objects/copy.py",
+        "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+      },
+      {
+        "algorithm": "python-bytecode",
+        "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+        "source_path": "/opt/stand/pkgs/v4-objects/source.py"
+      }
+    ],
+    "files": [
+      {
+        "content_b64": "cHJpbnQoIlJFQ09SREVELUJZVEVDT0RFIikK",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.py",
+        "sha256": "57238d1330132794fdb0e97d775b9c8a0f6a66a15afb16f6dcbf47d1cf239324",
+        "uid": 0
+      },
+      {
+        "content_b64": "cHJpbnQoIlJFQ09SREVELUJZVEVDT0RFIikK",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/copy.py",
+        "sha256": "57238d1330132794fdb0e97d775b9c8a0f6a66a15afb16f6dcbf47d1cf239324",
+        "uid": 0
+      },
+      {
+        "content_b64": "8w0NCgMAAADTUEm+XEb7p+MAAAAAAAAAAAAAAAADAAAAAAAAAPMUAAAAlQBcACIAUwA1AQAAAAAAACAAZwEpAnoRUkVDT1JERUQtQllURUNPREVOKQHaBXByaW50qQDzAAAAANokL29wdC9zdGFuZC9wa2dzL3Y0LW9iamVjdHMvc291cmNlLnB52gg8bW9kdWxlPnIGAAAAAQAAAHMOAAAA8AMBAQHZAAXQBhnVABpyBAAAAA==",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/source.pyc",
+        "sha256": "3b829d29864958348c4051f16622eaf12913b26a2d722cda7296e720dc406649",
+        "uid": 0
+      },
+      {
+        "content_b64": "bGFuZ3VhZ2U9ZW4K",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-objects/default.conf",
+        "sha256": "c3969b888e631e36eec4aedc90f619d4b78beef584defbb19dd059f2e0c43eff",
+        "uid": 0
+      }
+    ],
+    "id": "v4:objects",
+    "managed": true,
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-objects",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "files": [],
+    "id": "v4:meta",
+    "managed": true,
+    "package_dependencies": [
+      {
+        "backend": "stand",
+        "name": "v4-dependency",
+        "version": "1"
+      }
+    ],
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-meta",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "files": [
+      {
+        "content_b64": "YWxwaGE9MQpiZXRhPTIK",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-noncode/lookup.txt",
+        "sha256": "5d4f0c6a7441ec3302dfd4b081759ea6bc0dbfaa02edd450b962b8b302e2d5fb",
+        "uid": 0
+      }
+    ],
+    "id": "v4:noncode",
+    "managed": true,
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-noncode",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "id": "v4:printk",
+    "managed": true,
+    "name": "kernel.printk",
+    "reader": "sysctl",
+    "type": "setting",
+    "value": "3 4 1 7"
+  }
+]

@@ -1,0 +1,107 @@
++1795459713.679056 4: set -eu
++1795459713.679068 5: export LC_ALL=C
++1795459713.679071 5: LC_ALL=C
++1795459713.679083 6: export PYTHONDONTWRITEBYTECODE=1
++1795459713.679085 6: PYTHONDONTWRITEBYTECODE=1
++1795459713.679092 7: mkdir -p /home/stand/step8-h2
++1795459713.688789 8: cd /home/stand/step8-h2
++1795459713.689598 9: for round in 1 2 3
++1795459713.689615 10: printf 'ACTION_BEGIN h2.%s.fetch\n' 1
++1795459713.689631 11: python3 -B -
++1795459713.946107 20: printf 'ACTION_DONE h2.%s.fetch\n' 1
++1795459713.946140 21: for phase in original edited
++1795459713.946163 22: test original = edited
++1795459713.946177 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 1 original
++1795459713.946191 39: python3 -B - 1 original
++1795459713.985632 48: stand-import source /home/stand/step8-h2/source.json
++1795459743.700646 49: stand-build build source:h2-hello
++1795459744.667616 50: stand-import install /home/stand/h2-hello.built.json
++1795459776.579171 51: printf 'ACTION_DONE h2.%s.%s.build\n' 1 original
++1795459776.579190 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 1 original
++1795459776.579196 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795459776.597009 54: cat output-1-original.txt
++1795459776.598326 55: python3 -B - 1 original
++1795459776.614601 66: printf 'ACTION_DONE h2.%s.%s.run\n' 1 original
++1795459776.614617 21: for phase in original edited
++1795459776.614624 22: test edited = edited
++1795459776.614630 23: printf 'ACTION_BEGIN h2.%s.edit\n' 1
++1795459776.614635 24: python3 -B - 1
++1795459776.646203 36: printf 'ACTION_DONE h2.%s.edit\n' 1
++1795459776.646233 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 1 edited
++1795459776.646247 39: python3 -B - 1 edited
++1795459776.681776 48: stand-import source /home/stand/step8-h2/source.json
++1795459806.472912 49: stand-build build source:h2-hello
++1795459807.415886 50: stand-import install /home/stand/h2-hello.built.json
++1795459836.721904 51: printf 'ACTION_DONE h2.%s.%s.build\n' 1 edited
++1795459836.721923 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 1 edited
++1795459836.721929 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795459836.738042 54: cat output-1-edited.txt
++1795459836.739060 55: python3 -B - 1 edited
++1795459836.755021 66: printf 'ACTION_DONE h2.%s.%s.run\n' 1 edited
++1795459836.755048 9: for round in 1 2 3
++1795459836.755058 10: printf 'ACTION_BEGIN h2.%s.fetch\n' 2
++1795459836.755068 11: python3 -B -
++1795459836.925536 20: printf 'ACTION_DONE h2.%s.fetch\n' 2
++1795459836.925566 21: for phase in original edited
++1795459836.925581 22: test original = edited
++1795459836.925593 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 2 original
++1795459836.925605 39: python3 -B - 2 original
++1795459836.959198 48: stand-import source /home/stand/step8-h2/source.json
++1795459866.300521 49: stand-build build source:h2-hello
++1795459867.246481 50: stand-import install /home/stand/h2-hello.built.json
++1795459896.919101 51: printf 'ACTION_DONE h2.%s.%s.build\n' 2 original
++1795459896.919120 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 2 original
++1795459896.919125 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795459896.934124 54: cat output-2-original.txt
++1795459896.935124 55: python3 -B - 2 original
++1795459896.951325 66: printf 'ACTION_DONE h2.%s.%s.run\n' 2 original
++1795459896.951350 21: for phase in original edited
++1795459896.951365 22: test edited = edited
++1795459896.951375 23: printf 'ACTION_BEGIN h2.%s.edit\n' 2
++1795459896.951387 24: python3 -B - 2
++1795459896.983608 36: printf 'ACTION_DONE h2.%s.edit\n' 2
++1795459896.983625 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 2 edited
++1795459896.983631 39: python3 -B - 2 edited
++1795459897.018123 48: stand-import source /home/stand/step8-h2/source.json
++1795459926.612746 49: stand-build build source:h2-hello
++1795459927.559062 50: stand-import install /home/stand/h2-hello.built.json
++1795459957.078013 51: printf 'ACTION_DONE h2.%s.%s.build\n' 2 edited
++1795459957.078037 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 2 edited
++1795459957.078042 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795459957.118784 54: cat output-2-edited.txt
++1795459957.119865 55: python3 -B - 2 edited
++1795459957.135984 66: printf 'ACTION_DONE h2.%s.%s.run\n' 2 edited
++1795459957.136011 9: for round in 1 2 3
++1795459957.136020 10: printf 'ACTION_BEGIN h2.%s.fetch\n' 3
++1795459957.136033 11: python3 -B -
++1795459957.301184 20: printf 'ACTION_DONE h2.%s.fetch\n' 3
++1795459957.301220 21: for phase in original edited
++1795459957.301236 22: test original = edited
++1795459957.301250 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 3 original
++1795459957.301263 39: python3 -B - 3 original
++1795459957.335068 48: stand-import source /home/stand/step8-h2/source.json
++1795459987.003580 49: stand-build build source:h2-hello
++1795459987.953430 50: stand-import install /home/stand/h2-hello.built.json
++1795460017.663277 51: printf 'ACTION_DONE h2.%s.%s.build\n' 3 original
++1795460017.663300 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 3 original
++1795460017.663305 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795460017.688993 54: cat output-3-original.txt
++1795460017.689962 55: python3 -B - 3 original
++1795460017.707164 66: printf 'ACTION_DONE h2.%s.%s.run\n' 3 original
++1795460017.707179 21: for phase in original edited
++1795460017.707187 22: test edited = edited
++1795460017.707193 23: printf 'ACTION_BEGIN h2.%s.edit\n' 3
++1795460017.707198 24: python3 -B - 3
++1795460017.736626 36: printf 'ACTION_DONE h2.%s.edit\n' 3
++1795460017.736658 38: printf 'ACTION_BEGIN h2.%s.%s.build\n' 3 edited
++1795460017.736671 39: python3 -B - 3 edited
++1795460017.770103 48: stand-import source /home/stand/step8-h2/source.json
++1795460047.368520 49: stand-build build source:h2-hello
++1795460048.317072 50: stand-import install /home/stand/h2-hello.built.json
++1795460078.025102 51: printf 'ACTION_DONE h2.%s.%s.build\n' 3 edited
++1795460078.025127 52: printf 'ACTION_BEGIN h2.%s.%s.run\n' 3 edited
++1795460078.025131 53: /opt/stand/pkgs/h2-hello-built/bin/program
++1795460078.040983 54: cat output-3-edited.txt
++1795460078.041814 55: python3 -B - 3 edited
++1795460078.057981 66: printf 'ACTION_DONE h2.%s.%s.run\n' 3 edited
++1795460078.058017 69: printf 'H2_COMMANDS_COMPLETE\n'

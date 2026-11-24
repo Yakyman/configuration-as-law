@@ -1,0 +1,35 @@
+{
+  "classification": {
+    "category": "setting",
+    "missing": [],
+    "question": 3,
+    "required": true
+  },
+  "coverage": [],
+  "facts": {
+    "chosen_value": true,
+    "computer_obeys": true,
+    "executable": false,
+    "package_installed": false,
+    "package_member": false,
+    "setting": true
+  },
+  "kind": "setting",
+  "lines": [],
+  "object": "sysctl:kernel.printk",
+  "observed": {
+    "name": "kernel.printk",
+    "value": "7 4 1 7"
+  },
+  "origins": [
+    {
+      "line": "v4:printk",
+      "relation": "own",
+      "required": {
+        "name": "kernel.printk",
+        "value": "7 4 1 7"
+      }
+    }
+  ],
+  "status": "unrecorded"
+}

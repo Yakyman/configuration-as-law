@@ -1,0 +1,426 @@
+### F13 s2-1  [<Firefox-profile>/prefs.js: activated theme preference]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C8.08 a
+  - consumer: Firefox for the user of this profile
+  - derivation: User selection of a theme
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The selected value is read by Firefox, not supplied as executable statements.
+  - human_creation_or_bringing: A person chooses the value; Firefox stores it.
+  - launch_change_access_behavior: The selected theme value selects Firefox appearance; no program invocation or login/access permission is specified for that value.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The object is a user-chosen value stored in a profile; no package-supplied value is identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person chooses the theme in the described channel.
+  - producer: Firefox preference storage
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F13 s2-2  [<Firefox-profile>/prefs.js: home-page URL preference]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - additional_launch_or_access: UNKNOWN: No selected URL, protocol handler or target contents are recorded; behavior beyond page navigation cannot be established.
+  - channel_object: C8.08 b
+  - consumer: Firefox for the user of this profile
+  - derivation: User selection of a home page
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The URL is read as a navigation value; this object is not the fetched page or its scripts.
+  - human_creation_or_bringing: A person chooses the value; Firefox stores it.
+  - launch_change_access_behavior: The selected URL causes Firefox to open a page on the documented triggers.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The object is a user-chosen value stored in a profile; no package-supplied value is identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person chooses the home-page URL in the described channel.
+  - producer: Firefox preference storage
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-10  [<prefix>/bin/<program>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 a executable
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: Programs/users invoking the installed path
+  - derivation: Built executable selected by project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The copied target is an executable; launch uses the operating-system loader.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: CMake-generated install operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-11  [<prefix>/lib/<library>.so]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 a library
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: Program loading the library
+  - derivation: Built library selected by project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Shared-library machine code is loaded into a consuming process.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: CMake-generated install operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - specific_consumer: UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+
+### F14 s2-12  [build/cmake_install.cmake]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 b
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: CMake install operation
+  - derivation: Project install rules
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Executed by generated install target, CPack, or cmake -P.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The generated CMake installation script executes installation rules that write destinations; actual effects depend on rules and caller permissions.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: CMake install() processing
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-13  [<shell-startup-file>: PATH assignment]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 c
+  - channel_tool_purpose: Bash: shell command execution and startup-file processing.
+  - consumer: Shell reading that file and processes receiving exported PATH
+  - derivation: Person-selected command-search path
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Bash reads and executes startup-file statements; PATH changes command lookup.
+  - human_creation_or_bringing: Person writes the assignment.
+  - launch_change_access_behavior: The assignment changes shell command lookup; an assignment alone does not start a command.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Person-written startup assignment; no package-delivered bytes identified.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person chooses the PATH assignment in the described channel.
+  - producer: Person editing a shell startup file
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-14  [<prefix>/bin/<alias>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.3 d
+  - channel_tool_purpose: UNKNOWN: The channel does not identify the program used to create the link.
+  - consumer: Command lookup/path resolution and target process
+  - derivation: Chosen target executable path
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: A link resolves to its target; invocation via the alias executes the target.
+  - human_creation_or_bringing: The person creates the link in the described channel.
+  - launch_change_access_behavior: Invocation via the stored alias reaches the target executable; the link does not by itself record a login permission.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Person-created link; no package delivery is stated.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person chooses a launch alias and its target.
+  - producer: Person creating a link
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-15  [./<program> (replacement)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.4 a executable
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: Programs/users invoking that path
+  - derivation: New source/build inputs replacing earlier output
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Native executable can be started as a process in the described channel.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: Compiler/build operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: The channel specifies replacement by different bytes at the same path.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-16  [./<library>.so (replacement)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.4 a library
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: Program loading the replaced library
+  - derivation: New source/build inputs replacing earlier output
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Library code can execute within a process that loads it.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: Compiler/build operation
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: The channel specifies replacement by different bytes at the same path.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - specific_consumer: UNKNOWN: B1 identifies a shared library but no named process or program that loads it.
+
+### F14 s2-17  [./<plugin>.so]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 a
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: GCC loading the plugin
+  - derivation: Plugin source and build inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: GCC loads the plugin into its own process; plugin extends compiler behavior.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - process_boundary: Loaded into the GCC process using dlopen or equivalent; no separate plugin process is specified.
+  - producer: Local compiler/linker build
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-18  [<packaged-plugin-path>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 b
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: GCC loading the plugin
+  - derivation: Installed package containing the plugin
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: GCC plugin module loaded into compiler process.
+  - human_creation_or_bringing: A person using the channel selects a plugin; the package supplies its bytes.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: The channel explicitly specifies an unchanged plugin obtained in an installed package.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - process_boundary: Loaded into the GCC process using dlopen or equivalent; no separate plugin process is specified.
+  - producer: Package installation in the described channel
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: Yes, stipulated by the channel description; not an observed digest comparison.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-19  [./a.out or <-o-path> (plugin-enabled build)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.5 c
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: Operating-system loader
+  - derivation: Source, linker inputs and compilation affected by the plugin
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Linked output can execute as its own process in the described channel.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: Compiler/linker with plugin loaded
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-3  [./a.out or <-o-path>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 a
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: Operating-system execution of the built file
+  - derivation: C source and linker inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The channel specifies native output then execution as a process.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: GCC compilation/linking
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-4  [./<name>.c]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 b
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: GCC reads source
+  - derivation: C source input; earlier origin not given
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: Compilation is needed before the native execution described; source is compiler input.
+  - human_creation_or_bringing: UNKNOWN: B1 names the source input but does not identify its creator or whether the operator brought it.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: UNKNOWN: B1 names a C source input but gives no package-delivery provenance.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: UNKNOWN: The writing program or creator of the source is not identified.
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-5  [./<name>.o]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.1 d
+  - channel_tool_purpose: GCC: compilation, including machine-code generation and plugin loading; this describes the compiler, not an unidentified package manager or source editor.
+  - consumer: Linker
+  - derivation: C source and compilation inputs
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The described intermediate needs linking before execution; the linker consumes it.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: GCC compilation/assembly
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-6  [CMakeLists.txt]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 a recipe
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: CMake configuring this project
+  - derivation: Project build instructions
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: CMake evaluates this project file; its command language can start child processes.
+  - human_creation_or_bringing: UNKNOWN: B1 names the project recipe without stating whether the invoking person wrote it or brought it.
+  - launch_change_access_behavior: CMake commands in the recipe can invoke child processes; actual effects depend on its commands and caller permissions.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Project input; no package provenance is stated.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: Project author
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - writing_program: UNKNOWN: The editor or link-creation program is not named in the channel.
+
+### F14 s2-7  [<try_run COPY_FILE destination>]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 a executable
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: CMake test execution and operating-system loader
+  - derivation: Source files passed to try_run
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: try_run builds and runs a test executable; COPY_FILE retains it when requested.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: No person-chosen value is specified; a person invokes the operation.
+  - producer: CMake try_run and invoked compiler/linker
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-8  [build/CMakeCache.txt: compile/run result entries]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 b cache
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: CMake configuring this project
+  - derivation: Build success/failure and test exit result
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: CMake reads cached results as values.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The named result/event values report compilation and execution; they are not commands in the documented file reader.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: These result values are calculated from compilation/run outcomes, rather than chosen by a person.
+  - producer: CMake try_run
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F14 s2-9  [<build>/CMakeFiles/CMakeConfigureLog.yaml: try_run event]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C5.2 b log
+  - channel_tool_purpose: CMake: buildsystem generation, build operations and project installation from generated rules.
+  - consumer: People or tools inspecting the configure log
+  - derivation: Compile/run event details
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: The event is written/read as log data.
+  - human_creation_or_bringing: The described operation is initiated by a person; the named producer writes the output.
+  - launch_change_access_behavior: The named result/event values report compilation and execution; they are not commands in the documented file reader.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: Event values are obtained from execution, rather than selected by a person.
+  - producer: CMake during configuration
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+
+### F15 s2-20  [~/.python_history]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C7.06 b
+  - consumer: User-run interactive Python session
+  - derivation: Retained user input from interactive sessions
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: History is loaded for recall/editing. Retained statements can be submitted to Python.
+  - human_creation_or_bringing: A person supplies input; the interpreter records the file.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person types input; the history facility chooses what to save under its configuration.
+  - producer: Interactive Python history facility
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - whole_file_executability: UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.
+
+### F15 s2-21  [<HISTFILE> (default ~/.bash_history)]  (member/related rows: 1)
+  - actor_identity: UNKNOWN: Only the generic role of a user is described; no person identity is recorded.
+  - channel_object: C7.17 c
+  - consumer: User-run shell and its history facility
+  - derivation: Retained shell history list entries
+  - effective_rights: UNKNOWN: B1 gives no concrete execution credentials, file mode/capabilities, or confinement configuration for an instance.
+  - exact_bytes_or_selected_value: UNKNOWN: B1 supplies a path template/operation but no retained bytes or exact selected value for an instance.
+  - execution_behavior: History reading populates a list; recalled commands can be executed through fc or history substitution.
+  - human_creation_or_bringing: A person supplies commands; Bash writes the file.
+  - launch_change_access_behavior: UNKNOWN: The concrete code, retained statements or source inputs are not supplied, so actual child launches, changes to other files and access grants cannot be enumerated.
+  - package_name: UNKNOWN: No package identity for this object is given by B1; inventories cannot be joined without an identified machine/object.
+  - package_origin: Generated locally in the described operation; not described as package-delivered bytes.
+  - package_version: UNKNOWN: No delivering package version is given for an identified instance.
+  - person_choice: A person types commands; configured history filters affect which entries are retained.
+  - producer: Bash history facility
+  - producer_version: UNKNOWN: No observed version of the writing/building program is given for an instance.
+  - remains_as_received: UNKNOWN: No delivered package baseline and corresponding instance digest are provided; local generation does not identify any earlier package ownership.
+  - source_build_line: UNKNOWN: No exact source/build line for this object is supplied by B1.
+  - whole_file_executability: UNKNOWN: Actual retained bytes and interpreter state are absent; the validity of the entire file as a script cannot be established.
+

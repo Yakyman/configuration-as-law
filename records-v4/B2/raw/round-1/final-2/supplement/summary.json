@@ -1,0 +1,156 @@
+{
+  "controller_exit": 0,
+  "exit_semantics": "Completion only; property and ordinary-work failures stay in result rows",
+  "hypothesis_outcome": "?",
+  "remaining_owned_vm": false,
+  "steps": [
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "new",
+        "v4-final-2-supplement",
+        "stand"
+      ],
+      "ended_utc": "2026-11-23T09:37:49Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "new.log",
+      "stdin_sha256": null,
+      "utc": "2026-11-23T09:37:13Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:37:51Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "direct.jsonl",
+      "stdin_sha256": "0b24a96ff5726d53901770c83e3764386c292f4b1e1018f7ef36e1c50a0551b7",
+      "utc": "2026-11-23T09:37:49Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:39:09Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "extra.jsonl",
+      "stdin_sha256": "f6d508ce38a0ac254fbdf5a89fd6bcb6d84a2171c689d155ef60340e2fcc0bf3",
+      "utc": "2026-11-23T09:37:51Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:39:23Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "before-reboot-verify.jsonl",
+      "stdin_sha256": "19e5ca3d08f07ca6dd6cd4e211ab8d718fae9b3713dd0b1120e1f600cfd48db8",
+      "utc": "2026-11-23T09:39:09Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:39:23Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "before-report.json",
+      "stdin_sha256": "c1d80e8099b0141128016aeed67a7032974fd5919902302276e1997533e9237d",
+      "utc": "2026-11-23T09:39:23Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "stop",
+        "v4-final-2-supplement"
+      ],
+      "ended_utc": "2026-11-23T09:39:25Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "stop.log",
+      "stdin_sha256": null,
+      "utc": "2026-11-23T09:39:23Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "start",
+        "v4-final-2-supplement"
+      ],
+      "ended_utc": "2026-11-23T09:40:02Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "start.log",
+      "stdin_sha256": null,
+      "utc": "2026-11-23T09:39:25Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:40:17Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "after-reboot-verify.jsonl",
+      "stdin_sha256": "19e5ca3d08f07ca6dd6cd4e211ab8d718fae9b3713dd0b1120e1f600cfd48db8",
+      "utc": "2026-11-23T09:40:02Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "run",
+        "v4-final-2-supplement",
+        "--root"
+      ],
+      "ended_utc": "2026-11-23T09:40:17Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "after-report.json",
+      "stdin_sha256": "c1d80e8099b0141128016aeed67a7032974fd5919902302276e1997533e9237d",
+      "utc": "2026-11-23T09:40:17Z"
+    },
+    {
+      "argv": [
+        "python3",
+        "lab.py",
+        "destroy",
+        "v4-final-2-supplement"
+      ],
+      "ended_utc": "2026-11-23T09:40:20Z",
+      "exit": 0,
+      "expected_exit": 0,
+      "log": "destroy.log",
+      "stdin_sha256": null,
+      "utc": "2026-11-23T09:40:17Z"
+    }
+  ],
+  "utc": "2026-11-23T09:40:20Z"
+}

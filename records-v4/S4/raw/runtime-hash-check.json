@@ -1,0 +1,61 @@
+{
+  "alma": {
+    "before_after_local_equal": true,
+    "evidence": "rehearsal/alma/round3",
+    "files": [
+      "collector/main.py",
+      "collector/extended.py",
+      "collector/packages.py",
+      "collector/extra_alma.py",
+      "collector/extra_void.py",
+      "collector/probe.go",
+      "collector/probe-linux-amd64.gz"
+    ]
+  },
+  "gentoo": {
+    "before_after_local_equal": true,
+    "evidence": "rehearsal/gentoo/round2",
+    "files": [
+      "collector/main.py",
+      "collector/extended.py",
+      "collector/packages.py",
+      "collector/probe.go",
+      "collector/probe-linux-amd64.gz"
+    ]
+  },
+  "microos": {
+    "before_after_local_equal": true,
+    "evidence": "rehearsal/microos/round-3",
+    "files": [
+      "collector/main.py",
+      "collector/extended.py",
+      "collector/packages.py",
+      "collector/extra_microos.py",
+      "collector/probe.go",
+      "collector/probe-linux-amd64.gz"
+    ]
+  },
+  "talos": {
+    "evidence": "rehearsal/talos/content-final",
+    "files": [
+      "collector/main.py",
+      "collector/extended.py",
+      "collector/talos.py",
+      "collector/extra_talos.py"
+    ],
+    "final_source_local_equal": true,
+    "irrelevant_test_difference": "collector/parser-tests.py fixture mode/tempdir update is not runtime-loaded"
+  },
+  "void": {
+    "before_after_local_equal": true,
+    "evidence": "rehearsal/void/round3",
+    "files": [
+      "collector/main.py",
+      "collector/extended.py",
+      "collector/packages.py",
+      "collector/extra_void.py",
+      "collector/probe.go",
+      "collector/probe-linux-amd64.gz"
+    ]
+  }
+}

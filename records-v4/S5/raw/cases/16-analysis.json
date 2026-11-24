@@ -1,0 +1,1407 @@
+{
+ "case": "16",
+ "steps": [
+  {
+   "role": "root-native-account-bypass",
+   "command": [
+    "/usr/sbin/useradd",
+    "-M",
+    "-u",
+    "1998",
+    "-s",
+    "/usr/sbin/nologin",
+    "v4raw"
+   ],
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "before_snapshot": "283a37d05cbe4dddadee7d8be3a69a8ac70157c4316eac156f8b1fe83de03e77.json",
+   "after_snapshot": "ac90da4065c75555259f85f2f1cbaf96d95a0e14821eac0584ff2ae90f345e51.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": null,
+    "passed": true,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "etc": {
+     "generation": [
+      165,
+      255
+     ],
+     "added": [],
+     "removed": [],
+     "changed": [
+      {
+       "path": "/etc/group",
+       "inode": "1357",
+       "sha256_before": "61fac1d6b483a08de4ee6d43ea98831d994d98f2003732b3004472e5a5338368",
+       "sha256_after": "68dd5f5dab5e12ad58484c72a441e904ba2a423dd65418299f32aac133cf36f3",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/group-",
+       "inode": "581",
+       "sha256_before": "5cba3ae3da55746ebe78763fa7190b9b2ad5311965b3aa9e471e9baf6f01d30b",
+       "sha256_after": "61fac1d6b483a08de4ee6d43ea98831d994d98f2003732b3004472e5a5338368",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/gshadow",
+       "inode": "1358",
+       "sha256_before": "a1fedfd810267fe279f456020759458eafb889be8376174351bb0f9c9d8d60ca",
+       "sha256_after": "fdcbc49ada179be4f6bf4909e10d71c00d940e65bffedefd1236c2da1652aa9b",
+       "mode": "0o100640"
+      },
+      {
+       "path": "/etc/gshadow-",
+       "inode": "595",
+       "sha256_before": "4f6b5c34e1d0d1e654737ea58ca8f942f3dc48700bc2fc21dcc99cc99f70fb56",
+       "sha256_after": "a1fedfd810267fe279f456020759458eafb889be8376174351bb0f9c9d8d60ca",
+       "mode": "0o100640"
+      },
+      {
+       "path": "/etc/passwd",
+       "inode": "1355",
+       "sha256_before": "0ada7cbcdbe6ddab9995e423e2c05f4d77f12ccd982195c5af6072bad8a1ab44",
+       "sha256_after": "4faf78685a1e3b733958e8061d35afb89dc5b75c012ddfca6184ced61bbdc491",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/passwd-",
+       "inode": "719",
+       "sha256_before": "9f2e24544b5935f7748039b01cc22389f8d701210faa8207a75ce35df29cb77d",
+       "sha256_after": "0ada7cbcdbe6ddab9995e423e2c05f4d77f12ccd982195c5af6072bad8a1ab44",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/shadow",
+       "inode": "1356",
+       "sha256_before": "5123c5674f57cb46a4dd00dcc0db87ca6ab61ff78ff75efee43a93f8bd59cbb0",
+       "sha256_after": "25154dc72d03dc294c8ffa1da6038352fafe1dff26ef35e35a0852bec6ff7b77",
+       "mode": "0o100640"
+      },
+      {
+       "path": "/etc/shadow-",
+       "inode": "840",
+       "sha256_before": "fc8de0f9f547230d5ecaf408b091e96ca4daece848cfe6d82d5326a569c459ef",
+       "sha256_after": "5123c5674f57cb46a4dd00dcc0db87ca6ab61ff78ff75efee43a93f8bd59cbb0",
+       "mode": "0o100640"
+      },
+      {
+       "path": "/etc/subgid",
+       "inode": "1360",
+       "sha256_before": "9404f8df99f57937b38726c08832dcdad374f9365c7a58312371f72bc3bdaec7",
+       "sha256_after": "cf20fcf16adbad8d96fd0e94778fbea4875687b85ddf8a69ec0c1574d1bee58f",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/subgid-",
+       "inode": "1166",
+       "sha256_before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+       "sha256_after": "9404f8df99f57937b38726c08832dcdad374f9365c7a58312371f72bc3bdaec7",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/subuid",
+       "inode": "1359",
+       "sha256_before": "9404f8df99f57937b38726c08832dcdad374f9365c7a58312371f72bc3bdaec7",
+       "sha256_after": "cf20fcf16adbad8d96fd0e94778fbea4875687b85ddf8a69ec0c1574d1bee58f",
+       "mode": "0o100644"
+      },
+      {
+       "path": "/etc/subuid-",
+       "inode": "1168",
+       "sha256_before": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+       "sha256_after": "9404f8df99f57937b38726c08832dcdad374f9365c7a58312371f72bc3bdaec7",
+       "mode": "0o100644"
+      }
+     ],
+     "unlinked_objects_after": []
+    },
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [
+    {
+     "fs": "etc",
+     "generation": 166,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 167,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 168,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 169,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 170,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 171,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 172,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 173,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 174,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 175,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 176,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 177,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 178,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 179,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 180,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 181,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 182,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 183,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 184,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 185,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 186,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow.1370",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 187,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow.1370",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 188,
+     "operation": "link",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow.lock",
+       "8a8cb552cf27",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 189,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow.1370",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 190,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 191,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 192,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 193,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd-",
+       "0ada7cbcdbe6",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 194,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd-",
+       "0ada7cbcdbe6",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 195,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 196,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 197,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 198,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd+",
+       "4faf78685a1e",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 199,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd",
+       "4faf78685a1e",
+       true
+      ],
+      [
+       "/etc/passwd+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 200,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 201,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 202,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 203,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow-",
+       "5123c5674f57",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 204,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow-",
+       "5123c5674f57",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 205,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 206,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 207,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 208,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow+",
+       "25154dc72d03",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 209,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow",
+       "25154dc72d03",
+       true
+      ],
+      [
+       "/etc/shadow+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 210,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 211,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 212,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 213,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group-",
+       "61fac1d6b483",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 214,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group-",
+       "61fac1d6b483",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 215,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 216,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 217,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 218,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group+",
+       "68dd5f5dab5e",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 219,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group",
+       "68dd5f5dab5e",
+       true
+      ],
+      [
+       "/etc/group+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 220,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 221,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 222,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 223,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow-",
+       "a1fedfd81026",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 224,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow-",
+       "a1fedfd81026",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 225,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 226,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 227,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 228,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow+",
+       "fdcbc49ada17",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 229,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow",
+       "fdcbc49ada17",
+       true
+      ],
+      [
+       "/etc/gshadow+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 230,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 231,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 232,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 233,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid-",
+       "9404f8df99f5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 234,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid-",
+       "9404f8df99f5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 235,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 236,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 237,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 238,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid+",
+       "cf20fcf16adb",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 239,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid",
+       "cf20fcf16adb",
+       true
+      ],
+      [
+       "/etc/subuid+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 240,
+     "operation": "truncate",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 241,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 242,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid-",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 243,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid-",
+       "9404f8df99f5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 244,
+     "operation": "utimens",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid-",
+       "9404f8df99f5",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 245,
+     "operation": "create",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 246,
+     "operation": "chown",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 247,
+     "operation": "chmod",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid+",
+       "e3b0c44298fc",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 248,
+     "operation": "write",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid+",
+       "cf20fcf16adb",
+       true
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 249,
+     "operation": "rename",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid",
+       "cf20fcf16adb",
+       true
+      ],
+      [
+       "/etc/subgid+",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 250,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/shadow.lock",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 251,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/passwd.lock",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 252,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/group.lock",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 253,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/gshadow.lock",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 254,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subuid.lock",
+       "",
+       false
+      ]
+     ]
+    },
+    {
+     "fs": "etc",
+     "generation": 255,
+     "operation": "unlink",
+     "status": "success",
+     "changes": [
+      [
+       "/etc/subgid.lock",
+       "",
+       false
+      ]
+     ]
+    }
+   ],
+   "account_rows": [
+    {
+     "gecos": "",
+     "gid": 1998,
+     "group_ids": [
+      1998
+     ],
+     "groups": [
+      "v4raw"
+     ],
+     "home": "/home/v4raw",
+     "id": "bc3:account:v4raw",
+     "name": "v4raw",
+     "recording": "own",
+     "shell": "/usr/sbin/nologin",
+     "source": "/etc/passwd",
+     "type": "account",
+     "uid": 1998
+    },
+    {
+     "gid": 1998,
+     "id": "bc3:group:v4raw",
+     "members": [],
+     "name": "v4raw",
+     "recording": "own",
+     "source": "/etc/group",
+     "type": "group"
+    }
+   ],
+   "account": {
+    "gecos": "",
+    "gid": 1998,
+    "groups": [
+     "v4raw"
+    ],
+    "home": "/home/v4raw",
+    "name": "v4raw",
+    "shell": "/usr/sbin/nologin",
+    "uid": 1998
+   },
+   "etc_parse_error": null
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "root-native-account-bypass": true
+   }
+  }
+ ],
+ "problems": []
+}

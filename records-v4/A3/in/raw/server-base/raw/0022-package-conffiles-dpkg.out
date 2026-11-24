@@ -1,0 +1,1059 @@
+PACKAGE:adduser
+ /etc/adduser.conf ef23042097ebb0d1075254f888c3c394
+ /etc/deluser.conf 11a06baf8245fd8d690b99024d228c1f
+PACKAGE:apparmor
+ /etc/apparmor.d/1password a9fbdb7bc17bb4c908208c2c51e35f33
+ /etc/apparmor.d/Discord 67bd979bd52072a84fc19480c5dd8ead
+ /etc/apparmor.d/MongoDB_Compass 3f33e671cd57320de31656afa9886136
+ /etc/apparmor.d/QtWebEngineProcess 0fe91825545b5a8375ad4f06219eb47b
+ /etc/apparmor.d/Xorg 25cd9acc04162704f4a7d1653913bb8f
+ /etc/apparmor.d/abi/3.0 f97e410509c5def279aa227c7de12e06
+ /etc/apparmor.d/abi/4.0 f17b0a97806d733b5b884d8a1c2fea37
+ /etc/apparmor.d/abi/kernel-5.4-outoftree-network 57b68acd4e6418fe5a06dc8c04713e3d
+ /etc/apparmor.d/abi/kernel-5.4-vanilla 77047e6f0b014fa8bf27681998382044
+ /etc/apparmor.d/abstractions/X 5806074c4a1addf58b361f9586434091
+ /etc/apparmor.d/abstractions/apache2-common 904b490fb92cef37b2fa236bfbc1630f
+ /etc/apparmor.d/abstractions/apparmor_api/change_profile ebc3b740aa2c79ff9a09f072e67ab569
+ /etc/apparmor.d/abstractions/apparmor_api/examine 7a0bb94ed3f1c4746e10159933e83376
+ /etc/apparmor.d/abstractions/apparmor_api/find_mountpoint 33f8d5e37df9caec4028d295c8988ba1
+ /etc/apparmor.d/abstractions/apparmor_api/introspect 9937e7f2a2ca88cd947570f18df7a942
+ /etc/apparmor.d/abstractions/apparmor_api/is_enabled 16256dfcfa3c4bc6f97a956fcc254fb5
+ /etc/apparmor.d/abstractions/aspell 0443ce39f2e74dde8bc99d67578ea777
+ /etc/apparmor.d/abstractions/audio c0ac7361d58a8c0b1b2ab3d440ca9577
+ /etc/apparmor.d/abstractions/authentication d21c8ea53bfc1712f086be6cd367194d
+ /etc/apparmor.d/abstractions/base 75ee3729f08b8df570d52727200e70ca
+ /etc/apparmor.d/abstractions/bash 9663d039f0152b70cc659e4a25bef566
+ /etc/apparmor.d/abstractions/consoles 3414c1cb4c1a951888a84761d1455c6d
+ /etc/apparmor.d/abstractions/crypto 0b2705ea2a45989da8cbf6f72f633ecb
+ /etc/apparmor.d/abstractions/cups-client aa077a620ae08407f42e743bb9661165
+ /etc/apparmor.d/abstractions/dbus 5722cf7a9deb175a1ad0b2bd2311e358
+ /etc/apparmor.d/abstractions/dbus-accessibility 99eef485f32c58839618af9a5a4b355b
+ /etc/apparmor.d/abstractions/dbus-accessibility-strict 53a9eb9b0c2c0125eefa2990d2db5cf7
+ /etc/apparmor.d/abstractions/dbus-network-manager-strict 122f241d720192cb38d6967bc23e356f
+ /etc/apparmor.d/abstractions/dbus-session 35d364589e04be56979be11e2f7e31d5
+ /etc/apparmor.d/abstractions/dbus-session-strict 1181eeeb79d894eaf2744bf7033a06d8
+ /etc/apparmor.d/abstractions/dbus-strict 9d0a9ef3255f550687366cd4126f34d0
+ /etc/apparmor.d/abstractions/dconf d72f07955f65089718b126f432177b55
+ /etc/apparmor.d/abstractions/devices-usb 46738c324ffb6ed02604cbd6bb8ef4d3
+ /etc/apparmor.d/abstractions/devices-usb-read e937f11891d50a4fa0e4947b6977c937
+ /etc/apparmor.d/abstractions/dovecot-common c039273aaa213aca51a5213cdd15fed2
+ /etc/apparmor.d/abstractions/dri-common 1d2f9b132358d514c1f93560b1988acb
+ /etc/apparmor.d/abstractions/dri-enumerate 625ff20775a56ffba1fb3f0afb983617
+ /etc/apparmor.d/abstractions/enchant cd0a41e810a99aeeab33aa7d074ff510
+ /etc/apparmor.d/abstractions/exo-open c9c0e92a3d96bd795af54343ca2f7247
+ /etc/apparmor.d/abstractions/fcitx 7b92a08259791096efa9ec4aaf42c65d
+ /etc/apparmor.d/abstractions/fcitx-strict 1e6ee44d280a11a849bb777d1ca9379b
+ /etc/apparmor.d/abstractions/fonts 2a254d9d6f5bc6ac1dc73214193083cd
+ /etc/apparmor.d/abstractions/freedesktop.org 664072bd486c679d2a0b5aa4643daa6c
+ /etc/apparmor.d/abstractions/gio-open e056aa1df18785c584f2f8e734a865b6
+ /etc/apparmor.d/abstractions/gnome 8f5adb68ce9ba21cd218f4ccd0e342eb
+ /etc/apparmor.d/abstractions/gnupg 2b9899ae239d51a6cd93ccc82c52d234
+ /etc/apparmor.d/abstractions/groff 9ac220293c87a17fbd9c8664231b7136
+ /etc/apparmor.d/abstractions/gtk c3e77ec5a57f6c5996749b636b257d40
+ /etc/apparmor.d/abstractions/gvfs-open 0aa5a1831e2f3321032fcbb78c75e17f
+ /etc/apparmor.d/abstractions/hosts_access 9932e0e59cf8a3b86aff275430db7f79
+ /etc/apparmor.d/abstractions/ibus cbdc8f7f4aa4192caa920edf6b27c101
+ /etc/apparmor.d/abstractions/kde 9d3df34ba20b1d1f2a171e6003a64a50
+ /etc/apparmor.d/abstractions/kde-globals-write 66b5c9d5f6b1be675ea41b93e2a40e86
+ /etc/apparmor.d/abstractions/kde-icon-cache-write 5812ee3c6e213036512c4dd28a45b0c0
+ /etc/apparmor.d/abstractions/kde-language-write f99c8ecacf0f94aafb402e4bda6ff9f0
+ /etc/apparmor.d/abstractions/kde-open5 dc4ab3305486c36b4fc34b8d075cb706
+ /etc/apparmor.d/abstractions/kerberosclient 70be1b7c525d98654011a7f0bf8b9634
+ /etc/apparmor.d/abstractions/ldapclient fa595508690d29fb8ef3bc7f35cd3d34
+ /etc/apparmor.d/abstractions/libpam-systemd bab0769af2d7ec03fb89ebcc7dba5133
+ /etc/apparmor.d/abstractions/likewise e2eff3c963b34543b78a2e7e92c2832b
+ /etc/apparmor.d/abstractions/mdns f60fb04172f264ca93dd91f376c6d198
+ /etc/apparmor.d/abstractions/mesa bd29b5ab13805dbc1a0a81fc63970027
+ /etc/apparmor.d/abstractions/mir 3ca5ef4b46fdf1e182a96d6560ff26e1
+ /etc/apparmor.d/abstractions/mozc a3d1ff87b7822abd5fcaed6844dc296a
+ /etc/apparmor.d/abstractions/mysql b12fe1f2bbab642e5851c281986057d0
+ /etc/apparmor.d/abstractions/nameservice 0bfb6b6b48e8b71a40b3772204ec1722
+ /etc/apparmor.d/abstractions/nameservice-strict a7caf547d8c0ac5fd11723218f2208b8
+ /etc/apparmor.d/abstractions/nis 30256a48a705a362b6bc496d2024aa3c
+ /etc/apparmor.d/abstractions/nss-systemd 7ed15a941f68ba8326ba03d6d282a4c1
+ /etc/apparmor.d/abstractions/nvidia 4927cd22ab0f892bc619cc0f1912923e
+ /etc/apparmor.d/abstractions/opencl 2760fba2c4606e11942737d471cd94e7
+ /etc/apparmor.d/abstractions/opencl-common 7d6341d69734db1e449b00784d465c70
+ /etc/apparmor.d/abstractions/opencl-intel 7434f8469b7ac7dd5e3dc77acdf40b99
+ /etc/apparmor.d/abstractions/opencl-mesa e157c360ed8cc0a1f5f883be73f2a416
+ /etc/apparmor.d/abstractions/opencl-nvidia 3f7bdad6f0b991ca1de64bf855d01664
+ /etc/apparmor.d/abstractions/opencl-pocl 88d670a534ccdb1b48cff6f90163b563
+ /etc/apparmor.d/abstractions/openssl fb8cf830a6be79f9c356e0d73f880ce4
+ /etc/apparmor.d/abstractions/orbit2 e7ac7aea7951ccb6e9078265f9a2b9ff
+ /etc/apparmor.d/abstractions/p11-kit ca4ba017568739d7150f162ec69036e0
+ /etc/apparmor.d/abstractions/perl e1913931bfed156d33fe313d49f5bd0d
+ /etc/apparmor.d/abstractions/php e1e93bdbc2c95b820f34d81e863edb80
+ /etc/apparmor.d/abstractions/php-worker fa7a754d5b039a507084094a3d3a8e68
+ /etc/apparmor.d/abstractions/php5 cf013176d89542d9b5931cd1c6ff5096
+ /etc/apparmor.d/abstractions/postfix-common 48ff0b5d3ffd8a97e305c85ed7b10475
+ /etc/apparmor.d/abstractions/private-files 971749f2d6112faa125c848f739c8752
+ /etc/apparmor.d/abstractions/private-files-strict 3dd8bfaf6f4405b56e526de085087369
+ /etc/apparmor.d/abstractions/python d4115aba2e29fc49196619af73de8edc
+ /etc/apparmor.d/abstractions/qt5 225b633954b4552cd1e1a7b6c0034956
+ /etc/apparmor.d/abstractions/qt5-compose-cache-write 3cbd481cf1e9aadae90118b4614c9f7b
+ /etc/apparmor.d/abstractions/qt5-settings-write 2341b9405a1923ce1f7c614ac68138c0
+ /etc/apparmor.d/abstractions/qt6 2a3ee46c6fb23f699698c0bb4e2bfdd1
+ /etc/apparmor.d/abstractions/qt6-compose-cache-write 25936cd91d82ab739be7949d33736b9b
+ /etc/apparmor.d/abstractions/qt6-settings-write e2d8e128c2138a2656d9d9adf1408f8d
+ /etc/apparmor.d/abstractions/recent-documents-write 57bfcdf4fc0f790c4a51f2678f4fdd17
+ /etc/apparmor.d/abstractions/ruby 647a1c14accb31774540d8b7e14811a5
+ /etc/apparmor.d/abstractions/samba 80ac5ea6902855b6e9cc84cf90c86a23
+ /etc/apparmor.d/abstractions/samba-rpcd dd45d69fae139d7d3121af8f2a28d884
+ /etc/apparmor.d/abstractions/smbpass 98782c8623443b1ac4477222824526ee
+ /etc/apparmor.d/abstractions/snap_browsers d62388a5173f6945ebb1f41b9ec5c07b
+ /etc/apparmor.d/abstractions/ssl_certs 5bf050da765885e2e2c3440d1ffe2d6a
+ /etc/apparmor.d/abstractions/ssl_keys f804c6623c0b8584153ca06051342c00
+ /etc/apparmor.d/abstractions/svn-repositories f281784467cdf8f7f830337a5ba7f5c9
+ /etc/apparmor.d/abstractions/terminfo d8f33832aa43cfbe19207384af0e3396
+ /etc/apparmor.d/abstractions/transmission-common c1459adbbdbef0304bc0d1030fb55476
+ /etc/apparmor.d/abstractions/trash 77f74bce1c671f56cf013ec880664499
+ /etc/apparmor.d/abstractions/ubuntu-bittorrent-clients bc214039e36aed33834aefca14fcb9e1
+ /etc/apparmor.d/abstractions/ubuntu-browsers 1964f219262f91c8b97b3cab3c5b1a15
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/java a9387035914b3de93f96c99418dd306a
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/kde fb384b79814196058f69c581734c2bf3
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/mailto 8ee5eeea9b891d9dd037cb16b37605a6
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/multimedia e8cda78bbc9882532d0f3c8048e85d7c
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/plugins-common a015fbc234f8ecba0c1db8d1c50efb0b
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/productivity 6fbd4a5744bbd882c3eec994bc6d0fb0
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/text-editors 3d486fae7348f69946dfd58f5b6e9747
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration 3a29e910c7229ebf8efb8d7186d82f6f
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/ubuntu-integration-xul d0ff22a6313a0fbf4a4f7da7b5576307
+ /etc/apparmor.d/abstractions/ubuntu-browsers.d/user-files ad32d9011654972455c717bbe978b705
+ /etc/apparmor.d/abstractions/ubuntu-console-browsers 6215673c66fd3e54cb6e1271f9aa0029
+ /etc/apparmor.d/abstractions/ubuntu-console-email 0ff7d2311f36eba04ef50ec8261de8de
+ /etc/apparmor.d/abstractions/ubuntu-email 3aef68a8ce2190e2b0c32f3889fe2fbb
+ /etc/apparmor.d/abstractions/ubuntu-feed-readers 6d9f88c53a369529a5ff52573a051d90
+ /etc/apparmor.d/abstractions/ubuntu-gnome-terminal 8063a4cbeb334a914c7bf2a65e5f2c3c
+ /etc/apparmor.d/abstractions/ubuntu-helpers 765e4a4c6e05724fa6335c306dbd3ef8
+ /etc/apparmor.d/abstractions/ubuntu-konsole 3226c189b7aacae0b2616827fac54510
+ /etc/apparmor.d/abstractions/ubuntu-media-players edc01db2f2804479007c463b005d7708
+ /etc/apparmor.d/abstractions/ubuntu-unity7-base 9f95ccd27db1a6d581f512b6d8045d13
+ /etc/apparmor.d/abstractions/ubuntu-unity7-launcher 6a9c25f230ba41e8289514d9a8f0f87e
+ /etc/apparmor.d/abstractions/ubuntu-unity7-messaging 69b93d5b6693179432ec7c33e1f30434
+ /etc/apparmor.d/abstractions/ubuntu-xterm 7a896bda3883f05f19e46468fa01ec8b
+ /etc/apparmor.d/abstractions/user-download 2c764a6e080a4549661404fe74d2bef2
+ /etc/apparmor.d/abstractions/user-mail fc821b70bcb3f4735ae58cbc328f60cc
+ /etc/apparmor.d/abstractions/user-manpages da6ee9a1273a3544813d0d280814ceb4
+ /etc/apparmor.d/abstractions/user-tmp 637812127e85496565b15f092aa9028c
+ /etc/apparmor.d/abstractions/user-write 5b2101d68ba7e9e1bb58b9806672ae5a
+ /etc/apparmor.d/abstractions/video 8a9597db8db7dea3702c052a3378114b
+ /etc/apparmor.d/abstractions/vulkan fdc603571a8600504f3dee14553e596b
+ /etc/apparmor.d/abstractions/wayland d8ef4acb801443585a0fa309234b63d7
+ /etc/apparmor.d/abstractions/web-data e46da21cb61d259f7410a72a32d2319d
+ /etc/apparmor.d/abstractions/winbind 489fca3c058879cff0c69f160f453e82
+ /etc/apparmor.d/abstractions/wutmp 40ffe49f2e745abc11c417a289c79dcb
+ /etc/apparmor.d/abstractions/xad 40464a5c359d30d98d72702aba58255e
+ /etc/apparmor.d/abstractions/xdg-desktop 5a0a148ee79a27a546e5618ecc17a0f8
+ /etc/apparmor.d/abstractions/xdg-open 989de0df5dce3d28f223ec7e83288728
+ /etc/apparmor.d/balena-etcher 41dc7a55c7739f6ca133d29413a414e0
+ /etc/apparmor.d/brave c7e3828647deb93ba1524ba49f6b6c78
+ /etc/apparmor.d/buildah 692a0246f1d9bde5bcd97a1c540ea4bf
+ /etc/apparmor.d/busybox 69240224e4d5a5e2c6a7a9a84b39196f
+ /etc/apparmor.d/cam d1ac502776782c6b264cda89a769b509
+ /etc/apparmor.d/ch-checkns e6ed1d0331ec1651b1c117cfa791aca7
+ /etc/apparmor.d/ch-run 4e8f28caf0d00397377439eb470caa0c
+ /etc/apparmor.d/chrome 76e226068a9df356c67e7a3d470d1ebb
+ /etc/apparmor.d/chromium 9bda08a9542da1fba8f05ad1c3965dc8
+ /etc/apparmor.d/code 0f9bad29b9cf3ea8ab27f6b6f3796129
+ /etc/apparmor.d/crun e098756fa8f9f1c8ca4049af47a74fd4
+ /etc/apparmor.d/devhelp bd1226d7e9b4988bb3933684a4406914
+ /etc/apparmor.d/element-desktop d39b0c4bff076ea329f5dbbaa82e2ba7
+ /etc/apparmor.d/epiphany 6bda34c482685db22cea75a6ad7476ea
+ /etc/apparmor.d/evolution b1f70bc4c650108fa213e8279225e0ec
+ /etc/apparmor.d/firefox f1829bd518068599ea95e4b5a58b64c1
+ /etc/apparmor.d/flatpak 6f8173f861fc3d78a5046d899d0b4b59
+ /etc/apparmor.d/foliate c92d766801e2ac02123e0db70b97ea55
+ /etc/apparmor.d/geary 6440c82a66a81d652075b99712a3cbda
+ /etc/apparmor.d/github-desktop 2122e73f32672b2e657ae1458eb26727
+ /etc/apparmor.d/goldendict de9f3bb31c80756ae55a31e8ed4a3be6
+ /etc/apparmor.d/ipa_verify df74e854eac8b988f15d8b21f3f5ae44
+ /etc/apparmor.d/kchmviewer b57ea6f66a082f50fc24ec3922bedd6f
+ /etc/apparmor.d/keybase de653466fa5c38e2dd697794250c10a9
+ /etc/apparmor.d/lc-compliance c6602ecb174135de2520abe7e2d66aeb
+ /etc/apparmor.d/libcamerify d61830a55b0f5803dcb120e38ff514da
+ /etc/apparmor.d/linux-sandbox 03ce2ec6971f9afeee6f7c2e9688baac
+ /etc/apparmor.d/local/README c2697f764b5164f3b9195857290df7df
+ /etc/apparmor.d/loupe 9cd53d4893feabf3a85bed91253b520f
+ /etc/apparmor.d/lsb_release e658932af849b5084d780d69b792d6f6
+ /etc/apparmor.d/lxc-attach 8e84c6f99b66f14957215c1ca65df341
+ /etc/apparmor.d/lxc-create 9c61264b7dcdec579c99143f3b219cdb
+ /etc/apparmor.d/lxc-destroy 3c5bf3780350b4854af5f6f1f6d86f39
+ /etc/apparmor.d/lxc-execute 4727b3eba3181e290839953309d2db87
+ /etc/apparmor.d/lxc-stop 4b96d873788cc6e9d064dd3bc495a4fe
+ /etc/apparmor.d/lxc-unshare a9053aae62b0daa1d7fd9e62bafdcbeb
+ /etc/apparmor.d/lxc-usernsexec 6bd0e80c5e92542b6b2d02352ee540ae
+ /etc/apparmor.d/mmdebstrap a7e1ac1d7f16053f735f3b44a67840ee
+ /etc/apparmor.d/msedge 285ddc96bdcca201f8ed35e38229a92a
+ /etc/apparmor.d/nautilus 57287a789351c7416b3d96538253ced2
+ /etc/apparmor.d/notepadqq 6c24799230bc8f06b33b3b461c7972c0
+ /etc/apparmor.d/nvidia_modprobe 58c3ceb2fff91ebc2d14f8736651e8c0
+ /etc/apparmor.d/obsidian 6bbf1654bfcd4ac1d702cd1adcfde542
+ /etc/apparmor.d/opam 52c194ff83de698797647437047841d3
+ /etc/apparmor.d/opera b09f37170593933806df51b1a2c136f9
+ /etc/apparmor.d/pageedit c20709c6b0a79f13e964d92f7eb81a2f
+ /etc/apparmor.d/plasmashell acb9b228db1a48a40babe30c5a720fbf
+ /etc/apparmor.d/polypane b1cd95df33baaf4384ef5c14492ba096
+ /etc/apparmor.d/privacybrowser dbb425e0980c7e1e9033b43aba864b76
+ /etc/apparmor.d/qcam 5952fc84b00d8aec0e8e9d805bd31af2
+ /etc/apparmor.d/qmapshack ce57b415f0b224b6b9e1674d3184568d
+ /etc/apparmor.d/qutebrowser 1c9fc541582fe736ecc9b7eae42c20ad
+ /etc/apparmor.d/rootlesskit a6718e232ff378f3271467a9124b4eea
+ /etc/apparmor.d/rpm 1d6b51dd975371cc952856f4a3d625a6
+ /etc/apparmor.d/rssguard cd9ed0429e53ea8b5d31e2d544585e5c
+ /etc/apparmor.d/runc 7804e9ca52364d066d77b4e933a32e9d
+ /etc/apparmor.d/sbuild aa6c48a176c7675b6379b3bc472f7b36
+ /etc/apparmor.d/sbuild-abort 980aa7886c7d699fa82e00a05622f2ae
+ /etc/apparmor.d/sbuild-adduser 112a248da646bc163dcd4c85cc513398
+ /etc/apparmor.d/sbuild-apt a2760d995c3ed6351c6caa6036c77824
+ /etc/apparmor.d/sbuild-checkpackages 28df04c2d77357791628b469d714b3cd
+ /etc/apparmor.d/sbuild-clean 285348466992f20ba2c7f0be636582eb
+ /etc/apparmor.d/sbuild-createchroot 60dd7e9294a900cb99ed562cd80b1697
+ /etc/apparmor.d/sbuild-destroychroot 8fb5a5b82e1f063987637cb36f72e1c2
+ /etc/apparmor.d/sbuild-distupgrade 7c03b762f860a178b2698f2692e72d58
+ /etc/apparmor.d/sbuild-hold 977854e2589f32cdc821bc5273ca8992
+ /etc/apparmor.d/sbuild-shell 4367cf117ad4d7c5ec799b5e28977fc3
+ /etc/apparmor.d/sbuild-unhold 76bfc378e4c878a202c071ae483a1a0c
+ /etc/apparmor.d/sbuild-update bb9fdcd6d13eeced28e306f04543a060
+ /etc/apparmor.d/sbuild-upgrade acec41521c50aedd7dc9743f29e32437
+ /etc/apparmor.d/scide 69d5df4d85f2d888fc6f3a2a02ae710e
+ /etc/apparmor.d/signal-desktop 7e8b436217279ba903f2e9d84390a498
+ /etc/apparmor.d/slack dcc561b40dfc7cd959533469d8a07083
+ /etc/apparmor.d/slirp4netns 277e090c982c497832514e3cc8b225ba
+ /etc/apparmor.d/steam 26615466c8cae2bfb8300d7474cb864c
+ /etc/apparmor.d/stress-ng e3b5a8e8e142b48a79c4250371ac7a32
+ /etc/apparmor.d/surfshark 1b389518cbaf6005b81044bd61424fe0
+ /etc/apparmor.d/systemd-coredump fea0984f8368c0b1952b20b5d1727683
+ /etc/apparmor.d/toybox 79e154a4d3eb631f3089396bd8713c5e
+ /etc/apparmor.d/transmission 770afac60d6dce42130c7318a1eb702d
+ /etc/apparmor.d/trinity 4a6f33f1d61c65a63138ad7f58e25d53
+ /etc/apparmor.d/tunables/alias 3a4f5cae71b044f38c481adbe3642b33
+ /etc/apparmor.d/tunables/apparmorfs e2074b490a25348fe38bb14a67189b50
+ /etc/apparmor.d/tunables/dovecot 337ca6dc41c0ae4c156a7b111c946bb4
+ /etc/apparmor.d/tunables/etc eaa7eb0aed2f57f233df1534219add7b
+ /etc/apparmor.d/tunables/global 5bcd8895cb67489d5b619d24c14af7b1
+ /etc/apparmor.d/tunables/home 18eda20e8b1a8d45955d582cd18dd621
+ /etc/apparmor.d/tunables/home.d/site.local 3b274206fb06833ee3e151e351dad51b
+ /etc/apparmor.d/tunables/kernelvars 1e1c274b547b8946eed0eff158300e03
+ /etc/apparmor.d/tunables/multiarch 580f535cd1df7ac32d04cac4974274cd
+ /etc/apparmor.d/tunables/multiarch.d/site.local 3c9eef1fbfb41fc452060086262e7bcb
+ /etc/apparmor.d/tunables/proc 2065e74ad990713ead4b32002acdc82c
+ /etc/apparmor.d/tunables/run 96ac843a343694802ade445fd351e43a
+ /etc/apparmor.d/tunables/securityfs 94e4dd81e625ebb7e0ceb02fbd492612
+ /etc/apparmor.d/tunables/share e11aafffd58011c5d832b98bc71372a7
+ /etc/apparmor.d/tunables/sys 30f2fdf4695c26642ea02b5a2063cfbc
+ /etc/apparmor.d/tunables/system 584175552218d1e2b143c27e4c193213
+ /etc/apparmor.d/tunables/xdg-user-dirs 7eeab5e5987a04857db2f367b07ab4bb
+ /etc/apparmor.d/tup 523fab6a982527f3477970aaa64b3e76
+ /etc/apparmor.d/tuxedo-control-center 53cb9b6edee094984349ab0a1a38efda
+ /etc/apparmor.d/unix-chkpwd e5ae1333886f1bead76b451a30cdc792
+ /etc/apparmor.d/unprivileged_userns 5914011d9c5d9ac6454f3c0d704401ac
+ /etc/apparmor.d/userbindmount 40677d9a5e9228b9203aa9b917b1dfab
+ /etc/apparmor.d/uwsgi-core 1563f58f3bd1b679b27c5093b766daf4
+ /etc/apparmor.d/vdens d5453365eeb2ef78bdabd230d2e528b6
+ /etc/apparmor.d/virtiofsd 7a292c9bcbf7ed74ae7e3df8ad325b7b
+ /etc/apparmor.d/vivaldi-bin 1838b1259fdf616a38b954132af05b30
+ /etc/apparmor.d/vpnns 0f96d656c110471b7f355107b9e0d366
+ /etc/apparmor.d/wike 5f663fc016cc49b2846bd749f0e54306
+ /etc/apparmor.d/wpcom 8f77cd143ac7083c6678368773a21034
+ /etc/apparmor/parser.conf d7e40e67ab0b99e89a8a81f15714b13b
+ /etc/init.d/apparmor 42e157dc91f6554abefa2160c2bc42db
+PACKAGE:apt
+ /etc/apt/apt.conf.d/01autoremove 879455db9b938ce287b23383629aedce
+ /etc/cron.daily/apt-compat 1400ab07a4a2905b04c33e3e93d42b7b
+ /etc/logrotate.d/apt 179f2ed4f85cbaca12fa3d69c2a4a1c3
+PACKAGE:apt-listchanges
+ /etc/apt/apt.conf.d/20listchanges 105aa4aeb0527308bf3a0c70151d7684
+PACKAGE:apt-utils
+
+PACKAGE:base-files
+ /etc/debian_version 5243b35d3894c513d1189360c303199a
+ /etc/dpkg/origins/debian c47b6815f67ad1aeccb0d4529bd0b990
+ /etc/host.conf 4eb63731c9f5e30903ac4fc07a7fe3d6
+ /etc/issue d0c7919a5e2641d60400de08201a49e2
+ /etc/issue.net 37827eb4e7d268f39255c01fc49b009e
+ /etc/update-motd.d/10-uname 9e1b832b7b06f566156e7c9e0548247b
+PACKAGE:base-passwd
+
+PACKAGE:bash
+ /etc/bash.bashrc 72d453119aaa1e96c7c8a7a8fedcf582
+ /etc/skel/.bash_logout 22bfb8c1dd94b5f3813a2b25da67463f
+ /etc/skel/.bashrc ee35a240758f374832e809ae0ea4883a
+ /etc/skel/.profile f4e81ade7d6f9fb342541152d08e7a97
+PACKAGE:bash-completion
+ /etc/bash_completion a81b3f1cb197219b815942f4fc7fa94e
+ /etc/bash_completion.d/000_bash_completion_compat.bash 3834d4b9bcbc9a8bdb847f1a6727ae7a
+ /etc/profile.d/bash_completion.sh 3593c6b58d5ede41aedc83dff04c35f7
+PACKAGE:bind9-host
+
+PACKAGE:bind9-libs:amd64
+
+PACKAGE:bsdextrautils
+
+PACKAGE:bsdutils
+
+PACKAGE:ca-certificates
+
+PACKAGE:cloud-guest-utils
+
+PACKAGE:cloud-image-utils
+
+PACKAGE:cloud-init
+ /etc/cloud/cloud.cfg 2cce71be45160aaa4994cd5d59bc6d1d
+ /etc/cloud/cloud.cfg.d/05_logging.cfg a7649f3a7332b9e9e0511dfa195d0212
+ /etc/cloud/cloud.cfg.d/README f5175bd4df5c37ce781f93d20f59561a
+ /etc/cloud/templates/chef_client.rb.tmpl a0844ddc9a42776d41a03d62d10ea139
+ /etc/cloud/templates/chrony.conf.almalinux.tmpl 2b0c99a31899253b34b47bd268f71fb4
+ /etc/cloud/templates/chrony.conf.alpine.tmpl 21bb9d935203b2c6b6e48e9bc1f19edf
+ /etc/cloud/templates/chrony.conf.centos.tmpl 2b0c99a31899253b34b47bd268f71fb4
+ /etc/cloud/templates/chrony.conf.cloudlinux.tmpl 2b0c99a31899253b34b47bd268f71fb4
+ /etc/cloud/templates/chrony.conf.cos.tmpl 2e9b606515d8ff657da32ae0f4ccdac1
+ /etc/cloud/templates/chrony.conf.debian.tmpl 4c8532b3e1eebdb394c3ba55023ad823
+ /etc/cloud/templates/chrony.conf.fedora.tmpl dc525caa704a06d4ba2bcd5cdb7b62b4
+ /etc/cloud/templates/chrony.conf.freebsd.tmpl ff57b67c379e6c79ed04a56b8a254720
+ /etc/cloud/templates/chrony.conf.opensuse-leap.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.opensuse-microos.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.opensuse-tumbleweed.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.opensuse.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.photon.tmpl dc525caa704a06d4ba2bcd5cdb7b62b4
+ /etc/cloud/templates/chrony.conf.rhel.tmpl 2b0c99a31899253b34b47bd268f71fb4
+ /etc/cloud/templates/chrony.conf.rocky.tmpl 2b0c99a31899253b34b47bd268f71fb4
+ /etc/cloud/templates/chrony.conf.sle-micro.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.sle_hpc.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.sles.tmpl 6528e9df5f2d117578155200e5a95372
+ /etc/cloud/templates/chrony.conf.ubuntu.tmpl 981b6e81533cbfe2011a72cf83f0f858
+ /etc/cloud/templates/hosts.alpine.tmpl ebd6639b19c7cad09a9d26cc3f0e87fb
+ /etc/cloud/templates/hosts.aosc.tmpl 52a0f0b61020f43501fb2df8e4d43d78
+ /etc/cloud/templates/hosts.arch.tmpl 8721e41953e3d91348b3bb9a17208c1a
+ /etc/cloud/templates/hosts.azurelinux.tmpl 8b32f0f7bec51a9b38038afc3cb30174
+ /etc/cloud/templates/hosts.debian.tmpl 941773df489d046d87ae491c3c95d8ec
+ /etc/cloud/templates/hosts.freebsd.tmpl b93d8b13209900227fd7e1731ae23b0c
+ /etc/cloud/templates/hosts.gentoo.tmpl de3df962ed420b5fa8ad0b338b8f262b
+ /etc/cloud/templates/hosts.mariner.tmpl efe7d77432bb8a0726cd67c248c5d824
+ /etc/cloud/templates/hosts.photon.tmpl 236edf211d757237c91834a5316dd083
+ /etc/cloud/templates/hosts.redhat.tmpl bd5a1edd50c1d8b27c5f51ed44040c19
+ /etc/cloud/templates/hosts.suse.tmpl 7a535f28d538e6bccaaa4dd7b9dd13c8
+ /etc/cloud/templates/ntp.conf.almalinux.tmpl ede6809854d8767251e947d425f47eb3
+ /etc/cloud/templates/ntp.conf.alpine.tmpl 72ab2dadd37b2afb1bfd7a002c30bdae
+ /etc/cloud/templates/ntp.conf.cloudlinux.tmpl ede6809854d8767251e947d425f47eb3
+ /etc/cloud/templates/ntp.conf.debian.tmpl ffffa430eb391dc04f3b732b31c830dc
+ /etc/cloud/templates/ntp.conf.fedora.tmpl 0af38f6ab6df1b9cb007fc4a3bda7d76
+ /etc/cloud/templates/ntp.conf.freebsd.tmpl 890f9f7536d187ed40a009f9ccd7011d
+ /etc/cloud/templates/ntp.conf.opensuse.tmpl c0e6d499119291d838478c1fcf69b7d8
+ /etc/cloud/templates/ntp.conf.photon.tmpl ede6809854d8767251e947d425f47eb3
+ /etc/cloud/templates/ntp.conf.rhel.tmpl 768aa847ff2bf1ae6972718da754a3f2
+ /etc/cloud/templates/ntp.conf.rocky.tmpl ede6809854d8767251e947d425f47eb3
+ /etc/cloud/templates/ntp.conf.sles.tmpl c0e6d499119291d838478c1fcf69b7d8
+ /etc/cloud/templates/ntp.conf.ubuntu.tmpl c4917fcac8096871f30136d046d2dade
+ /etc/cloud/templates/ntpd.conf.openbsd.tmpl 71f53f45ca254d2abd3b48a17879b1d5
+ /etc/cloud/templates/resolv.conf.tmpl a32413c9f622d5dfa784ef43e3e9e2be
+ /etc/cloud/templates/sources.list.debian.deb822.tmpl 1179d72e4e1ea981968beaaf3740c09e
+ /etc/cloud/templates/sources.list.debian.tmpl a7e69f77a32f15648cee0423fd1ed2bd
+ /etc/cloud/templates/sources.list.ubuntu.deb822.tmpl 4531340ef6e63ffeda6c35e8cf219bfd
+ /etc/cloud/templates/sources.list.ubuntu.tmpl d6b118c48d33b72eb035f8c673292923
+ /etc/cloud/templates/systemd.resolved.conf.tmpl a454bfaea86f3758d0078819985d711c
+ /etc/cloud/templates/timesyncd.conf.tmpl 9c6b3af8058efc219987863f45bb9198
+ /etc/init.d/cloud-config a7405b87db8157de1090b8617ad893a4
+ /etc/init.d/cloud-final 4e0a881043630da421024ad62d41dabc
+ /etc/init.d/cloud-init-local 4c3fb25e0e0052077a86cd6af0d98b0c
+ /etc/init.d/cloud-init-main dd06a356e63a1aa6649564d41189c6fd
+ /etc/logrotate.d/cloud-init d05104a2bceea6b8132da35dfabef104
+ /etc/profile.d/Z99-cloud-locale-test.sh 723364a6fa4178e87d79419dc15202fd
+PACKAGE:cloud-initramfs-growroot
+
+PACKAGE:cloud-utils
+
+PACKAGE:coreutils
+
+PACKAGE:cpio
+
+PACKAGE:curl
+
+PACKAGE:dash
+
+PACKAGE:dbus
+ /etc/default/dbus 0d0f25a2f993509c857eb262f6e22015
+ /etc/init.d/dbus d78b20b35de983cf6f1475dcf8cb21a1
+PACKAGE:dbus-bin
+
+PACKAGE:dbus-daemon
+
+PACKAGE:dbus-session-bus-common
+
+PACKAGE:dbus-system-bus-common
+
+PACKAGE:debconf
+ /etc/apt/apt.conf.d/70debconf 7e9d09d5801a42b4926b736b8eeabb73
+ /etc/debconf.conf 1cd82ead5651f0753b1ff6d9b31bd235
+PACKAGE:debian-archive-keyring
+ /etc/apt/trusted.gpg.d/debian-archive-bookworm-automatic.asc 55eec060916a9d4a0db7560ab4d7bdce
+ /etc/apt/trusted.gpg.d/debian-archive-bookworm-security-automatic.asc bec0a1224f667bcd1e231b874db9bc4f
+ /etc/apt/trusted.gpg.d/debian-archive-bookworm-stable.asc fac2ec9faba2c2d82c70a6e2805c5b79
+ /etc/apt/trusted.gpg.d/debian-archive-bullseye-automatic.asc 1f30ce1ba8532d523017acb1a69c106a
+ /etc/apt/trusted.gpg.d/debian-archive-bullseye-security-automatic.asc 9fbe7b0d8ebb38e240aeec6b0830ac7b
+ /etc/apt/trusted.gpg.d/debian-archive-bullseye-stable.asc 85a4c0e5c747a38509b33562d4c950be
+ /etc/apt/trusted.gpg.d/debian-archive-trixie-automatic.asc 556202307f6f23e343c1ba12790507be
+ /etc/apt/trusted.gpg.d/debian-archive-trixie-security-automatic.asc f421db9e00d9a98c66c396b2a210f52c
+ /etc/apt/trusted.gpg.d/debian-archive-trixie-stable.asc 91c5c0b4f6878239622087c64866c909
+PACKAGE:debianutils
+
+PACKAGE:dhcpcd-base
+ /etc/dhcpcd.conf f6e072abd48f0991cd9a817a08ffa9ca
+PACKAGE:diffutils
+
+PACKAGE:distro-info-data
+
+PACKAGE:dmsetup
+
+PACKAGE:dosfstools
+
+PACKAGE:dpkg
+ /etc/alternatives/README 7be88b21f7e386c8d5a8790c2461c92b
+ /etc/cron.daily/dpkg 94bb6c1363245e46256908a5d52ba4fb
+ /etc/dpkg/dpkg.cfg f4413ffb515f8f753624ae3bb365b81b
+ /etc/logrotate.d/alternatives 5fe0af6ce1505fefdc158d9e5dbf6286
+ /etc/logrotate.d/dpkg 9e25c8505966b5829785f34a548ae11f
+PACKAGE:dracut-install
+
+PACKAGE:e2fsprogs
+ /etc/cron.d/e2scrub_all 244b6578e16a06d6fd61269241931284
+ /etc/e2scrub.conf df38534cc670c70a91cf9b035845d244
+ /etc/mke2fs.conf 6ce04fdb2ca015186862d66bcab35311
+PACKAGE:eject
+
+PACKAGE:ethtool
+ /etc/network/if-pre-up.d/ethtool 09b4a447e5048a4ea0bc34732bd0278c
+ /etc/network/if-up.d/ethtool a522a7b2b1d3e2d9a06e9690674a5d38
+PACKAGE:fdisk
+
+PACKAGE:file
+
+PACKAGE:findutils
+
+PACKAGE:gcc-14-base:amd64
+
+PACKAGE:gdisk
+
+PACKAGE:genisoimage
+
+PACKAGE:gettext-base
+
+PACKAGE:grep
+
+PACKAGE:groff-base
+ /etc/groff/man.local 0430e21404e7bde42b0e0fee0fd60c00
+ /etc/groff/mdoc.local 93e49c8bd131bfa85a469d836dd7a28a
+PACKAGE:grub-cloud-amd64
+ /etc/default/grub bb1ef86254b1b4acb543c21b2c1512db
+PACKAGE:grub-common
+ /etc/grub.d/00_header 033e1905144dec9fd7d73b4d223f20cd
+ /etc/grub.d/05_debian_theme fe5f9d6282150de338d13b2867af0390
+ /etc/grub.d/10_linux 276ce7766b5c0f524b40c0b9c5592d93
+ /etc/grub.d/20_linux_xen 3f307089941f675beb576783669ac9e1
+ /etc/grub.d/25_bli e071d24e35e554a6e6446068f59715f6
+ /etc/grub.d/30_os-prober 9e7e433ed21c635b0d102a06da4ae5e2
+ /etc/grub.d/30_uefi-firmware 2d918e14d15f40c01398a7534702870d
+ /etc/grub.d/40_custom babe7de352fe18de5a238569cf4b8a11
+ /etc/grub.d/41_custom 1d876baff8ca3841aa6ba057e881a2e4
+ /etc/grub.d/README be58f42dfe74feb6eeb98c6a843c743f
+PACKAGE:grub-efi-amd64-bin
+
+PACKAGE:grub-efi-amd64-signed
+
+PACKAGE:grub-efi-amd64-unsigned
+
+PACKAGE:grub-pc-bin
+
+PACKAGE:grub2-common
+ /etc/kernel/postinst.d/zz-update-grub 5a98abefbfe97dbed36db7899251e433
+ /etc/kernel/postrm.d/zz-update-grub 5a98abefbfe97dbed36db7899251e433
+PACKAGE:gzip
+
+PACKAGE:hostname
+
+PACKAGE:init
+
+PACKAGE:init-system-helpers
+
+PACKAGE:initramfs-tools
+ /etc/initramfs-tools/update-initramfs.conf e2026d4603e7161efaccca519aeb1297
+ /etc/kernel/postinst.d/initramfs-tools acdcb03834b59261f917ae04ddc3fe6e
+ /etc/kernel/postrm.d/initramfs-tools 90fb918898fffccddcbdaef13bf13b2a
+PACKAGE:initramfs-tools-bin
+
+PACKAGE:initramfs-tools-core
+ /etc/initramfs-tools/initramfs.conf 7cd32817dcb81991da2e2a928a32fdb0
+PACKAGE:iproute2
+
+PACKAGE:iptables
+
+PACKAGE:iputils-ping
+
+PACKAGE:klibc-utils
+
+PACKAGE:kmod
+
+PACKAGE:less
+
+PACKAGE:libacl1:amd64
+
+PACKAGE:libaio1t64:amd64
+
+PACKAGE:libapparmor1:amd64
+
+PACKAGE:libapt-pkg7.0:amd64
+
+PACKAGE:libatomic1:amd64
+
+PACKAGE:libattr1:amd64
+ /etc/xattr.conf 743ca3f83ea263f1f56ad1f63f907bdb
+PACKAGE:libaudit-common
+ /etc/libaudit.conf cdc703f9d27f0d980271a9e95d0f18b2
+PACKAGE:libaudit1:amd64
+
+PACKAGE:libblkid1:amd64
+
+PACKAGE:libbpf1:amd64
+
+PACKAGE:libbrotli1:amd64
+
+PACKAGE:libbsd0:amd64
+
+PACKAGE:libbz2-1.0:amd64
+
+PACKAGE:libc-bin
+ /etc/bindresvport.blacklist 4c09213317e4e3dd3c71d74404e503c5
+ /etc/default/nss d6d5d6f621fb3ead2548076ce81e309c
+ /etc/gai.conf 28fa76ff5a9e0566eaa1e11f1ce51f09
+ /etc/ld.so.conf 4317c6de8564b68d628c21efa96b37e4
+ /etc/ld.so.conf.d/libc.conf d4d833fd095fb7b90e1bb4a547f16de6
+PACKAGE:libc-l10n
+
+PACKAGE:libc6:amd64
+ /etc/ld.so.conf.d/x86_64-linux-gnu.conf d4e7a7b88a71b5ffd9e2644e71a0cfab
+PACKAGE:libcap-ng0:amd64
+
+PACKAGE:libcap2:amd64
+
+PACKAGE:libcap2-bin
+
+PACKAGE:libcbor0.10:amd64
+
+PACKAGE:libcom-err2:amd64
+
+PACKAGE:libcrypt1:amd64
+
+PACKAGE:libcurl4t64:amd64
+
+PACKAGE:libdb5.3t64:amd64
+
+PACKAGE:libdbus-1-3:amd64
+
+PACKAGE:libdebconfclient0:amd64
+
+PACKAGE:libdevmapper1.02.1:amd64
+
+PACKAGE:libduktape207:amd64
+
+PACKAGE:libedit2:amd64
+
+PACKAGE:libefiboot1t64:amd64
+
+PACKAGE:libefivar1t64:amd64
+
+PACKAGE:libelf1t64:amd64
+
+PACKAGE:libexpat1:amd64
+
+PACKAGE:libext2fs2t64:amd64
+
+PACKAGE:libfdisk1:amd64
+
+PACKAGE:libffi8:amd64
+
+PACKAGE:libfido2-1:amd64
+
+PACKAGE:libfreetype6:amd64
+
+PACKAGE:libfstrm0:amd64
+
+PACKAGE:libfuse3-4:amd64
+
+PACKAGE:libgcc-s1:amd64
+
+PACKAGE:libgdbm6t64:amd64
+
+PACKAGE:libglib2.0-0t64:amd64
+
+PACKAGE:libgmp10:amd64
+
+PACKAGE:libgnutls30t64:amd64
+
+PACKAGE:libgpm2:amd64
+
+PACKAGE:libgssapi-krb5-2:amd64
+
+PACKAGE:libhogweed6t64:amd64
+
+PACKAGE:libidn2-0:amd64
+
+PACKAGE:libip4tc2:amd64
+
+PACKAGE:libip6tc2:amd64
+
+PACKAGE:libjemalloc2:amd64
+
+PACKAGE:libjson-c5:amd64
+
+PACKAGE:libk5crypto3:amd64
+
+PACKAGE:libkeyutils1:amd64
+
+PACKAGE:libklibc:amd64
+
+PACKAGE:libkmod2:amd64
+
+PACKAGE:libkrb5-3:amd64
+
+PACKAGE:libkrb5support0:amd64
+
+PACKAGE:liblastlog2-2:amd64
+
+PACKAGE:libldap2:amd64
+
+PACKAGE:liblmdb0:amd64
+
+PACKAGE:liblz4-1:amd64
+
+PACKAGE:liblzma5:amd64
+
+PACKAGE:libmagic-mgc
+
+PACKAGE:libmagic1t64:amd64
+ /etc/magic 272913026300e7ae9b5e2d51f138e674
+ /etc/magic.mime 272913026300e7ae9b5e2d51f138e674
+PACKAGE:libmaxminddb0:amd64
+
+PACKAGE:libmd0:amd64
+
+PACKAGE:libmnl0:amd64
+
+PACKAGE:libmount1:amd64
+
+PACKAGE:libncursesw6:amd64
+
+PACKAGE:libnetfilter-conntrack3:amd64
+
+PACKAGE:libnetplan1:amd64
+
+PACKAGE:libnettle8t64:amd64
+
+PACKAGE:libnewt0.52:amd64
+
+PACKAGE:libnfnetlink0:amd64
+
+PACKAGE:libnftnl11:amd64
+
+PACKAGE:libnghttp2-14:amd64
+
+PACKAGE:libnghttp3-9:amd64
+
+PACKAGE:libnss-myhostname:amd64
+
+PACKAGE:libnss-resolve:amd64
+
+PACKAGE:libnuma1:amd64
+
+PACKAGE:libp11-kit0:amd64
+
+PACKAGE:libpam-modules:amd64
+ /etc/security/access.conf 55930ab185d7c100b58da36cd44f1dc5
+ /etc/security/faillock.conf 164da8ffb87f3074179bc60b71d0b99f
+ /etc/security/group.conf f1e26e8db6f7abd2d697d7dad3422c36
+ /etc/security/limits.conf 0b1967ff9042a716ce6b01cb999aa1f5
+ /etc/security/namespace.conf 6b3796403421d66db7defc46517711bc
+ /etc/security/namespace.init 260eb0c3368ffaaf861e003e27618476
+ /etc/security/pam_env.conf 89cc8702173d5cd51abc152ae9f8d6bc
+ /etc/security/pwhistory.conf 46472157dab7894436c6ba3ccdfcaca6
+ /etc/security/sepermit.conf 3d82df292d497bbeaaf8ebef18cd14f1
+ /etc/security/time.conf 06e05c6079e839c8833ac7c3abfde192
+PACKAGE:libpam-modules-bin
+
+PACKAGE:libpam-runtime
+ /etc/pam.conf 87fc76f18e98ee7d3848f6b81b3391e5
+ /etc/pam.d/other 31aa7f2181889ffb00b87df4126d1701
+PACKAGE:libpam-systemd:amd64
+
+PACKAGE:libpam0g:amd64
+
+PACKAGE:libpcap0.8t64:amd64
+
+PACKAGE:libpci3:amd64
+
+PACKAGE:libpcre2-8-0:amd64
+
+PACKAGE:libpipeline1:amd64
+
+PACKAGE:libpng16-16t64:amd64
+
+PACKAGE:libpolkit-agent-1-0:amd64
+
+PACKAGE:libpolkit-gobject-1-0:amd64
+
+PACKAGE:libpopt0:amd64
+
+PACKAGE:libproc2-0:amd64
+
+PACKAGE:libprotobuf-c1:amd64
+
+PACKAGE:libpsl5t64:amd64
+
+PACKAGE:libpython3-stdlib:amd64
+
+PACKAGE:libpython3.13-minimal:amd64
+ /etc/python3.13/sitecustomize.py d6b276695157bde06a56ba1b2bc53670
+PACKAGE:libpython3.13-stdlib:amd64
+
+PACKAGE:libreadline8t64:amd64
+
+PACKAGE:librtmp1:amd64
+
+PACKAGE:libsasl2-2:amd64
+
+PACKAGE:libsasl2-modules-db:amd64
+
+PACKAGE:libseccomp2:amd64
+
+PACKAGE:libselinux1:amd64
+
+PACKAGE:libsemanage-common
+ /etc/selinux/semanage.conf 8e8dfac33a09c1b53ca08bf6d4201b10
+PACKAGE:libsemanage2:amd64
+
+PACKAGE:libsepol2:amd64
+
+PACKAGE:libslang2:amd64
+
+PACKAGE:libsmartcols1:amd64
+
+PACKAGE:libsodium23:amd64
+
+PACKAGE:libsqlite3-0:amd64
+
+PACKAGE:libss2:amd64
+
+PACKAGE:libssh2-1t64:amd64
+
+PACKAGE:libssl3t64:amd64
+
+PACKAGE:libstdc++6:amd64
+
+PACKAGE:libsystemd-shared:amd64
+
+PACKAGE:libsystemd0:amd64
+
+PACKAGE:libtasn1-6:amd64
+
+PACKAGE:libtext-charwidth-perl:amd64
+
+PACKAGE:libtext-wrapi18n-perl
+
+PACKAGE:libtinfo6:amd64
+
+PACKAGE:libtirpc-common
+ /etc/netconfig ca8db53e3af4d735335c2607d21c7195
+PACKAGE:libtirpc3t64:amd64
+
+PACKAGE:libuchardet0:amd64
+
+PACKAGE:libudev1:amd64
+
+PACKAGE:libunistring5:amd64
+
+PACKAGE:liburcu8t64:amd64
+
+PACKAGE:liburing2:amd64
+
+PACKAGE:libuuid1:amd64
+
+PACKAGE:libuv1t64:amd64
+
+PACKAGE:libwrap0:amd64
+
+PACKAGE:libwtmpdb0:amd64
+ /etc/logrotate.d/wtmpdb a55e14a8c5b9889d799ae2a29578ba86
+PACKAGE:libxml2:amd64
+
+PACKAGE:libxtables12:amd64
+
+PACKAGE:libxxhash0:amd64
+
+PACKAGE:libyaml-0-2:amd64
+
+PACKAGE:libzstd1:amd64
+
+PACKAGE:linux-base
+
+PACKAGE:linux-image-6.12.117+deb13-amd64
+
+PACKAGE:linux-image-amd64
+
+PACKAGE:linux-sysctl-defaults
+
+PACKAGE:locales
+ /etc/locale.alias 171695b82f06f6f00e397da76492556c
+PACKAGE:login
+ /etc/pam.d/login b6129a3c1af42a9977b29f490ecd057e
+PACKAGE:login.defs
+ /etc/login.defs f4e7091da823fd58589e991a2f9c2d96
+PACKAGE:logsave
+
+PACKAGE:lsb-release
+
+PACKAGE:man-db
+ /etc/apparmor.d/usr.bin.man 4f614d75041882370498f7fe2d43a44b
+ /etc/cron.daily/man-db 62423d7fa68568c9c0aefceac182d9ea
+ /etc/cron.weekly/man-db eebc5bb3e1dac973301570da3f453334
+ /etc/manpath.config 6d70333de0a08c7a71018da458201eb6
+PACKAGE:manpages
+
+PACKAGE:mawk
+
+PACKAGE:media-types
+ /etc/mime.types e82584dba9cd994ba21979bdb32d746e
+PACKAGE:mokutil
+
+PACKAGE:mount
+
+PACKAGE:nano
+ /etc/nanorc b30e7a873df86d742e539d3e3f2a3826
+PACKAGE:ncurses-base
+ /etc/terminfo/README 45b6df19fb5e21f55717482fa7a30171
+PACKAGE:ncurses-bin
+
+PACKAGE:netbase
+ /etc/ethertypes 73ca398498fe517e724cc9238612e10d
+ /etc/protocols 0c247591a720f534fe543401bd4844d6
+ /etc/rpc 2d7748cd0feba2e43ee52d4d7f834188
+ /etc/services c7e42bc25f943cb5e1e9e7efdbd23783
+PACKAGE:netcat-openbsd
+
+PACKAGE:netplan-generator
+
+PACKAGE:netplan.io
+
+PACKAGE:openssh-client
+ /etc/ssh/ssh_config 0f05748bffda634f4fb2b23dce8db1c4
+PACKAGE:openssh-server
+ /etc/default/ssh 500e3cf069fe9a7b9936108eb9d9c035
+ /etc/init.d/ssh 3649a6fe8c18ad1d5245fd91737de507
+ /etc/pam.d/sshd 72487a556c4f0e23fd25ce21fc294ca8
+ /etc/ssh/moduli c98cdde8efe28fedcde0028e61b5a53c
+ /etc/sv/ssh/.meta/installed d41d8cd98f00b204e9800998ecf8427e
+ /etc/sv/ssh/finish f5f032f6f3e569c821346294d410b636
+ /etc/sv/ssh/log/run 63e0ec3e1080dafc68d6d71d42b150a9
+ /etc/sv/ssh/run 411f69ac55d12f0c98998552846b1c78
+ /etc/ufw/applications.d/openssh-server 486b78d54b93cc9fdc950c1d52ff479e
+PACKAGE:openssh-sftp-server
+
+PACKAGE:openssl
+ /etc/ssl/openssl.cnf bfdc30bd205b6ca2c15a46b17721c6f2
+PACKAGE:openssl-provider-legacy
+
+PACKAGE:passwd
+ /etc/default/useradd e03965d134c26725cbc51a57969da6c9
+ /etc/pam.d/chfn 4d466e00a348ba426130664d795e8afa
+ /etc/pam.d/chpasswd 9900720564cb4ee98b7da29e2d183cb2
+ /etc/pam.d/chsh a6e9b589e90009334ffd030d819290a6
+ /etc/pam.d/newusers 1454e29bfa9f2a10836563e76936cea5
+ /etc/pam.d/passwd eaf2ad85b5ccd06cceb19a3e75f40c63
+PACKAGE:pci.ids
+
+PACKAGE:pciutils
+
+PACKAGE:perl-base
+
+PACKAGE:polkitd
+
+PACKAGE:procps
+ /etc/sysctl.conf newconffile remove-on-upgrade
+ /etc/init.d/procps f9903aa0d9f2f10714269befb4cdba8f
+ /etc/sysctl.d/README.sysctl 93eda3f215e9d29316f5597cb4551082
+PACKAGE:psmisc
+
+PACKAGE:python-apt-common
+
+PACKAGE:python3
+
+PACKAGE:python3-apt
+
+PACKAGE:python3-attr
+
+PACKAGE:python3-bcrypt
+
+PACKAGE:python3-blinker
+
+PACKAGE:python3-certifi
+
+PACKAGE:python3-cffi-backend:amd64
+
+PACKAGE:python3-chardet
+
+PACKAGE:python3-charset-normalizer
+
+PACKAGE:python3-configobj
+
+PACKAGE:python3-cryptography
+
+PACKAGE:python3-dbus
+
+PACKAGE:python3-debconf
+
+PACKAGE:python3-debian
+
+PACKAGE:python3-debianbts
+
+PACKAGE:python3-distro
+
+PACKAGE:python3-distro-info
+
+PACKAGE:python3-idna
+
+PACKAGE:python3-jinja2
+
+PACKAGE:python3-json-pointer
+
+PACKAGE:python3-jsonpatch
+
+PACKAGE:python3-jsonschema
+
+PACKAGE:python3-jsonschema-specifications
+
+PACKAGE:python3-jwt
+
+PACKAGE:python3-markupsafe
+
+PACKAGE:python3-minimal
+
+PACKAGE:python3-netplan
+
+PACKAGE:python3-oauthlib
+
+PACKAGE:python3-referencing
+
+PACKAGE:python3-reportbug
+
+PACKAGE:python3-requests
+
+PACKAGE:python3-rpds-py
+
+PACKAGE:python3-urllib3
+
+PACKAGE:python3-yaml
+
+PACKAGE:python3.13
+
+PACKAGE:python3.13-minimal
+
+PACKAGE:qemu-utils
+
+PACKAGE:readline-common
+
+PACKAGE:reportbug
+ /etc/reportbug.conf 705322b9a62d3b68f7edde9beeb31522
+PACKAGE:runit-helper
+
+PACKAGE:screen
+ /etc/init.d/screen-cleanup 44ec7824f5ef10df73e92ad064331ea0
+ /etc/screenrc 12c245238eb8b653625bba27dc81df6a
+PACKAGE:sed
+
+PACKAGE:sensible-utils
+
+PACKAGE:sgml-base
+
+PACKAGE:shim-helpers-amd64-signed
+
+PACKAGE:shim-signed:amd64
+
+PACKAGE:shim-signed-common
+
+PACKAGE:shim-unsigned:amd64
+
+PACKAGE:socat
+
+PACKAGE:sqv
+
+PACKAGE:ssh-import-id
+ /etc/ssh/ssh_import_id 8bfa390040fbeeae70bec14f2dccaf11
+PACKAGE:sudo
+ /etc/init.d/sudo 4fd40c92739a3bb2242df7cc6af126df
+ /etc/pam.d/sudo 7fa5090826481c517f23faa1e21c77a8
+ /etc/pam.d/sudo-i 95199b1f3d5a60bcf98058d9f8b70e70
+ /etc/sudo.conf b802577e70ce0df065aa94feb3d0566f
+ /etc/sudo_logsrvd.conf ad0ba586da300ae3ba46312ad744a6e2
+ /etc/sudoers da8bee36494c904ba767f0dd58920878
+ /etc/sudoers.d/README bb1eba13940f331e91cfb9294d86a04f
+PACKAGE:systemd
+ /etc/security/limits.d/10-coredump-debian.conf bb509d1c69a68c82ecdcd22c9b1c7d04
+ /etc/systemd/journald.conf 226f112ac6367d270670e2c2dd9471d7
+ /etc/systemd/logind.conf 2f26319b0e390d5ddd383d04ced8ea00
+ /etc/systemd/networkd.conf c8ffe444e15b1f9e8be31e54a6eaf800
+ /etc/systemd/pstore.conf 8086c035fbf3bde72f2339a6ee50d2a4
+ /etc/systemd/sleep.conf 894f85ddfb666958fad7b7217b7f48c2
+ /etc/systemd/system.conf 9c032a82b936a8513e74296bf491a538
+ /etc/systemd/user.conf c13845a7cbc3e115e4c23949a3e2b917
+PACKAGE:systemd-resolved
+ /etc/systemd/resolved.conf c056212e9cddc090a567d691d727502d
+PACKAGE:systemd-sysv
+
+PACKAGE:systemd-timesyncd
+ /etc/dhcp/dhclient-exit-hooks.d/timesyncd 1f941d2a11991ff151fe74064f2b5cf4
+ /etc/systemd/timesyncd.conf bd00db81a9f876df90e9d5c94b9ca2e7
+PACKAGE:sysvinit-utils
+
+PACKAGE:tar
+
+PACKAGE:tcpdump
+ /etc/apparmor.d/usr.bin.tcpdump 88089d95eec8c04e0a827f3d1309d30a
+PACKAGE:traceroute
+
+PACKAGE:tzdata
+
+PACKAGE:ucf
+ /etc/ucf.conf 80d388cee26f58a54338acfd8e708c7e
+PACKAGE:udev
+ /etc/udev/iocost.conf fad2a2c4c34d796b6802bc62c19cc4ae
+ /etc/udev/udev.conf bf60be80a4cc51271a1618edf5a6d66f
+PACKAGE:unattended-upgrades
+ /etc/init.d/unattended-upgrades 290829a5efc55b7c435de0bb769f217b
+ /etc/kernel/postinst.d/unattended-upgrades 21f0ac567d9738d1a017fc16e0150a35
+ /etc/logrotate.d/unattended-upgrades e45049ee847f069a99e3e6ec39155d4a
+ /etc/pm/sleep.d/10_unattended-upgrades-hibernate 0f5d54aa2dd322c805c90e409fc2724a
+ /etc/update-motd.d/92-unattended-upgrades afa7546d3fe561e1f5783f7b9cf72096
+PACKAGE:util-linux
+ /etc/pam.d/runuser b8b44b045259525e0fae9e38fdb2aeeb
+ /etc/pam.d/runuser-l 2106ea05877e8913f34b2c77fa02be45
+ /etc/pam.d/su 60fbbe65c90d741bc0d380543cefe8af
+ /etc/pam.d/su-l 756fef5687fecc0d986e5951427b0c4f
+PACKAGE:uuid-runtime
+ /etc/init.d/uuidd 72734842b2a488f116230d6686e84767
+PACKAGE:vim
+
+PACKAGE:vim-common
+ /etc/vim/vimrc 268a4e1ec0b630f6b75c83f618229c88
+PACKAGE:vim-runtime
+
+PACKAGE:vim-tiny
+ /etc/vim/vimrc.tiny 2eef1685cce57398be3763940dbced84
+PACKAGE:wget
+ /etc/wgetrc c43064699caf6109f4b3da0405c06ebb
+PACKAGE:whiptail
+
+PACKAGE:xml-core
+ /etc/sgml/xml-core.cat 055ba0bd3154c0a58b9bf8a0c9ecf2fa
+PACKAGE:xz-utils
+
+PACKAGE:zlib1g:amd64
+
+PACKAGE:zstd
+

@@ -1,0 +1,251 @@
+[
+  {
+    "label": "single-new",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "new",
+      "bc4-second-3-single",
+      "stand"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:14:51Z"
+  },
+  {
+    "label": "single-stage-directory",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "mkdir -p /var/lib/stand/bc4-inputs\n",
+    "utc": "2026-11-23T18:15:30Z"
+  },
+  {
+    "label": "single-source-identities",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "sha256sum /var/lib/stand/bc4-inputs/*/declaration.json /var/lib/stand/bc4-inputs/*/blobs.json\n",
+    "utc": "2026-11-23T18:15:31Z"
+  },
+  {
+    "label": "before-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-3-before\n",
+    "utc": "2026-11-23T18:15:31Z"
+  },
+  {
+    "label": "before-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-3-before/declaration.json\n",
+    "utc": "2026-11-23T18:16:20Z"
+  },
+  {
+    "label": "before-launch",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single"
+    ],
+    "stdin": "/opt/stand/pkgs/dev-worker/bin/worker\n",
+    "utc": "2026-11-23T18:16:30Z"
+  },
+  {
+    "label": "before-service",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "/usr/bin/systemctl show stand-development.service -p MainPID -p ActiveState -p UnitFileState -p FragmentPath\n",
+    "utc": "2026-11-23T18:16:30Z"
+  },
+  {
+    "label": "before-processes",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py processes /opt/stand/pkgs/dev-worker/bin/worker\n",
+    "utc": "2026-11-23T18:16:30Z"
+  },
+  {
+    "label": "removal-apply",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4_bundle.py apply /var/lib/stand/bc4-inputs/case-3-after\n",
+    "utc": "2026-11-23T18:16:30Z"
+  },
+  {
+    "label": "after-processes",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py processes /opt/stand/pkgs/dev-worker/bin/worker\n",
+    "utc": "2026-11-23T18:17:17Z"
+  },
+  {
+    "label": "former-identities",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B - <<'PY'\nimport json,pathlib\nformer=[{'pid': 1538, 'starttime': '5173'}]\nfor identity in former:\n p=pathlib.Path('/proc')/str(identity['pid'])/'stat'\n try:\n  fields=p.read_text().rsplit(') ',1)[1].split(); print(json.dumps({'former':identity,'exists':True,'same_starttime':fields[19]==identity['starttime'],'state':fields[0]}))\n except FileNotFoundError:print(json.dumps({'former':identity,'exists':False}))\nPY\n",
+    "utc": "2026-11-23T18:17:17Z"
+  },
+  {
+    "label": "after-enabled",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "/usr/bin/systemctl is-enabled stand-development.service\n",
+    "utc": "2026-11-23T18:17:17Z"
+  },
+  {
+    "label": "after-service",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "/usr/bin/systemctl show stand-development.service -p MainPID -p ActiveState -p UnitFileState -p FragmentPath\n",
+    "utc": "2026-11-23T18:17:17Z"
+  },
+  {
+    "label": "after-rules-text",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "/usr/sbin/nft list table inet stand\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "after-rules-json",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "/usr/sbin/nft -j list table inet stand\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "after-executable",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "stat /opt/stand/pkgs/dev-worker/bin/worker\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "after-unit",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "stat /etc/systemd/system/stand-development.service\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "after-launch",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single"
+    ],
+    "stdin": "/opt/stand/pkgs/dev-worker/bin/worker\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "after-snapshot",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "python3 -B /usr/local/lib/stand/bc4-compare.py snapshot --bundle /var/lib/stand/bc4-inputs/case-3-after/declaration.json\n",
+    "utc": "2026-11-23T18:17:18Z"
+  },
+  {
+    "label": "bc4-second-3-single-final-reports",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "run",
+      "bc4-second-3-single",
+      "--root"
+    ],
+    "stdin": "cat /var/lib/stand/complete-last-success.json /var/lib/stand/last-success.json\npython3 -B /usr/local/lib/stand/bc3-state.py export\n",
+    "utc": "2026-11-23T18:17:28Z"
+  },
+  {
+    "label": "bc4-second-3-single-destroy",
+    "argv": [
+      "/usr/bin/python3",
+      "lab.py",
+      "destroy",
+      "bc4-second-3-single"
+    ],
+    "stdin": null,
+    "utc": "2026-11-23T18:17:29Z"
+  }
+]

@@ -1,0 +1,19 @@
+Retrieved 2026-11-23 UTC
+URL https://raw.githubusercontent.com/NixOS/nixpkgs/94c3211b0ee8/pkgs/by-name/sh/shadow/package.nix
+  pname = "shadow";
+  version = "4.19.4";
+
+  src = fetchFromGitHub {
+    owner = "shadow-maint";
+    repo = "shadow";
+    tag = finalAttrs.version;
+    hash = "sha256-vR6dwB3EttGY2DgQ20nOr9kNhF+nsAaBEyklcJAZ20Y=";
+  };
+
+  outputs = [
+    "out"
+    "su"
+    "dev"
+    "man"
+  ];
+

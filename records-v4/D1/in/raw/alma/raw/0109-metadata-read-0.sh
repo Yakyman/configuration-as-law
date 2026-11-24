@@ -1,0 +1,1 @@
+printf %s eyJwYXRoIjogIi91c3IvbGliL3B5dGhvbjMuMTIvc2l0ZS1wYWNrYWdlcy9kbmYtNC4yMC4wLmRpc3QtaW5mby9SRUNPUkQiLCAibGltaXQiOiAxNjc3NzIxNn0K | base64 -d | /tmp/c1-collector/probe reads

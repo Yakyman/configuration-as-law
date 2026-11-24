@@ -1,0 +1,6 @@
+machine	exit_status	command
+alma	0	python3 S4/collector/match.py D1b/in/all-alma.tsv D1/review/unknown-rows.tsv D1/review/additional-unknown-rows.tsv D1b/in/match/alma
+void	0	python3 S4/collector/match.py D1b/handoff/void D1/review/unknown-rows.tsv D1/review/additional-unknown-rows.tsv D1b/in/match/void
+gentoo	0	python3 S4/collector/match.py D1b/handoff/gentoo D1/review/unknown-rows.tsv D1/review/additional-unknown-rows.tsv D1b/in/match/gentoo
+microos	0	python3 S4/collector/match.py D1b/handoff/microos D1/review/unknown-rows.tsv D1/review/additional-unknown-rows.tsv D1b/in/match/microos
+talos	0	python3 S4/collector/match.py D1b/handoff/talos D1/review/unknown-rows.tsv D1/review/additional-unknown-rows.tsv D1b/in/match/talos

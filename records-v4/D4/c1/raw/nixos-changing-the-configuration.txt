@@ -1,0 +1,14 @@
+Retrieved 2026-11-23 UTC
+URL https://nixos.org/manual/nixos/stable/
+Changing the Configuration
+The file
+/etc/nixos/configuration.nix
+contains the current
+configuration of your machine. Whenever you’ve
+changed
+something
+in that file, you should do
+# nixos-rebuild switch
+to build the new configuration, make it the default configuration for
+booting, and try to realise the configuration in the running system
+(e.g., by restarting system services).

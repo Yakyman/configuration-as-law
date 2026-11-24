@@ -1,0 +1,96 @@
+====================================================================================================
+OBJECT developer-05617e28292b94b182cc73aa family 7 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown unchanged_since_receipt (S2/facts.tsv:19173); this repository was fetched during Homebrew installation, so unchanged installed-package content cannot be decided before the repository-record/material alternatives.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Git repository storage fetched at a person's command; not a package, read by git as data, not chosen. S8.2-15 fits twice: git recorded it (program record) and a person brought it (material, downloaded files); nothing gives priority.
+       by_meaning: yes: covered by the line of Homebrew | without_forbidding: yes
+  name: ['<brew-home>/.linuxbrew/Homebrew/.git/objects/45'] nfacts 36
+   L19167 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19173 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT developer-216b547047e9bd323ef8a31b family 7 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown unchanged_since_receipt (S2/facts.tsv:19202); the Homebrew installation fetch does not establish whether this stored object remains received package content.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Git repository storage fetched at a person's command; not a package, read by git as data, not chosen. S8.2-15 fits twice: git recorded it (program record) and a person brought it (material, downloaded files); nothing gives priority.
+       by_meaning: yes: covered by the line of Homebrew | without_forbidding: yes
+  name: ['<brew-home>/.linuxbrew/Homebrew/.git/objects/3d'] nfacts 29
+   L19196 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19202 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT developer-4fbf65b1725f19d2f17c9c20 family 7 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown unchanged_since_receipt (S2/facts.tsv:19289); repository metadata fetched as part of Homebrew installation lacks the receipt comparison needed to settle question one.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Git repository storage fetched at a person's command; not a package, read by git as data, not chosen. S8.2-15 fits twice: git recorded it (program record) and a person brought it (material, downloaded files); nothing gives priority.
+       by_meaning: yes: covered by the line of Homebrew | without_forbidding: yes
+  name: ['<brew-home>/.linuxbrew/Homebrew/.git/objects/info'] nfacts 29
+   L19283 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19289 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT developer-6bf67733481480cdeaa37d0c family 7 DIFF
+  [c1] UNKNOWN | S8.2-6;S8.2-7 | undetermined
+       reason: Unknown unchanged_since_receipt (S2/facts.tsv:19418); Homebrew installation fetched these references, but their status as unchanged installed-package content is unestablished.
+       by_meaning: no | without_forbidding: yes
+  [c2] GAP-TWO | S8.2-7,S8.2-9,S8.2-23,S8.2-11,S8.2-15 | no
+       reason: Git repository storage fetched at a person's command; not a package, read by git as data, not chosen. S8.2-15 fits twice: git recorded it (program record) and a person brought it (material, downloaded files); nothing gives priority.
+       by_meaning: yes: covered by the line of Homebrew | without_forbidding: yes
+  name: ['<brew-home>/.linuxbrew/Homebrew/.git/refs/tags'] nfacts 50
+   L19412 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19418 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT developer-78e8326714450972e0134fb6 family 8 DIFF
+  [c1] GAP-TWO | S8.2-6;S8.1-4;S8.1-6;S8.2-7;S8.2-9;S8.2-11;S8.2-15;S8.2-16 | undetermined
+       reason: Reading image pull/removal as program installation gives INSTALLED-OWN; reading it as storing a template gives RECORD. S8.1-4/-6 do not specify whether that storage is installation. S2/facts.tsv:19531,19538; https://docs.docker.com/reference/cli/docker/image/pull/
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-22,S8.2-16 | own line
+       reason: Docker documents building, shipping and running applications, not installing and removing programs (https://docs.docker.com/get-started/docker-overview/), so not an installer: Q1 no. Image code runs as container processes (S8.2-22): program, built from the operator's Dockerfile, not built from a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['sha256:92f46737584608a97675555995ed284291fd2ef58b073921413c0c63baa2813a'] nfacts 30
+   L19532 execution_rights = UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+   L19534 host_change_capability = UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+   L19552 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19556 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT server-46f5ba6815bb94894157236c family 8 DIFF
+  [c1] GAP-TWO | S8.2-6;S8.1-4;S8.1-6;S8.2-7;S8.2-9;S8.2-11;S8.2-15;S8.2-16 | undetermined
+       reason: Reading image pull/removal as program installation gives INSTALLED-OWN; reading it as template storage gives RECORD. S8.1-4/-6 do not settle the meaning of installation here. S2/facts.tsv:19631,19638; https://docs.docker.com/reference/cli/docker/image/pull/
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-22,S8.2-16 | own line
+       reason: Docker documents building, shipping and running applications, not installing and removing programs (https://docs.docker.com/get-started/docker-overview/), so not an installer: Q1 no. Image code runs as container processes (S8.2-22): program, pulled for the operator's compose file, not built from a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['sha256:f9cf3e1f0066f0eb0c48707d864f0ac5941e9ff454a072077d97a4d278d07d73'] nfacts 30
+   L19632 execution_rights = UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+   L19634 host_change_capability = UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+   L19652 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19656 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT server-bce2d2fe9dfb24c822a93809 family 8 DIFF
+  [c1] GAP-TWO | S8.2-6;S8.1-4;S8.1-6;S8.2-7;S8.2-9;S8.2-11;S8.2-15;S8.2-16 | undetermined
+       reason: Image pull/removal can be installation of a unit (INSTALLED-OWN) or storage of a template (RECORD). S8.1-4/-6 do not distinguish these readings. S2/facts.tsv:19661,19668; https://docs.docker.com/reference/cli/docker/image/pull/
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-22,S8.2-16 | own line
+       reason: Docker documents building, shipping and running applications, not installing and removing programs (https://docs.docker.com/get-started/docker-overview/), so not an installer: Q1 no. Image code runs as container processes (S8.2-22): program, pulled for the operator's compose file, not built from a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['sha256:200689790a0a0ea48ca45992e0450bc26ccab5307375b41c84dfc4f2475937ab'] nfacts 30
+   L19662 execution_rights = UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+   L19664 host_change_capability = UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+   L19682 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19686 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness
+====================================================================================================
+OBJECT server-fc8e0ac75ce9ed64a08ff655 family 8 DIFF
+  [c1] GAP-TWO | S8.2-6;S8.1-4;S8.1-6;S8.2-7;S8.2-9;S8.2-11;S8.2-15;S8.2-16 | undetermined
+       reason: Image pull/removal can be installation of a unit (INSTALLED-OWN) or storage of a template (RECORD). S8.1-4/-6 do not distinguish these readings. S2/facts.tsv:19691,19698; https://docs.docker.com/reference/cli/docker/image/pull/
+       by_meaning: yes: own line | without_forbidding: yes
+  [c2] PROGRAM-OWN | S8.1-4,S8.2-7,S8.2-9,S8.2-22,S8.2-16 | own line
+       reason: Docker documents building, shipping and running applications, not installing and removing programs (https://docs.docker.com/get-started/docker-overview/), so not an installer: Q1 no. Image code runs as container processes (S8.2-22): program, pulled for the operator's compose file, not built from a line.
+       by_meaning: yes: own line | without_forbidding: yes
+  name: ['sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0'] nfacts 30
+   L19692 execution_rights = UNKNOWN: inventory lists containers/images but lacks full container inspection with effective UID, capability and namespace mappings
+   L19694 host_change_capability = UNKNOWN: effective capabilities, bind mounts and security configuration are not fully inspected in the retained inventory; CLI authority is not equivalent to container authority
+   L19712 primary_description_designation = UNKNOWN: no designation of a primary-description file is evidenced in the retained inventory/actions; a fresh machine cannot establish a historical designation
+   L19716 unchanged_since_receipt = UNKNOWN: no retained receipt-to-current full-byte comparison for this object; prefix signatures and timestamps do not establish unchangedness

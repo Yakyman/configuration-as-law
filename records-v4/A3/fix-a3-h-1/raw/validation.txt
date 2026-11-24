@@ -1,0 +1,13 @@
+Mechanical validation, 2026-11-23T13:01:49.363966+00:00
+Command: /usr/bin/python3 -I bin/check_quotes.py A3/RESULT.md
+quotes checked: 26; not found in TEXT.md: 0
+Command: /usr/bin/python3 -I bin/check_quotes.py A3/FIX-A3-H-1.md
+quotes checked: 0; not found in TEXT.md: 0
+Frozen-input checksum verification: 20 unchanged files.
+Confirmed scopes: {('C6', 'developer'): 2, ('C7', 'developer'): 2, ('C2', 'developer'): 7, ('C7', 'server'): 1}
+Ctime impacts: {'RESOLVED:INSTALLED-PACKAGE': 459, 'RESOLVED:MIXED': 2, 'RESOLVED:PROGRAM-DERIVED': 6}
+Card 4 family counts: {'uv': 5, 'Bun': 344, 'Go': 986, 'RubyGems': 1}
+Sample impacts: no changed gap candidate overlaps either sample; 9 ctime overlaps already FACT_UNKNOWN. No sample rerun.
+Relative links in updated reports and documentation: all targets exist.
+Result first line: LIVED-IN: 3 confirmed gaps
+Mechanical checks passed. Independent acceptance is not asserted.

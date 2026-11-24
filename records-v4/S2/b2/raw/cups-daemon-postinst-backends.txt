@@ -1,0 +1,24 @@
+# Excerpt of /var/lib/dpkg/info/cups-daemon.postinst (gaming machine), decoded from A3/in/raw/gaming/raw/0454-metadata-read-256.out
+    # Set up backends
+    db_get cupsys/backend && SELECTED=$RET
+    # We remove the scsi backend from the output as it got removed in CUPS 1.5.0
+    # We also remove the IPP backends as they are statically in cups-daemon now
+    list=`echo $SELECTED | sed -e 's/, /,/g' | sed -e 's/scsi,*\b//g' | sed -e 's/ipp,*\b//g' | sed -e 's/ipps,*\b//g' | sed -e 's/ipp14,*\b//g' | sed -e 's/parallel,*\b//g' | sed -e 's/serial,*\b//g'`
+    save_IFS=$IFS
+    IFS=,
+    (cd /usr/lib/cups/backend && rm -f lpd socket usb snmp dnssd mdns)
+    for module in $list; do
+      ln /usr/lib/cups/backend-available/$module /usr/lib/cups/backend/$module
+      if [ "$module" = "dnssd" ]; then
+	ln /usr/lib/cups/backend/dnssd /usr/lib/cups/backend/mdns
+      fi
+    done
+    IFS=$save_IFS
+
+    # activate new backends on upgrades
+    db_fset cupsys/backend changed false
+
+    # Resync Debconf database with real state
+    list=`( cd /usr/lib/cups/backend && for f in lpd socket usb snmp dnssd; do [ -e $f ] && echo -n "$f, "; done ) | sed -e 's/, $//'`
+    db_set cupsys/backend $list;
+fi

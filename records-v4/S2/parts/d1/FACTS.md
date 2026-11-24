@@ -1,0 +1,313 @@
+D1 collector facts: 31 objects of families 1–5; 264 unknown fact rows.
+
+Facts are indexed in facts.tsv. Directory rows retain the original immediate-child scope, not an inferred recursive replacement. Prefix digests are not full-file integrity checks for files larger than 4096 bytes. Times are UTC; ctime/mtime do not identify a writer. No new probes were run: remaining absences concern historical transactions/bytes that a fresh machine cannot recover. General documented behavior is distinguished from proof about an old invocation.
+
+## 1. a default value created during installation that no person of the computer chose
+
+- `alma-ade8ccca9c3e357d72437c37` — `systemd-oom`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_creation_time: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_value_choice: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_choice_time: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - package_as_received: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+- `alma-71966c5e14f6b1d3115de310` — `tss`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_creation_time: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_value_choice: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_choice_time: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - package_as_received: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+- `microos-13cd5b718c5e71a530a2bed1` — `root`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - historical_creation_time: The inventory records current account fields and packaged recipes, not the first account-creation transaction; fresh installation cannot recover that historical transaction
+  - human_value_choice: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_chooser_role: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - human_choice_time: No retained first-creation operator record identifies who chose these account values or when; matching distribution defaults does not establish a personal choice
+  - package_as_received: An individual account is not independently hashed in the package manifest; current /etc/passwd and recipe ownership do not prove that this entry was delivered verbatim
+- `alma-53fa364e2cf166bce33a9d60` — `avahi-daemon.service`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_chooser_role: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_choice_time: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - producer_transaction: No retained log identifies the exact process that created each enablement/alias link; timestamps are not process attribution
+- `alma-37c4765f1bc3df9c50c7463a` — `display-manager.service`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_chooser_role: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - human_choice_time: Link timestamps and preset state show current result, not a logged personal selection; no first installation operator event retained
+  - producer_transaction: No retained log identifies the exact process that created each enablement/alias link; timestamps are not process attribution
+- `void-f1bd8c260127e9a626b5f82f` — `/var/service/agetty-tty1`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_chooser_role: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_choice_time: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - producer_transaction: No exact link-creation process invocation retained; package update timestamps support timing but not individual writer identity
+- `void-65591628311f83a7842469aa` — `/var/service/acpid`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_chooser_role: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - human_choice_time: Link metadata identifies time of filesystem change, not the person choosing the service; image build/first enabling transaction not retained
+  - producer_transaction: No exact link-creation process invocation retained; package update timestamps support timing but not individual writer identity
+- `alma-9a2b3f5598419c41bbb752af` — `/etc/alternatives`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_chooser_role: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_choice_time: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_producer: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_creation_time: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - package_as_received: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+- `void-081c93f14c8fa7e6bfd59961` — `/usr/bin`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - human_value_choice: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_chooser_role: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - human_choice_time: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_producer: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - historical_creation_time: Alternative links and package tables expose the selected targets; retained data do not identify all historical selections, first writers, or their times
+  - package_as_received: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+- `void-4768b27116e866909ce713da` — (not published: record outside this collection).
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - package_as_received: Links are not covered by file digests establishing original delivered bytes; a package-triggered creation differs from an observed package payload copy
+
+## 2. a list the system generated from installed packages
+
+- `microos-a1f877f4c02acd2a5f9a0d97` — `/usr/share/mime`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `void-4ab73c90e99c24b1fb10c341` — `/usr/share/mime/application`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `void-f2e5d5edfa5902c8aee7bace` — `/etc/ssl/certs`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `microos-dcce813055fa256ed012c87a` — `/var/lib/ca-certificates/openssl`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `microos-c111706edb49a56b42b0ff18` — `/.snapshots/1/snapshot/etc`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - member_code_or_values: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - member_launch_behavior: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - member_access_effects: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `alma-889f8cd2dae65a248533322a` — `/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64`.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/build:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.alias:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.alias.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.builtin.alias.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.builtin.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.dep:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.dep.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.devname:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.softdep:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.symbols:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/modules.symbols.bin:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - member_integrity:/usr/lib/modules/6.12.0-264.16.1.el10_3.x86_64/source:rpm:kernel-modules-core@6.12.0-264.16.1.el10_3.x86_64: Retained package-files collector could not establish integrity; No usable recorded digest; no equality inferred from presence.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `void-982c71cf468c85befb1aa508` — `/var/cache/ldconfig`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `alma-caff428f8364f0a663721a85` — `/etc/dconf/db`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - launch_or_access: Exact dconf keys and effective profile/lock selection were not dumped, so launch/access effects of every stored value cannot be excluded
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+- `microos-2ce40b9afb2194333071f853` — `/.snapshots/1/snapshot/etc/selinux/targeted/active`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - historical_creation_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - derivation_input_set: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_value_choice: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_chooser_role: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - human_choice_time: The retained inventory has names, metadata and package manifests but no complete generation transaction/input set or personal override history for all members; a fresh run cannot establish old inputs
+  - member_code_or_values: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - member_launch_behavior: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - member_access_effects: This aggregate includes multiple files/directories and its complete stored values are not dumped; cannot assert every member is only values or exclude launch/access entries
+  - package_as_received: Current generated member bytes are not certified as original delivered payload bytes; package table matches and integrity results above retain their limited scope
+
+## 3. files left from an earlier version of a package that is still installed
+
+- `void-7c442df1fb52f7545f18f9cb` — `/usr/lib/modules`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - current_loadability: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - package_as_received: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - historical_producer: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_creation_time: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+- `void-0ffeda9e5b96728703a1b7ed` — `/usr/lib/modules/6.12.11_1/kernel/drivers/gpu/drm/bridge/analogix`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - current_loadability: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - package_as_received: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - historical_producer: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_creation_time: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+- `void-2715a0cd9890aae192131492` — `/usr/lib/modules/6.12.11_1`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - current_loadability: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - package_as_received: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - historical_producer: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_creation_time: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+- `void-b42866904294dd5e14707b80` — `/usr/lib/modules/6.12.11_1/kernel`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - current_loadability: No retained module vermagic/signature, running-kernel compatibility, or complete module-loading restriction check establishes which old modules can load on the observed machine
+  - package_as_received: Old version payload/full digests not retained in current XBPS manifest; prefix hashes cannot certify unchanged old files
+  - historical_producer: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+  - historical_creation_time: Old file mtimes survive but first installation transaction is not retained; mtime is not the time a person brought the file
+
+## 4. a stored archive whose contents are executed
+
+- `alma-c4a7c6d6eb439eb9d680a65e` — `/boot/initramfs-6.12.0-264.16.1.el10_3.x86_64.img`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+- `alma-2c25c1a886c5db421b08087b` — `/boot/initramfs-0-rescue-8ef0d28cd1cb4a80b9baa123cb63ef20.img`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+- `void-0d4bff48fce03ced27aa83a4` — `/boot/initramfs-6.12.118_1.img`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+- `void-a6e5bb36a961f99d2e09e83e` — `/boot/initramfs-6.18.64_1.img`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+- `microos-62ccb03ff56e2af8ff91ff68` — `/.snapshots/1/snapshot/boot`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - historical_producer: Inventory stores opaque archive metadata, not its generating process; dracut package presence does not prove its exact historical invocation
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+- `void-386e90812bdecbec21d0785c` — `/boot`.
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - archive_member_inventory: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_package_versions: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - archive_source_modifiedness: Archive contents were not expanded or hashed per member, so exact executable members and their source package/version/modifiedness are unavailable
+  - package_as_received: No whole-image original package digest or generation input manifest certifies the archive as received; metadata prefix hashes are insufficient
+  - human_value_choice: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_chooser_role: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+  - human_choice_time: Filesystem mtimes are known but precise earlier build choices and person selecting each boot/archive parameter were not retained
+
+## 5. a package of a program's built-in installer whose code runs only inside that program
+
+- `alma-2ea4b9f74eb9ce06f9d317ff` — (not published: record outside this collection).
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - installed_addon_version: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - installed_addon_manifest_permissions: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - package_as_received: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+  - effective_extension_rights: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_external_program_launch: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_host_changes: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+- `void-61a9a88ad2b852b6cf106db6` — (not published: record outside this collection).
+  - primary_description_designation: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - successful_application_source: No primary-description designation or successful application record for this object was captured by these inventories; installation inputs do not identify a recording line
+  - installed_addon_version: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - installed_addon_manifest_permissions: Installed manifest and clearurls-source.json contents were not collected. The one authoritative AMO candidate matches size/prefix, but manifest bytes [14952,16628) lie beyond saved prefix4096; this cannot certify historical installed version or permissions
+  - package_as_received: Download was hash-checked at retrieval, but installed XPI has only a 4096-byte prefix hash; neither retained full installed digest nor payload comparison proves unchanged installed bytes
+  - effective_extension_rights: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_external_program_launch: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest
+  - extension_host_changes: Historical manifest/effective permissions and browser policy were not retained; cannot prove inability to launch external programs or alter host settings from current upstream manifest

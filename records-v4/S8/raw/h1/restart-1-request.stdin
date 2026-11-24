@@ -1,0 +1,3 @@
+#!/bin/bash
+PS4='+${EPOCHREALTIME} ${LINENO}: '; set -x
+/usr/bin/systemctl reboot

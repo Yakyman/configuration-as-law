@@ -1,0 +1,40 @@
+[
+  {
+    "files": [
+      {
+        "content_b64": "W1VuaXRdCkRlc2NyaXB0aW9uPVJlY29yZGVkIHNvdXJjZSBmaXh0dXJlCltTZXJ2aWNlXQpUeXBlPXNpbXBsZQpVc2VyPXN0YW5kCkV4ZWNTdGFydD0vb3B0L3N0YW5kL3BrZ3MvZGV2LXdvcmtlci9iaW4vd29ya2VyClJlc3RhcnQ9bm8KS2lsbE1vZGU9Y29udHJvbC1ncm91cApUaW1lb3V0U3RvcFNlYz01Ck1lbW9yeURlbnlXcml0ZUV4ZWN1dGU9eWVzCk5vTmV3UHJpdmlsZWdlcz15ZXMKUHJvdGVjdFN5c3RlbT1zdHJpY3QKUHJpdmF0ZVRtcD15ZXMKW0luc3RhbGxdCldhbnRlZEJ5PW11bHRpLXVzZXIudGFyZ2V0Cg==",
+        "gid": 0,
+        "kind": "file",
+        "mode": 420,
+        "path": "/opt/stand/pkgs/v4-unit/source.service",
+        "sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+        "uid": 0
+      }
+    ],
+    "id": "v4:unit-source",
+    "managed": true,
+    "package_identity": {
+      "backend": "stand",
+      "name": "v4-unit-source",
+      "version": "1"
+    },
+    "source": "fixture:round-2",
+    "type": "program",
+    "version": "1"
+  },
+  {
+    "active": false,
+    "derived_from": {
+      "algorithm": "copy",
+      "line": "v4:unit-source",
+      "source_path": "/opt/stand/pkgs/v4-unit/source.service"
+    },
+    "enabled": "disabled",
+    "id": "v4:generated-unit",
+    "managed": true,
+    "type": "service",
+    "unit": "stand-v4-generated.service",
+    "unit_sha256": "ea17275bdfc0e094fd7b35e20f32eaa618fe072dfcee6e84f16f5f1e4e653a8f",
+    "unit_text": "[Unit]\nDescription=Recorded source fixture\n[Service]\nType=simple\nUser=stand\nExecStart=/opt/stand/pkgs/dev-worker/bin/worker\nRestart=no\nKillMode=control-group\nTimeoutStopSec=5\nMemoryDenyWriteExecute=yes\nNoNewPrivileges=yes\nProtectSystem=strict\nPrivateTmp=yes\n[Install]\nWantedBy=multi-user.target\n"
+  }
+]

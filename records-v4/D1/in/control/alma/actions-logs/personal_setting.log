@@ -1,0 +1,53 @@
+Last metadata expiration check: 0:00:58 ago on Mon Nov 23 11:16:40 2026.
+Dependencies resolved.
+================================================================================
+ Package               Arch        Version                 Repository      Size
+================================================================================
+Installing:
+ git                   x86_64      2.52.0-1.el10           appstream       40 k
+Installing dependencies:
+ git-core              x86_64      2.52.0-1.el10           appstream      5.1 M
+ git-core-doc          noarch      2.52.0-1.el10           appstream      2.9 M
+ perl-Error            noarch      1:0.17029-18.el10       appstream       45 k
+ perl-Git              noarch      2.52.0-1.el10           appstream       37 k
+ perl-TermReadKey      x86_64      2.38-24.el10            appstream       35 k
+ perl-lib              x86_64      0.65-515.el10_2         appstream       13 k
+
+Transaction Summary
+================================================================================
+Install  7 Packages
+
+Total download size: 8.2 M
+Installed size: 40 M
+Downloading Packages:
+(1/7): git-2.52.0-1.el10.x86_64.rpm             340 kB/s |  40 kB     00:00    
+(2/7): perl-Error-0.17029-18.el10.noarch.rpm    906 kB/s |  45 kB     00:00    
+(3/7): perl-Git-2.52.0-1.el10.noarch.rpm        829 kB/s |  37 kB     00:00    
+(4/7): perl-TermReadKey-2.38-24.el10.x86_64.rpm 826 kB/s |  35 kB     00:00    
+(5/7): perl-lib-0.65-515.el10_2.x86_64.rpm      369 kB/s |  13 kB     00:00    
+(6/7): git-core-doc-2.52.0-1.el10.noarch.rpm    9.5 MB/s | 2.9 MB     00:00    
+(7/7): git-core-2.52.0-1.el10.x86_64.rpm         16 MB/s | 5.1 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                            17 MB/s | 8.2 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : git-core-2.52.0-1.el10.x86_64                          1/7 
+  Installing       : git-core-doc-2.52.0-1.el10.noarch                      2/7 
+  Installing       : perl-lib-0.65-515.el10_2.x86_64                        3/7 
+  Installing       : perl-TermReadKey-2.38-24.el10.x86_64                   4/7 
+  Installing       : perl-Error-1:0.17029-18.el10.noarch                    5/7 
+  Installing       : perl-Git-2.52.0-1.el10.noarch                          6/7 
+  Installing       : git-2.52.0-1.el10.x86_64                               7/7 
+  Running scriptlet: git-2.52.0-1.el10.x86_64                               7/7 
+
+Installed:
+  git-2.52.0-1.el10.x86_64              git-core-2.52.0-1.el10.x86_64           
+  git-core-doc-2.52.0-1.el10.noarch     perl-Error-1:0.17029-18.el10.noarch     
+  perl-Git-2.52.0-1.el10.noarch         perl-TermReadKey-2.38-24.el10.x86_64    
+  perl-lib-0.65-515.el10_2.x86_64      
+
+Complete!

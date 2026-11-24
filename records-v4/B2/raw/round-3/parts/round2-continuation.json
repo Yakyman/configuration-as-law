@@ -1,0 +1,104 @@
+{
+  "continuation_sha256": "cb339f03911484330ef7d4672295a1f1ef9cd6f172ac031aae6e913b2a449f8c",
+  "execution_status": "not executed",
+  "expected_boolean_results": 59,
+  "expected_result_ids": [
+    "SEALED-SOCKET",
+    "REPL-PTY",
+    "ENVIRONMENT",
+    "PRELOAD",
+    "SHELL-STARTUP",
+    "TYPED",
+    "FUNCTION",
+    "ALIAS",
+    "SUBSTITUTION",
+    "PROCESS-SUBSTITUTION",
+    "HEREDOC",
+    "LOADER",
+    "NATIVE-KERNEL",
+    "EDITOR-POSITIVE",
+    "EDITOR-READ",
+    "EDITOR-CONTENT",
+    "EDITOR-ESCAPE",
+    "EDITOR-GLOBAL",
+    "EDITOR-SOURCE",
+    "EDITOR-DEFINITION",
+    "EDITOR-MODELINE",
+    "EDITOR-MODELINE-CONTENT",
+    "WRITER-OPERAND",
+    "WRITER-EXTRA-OPTION",
+    "WRITER-NO-TARGET",
+    "BROWSER",
+    "BROWSER-OPTIONS",
+    "BROWSER-EXTENSION-REQUEST",
+    "HOME-PREFERENCE-ONE",
+    "HOME-PREFERENCE-TWO",
+    "NATIVE-downloaded",
+    "NATIVE-nested-extracted.renamed",
+    "NATIVE-build-output",
+    "NATIVE-prefix-bin-app",
+    "NATIVE-old-copy",
+    "NATIVE-SYMLINK",
+    "OVERWRITE",
+    "LOGIN-KEY-CP",
+    "LOGIN-KEY-WRITER",
+    "LOGIN-KEY-ED",
+    "LOGIN-KEY-UNCHANGED",
+    "SERVICE-PROGRAM-ADMIT",
+    "SERVICE-ADMISSION-PIPE-ARG",
+    "SERVICE-ADMISSION-RESTART",
+    "SERVICE-LIFECYCLE-ADMIT",
+    "TIMER-LIFECYCLE-ADMIT",
+    "SERVICE-TIMER-UPDATE",
+    "SERVICE-TIMER-CODE-CHANGE",
+    "TIMER-LIFECYCLE-REMOVE",
+    "SERVICE-LIFECYCLE-REMOVE",
+    "SERVICE-LIFECYCLE-REMOVED",
+    "SERVICE-PROGRAM-REMOVE",
+    "REMOVE",
+    "REMOVE-HOLDER",
+    "REMOVE-PROFILES",
+    "REMOVED-SCRIPT",
+    "REMOVED-NATIVE",
+    "REMOVED-COPY",
+    "VERIFY"
+  ],
+  "hostile_mapping_line": 175,
+  "not_tested": [
+    {
+      "id": "SEALED-FIFO",
+      "reason": "original FIFO setup failed with EROFS; no retry"
+    }
+  ],
+  "original_first_73_repeated": false,
+  "original_prefix_lines": [
+    1,
+    43
+  ],
+  "original_sha256": "70097e1e9ab373d95f081acb0b0d835575a3b9b5c64498397e933800a9bbb119",
+  "original_source": "B2/build/round2-selftest.py",
+  "probe_sha256": "c5dbf0731413097ab45af227b6c89ba78de8a4389842430f597dc08f30402f83",
+  "probe_source": "B2/build/round2-probe.c",
+  "setup_ids": [
+    "FIXTURE-COMPILE",
+    "FIXTURE-LIBRARY",
+    "FIXTURE-HOLDER",
+    "ADMIT"
+  ],
+  "setup_lines": [
+    [
+      45,
+      45
+    ],
+    [
+      49,
+      110
+    ]
+  ],
+  "unchanged_suffix_lines": [
+    178,
+    331
+  ],
+  "unchanged_suffix_sha256": "9ace38b00baeb15a7b959440217e801eb4fb5a6d148ca9ab5218d4ae9a37d5fe",
+  "whole_original_suite_remains_incomplete": true
+}

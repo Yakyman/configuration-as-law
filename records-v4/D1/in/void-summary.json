@@ -1,0 +1,237 @@
+{
+  "machine": "void",
+  "release": "20250202 (rolling-release installation image)",
+  "inventory_obtained": true,
+  "objects": 3282,
+  "kinds": {
+    "L1:access-rule": 38,
+    "L1:account": 10,
+    "L1:docker-container": 1,
+    "L1:docker-image": 1,
+    "L1:driver": 89,
+    "L1:firewall-ipv4": 40,
+    "L1:firewall-ipv6": 29,
+    "L1:group": 39,
+    "L1:module-name": 220,
+    "L1:package": 546,
+    "L1:polkit-action": 33,
+    "L1:port": 4,
+    "L1:process": 127,
+    "L1:runit-service": 15,
+    "L1:saved-network": 6,
+    "L1:saved-network-file": 3,
+    "L1:sudo-access": 13,
+    "L2:code-ownership-unresolved": 21,
+    "L2:image": 15,
+    "L2:image-container-store": 3,
+    "L2:stored-ownership-unresolved": 2029
+  },
+  "levels": {
+    "1": 1214,
+    "2": 2068
+  },
+  "second_level_obtained": true,
+  "package_reasons": {
+    "total": 546,
+    "known": 384,
+    "counts": {
+      "dependency": 359,
+      "explicit": 25,
+      "unknown": 162
+    }
+  },
+  "packaged_file_integrity": {
+    "total": 37931,
+    "known": 37652,
+    "counts": {
+      "unchanged": 35464,
+      "changed": 2180,
+      "unknown": 279,
+      "missing": 8
+    }
+  },
+  "actions": [
+    {
+      "action": "package_program",
+      "exit_status": "0",
+      "elapsed_seconds": "121"
+    },
+    {
+      "action": "application_package",
+      "exit_status": "0",
+      "elapsed_seconds": "45"
+    },
+    {
+      "action": "language_install_node",
+      "exit_status": "0",
+      "elapsed_seconds": "4"
+    },
+    {
+      "action": "language_npm_install",
+      "exit_status": "0",
+      "elapsed_seconds": "2"
+    },
+    {
+      "action": "language_cowsay",
+      "exit_status": "0",
+      "elapsed_seconds": "1"
+    },
+    {
+      "action": "language_program",
+      "exit_status": "0",
+      "elapsed_seconds": "7"
+    },
+    {
+      "action": "browser_extension",
+      "exit_status": "0",
+      "elapsed_seconds": "46"
+    },
+    {
+      "action": "personal_setting",
+      "exit_status": "0",
+      "elapsed_seconds": "8"
+    },
+    {
+      "action": "user_service",
+      "exit_status": "0",
+      "elapsed_seconds": "4"
+    },
+    {
+      "action": "network_connection",
+      "exit_status": "0",
+      "elapsed_seconds": "8"
+    },
+    {
+      "action": "home_script",
+      "exit_status": "0",
+      "elapsed_seconds": "0"
+    },
+    {
+      "action": "container_run",
+      "exit_status": "0",
+      "elapsed_seconds": "14"
+    }
+  ],
+  "deviations": [
+    "Collector invocation deviation: the unchanged collect.sh wrapper was invoked with explicit bash rather than executed directly through its committed /bin/sh shebang. This was an operator wrapper choice with no documented requirement or observed compatibility failure; no rerun was performed."
+  ],
+  "lifecycle": [
+    {
+      "utc": "2026-11-23T11:17:04Z",
+      "operation": "new",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:17:05Z",
+      "operation": "launch",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:17:25Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:17:45Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:18:05Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:18:25Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:18:45Z",
+      "operation": "completion",
+      "exit_status": "255"
+    },
+    {
+      "utc": "2026-11-23T11:19:05Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:19:26Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:19:46Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:20:06Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:20:26Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:20:46Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:21:07Z",
+      "operation": "completion",
+      "exit_status": "1"
+    },
+    {
+      "utc": "2026-11-23T11:21:27Z",
+      "operation": "completion",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:27Z",
+      "operation": "copy-status",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:27Z",
+      "operation": "copy-logs",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:27Z",
+      "operation": "copy-entry-stdout",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:27Z",
+      "operation": "copy-entry-stderr",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:28Z",
+      "operation": "cleanup",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:54Z",
+      "operation": "collector",
+      "exit_status": "0"
+    },
+    {
+      "utc": "2026-11-23T11:21:58Z",
+      "operation": "destroy",
+      "exit_status": "0"
+    }
+  ],
+  "action_status_file": "D1/in/control/void/actions-status.tsv/actions-status.tsv",
+  "action_output_directory": "D1/in/control/void/actions-logs/actions-logs",
+  "raw_copy_verification": {
+    "files": 2306,
+    "all_sha256_match": true,
+    "evidence": "D1/in/control/void/raw-copy-verification.json"
+  }
+}

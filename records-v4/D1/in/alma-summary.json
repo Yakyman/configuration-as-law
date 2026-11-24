@@ -1,0 +1,104 @@
+{
+  "machine": "alma",
+  "release": "10.3",
+  "objects": 6293,
+  "by_kind": {
+    "L1:access-rule": 95,
+    "L1:account": 37,
+    "L1:container": 2,
+    "L1:container-image": 2,
+    "L1:driver": 105,
+    "L1:firewall-chain": 127,
+    "L1:firewall-rule": 206,
+    "L1:firewall-table": 2,
+    "L1:group": 59,
+    "L1:module-name": 193,
+    "L1:package": 1561,
+    "L1:polkit-action": 299,
+    "L1:port": 9,
+    "L1:process": 1280,
+    "L1:saved-network": 4,
+    "L1:saved-network-file": 4,
+    "L1:service": 172,
+    "L1:sudo-access": 9,
+    "L1:timer": 7,
+    "L1:unit-file": 310,
+    "L1:user-service": 13,
+    "L1:user-timer": 2,
+    "L1:user-unit-file": 107,
+    "L2:code-ownership-unresolved": 25,
+    "L2:image": 13,
+    "L2:image-container-store": 3,
+    "L2:stored-ownership-unresolved": 1647
+  },
+  "levels": {
+    "1": 4605,
+    "2": 1688
+  },
+  "second_level_obtained": true,
+  "package_reason": {
+    "known": 1006,
+    "total": 1561
+  },
+  "packaged_file_integrity": {
+    "known": 120520,
+    "total": 121931,
+    "counts": {
+      "unchanged": 120159,
+      "unknown": 1411,
+      "changed": 353,
+      "missing": 8
+    }
+  },
+  "actions": [
+    {
+      "action": "package_program",
+      "exit_status": 0,
+      "elapsed_seconds": 4
+    },
+    {
+      "action": "application_package",
+      "exit_status": 0,
+      "elapsed_seconds": 37
+    },
+    {
+      "action": "language_program",
+      "exit_status": 0,
+      "elapsed_seconds": 6
+    },
+    {
+      "action": "browser_extension",
+      "exit_status": 0,
+      "elapsed_seconds": 15
+    },
+    {
+      "action": "personal_setting",
+      "exit_status": 0,
+      "elapsed_seconds": 1
+    },
+    {
+      "action": "user_service",
+      "exit_status": 0,
+      "elapsed_seconds": 3
+    },
+    {
+      "action": "network_connection",
+      "exit_status": 0,
+      "elapsed_seconds": 0
+    },
+    {
+      "action": "home_script",
+      "exit_status": 0,
+      "elapsed_seconds": 0
+    },
+    {
+      "action": "container_run",
+      "exit_status": 0,
+      "elapsed_seconds": 5
+    }
+  ],
+  "lifecycle_status": "2026-11-23T11:16:36Z\tnew\t0\n2026-11-23T11:16:36Z\tstage\t0\n2026-11-23T11:17:07Z\taction-status-transport\t0\n2026-11-23T11:17:37Z\taction-status-transport\t0\n2026-11-23T11:18:07Z\taction-status-transport\t0\n2026-11-23T11:18:07Z\tcopy-actions\t0\n2026-11-23T11:18:08Z\tcopy-actions\t0\n2026-11-23T11:18:08Z\tcopy-actions\t0\n2026-11-23T11:18:08Z\tstaging-cleanup\t0\n2026-11-23T11:19:33Z\tcollector\t0\n2026-11-23T11:19:36Z\tdestroy\t0\n",
+  "deviations": [
+    "Collector invocation deviation: the unchanged collect.sh wrapper was invoked with explicit bash rather than executed directly through its committed /bin/sh shebang. This was an operator wrapper choice with no documented requirement or observed compatibility failure; no rerun was performed."
+  ]
+}

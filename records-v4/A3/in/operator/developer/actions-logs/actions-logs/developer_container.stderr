@@ -1,0 +1,81 @@
+ https://download.docker.com/linux/fedo 100% |  23.3 KiB/s | 811.0   B |  00m00s
+Updating and loading repositories:
+ Docker CE Stable - x86_64              100% |  71.2 KiB/s |  12.5 KiB |  00m00s
+Repositories loaded.
+Total size of inbound packages is 103 MiB. Need to download 103 MiB.
+After this operation, 387 MiB extra will be used (install 387 MiB, remove 0 B).
+[1/7] docker-ce-cli-1:29.10.0-1.fc45.x8 100% |  20.6 MiB/s |   9.0 MiB |  00m00s
+[2/7] containerd.io-0:2.4.2-4.fc45.x86_ 100% |  41.7 MiB/s |  34.9 MiB |  00m01s
+[3/7] docker-buildx-plugin-0:0.39.1-1.f 100% |  30.5 MiB/s |  18.6 MiB |  00m01s
+[4/7] docker-ce-3:29.10.0-1.fc45.x86_64 100% |  24.1 MiB/s |  26.2 MiB |  00m01s
+[5/7] docker-compose-plugin-0:5.8.0-1.f 100% |  22.1 MiB/s |   8.9 MiB |  00m00s
+[6/7] docker-ce-rootless-extras-0:29.10 100% |  39.1 MiB/s |   5.7 MiB |  00m00s
+[7/7] libcgroup-0:3.0-11.fc45.x86_64    100% | 218.7 KiB/s |  75.0 KiB |  00m00s
+--------------------------------------------------------------------------------
+[7/7] Total                             100% |  45.7 MiB/s | 103.4 MiB |  00m02s
+Running transaction
+[8/8] https://download.docker.com/linux 100% |  48.1 KiB/s |   1.6 KiB |  00m00s
+--------------------------------------------------------------------------------
+[8/8] Total                             100% |  45.7 MiB/s | 103.4 MiB |  00m02s
+Importing OpenPGP key 0x621E9F35:
+ UserID     : "Docker Release (CE rpm) <<REDACTED>>"
+ Fingerprint: 060A61C51B558A7F742B77AAC52FEB6B621E9F35
+ From       : https://download.docker.com/linux/fedora/gpg
+The key was successfully imported.
+[1/9] Verify package files              100% |  28.0   B/s |   7.0   B |  00m00s
+[2/9] Prepare transaction               100% |  43.0   B/s |   7.0   B |  00m00s
+[3/9] Installing libcgroup-0:3.0-11.fc4 100% |  17.3 MiB/s | 159.0 KiB |  00m00s
+[4/9] Installing containerd.io-0:2.4.2- 100% | 487.7 MiB/s | 115.6 MiB |  00m00s
+[5/9] Installing docker-ce-cli-1:29.10. 100% | 165.3 MiB/s |  36.4 MiB |  00m00s
+[6/9] Installing docker-ce-3:29.10.0-1. 100% |  10.2 MiB/s | 110.1 MiB |  00m11s
+[7/9] Installing docker-ce-rootless-ext 100% | 288.1 MiB/s |  20.5 MiB |  00m00s
+[8/9] Installing docker-compose-plugin- 100% | 426.7 MiB/s |  32.9 MiB |  00m00s
+[9/9] Installing docker-buildx-plugin-0 100% |  79.0 MiB/s |  71.8 MiB |  00m01s
+Complete!
+Created symlink '/etc/systemd/system/multi-user.target.wants/docker.service' -> '/usr/lib/systemd/system/docker.service'.
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 241B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/busybox:stable
+#2 DONE 1.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/3] FROM docker.io/library/busybox:stable@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+#4 resolve docker.io/library/busybox:stable@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662 0.1s done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 116B done
+#5 DONE 0.2s
+
+#4 [1/3] FROM docker.io/library/busybox:stable@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+#4 sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8 0B / 2.21MB 0.2s
+#4 sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8 1.05MB / 2.21MB 2.0s
+#4 sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8 2.10MB / 2.21MB 2.4s
+#4 sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8 2.21MB / 2.21MB 2.4s done
+#4 extracting sha256:034d6572bf287fa79604fee9be062f0683809ae3a3685bc7b0e17bd1c48c50e8 0.1s done
+#4 DONE 2.7s
+
+#6 [2/3] WORKDIR /www
+#6 DONE 0.1s
+
+#7 [3/3] COPY index.html /www/index.html
+#7 DONE 0.1s
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 0.2s done
+#8 exporting manifest sha256:cfce66422375e85745c9c24cc3992c27a84f5b13982ac6d342ee23dd24391b83 0.0s done
+#8 exporting config sha256:f55cb7dac708ca1cdaf1c0b17e6010ae5bded2c42c33fcd5a549ebb52dd81bd1 0.0s done
+#8 exporting attestation manifest sha256:347e096f72559bdb19f2b55fbd2c8a286a55acd6e7962fdf1eade2d3dfa1eda2 0.0s done
+#8 exporting manifest list sha256:92f46737584608a97675555995ed284291fd2ef58b073921413c0c63baa2813a 0.0s done
+#8 naming to docker.io/library/cal-development-web:local
+#8 naming to docker.io/library/cal-development-web:local done
+#8 unpacking to docker.io/library/cal-development-web:local 0.1s done
+#8 DONE 0.4s

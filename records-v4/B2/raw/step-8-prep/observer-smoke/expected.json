@@ -1,0 +1,13 @@
+{
+  "expected": "Root stdin collection produces one parseable JSON with independent census, all required rows and explicit errors/limits; no guest helper is installed, no history action is executed.",
+  "kind": "preparation collector integration, not a history or property attempt",
+  "repeat_policy": "One run only; preserve failure and do not change the image.",
+  "source_review": [
+    "cases-8/observe.py",
+    "build/bc4-compare.py",
+    "build/lab.py",
+    "build/bc3_filesystem.py:read"
+  ],
+  "unanswered": "New combined collector has not been run with the final image Python/native readers.",
+  "utc": "2026-11-23T18:24:37Z"
+}

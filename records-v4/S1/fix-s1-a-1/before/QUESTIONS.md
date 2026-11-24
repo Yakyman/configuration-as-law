@@ -1,0 +1,13 @@
+# Author questions from step 1
+
+Recorded 2026-11-23 UTC. These questions identify readings of the fixed text; they are not proposals to change it or requests for a new experiment. The sentence quotations are collected in `S1/ARGUMENT.md`.
+
+1. **What does “unambiguous” require?** In Section 8.4, does it mean that a requirement has one clear meaning, or that it allows only one relevant result? For example, “create this account using the first free identifier” is a clear rule, but different allowed installation orders can give the account different identifiers. Under the first reading that declaration may qualify; under the second it does not. This choice affects the Reproducibility outcome.
+
+2. **Which result must be reproduced?** Does “exactly the result described in it” in Section 8.4 mean that the stated requirements hold again, or that all covered configuration values are identical, including values the lines leave to installation? Appendix A.4.4 compares numeric account identifiers and file checksums in addition to stated values. Are those additional fields necessarily determined by every qualifying description, or can a description clearly permit more than one value? This choice also affects Reproducibility; the argument does not change the published comparison procedure.
+
+3. **What happens to unchanged non-code package contents when the package is gone?** In S8.2-7, does “such a package” require the package to be installed now, or does historical receipt from that package suffice? The first reading sends a surviving file through the later questions; the second can keep it installed. This affects classification of a remnant, not the proof that a currently installed object or setting cannot remain in force without coverage. No actual remnant's missing provenance is supplied by either reading.
+
+4. **Does voluntary recording change the removal scope for material and program records?** S8.2-19 permits recording them and P2 speaks of everything recorded. Section 8.5 leaves their storage, transfer and removal outside the definition. Does that boundary continue to apply when such an object has been voluntarily recorded, or is “nothing the line contributed” in Section 8.4 intended to extend to it? The argument retains the explicit boundary and the in-force criteria of S8.1-9–11; it establishes no broader erasure claim and uses no retained document as a counterexample.
+
+The first two questions prevent a definite Reproducibility result under `SUP1/step-1.md`. The last two expose boundaries without defeating the P1 implication for installed objects and settings. Understanding's pair uses expressly chosen accounts and their installation-created defaults; it does not depend on resolving those boundary questions.

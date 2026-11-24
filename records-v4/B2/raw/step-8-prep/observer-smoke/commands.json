@@ -1,0 +1,52 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "new",
+      "prep-s8-observer",
+      "stand"
+    ],
+    "command": "create",
+    "ended_utc": "2026-11-23T18:25:16Z",
+    "exit": 0,
+    "started_utc": "2026-11-23T18:24:37Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "run",
+      "prep-s8-observer",
+      "--root"
+    ],
+    "command": "collector",
+    "ended_utc": "2026-11-23T18:27:09Z",
+    "exit": 0,
+    "started_utc": "2026-11-23T18:25:16Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "stop",
+      "prep-s8-observer"
+    ],
+    "command": "stop",
+    "ended_utc": "2026-11-23T18:27:13Z",
+    "exit": 0,
+    "started_utc": "2026-11-23T18:27:09Z"
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "<stand-root>/lab.py",
+      "destroy",
+      "prep-s8-observer"
+    ],
+    "command": "destroy",
+    "ended_utc": "2026-11-23T18:27:13Z",
+    "exit": 0,
+    "started_utc": "2026-11-23T18:27:13Z"
+  }
+]

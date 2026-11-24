@@ -1,0 +1,218 @@
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+ACTION_BEGIN h2.1.fetch
+FETCH_VERIFIED 1231 cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34
+ACTION_DONE h2.1.fetch
+ACTION_BEGIN h2.1.original.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=False", "version": "1-original"}
+SUCCESS 97ac7a682285dbf41c2230d42c06bc127d1372941668832cc9009e134243d894
+BUILT INERT /home/stand/h2-hello.built sha256:0936f6afcc9a1ca6971413ec01e749d91244f1d42ff3d8b8163506ff6a9ab959
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS cc053414c2ccf93e3a67fd03ac530af966183f5d45d6e56e4a71b1e0b5191003
+ACTION_DONE h2.1.original.build
+ACTION_BEGIN h2.1.original.run
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 1 original 807
+ACTION_DONE h2.1.original.run
+ACTION_BEGIN h2.1.edit
+ONE_SOURCE_LINE_CHANGED 1
+ACTION_DONE h2.1.edit
+ACTION_BEGIN h2.1.edited.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "dc33252ebb4d05deeb7ceda878f924af50c155c9f7f1ba5f46c526850a6ac556", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=True", "version": "1-edited"}
+SUCCESS 9a4f46652f52354f44e7c281635997d6df617a3736561d42415e7976f72e4be0
+BUILT INERT /home/stand/h2-hello.built sha256:8f823fd05d14bc6e0e3e15b29fb625e4c7e5c5639855ea63597f2e5840592732
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS 0fe0d691e2eb834e0d4e79b5c275abfd21d6304e9d6bafaf549390678bf90735
+ACTION_DONE h2.1.edited.build
+ACTION_BEGIN h2.1.edited.run
+
+Hello from step 8 development round 1!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 1 edited 827
+ACTION_DONE h2.1.edited.run
+ACTION_BEGIN h2.2.fetch
+FETCH_VERIFIED 1231 cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34
+ACTION_DONE h2.2.fetch
+ACTION_BEGIN h2.2.original.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=False", "version": "2-original"}
+SUCCESS 5c495066f995396261813b763311176d47532cdbe86a5b5d8921dd126a880c47
+BUILT INERT /home/stand/h2-hello.built sha256:0936f6afcc9a1ca6971413ec01e749d91244f1d42ff3d8b8163506ff6a9ab959
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS b9fc2c652912a2a3ad855d126439b2a395b5beffb8ab372b486e158a359d7870
+ACTION_DONE h2.2.original.build
+ACTION_BEGIN h2.2.original.run
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 2 original 807
+ACTION_DONE h2.2.original.run
+ACTION_BEGIN h2.2.edit
+ONE_SOURCE_LINE_CHANGED 2
+ACTION_DONE h2.2.edit
+ACTION_BEGIN h2.2.edited.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "7355078184b618f88d6b99c4322d44da790befd1964e6e1286129b5edd13ec75", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=True", "version": "2-edited"}
+SUCCESS a21b483bed356af832e542c827030250d00243edad43df1e6efba6f830221ac2
+BUILT INERT /home/stand/h2-hello.built sha256:de6a74450f9fca6914730f21135c5a68bcd069f8352766549f8b9b9c740f2881
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS fe734d25fccbf43c480cf5f4f22095c2af6835f130e8cf45f34694694b28fc2b
+ACTION_DONE h2.2.edited.build
+ACTION_BEGIN h2.2.edited.run
+
+Hello from step 8 development round 2!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 2 edited 827
+ACTION_DONE h2.2.edited.run
+ACTION_BEGIN h2.3.fetch
+FETCH_VERIFIED 1231 cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34
+ACTION_DONE h2.3.fetch
+ACTION_BEGIN h2.3.original.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "cb95a0ed950c272471e7eb2a6b4261d857174bc3750874f538ac60e20af16d34", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=False", "version": "3-original"}
+SUCCESS dcec392e2a0dba07ed8bfb7ae70e39c8430086118763f62ae2367726ef8440d7
+BUILT INERT /home/stand/h2-hello.built sha256:0936f6afcc9a1ca6971413ec01e749d91244f1d42ff3d8b8163506ff6a9ab959
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS 14483886a31ef5634b43ce2eab8386308cdbc1880c1440bea7475b5ab4edad28
+ACTION_DONE h2.3.original.build
+ACTION_BEGIN h2.3.original.run
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 3 original 807
+ACTION_DONE h2.3.original.run
+ACTION_BEGIN h2.3.edit
+ONE_SOURCE_LINE_CHANGED 3
+ACTION_DONE h2.3.edit
+ACTION_BEGIN h2.3.edited.build
+{"id": "h2-hello", "path": "/home/stand/step8-h2/hello.c", "sha256": "22fdc70564a8f34c8eb86658c6ed3af162ad89a12721f03893c56f24c1b96233", "source": "https://github.com/docker-library/hello-world/tree/522bcd2faf422c60b9d20e64d7cd6d56600aec97; local one-line edit=True", "version": "3-edited"}
+SUCCESS cebb53f3ad2184b0fce98ea5e6a40e7065dd206a356b3dcbaf7f4aa7a8967c2f
+BUILT INERT /home/stand/h2-hello.built sha256:89b89dae4a435bc98e4fcda979efb0e112f3adb0edc28f11299597cd356f5e6e
+IMPORT_SPEC /home/stand/h2-hello.built.json
+SUCCESS cf6065f6f068affa53f98b5beae62dd79db12e97f4df918fd92955dffc25039c
+ACTION_DONE h2.3.edited.build
+ACTION_BEGIN h2.3.edited.run
+
+Hello from step 8 development round 3!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+OUTPUT_VERIFIED 3 edited 827
+ACTION_DONE h2.3.edited.run
+H2_COMMANDS_COMPLETE

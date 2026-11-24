@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "run",
+    "bc4-prepare-both-owners",
+    "--root"
+  ],
+  "stdin": "set -eu\npython3 -B - <<'PY'\nimport pathlib,json,shutil\nsource=pathlib.Path('/var/lib/stand/current')\ntarget=pathlib.Path('/var/lib/stand/bc4-construction-candidate')\ntarget.mkdir(exist_ok=True)\nfor p in source.iterdir():shutil.copyfile(p,target/p.name)\nremoved=['bc4:owner-a']\nlines=(source/'machine.jsonl').read_text().splitlines(keepends=True)\nassert {json.loads(s)['id'] for s in lines}.issuperset(removed)\n(target/'machine.jsonl').write_text(''.join(s for s in lines if json.loads(s)['id'] not in removed))\nPY\nstand-apply /var/lib/stand/bc4-construction-candidate\npython3 -B /usr/local/lib/stand/bc4_bundle.py export /var/lib/stand/bc4-one\n"
+}

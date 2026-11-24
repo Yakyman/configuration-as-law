@@ -1,0 +1,160 @@
+{
+ "case": "14",
+ "steps": [
+  {
+   "phase": "fixture_result",
+   "path": "/tmp/v4-extra-7z89hz2f/machine.bytes",
+   "passed": true,
+   "rc": 0,
+   "stdout": "",
+   "stderr": "",
+   "error": null,
+   "results": null
+  },
+  {
+   "role": "attempt",
+   "command": "cd /tmp/v4-extra-7z89hz2f && python3 -B -c 'import ctypes,mmap\nb=open('\"'\"'/tmp/v4-extra-7z89hz2f/machine.bytes'\"'\"',\"rb\").read()\nm=mmap.mmap(-1,4096,prot=mmap.PROT_READ|mmap.PROT_WRITE|mmap.PROT_EXEC)\nm.write(b)\nf=ctypes.CFUNCTYPE(ctypes.c_int)(ctypes.addressof(ctypes.c_char.from_buffer(m)))\nprint(\"JIT_SAVED_INPUT_EXECUTED\",f())\n'",
+   "rc": 0,
+   "stdout": "JIT_SAVED_INPUT_EXECUTED 42\n",
+   "stderr": "",
+   "before_snapshot": "4e52d74cab233aa4411e5a83af7dbc3b775f26a4e25d80a0eafc6a4c1c2fb8a7.json",
+   "after_snapshot": "4e52d74cab233aa4411e5a83af7dbc3b775f26a4e25d80a0eafc6a4c1c2fb8a7.json",
+   "controller_flags": {
+    "marker_observed": true,
+    "refused": false,
+    "recorded": true,
+    "inline_write_verified": true,
+    "passed": null,
+    "permitted": null,
+    "attempt_closed": null
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/machine.bytes": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/machine.bytes": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "role": "permitted",
+   "command": "cd /tmp/v4-extra-7z89hz2f && python3 -B -c 'import ctypes,mmap\nb=open('\"'\"'/tmp/v4-extra-7z89hz2f/machine.bytes'\"'\"',\"rb\").read()\nm=mmap.mmap(-1,4096,prot=mmap.PROT_READ|mmap.PROT_WRITE|mmap.PROT_EXEC)\nm.write(b)\nf=ctypes.CFUNCTYPE(ctypes.c_int)(ctypes.addressof(ctypes.c_char.from_buffer(m)))\nprint(\"JIT_SAVED_INPUT_EXECUTED\",f())\n'",
+   "rc": 0,
+   "stdout": "JIT_SAVED_INPUT_EXECUTED 42\n",
+   "stderr": "",
+   "before_snapshot": "4e52d74cab233aa4411e5a83af7dbc3b775f26a4e25d80a0eafc6a4c1c2fb8a7.json",
+   "after_snapshot": "4e52d74cab233aa4411e5a83af7dbc3b775f26a4e25d80a0eafc6a4c1c2fb8a7.json",
+   "controller_flags": {
+    "marker_observed": null,
+    "refused": null,
+    "recorded": null,
+    "inline_write_verified": true,
+    "passed": true,
+    "permitted": true,
+    "attempt_closed": true
+   },
+   "diff": {
+    "primary": {
+     "sha256": [
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a",
+      "ac7a53fb666fe6a3d7a53dec08e381ca36f385ec979fa54905c986da57d7285a"
+     ],
+     "unchanged": true,
+     "rows_added": [],
+     "rows_removed": [],
+     "report": [
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      },
+      {
+       "declaration": "a5c897526800578ececfad9693e1385715deb224119fb1067205f0469b04e0e7",
+       "status": "SUCCESS",
+       "terminated": [],
+       "time_utc": "2026-11-23T15:08:07Z"
+      }
+     ]
+    }
+   },
+   "audit": [],
+   "coverage_before": {
+    "/tmp/v4-extra-7z89hz2f/machine.bytes": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   },
+   "coverage_after": {
+    "/tmp/v4-extra-7z89hz2f/machine.bytes": {
+     "declaration": "tmp",
+     "generation": 67,
+     "inode": "71",
+     "sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+     "mode": "0o100600",
+     "uid": 1000,
+     "covered": true
+    }
+   }
+  },
+  {
+   "phase": "summary",
+   "path": null,
+   "passed": true,
+   "rc": null,
+   "stdout": null,
+   "stderr": null,
+   "error": null,
+   "results": {
+    "JIT-SAVED-INPUT": true
+   }
+  }
+ ],
+ "problems": []
+}

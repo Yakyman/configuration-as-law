@@ -1,0 +1,1 @@
+talosctl netstat --all

@@ -1,0 +1,124 @@
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:47Z",
+        "id": "loop0",
+        "namespace": "runtime",
+        "owner": "block.DisksController",
+        "phase": "running",
+        "type": "Disks.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "bus_path": "/virtual",
+        "cdrom": false,
+        "dev_path": "/dev/loop0",
+        "io_size": 512,
+        "pretty_size": "4.1 kB",
+        "readonly": true,
+        "sector_size": 512,
+        "size": 4096,
+        "sub_system": "/sys/class/block",
+        "symlinks": [
+            "/dev/disk/by-diskseq/9",
+            "/dev/disk/by-loop-inode/0:2-7",
+            "/dev/disk/by-loop-ref/0.sqsh"
+        ]
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:47Z",
+        "id": "loop1",
+        "namespace": "runtime",
+        "owner": "block.DisksController",
+        "phase": "running",
+        "type": "Disks.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "bus_path": "/virtual",
+        "cdrom": false,
+        "dev_path": "/dev/loop1",
+        "io_size": 512,
+        "pretty_size": "94 MB",
+        "readonly": true,
+        "sector_size": 512,
+        "size": 94404608,
+        "sub_system": "/sys/class/block",
+        "symlinks": [
+            "/dev/disk/by-diskseq/10",
+            "/dev/disk/by-loop-inode/0:2-6",
+            "/dev/disk/by-loop-ref/\\x2frootfs.sqsh"
+        ]
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:47Z",
+        "id": "sr0",
+        "namespace": "runtime",
+        "owner": "block.DisksController",
+        "phase": "running",
+        "type": "Disks.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 2
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "bus_path": "/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0",
+        "cdrom": true,
+        "dev_path": "/dev/sr0",
+        "io_size": 512,
+        "modalias": "scsi:t-0x05",
+        "model": "QEMU DVD-ROM",
+        "pretty_size": "0 B",
+        "readonly": true,
+        "sector_size": 512,
+        "serial": "QEMU_DVD-ROM_QM00003",
+        "size": 0,
+        "sub_system": "/sys/class/block",
+        "symlinks": [
+            "/dev/disk/by-diskseq/12",
+            "/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00003",
+            "/dev/disk/by-path/pci-0000:00:01.1-ata-2",
+            "/dev/disk/by-path/pci-0000:00:01.1-ata-2.0"
+        ],
+        "transport": "ata"
+    }
+}
+{
+    "metadata": {
+        "created": "2026-11-23T16:19:48Z",
+        "id": "vda",
+        "namespace": "runtime",
+        "owner": "block.DisksController",
+        "phase": "running",
+        "type": "Disks.block.talos.dev",
+        "updated": "2026-11-23T16:19:48Z",
+        "version": 1
+    },
+    "node": "10.0.2.15",
+    "spec": {
+        "bus_path": "/pci0000:00/0000:00:05.0/virtio2",
+        "cdrom": false,
+        "dev_path": "/dev/vda",
+        "io_size": 512,
+        "modalias": "virtio:d00000002v00001AF4",
+        "pretty_size": "34 GB",
+        "readonly": false,
+        "rotational": true,
+        "sector_size": 512,
+        "size": 34359738368,
+        "sub_system": "/sys/class/block",
+        "symlinks": [
+            "/dev/disk/by-diskseq/13",
+            "/dev/disk/by-path/pci-0000:00:05.0",
+            "/dev/disk/by-path/virtio-pci-0000:00:05.0"
+        ],
+        "transport": "virtio"
+    }
+}

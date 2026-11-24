@@ -1,0 +1,8 @@
+{
+  "argv": [
+    "run",
+    "bc4-prepare-both-owners",
+    "--root"
+  ],
+  "stdin": "set -eu\nstand-pkg install /usr/local/share/stand/bc4/removal/bc4-owner-a.json\nstand-pkg install /usr/local/share/stand/bc4/removal/bc4-owner-b.json\nstand-verify\npython3 -B /usr/local/lib/stand/bc4_bundle.py export /var/lib/stand/bc4-export\n"
+}

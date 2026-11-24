@@ -1,0 +1,86 @@
+{
+  "query_exit": 0,
+  "records": 3085,
+  "invalid_records": 0,
+  "units": {
+    "dbus-org.freedesktop.nm-dispatcher.service": {
+      "message_hits": 0,
+      "enablement_message_candidates": 0
+    },
+    "jeos-firstboot.service": {
+      "message_hits": 0,
+      "enablement_message_candidates": 0
+    },
+    "network.service": {
+      "message_hits": 0,
+      "enablement_message_candidates": 0
+    },
+    "NetworkManager-dispatcher.service": {
+      "message_hits": 1,
+      "enablement_message_candidates": 0
+    },
+    "NetworkManager-wait-online.service": {
+      "message_hits": 0,
+      "enablement_message_candidates": 0
+    },
+    "NetworkManager.service": {
+      "message_hits": 1,
+      "enablement_message_candidates": 0
+    },
+    "mdcheck_continue.timer": {
+      "message_hits": 0,
+      "enablement_message_candidates": 0
+    }
+  },
+  "facts": {
+    "M03": {
+      "message_hits": 114,
+      "audit_denials": 0,
+      "audit_success_yes": 0,
+      "explicit_command_fields": 0,
+      "sender_uid_present": 24,
+      "executable_basenames": [
+        "NetworkManager",
+        "auditd",
+        "systemd",
+        "systemd-journald",
+        "unknown"
+      ],
+      "event_creation_terms": 6
+    },
+    "M05": {
+      "message_hits": 2,
+      "audit_denials": 0,
+      "audit_success_yes": 0,
+      "explicit_command_fields": 0,
+      "sender_uid_present": 2,
+      "executable_basenames": [
+        "transactional-update-sync-etc-state"
+      ],
+      "event_creation_terms": 2
+    },
+    "M11": {
+      "message_hits": 2,
+      "audit_denials": 0,
+      "audit_success_yes": 0,
+      "explicit_command_fields": 0,
+      "sender_uid_present": 2,
+      "executable_basenames": [
+        "unknown"
+      ],
+      "event_creation_terms": 0
+    },
+    "M14": {
+      "message_hits": 5,
+      "audit_denials": 0,
+      "audit_success_yes": 0,
+      "explicit_command_fields": 0,
+      "sender_uid_present": 1,
+      "executable_basenames": [
+        "systemd",
+        "unknown"
+      ],
+      "event_creation_terms": 0
+    }
+  }
+}

@@ -1,0 +1,26 @@
+Retrieved 2026-11-23 UTC
+URL https://raw.githubusercontent.com/shadow-maint/shadow/4.13/man/usermod.8.xml
+<refsect1 id='description'>
+    <title>DESCRIPTION</title>
+    <para>
+      The <command>usermod</command> command modifies the system account
+      files.
+    </para>
+  </refsect1>
+
+  <option>-G</option>, <option>--groups</option>&nbsp;<replaceable>GROUP1</replaceable>[<emphasis remap='I'>,GROUP2,...</emphasis>[<emphasis remap='I'>,GROUPN</emphasis>]]]
+	</term>
+	<listitem>
+	  <para>
+	    A list of supplementary groups which the user is also a member
+	    of. Each group is separated from the next by a comma, with no
+	    intervening whitespace. The groups must exist.
+	  </para>
+	  <para>
+	    If the user is currently a member of a group which is
+	    not listed, the user will be removed from the group. This
+	    behaviour can be changed via the <option>-a</option> option, which
+	    appends the user to the current supplementary group list.
+	  </para>
+	</listitem>
+      </varlistentry>

@@ -1,0 +1,1600 @@
+{
+  "historical_closed": 78,
+  "historical_not_closed": 10,
+  "v4_validated": 0,
+  "variants": [
+    {
+      "id": "C1.1",
+      "name": "Repository install, upgrade, downgrade, reinstall and remove through CLI",
+      "previous": "NOT CLOSED",
+      "previous_reason": "Historical R02/R11 disposition: original repository backend mutations refuse; pinned declaration program install/update/remove works. U05 now supplies the repository-install and base-update positive paths required for ordinary work. This complete variant was not reassessed in BC4 and retains its preceding disposition. [Evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Supported installer operations must positively write and apply declaration changes under ordinary and full superuser invocation; refusal of unavailable options alone is insufficient. Package/dependency contents include non-code installed objects.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C1.2",
+      "name": "Direct low-level manager or library/API/GUI frontend bypassing CLI wrapper",
+      "previous": "CLOSED",
+      "previous_reason": "R01–R03: root-only original package executables, helper/module/library trees, protected system databases and declaration-only sudo. Direct backend, copy, Python apt, native apt library and sudo bypasses refuse. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Supported installer operations must positively write and apply declaration changes under ordinary and full superuser invocation; refusal of unavailable options alone is insufficient. Package/dependency contents include non-code installed objects.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C1.3",
+      "name": "Alternate root, alternate database, package extraction into writable directory",
+      "previous": "NOT CLOSED",
+      "previous_reason": "R02/R13: original --root/--admindir/extraction refuse, caches are private and retained native copies fail direct/loader execution. Arbitrary extraction followed by interpreter reads or another executable-memory route is not controlled by this mechanism. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Distinguish an installer-created installed package in an alternate root/database from inert downloaded material. Nonstartability alone does not establish that installed package contents are absent; inspect provenance and interpreter activation.",
+      "sentences": "S8.1-6, S8.1-9, S8.2-6, S8.2-7, S8.2-8, S8.2-15",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-6",
+        "S8.1-9",
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-15"
+      ]
+    },
+    {
+      "id": "C1.4",
+      "name": "Maintainer scripts, triggers, hooks and post-install service activation",
+      "previous": "CLOSED",
+      "previous_reason": "R02/R09: original installers cannot run caller hooks; arbitrary declared service hooks/root execution refuse admission. Valid local package postinst and apt hook/config attempts fail with no marker. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Supported installer operations must positively write and apply declaration changes under ordinary and full superuser invocation; refusal of unavailable options alone is insufficient. Package/dependency contents include non-code installed objects.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C1.5",
+      "name": "Hook disable/config override, backend flag or environment bypass",
+      "previous": "CLOSED",
+      "previous_reason": "R02/R03: mandatory backend DAC and fixed broker environment survive configuration and environment overrides; isolated Python ignores caller module/bus variables, sudo refuses environment preservation/assignment. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Supported installer operations must positively write and apply declaration changes under ordinary and full superuser invocation; refusal of unavailable options alone is insufficient. Package/dependency contents include non-code installed objects.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C1.6",
+      "name": "Old generations, package cache copies, rollback paths after removal",
+      "previous": "CLOSED",
+      "previous_reason": "T04/T05: active declaration membership generates launch entries and immutable input-root copies. Removal deletes the original and generated snapshot and revokes living holders; retained home/cache copies and earlier-generation entry routes refuse. Earlier direct-entry, loader and interpreter boundary regressions still pass. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Remove all uncovered installed package contributions, including non-code objects; a retained archive must be established as material rather than assumed exempt merely because launch is denied.",
+      "sentences": "S8.1-9, S8.2-7, S8.2-8, S8.2-15, S8.2-16; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-15",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C2.1",
+      "name": "pip system, --user, virtualenv, --target/--prefix installs",
+      "previous": "CLOSED",
+      "previous_reason": "U01: exact pip lock, archives, dependencies and entry become an immutable broker-owned project; system/user/virtualenv/target/prefix shortcuts and raw interpreter input refuse. Positive install/run, overwrite and removal assertions pass. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recheck positive package installation through shell-accessible built-in frontends at both authorities; record the whole installed package/dependency closure, including non-code contents and installation defaults. Mutable links/hooks remain subject to resulting object coverage.",
+      "sentences": "S8.1-4, S8.2-7, S8.2-8, S8.2-16, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C2.2",
+      "name": "npm local, global, prefix/workspace installs and executable links",
+      "previous": "CLOSED",
+      "previous_reason": "U01: exact npm lock and complete dependency archive closure become an immutable project; global/prefix/workspace/link forms and caller-selected runtime input refuse. Positive ordinary/root installation and launch pass. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recheck positive package installation through shell-accessible built-in frontends at both authorities; record the whole installed package/dependency closure, including non-code contents and installation defaults. Mutable links/hooks remain subject to resulting object coverage.",
+      "sentences": "S8.1-4, S8.2-7, S8.2-8, S8.2-16, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C2.3",
+      "name": "Local archives, VCS URLs and package indexes selected by flags",
+      "previous": "CLOSED",
+      "previous_reason": "U01: locked archive sources are explicit required bytes; direct local archives, VCS URLs and alternate pip indexes/npm registries refuse under both frontend authorities. Hash/dependency tampering refuses. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recheck positive package installation through shell-accessible built-in frontends at both authorities; record the whole installed package/dependency closure, including non-code contents and installation defaults. Mutable links/hooks remain subject to resulting object coverage.",
+      "sentences": "S8.1-4, S8.2-7, S8.2-8, S8.2-16, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C2.4",
+      "name": "Editable pip installs, npm links, mutable source and dependency replacement",
+      "previous": "CLOSED",
+      "previous_reason": "U01: admitted package files are root-owned and included in the immutable code root; editable/link/source replacement forms, writes, copied entries and removed entries refuse. Exact reinstall remains usable. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recheck positive package installation through shell-accessible built-in frontends at both authorities; record the whole installed package/dependency closure, including non-code contents and installation defaults. Mutable links/hooks remain subject to resulting object coverage.",
+      "sentences": "S8.1-4, S8.2-7, S8.2-8, S8.2-16, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C2.5",
+      "name": "Build backend, lifecycle script, npm run/start/test and dependency hook execution",
+      "previous": "CLOSED",
+      "previous_reason": "U01: source build backends and lifecycle commands are not implicit authority. Backend archives and wheel .pth inputs refuse; an exact inert npm lifecycle archive never runs its marker. Only fixed recorded entries execute. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recheck positive package installation through shell-accessible built-in frontends at both authorities; record the whole installed package/dependency closure, including non-code contents and installation defaults. Mutable links/hooks remain subject to resulting object coverage.",
+      "sentences": "S8.1-4, S8.2-7, S8.2-8, S8.2-16, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-16",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C2.6",
+      "name": "Native extensions and admitted module/.pth inputs; custom evaluator behavior in C7.08",
+      "previous": "CLOSED",
+      "previous_reason": "U01: a pinned native wheel loads its recorded extension from the managed prefix and returns NATIVE_POSITIVE abc; removal withdraws it. Mutable home libraries and .pth inputs refuse under the shared immutable code and mapping boundary. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Determine package or derived-source coverage before demanding a separate native/module/cache line; preserve recorded native-extension execution and prevent uncovered code activation.",
+      "sentences": "S8.2-6, S8.2-7, S8.2-9, S8.2-16",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-9",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C3.1",
+      "name": "Flatpak system install/update and graphical or D-Bus frontend",
+      "previous": "CLOSED",
+      "previous_reason": "U02: pinned genuine app/runtime OSTree commits import through ordinary/root broker paths. Public native frontends resolve to the broker; both privileged helper paths are absent and its unit is masked. System/update/D-Bus activation attempts refuse. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Application installer operations, including privileged calls and permission changes, must write/apply the declaration; record app/runtime packages and defaults, not just executable entries.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C3.2",
+      "name": "Flatpak --user install, extra installation roots/remotes, local bundles",
+      "previous": "CLOSED",
+      "previous_reason": "U02: the importer requires exact artifact, commits, entry and permission values; immutable application roots admit only the recorded native entry. User/extra-root/remote/bundle shortcuts refuse with declaration unchanged. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Application installer operations, including privileged calls and permission changes, must write/apply the declaration; record app/runtime packages and defaults, not just executable entries.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C3.3",
+      "name": "Flatpak runtime/extension updates, override permissions, alternate commands and development mode",
+      "previous": "CLOSED",
+      "previous_reason": "U02: runtime commits and denied permissions are explicit requirements. Runtime/extension updates, overrides, alternate commands and development options refuse under ordinary/root interfaces; the recorded entry still runs. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Application installer operations, including privileged calls and permission changes, must write/apply the declaration; record app/runtime packages and defaults, not just executable entries.",
+      "sentences": "S8.1-4, S8.1-7, S8.2-7, S8.2-8, S8.2-17, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-4",
+        "S8.1-7",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-17",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C3.4",
+      "name": "AppImage directly executed and self-mounted via FUSE",
+      "previous": "CLOSED",
+      "previous_reason": "U03: exact genuine Type-2 AppImage and runtime hashes import into an immutable application root. The present downloaded image and FUSE self-mount routes cannot launch; the declared extracted entry runs. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Separate downloaded inert material from an installed application package and its retained contents; shell commands are not violations, while saved executable or updater-produced installed state requires coverage.",
+      "sentences": "S8.1-6, S8.2-4, S8.2-7, S8.2-15, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-6",
+        "S8.2-4",
+        "S8.2-7",
+        "S8.2-15",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C3.5",
+      "name": "AppImage extracted/mounted externally, AppDir launch or self-update",
+      "previous": "CLOSED",
+      "previous_reason": "U03: unrecorded extracted AppDir entry and self-update requests refuse; only the fixed imported native entry runs. Removing its row makes the former entry refuse. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Separate downloaded inert material from an installed application package and its retained contents; shell commands are not violations, while saved executable or updater-produced installed state requires coverage.",
+      "sentences": "S8.1-6, S8.2-4, S8.2-7, S8.2-15, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-6",
+        "S8.2-4",
+        "S8.2-7",
+        "S8.2-15",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C4.1",
+      "name": "Download a native executable and chmod/run it",
+      "previous": "CLOSED",
+      "previous_reason": "Q03/Q11/Q12: exact declared launch/map authority; downloaded-path ELF refuses. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saving then executing unrecorded file code remains the boundary. Repeat native/extracted/renamed file cases from a working command shell rather than count command-parser refusal.",
+      "sentences": "S8.2-9, S8.2-10, S8.3-4, S8.3-6; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.3-4",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C4.2",
+      "name": "Download and extract archive, including nested archives and renamed files",
+      "previous": "CLOSED",
+      "previous_reason": "Q03/Q05–Q08: extracted/renamed artifacts gain no launch or interpreter-read authority. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saving then executing unrecorded file code remains the boundary. Repeat native/extracted/renamed file cases from a working command shell rather than count command-parser refusal.",
+      "sentences": "S8.2-9, S8.2-10, S8.3-4, S8.3-6; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.3-4",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C4.3",
+      "name": "Download by browser, curl, copier, sync client or application self-updater",
+      "previous": "CLOSED",
+      "previous_reason": "Q03/Q11/Q12: portable/native contents require declared immutable executable mappings; alternate mounts/namespaces cannot grant them. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A download can remain material; code activated from a saved file must be covered. A general program with an installer is declaration-writing in that part, including self-update when its documented role qualifies.",
+      "sentences": "S8.1-5, S8.1-8, S8.2-15, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.1-8",
+        "S8.2-15",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C4.4",
+      "name": "Downloaded script or library passed to existing interpreter/loader",
+      "previous": "CLOSED",
+      "previous_reason": "Q05–Q08: recorded interpreters receive only declared scripts and immutable input closure. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "A saved script/library executed through another program still requires coverage; permit ordinary shell use and the declared own-script positive case while testing the saved-file route.",
+      "sentences": "S8.2-9, S8.2-10, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C4.5",
+      "name": "Stream download directly into interpreter or process substitution",
+      "previous": "CLOSED",
+      "previous_reason": "Q06/Q14: piped/redirected/typed shell code refuses; sealed stdin is null. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Execute the separate unsaved download case and reboot; inspect that nothing executed is in force afterward, including saved files, jobs, autostarts and settings. Null stdin or refusal of all free commands is not this case.",
+      "sentences": "S8.2-4, S8.2-5; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-5"
+      ]
+    },
+    {
+      "id": "C5.1",
+      "name": "Compile/link native program in home, then execute output",
+      "previous": "CLOSED",
+      "previous_reason": "Q01/Q03: build output is inert until a checksum-bearing line is applied; recorded execution succeeds. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A system-built result may be covered by the recorded source/build line; do not require a distinct output line as a definition. Verify exact coverage before generated output or plugins can execute.",
+      "sentences": "S8.2-9, S8.2-16; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C5.2",
+      "name": "Build-system commands, configure probes, generators and test binaries",
+      "previous": "CLOSED",
+      "previous_reason": "Q04/Q09: configure, generator and make entrypoints refuse; admitted code cannot execute unrecorded output. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A system-built result may be covered by the recorded source/build line; do not require a distinct output line as a definition. Verify exact coverage before generated output or plugins can execute.",
+      "sentences": "S8.2-9, S8.2-16; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C5.3",
+      "name": "Install target copying to user prefix, changing PATH or creating symlinks",
+      "previous": "CLOSED",
+      "previous_reason": "Q03: prefix path, renamed output and symlink do not grant authority. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A typed install command is an action; classify its saved files, links and settings. When documented installation functionality is built-in, it must record/apply the change at both authorities.",
+      "sentences": "S8.1-5, S8.1-8, S8.2-4, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.1-8",
+        "S8.2-4",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C5.4",
+      "name": "Rebuild/replace an already recorded binary or library in place",
+      "previous": "CLOSED",
+      "previous_reason": "Q04/Q26: ordinary overwrite refuses; declared byte replacement stops holders and restarts the candidate. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Ordinary replacement of required recorded bytes still needs declaration application; direct superuser file mutation outside built-in tools is separately breaking.",
+      "sentences": "S8.1-15, S8.1-16, S8.3-5, S8.3-6",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-15",
+        "S8.1-16",
+        "S8.3-5",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C5.5",
+      "name": "Compilers embedding plugins or build processes loading generated code",
+      "previous": "CLOSED",
+      "previous_reason": "Q04/Q07/Q11: compiler plugin interfaces refuse; sealed code cannot acquire unrecorded modules or native mappings. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A system-built result may be covered by the recorded source/build line; do not require a distinct output line as a definition. Verify exact coverage before generated output or plugins can execute.",
+      "sentences": "S8.2-9, S8.2-16; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C6.1",
+      "name": "Persistent user units and drop-ins, aliases, template instances and symlinks",
+      "previous": "CLOSED",
+      "previous_reason": "R05/R06: supplied user manager is root-only and user@.service masked. Written units, drop-ins, templates and aliases are not honoured; private/user-manager and enable/start bypasses refuse. Declared jobs use protected system units whose setup drops to UID/GID 1000 before the workload. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Registration or modification of jobs/settings is the channel, not command text. Demonstrate supported service/scheduler frontend writes and applies the declaration under ordinary and full superuser invocation.",
+      "sentences": "S8.1-7, S8.2-4, S8.2-13, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-7",
+        "S8.2-4",
+        "S8.2-13",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C6.2",
+      "name": "Direct manager API/CLI start, enable, reload, set-property or link",
+      "previous": "CLOSED",
+      "previous_reason": "R05: original CLI unavailable, system-manager D-Bus calls denied by sender policy/polkit; start, enable, reload, link and set-property tested both directly and through granted sudo. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Registration or modification of jobs/settings is the channel, not command text. Demonstrate supported service/scheduler frontend writes and applies the declaration under ordinary and full superuser invocation.",
+      "sentences": "S8.1-7, S8.2-4, S8.2-13, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-7",
+        "S8.2-4",
+        "S8.2-13",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C6.3",
+      "name": "Transient service/scope/timer/path/socket created through systemd-run or D-Bus",
+      "previous": "CLOSED",
+      "previous_reason": "R05/R06: original systemd-run, user transient timer and StartTransientUnit API refuse. Declared timer/service lines retain a scheduling route. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Separate transient runtime processes/relationships from the program or setting creating them; service/timer registration remains a setting channel and built-in mutations require declaration writes.",
+      "sentences": "S8.2-5, S8.2-13, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-13",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C6.4",
+      "name": "User cron entries, @reboot and crontab replacement",
+      "previous": "CLOSED",
+      "previous_reason": "R07/R11: cron/at clients/daemons absent or private, services masked and spools root-only; crontab/@reboot/at/spool attempts fail. Declared timers are the supported scheduling route. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Registration or modification of jobs/settings is the channel, not command text. Demonstrate supported service/scheduler frontend writes and applies the declaration under ordinary and full superuser invocation.",
+      "sentences": "S8.1-7, S8.2-4, S8.2-13, S8.3-7; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-7",
+        "S8.2-4",
+        "S8.2-13",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C6.5",
+      "name": "Generated units, user environment generators and cron command text loading more code",
+      "previous": "NOT CLOSED",
+      "previous_reason": "R06/R09: user unit/environment generators are not honoured and arbitrary unit hooks refuse. An admitted executable may itself interpret mutable command/configuration inputs; declaring ExecStart alone does not close that input route. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Stored executable generator/cron text and effective settings need coverage; system-generated outputs may follow a recorded generating line. A typed command is not the same as a saved cron command.",
+      "sentences": "S8.2-4, S8.2-13, S8.2-16, S8.2-23; Section 9.3",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-13",
+        "S8.2-16",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C6.6",
+      "name": "Removed unit reactivated by socket, timer, dependency, lingering manager or surviving child",
+      "previous": "CLOSED",
+      "previous_reason": "T04/T05: the admitted socket/timer/service graph is finite; positive activation precedes removal, which stops activators, service and descendants. Subsequent service/timer/socket requests and socket connection refuse. Unsupported dependency/restart directives and independent manager routes remain refused in BC1/BC2 regressions. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Removed units must not reactivate uncovered services or code; continue cgroup/descendant and timer/socket tests under the new shell. Runtime activation edges follow their creating object.",
+      "sentences": "S8.1-11, S8.2-5; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-11",
+        "S8.2-5"
+      ]
+    },
+    {
+      "id": "C7.01",
+      "name": "Script file passed as interpreter argument",
+      "previous": "CLOSED",
+      "previous_reason": "Q01/Q05/Q23: fixed script/interpreter hashes; raw file arguments and delimiter injection refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saved executable script requires coverage and the user must run a recorded own script from the shell; shellless fixed-protocol execution does not meet that ordinary-work condition.",
+      "sentences": "S8.2-9, S8.2-10; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10"
+      ]
+    },
+    {
+      "id": "C7.02",
+      "name": "Executable shebang script",
+      "previous": "CLOSED",
+      "previous_reason": "Q05: a shebang supplies no declaration authority. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saved executable script requires coverage and the user must run a recorded own script from the shell; shellless fixed-protocol execution does not meet that ordinary-work condition.",
+      "sentences": "S8.2-9, S8.2-10; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10"
+      ]
+    },
+    {
+      "id": "C7.03",
+      "name": "Code supplied as -c or -e argument",
+      "previous": "CLOSED",
+      "previous_reason": "Q05: raw -c/-e and extra code arguments refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Personally typed commands are actions, not declaration objects or bypass channels. Positive ordinary shell commands are required; assess the files, jobs and settings they leave. The old blanket command/PTY refusal is not closure.",
+      "sentences": "S8.2-4; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4"
+      ]
+    },
+    {
+      "id": "C7.04",
+      "name": "Code piped into stdin, FIFO, socket, here-document or process substitution",
+      "previous": "CLOSED",
+      "previous_reason": "Q06/Q19: pipe/FIFO/socket/heredoc/substitution inputs refuse or become null stdin; inherited descriptors close. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Distinguish typed here-document/pipeline commands, saved code delivered through a stream, and the unsaved download case. Judge resulting objects, with reboot absence for downloaded executed unsaved code.",
+      "sentences": "S8.2-4, S8.2-5, S8.2-9; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-5",
+        "S8.2-9"
+      ]
+    },
+    {
+      "id": "C7.05",
+      "name": "Code from regular file redirected to stdin or /proc/self/fd/N",
+      "previous": "CLOSED",
+      "previous_reason": "Q06: redirected file and /proc/fd code refuse; sealed input is replaced. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Stored executable source/module code remains subject to coverage regardless of redirection, source, eval or import; repeat through working shell paths, including declared own-script execution.",
+      "sentences": "S8.2-9, S8.2-10, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.06",
+      "name": "Interactive REPL with language statements",
+      "previous": "CLOSED",
+      "previous_reason": "Q06: interactive evaluator and actual PTY requests refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Personally typed commands are actions, not declaration objects or bypass channels. Positive ordinary shell commands are required; assess the files, jobs and settings they leave. The old blanket command/PTY refusal is not closure.",
+      "sentences": "S8.2-4; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4"
+      ]
+    },
+    {
+      "id": "C7.07",
+      "name": "Recorded script sources another file",
+      "previous": "CLOSED",
+      "previous_reason": "Q07: an admitted script cannot source an unrecorded file. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Stored executable source/module code remains subject to coverage regardless of redirection, source, eval or import; repeat through working shell paths, including declared own-script execution.",
+      "sentences": "S8.2-9, S8.2-10, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.08",
+      "name": "exec(open(file).read()), eval of read data, custom import loader",
+      "previous": "CLOSED",
+      "previous_reason": "Q07: admitted exec(open()), eval and custom loader attempts cannot read the unrecorded source. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Stored executable source/module code remains subject to coverage regardless of redirection, source, eval or import; repeat through working shell paths, including declared own-script execution.",
+      "sentences": "S8.2-9, S8.2-10, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.09",
+      "name": "Ordinary import, zipimport and non-regenerable bytecode; module path injection",
+      "previous": "CLOSED",
+      "previous_reason": "Q08: injected directory, ZIP and bytecode imports are absent from the immutable input view. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Stored executable source/module code remains subject to coverage regardless of redirection, source, eval or import; repeat through working shell paths, including declared own-script execution.",
+      "sentences": "S8.2-9, S8.2-10, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.10",
+      "name": "Embedded interpreter in editor, awk, make, debugger or database program",
+      "previous": "CLOSED",
+      "previous_reason": "Q09/Q22: installed embedded evaluators are excluded from ordinary launches; the document writer consumes literal bytes. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Distinguish typed actions from stored executable settings/code and distinguish embedded installer functionality. Removing all evaluator interfaces cannot stand in for positive ordinary shell work.",
+      "sentences": "S8.1-5, S8.1-8, S8.2-4, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.1-8",
+        "S8.2-4",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.11",
+      "name": "Helper process launch: find -exec, editor shell escape, make recipe child",
+      "previous": "CLOSED",
+      "previous_reason": "Q09/Q11: mandatory child-exec policy refuses helper/shell escape paths. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "A helper launch requested by a typed command is not itself a channel; launched stored program code and any setting in force still need coverage. Saved make recipes/editor code must be assessed as objects.",
+      "sentences": "S8.2-4, S8.2-9, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-9",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.12",
+      "name": "Git hook program in writable project",
+      "previous": "CLOSED",
+      "previous_reason": "Q10: Git commit/hook, direct hook and interpreter-hook requests refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Uncovered executable objects and injected code remain subject to the recorded-code boundary. Revalidate the specific hook/loader/mapping/injection route after ordinary shell admission; a typed command alone is not the failing object.",
+      "sentences": "S8.2-4, S8.2-9, S8.3-4, S8.3-6; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-9",
+        "S8.3-4",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C7.13",
+      "name": "Direct dynamic loader invocation",
+      "previous": "CLOSED",
+      "previous_reason": "Q11: no ordinary loader entry; executable mappings remain declaration-derived. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Uncovered executable objects and injected code remain subject to the recorded-code boundary. Revalidate the specific hook/loader/mapping/injection route after ordinary shell admission; a typed command alone is not the failing object.",
+      "sentences": "S8.2-4, S8.2-9, S8.3-4, S8.3-6; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-9",
+        "S8.3-4",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C7.14",
+      "name": "LD_PRELOAD, LD_AUDIT, dlopen/FFI and alternate library path",
+      "previous": "CLOSED",
+      "previous_reason": "Q11: static launch, fixed environment, immutable closure and exact executable-map policy refuse preload/audit/dlopen inputs. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Uncovered executable objects and injected code remain subject to the recorded-code boundary. Revalidate the specific hook/loader/mapping/injection route after ordinary shell admission; a typed command alone is not the failing object.",
+      "sentences": "S8.2-4, S8.2-9, S8.3-4, S8.3-6; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-9",
+        "S8.3-4",
+        "S8.3-6"
+      ]
+    },
+    {
+      "id": "C7.15",
+      "name": "Native executable memfd, fexecve/execveat of memory file",
+      "previous": "CLOSED",
+      "previous_reason": "Q12: memfd and fd-based execution routes refuse; earlier open/namespace denial is recorded explicitly. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Runtime-only memory state follows its creating program or setting, not a separate memory-byte line. Assess any saved source/payload and access setting separately; personally typed actions are not objects. Exercise the unsaved-execution/reboot condition when that case applies.",
+      "sentences": "S8.2-4, S8.2-5, S8.2-9, S8.2-10, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-5",
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.16",
+      "name": "Anonymous machine code, JIT, writable/executable aliases",
+      "previous": "CLOSED",
+      "previous_reason": "Q12/Q13: executable anonymous memory, W+X, permission promotion, aliases and unsafe ELF segments/stacks refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Runtime-only memory state follows its creating program or setting, not a separate memory-byte line. Assess any saved source/payload and access setting separately; personally typed actions are not objects. Exercise the unsaved-execution/reboot condition when that case applies.",
+      "sentences": "S8.2-4, S8.2-5, S8.2-9, S8.2-10, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-5",
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.17",
+      "name": "Shell command line, including invocation of a declared program",
+      "previous": "CLOSED",
+      "previous_reason": "Q14/Q25: the real login interface parses only structured selections; free command text refuses. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Personally typed commands are actions, not declaration objects or bypass channels. Positive ordinary shell commands are required; assess the files, jobs and settings they leave. The old blanket command/PTY refusal is not closure.",
+      "sentences": "S8.2-4; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4"
+      ]
+    },
+    {
+      "id": "C7.18",
+      "name": "Regenerable executable bytecode/JIT cache with same-rights execution",
+      "previous": "CLOSED",
+      "previous_reason": "Q08/Q12: stricter reading; unrecorded bytecode/cache cannot enter the closure and executable JIT memory refuses. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Apply ordered package/code questions before program-record classification; executable cache derived by the system from a recorded source can be covered by that source line. No blanket cache exemption or mandatory separate line is inferred.",
+      "sentences": "S8.2-6, S8.2-7, S8.2-9, S8.2-15, S8.2-16",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-9",
+        "S8.2-15",
+        "S8.2-16"
+      ]
+    },
+    {
+      "id": "C7.19",
+      "name": "Browser web code and JIT confined inside recorded renderer/helper programs",
+      "previous": "CLOSED",
+      "previous_reason": "Q15: passive text browsing works; webpage JavaScript/JIT capability is removed. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "The exemption is inability of internal code to launch programs or change installed objects/settings, subject to question order. Passive browsing may remain an implementation choice; JavaScript removal is not the definition.",
+      "sentences": "S8.2-6, S8.2-21",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-21"
+      ]
+    },
+    {
+      "id": "C7.20",
+      "name": "Code-bearing serialized input (pickle, macro-bearing document)",
+      "previous": "CLOSED",
+      "previous_reason": "Q16/Q22: code-bearing serialized input cannot reach the sealed evaluator; document text remains literal. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Stored serialized inputs executed as code remain code; literal document values need no code line unless an earlier package or setting question applies. Verify the actual consumer behavior.",
+      "sentences": "S8.2-6, S8.2-9, S8.2-15, S8.2-23",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-9",
+        "S8.2-15",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.21",
+      "name": "WASI module with a preopened host directory and partial runtime rights",
+      "previous": "CLOSED",
+      "previous_reason": "Q16: stricter reading; explicit WASI module/preopen request refuses through removal of its ordinary runtime interface. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Use the new capability condition: can the module itself launch programs or change installed objects/settings? A preopened directory alone does not answer that; missing rights facts are FACT_UNKNOWN. Preserve question order.",
+      "sentences": "S8.2-6, S8.2-21",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-21"
+      ]
+    },
+    {
+      "id": "C7.22",
+      "name": "Debugger/interpreter writing another process memory or injecting code",
+      "previous": "CLOSED",
+      "previous_reason": "Q17: ptrace, process-memory calls and proc-memory input refuse. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Runtime-only memory state follows its creating program or setting, not a separate memory-byte line. Assess any saved source/payload and access setting separately; personally typed actions are not objects. Exercise the unsaved-execution/reboot condition when that case applies.",
+      "sentences": "S8.2-4, S8.2-5, S8.2-9, S8.2-10, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-5",
+        "S8.2-9",
+        "S8.2-10",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.23",
+      "name": "binfmt_misc handlers and user-mode foreign-binary interpreters",
+      "previous": "CLOSED",
+      "previous_reason": "Q13/Q17: foreign ELF admission and binfmt registration refuse; no unrecorded foreign-runtime input route. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Establish whether the installed handlers can execute the foreign code on this computer; unsupported code is not automatically a program. Handler registration is a setting and built-in changes record/apply.",
+      "sentences": "S8.2-9, S8.2-13, S8.2-20, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-13",
+        "S8.2-20",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C7.24",
+      "name": "Recorded custom dispatcher: file-open route and non-file instruction input without eval/import",
+      "previous": "CLOSED",
+      "previous_reason": "Q18/Q19: fixed argv/environment/stdin plus immutable content and metadata view and IPC denial confine custom dispatchers. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Differentiate personally typed commands from a stored instruction object; assess code-execution capability and the internal-code exception literally. Immutable-input isolation may remain, but cannot eliminate the required shell.",
+      "sentences": "S8.2-4, S8.2-9, S8.2-21, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-9",
+        "S8.2-21",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C7.25",
+      "name": "Runtime-selected TCP listening port (also C2/C3/C5/C9.2)",
+      "previous": "CLOSED",
+      "previous_reason": "Q19: bind/listen forbidden in ordinary workloads; sealed sockets refuse and inherited listening descriptors are closed. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "An open port is not a separate required object; it follows its creating program or setting. Remove the inference that every selected runtime port requires its own line; inspect network/access settings in force.",
+      "sentences": "S8.2-5, S8.2-13",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-13"
+      ]
+    },
+    {
+      "id": "C8.01",
+      "name": "Shell startup profiles and rc files",
+      "previous": "CLOSED",
+      "previous_reason": "Q20/Q21: shellless login ignores user rc/profile code; recorded runner startup is fixed and login key protected. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saved executable startup objects remain covered or unable to execute. Test actual shell startup and environment selection; shellless login ignoring all files is no longer adequate evidence.",
+      "sentences": "S8.2-9, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C8.02",
+      "name": "Environment-selected startup code, BASH_ENV/ENV/PYTHONSTARTUP",
+      "previous": "CLOSED",
+      "previous_reason": "Q20: startup-selecting environment is cleared and writable startup files are outside the input view. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Saved executable startup objects remain covered or unable to execute. Test actual shell startup and environment selection; shellless login ignoring all files is no longer adequate evidence.",
+      "sentences": "S8.2-9, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.2-9",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C8.03",
+      "name": "Environment-imported shell functions and command substitutions",
+      "previous": "CLOSED",
+      "previous_reason": "Q14/Q20: imported functions, substitution and executable environment inputs are not interpreted. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Personally typed functions, substitutions or commands are actions; saved startup/executable configuration remains an object. Judge the effects left behind and launch-granting saved settings, not blanket refusal of shell syntax.",
+      "sentences": "S8.2-4, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C8.04",
+      "name": "Editor executable configuration, plugins, modelines executing code",
+      "previous": "CLOSED",
+      "previous_reason": "Q09/Q22: programmable editor entries refuse; startup/plugin/modeline text has no executing editor path. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Stored executable settings remain code; values that launch or grant access are settings. Embedded installer functionality must write/apply declaration changes even under root.",
+      "sentences": "S8.1-5, S8.2-14, S8.2-23, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.2-14",
+        "S8.2-23",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C8.05",
+      "name": "Project-local executable settings: Git !alias, external filter, build recipe",
+      "previous": "CLOSED",
+      "previous_reason": "Q10: project Git alias/filter/build-recipe routes refuse; sealed code cannot read mutable project instructions. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Stored executable settings remain code; values that launch or grant access are settings. Embedded installer functionality must write/apply declaration changes even under root.",
+      "sentences": "S8.1-5, S8.2-14, S8.2-23, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.2-14",
+        "S8.2-23",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C8.06",
+      "name": "Runtime own-rights code definitions: shell functions, aliases, editor commands",
+      "previous": "CLOSED",
+      "previous_reason": "Q14/Q22: free functions, aliases and editor command definitions refuse; fixed document writing remains usable. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Personally typed functions, substitutions or commands are actions; saved startup/executable configuration remains an object. Judge the effects left behind and launch-granting saved settings, not blanket refusal of shell syntax.",
+      "sentences": "S8.2-4, S8.2-14, S8.2-23; Section 9.3",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-4",
+        "S8.2-14",
+        "S8.2-23"
+      ]
+    },
+    {
+      "id": "C8.07",
+      "name": "Browser extension executing with browser-equivalent rights",
+      "previous": "CLOSED",
+      "previous_reason": "Q15: explicit extension-load request refuses; capability inventory and exact launch table exclude extension-capable ordinary browsers. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "An installed extension is covered by the package question before any confinement exception; its built-in installer writes/applies declaration changes. Do not inherit the old rights-only rationale.",
+      "sentences": "S8.1-5, S8.2-6, S8.2-7, S8.2-8, S8.2-21, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-21",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C8.08",
+      "name": "Settings only read as values, such as theme or home page",
+      "previous": "CLOSED",
+      "previous_reason": "Q15/Q22: two distinct page-selection values work; code-looking document bytes remain literal data. [Round-2 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Check package/default provenance first. Personal values-only preferences that neither launch nor grant access are program records; system-wide or launch/access values are settings.",
+      "sentences": "S8.2-6, S8.2-7, S8.2-11, S8.2-14, S8.2-17",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-11",
+        "S8.2-14",
+        "S8.2-17"
+      ]
+    },
+    {
+      "id": "C9.1",
+      "name": "Rootful image pull/run, mutable tags and manager API",
+      "previous": "CLOSED",
+      "previous_reason": "U04: exact OCI digest/layout and separate container configuration rows install and run through ordinary/root interfaces. Mutable tags, pull and manager API paths refuse; no mutable container daemon is supplied. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Record installed image/package contents, own-process container programs and settings, not only an executable entry. Supported container installer/configuration calls write/apply at both authorities; runtime namespaces are not separate objects.",
+      "sentences": "S8.2-5, S8.2-7, S8.2-8, S8.2-22, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-22",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C9.2",
+      "name": "Rootless containers, user namespaces, alternative OCI runtime invocation",
+      "previous": "CLOSED",
+      "previous_reason": "U04: recorded UID/GID, own immutable root and kernel namespace/socket restrictions govern the container launch. Rootless/private-namespace and alternate runtime requests refuse; bwrap presence and runc/crun absence are recorded explicitly. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Record installed image/package contents, own-process container programs and settings, not only an executable entry. Supported container installer/configuration calls write/apply at both authorities; runtime namespaces are not separate objects.",
+      "sentences": "S8.2-5, S8.2-7, S8.2-8, S8.2-22, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-22",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C9.3",
+      "name": "Bind-mounted executable/script, writable overlay, exec into container and package install inside",
+      "previous": "CLOSED",
+      "previous_reason": "U04: own immutable image root and single admitted executable prevent binds, writable overlays, exec and in-container package installation. Actual writes and execution of an existing non-entry image file refuse; recorded entry runs. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Record installed image/package contents, own-process container programs and settings, not only an executable entry. Supported container installer/configuration calls write/apply at both authorities; runtime namespaces are not separate objects.",
+      "sentences": "S8.2-5, S8.2-7, S8.2-8, S8.2-22, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-22",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C9.4",
+      "name": "Image build RUN/hooks, import/load archive and commit modified container",
+      "previous": "CLOSED",
+      "previous_reason": "U04: exact inactive OCI import precedes a recorded container row; build RUN/hooks, load/import shortcuts and commit requests refuse under both authorities. No implicit build or mutable layer becomes executable. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Record installed image/package contents, own-process container programs and settings, not only an executable entry. Supported container installer/configuration calls write/apply at both authorities; runtime namespaces are not separate objects.",
+      "sentences": "S8.2-5, S8.2-7, S8.2-8, S8.2-22, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-22",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C9.5",
+      "name": "Privileged/host-namespace/device/runtime-hook options",
+      "previous": "CLOSED",
+      "previous_reason": "U04: container configuration fixes no capabilities, hooks, mounts, devices or network. Privileged/host-namespace/device/hook options refuse and the launcher enforces the fixed kernel boundary. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Record installed image/package contents, own-process container programs and settings, not only an executable entry. Supported container installer/configuration calls write/apply at both authorities; runtime namespaces are not separate objects.",
+      "sentences": "S8.2-5, S8.2-7, S8.2-8, S8.2-22, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-5",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-22",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C9.6",
+      "name": "Removed image/container restarted through old name, daemon state, API or retained layers",
+      "previous": "CLOSED",
+      "previous_reason": "U04: a recorded live holder and forked child are both observed, then both absent before successful removal. Former entry, retained image archive and name/start requests refuse; removing the image also verifies. [Round-4 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Removal must account for remaining installed image/package content as well as live descendants and executable authority; establish whether retained archive bytes are material before calling them exempt.",
+      "sentences": "S8.1-9, S8.2-7, S8.2-15, S8.2-22; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.2-7",
+        "S8.2-15",
+        "S8.2-22"
+      ]
+    },
+    {
+      "id": "C10.1",
+      "name": "Documented privileged package/service/account/network/firewall administration",
+      "previous": "CLOSED",
+      "previous_reason": "R01/R04/R05/R08: ordinary authority is restricted to declaration tools; direct account/package/service/network/Bluetooth/firewall clients, daemon APIs and native nft library mutation refuse. Host-held external operator root is outside this grant, as specified by BC1. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Test actual superuser invocations of built-in tools: changing guards/rights through those tools must record/apply. A limited sudo grant or inaccessible backend alone is insufficient. Direct root mutation outside them is breaking and is not required to be blocked.",
+      "sentences": "S8.1-7, S8.1-8, S8.1-15, S8.1-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-7",
+        "S8.1-8",
+        "S8.1-15",
+        "S8.1-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C10.2",
+      "name": "Built-in privileged tool changes guards, permissions, mounts or execution policy",
+      "previous": "CLOSED",
+      "previous_reason": "R01/R09: no generic sudo shell, environment launcher or mount tool is granted; guard-changing backends are private and authority-bearing declaration injections refuse. The external operator can still deliberately break mechanisms. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Test actual superuser invocations of built-in tools: changing guards/rights through those tools must record/apply. A limited sudo grant or inaccessible backend alone is insufficient. Direct root mutation outside them is breaking and is not required to be blocked.",
+      "sentences": "S8.1-7, S8.1-8, S8.1-15, S8.1-16, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-7",
+        "S8.1-8",
+        "S8.1-15",
+        "S8.1-16",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C10.3",
+      "name": "Retained arbitrary privileged hooks and multi-resource live side effects",
+      "previous": "NOT CLOSED",
+      "previous_reason": "R09/R12: arbitrary privileged hooks are refused and one live service mismatch restores the prior declaration. General multi-resource side-effect restoration, especially across daemon/device state, is not established. [Round-1 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Effects of supported installation hooks still belong to built-in transactions, including root; distinguish direct superuser bypass outside the built-in tools. Multi-resource/device readback and restoration remain unproved.",
+      "sentences": "S8.1-15, S8.1-16, S8.3-4, S8.3-5, S8.3-7",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-15",
+        "S8.1-16",
+        "S8.3-4",
+        "S8.3-5",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "C10.4",
+      "name": "Root editor with documented package installer",
+      "previous": "NOT CLOSED",
+      "previous_reason": "B: Stricter target treats an editor installer as built-in under root. ed has no such installer, but arbitrary editor installation is not mediated fully.",
+      "criterion_changes": "Yes",
+      "v4_implication": "The embedded installer part is explicitly an installer, even in a general-purpose editor. Demonstrate its declaration-writing behavior under root; direct root editing outside that part is breaking. The old role ambiguity is not carried as a decision.",
+      "sentences": "S8.1-5, S8.1-8, S8.1-15, S8.3-7",
+      "round": 1,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-5",
+        "S8.1-8",
+        "S8.1-15",
+        "S8.3-7"
+      ]
+    },
+    {
+      "id": "M1.01",
+      "name": "All C1–C10: successful inactive preparation versus actual application report",
+      "previous": "CLOSED",
+      "previous_reason": "R09/R11 and T01: inaccessible preparation and validation never report applied success; the supervisor reports success only after child exit, complete actual-state readback and durable report commit. Invalid/injected preparation failures preserve the prior report and values. Live cross-resource completeness is separately M1.02. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Keep last-success declaration and complete required-state readback/replay. Revalidate over the expanded v4 object set and shell/frontend surfaces; historical finite evidence does not close unobserved device effects.",
+      "sentences": "S8.1-13, S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-13",
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M1.02",
+      "name": "All C1–C10: complete live activation and success report across all objects",
+      "previous": "NOT CLOSED",
+      "previous_reason": "T01–T03: serialized worker, inverse reconciliation, exact readback and timer recovery cover the tested file/account/job/rule effects. Arbitrary runtime/device effects remain outside the finite readers; this is an implementation limit, with no definition-only impossibility argument. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Keep last-success declaration and complete required-state readback/replay. Revalidate over the expanded v4 object set and shell/frontend surfaces; historical finite evidence does not close unobserved device effects.",
+      "sentences": "S8.1-13, S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-13",
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M2.01",
+      "name": "All C1–C10: durable exact file generation and boot selection after report",
+      "previous": "CLOSED",
+      "previous_reason": "T06/T07: realization, exact generation, selector and atomic success report have explicit sync ordering; boot selects the reported generation. All nine immediate report-triggered cuts replay that exact generation and verify every line. PAM/ready and session dependencies block entry before replay; 167 early ordinary attempts all refuse. Complete runtime/device replay remains M2.02. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Keep last-success declaration and complete required-state readback/replay. Revalidate over the expanded v4 object set and shell/frontend surfaces; historical finite evidence does not close unobserved device effects.",
+      "sentences": "S8.1-13, S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-13",
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M2.02",
+      "name": "All C1–C10: add/change/remove power cut with complete runtime/device replay",
+      "previous": "NOT CLOSED",
+      "previous_reason": "T06/T07 exercise admission gating and nine add/change/remove report-triggered cuts. Complete runtime/device replay, including actual radio state, is unproved by finite VM readers; no hardware-independent impossibility follows. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Keep last-success declaration and complete required-state readback/replay. Revalidate over the expanded v4 object set and shell/frontend surfaces; historical finite evidence does not close unobserved device effects.",
+      "sentences": "S8.1-13, S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-13",
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M3.01",
+      "name": "All C1–C10: explicit failure or timeout while only inert preparation changed",
+      "previous": "CLOSED",
+      "previous_reason": "T01/T02: preparation and freezing are inert, and failed or stalled preparation never becomes a success report or live declaration. Supervisor cancellation restores the exact previous report, generation and actual state and removes candidate-only effects. Tests shorten worker/total settings from 3300/3600 to 8/60 seconds. T03 additionally proves independent recovery after supervisor death. Complete recovery deadlines remain M3.02. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Keep last-success declaration and complete required-state readback/replay. Revalidate over the expanded v4 object set and shell/frontend surfaces; historical finite evidence does not close unobserved device effects.",
+      "sentences": "S8.1-13, S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-13",
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M3.02",
+      "name": "All C1–C10: partial activation failure, stalled worker, or no report at one hour",
+      "previous": "NOT CLOSED",
+      "previous_reason": "T01–T03 exercise ten failures, two worker stalls and supervisor death. Recovery can itself stall or fail; the total deadline is recorded but complete restoration by one hour is not enforced for every effect. This is a supervisor/backend limitation. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Recovery remains a carried engineering obligation. The explicit one-hour deadline is historical implementation/test policy, not a v4 sentence; evaluate P1/P2 against the last successful declaration and do not invent a deadline rule.",
+      "sentences": "S8.1-14, S8.3-1, S8.3-4, S8.3-5; Appendix A.4.3",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-14",
+        "S8.3-1",
+        "S8.3-4",
+        "S8.3-5"
+      ]
+    },
+    {
+      "id": "M4.01",
+      "name": "All C1–C10: running code, descendants, open FDs and mapped/injected copies",
+      "previous": "CLOSED",
+      "previous_reason": "Q24/Q26 and T04/T05: whole cgroups and generated workload domains are revoked before replacement; captured relay/worker/forked descendants are absent after successful removal and last-owner revocation. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Continue revoking uncovered programs, holders, activators and effective rules; runtime processes/edges are evidence about creating programs/settings rather than separately required objects.",
+      "sentences": "S8.1-9, S8.1-11, S8.2-5; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.1-11",
+        "S8.2-5"
+      ]
+    },
+    {
+      "id": "M4.02",
+      "name": "All C1–C10: executable aliases, copied cache/store/image content, old generations",
+      "previous": "CLOSED",
+      "previous_reason": "Q24/Q26 and T04/T05: current declaration membership removes launch entries, snapshot paths and obsolete profiles; attempts to launch original, retained copy, snapshot and cache copy all refuse after removal. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Track full installed package/default/derived contributions and residual source/package coverage. Inertness alone is insufficient for an installed object; sharing is allowed when remaining lines actually cover it.",
+      "sentences": "S8.1-9, S8.2-7, S8.2-16, S8.2-17; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.2-7",
+        "S8.2-16",
+        "S8.2-17"
+      ]
+    },
+    {
+      "id": "M4.03",
+      "name": "All C1–C10: service activators, timers, restart policy and effective rules",
+      "previous": "CLOSED",
+      "previous_reason": "T04/T05: admitted job and nft rule schemas enumerate the effective contributions. Positive activation precedes ordered socket/timer/service quiescing, descendant revocation and remaining-rule replacement; reactivation attempts refuse. Earlier tests reject unsupported restart, dependency and alternate-manager edges. Round 4 adds the tested container lifecycle at C9.6. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "No",
+      "v4_implication": "Continue revoking uncovered programs, holders, activators and effective rules; runtime processes/edges are evidence about creating programs/settings rather than separately required objects.",
+      "sentences": "S8.1-9, S8.1-11, S8.2-5; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": false,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.1-11",
+        "S8.2-5"
+      ]
+    },
+    {
+      "id": "M4.04",
+      "name": "All C1–C10: contributions shared with remaining declaration lines",
+      "previous": "CLOSED",
+      "previous_reason": "T05: two explicit equal owners cover program bytes/launch membership, service, timer, socket, account and rule. Removing one owner preserves exact required state; removing the last revokes the object, activators, descendants, identity and rule. Conflicting shared requirements refuse admission. [Round-3 evidence](SELFTEST.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Track full installed package/default/derived contributions and residual source/package coverage. Inertness alone is insufficient for an installed object; sharing is allowed when remaining lines actually cover it.",
+      "sentences": "S8.1-9, S8.2-7, S8.2-16, S8.2-17; Section 8.4 Removal",
+      "round": 3,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.1-9",
+        "S8.2-7",
+        "S8.2-16",
+        "S8.2-17"
+      ]
+    },
+    {
+      "id": "M5.01",
+      "name": "All C1–C10: finite typed lines, exact content, permissions and documented defaults",
+      "previous": "NOT CLOSED",
+      "previous_reason": "T08: independent actual-object inventory and exact line readers expose unrecorded and unknown objects. Unknown semantic code, alternate managers/namespaces and external firmware keep complete:false and P1 unknown. This reader limitation does not establish impossibility. [Inventory limits](INVENTORY-3.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "Inventory packages with and without code/files, unchanged package defaults, changed settings, code and provenance before assigning coverage. Classify records/material separately and runtime observations through their creating objects; missing provenance is FACT_UNKNOWN.",
+      "sentences": "S8.2-1, S8.2-5, S8.2-6, S8.2-7, S8.2-8, S8.2-15, S8.2-16, S8.2-17",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-1",
+        "S8.2-5",
+        "S8.2-6",
+        "S8.2-7",
+        "S8.2-8",
+        "S8.2-15",
+        "S8.2-16",
+        "S8.2-17"
+      ]
+    },
+    {
+      "id": "M5.02",
+      "name": "All C1–C10: unrestricted algorithmic requirements and semantic effects",
+      "previous": "NOT CLOSED",
+      "previous_reason": "Explicit finite JSON requirements are compared; unrestricted algorithmic requirements and their semantic effects are not implemented or decided. B1 Q2 remains open, and no new admissibility rule is inferred. [Round-3 report](BUILD-3.md).",
+      "criterion_changes": "Yes",
+      "v4_implication": "External list sources are explicitly recordable and exempted from the corresponding reproducibility claim. Unrestricted semantic validation is still unimplemented; finite JSON is a design choice, not a new admissibility law or a claimed universal impossibility.",
+      "sentences": "S8.2-18; Sections 8.4 and 8.5",
+      "round": 2,
+      "v4_status": "NOT VALIDATED",
+      "criterion_changed": true,
+      "sentence_ids": [
+        "S8.2-18"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+ "fs_added": {
+  "tmp:/systemd-private-21b47d79f84a4fd9804a359a809d8855-systemd-logind.service-2y0TM3": {
+   "st_mode": 16832,
+   "st_size": 0,
+   "st_uid": 0
+  },
+  "tmp:/systemd-private-21b47d79f84a4fd9804a359a809d8855-systemd-logind.service-2y0TM3/tmp": {
+   "st_mode": 17407,
+   "st_size": 0,
+   "st_uid": 0
+  },
+  "vartmp:/systemd-private-21b47d79f84a4fd9804a359a809d8855-systemd-logind.service-sST0Ma": {
+   "st_mode": 16832,
+   "st_size": 0,
+   "st_uid": 0
+  },
+  "vartmp:/systemd-private-21b47d79f84a4fd9804a359a809d8855-systemd-logind.service-sST0Ma/tmp": {
+   "st_mode": 17407,
+   "st_size": 0,
+   "st_uid": 0
+  }
+ },
+ "fs_changed": {
+  "etc:/apparmor.d/abstractions/stand-map": [
+   "st_atime",
+   "st_ctime",
+   "st_mtime"
+  ],
+  "etc:/ssh/sshd_config.d/00-stand.conf": [
+   "st_atime",
+   "st_ctime",
+   "st_mtime"
+  ],
+  "etc:/stand/launch.tsv": [
+   "sha256",
+   "st_atime",
+   "st_ctime",
+   "st_mtime",
+   "st_size"
+  ],
+  "etc:/stand/read-closure": [
+   "sha256",
+   "st_atime",
+   "st_ctime",
+   "st_mtime",
+   "st_size"
+  ],
+  "etc:/stand/stand-profiles": [
+   "sha256",
+   "st_atime",
+   "st_ctime",
+   "st_mtime",
+   "st_size"
+  ]
+ },
+ "fs_removed": [],
+ "machine_added": [
+  "system:base-state"
+ ],
+ "machine_changed": {
+  "base": [
+   "files",
+   "version"
+  ],
+  "package:ed": [
+   "files",
+   "package_identity",
+   "source",
+   "source_sha256",
+   "version"
+  ]
+ },
+ "machine_removed": []
+}

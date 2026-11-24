@@ -1,0 +1,120 @@
+Setting up libostree-1-1:amd64 (2025.2-1) ...
+Setting up ostree (2025.2-1) ...
+Setting up flatpak (1.16.6-1~deb13u3) ...
+Setting up gnupg (2.4.7-21+deb13u1) ...
+Setting up node-acorn (8.8.1+ds+~cs25.17.7-2) ...
+Setting up node-corepack (0.24.0-5) ...
+Setting up libnode115:amd64 (20.19.2+dfsg-1+deb13u3) ...
+Setting up nodejs (20.19.2+dfsg-1+deb13u3) ...
+update-alternatives: using /usr/bin/nodejs to provide /usr/bin/js (js) in auto mode
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for dbus (1.16.2-2) ...
+Processing triggers for procps (2:4.0.4-9) ...
+Processing triggers for systemd (257.13-1~deb13u1) ...
+Processing triggers for initramfs-tools (0.148.4) ...
+update-initramfs: Generating /boot/initrd.img-6.12.117+deb13-amd64
+Processing triggers for libc-bin (2.41-12+deb13u5) ...
+stand prototype bootstrap complete
+
+Generating locales (this might take a while)...
+Generation complete.
+Created symlink '/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service' → '/usr/lib/systemd/system/NetworkManager-dispatcher.service'.
+Created symlink '/etc/systemd/system/network-online.target.wants/NetworkManager-wait-online.service' → '/usr/lib/systemd/system/NetworkManager-wait-online.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/NetworkManager.service' → '/usr/lib/systemd/system/NetworkManager.service'.
+Created symlink '/etc/systemd/user/default.target.wants/mpris-proxy.service' → '/usr/lib/systemd/user/mpris-proxy.service'.
+Created symlink '/etc/systemd/system/dbus-org.bluez.service' → '/usr/lib/systemd/system/bluetooth.service'.
+Created symlink '/etc/systemd/system/bluetooth.target.wants/bluetooth.service' → '/usr/lib/systemd/system/bluetooth.service'.
+Created symlink '/etc/systemd/user/sockets.target.wants/dirmngr.socket' → '/usr/lib/systemd/user/dirmngr.socket'.
+Created symlink '/etc/systemd/user/sockets.target.wants/gpg-agent-browser.socket' → '/usr/lib/systemd/user/gpg-agent-browser.socket'.
+Created symlink '/etc/systemd/user/sockets.target.wants/gpg-agent-extra.socket' → '/usr/lib/systemd/user/gpg-agent-extra.socket'.
+Created symlink '/etc/systemd/user/sockets.target.wants/gpg-agent-ssh.socket' → '/usr/lib/systemd/user/gpg-agent-ssh.socket'.
+Created symlink '/etc/systemd/user/sockets.target.wants/gpg-agent.socket' → '/usr/lib/systemd/user/gpg-agent.socket'.
+Created symlink '/etc/systemd/user/sockets.target.wants/keyboxd.socket' → '/usr/lib/systemd/user/keyboxd.socket'.
+Removed '/etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer'.
+Removed '/etc/systemd/system/timers.target.wants/apt-daily.timer'.
+Created symlink '/etc/systemd/system/apt-daily.service' → '/dev/null'.
+Created symlink '/etc/systemd/system/apt-daily-upgrade.service' → '/dev/null'.
+
+RUN python3
+RUN python3
+LANGUAGE_FIXTURES_READY
+
+RUN python3
+SYSTEM_FIXTURES_READY
+
+RUN scp
+RUN python3
+RUN python3
+NATIVE_WHEEL_READY sha256=a745c8245b3993c5f9dc7ed54e8d3f311cf7e2a6db877cdd13e30b250b5ed096 module_sha256=03d72a4d9ef7ade86971407b45790bf4aa66050f18f496b0c039b7af1689c4e2
+Development fixture artifacts prepared; no fixture executed
+Application-format development fixtures built
+(Reading database ... 30792 files and directories currently installed.)
+Preparing to unpack .../ed_1.19-1_amd64.deb ...
+Unpacking ed (1.19-1) over (1.21.1-1) ...
+Setting up ed (1.19-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+(Reading database ... 30792 files and directories currently installed.)
+Preparing to unpack .../ed_1.21.1-1_amd64.deb ...
+Unpacking ed (1.21.1-1) over (1.19-1) ...
+Setting up ed (1.21.1-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+(Reading database ... 30792 files and directories currently installed.)
+Preparing to unpack .../ed_1.19-1_amd64.deb ...
+Unpacking ed (1.19-1) over (1.21.1-1) ...
+Setting up ed (1.19-1) ...
+Processing triggers for man-db (2.13.1-1) ...
+SYSTEM_CATALOG_READY changed=11 base_packages=436
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/stand: parsed OK
+Broker authority, backend DAC, bus policy and scheduler removal installed
+Declaration frontends, inactive parser domain and fixed compiler domain installed
+kernel.yama.ptrace_scope = 2
+Bash login, declaration-generated native policy and sealed compatibility launcher installed
+Document editor with declaration-writing installer installed
+Explicit host-key input and stable factory defaults installed
+PAM/launcher admission gate and independent watchdog installed
+Five primary declaration filesystems mounted before factory capture
+
+dpkg: warning: downgrading ed (1.21.1-1) to (1.19-1)
+dpkg: warning: downgrading ed (1.21.1-1) to (1.19-1)
+Created symlink '/etc/systemd/system/user@.service' → '/dev/null'.
+Unit cron.service does not exist, proceeding anyway.
+Created symlink '/etc/systemd/system/cron.service' → '/dev/null'.
+Unit atd.service does not exist, proceeding anyway.
+Created symlink '/etc/systemd/system/atd.service' → '/dev/null'.
+Created symlink '/etc/systemd/system/flatpak-system-helper.service' → '/dev/null'.
+/tmp/session.c: In function ‘main’:
+/tmp/session.c:103:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |   ^~
+/tmp/session.c:103:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  103 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv("/usr/bin/sudo",v);fail("broker");
+      |                                                                  ^~~~~
+/tmp/session.c:151:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  151 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |   ^~
+/tmp/session.c:151:66: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  151 |   if(syscall(SYS_close_range,3,~0U,0))fail("descriptor closure");execv(args[0],args);fail("recorded launch");
+      |                                                                  ^~~~~
+Created symlink '/etc/systemd/system/timers.target.wants/stand-watchdog.timer' → '/etc/systemd/system/stand-watchdog.timer'.
+Created symlink '/etc/systemd/system/fapolicyd.service' → '/dev/null'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-replay.service' → '/etc/systemd/system/stand-replay.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-noexec.service' → '/etc/systemd/system/stand-noexec.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-files-home.service' → '/etc/systemd/system/stand-files-home.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-files-tmp.service' → '/etc/systemd/system/stand-files-tmp.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-files-vartmp.service' → '/etc/systemd/system/stand-files-vartmp.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-files-shm.service' → '/etc/systemd/system/stand-files-shm.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/stand-files-etc.service' → '/etc/systemd/system/stand-files-etc.service'.
+Traceback (most recent call last):
+  File "/usr/local/lib/stand/capture.py", line 57, in <module>
+    for line in stand.run('systemctl','list-unit-files','--type=service,timer','--state=enabled,enabled-runtime','--no-legend','--no-pager').stdout.splitlines():
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/stand/stand.py", line 22, in run
+    if check and p.returncode: raise RuntimeError('command failed: '+json.dumps([str(a) for a in args])+': '+p.stderr.strip())
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: command failed: ["/usr/bin/systemctl", "list-unit-files", "--type=service,timer", "--state=enabled,enabled-runtime", "--no-legend", "--no-pager"]: Failed to list unit files: Connection timed out
+
+RUN python3
+RUN python3
+BUILD FAILED: python3 exited 1

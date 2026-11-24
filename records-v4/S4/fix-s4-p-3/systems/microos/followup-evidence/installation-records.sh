@@ -1,0 +1,1 @@
+find /var/log/zypp /var/log/YaST2 -type f -printf 'SOURCE %p %s\n' -exec grep -aEn 'NetworkManager|jeos-firstboot|mdcheck_continue|network.service|sudoers|visudo|grubenv|editenv|saved_entry|next_entry|ca-certificates|p11-kit|trust anchor' {} +

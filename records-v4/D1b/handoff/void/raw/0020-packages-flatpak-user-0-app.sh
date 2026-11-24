@@ -1,0 +1,1 @@
+scope="$HOME/.local/share/flatpak"; test -d "$scope" || { printf "%s\n" "Default user Flatpak scope does not exist or is inaccessible" >&2; exit 125; }; FLATPAK_USER_DIR="$scope" flatpak --user list --app --columns=ref,version,origin

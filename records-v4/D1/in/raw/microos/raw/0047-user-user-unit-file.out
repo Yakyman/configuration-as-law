@@ -1,0 +1,14 @@
+dbus-broker.service                   enabled  enabled
+dbus-org.freedesktop.import1.service  alias    -
+dbus-org.freedesktop.machine1.service alias    -
+dbus.service                          alias    -
+gpg-agent.service                     static   -
+systemd-ask-password@.service         static   -
+systemd-exit.service                  static   -
+systemd-importd.service               static   -
+systemd-machined.service              static   -
+systemd-nspawn@.service               disabled disabled
+systemd-tmpfiles-clean.service        static   -
+systemd-tmpfiles-setup.service        enabled  enabled
+systemd-vmspawn@.service              disabled disabled
+systemd-tmpfiles-clean.timer          enabled  enabled

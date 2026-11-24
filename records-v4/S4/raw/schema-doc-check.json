@@ -1,0 +1,331 @@
+[
+  {
+    "file": "store-members.tsv",
+    "columns": [
+      "object_ids",
+      "store",
+      "path",
+      "type",
+      "mode",
+      "uid",
+      "gid",
+      "size",
+      "target",
+      "prefix_signature",
+      "persistence",
+      "opaque_kind",
+      "evidence"
+    ]
+  },
+  {
+    "file": "store-coverage.tsv",
+    "columns": [
+      "object_ids",
+      "store",
+      "query_exit",
+      "traversal_complete",
+      "members",
+      "inner_opaque",
+      "evidence"
+    ]
+  },
+  {
+    "file": "full-digests.tsv",
+    "columns": [
+      "path",
+      "algorithm",
+      "digest",
+      "bytes",
+      "status",
+      "reason",
+      "evidence"
+    ]
+  },
+  {
+    "file": "font-cache-sources.tsv",
+    "columns": [
+      "path",
+      "query_exit",
+      "evidence"
+    ]
+  },
+  {
+    "file": "font-source-packages.tsv",
+    "columns": [
+      "path",
+      "package_ids"
+    ]
+  },
+  {
+    "file": "object-fact-index.tsv",
+    "columns": [
+      "object_id",
+      "path",
+      "fact_file",
+      "join_column"
+    ]
+  },
+  {
+    "file": "alma-facts.tsv",
+    "columns": [
+      "object_id",
+      "path",
+      "fact",
+      "value",
+      "status",
+      "evidence"
+    ]
+  },
+  {
+    "file": "npm-archive-sources.tsv",
+    "columns": [
+      "lock",
+      "package_root",
+      "resolved",
+      "integrity",
+      "cache",
+      "status",
+      "evidence"
+    ]
+  },
+  {
+    "file": "npm-member-integrity.tsv",
+    "columns": [
+      "object_ids",
+      "package_root",
+      "path",
+      "algorithm",
+      "expected",
+      "actual",
+      "status",
+      "evidence"
+    ]
+  },
+  {
+    "file": "old-package-receipt-sources.tsv",
+    "columns": [
+      "source",
+      "status",
+      "evidence"
+    ]
+  },
+  {
+    "file": "old-package-member-integrity.tsv",
+    "columns": [
+      "object_ids",
+      "path",
+      "source",
+      "type",
+      "expected",
+      "actual",
+      "status",
+      "evidence"
+    ]
+  },
+  {
+    "file": "void-configuration-facts.tsv",
+    "columns": [
+      "object_ids",
+      "path",
+      "status",
+      "content_base64",
+      "historical_creator",
+      "evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-snapshot-files.tsv",
+    "columns": [
+      "snapshot_root",
+      "path",
+      "package_path",
+      "package",
+      "algorithm",
+      "expected",
+      "observed",
+      "comparison",
+      "manifest_evidence",
+      "digest_evidence",
+      "manifest_exit"
+    ]
+  },
+  {
+    "file": "s4-microos-snapshot-current.tsv",
+    "columns": [
+      "snapshot_path",
+      "current_path",
+      "snapshot_sha256",
+      "current_sha256",
+      "comparison",
+      "snapshot_evidence",
+      "current_evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-sources.tsv",
+    "columns": [
+      "path",
+      "status",
+      "content_base64",
+      "evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-unit-links.tsv",
+    "columns": [
+      "path",
+      "target",
+      "error"
+    ]
+  },
+  {
+    "file": "s4-microos-unit-selected.tsv",
+    "columns": [
+      "object_id",
+      "user",
+      "unit",
+      "properties_json",
+      "query_exit",
+      "evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-scriptlet-query.tsv",
+    "columns": [
+      "query_exit",
+      "evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-selinux-stores.tsv",
+    "columns": [
+      "store_root",
+      "policy",
+      "query_exit",
+      "evidence"
+    ]
+  },
+  {
+    "file": "s4-microos-solver-cache.tsv",
+    "columns": [
+      "path",
+      "content_status",
+      "query_exit",
+      "content_evidence",
+      "digest_status",
+      "sha256",
+      "digest_evidence"
+    ]
+  },
+  {
+    "file": "talos-mountinfo.tsv",
+    "columns": [
+      "mount_id",
+      "parent_id",
+      "device",
+      "root",
+      "mountpoint",
+      "mount_options",
+      "optional_fields",
+      "filesystem",
+      "source",
+      "super_options",
+      "evidence"
+    ]
+  },
+  {
+    "file": "talos-mountinfo-coverage.tsv",
+    "columns": [
+      "query_exit",
+      "status",
+      "mounts",
+      "namespace",
+      "evidence"
+    ]
+  },
+  {
+    "file": "talos-image-sources.tsv",
+    "columns": [
+      "resource_id",
+      "image",
+      "evidence"
+    ]
+  },
+  {
+    "file": "talos-expanded-members.tsv",
+    "columns": [
+      "object_ids",
+      "path",
+      "type",
+      "mode",
+      "owner",
+      "size",
+      "link_target",
+      "evidence"
+    ]
+  },
+  {
+    "file": "talos-listing-coverage.tsv",
+    "columns": [
+      "directory",
+      "query_exit",
+      "status",
+      "members",
+      "evidence"
+    ]
+  },
+  {
+    "file": "talos-listing-boundaries.tsv",
+    "columns": [
+      "path",
+      "reason"
+    ]
+  },
+  {
+    "file": "talos-content.tsv",
+    "columns": [
+      "object_ids",
+      "path",
+      "status",
+      "bytes",
+      "sha256",
+      "prefix_hex",
+      "signature",
+      "query_exit",
+      "evidence",
+      "method",
+      "error_category",
+      "diagnostic"
+    ]
+  },
+  {
+    "file": "talos-content-attempts.tsv",
+    "columns": [
+      "object_ids",
+      "path",
+      "status",
+      "bytes",
+      "sha256",
+      "prefix_hex",
+      "signature",
+      "query_exit",
+      "evidence",
+      "method",
+      "error_category",
+      "diagnostic"
+    ]
+  },
+  {
+    "file": "talos-fact-index.tsv",
+    "columns": [
+      "object_id",
+      "name",
+      "members_file",
+      "members_join",
+      "content_file",
+      "content_join",
+      "backing",
+      "image_integrity"
+    ]
+  }
+]
