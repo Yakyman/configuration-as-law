@@ -119,6 +119,39 @@ def planted(img_name):
                       ('UNRECORDED', 'process', q(f'{H}/planted-sleep'))],
          # the login session that started it stays while it runs; its scope is decided with its members
          'allowed': [('UNRECORDED', 'unit', r'system/session-\d+\.scope')]},
+        # [f7] processes started by root inside a private mount namespace (a tmpfs on /tmp that only the namespace
+        # sees): the file a process executes decides, not the name that file has in the namespace
+        {'name': 'process in another mount namespace executing a stored file under a path that exists only there',
+         'do': ["sudo -n setsid -f unshare -m --propagation private sh -c 'mount -t tmpfs nsplant /tmp && "
+                ": > /tmp/ns-same && mount --bind /usr/bin/sleep /tmp/ns-same && exec /tmp/ns-same 86405' "
+                '</dev/null >/dev/null 2>&1'],
+         'required': [],
+         'allowed': [],
+         'absent': [('.*', 'process', q('/tmp/ns-same'))],
+         'check_process': ('/tmp/ns-same', '/usr/bin/sleep')},
+        {'name': 'process in another mount namespace executing a file that is no stored object',
+         'do': ["sudo -n setsid -f unshare -m --propagation private sh -c 'mount -t tmpfs nsplant /tmp && "
+                "{ cat /usr/bin/sleep; printf planted-ns; } > /tmp/ns-planted && chmod 0755 /tmp/ns-planted && "
+                "exec /tmp/ns-planted 86403' </dev/null >/dev/null 2>&1"],
+         'required': [('UNRECORDED', 'process', q('/tmp/ns-planted'))],
+         'allowed': []},
+        {'name': 'process in another mount namespace whose path is a stored path (/usr/bin/tail) and whose file differs',
+         'do': ["sudo -n setsid -f unshare -m --propagation private sh -c 'mount -t tmpfs nsplant /tmp && "
+                "{ cat /usr/bin/sleep; printf planted-tail; } > /tmp/s && chmod 0755 /tmp/s && "
+                "mount --bind /tmp/s /usr/bin/tail && exec /usr/bin/tail 86404' </dev/null >/dev/null 2>&1"],
+         'required': [('UNRECORDED', 'process', q('/usr/bin/tail'))],
+         'allowed': []},
+        # [f7] a process that changed its root after it started (as the sandbox's own bwrap does): the path that
+        # readlink prints does not lead to its file through /proc/PID/root any more; the file is read through
+        # /proc/PID/exe and the process is placed with the stored file it executes
+        {'name': 'process that changed its root after it started (read through /proc/PID/exe)',
+         'do': ["sudo -n setsid -f unshare -m --propagation private sh -c 'mount -t tmpfs nsroot /mnt && exec python3 -c "
+                "\"import os, time; os.chroot(\\\"/mnt\\\"); os.chdir(\\\"/\\\"); time.sleep(86406)\"' "
+                '</dev/null >/dev/null 2>&1'],
+         'required': [],
+         'allowed': [],
+         'absent': [('.*', 'process', q('/usr/bin/python3') + r'.*')],
+         'check_process': ('/usr/bin/python3.13', '/usr/bin/python3.13', 'exe-link')},
         {'name': 'file on a volatile filesystem',
          'do': ["printf 'planted volatile\\n' > /dev/shm/planted-volatile.txt"],
          'required': [('UNRECORDED', 'vfile', q('/dev/shm/planted-volatile.txt'))],
@@ -234,6 +267,25 @@ def main():
                     used.add(i)
             detail = 'all required lines present' if not missing else 'missing ' + '; '.join(' '.join(m) for m in missing)
             ok = not missing
+            bad_rows = [r for r in rows if any(match(r, s) for s in o.get('absent', []))]
+            if o.get('absent'):
+                ok = ok and not bad_rows
+                detail += '; reported although it must not be: ' + (' | '.join('\t'.join(r)[:200] for r in bad_rows)
+                                                                     if bad_rows else 'none')
+            if o.get('check_process'):
+                # the inventory recorded the checksum of the file the process executes, equal to the stored file
+                pid_, fpath = o['check_process'][:2]
+                how = o['check_process'][2] if len(o['check_process']) > 2 else None
+                po = [json.loads(l) for l in open(os.path.join(inv['C'], 'force.jsonl')) if '"process"' in l]
+                po = [x for x in po if x['kind'] == 'process' and x['id'] == pid_]
+                so = [json.loads(l) for l in open(os.path.join(inv['C'], 'stored.jsonl')) if fpath in l]
+                so = [x for x in so if x['id'] == fpath]
+                psha = ((po[0].get('value') or {}).get('exe_sha256') if po else None)
+                fsha = so[0].get('sha256') if so else None
+                pread = (po[0].get('value') or {}).get('exe_read') if po else None
+                ok = ok and bool(po) and bool(psha) and psha == fsha and (how is None or how in (pread or []))
+                detail += f'; process {pid_} in the inventory: {bool(po)}, exe_sha256 {psha}, stored {fpath} {fsha}' + \
+                    (f', read {pread} (wanted {how})' if how else '')
             if o.get('check_runtime'):
                 oid, rt = o['check_runtime']
                 found = [json.loads(l) for l in open(os.path.join(inv['C'], 'stored.jsonl')) if oid in l]

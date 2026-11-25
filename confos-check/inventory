@@ -136,13 +136,23 @@ for u in $users; do
 done
 
 procs() {
-  local d p st
+  local d p st e h
   for d in /proc/[0-9]*; do
     p=${d#/proc/}
     st=$(cut -d')' -f2- "$d/stat" 2>/dev/null) || continue
     set -- $st
-    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$p" "$(readlink "$d/exe" 2>/dev/null)" "$(sed -n 's/^0:://p' "$d/cgroup" 2>/dev/null)" \
-      "$2" "$(stat -c %u "$d" 2>/dev/null)" "$(tr -d '\n' < "$d/comm" 2>/dev/null)" "$(tr '\0\t\n' '   ' < "$d/cmdline" 2>/dev/null)"
+    e=$(readlink "$d/exe" 2>/dev/null)
+    # [f7] the file the process executes, read as root through its own root directory and the path that
+    # readlink printed (that path is one of the process's mount namespace): its SHA-256 (`root-path`); if that path
+    # does not lead to it any more (the process changed its root after it started, or the file was deleted), the
+    # file read through /proc/PID/exe itself (`exe-link`); empty if neither can be read
+    h= r=
+    case "$e" in /*) h=$( { sha256sum < "$d/root$e"; } 2>/dev/null | cut -d' ' -f1); [ -n "$h" ] && r=root-path;; esac
+    if [ -z "$h" ] && [ -n "$e" ]; then
+      h=$( { sha256sum < "$d/exe"; } 2>/dev/null | cut -d' ' -f1); [ -n "$h" ] && r=exe-link
+    fi
+    printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$p" "$e" "$(sed -n 's/^0:://p' "$d/cgroup" 2>/dev/null)" \
+      "$2" "$(stat -c %u "$d" 2>/dev/null)" "$(tr -d '\n' < "$d/comm" 2>/dev/null)" "$(tr '\0\t\n' '   ' < "$d/cmdline" 2>/dev/null)" "$h" "$r"
   done
 }
 sockinodes() { local d l; for d in /proc/[0-9]*/fd/*; do l=$(readlink "$d" 2>/dev/null) || continue; case "$l" in socket:*) l=${d#/proc/}; printf '%s\t%s\n' "${l%%/*}" "$(readlink "$d")";; esac; done; }
@@ -462,7 +472,8 @@ def take_force(args, objs, errors):
         f = line.split('\t')
         if len(f) >= 7:
             args = f[6].strip() or f'[{f[5]}]'
-            procs[f[0]] = {'exe': f[1], 'cgroup': f[2], 'ppid': f[3], 'user': uname.get(f[4], f[4]), 'args': args}
+            procs[f[0]] = {'exe': f[1], 'cgroup': f[2], 'ppid': f[3], 'user': uname.get(f[4], f[4]), 'args': args,
+                           'sha': f[7].strip() if len(f) >= 8 else '', 'read': f[8].strip() if len(f) >= 9 else ''}
     psrows = {}
     for line in S.text('ps').splitlines():
         m = re.match(r'\s*(\d+)\s+(\d+)\s+(\S+)\s*(.*)$', line)
@@ -472,12 +483,18 @@ def take_force(args, objs, errors):
         # no ps on the machine: the same fields read from /proc by the collector
         psrows = {pid: (i['ppid'], i['user'], i['args']) for pid, i in procs.items()}
         meta['process_source'] = '/proc (ps absent or failed: ' + S.err.get('ps', '')[:200] + ')'
-    pobj = {}
+    # [f7] a process is recorded with the SHA-256 of the file it executes (`exe_sha256`, read as root through
+    # /proc/PID/root and the path of /proc/PID/exe, else through /proc/PID/exe itself; `exe_read` says which:
+    # `root-path`, `exe-link`, `unreadable`; empty if it could not be read). Processes whose path is the same
+    # but whose files differ (e.g. the same path in two mount namespaces) are separate objects, with the id
+    # `PATH#sha256=HEX` (`#sha256=unreadable` for those whose file could not be read).
+    rows = []
     for pid, (ppid, user, a) in psrows.items():
         if marker in a:
             continue  # the collector of this inventory itself (its command line carries the per-run marker)
-        info = procs.get(pid, {'exe': '', 'cgroup': ''})
+        info = procs.get(pid, {'exe': '', 'cgroup': '', 'sha': ''})
         exe = info['exe']
+        sha = ''
         if not exe:
             if pid == '2' or ppid == '2':
                 exe = '[kthread]'
@@ -485,17 +502,38 @@ def take_force(args, objs, errors):
                 exe = '[exe-unreadable]'
                 if pid not in procs:
                     continue  # exited between ps and readlink
+        else:
+            sha = info.get('sha', '')
         if exe.endswith(' (deleted)'):
             exe = exe  # kept as is: the executable is no longer on the filesystem
-        o = pobj.setdefault(exe, {'kind': 'process', 'id': exe, 'value': {'users': set(), 'count': 0, 'args': set()}})
+        rows.append((pid, exe, sha, user, a))
+    shas_of = {}
+    for pid, exe, sha, user, a in rows:
+        shas_of.setdefault(exe, set()).add(sha)
+    pobj = {}
+    pid_obj = {}
+    for pid, exe, sha, user, a in rows:
+        oid = exe
+        if not exe.startswith('[') and len(shas_of[exe]) > 1:
+            oid = f'{exe}#sha256={sha or "unreadable"}'
+        pid_obj[pid] = oid
+        o = pobj.setdefault(oid, {'kind': 'process', 'id': oid,
+                                  'value': {'users': set(), 'count': 0, 'args': set()}})
+        if not exe.startswith('['):
+            o['value']['exe'] = exe
+            o['value']['exe_sha256'] = sha
+            o['value'].setdefault('exe_read', set()).add(procs.get(pid, {}).get('read', '') or 'unreadable')
         o['value']['users'].add(user)
         o['value']['count'] += 1
         o['value']['args'].add(a)
     for o in pobj.values():
         o['value']['users'] = sorted(o['value']['users'])
         o['value']['args'] = sorted(o['value']['args'])
+        if 'exe_read' in o['value']:
+            o['value']['exe_read'] = sorted(o['value']['exe_read'])
         objs.append(o)
-    pid_exe = {pid: (procs.get(pid, {}).get('exe') or '') for pid in set(psrows) | set(procs)}
+    # ports and transient units name their processes by the id of the process object
+    pid_exe = {pid: pid_obj.get(pid) or (procs.get(pid, {}).get('exe') or '') for pid in set(psrows) | set(procs)}
 
     def pid_exe_of(p):
         return pid_exe.get(p) or f'[pid {p} gone]'
@@ -507,7 +545,8 @@ def take_force(args, objs, errors):
         for pid, info in procs.items():
             c = info.get('cgroup', '')
             if c == cg or c.startswith(cg.rstrip('/') + '/'):
-                out.add(info.get('exe') or ('[kthread]' if psrows.get(pid, ('',))[0] == '2' else '[exe-unreadable]'))
+                out.add(pid_obj.get(pid) or info.get('exe') or
+                        ('[kthread]' if psrows.get(pid, ('',))[0] == '2' else '[exe-unreadable]'))
         return sorted(out)
 
     # units

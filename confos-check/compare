@@ -196,11 +196,14 @@ class Index:
 
     def __init__(self, inv):
         self.by_path = {}
-        for (kind, oid), o in inv.items():
+        self.by_sha = {}    # [f7] SHA-256 -> keys of the stored and volatile files with that content
+        for (kind, oid), o in sorted(inv.items()):
             if kind in ('file', 'symlink', 'vfile', 'vsymlink', 'dir', 'vdir', 'other', 'vother'):
                 self.by_path.setdefault(oid, (kind, oid))
                 for r in o.get('runtime') or []:
                     self.by_path.setdefault(r, (kind, oid))
+            if kind in ('file', 'vfile') and o.get('sha256'):
+                self.by_sha.setdefault(o['sha256'], []).append((kind, oid))
         self.inv = inv
 
     def resolve(self, path, depth=0):
@@ -264,7 +267,7 @@ def match_id(key):
     return oid
 
 
-def resolve_alias(d, inv):
+def resolve_alias(d, inv, idx=None):
     """Objects whose derived id is not the inventory id: a `service` line (unit `service:NAME`) and a rule given as
     nft text. Returns None if d is not such an object, else (state, machine_key, diffs) with state 'ok', 'differs',
     'missing' or 'absent-ok' (a disabled service that is not in force)."""
@@ -280,14 +283,29 @@ def resolve_alias(d, inv):
                 return ('ok' if ok else 'differs', ('unit', uid), [] if ok else [('value.enabled', en, want)])
         argv = v.get('argv') or []
         line = ' '.join(argv)
+        unread = None
         for key, m in inv.items():
             if key[0] != 'process' or not argv:
                 continue
             exe = key[1]
+            pv = m.get('value') or {}
+            if idx is not None and pv.get('exe_sha256'):
+                # [f7] a process whose path names a stored file of another content is not placed by that path
+                ck = idx.resolve(pv.get('exe') or exe)
+                if ck is not None and inv[ck].get('sha256') not in (None, pv['exe_sha256']):
+                    continue
             if exe == argv[0] or exe.rsplit('/', 1)[-1] == argv[0].rsplit('/', 1)[-1]:
                 if any(a == line or a.endswith(' '.join(argv[1:])) and a.split(' ', 1)[0].endswith(argv[0].rsplit('/', 1)[-1])
                        for a in (m.get('value') or {}).get('args', [])):
+                    if 'exe_sha256' in pv and (not pv['exe_sha256'] or exe.endswith(' (deleted)')):
+                        unread = key   # [f7] which file it executes is not known: never 'ok'
+                        continue
                     return ('ok' if want else 'differs', key, [] if want else [('value.running', True, False)])
+        if unread is not None:
+            if want:
+                return ('unverified', unread, [('value.args', line, 'the file the process executes could not be read '
+                                                                    'or was deleted')])
+            return ('differs', unread, [('value.running', 'by command line', False)])
         # the executable of a process may be unreadable to the inventory (confinement): a process whose command
         # line is exactly the argv is seen, but which program runs is not; such a match is never 'ok'
         m = inv.get(('process', '[exe-unreadable]'))
@@ -418,12 +436,14 @@ def main():
                 continue
             key = (d['kind'], d['id'])
             line = str(d.get('line', ''))
-            al = resolve_alias(d, inv)
+            al = resolve_alias(d, inv, idx)
             if al is not None:
                 for fld, reason in sorted((d.get('underived_fields') or {}).items()):
                     cands.append((key, 'UNDERIVED', None, dict(d, underived=f'field {fld}: {reason}'), [], line))
                 st, akey, adiffs = al
-                if akey is not None and akey != ('process', '[exe-unreadable]'):  # a group of unknown programs
+                # a group of unknown programs, or a process whose file is not known ([f7]): not covered by the line
+                if akey is not None and akey != ('process', '[exe-unreadable]') and st != 'unverified' and \
+                        not (st == 'differs' and adiffs and adiffs[0][1] == 'by command line'):
                     covered.add(akey)
                 if st == 'ok':
                     status[akey] = 'ok'
@@ -842,6 +862,41 @@ def main():
         reported.append((verdict, kind, oid, detail_of(verdict, diffs, line)))
         status[key] = verdict
 
+    def place_file(path):
+        """[f7] The stored object that a runtime path names, or None. A path that is the id of a process object
+        recorded with the checksum of the file it executes (`exe_sha256`) is placed by that checksum: by the stored
+        object at its path only if that object has the same content, otherwise by a stored file with that content
+        that follows from a line. Returns (key or None, notes, status-override or None)."""
+        po = (inv.get(('process', path)) or {}).get('value') or {}
+        sha = po.get('exe_sha256')
+        exe = po.get('exe') or path
+        ck = idx.resolve(exe)
+        if 'exe_sha256' not in po:
+            # not a process recorded with the checksum of its file (an inventory before [f7], a module file, a unit
+            # fragment): the path decides, as before
+            return ck, [], None
+        if exe.endswith(' (deleted)'):
+            return None, [f'the file it executes ({exe}) was deleted: it is no stored object'], 'none'
+        if not sha:
+            # the file it executes could not be read: which program runs is not known; not placed by its path (it is
+            # accepted only if the reference installation has an equal object, checked before)
+            return None, [f'the file it executes ({exe}) could not be read, neither through /proc/PID/root nor '
+                          '/proc/PID/exe: not placed by its path'], 'none'
+        if ck is not None and inv[ck].get('sha256') == sha:
+            return ck, [], None
+        notes = []
+        if ck is not None:
+            notes.append(f'the stored {ck[0]}:{ck[1]} at the path {exe} has another content than the file the '
+                         f'process executes (sha256 {sha}): the path does not place it')
+        same = idx.by_sha.get(sha, [])
+        oks = [k for k in same if status.get(k) == 'ok']
+        if oks:
+            return oks[0], notes + [f'placed by the checksum of the file it executes (sha256 {sha})'], None
+        if same:
+            return same[0], notes + [f'the file it executes (sha256 {sha}) is stored only as '
+                                     + ', '.join(f'{k[0]}:{k[1]} ({status.get(k) or "undecided"})' for k in same[:3])], None
+        return None, notes + [f'the file it executes (sha256 {sha}) is no stored object'], 'none'
+
     for key, verdict, m, r, diffs, line, rule in later:
         kind, oid = key
         obj = m if m is not None else r
@@ -866,10 +921,12 @@ def main():
                     continue
                 ck = kk[0]
             else:
-                ck = idx.resolve(path)
+                ck, notes, how = place_file(path)
+                why.extend(notes)
                 if ck is None:
                     ok = False
-                    why.append(f'creator {path} not in the inventory')
+                    if how is None:
+                        why.append(f'creator {path} not in the inventory')
                     continue
             st = status.get(ck)
             if st != 'ok':

@@ -362,3 +362,25 @@ SENTENCE_ID  DETAIL`.
   [f2]): the bundle's checksum is checked; a `dir` object PATH (mode, uid, gid underived: the line names the
   account but not its UID) and an underived `file` object `PATH/**` (the layout inside PATH is the launcher's
   convention, D4).
+
+## Additions of 2026-11-25, 04:24–04:41 UTC ([f7]; binding)
+
+- **`process`** (`inventory`): `value.exe` (the path that `readlink /proc/PID/exe` prints, a path of the process's
+  mount namespace), `value.exe_sha256` (SHA-256 of the file the process executes, read as root through
+  `/proc/PID/root` and that path; if that fails — the process changed its root after it started, or the file was
+  deleted — through `/proc/PID/exe` itself; empty if neither can be read) and `value.exe_read` (the sorted list of
+  the ways its processes were read: `root-path`, `exe-link`, `unreadable`). Processes of one path whose files
+  differ are separate objects with the id `PATH#sha256=HEX` (`#sha256=unreadable`); otherwise the id is `PATH`.
+  `port` `value.exe` and transient `unit` `value.members` name processes by these ids. `[kthread]` and
+  `[exe-unreadable]` are unchanged.
+- **Placing a process** (`compare`, rule class `runtime`): by the stored object at `value.exe` if its `sha256` equals
+  `value.exe_sha256`; otherwise by a stored `file`/`vfile` with that `sha256` whose own decision is `ok` (DETAIL
+  `placed by the checksum of the file it executes`); if none: reported, DETAIL `the file it executes (sha256 …) is no
+  stored object` or `… is stored only as …`, preceded by `the stored … at the path … has another content …: the path
+  does not place it` when the path names a stored object. A process whose file could not be read (`exe_sha256`
+  empty) or was deleted (path ending in ` (deleted)`) is not placed (`could not be read … not placed by its path`,
+  `was deleted: it is no stored object`); like `[exe-unreadable]`, it is accepted only if the reference installation
+  has an equal object. A process object without `exe_sha256` (an inventory before [f7]): the path decides, as before.
+- **`service` line** (`compare`, derived mode): it does not match a process at its path whose file differs from the
+  stored file there; a process whose file could not be read or was deleted gives `UNVERIFIED` (never `ok`), as
+  `[exe-unreadable]` does, and stays reported on its own.

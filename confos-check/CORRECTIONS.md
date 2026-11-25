@@ -243,3 +243,72 @@ Sixth freeze: `run/src13` (`casedefs.py` `8e153000e03d9e78ff57fd72e9015ebb2ed1d5
 `casedefs_search.py` `59f41c31d2582e9b3d42cdcf42c516e5a57195312ed6e0868edb019b3e084298`; the other eleven program files
 are byte-identical to the fifth freeze). No row of complete run 2 is `fail` or `unobserved` because of a program of
 the case party (`RUN-2.md`), so nothing was repaired.
+
+## [f7] A process whose executable lies in another mount namespace — repaired 2026-11-25 04:24–04:41 UTC, seventh freeze
+
+Found by the development run `dev-18` (P4-S-135, P4-S-136, P4-S-167 on release 0.55 from the sixth freeze,
+2026-11-25 04:06–04:14 UTC): all nine rows `fail` by one object, `UNRECORDED process /app/bin/mpv  creator
+/app/bin/mpv not in the inventory`. On 0.55 root's `readlink /proc/PID/exe` answers for the process of the recorded
+Flatpak application, and the path it prints, `/app/bin/mpv`, is one of the application's own mount namespace.
+`inventory` knew a process only by that path, and `compare` placed a process only by looking that path up among the
+stored paths of the machine. The file the process executes was not read. The defect went both ways: a process in
+another mount namespace whose path there equals a stored path of the machine was placed by that path, whatever file
+it executed.
+
+What decides whether a process is past the declaration is the file it executes, not the name that file has in some
+namespace. The repair:
+
+- **`inventory`** records for every process, read as root, the SHA-256 of the file it executes, read through
+  `/proc/PID/root` and the path that `readlink /proc/PID/exe` prints (`value.exe`, `value.exe_sha256`). When that
+  path no longer leads to the file — the process changed its root after it started, as the sandbox's own `bwrap`
+  process does (seen at 04:38 UTC in the first development run after the repair, `dev-18-f7`: `/proc/435/root/usr/bin/
+  bwrap: No such file or directory`), or the file was deleted — the file is read through `/proc/PID/exe` itself;
+  `value.exe_read` says which way (`root-path`, `exe-link`, `unreadable`). Processes with the same path whose files
+  differ are separate objects, with the id `PATH#sha256=HEX` (`PATH#sha256=unreadable`); when all processes of a path
+  execute the same file, the id stays `PATH`. Ports (`value.exe`) and the members of transient units name their
+  processes by these ids.
+- **`compare`** places a process (and a port or a transient unit through its processes) by that checksum: if the
+  stored object at the path has the same content, by that object, as before; otherwise the path does not place it,
+  and it is placed by a stored file with that content that follows from a line (decision `ok`); a process whose file
+  is no stored object is past the declaration, as before. A process whose file cannot be read either way, or whose
+  executable was deleted, is not placed by its path: like `[exe-unreadable]` (unchanged), it is accepted only if the
+  reference installation has an equal object. A `service` line does not match a process at its path whose file
+  differs from the stored file there, and gives `UNVERIFIED` (never `ok`) for a process whose file is not known, as it
+  does for `[exe-unreadable]`. No other rule changed; nothing is taken from the implementation's own records.
+
+The first form of the repair (04:24–04:27 UTC, tree `run/src15`) read only through `/proc/PID/root` and placed a
+process whose file it could not read by its path; `dev-18-f7` on 0.55 passed with it, but the sandbox's inner `bwrap`
+was placed by its path without its file having been read. The second form (04:38–04:41 UTC, `run/src16`) is the one
+frozen. Every test below was made with the second form.
+
+Tests, each failing on the sixth freeze where it should and passing after the repair:
+
+- **Fixture test of `compare`** (new, `selftest/compare-process/test.sh`: `make.py` writes two inventories and a
+  derivation, `check.py` decides): 13 checks — (a) the process `/app/bin/mpv` whose file is stored only under the
+  application's tree is placed by the checksum; (b1) a process whose file is no stored object is reported; (b2) a
+  process at a stored path (`/usr/bin/tail`) whose file differs is not placed by the path; an unreadable file and a
+  deleted executable are not placed; a split object, a port and a login scope follow the placement of their
+  processes; `service` lines: matched, MISSING, UNVERIFIED. Repaired: `RESULT: PASS`
+  (`ready/f10/compare-process-after.txt`); sixth freeze (`test.sh <sixth-freeze compare>`): `RESULT: FAIL`, 9 of 13
+  fail; (b1), the deleted executable, the process placed by its own path and the matched `service` line pass on both (`ready/f10/compare-process-sixth-freeze.txt`). The fixture
+  test `selftest/compare-alias` still passes.
+- **Planted-object test of `inventory`** (`selftest/inventory/test.sh`; `test.py` has four new planted processes
+  on the stock Debian 13 image, each started by root in a private mount namespace): a stored file under a path that
+  exists only in the namespace (must not be reported, its checksum equal to the stored `/usr/bin/sleep`); a file
+  that is no stored object (must be reported); a changed file at the stored path `/usr/bin/tail` (must be
+  reported); a process that changed its root after it started (read through `/proc/PID/exe`, placed). Repaired
+  (04:42:37–04:48:28 UTC): `RESULT: PASS`, 21 checks (`ready/f10/planted-after.txt`); sixth freeze
+  (`TEST_TAG=f6 INVENTORY_PROG=… COMPARE_PROG=… test.sh`, 04:48:30–04:54:13 UTC): `RESULT: FAIL`, the first,
+  third and fourth of the new checks fail and one line is reported that was not planted; the second passes on both
+  (`ready/f10/planted-sixth-freeze.txt`).
+- **`dev-18` again on 0.55** (`dev-18-f7b`, P4-S-135, -136, -167 from `run/src16`, 04:42–04:51 UTC): no row
+  `fail` or `unobserved` (P4-S-135 and -136: P4 `pass`, P1 `pass`, UND `undecided` by D1–D6; P4-S-167: P4, P1, UND
+  `undecided`, Q12, `mpv.conf`). `/app/bin/mpv` is `placed by the checksum of the file it executes` with the
+  application's file in the system generation; both `bwrap` processes are one object (`exe_read` `exe-link`,
+  `root-path`) placed with `/usr/bin/bwrap`. On the sixth freeze the same nine rows were `fail` (`dev-18`).
+- **The runner self-test** (`SELFTEST PASS`, 04:42:27–04:47:05 UTC) and **the specificity test on 0.55**
+  (`SPECIFICITY TEST PASS`, 20 of 20, 04:42:22–04:55:45 UTC) from `run/src16`.
+
+Seventh freeze: `run/src16` (`inventory` `93d47964b38098d550bb06496978282805390a3ec87384d1e3a4fcb0a5b5bcd7`,
+`compare` `5da383452b8f2eaa3b2c8e0771b33fd5cf5218136c0a101d5c90a3c627b97087`; the other eleven program files are
+byte-identical to the sixth freeze).
