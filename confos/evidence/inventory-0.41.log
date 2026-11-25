@@ -1,0 +1,17 @@
+ssh: connect to host 127.0.0.1 port 22410: Connection refused
+Connection timed out during banner exchange
+APPLIED 6d3f50ae1a720dc5f8cb898577a94c1c14bf87f79bb7ca6efb35874efa36929f
+519556893b67fb4cdea3ff7885be8c25e87d38b46ef517a85a57b87490cac2a6  ../cases/inventory/inventory
+inventory: force level collected in 2.2s, ssh exit 0, 34525 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 22 objects in 3.0s
+inventory: image /system/generations/6d3f50ae1a720dc5f8cb898577a94c1c14bf87f79bb7ca6efb35874efa36929f/root.sqfs (squashfs, mount-loop) 13654 objects, runtime mount /
+inventory: @part3 (ext4) 16 objects in 0.0s
+inventory: stored level read in 9.5s, 13699 objects
+inventory: runtime paths by owning mount: 13692 objects changed, 0 shadowed
+inventory: wrote inventories/0.41: stored 13699, force 303, executables 2550, errors 0
+    2550 inventories/0.41/executables.jsonl
+     303 inventories/0.41/force.jsonl
+   13699 inventories/0.41/stored.jsonl
+   16552 total
+qemu-system-x86_64: terminating on signal 15 from pid 58208 (bash)

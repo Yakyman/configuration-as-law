@@ -72,6 +72,8 @@ def main():
         assert digest() == added
         apply(added)
         d.guest('flatpak info io.mpv.Mpv; flatpak run --command=mpv io.mpv.Mpv --version')
+        # 0.55: `list` answers with its native options (up to 0.54 only the plain form did).
+        assert d.guest('flatpak list --app --columns=application') == 'io.mpv.Mpv'
         assert record('flatpak install --bundle /home/user/mpv.flatpak') == added
         d.guest('if sudo -n flatpak uninstall org.freedesktop.Platform; then exit 73; fi')
         assert digest() == added

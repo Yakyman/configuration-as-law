@@ -1,0 +1,22 @@
+APPLIED 38132f316d3176ec0da892ed2c0d0c5d17ca05fc4d438c84327c38a881192011
+RECORDED TEST EDITOR FIXTURE 20fd2d2b5dd47a4fd5e1a7435d66dfbee5af3a0eb793a32b1704fb38053c8708
+APPLIED 38132f316d3176ec0da892ed2c0d0c5d17ca05fc4d438c84327c38a881192011
+EDITOR REQUEST '@include /tmp/visudo-include-target\n' EXIT 1 STDOUT press return to edit /tmp/visudo-include-target:  STDERR confos-session (enforce)
+confos-session (enforce)
+visudo: snippet includes are unsupported by declaration file rows
+
+NATIVE INCLUDE MATERIAL AFTER REFUSAL b''
+EDITOR REQUEST 'user ALL=(ALL) NOPASSWD: /usr/bin/id\n' EXIT 0 STDOUT stdin: parsed OK
+RECORDED b7d492a7c78f0e9531f5401693f9e7ce11141412500f9190507ebf9dbc91f8e7; run confos apply
+ STDERR confos-session (enforce)
+
+EDITOR REQUEST 'user ALL=(ALL) NOPASSWD: /usr/bin/id\n' EXIT 0 STDOUT stdin: parsed OK
+RECORDED b7d492a7c78f0e9531f5401693f9e7ce11141412500f9190507ebf9dbc91f8e7; run confos apply
+ STDERR confos-session (enforce)
+
+REMOVE RECORDED EDITOR REQUEST EXIT 0 stdin: parsed OK
+RECORDED 38132f316d3176ec0da892ed2c0d0c5d17ca05fc4d438c84327c38a881192011; run confos apply
+ 
+VISUDO44 RECORDED EDITOR CONFINEMENT INCLUDE REFUSAL RECORD REPEAT REMOVE PASS
+CANONICAL44 RECORDED VISUDO EDITOR PASS
+qemu-system-x86_64: terminating on signal 15 from pid 333099 (/usr/bin/bash)

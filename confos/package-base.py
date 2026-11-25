@@ -41,9 +41,9 @@ def build(output):
         for command, source in {'nmcli': 'nmcli-command', 'visudo': 'visudo-command', 'apt': 'apt-command', 'apt-get': 'apt-command', 'nft': 'nft-query', 'flatpak': 'flatpak-command',
                 'podman': 'podman-command', 'systemctl': 'systemctl-query',
                 'pip': 'language-query', 'pip3': 'language-query',
-                'npm': 'language-query', 'npx': 'language-query', **{name: 'configuration-command' for name in ('hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel')}}.items():
+                'npm': 'language-query', 'npx': 'language-query', **{name: 'configuration-command' for name in ('hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel', 'groupadd', 'groupdel', 'modprobe')}}.items():
             put('/usr/lib/confos/commands/'+command, (HERE/source).read_bytes(), 0o755)
-            if command in ('apt', 'apt-get', 'nmcli', 'visudo', 'nft', 'systemctl', 'hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel'):
+            if command in ('apt', 'apt-get', 'nmcli', 'visudo', 'nft', 'systemctl', 'hostnamectl', 'timedatectl', 'sysctl', 'useradd', 'usermod', 'userdel', 'groupadd', 'groupdel', 'modprobe'):
                 entry = root/'usr/local/bin'/command
                 entry.parent.mkdir(parents=True, exist_ok=True)
                 entry.symlink_to('/usr/lib/confos/commands/'+command)

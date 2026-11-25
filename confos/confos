@@ -20,6 +20,11 @@ def boot_prepare():
         subprocess.run(['/usr/bin/busybox', 'sysctl', '-w', name+'='+value], check=True)
     if os.uname().nodename != hostname:
         raise RuntimeError('running hostname differs from /etc/hostname')
+    modules = Path('/etc/confos/modules.json')
+    for name in (json.loads(modules.read_text()) if modules.is_file() else []):
+        subprocess.run(['/usr/sbin/modprobe', '--', name], check=True)
+        if not Path('/sys/module', name).is_dir():
+            raise RuntimeError('declared kernel module is not loaded: '+name)
     subprocess.run(['/usr/sbin/nft', '-f', '/etc/confos/rules.nft'], check=True)
     for line in Path('/etc/passwd').read_text().splitlines():
         name, _, uid, gid, _, home, shell = line.split(':')
@@ -178,7 +183,7 @@ def apply_candidate(assemble, declaration, captured, digest, stage):
                 dest = stage/source
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(declaration.parent/source, dest)
-    newdigest, root = assemble.root_image(snapshot, stage)
+    newdigest, root = assemble.root_image(snapshot, stage, keep_archives=False)
     assert newdigest == digest
     release = assemble.initramfs(root, stage)
     subprocess.run(['mount', '-o', 'remount,rw', '/system'], check=True)

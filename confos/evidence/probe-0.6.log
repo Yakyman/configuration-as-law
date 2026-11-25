@@ -1,0 +1,64 @@
+Running as unit: confos-probe-vm.service; invocation ID: 559c5206e3be49d2b64f4dbee572a613
+ssh: connect to host 127.0.0.1 port 22403: Connection refused
+Connection timed out during banner exchange
+APPLIED c8eecd8d85bc0254296aeaf1d45ae79661f5222cda24884970586a6809d9d173
+2026-11-24T04:18:38Z
+
+COMMAND: printf "echo SAVED-SHELL-RAN\n" > /home/user/saved.sh; bash /home/user/saved.sh
+SAVED-SHELL-RAN
+EXIT: 0
+
+COMMAND: printf "print(12345)\n" > /home/user/saved.py; python3 /home/user/saved.py
+12345
+EXIT: 0
+
+COMMAND: printf "touch /home/user/startup-marker\n" > /home/user/.bashrc; bash -ic true; test -f /home/user/startup-marker
+bash: cannot set terminal process group (290): Inappropriate ioctl for device
+bash: no job control in this shell
+EXIT: 0
+
+COMMAND: cp /usr/bin/busybox /home/user/busybox; chmod +x /home/user/busybox; /home/user/busybox true
+bash: line 1: /home/user/busybox: Permission denied
+EXIT: 126
+
+COMMAND: sudo -n mount -o remount,bind,exec /home; /home/user/busybox echo NATIVE-AFTER-MOUNT
+mount: /home: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+bash: line 1: /home/user/busybox: Permission denied
+EXIT: 126
+
+COMMAND: sudo -n mount -o remount,bind,noexec /home
+mount: /home: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+EXIT: 32
+
+COMMAND: hostname; sudo -n hostname unrecorded; hostname
+confos-test
+hostname: sethostname: Operation not permitted
+confos-test
+EXIT: 0
+
+COMMAND: sudo -n /usr/sbin/nft list ruleset; sudo -n /usr/sbin/nft flush ruleset; sudo -n /usr/sbin/nft list ruleset
+Operation not permitted (you must be root)
+netlink: Error: cache initialization failed: Operation not permitted
+Error: Could not process rule: Operation not permitted
+flush ruleset
+^^^^^^^^^^^^^^
+Operation not permitted (you must be root)
+netlink: Error: cache initialization failed: Operation not permitted
+EXIT: 1
+
+COMMAND: sudo -n apt-get install hello
+Reading package lists...
+Building dependency tree...
+E: Unable to locate package hello
+EXIT: 100
+
+COMMAND: mv /home/user/bin /home/user/moved-bin; test -e /home/user/bin/recorded.sh; result=$?; echo DECLARED_PATH_EXIT:$result; confos status
+DECLARED_PATH_EXIT:1
+APPLIED c8eecd8d85bc0254296aeaf1d45ae79661f5222cda24884970586a6809d9d173
+EXIT: 0
+
+COMMAND: confos status
+APPLIED c8eecd8d85bc0254296aeaf1d45ae79661f5222cda24884970586a6809d9d173
+EXIT: 0

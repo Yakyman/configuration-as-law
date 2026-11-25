@@ -1,0 +1,1422 @@
+SSH_READER_GUEST_EXACT_HASH_VERSION_NATIVE_QUERIES_PASS
+SSH CONTROL original route107 ProxyCommand EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL original route108 Match exec EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH_READER_ORIGINAL_ROUTES107_108_REPRODUCED
+SSH CONTROL candidate ProxyCommand config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/proxy.conf: saved configuration input denied\n'
+SSH CONTROL candidate Match exec config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/match.conf: saved configuration input denied\n'
+SSH CONTROL symlink config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/alias: saved configuration input denied\n'
+SSH CONTROL regular descriptor alias /proc/self/fd/ /usr/local/libexec/ssh-reader-original EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL regular descriptor alias /proc/self/fd/ /usr/bin/ssh EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/proc/self/fd/0: saved configuration input denied\n'
+SSH CONTROL regular descriptor alias /dev/fd/ /usr/local/libexec/ssh-reader-original EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL regular descriptor alias /dev/fd/ /usr/bin/ssh EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/dev/fd/0: saved configuration input denied\n'
+SSH CONTROL regular stdin config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/dev/stdin: saved configuration input denied\n'
+SSH CONTROL typed config pipe R4 EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL explicit producer config pipe R4 EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL typed ProxyCommand option EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL native unsupported Match option /usr/local/libexec/ssh-reader-original 255 'Host directive not supported as a command-line option\n'
+SSH CONTROL native unsupported Match option /usr/bin/ssh 255 'Host directive not supported as a command-line option\n'
+SSH CONTROL recorded Match config EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL recorded Proxy config EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL recorded nested includes EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL recorded include to mutable config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/match.conf: saved configuration input denied\n'
+SSH CONTROL automatic user config creation denied by read-only mount 30
+SSH CONNECTION /usr/local/libexec/ssh-reader-original EXIT 0 OUT 'SSH_READER_CONNECTION_OK' ERR "Warning: Permanently added '127.0.0.1' (ED25519) to the list of known hosts.\n"
+SSH CONNECTION /usr/bin/ssh EXIT 0 OUT 'SSH_READER_CONNECTION_OK' ERR "Warning: Permanently added '127.0.0.1' (ED25519) to the list of known hosts.\n"
+SSH_READER_PRIVATE42_GUEST_MATRIX_PASS 22
+SSH ROOT match material EXIT 255 MARKER no
+ConfOS: Permission denied for saved code input
+/home/user/ssh-reader-material/match.conf: saved configuration input denied
+SSH ROOT match recorded EXIT 0 MARKER yes
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+host ssh-reader-test
+user root
+hostname ssh-reader-test
+port 22
+addressfamily any
+batchmode yes
+canonicalizefallbacklocal yes
+canonicalizehostname false
+checkhostip no
+compression no
+controlmaster false
+enablesshkeysign no
+clearallforwardings no
+exitonforwardfailure no
+fingerprinthash SHA256
+forwardx11 no
+forwardx11trusted yes
+gatewayports no
+gssapiauthentication no
+gssapikeyexchange no
+gssapidelegatecredentials no
+gssapitrustdns no
+gssapirenewalforcesrekey no
+gssapikexalgorithms gss-group14-sha256-,gss-group16-sha512-,gss-nistp256-sha256-,gss-curve25519-sha256-,gss-group14-sha1-,gss-gex-sha1-
+hashknownhosts no
+hostbasedauthentication no
+identitiesonly no
+kbdinteractiveauthentication yes
+nohostauthenticationforlocalhost no
+passwordauthentication yes
+permitlocalcommand no
+proxyusefdpass no
+pubkeyauthentication true
+requesttty auto
+sessiontype default
+stdinnull no
+forkafterauthentication no
+streamlocalbindunlink no
+stricthostkeychecking ask
+tcpkeepalive yes
+tunnel false
+verifyhostkeydns false
+visualhostkey no
+updatehostkeys true
+enableescapecommandline no
+canonicalizemaxdots 1
+connectionattempts 1
+forwardx11timeout 1200
+numberofpasswordprompts 3
+serveralivecountmax 3
+serveraliveinterval 300
+requiredrsasize 1024
+obscurekeystroketiming yes
+ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+[a line of 481 characters is left out of the published copy]
+[a line of 491 characters is left out of the published copy]
+kexalgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256
+casignaturealgorithms ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+loglevel INFO
+macs umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+securitykeyprovider internal
+[a line of 488 characters is left out of the published copy]
+xauthlocation /usr/bin/xauth
+identityfile ~/.ssh/id_rsa
+identityfile ~/.ssh/id_ecdsa
+identityfile ~/.ssh/id_ecdsa_sk
+identityfile ~/.ssh/id_ed25519
+identityfile ~/.ssh/id_ed25519_sk
+identityfile ~/.ssh/id_xmss
+canonicaldomains none
+globalknownhostsfile /etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2
+userknownhostsfile /root/.ssh/known_hosts /root/.ssh/known_hosts2
+logverbose none
+channeltimeout none
+permitremoteopen any
+addkeystoagent false
+forwardagent no
+connecttimeout 1
+tunneldevice any:any
+canonicalizePermittedcnames none
+controlpersist no
+escapechar ~
+ipqos ef cs1
+rekeylimit 0 0
+streamlocalbindmask 0177
+syslogfacility USER
+SSH ROOT proxy material EXIT 255 MARKER no
+ConfOS: Permission denied for saved code input
+/home/user/ssh-reader-material/proxy.conf: saved configuration input denied
+SSH ROOT proxy recorded EXIT 255 MARKER yes
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+banner exchange: Connection to UNKNOWN port 65535: Broken pipe
+SSH_READER_ROOT_PRIVATE_MATRIX_PASS
+EDITOR /usr/bin/python3 -c 'from pathlib import Path;import sys;p=Path(sys.argv[-1]);print('"'"'EDITOR TARGET'"'"',str(p),'"'"'CONTEXT'"'"',Path('"'"'/proc/self/attr/current'"'"').read_text().strip(),flush=True);p.write_text('"'"'@include /tmp/visudo-include-target\n'"'"' if '"'"'snippet.tmp'"'"' in str(p) else '"'"'# CHANGED BY NATIVE INCLUDE EDIT\n'"'"')' EXIT 0 STDOUT stdin: parsed OK
+RECORDED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb; run confos apply
+ STDERR   File "<string>", line 1
+    from pathlib import Path;import sys;p=Path(sys.argv[-1]);print(
+                                                                  ^
+SyntaxError: '(' was never closed
+visudo: /run/confos-visudo-ii4r8mqr/snippet.tmp unchanged
+ TARGET # ORIGINAL
+ DECLARATION_UNCHANGED True
+MODE before
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+ STDERR 
+COMMAND ['visudo', '-cf', '/tmp/visudo-native-check'] EXIT 0 STDOUT /tmp/visudo-native-check: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'chown', '0:0', '/tmp/visudo-native-check'] EXIT 0 STDOUT  STDERR 
+COMMAND ['sudo', '-n', 'chmod', '0600', '/tmp/visudo-native-check'] EXIT 0 STDOUT  STDERR 
+COMMAND ['env', 'EDITOR=tee', 'visudo'] EXIT 1 STDOUT  STDERR visudo: permission denied: this account may not change /state/declaration.conf; use an authorized root invocation
+
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo', '-f', '/etc/sudoers'] EXIT 1 STDOUT  STDERR visudo: edit target must be one /etc/sudoers.d/NAME snippet; generated /etc/sudoers cannot be edited
+
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo'] EXIT 0 STDOUT INVALID SUDOERS
+What now? stdin: parsed OK
+RECORDED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb; run confos apply
+ STDERR /run/confos-visudo-xoagq118/snippet:1:16: syntax error
+INVALID SUDOERS
+               ^
+
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo'] EXIT 1 STDOUT @include /tmp/visudo-native-check
+press return to edit /tmp/visudo-native-check:  STDERR visudo: snippet includes are unsupported by declaration file rows
+
+COMMAND ['sudo', '-n', 'env', 'EDITOR=sh /home/user/visudo-editor.sh', 'visudo'] EXIT 0 STDOUT stdin: parsed OK
+RECORDED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb; run confos apply
+ STDERR ConfOS: Permission denied for saved code input
+sh: saved code input: Permission denied
+visudo: /run/confos-visudo-tuhuiz6k/snippet.tmp unchanged
+
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED ae1689b4c2e4b034ce932f3344a2e01af4b093a378d88b49d5d7fe479afd283d; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'VISUAL=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED ae1689b4c2e4b034ce932f3344a2e01af4b093a378d88b49d5d7fe479afd283d; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee -a', 'visudo', '-f', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89; run confos apply
+ STDERR 
+VISUDO before PASS DECLARATION 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease [140 kB]
+Get:2 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security InRelease [43.4 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 Packages [9679 kB]
+Get:4 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 Packages [309 kB]
+Fetched 10.2 MB in 1s (11.1 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  adduser cron-daemon-common libcbor0.10 libcom-err2 libfido2-1
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libsemanage-common libsemanage2 libsepol2 login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc libarchive-dev anacron logrotate checksecurity
+  supercat bat debconf-doc debconf-kde-helper debconf-utils libgtk3-perl
+  libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog debsig-verify
+  bash-completion glibc-doc libc-l10n locales libnss-nis libnss-nisplus
+  krb5-doc krb5-user cryptsetup-bin libpam-doc libarchive13t64 libbpf1
+  libcryptsetup12 libdw1t64 libelf1t64 libgcrypt20 libidn2-0 libip4tc2
+  libp11-kit0 libpwquality1 libqrencode4 libtss2-rc0t64 uuid-runtime
+  firmware-linux-free linux-doc-6.12 debian-kernel-handbook grub-pc
+  | grub-efi-amd64 | extlinux nfs-common firewalld keychain libpam-ssh
+  monkeysphere ssh-askpass python3-doc python3-tk python3-venv python3.13-venv
+  python3.13-doc binutils binfmt-support readline-doc systemd-container
+  systemd-homed systemd-userdbd systemd-boot systemd-resolved systemd-repart
+  libtss2-tcti-device0 polkitd bzip2 ncompress xz-utils tar-scripts tar-doc
+  dosfstools kbd util-linux-extra util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages libidn2-0 krb5-locales libgpm2 xauth default-dbus-system-bus
+  | dbus-system-bus linux-sysctl-defaults systemd-timesyncd | time-daemon
+  systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash busybox-static
+  ca-certificates coreutils cpio cron cron-daemon-common debconf
+  debian-archive-keyring debianutils dpkg dracut-install dropbear-bin
+  gcc-14-base init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core klibc-utils kmod libacl1 libapparmor1 libapt-pkg7.0
+  libattr1 libaudit-common libaudit1 libblkid1 libbsd0 libbz2-1.0 libc-bin
+  libc6 libcap-ng0 libcap2 libcbor0.10 libcom-err2 libcrypt1 libdb5.3t64
+  libdebconfclient0 libedit2 libexpat1 libffi8 libfido2-1 libgcc-s1 libgmp10
+  libgssapi-krb5-2 libhogweed6t64 libjansson4 libk5crypto3 libkeyutils1
+  libklibc libkmod2 libkrb5-3 libkrb5support0 liblastlog2-2 liblz4-1 liblzma5
+  liblzo2-2 libmd0 libmnl0 libmount1 libncursesw6 libnettle8t64 libnftables1
+  libnftnl11 libpam-modules libpam-modules-bin libpam-runtime libpam0g
+  libpcre2-8-0 libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib
+  libreadline8t64 libseccomp2 libselinux1 libsemanage-common libsemanage2
+  libsepol2 libsmartcols1 libsqlite3-0 libssl3t64 libstdc++6 libsystemd-shared
+  libsystemd0 libtinfo6 libtomcrypt1 libtommath1 libudev1 libuuid1
+  libxtables12 libxxhash0 libzstd1 linux-base linux-image-6.12.118+deb13-amd64
+  linux-image-amd64 login.defs logsave mawk media-types mount netbase nftables
+  openssh-client openssl openssl-provider-legacy passwd perl-base python3
+  python3-minimal python3.13 python3.13-minimal readline-common sensible-utils
+  squashfs-tools sqv sudo systemd tar tzdata udev util-linux zlib1g
+0 upgraded, 127 newly installed, 0 to remove and 0 not upgraded.
+Need to get 161 MB of archives.
+After this operation, 309 MB of additional disk space will be used.
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 gcc-14-base amd64 14.2.0-19 [49.4 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc6 amd64 2.41-12+deb13u5 [2850 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgcc-s1 amd64 14.2.0-19 [72.8 kB]
+Get:4 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mawk amd64 1.3.4.20250131-1 [141 kB]
+Get:5 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-files amd64 13.8+deb13u8 [88.3 kB]
+Get:6 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtinfo6 amd64 6.5+20250216-2 [348 kB]
+Get:7 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debianutils amd64 5.23.2 [92.4 kB]
+Get:8 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 bash amd64 5.2.37-2+b10 [1501 kB]
+Get:9 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libacl1 amd64 2.3.2-2+b1 [32.9 kB]
+Get:10 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libattr1 amd64 1:2.5.2-3 [22.9 kB]
+Get:11 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap2 amd64 1:2.75-10+deb13u1+b3 [29.0 kB]
+Get:12 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgmp10 amd64 2:6.3.0+dfsg-3 [560 kB]
+Get:13 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpcre2-8-0 amd64 10.46-1~deb13u3 [299 kB]
+Get:14 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libselinux1 amd64 3.8.1-1 [84.7 kB]
+Get:15 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libzstd1 amd64 1.5.7+dfsg-1 [304 kB]
+Get:16 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 zlib1g amd64 1:1.3.dfsg+really1.3.1-1+deb13u1 [88.7 kB]
+Get:17 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libssl3t64 amd64 3.5.9-1~deb13u1 [2465 kB]
+Get:18 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl-provider-legacy amd64 3.5.9-1~deb13u1 [322 kB]
+Get:19 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd0 amd64 257.13-1~deb13u1 [455 kB]
+Get:20 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 coreutils amd64 9.7-3 [3024 kB]
+Get:21 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbz2-1.0 amd64 1.0.8-6 [37.9 kB]
+Get:22 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzma5 amd64 5.8.1-1+deb13u2 [310 kB]
+Get:23 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmd0 amd64 1.1.0-2+b1 [36.3 kB]
+Get:24 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tar amd64 1.35+dfsg-3.1 [815 kB]
+Get:25 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dpkg amd64 1.22.22 [1537 kB]
+Get:26 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcrypt1 amd64 1:4.4.38-1 [90.1 kB]
+Get:27 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 perl-base amd64 5.40.1-6+deb13u1 [1666 kB]
+Get:28 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit-common all 1:4.0.2-2+deb13u1 [12.8 kB]
+Get:29 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap-ng0 amd64 0.8.5-4+b1 [17.6 kB]
+Get:30 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit1 amd64 1:4.0.2-2+deb13u1 [57.7 kB]
+Get:31 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdb5.3t64 amd64 5.3.28+dfsg2-9 [704 kB]
+Get:32 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debconf all 1.5.91 [121 kB]
+Get:33 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam0g amd64 1.7.0-5 [69.9 kB]
+Get:34 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules-bin amd64 1.7.0-5 [49.1 kB]
+Get:35 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules amd64 1.7.0-5 [179 kB]
+Get:36 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-runtime all 1.7.0-5 [249 kB]
+Get:37 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libblkid1 amd64 2.41.5-0+deb13u1 [172 kB]
+Get:38 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsqlite3-0 amd64 3.46.1-7+deb13u2 [915 kB]
+Get:39 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblastlog2-2 amd64 2.41.5-0+deb13u1 [28.8 kB]
+Get:40 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmount1 amd64 2.41.5-0+deb13u1 [210 kB]
+Get:41 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsmartcols1 amd64 2.41.5-0+deb13u1 [143 kB]
+Get:42 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libudev1 amd64 257.13-1~deb13u1 [152 kB]
+Get:43 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libuuid1 amd64 2.41.5-0+deb13u1 [37.8 kB]
+Get:44 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 util-linux amd64 2.41.5-0+deb13u1 [1242 kB]
+Get:45 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdebconfclient0 amd64 0.280 [10.6 kB]
+Get:46 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-passwd amd64 3.6.7 [53.7 kB]
+Get:47 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 login.defs all 1:4.17.4-2 [186 kB]
+Get:48 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbsd0 amd64 0.12.2-2 [131 kB]
+Get:49 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage-common all 3.8.1-1 [7812 B]
+Get:50 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsepol2 amd64 3.8.1-1 [296 kB]
+Get:51 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage2 amd64 3.8.1-1 [95.3 kB]
+Get:52 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 passwd amd64 1:4.17.4-2 [1229 kB]
+Get:53 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 adduser all 3.152 [191 kB]
+Get:54 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnettle8t64 amd64 3.10.1-1 [305 kB]
+Get:55 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libhogweed6t64 amd64 3.10.1-1 [335 kB]
+Get:56 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sqv amd64 1.3.0-3+b2 [661 kB]
+Get:57 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxxhash0 amd64 0.8.3-2 [27.1 kB]
+Get:58 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblz4-1 amd64 1.10.0-4 [63.9 kB]
+Get:59 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libstdc++6 amd64 14.2.0-19 [714 kB]
+Get:60 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapt-pkg7.0 amd64 3.0.4 [1114 kB]
+Get:61 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debian-archive-keyring all 2025.1 [179 kB]
+Get:62 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libseccomp2 amd64 2.6.0-2 [51.7 kB]
+Get:63 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apt amd64 3.0.4 [1453 kB]
+Get:64 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 init-system-helpers all 1.69~deb13u1 [39.4 kB]
+Get:65 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc-bin amd64 2.41-12+deb13u5 [639 kB]
+Get:66 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mount amd64 2.41.5-0+deb13u1 [163 kB]
+Get:67 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd-shared amd64 257.13-1~deb13u1 [2155 kB]
+Get:68 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapparmor1 amd64 4.1.0-1 [43.7 kB]
+Get:69 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 systemd amd64 257.13-1~deb13u1 [3094 kB]
+Get:70 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron-daemon-common all 3.0pl1-197 [17.8 kB]
+Get:71 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+Get:72 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron amd64 3.0pl1-197 [87.4 kB]
+Get:73 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libexpat1 amd64 2.9.0-1~deb13u1 [126 kB]
+Get:74 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 linux-base all 4.12.1 [25.5 kB]
+Get:75 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkmod2 amd64 34.2-2 [63.2 kB]
+Get:76 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 kmod amd64 34.2-2 [95.7 kB]
+Get:77 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cpio amd64 2.15+dfsg-2 [252 kB]
+Get:78 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dracut-install amd64 106-6 [37.8 kB]
+Get:79 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-bin amd64 0.148.4 [17.5 kB]
+Get:80 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libklibc amd64 2.0.14-1 [44.8 kB]
+Get:81 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 klibc-utils amd64 2.0.14-1 [95.1 kB]
+Get:82 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 logsave amd64 1.47.2-3+b12 [24.9 kB]
+Get:83 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 udev amd64 257.13-1~deb13u1 [1419 kB]
+Get:84 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-core all 0.148.4 [50.7 kB]
+Get:85 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools all 0.148.4 [17.4 kB]
+Get:86 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-6.12.118+deb13-amd64 amd64 6.12.118-1 [109 MB]
+Get:87 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+Get:88 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+Get:89 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+Get:90 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 media-types all 13.0.0 [29.3 kB]
+Get:91 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 netbase all 6.5 [12.4 kB]
+Get:92 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tzdata all 2026f-0+deb13u1 [268 kB]
+Get:93 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libffi8 amd64 3.4.8-2 [24.1 kB]
+Get:94 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libncursesw6 amd64 6.5+20250216-2 [135 kB]
+Get:95 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 readline-common all 8.2-6 [69.4 kB]
+Get:96 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libreadline8t64 amd64 8.2-6 [169 kB]
+Get:97 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+Get:98 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+Get:99 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+Get:100 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+Get:101 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sudo amd64 1.9.16p2-3+deb13u5 [2087 kB]
+Get:102 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+Get:103 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmnl0 amd64 1.0.5-3 [11.9 kB]
+Get:104 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftnl11 amd64 1.2.9-1 [65.0 kB]
+Get:105 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxtables12 amd64 1.8.11-2 [31.9 kB]
+Get:106 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftables1 amd64 1.1.3-1 [332 kB]
+Get:107 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libedit2 amd64 3.1-20250104-1 [93.8 kB]
+Get:108 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 nftables amd64 1.1.3-1 [75.9 kB]
+Get:109 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl amd64 3.5.9-1~deb13u1 [1518 kB]
+Get:110 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 ca-certificates all 20250419+deb13u1 [161 kB]
+Get:111 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcbor0.10 amd64 0.10.2-2 [28.3 kB]
+Get:112 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libfido2-1 amd64 1.15.0-1+b1 [78.7 kB]
+Get:113 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u2 [34.0 kB]
+Get:114 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+Get:115 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u2 [82.0 kB]
+Get:116 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+Get:117 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u2 [328 kB]
+Get:118 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u2 [139 kB]
+Get:119 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssh-client amd64 1:10.0p1-7+deb13u4 [990 kB]
+Get:120 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apparmor amd64 4.1.0-1 [710 kB]
+Get:121 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 busybox-static amd64 1:1.37.0-6+b9 [955 kB]
+Get:122 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtommath1 amd64 1.3.0-1 [64.3 kB]
+Get:123 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtomcrypt1 amd64 1.18.2+dfsg-7+b2 [402 kB]
+Get:124 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dropbear-bin amd64 2025.89-1~deb13u1 [189 kB]
+Get:125 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzo2-2 amd64 2.10-3+b1 [55.1 kB]
+Get:126 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-amd64 amd64 6.12.118-1 [1468 B]
+Get:127 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 squashfs-tools amd64 1:4.6.1-1 [194 kB]
+Fetched 161 MB in 3s (53.8 MB/s)
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on /state/staging/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 338522.73 Kbytes (330.59 Mbytes)
+	71.59% of uncompressed filesystem size (472845.12 Kbytes)
+Inode table size 133069 bytes (129.95 Kbytes)
+	28.85% of uncompressed inode table size (461180 bytes)
+Directory table size 138919 bytes (135.66 Kbytes)
+	43.51% of uncompressed directory table size (319280 bytes)
+Number of duplicate files found 155
+Number of inodes 13786
+Number of files 11106
+Number of fragments 1220
+Number of symbolic links 669
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 2011
+Number of hard-links 4
+Number of ids (unique uids + gids) 3
+Number of uids 2
+	root (0)
+	user (1000)
+Number of gids 3
+	root (0)
+	unknown (42)
+	user (1000)
+REBOOTING; reconnect and run confos status
+Connection to 127.0.0.1 closed by remote host.
+TOOLS44 IMMEDIATE POST-APPLIED CUT add 1 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/id
+    (ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+TOOLS44 NATIVE STATE AFTER CUT PASS add 1
+TOOLS44 IMMEDIATE POST-APPLIED CUT add 2 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/id
+    (ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+TOOLS44 NATIVE STATE AFTER CUT PASS add 2
+TOOLS44 IMMEDIATE POST-APPLIED CUT add 3 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/id
+    (ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+stdin: parsed OK
+RECORDED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+TOOLS44 NATIVE STATE AFTER CUT PASS add 3
+MODE change
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 37ffd7224d4a53986eda84c84c674b33547e4ec81cc6a3632704820b78082f89
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo', '-f', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED 0f9ac120a7019533c089501c1a7557decd13934440675245220bb24ee2f49a34; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo', '-f', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/id
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo', '-f', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo', '-f', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+VISUDO change PASS DECLARATION c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease [140 kB]
+Get:2 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security InRelease [43.4 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 Packages [9679 kB]
+Get:4 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 Packages [309 kB]
+Fetched 10.2 MB in 1s (11.1 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  adduser cron-daemon-common libcbor0.10 libcom-err2 libfido2-1
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libsemanage-common libsemanage2 libsepol2 login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc libarchive-dev anacron logrotate checksecurity
+  supercat bat debconf-doc debconf-kde-helper debconf-utils libgtk3-perl
+  libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog debsig-verify
+  bash-completion glibc-doc libc-l10n locales libnss-nis libnss-nisplus
+  krb5-doc krb5-user cryptsetup-bin libpam-doc libarchive13t64 libbpf1
+  libcryptsetup12 libdw1t64 libelf1t64 libgcrypt20 libidn2-0 libip4tc2
+  libp11-kit0 libpwquality1 libqrencode4 libtss2-rc0t64 uuid-runtime
+  firmware-linux-free linux-doc-6.12 debian-kernel-handbook grub-pc
+  | grub-efi-amd64 | extlinux nfs-common firewalld keychain libpam-ssh
+  monkeysphere ssh-askpass python3-doc python3-tk python3-venv python3.13-venv
+  python3.13-doc binutils binfmt-support readline-doc systemd-container
+  systemd-homed systemd-userdbd systemd-boot systemd-resolved systemd-repart
+  libtss2-tcti-device0 polkitd bzip2 ncompress xz-utils tar-scripts tar-doc
+  dosfstools kbd util-linux-extra util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages libidn2-0 krb5-locales libgpm2 xauth default-dbus-system-bus
+  | dbus-system-bus linux-sysctl-defaults systemd-timesyncd | time-daemon
+  systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash busybox-static
+  ca-certificates coreutils cpio cron cron-daemon-common debconf
+  debian-archive-keyring debianutils dpkg dracut-install dropbear-bin
+  gcc-14-base init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core klibc-utils kmod libacl1 libapparmor1 libapt-pkg7.0
+  libattr1 libaudit-common libaudit1 libblkid1 libbsd0 libbz2-1.0 libc-bin
+  libc6 libcap-ng0 libcap2 libcbor0.10 libcom-err2 libcrypt1 libdb5.3t64
+  libdebconfclient0 libedit2 libexpat1 libffi8 libfido2-1 libgcc-s1 libgmp10
+  libgssapi-krb5-2 libhogweed6t64 libjansson4 libk5crypto3 libkeyutils1
+  libklibc libkmod2 libkrb5-3 libkrb5support0 liblastlog2-2 liblz4-1 liblzma5
+  liblzo2-2 libmd0 libmnl0 libmount1 libncursesw6 libnettle8t64 libnftables1
+  libnftnl11 libpam-modules libpam-modules-bin libpam-runtime libpam0g
+  libpcre2-8-0 libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib
+  libreadline8t64 libseccomp2 libselinux1 libsemanage-common libsemanage2
+  libsepol2 libsmartcols1 libsqlite3-0 libssl3t64 libstdc++6 libsystemd-shared
+  libsystemd0 libtinfo6 libtomcrypt1 libtommath1 libudev1 libuuid1
+  libxtables12 libxxhash0 libzstd1 linux-base linux-image-6.12.118+deb13-amd64
+  linux-image-amd64 login.defs logsave mawk media-types mount netbase nftables
+  openssh-client openssl openssl-provider-legacy passwd perl-base python3
+  python3-minimal python3.13 python3.13-minimal readline-common sensible-utils
+  squashfs-tools sqv sudo systemd tar tzdata udev util-linux zlib1g
+0 upgraded, 127 newly installed, 0 to remove and 0 not upgraded.
+Need to get 161 MB of archives.
+After this operation, 309 MB of additional disk space will be used.
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 gcc-14-base amd64 14.2.0-19 [49.4 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc6 amd64 2.41-12+deb13u5 [2850 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgcc-s1 amd64 14.2.0-19 [72.8 kB]
+Get:4 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mawk amd64 1.3.4.20250131-1 [141 kB]
+Get:5 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-files amd64 13.8+deb13u8 [88.3 kB]
+Get:6 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtinfo6 amd64 6.5+20250216-2 [348 kB]
+Get:7 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debianutils amd64 5.23.2 [92.4 kB]
+Get:8 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 bash amd64 5.2.37-2+b10 [1501 kB]
+Get:9 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libacl1 amd64 2.3.2-2+b1 [32.9 kB]
+Get:10 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libattr1 amd64 1:2.5.2-3 [22.9 kB]
+Get:11 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap2 amd64 1:2.75-10+deb13u1+b3 [29.0 kB]
+Get:12 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgmp10 amd64 2:6.3.0+dfsg-3 [560 kB]
+Get:13 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpcre2-8-0 amd64 10.46-1~deb13u3 [299 kB]
+Get:14 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libselinux1 amd64 3.8.1-1 [84.7 kB]
+Get:15 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libzstd1 amd64 1.5.7+dfsg-1 [304 kB]
+Get:16 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 zlib1g amd64 1:1.3.dfsg+really1.3.1-1+deb13u1 [88.7 kB]
+Get:17 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libssl3t64 amd64 3.5.9-1~deb13u1 [2465 kB]
+Get:18 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl-provider-legacy amd64 3.5.9-1~deb13u1 [322 kB]
+Get:19 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd0 amd64 257.13-1~deb13u1 [455 kB]
+Get:20 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 coreutils amd64 9.7-3 [3024 kB]
+Get:21 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbz2-1.0 amd64 1.0.8-6 [37.9 kB]
+Get:22 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzma5 amd64 5.8.1-1+deb13u2 [310 kB]
+Get:23 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmd0 amd64 1.1.0-2+b1 [36.3 kB]
+Get:24 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tar amd64 1.35+dfsg-3.1 [815 kB]
+Get:25 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dpkg amd64 1.22.22 [1537 kB]
+Get:26 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcrypt1 amd64 1:4.4.38-1 [90.1 kB]
+Get:27 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 perl-base amd64 5.40.1-6+deb13u1 [1666 kB]
+Get:28 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit-common all 1:4.0.2-2+deb13u1 [12.8 kB]
+Get:29 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap-ng0 amd64 0.8.5-4+b1 [17.6 kB]
+Get:30 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit1 amd64 1:4.0.2-2+deb13u1 [57.7 kB]
+Get:31 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdb5.3t64 amd64 5.3.28+dfsg2-9 [704 kB]
+Get:32 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debconf all 1.5.91 [121 kB]
+Get:33 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam0g amd64 1.7.0-5 [69.9 kB]
+Get:34 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules-bin amd64 1.7.0-5 [49.1 kB]
+Get:35 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules amd64 1.7.0-5 [179 kB]
+Get:36 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-runtime all 1.7.0-5 [249 kB]
+Get:37 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libblkid1 amd64 2.41.5-0+deb13u1 [172 kB]
+Get:38 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsqlite3-0 amd64 3.46.1-7+deb13u2 [915 kB]
+Get:39 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblastlog2-2 amd64 2.41.5-0+deb13u1 [28.8 kB]
+Get:40 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmount1 amd64 2.41.5-0+deb13u1 [210 kB]
+Get:41 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsmartcols1 amd64 2.41.5-0+deb13u1 [143 kB]
+Get:42 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libudev1 amd64 257.13-1~deb13u1 [152 kB]
+Get:43 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libuuid1 amd64 2.41.5-0+deb13u1 [37.8 kB]
+Get:44 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 util-linux amd64 2.41.5-0+deb13u1 [1242 kB]
+Get:45 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdebconfclient0 amd64 0.280 [10.6 kB]
+Get:46 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-passwd amd64 3.6.7 [53.7 kB]
+Get:47 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 login.defs all 1:4.17.4-2 [186 kB]
+Get:48 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbsd0 amd64 0.12.2-2 [131 kB]
+Get:49 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage-common all 3.8.1-1 [7812 B]
+Get:50 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsepol2 amd64 3.8.1-1 [296 kB]
+Get:51 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage2 amd64 3.8.1-1 [95.3 kB]
+Get:52 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 passwd amd64 1:4.17.4-2 [1229 kB]
+Get:53 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 adduser all 3.152 [191 kB]
+Get:54 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnettle8t64 amd64 3.10.1-1 [305 kB]
+Get:55 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libhogweed6t64 amd64 3.10.1-1 [335 kB]
+Get:56 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sqv amd64 1.3.0-3+b2 [661 kB]
+Get:57 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxxhash0 amd64 0.8.3-2 [27.1 kB]
+Get:58 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblz4-1 amd64 1.10.0-4 [63.9 kB]
+Get:59 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libstdc++6 amd64 14.2.0-19 [714 kB]
+Get:60 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapt-pkg7.0 amd64 3.0.4 [1114 kB]
+Get:61 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debian-archive-keyring all 2025.1 [179 kB]
+Get:62 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libseccomp2 amd64 2.6.0-2 [51.7 kB]
+Get:63 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apt amd64 3.0.4 [1453 kB]
+Get:64 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 init-system-helpers all 1.69~deb13u1 [39.4 kB]
+Get:65 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc-bin amd64 2.41-12+deb13u5 [639 kB]
+Get:66 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mount amd64 2.41.5-0+deb13u1 [163 kB]
+Get:67 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd-shared amd64 257.13-1~deb13u1 [2155 kB]
+Get:68 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapparmor1 amd64 4.1.0-1 [43.7 kB]
+Get:69 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 systemd amd64 257.13-1~deb13u1 [3094 kB]
+Get:70 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron-daemon-common all 3.0pl1-197 [17.8 kB]
+Get:71 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+Get:72 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron amd64 3.0pl1-197 [87.4 kB]
+Get:73 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libexpat1 amd64 2.9.0-1~deb13u1 [126 kB]
+Get:74 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 linux-base all 4.12.1 [25.5 kB]
+Get:75 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkmod2 amd64 34.2-2 [63.2 kB]
+Get:76 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 kmod amd64 34.2-2 [95.7 kB]
+Get:77 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cpio amd64 2.15+dfsg-2 [252 kB]
+Get:78 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dracut-install amd64 106-6 [37.8 kB]
+Get:79 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-bin amd64 0.148.4 [17.5 kB]
+Get:80 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libklibc amd64 2.0.14-1 [44.8 kB]
+Get:81 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 klibc-utils amd64 2.0.14-1 [95.1 kB]
+Get:82 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 logsave amd64 1.47.2-3+b12 [24.9 kB]
+Get:83 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 udev amd64 257.13-1~deb13u1 [1419 kB]
+Get:84 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-core all 0.148.4 [50.7 kB]
+Get:85 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools all 0.148.4 [17.4 kB]
+Get:86 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-6.12.118+deb13-amd64 amd64 6.12.118-1 [109 MB]
+Get:87 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+Get:88 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+Get:89 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+Get:90 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 media-types all 13.0.0 [29.3 kB]
+Get:91 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 netbase all 6.5 [12.4 kB]
+Get:92 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tzdata all 2026f-0+deb13u1 [268 kB]
+Get:93 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libffi8 amd64 3.4.8-2 [24.1 kB]
+Get:94 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libncursesw6 amd64 6.5+20250216-2 [135 kB]
+Get:95 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 readline-common all 8.2-6 [69.4 kB]
+Get:96 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libreadline8t64 amd64 8.2-6 [169 kB]
+Get:97 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+Get:98 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+Get:99 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+Get:100 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+Get:101 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sudo amd64 1.9.16p2-3+deb13u5 [2087 kB]
+Get:102 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+Get:103 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmnl0 amd64 1.0.5-3 [11.9 kB]
+Get:104 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftnl11 amd64 1.2.9-1 [65.0 kB]
+Get:105 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxtables12 amd64 1.8.11-2 [31.9 kB]
+Get:106 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftables1 amd64 1.1.3-1 [332 kB]
+Get:107 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libedit2 amd64 3.1-20250104-1 [93.8 kB]
+Get:108 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 nftables amd64 1.1.3-1 [75.9 kB]
+Get:109 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl amd64 3.5.9-1~deb13u1 [1518 kB]
+Get:110 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 ca-certificates all 20250419+deb13u1 [161 kB]
+Get:111 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcbor0.10 amd64 0.10.2-2 [28.3 kB]
+Get:112 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libfido2-1 amd64 1.15.0-1+b1 [78.7 kB]
+Get:113 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u2 [34.0 kB]
+Get:114 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+Get:115 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u2 [82.0 kB]
+Get:116 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+Get:117 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u2 [328 kB]
+Get:118 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u2 [139 kB]
+Get:119 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssh-client amd64 1:10.0p1-7+deb13u4 [990 kB]
+Get:120 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apparmor amd64 4.1.0-1 [710 kB]
+Get:121 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 busybox-static amd64 1:1.37.0-6+b9 [955 kB]
+Get:122 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtommath1 amd64 1.3.0-1 [64.3 kB]
+Get:123 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtomcrypt1 amd64 1.18.2+dfsg-7+b2 [402 kB]
+Get:124 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dropbear-bin amd64 2025.89-1~deb13u1 [189 kB]
+Get:125 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzo2-2 amd64 2.10-3+b1 [55.1 kB]
+Get:126 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-amd64 amd64 6.12.118-1 [1468 B]
+Get:127 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 squashfs-tools amd64 1:4.6.1-1 [194 kB]
+Fetched 161 MB in 4s (43.2 MB/s)
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on /state/staging/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 338522.74 Kbytes (330.59 Mbytes)
+	71.59% of uncompressed filesystem size (472845.13 Kbytes)
+Inode table size 133079 bytes (129.96 Kbytes)
+	28.86% of uncompressed inode table size (461180 bytes)
+Directory table size 138925 bytes (135.67 Kbytes)
+	43.51% of uncompressed directory table size (319280 bytes)
+Number of duplicate files found 155
+Number of inodes 13786
+Number of files 11106
+Number of fragments 1220
+Number of symbolic links 669
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 2011
+Number of hard-links 4
+Number of ids (unique uids + gids) 3
+Number of uids 2
+	root (0)
+	user (1000)
+Number of gids 3
+	root (0)
+	unknown (42)
+	user (1000)
+REBOOTING; reconnect and run confos status
+Connection to 127.0.0.1 closed by remote host.
+TOOLS44 IMMEDIATE POST-APPLIED CUT change 1 c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/true
+    (ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+TOOLS44 NATIVE STATE AFTER CUT PASS change 1
+TOOLS44 IMMEDIATE POST-APPLIED CUT change 2 c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/true
+    (ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+TOOLS44 NATIVE STATE AFTER CUT PASS change 2
+TOOLS44 IMMEDIATE POST-APPLIED CUT change 3 c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+MODE applied
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'cat', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/append-test: parsed OK
+/etc/sudoers.d/confos-local: parsed OK
+ STDERR 
+COMMAND ['sudo', '-n', 'sudo', '-l', '-U', 'user'] EXIT 0 STDOUT Matching Defaults entries for user on localhost:
+    secure_path=/usr/local/bin\:/usr/bin\:/usr/sbin\:/bin\:/sbin
+
+User user may run the following commands on localhost:
+    (ALL) NOPASSWD: ALL
+    (root) NOPASSWD: /usr/lib/confos/systemctl-query
+    (ALL) NOPASSWD: /usr/bin/true
+    (ALL) NOPASSWD: /usr/bin/true
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'SUDO_EDITOR=tee', 'visudo'] EXIT 0 STDOUT user ALL=(ALL) NOPASSWD: /usr/bin/true
+stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR 
+VISUDO applied PASS DECLARATION c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+TOOLS44 NATIVE STATE AFTER CUT PASS change 3
+SSH_READER_GUEST_EXACT_HASH_VERSION_NATIVE_QUERIES_PASS
+SSH CONTROL original route107 ProxyCommand EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL original route108 Match exec EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH_READER_ORIGINAL_ROUTES107_108_REPRODUCED
+SSH CONTROL candidate ProxyCommand config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/proxy.conf: saved configuration input denied\n'
+SSH CONTROL candidate Match exec config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/match.conf: saved configuration input denied\n'
+SSH CONTROL symlink config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/alias: saved configuration input denied\n'
+SSH CONTROL regular descriptor alias /proc/self/fd/ /usr/local/libexec/ssh-reader-original EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL regular descriptor alias /proc/self/fd/ /usr/bin/ssh EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/proc/self/fd/0: saved configuration input denied\n'
+SSH CONTROL regular descriptor alias /dev/fd/ /usr/local/libexec/ssh-reader-original EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL regular descriptor alias /dev/fd/ /usr/bin/ssh EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/dev/fd/0: saved configuration input denied\n'
+SSH CONTROL regular stdin config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/dev/stdin: saved configuration input denied\n'
+SSH CONTROL typed config pipe R4 EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL explicit producer config pipe R4 EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL typed ProxyCommand option EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL native unsupported Match option /usr/local/libexec/ssh-reader-original 255 'Host directive not supported as a command-line option\n'
+SSH CONTROL native unsupported Match option /usr/bin/ssh 255 'Host directive not supported as a command-line option\n'
+SSH CONTROL recorded Match config EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL recorded Proxy config EXIT 255 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\nConnection closed by UNKNOWN port 65535\n'
+SSH CONTROL recorded nested includes EXIT 0 MARKER True STDERR 'Pseudo-terminal will not be allocated because stdin is not a terminal.\n'
+SSH CONTROL recorded include to mutable config EXIT 255 MARKER False STDERR 'ConfOS: Permission denied for saved code input\n/home/user/ssh-reader-material/match.conf: saved configuration input denied\n'
+SSH CONTROL automatic user config creation denied by read-only mount 30
+SSH CONNECTION /usr/local/libexec/ssh-reader-original EXIT 0 OUT 'SSH_READER_CONNECTION_OK' ERR "Warning: Permanently added '127.0.0.1' (ED25519) to the list of known hosts.\n"
+SSH CONNECTION /usr/bin/ssh EXIT 0 OUT 'SSH_READER_CONNECTION_OK' ERR "Warning: Permanently added '127.0.0.1' (ED25519) to the list of known hosts.\n"
+SSH_READER_PRIVATE42_GUEST_MATRIX_PASS 22
+SSH ROOT match material EXIT 255 MARKER no
+ConfOS: Permission denied for saved code input
+/home/user/ssh-reader-material/match.conf: saved configuration input denied
+SSH ROOT match recorded EXIT 0 MARKER yes
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+host ssh-reader-test
+user root
+hostname ssh-reader-test
+port 22
+addressfamily any
+batchmode yes
+canonicalizefallbacklocal yes
+canonicalizehostname false
+checkhostip no
+compression no
+controlmaster false
+enablesshkeysign no
+clearallforwardings no
+exitonforwardfailure no
+fingerprinthash SHA256
+forwardx11 no
+forwardx11trusted yes
+gatewayports no
+gssapiauthentication no
+gssapikeyexchange no
+gssapidelegatecredentials no
+gssapitrustdns no
+gssapirenewalforcesrekey no
+gssapikexalgorithms gss-group14-sha256-,gss-group16-sha512-,gss-nistp256-sha256-,gss-curve25519-sha256-,gss-group14-sha1-,gss-gex-sha1-
+hashknownhosts no
+hostbasedauthentication no
+identitiesonly no
+kbdinteractiveauthentication yes
+nohostauthenticationforlocalhost no
+passwordauthentication yes
+permitlocalcommand no
+proxyusefdpass no
+pubkeyauthentication true
+requesttty auto
+sessiontype default
+stdinnull no
+forkafterauthentication no
+streamlocalbindunlink no
+stricthostkeychecking ask
+tcpkeepalive yes
+tunnel false
+verifyhostkeydns false
+visualhostkey no
+updatehostkeys true
+enableescapecommandline no
+canonicalizemaxdots 1
+connectionattempts 1
+forwardx11timeout 1200
+numberofpasswordprompts 3
+serveralivecountmax 3
+serveraliveinterval 300
+requiredrsasize 1024
+obscurekeystroketiming yes
+ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+[a line of 481 characters is left out of the published copy]
+[a line of 491 characters is left out of the published copy]
+kexalgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256
+casignaturealgorithms ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+loglevel INFO
+macs umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+securitykeyprovider internal
+[a line of 488 characters is left out of the published copy]
+xauthlocation /usr/bin/xauth
+identityfile ~/.ssh/id_rsa
+identityfile ~/.ssh/id_ecdsa
+identityfile ~/.ssh/id_ecdsa_sk
+identityfile ~/.ssh/id_ed25519
+identityfile ~/.ssh/id_ed25519_sk
+identityfile ~/.ssh/id_xmss
+canonicaldomains none
+globalknownhostsfile /etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2
+userknownhostsfile /root/.ssh/known_hosts /root/.ssh/known_hosts2
+logverbose none
+channeltimeout none
+permitremoteopen any
+addkeystoagent false
+forwardagent no
+connecttimeout 1
+tunneldevice any:any
+canonicalizePermittedcnames none
+controlpersist no
+escapechar ~
+ipqos ef cs1
+rekeylimit 0 0
+streamlocalbindmask 0177
+syslogfacility USER
+SSH ROOT proxy material EXIT 255 MARKER no
+ConfOS: Permission denied for saved code input
+/home/user/ssh-reader-material/proxy.conf: saved configuration input denied
+SSH ROOT proxy recorded EXIT 255 MARKER yes
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Connection closed by UNKNOWN port 65535
+SSH_READER_ROOT_PRIVATE_MATRIX_PASS
+MODE remove
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677
+ STDERR 
+COMMAND ['sudo', '-n', 'env', 'EDITOR=tee', 'visudo'] EXIT 0 STDOUT stdin: parsed OK
+RECORDED c03ccf1bf527e9434ac6a357332750657f81e5fe3e59caf9bf7e4d3eeac89677; run confos apply
+ STDERR visudo: zero length temporary file (/run/confos-visudo-in1ot6hc/snippet.tmp), /run/confos-visudo-in1ot6hc/snippet unchanged
+
+COMMAND ['sudo', '-n', 'visudo', '--remove', '-f', '/etc/sudoers.d/confos-local'] EXIT 0 STDOUT stdin: parsed OK
+RECORDED aa3d51a2a936fce876affafda359346b382401b0dc62dcf6175c558d61499897; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '--remove', '-f', '/etc/sudoers.d/append-test'] EXIT 0 STDOUT stdin: parsed OK
+RECORDED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb; run confos apply
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '--remove'] EXIT 0 STDOUT stdin: parsed OK
+RECORDED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb; run confos apply
+ STDERR 
+VISUDO remove PASS DECLARATION 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease [140 kB]
+Get:2 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security InRelease [43.4 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 Packages [9679 kB]
+Get:4 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 Packages [309 kB]
+Fetched 10.2 MB in 1s (10.4 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  adduser cron-daemon-common libcbor0.10 libcom-err2 libfido2-1
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libsemanage-common libsemanage2 libsepol2 login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc libarchive-dev anacron logrotate checksecurity
+  supercat bat debconf-doc debconf-kde-helper debconf-utils libgtk3-perl
+  libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog debsig-verify
+  bash-completion glibc-doc libc-l10n locales libnss-nis libnss-nisplus
+  krb5-doc krb5-user cryptsetup-bin libpam-doc libarchive13t64 libbpf1
+  libcryptsetup12 libdw1t64 libelf1t64 libgcrypt20 libidn2-0 libip4tc2
+  libp11-kit0 libpwquality1 libqrencode4 libtss2-rc0t64 uuid-runtime
+  firmware-linux-free linux-doc-6.12 debian-kernel-handbook grub-pc
+  | grub-efi-amd64 | extlinux nfs-common firewalld keychain libpam-ssh
+  monkeysphere ssh-askpass python3-doc python3-tk python3-venv python3.13-venv
+  python3.13-doc binutils binfmt-support readline-doc systemd-container
+  systemd-homed systemd-userdbd systemd-boot systemd-resolved systemd-repart
+  libtss2-tcti-device0 polkitd bzip2 ncompress xz-utils tar-scripts tar-doc
+  dosfstools kbd util-linux-extra util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages libidn2-0 krb5-locales libgpm2 xauth default-dbus-system-bus
+  | dbus-system-bus linux-sysctl-defaults systemd-timesyncd | time-daemon
+  systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash busybox-static
+  ca-certificates coreutils cpio cron cron-daemon-common debconf
+  debian-archive-keyring debianutils dpkg dracut-install dropbear-bin
+  gcc-14-base init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core klibc-utils kmod libacl1 libapparmor1 libapt-pkg7.0
+  libattr1 libaudit-common libaudit1 libblkid1 libbsd0 libbz2-1.0 libc-bin
+  libc6 libcap-ng0 libcap2 libcbor0.10 libcom-err2 libcrypt1 libdb5.3t64
+  libdebconfclient0 libedit2 libexpat1 libffi8 libfido2-1 libgcc-s1 libgmp10
+  libgssapi-krb5-2 libhogweed6t64 libjansson4 libk5crypto3 libkeyutils1
+  libklibc libkmod2 libkrb5-3 libkrb5support0 liblastlog2-2 liblz4-1 liblzma5
+  liblzo2-2 libmd0 libmnl0 libmount1 libncursesw6 libnettle8t64 libnftables1
+  libnftnl11 libpam-modules libpam-modules-bin libpam-runtime libpam0g
+  libpcre2-8-0 libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib
+  libreadline8t64 libseccomp2 libselinux1 libsemanage-common libsemanage2
+  libsepol2 libsmartcols1 libsqlite3-0 libssl3t64 libstdc++6 libsystemd-shared
+  libsystemd0 libtinfo6 libtomcrypt1 libtommath1 libudev1 libuuid1
+  libxtables12 libxxhash0 libzstd1 linux-base linux-image-6.12.118+deb13-amd64
+  linux-image-amd64 login.defs logsave mawk media-types mount netbase nftables
+  openssh-client openssl openssl-provider-legacy passwd perl-base python3
+  python3-minimal python3.13 python3.13-minimal readline-common sensible-utils
+  squashfs-tools sqv sudo systemd tar tzdata udev util-linux zlib1g
+0 upgraded, 127 newly installed, 0 to remove and 0 not upgraded.
+Need to get 161 MB of archives.
+After this operation, 309 MB of additional disk space will be used.
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 gcc-14-base amd64 14.2.0-19 [49.4 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc6 amd64 2.41-12+deb13u5 [2850 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgcc-s1 amd64 14.2.0-19 [72.8 kB]
+Get:4 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mawk amd64 1.3.4.20250131-1 [141 kB]
+Get:5 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-files amd64 13.8+deb13u8 [88.3 kB]
+Get:6 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtinfo6 amd64 6.5+20250216-2 [348 kB]
+Get:7 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debianutils amd64 5.23.2 [92.4 kB]
+Get:8 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 bash amd64 5.2.37-2+b10 [1501 kB]
+Get:9 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libacl1 amd64 2.3.2-2+b1 [32.9 kB]
+Get:10 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libattr1 amd64 1:2.5.2-3 [22.9 kB]
+Get:11 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap2 amd64 1:2.75-10+deb13u1+b3 [29.0 kB]
+Get:12 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgmp10 amd64 2:6.3.0+dfsg-3 [560 kB]
+Get:13 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpcre2-8-0 amd64 10.46-1~deb13u3 [299 kB]
+Get:14 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libselinux1 amd64 3.8.1-1 [84.7 kB]
+Get:15 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libzstd1 amd64 1.5.7+dfsg-1 [304 kB]
+Get:16 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 zlib1g amd64 1:1.3.dfsg+really1.3.1-1+deb13u1 [88.7 kB]
+Get:17 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libssl3t64 amd64 3.5.9-1~deb13u1 [2465 kB]
+Get:18 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl-provider-legacy amd64 3.5.9-1~deb13u1 [322 kB]
+Get:19 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd0 amd64 257.13-1~deb13u1 [455 kB]
+Get:20 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 coreutils amd64 9.7-3 [3024 kB]
+Get:21 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbz2-1.0 amd64 1.0.8-6 [37.9 kB]
+Get:22 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzma5 amd64 5.8.1-1+deb13u2 [310 kB]
+Get:23 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmd0 amd64 1.1.0-2+b1 [36.3 kB]
+Get:24 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tar amd64 1.35+dfsg-3.1 [815 kB]
+Get:25 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dpkg amd64 1.22.22 [1537 kB]
+Get:26 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcrypt1 amd64 1:4.4.38-1 [90.1 kB]
+Get:27 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 perl-base amd64 5.40.1-6+deb13u1 [1666 kB]
+Get:28 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit-common all 1:4.0.2-2+deb13u1 [12.8 kB]
+Get:29 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap-ng0 amd64 0.8.5-4+b1 [17.6 kB]
+Get:30 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit1 amd64 1:4.0.2-2+deb13u1 [57.7 kB]
+Get:31 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdb5.3t64 amd64 5.3.28+dfsg2-9 [704 kB]
+Get:32 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debconf all 1.5.91 [121 kB]
+Get:33 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam0g amd64 1.7.0-5 [69.9 kB]
+Get:34 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules-bin amd64 1.7.0-5 [49.1 kB]
+Get:35 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules amd64 1.7.0-5 [179 kB]
+Get:36 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-runtime all 1.7.0-5 [249 kB]
+Get:37 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libblkid1 amd64 2.41.5-0+deb13u1 [172 kB]
+Get:38 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsqlite3-0 amd64 3.46.1-7+deb13u2 [915 kB]
+Get:39 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblastlog2-2 amd64 2.41.5-0+deb13u1 [28.8 kB]
+Get:40 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmount1 amd64 2.41.5-0+deb13u1 [210 kB]
+Get:41 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsmartcols1 amd64 2.41.5-0+deb13u1 [143 kB]
+Get:42 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libudev1 amd64 257.13-1~deb13u1 [152 kB]
+Get:43 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libuuid1 amd64 2.41.5-0+deb13u1 [37.8 kB]
+Get:44 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 util-linux amd64 2.41.5-0+deb13u1 [1242 kB]
+Get:45 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdebconfclient0 amd64 0.280 [10.6 kB]
+Get:46 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-passwd amd64 3.6.7 [53.7 kB]
+Get:47 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 login.defs all 1:4.17.4-2 [186 kB]
+Get:48 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbsd0 amd64 0.12.2-2 [131 kB]
+Get:49 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage-common all 3.8.1-1 [7812 B]
+Get:50 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsepol2 amd64 3.8.1-1 [296 kB]
+Get:51 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage2 amd64 3.8.1-1 [95.3 kB]
+Get:52 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 passwd amd64 1:4.17.4-2 [1229 kB]
+Get:53 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 adduser all 3.152 [191 kB]
+Get:54 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnettle8t64 amd64 3.10.1-1 [305 kB]
+Get:55 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libhogweed6t64 amd64 3.10.1-1 [335 kB]
+Get:56 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sqv amd64 1.3.0-3+b2 [661 kB]
+Get:57 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxxhash0 amd64 0.8.3-2 [27.1 kB]
+Get:58 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblz4-1 amd64 1.10.0-4 [63.9 kB]
+Get:59 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libstdc++6 amd64 14.2.0-19 [714 kB]
+Get:60 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapt-pkg7.0 amd64 3.0.4 [1114 kB]
+Get:61 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debian-archive-keyring all 2025.1 [179 kB]
+Get:62 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libseccomp2 amd64 2.6.0-2 [51.7 kB]
+Get:63 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apt amd64 3.0.4 [1453 kB]
+Get:64 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 init-system-helpers all 1.69~deb13u1 [39.4 kB]
+Get:65 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc-bin amd64 2.41-12+deb13u5 [639 kB]
+Get:66 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mount amd64 2.41.5-0+deb13u1 [163 kB]
+Get:67 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd-shared amd64 257.13-1~deb13u1 [2155 kB]
+Get:68 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapparmor1 amd64 4.1.0-1 [43.7 kB]
+Get:69 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 systemd amd64 257.13-1~deb13u1 [3094 kB]
+Get:70 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron-daemon-common all 3.0pl1-197 [17.8 kB]
+Get:71 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+Get:72 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron amd64 3.0pl1-197 [87.4 kB]
+Get:73 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libexpat1 amd64 2.9.0-1~deb13u1 [126 kB]
+Get:74 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 linux-base all 4.12.1 [25.5 kB]
+Get:75 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkmod2 amd64 34.2-2 [63.2 kB]
+Get:76 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 kmod amd64 34.2-2 [95.7 kB]
+Get:77 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cpio amd64 2.15+dfsg-2 [252 kB]
+Get:78 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dracut-install amd64 106-6 [37.8 kB]
+Get:79 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-bin amd64 0.148.4 [17.5 kB]
+Get:80 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libklibc amd64 2.0.14-1 [44.8 kB]
+Get:81 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 klibc-utils amd64 2.0.14-1 [95.1 kB]
+Get:82 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 logsave amd64 1.47.2-3+b12 [24.9 kB]
+Get:83 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 udev amd64 257.13-1~deb13u1 [1419 kB]
+Get:84 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-core all 0.148.4 [50.7 kB]
+Get:85 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools all 0.148.4 [17.4 kB]
+Get:86 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-6.12.118+deb13-amd64 amd64 6.12.118-1 [109 MB]
+Get:87 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+Get:88 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+Get:89 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+Get:90 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 media-types all 13.0.0 [29.3 kB]
+Get:91 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 netbase all 6.5 [12.4 kB]
+Get:92 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tzdata all 2026f-0+deb13u1 [268 kB]
+Get:93 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libffi8 amd64 3.4.8-2 [24.1 kB]
+Get:94 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libncursesw6 amd64 6.5+20250216-2 [135 kB]
+Get:95 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 readline-common all 8.2-6 [69.4 kB]
+Get:96 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libreadline8t64 amd64 8.2-6 [169 kB]
+Get:97 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+Get:98 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+Get:99 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+Get:100 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+Get:101 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sudo amd64 1.9.16p2-3+deb13u5 [2087 kB]
+Get:102 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+Get:103 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmnl0 amd64 1.0.5-3 [11.9 kB]
+Get:104 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftnl11 amd64 1.2.9-1 [65.0 kB]
+Get:105 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxtables12 amd64 1.8.11-2 [31.9 kB]
+Get:106 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftables1 amd64 1.1.3-1 [332 kB]
+Get:107 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libedit2 amd64 3.1-20250104-1 [93.8 kB]
+Get:108 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 nftables amd64 1.1.3-1 [75.9 kB]
+Get:109 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl amd64 3.5.9-1~deb13u1 [1518 kB]
+Get:110 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 ca-certificates all 20250419+deb13u1 [161 kB]
+Get:111 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcbor0.10 amd64 0.10.2-2 [28.3 kB]
+Get:112 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libfido2-1 amd64 1.15.0-1+b1 [78.7 kB]
+Get:113 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5support0 amd64 1.21.3-5+deb13u2 [34.0 kB]
+Get:114 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcom-err2 amd64 1.47.2-3+b12 [25.0 kB]
+Get:115 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libk5crypto3 amd64 1.21.3-5+deb13u2 [82.0 kB]
+Get:116 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+Get:117 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libkrb5-3 amd64 1.21.3-5+deb13u2 [328 kB]
+Get:118 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 libgssapi-krb5-2 amd64 1.21.3-5+deb13u2 [139 kB]
+Get:119 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssh-client amd64 1:10.0p1-7+deb13u4 [990 kB]
+Get:120 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apparmor amd64 4.1.0-1 [710 kB]
+Get:121 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 busybox-static amd64 1:1.37.0-6+b9 [955 kB]
+Get:122 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtommath1 amd64 1.3.0-1 [64.3 kB]
+Get:123 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtomcrypt1 amd64 1.18.2+dfsg-7+b2 [402 kB]
+Get:124 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dropbear-bin amd64 2025.89-1~deb13u1 [189 kB]
+Get:125 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzo2-2 amd64 2.10-3+b1 [55.1 kB]
+Get:126 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-amd64 amd64 6.12.118-1 [1468 B]
+Get:127 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 squashfs-tools amd64 1:4.6.1-1 [194 kB]
+Fetched 161 MB in 4s (44.6 MB/s)
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on /state/staging/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 338523.42 Kbytes (330.59 Mbytes)
+	71.59% of uncompressed filesystem size (472844.59 Kbytes)
+Inode table size 133090 bytes (129.97 Kbytes)
+	28.86% of uncompressed inode table size (461116 bytes)
+Directory table size 138846 bytes (135.59 Kbytes)
+	43.49% of uncompressed directory table size (319277 bytes)
+Number of duplicate files found 154
+Number of inodes 13784
+Number of files 11104
+Number of fragments 1220
+Number of symbolic links 669
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 2011
+Number of hard-links 4
+Number of ids (unique uids + gids) 3
+Number of uids 2
+	root (0)
+	user (1000)
+Number of gids 3
+	root (0)
+	unknown (42)
+	user (1000)
+REBOOTING; reconnect and run confos status
+Connection to 127.0.0.1 closed by remote host.
+TOOLS44 IMMEDIATE POST-APPLIED CUT remove 1 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+MODE removed
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+ STDERR 
+VISUDO removed PASS DECLARATION 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+TOOLS44 NATIVE STATE AFTER CUT PASS remove 1
+TOOLS44 IMMEDIATE POST-APPLIED CUT remove 2 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+MODE removed
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+ STDERR 
+VISUDO removed PASS DECLARATION 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+TOOLS44 NATIVE STATE AFTER CUT PASS remove 2
+TOOLS44 IMMEDIATE POST-APPLIED CUT remove 3 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+MODE removed
+COMMAND ['confos', 'status'] EXIT 0 STDOUT APPLIED 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+ STDERR 
+COMMAND ['sudo', '-n', 'visudo', '-c'] EXIT 0 STDOUT /etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+ STDERR 
+VISUDO removed PASS DECLARATION 38fde963db33b26ba5f7d04f3ea5d361b071b04de51cdee42fc108983c5e0bcb
+TOOLS44 NATIVE STATE AFTER CUT PASS remove 3
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease [140 kB]
+Get:2 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security InRelease [43.4 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 Packages [9679 kB]
+Get:4 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 Packages [309 kB]
+Fetched 10.2 MB in 1s (11.0 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+The following additional packages will be installed:
+  adduser cron-daemon-common libsemanage-common libsemanage2 libsepol2
+  login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc libarchive-dev anacron logrotate checksecurity
+  supercat bat debconf-doc debconf-kde-helper debconf-utils libgtk3-perl
+  libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog debsig-verify
+  openssh-client bash-completion glibc-doc libc-l10n locales libnss-nis
+  libnss-nisplus cryptsetup-bin libpam-doc libarchive13t64 libbpf1
+  libcryptsetup12 libdw1t64 libelf1t64 libfido2-1 libgcrypt20 libidn2-0
+  libip4tc2 libp11-kit0 libpwquality1 libqrencode4 libtss2-rc0t64 uuid-runtime
+  firmware-linux-free linux-doc-6.12 debian-kernel-handbook grub-pc
+  | grub-efi-amd64 | extlinux nfs-common firewalld python3-doc python3-tk
+  python3-venv python3.13-venv python3.13-doc binutils binfmt-support
+  readline-doc systemd-container systemd-homed systemd-userdbd systemd-boot
+  systemd-resolved systemd-repart libtss2-tcti-device0 polkitd bzip2 ncompress
+  xz-utils tar-scripts tar-doc dosfstools kbd util-linux-extra
+  util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages libidn2-0 libgpm2 default-dbus-system-bus | dbus-system-bus
+  linux-sysctl-defaults systemd-timesyncd | time-daemon systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash busybox-static
+  ca-certificates coreutils cpio cron cron-daemon-common debconf
+  debian-archive-keyring debianutils dpkg dracut-install dropbear-bin
+  gcc-14-base init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core klibc-utils kmod libacl1 libapparmor1 libapt-pkg7.0
+  libattr1 libaudit-common libaudit1 libblkid1 libbsd0 libbz2-1.0 libc-bin
+  libc6 libcap-ng0 libcap2 libcrypt1 libdb5.3t64 libdebconfclient0 libedit2
+  libexpat1 libffi8 libgcc-s1 libgmp10 libhogweed6t64 libjansson4 libklibc
+  libkmod2 liblastlog2-2 liblz4-1 liblzma5 liblzo2-2 libmd0 libmnl0 libmount1
+  libncursesw6 libnettle8t64 libnftables1 libnftnl11 libpam-modules
+  libpam-modules-bin libpam-runtime libpam0g libpcre2-8-0 libpython3-stdlib
+  libpython3.13-minimal libpython3.13-stdlib libreadline8t64 libseccomp2
+  libselinux1 libsemanage-common libsemanage2 libsepol2 libsmartcols1
+  libsqlite3-0 libssl3t64 libstdc++6 libsystemd-shared libsystemd0 libtinfo6
+  libtomcrypt1 libtommath1 libudev1 libuuid1 libxtables12 libxxhash0 libzstd1
+  linux-base linux-image-6.12.118+deb13-amd64 linux-image-amd64 login.defs
+  logsave mawk media-types mount netbase nftables openssl
+  openssl-provider-legacy passwd perl-base python3 python3-minimal python3.13
+  python3.13-minimal readline-common sensible-utils squashfs-tools sqv sudo
+  systemd tar tzdata udev util-linux zlib1g
+0 upgraded, 118 newly installed, 0 to remove and 0 not upgraded.
+Need to get 159 MB of archives.
+After this operation, 301 MB of additional disk space will be used.
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 gcc-14-base amd64 14.2.0-19 [49.4 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc6 amd64 2.41-12+deb13u5 [2850 kB]
+Get:3 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgcc-s1 amd64 14.2.0-19 [72.8 kB]
+Get:4 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mawk amd64 1.3.4.20250131-1 [141 kB]
+Get:5 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-files amd64 13.8+deb13u8 [88.3 kB]
+Get:6 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtinfo6 amd64 6.5+20250216-2 [348 kB]
+Get:7 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debianutils amd64 5.23.2 [92.4 kB]
+Get:8 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 bash amd64 5.2.37-2+b10 [1501 kB]
+Get:9 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libacl1 amd64 2.3.2-2+b1 [32.9 kB]
+Get:10 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libattr1 amd64 1:2.5.2-3 [22.9 kB]
+Get:11 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap2 amd64 1:2.75-10+deb13u1+b3 [29.0 kB]
+Get:12 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libgmp10 amd64 2:6.3.0+dfsg-3 [560 kB]
+Get:13 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpcre2-8-0 amd64 10.46-1~deb13u3 [299 kB]
+Get:14 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libselinux1 amd64 3.8.1-1 [84.7 kB]
+Get:15 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libzstd1 amd64 1.5.7+dfsg-1 [304 kB]
+Get:16 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 zlib1g amd64 1:1.3.dfsg+really1.3.1-1+deb13u1 [88.7 kB]
+Get:17 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libssl3t64 amd64 3.5.9-1~deb13u1 [2465 kB]
+Get:18 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl-provider-legacy amd64 3.5.9-1~deb13u1 [322 kB]
+Get:19 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd0 amd64 257.13-1~deb13u1 [455 kB]
+Get:20 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 coreutils amd64 9.7-3 [3024 kB]
+Get:21 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbz2-1.0 amd64 1.0.8-6 [37.9 kB]
+Get:22 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzma5 amd64 5.8.1-1+deb13u2 [310 kB]
+Get:23 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmd0 amd64 1.1.0-2+b1 [36.3 kB]
+Get:24 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tar amd64 1.35+dfsg-3.1 [815 kB]
+Get:25 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dpkg amd64 1.22.22 [1537 kB]
+Get:26 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcrypt1 amd64 1:4.4.38-1 [90.1 kB]
+Get:27 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 perl-base amd64 5.40.1-6+deb13u1 [1666 kB]
+Get:28 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit-common all 1:4.0.2-2+deb13u1 [12.8 kB]
+Get:29 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libcap-ng0 amd64 0.8.5-4+b1 [17.6 kB]
+Get:30 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libaudit1 amd64 1:4.0.2-2+deb13u1 [57.7 kB]
+Get:31 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdb5.3t64 amd64 5.3.28+dfsg2-9 [704 kB]
+Get:32 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debconf all 1.5.91 [121 kB]
+Get:33 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam0g amd64 1.7.0-5 [69.9 kB]
+Get:34 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules-bin amd64 1.7.0-5 [49.1 kB]
+Get:35 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-modules amd64 1.7.0-5 [179 kB]
+Get:36 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpam-runtime all 1.7.0-5 [249 kB]
+Get:37 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libblkid1 amd64 2.41.5-0+deb13u1 [172 kB]
+Get:38 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsqlite3-0 amd64 3.46.1-7+deb13u2 [915 kB]
+Get:39 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblastlog2-2 amd64 2.41.5-0+deb13u1 [28.8 kB]
+Get:40 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmount1 amd64 2.41.5-0+deb13u1 [210 kB]
+Get:41 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsmartcols1 amd64 2.41.5-0+deb13u1 [143 kB]
+Get:42 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libudev1 amd64 257.13-1~deb13u1 [152 kB]
+Get:43 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libuuid1 amd64 2.41.5-0+deb13u1 [37.8 kB]
+Get:44 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 util-linux amd64 2.41.5-0+deb13u1 [1242 kB]
+Get:45 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libdebconfclient0 amd64 0.280 [10.6 kB]
+Get:46 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 base-passwd amd64 3.6.7 [53.7 kB]
+Get:47 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 login.defs all 1:4.17.4-2 [186 kB]
+Get:48 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libbsd0 amd64 0.12.2-2 [131 kB]
+Get:49 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage-common all 3.8.1-1 [7812 B]
+Get:50 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsepol2 amd64 3.8.1-1 [296 kB]
+Get:51 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsemanage2 amd64 3.8.1-1 [95.3 kB]
+Get:52 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 passwd amd64 1:4.17.4-2 [1229 kB]
+Get:53 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 adduser all 3.152 [191 kB]
+Get:54 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnettle8t64 amd64 3.10.1-1 [305 kB]
+Get:55 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libhogweed6t64 amd64 3.10.1-1 [335 kB]
+Get:56 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sqv amd64 1.3.0-3+b2 [661 kB]
+Get:57 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxxhash0 amd64 0.8.3-2 [27.1 kB]
+Get:58 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblz4-1 amd64 1.10.0-4 [63.9 kB]
+Get:59 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libstdc++6 amd64 14.2.0-19 [714 kB]
+Get:60 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapt-pkg7.0 amd64 3.0.4 [1114 kB]
+Get:61 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 debian-archive-keyring all 2025.1 [179 kB]
+Get:62 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libseccomp2 amd64 2.6.0-2 [51.7 kB]
+Get:63 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apt amd64 3.0.4 [1453 kB]
+Get:64 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 init-system-helpers all 1.69~deb13u1 [39.4 kB]
+Get:65 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libc-bin amd64 2.41-12+deb13u5 [639 kB]
+Get:66 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 mount amd64 2.41.5-0+deb13u1 [163 kB]
+Get:67 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libsystemd-shared amd64 257.13-1~deb13u1 [2155 kB]
+Get:68 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libapparmor1 amd64 4.1.0-1 [43.7 kB]
+Get:69 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 systemd amd64 257.13-1~deb13u1 [3094 kB]
+Get:70 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron-daemon-common all 3.0pl1-197 [17.8 kB]
+Get:71 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+Get:72 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cron amd64 3.0pl1-197 [87.4 kB]
+Get:73 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libexpat1 amd64 2.9.0-1~deb13u1 [126 kB]
+Get:74 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 linux-base all 4.12.1 [25.5 kB]
+Get:75 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libkmod2 amd64 34.2-2 [63.2 kB]
+Get:76 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 kmod amd64 34.2-2 [95.7 kB]
+Get:77 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 cpio amd64 2.15+dfsg-2 [252 kB]
+Get:78 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dracut-install amd64 106-6 [37.8 kB]
+Get:79 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-bin amd64 0.148.4 [17.5 kB]
+Get:80 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libklibc amd64 2.0.14-1 [44.8 kB]
+Get:81 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 klibc-utils amd64 2.0.14-1 [95.1 kB]
+Get:82 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 logsave amd64 1.47.2-3+b12 [24.9 kB]
+Get:83 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 udev amd64 257.13-1~deb13u1 [1419 kB]
+Get:84 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools-core all 0.148.4 [50.7 kB]
+Get:85 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 initramfs-tools all 0.148.4 [17.4 kB]
+Get:86 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-6.12.118+deb13-amd64 amd64 6.12.118-1 [109 MB]
+Get:87 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+Get:88 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+Get:89 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+Get:90 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 media-types all 13.0.0 [29.3 kB]
+Get:91 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 netbase all 6.5 [12.4 kB]
+Get:92 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 tzdata all 2026f-0+deb13u1 [268 kB]
+Get:93 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libffi8 amd64 3.4.8-2 [24.1 kB]
+Get:94 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libncursesw6 amd64 6.5+20250216-2 [135 kB]
+Get:95 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 readline-common all 8.2-6 [69.4 kB]
+Get:96 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libreadline8t64 amd64 8.2-6 [169 kB]
+Get:97 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+Get:98 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+Get:99 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+Get:100 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+Get:101 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 sudo amd64 1.9.16p2-3+deb13u5 [2087 kB]
+Get:102 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+Get:103 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libmnl0 amd64 1.0.5-3 [11.9 kB]
+Get:104 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftnl11 amd64 1.2.9-1 [65.0 kB]
+Get:105 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libxtables12 amd64 1.8.11-2 [31.9 kB]
+Get:106 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libnftables1 amd64 1.1.3-1 [332 kB]
+Get:107 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libedit2 amd64 3.1-20250104-1 [93.8 kB]
+Get:108 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 nftables amd64 1.1.3-1 [75.9 kB]
+Get:109 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 openssl amd64 3.5.9-1~deb13u1 [1518 kB]
+Get:110 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 ca-certificates all 20250419+deb13u1 [161 kB]
+Get:111 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 apparmor amd64 4.1.0-1 [710 kB]
+Get:112 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 busybox-static amd64 1:1.37.0-6+b9 [955 kB]
+Get:113 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtommath1 amd64 1.3.0-1 [64.3 kB]
+Get:114 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 libtomcrypt1 amd64 1.18.2+dfsg-7+b2 [402 kB]
+Get:115 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 dropbear-bin amd64 2025.89-1~deb13u1 [189 kB]
+Get:116 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblzo2-2 amd64 2.10-3+b1 [55.1 kB]
+Get:117 http://snapshot.debian.org/archive/debian-security/20261124T000000Z trixie-security/main amd64 linux-image-amd64 amd64 6.12.118-1 [1468 B]
+Get:118 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 squashfs-tools amd64 1:4.6.1-1 [194 kB]
+Fetched 159 MB in 4s (43.7 MB/s)
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on /state/staging/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 334395.81 Kbytes (326.56 Mbytes)
+	72.19% of uncompressed filesystem size (463247.44 Kbytes)
+Inode table size 131671 bytes (128.58 Kbytes)
+	28.78% of uncompressed inode table size (457528 bytes)
+Directory table size 138099 bytes (134.86 Kbytes)
+	43.57% of uncompressed directory table size (316939 bytes)
+Number of duplicate files found 149
+Number of inodes 13684
+Number of files 11030
+Number of fragments 1213
+Number of symbolic links 660
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 1994
+Number of hard-links 4
+Number of ids (unique uids + gids) 3
+Number of uids 2
+	root (0)
+	user (1000)
+Number of gids 3
+	root (0)
+	unknown (42)
+	user (1000)
+REBOOTING; reconnect and run confos status
+Connection to 127.0.0.1 closed by remote host.
+CANONICAL44 OPTIONAL SSH PACKAGE REMOVAL PASS
+CANONICAL44 VISUDO NINE CUTS AND SSH READERS PASS
+qemu-system-x86_64: terminating on signal 15 from pid 313739 (bash)

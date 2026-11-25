@@ -16,30 +16,38 @@ the line. This is implementation-written recording under the plan's9.3 rule.
 
 | Tool | Request | Line written | Result | Regression log |
 |---|---|---|---|---|
-| apt, apt-get | install NAME[=VERSION] | package NAME VERSION | records | records/recording-apt-0.34.log |
-| apt, apt-get | remove/purge NAME | remove package NAME line | records unless another line/base still requires it | records/recording-apt-0.34.log |
-| apt, apt-get | arbitrary -o/-c, local debs, patterns, foreign arch, target suites, dependency/base removals, other mutation verbs | no supported request mapping | refuses | records/recording-apt-0.34.log (representative invalid/base/native tests) |
-| pip | install NAME[==VERSION]... or local wheels | pip NAME VERSION SHA256 SOURCE for each resolved wheel | records from35 | records/language-recording-0.35.log; local-wheel preparation language-recording-bare.log |
-| pip | uninstall [-y|--yes] NAME... | remove named pip lines | records unless still required by another pip line | records/language-recording-0.35.log |
-| npm | install -g NAME[@VERSION]; uninstall -g NAME | npm NAME VERSION SHA256 LOCK; remove that line | records from35 | records/language-recording-0.35.log |
-| pip, npm | ranges/tags, editable/source builds, requirements files, VCS/URL roots, alternate index/registry, user/target/prefix overrides, arbitrary flags; npm scoped names/per-project installs/multiple roots | unsupported current grammar or resolution policy | refuses | language-recording-prep.log; records/language-recording-0.35.log (representative guest requests) |
-| Flatpak | install --bundle LOCALFILE; uninstall ID or REF | flatpak REF COMMIT SHA256 SOURCE; remove line | records from36; runtime dependency guard | flatpak-recording-native-final.log; records/flatpak-recording-0.36.log |
-| Flatpak | remote-add, named-remote install, user installation, other flags/verbs | no current request mapping | refuses | records/flatpak-recording-0.36.log (remote/native-helper controls) |
-| Podman | [--account USER] pull/rmi REGISTRY/NAME[:TAG] | container USER NAME CONFIG_SHA ARCHIVE_SHA SOURCE; remove line | records from37 | records/podman-recording-0.37.log |
-| Podman | short names, digest/transport forms, multiple images, tag refresh, private authentication, other flags/verbs | unsupported request resolution | refuses | records/podman-recording-0.37.log |
-| hostnamectl, timedatectl, sysctl | set-hostname VALUE; set-timezone UTC/Etc/UTC; -w KEY=VALUE... | setting NAME VALUE | records | records/configuration-recording-0.38.log |
-| systemctl | [--user] enable/disable existing declared NAME... | change service/user-unit STATE | records; authorized root required before query escalation | records/configuration-recording-0.38.log |
-| useradd, usermod, userdel | supported field requests, deterministic new-account defaults, append groups; delete unreferenced account | complete account line, field edits, removal | records | records/configuration-recording-0.38.log |
-| nft | add rule inet confos input tcp dport PORT accept/drop; delete rule inet confos input handle HANDLE | deterministic named rule; remove uniquely mapped rule | records from43; nine immediate post-APPLIED cuts passed | NFT-RECORDING-DRAFT.md; records/nft-ed-0.43.log |
+| apt, apt-get | install NAME[=VERSION] | package NAME VERSION | records | evidence/recording-apt-0.34.log |
+| apt, apt-get | remove/purge NAME | remove package NAME line | records unless another line/base still requires it | evidence/recording-apt-0.34.log |
+| apt, apt-get | arbitrary -o/-c, local debs, patterns, foreign arch, target suites, dependency/base removals, other mutation verbs | no supported request mapping | refuses | evidence/recording-apt-0.34.log (representative invalid/base/native tests) |
+| pip | install NAME[==VERSION]... or local wheels | pip NAME VERSION SHA256 SOURCE for each resolved wheel | records from35 | evidence/language-recording-0.35.log; local-wheel preparation language-recording-bare.log |
+| pip | uninstall [-y|--yes] NAME... | remove named pip lines | records unless still required by another pip line | evidence/language-recording-0.35.log |
+| npm | install -g NAME[@VERSION]; uninstall -g NAME | npm NAME VERSION SHA256 LOCK; remove that line | records from35 | evidence/language-recording-0.35.log |
+| pip, npm | ranges/tags, editable/source builds, requirements files, VCS/URL roots, alternate index/registry, user/target/prefix overrides, arbitrary flags; npm scoped names/per-project installs/multiple roots | unsupported current grammar or resolution policy | refuses | language-recording-prep.log; evidence/language-recording-0.35.log (representative guest requests) |
+| Flatpak | install --bundle LOCALFILE; uninstall ID or REF | flatpak REF COMMIT SHA256 SOURCE; remove line | records from36; runtime dependency guard | flatpak-recording-native-final.log; evidence/flatpak-recording-0.36.log |
+| Flatpak | remote-add, named-remote install, user installation, other flags/verbs | no current request mapping | refuses | evidence/flatpak-recording-0.36.log (remote/native-helper controls) |
+| Podman | [--account USER] pull/rmi REGISTRY/NAME[:TAG] | container USER NAME CONFIG_SHA ARCHIVE_SHA SOURCE; remove line | records from37 | evidence/podman-recording-0.37.log |
+| Podman | short names, digest/transport forms, multiple images, tag refresh, private authentication, other flags/verbs | unsupported request resolution | refuses | evidence/podman-recording-0.37.log |
+| hostnamectl, timedatectl, sysctl | set-hostname VALUE; set-timezone UTC/Etc/UTC; -w KEY=VALUE... | setting NAME VALUE | records | evidence/configuration-recording-0.38.log |
+| systemctl | [--user] enable/disable existing declared NAME... | change service/user-unit STATE | records; authorized root required before query escalation | evidence/configuration-recording-0.38.log |
+| useradd, usermod, userdel | supported field requests, deterministic new-account defaults, append groups; delete unreferenced account | complete account line, field edits, removal | records | evidence/configuration-recording-0.38.log |
+| nft | add rule inet confos input tcp dport PORT accept/drop; delete rule inet confos input handle HANDLE | deterministic named rule; remove uniquely mapped rule | records from43; nine immediate post-APPLIED cuts passed | NFT-RECORDING-DRAFT.md; evidence/nft-ed-0.43.log |
 | nft | other expressions/tables/chains, command files, unknown handles, ambiguous ownership, noncanonical applied text | unsupported mapping | refuses | exact restrictions in NFT-RECORDING-DRAFT.md |
-| visudo | [-f /etc/sudoers.d/NAME]; --remove [-f /etc/sudoers.d/NAME] | file PATH 0440 0:0 SHA SOURCE; remove that row | records from44; canonical gates passed | records/tools-0.44.log; records/visudo-editor-0.44.log; VISUDO-RECORDING-DRAFT.md |
-| visudo | generated /etc/sudoers, includes, other edit flags/targets | no supported request mapping | refuses; native check/version/help stay confined | records/tools-0.44.log |
-| configuration tools | unsupported flags/timezones, unknown units, account rename/password/home moves, userdel -r | some representable requests still have no adapter | refuses; S8.3-7 incomplete | CONFIGURATION-RECORDING-DRAFT.md; representative refusals in records/configuration-recording-0.38.log |
-| nmcli | connection add explicit static Wi-Fi properties; connection modify id NAME ssid/PSK/address; connection delete id NAME | network NAME SHA recorded-inputs/network-SHA.json; remove row | records from45; separate apply | records/radio-recording-0.45.log |
+| visudo | [-f /etc/sudoers.d/NAME]; --remove [-f /etc/sudoers.d/NAME] | file PATH 0440 0:0 SHA SOURCE; remove that row | records from44; canonical gates passed | evidence/tools-0.44.log; evidence/visudo-editor-0.44.log; VISUDO-RECORDING-DRAFT.md |
+| visudo | generated /etc/sudoers, includes, other edit flags/targets | no supported request mapping | refuses; native check/version/help stay confined | evidence/tools-0.44.log |
+| configuration tools | unsupported flags/timezones, unknown units, account rename/password/home moves, userdel -r | some representable requests still have no adapter | refuses; S8.3-7 incomplete | CONFIGURATION-RECORDING-DRAFT.md; representative refusals in evidence/configuration-recording-0.38.log |
+| nmcli | connection add explicit static Wi-Fi properties; connection modify id NAME ssid/PSK/address; connection delete id NAME | network NAME SHA recorded-inputs/network-SHA.json; remove row | records from45; separate apply | evidence/radio-recording-0.45.log |
 | nmcli | device wifi connect, DHCP, passphrases, other radios/properties | no supported mapping | refuses with exact representability reason | RADIO-RECORDING-DRAFT.md |
-| groupadd; at, loginctl enable-linger, localectl, modprobe, mount, ip, systemctl set-property, systemd-run, dpkg -i, chpasswd | mutation | no current request mapping; group has no standalone kind | refusal paths; unsupported recording | previous channel logs; S8.3-7 unfinished; not a claim about every option |
-| crontab -u; apt-mark hold/auto/manual; dpkg selections | native store mutation | no line form or recorder | write denial; canonical42 verification in STATE | private proof: NATIVE-CONFIG-RESULTS.md; integrated evidence: records/readers-0.42.log; original39 failure retained |
-| curl automatic .curlrc | automatic saved setting | file row required for native saved config input | guarded from42; transfer may continue without refused config | records/readers-0.42.log; curl-config-draft.md records exact-version scope |
+| groupadd, groupdel | groupadd [-g GID] NAME; groupdel NAME | `group NAME GID` (default GID: first number from 1000 used by no account and no group); remove that line | records from 0.50; groupdel refused while an account line names the group | evidence/tools-0.50.log; test-configuration-edit-050.py |
+| groupadd, groupdel | other options (-r, -f, -o, -K, -p), a name an account line provides, reserved names | no supported request mapping | refuses | evidence/tools-0.50.log |
+| modprobe | modprobe NAME; modprobe -r NAME | `setting module:NAME loaded`; remove that line | records from 0.50; the module is loaded at every start after the application, not at the request | evidence/tools-0.50.log; test-configuration-edit-050.py |
+| modprobe | module parameters, -a, -f, several names, a name that is no module file of the installed kernel | no kind of line states it | refuses | evidence/tools-0.50.log |
+| localectl | set-locale | none: only the C locales exist without generated locale data, and sessions are started with a fixed locale | refuses | not built |
+| loginctl | enable-linger | none: a user manager exists only through `user-unit` lines of the account | refuses | not built |
+| crontab, at | install a table or a job | none: no kind of line states a schedule outside `user-unit` timers | refuses | search attempt 234 probed on 0.49: evidence/routes-0.49.log |
+| mount, ip, systemctl set-property, systemd-run, chpasswd | mutation | none | refuses | previous channel logs; not a claim about every option |
+| dpkg | -i FILE.deb | none yet: a file that equals the pinned archive's package could be stated as `package NAME VERSION` | refuses | not built |
+| crontab -u; apt-mark hold/auto/manual; dpkg selections | native store mutation | no line form or recorder | write denial; canonical42 verification in STATE | private proof: NATIVE-CONFIG-RESULTS.md; integrated evidence: evidence/readers-0.42.log; original39 failure retained |
+| curl automatic .curlrc | automatic saved setting | file row required for native saved config input | guarded from42; transfer may continue without refused config | evidence/readers-0.42.log; curl-config-draft.md records exact-version scope |
 
 Development35 language requests use native binary-only pip download or native npm
 lock-only install with exact root saving and lifecycle scripts disabled. Public
@@ -115,8 +123,8 @@ native account fields cannot contain colon/control separators. Shell paths must
 be absolute without ..; homes remain immediate /home children. These are additional
 declaration restrictions to prevent duplicate native identities and malformed
 passwd entries. Boot checks native account lookup before readiness. The duplicate
-_apt failure is in records/account-p2-probe.log; the repair regression passed in
-records/accounts-0.25.log, including native lookup, key login and removal.
+_apt failure is in evidence/account-p2-probe.log; the repair regression passed in
+evidence/accounts-0.25.log, including native lookup, key login and removal.
 
 Source24 restricts both hostname forms to1..64 ASCII letters/digits/dots/hyphens,
 starting with a letter or digit. It rejects disagreement between hostname and its
@@ -124,8 +132,8 @@ kernel.hostname sysctl alias; either supplies the hosts entry and hostname file,
 with base default confos on removal of both. These are additional declaration
 constraints. Release23's unchecked native hostname command reported readiness
 after failed assignments; boot preparation now checks execution and actual value.
-Evidence: records/hostname-p2-probe.log. The repair regression passed rejection,
-64-character names, aliases and removal (records/hostname-0.24.log).
+Evidence: evidence/hostname-p2-probe.log. The repair regression passed rejection,
+64-character names, aliases and removal (evidence/hostname-0.24.log).
 
 Source23 adds the genuine confos-boot data package. Its pinned GRUB input closure
 comes from snapshot20261123T000000Z and is unpacked into an empty build root;
@@ -133,7 +141,7 @@ native grub-mkstandalone runs under rootless chroot with fixed time/configuratio
 This boot release remains fixed across the three Debian update snapshots. Clean
 builds copy the packaged EFI program; they do not use the host's GRUB. The worker's
 2.12-9+deb13u2 was absent from the selected snapshot; the locked snapshot provides
-2.12-9+deb13u4 (records/boot-package-first.log, boot-package-prototype.log).
+2.12-9+deb13u4 (evidence/boot-package-first.log, boot-package-prototype.log).
 It also stops advertising optional Flatpak/Podman/pip/npm commands without their
 native packages: the private broker programs are packaged, and their public links
 are generated only with the native executable present. These link bindings remain
@@ -282,8 +290,8 @@ and native package versions are validated by radio_declaration/radio_integration
 Read-only native inspection is a fixed root broker. Control isolation includes
 both session and Flatpak profiles and private mount storage. Simulated fixture
 support does not claim hardware radio support. Network/pairing recorders refuse;
-manual edits are the supported route. Canonical logs: records/radio-0.40.log and
-records/radio-flatpak-0.40.log; do not infer success before their passing markers.
+manual edits are the supported route. Canonical logs: evidence/radio-0.40.log and
+evidence/radio-flatpak-0.40.log; do not infer success before their passing markers.
 
 ## Native Flatpak mpv input policy — release41
 
@@ -352,7 +360,7 @@ records/radio-flatpak-0.40.log; do not infer success before their passing marker
   editor first: writable /tmp include material can change within confos-session.
   It is never applied policy; the effective immutable sudoers and declaration
   remain unchanged. The supplementary probe records this behavior explicitly
-  (records/visudo-editor-0.44.log); no claim of zero editor-material writes is made.
+  (evidence/visudo-editor-0.44.log); no claim of zero editor-material writes is made.
 - Native empty edits preserve content. Explicit --remove states deletion,
   including repeated deletion of an absent row. Inputs already recorded under
   recorded-inputs remain source material after removal; no watcher records them.
@@ -440,7 +448,7 @@ records/radio-flatpak-0.40.log; do not infer success before their passing marker
 - This adds no dependency-line requirement and records no inferred line. Native
   APT chooses dependencies; their package line covers them under S8.2-16.
 - Original failure and native comparison: SOLVER-PRIVATE.md and
-  records/lo-solver-private. Canonical gates include APT recording of Writeru9,
+  evidence/lo-solver-private. Canonical gates include APT recording of Writeru9,
   unchanged pre-apply state, idempotence, pending/applied power cuts, native
   package versions, two document revisions and removal, plus standard gates.
 - Existing reader payloads are byte/mode/link identical to47. The saved Basic
@@ -472,7 +480,103 @@ records/radio-flatpak-0.40.log; do not infer success before their passing marker
 - Flatpak reader replacements are bound to ref, commit and the checksum of each
   replaced object, not to one bundle file (two exports of one commit differ as
   files). Requirement on a declaration removed, none added.
-- Regressions: records/prepare-paths-0.49.log (package objects compared with the
-  downloaded archives), records/other-export-0.49.log, records/recording-apt-0.49.log,
-  records/configuration-recording-0.49.log, records/language-recording-0.49.log,
-  records/podman-recording-0.49.log, records/flatpak-recording-0.49.log.
+- Regressions: evidence/prepare-paths-0.49.log (package objects compared with the
+  downloaded archives), evidence/other-export-0.49.log, evidence/recording-apt-0.49.log,
+  evidence/configuration-recording-0.49.log, evidence/language-recording-0.49.log,
+  evidence/podman-recording-0.49.log, evidence/flatpak-recording-0.49.log.
+
+## Revision 52: a guarded file replaces every release of its package
+
+- Choice: the guarded executable or library that the reader component carries for
+  a package is installed whenever a line or the base selects that package, whatever
+  release the line names (INTERFACE.md revision 29). Releases 0.42–0.51 instead
+  refused the whole declaration when the package file was not the one the guarded
+  file was built from; a system at an archive state with an older curl or libperl
+  could then not be built or updated (complete run 2 on 0.49, OW-2 and OW-3).
+- What this means for P2 (S8.3-2): for such a package the file in force is the
+  guarded build of ONE release (named `source_version` in the component's
+  manifest), not a build of the release the line names. In the three archive
+  states of the update case this concerns curl (8.14.1-2+deb13u4 and u5, guarded
+  build from u7), libperl5.40 (5.40.1-6, from 5.40.1-6+deb13u1), nodejs and
+  libnode115 (deb13u2, from deb13u3), and libpython3.13-stdlib, whose guarded
+  file equals the original in all three (evidence/update-overrides-0.51.log).
+- Not built: a guarded build from the source of each release. Until it exists, a
+  line that names another release of a guarded package is in force with the
+  guarded program of the built release.
+
+## Revision 53: the size of the disk, and what an application keeps
+
+- Choice (Section 8.5 leaves the storage of an implementation to it): the build
+  command makes a disk of 20 GiB — EFI partition 128 MiB, system partition 6 GiB,
+  data partition 13.9 GiB. Until 0.52 the disk had 12 GiB and the data partition
+  5.9 GiB, which the plan's game case exceeded during its second application
+  (complete run 2 on 0.49, OW-8; evidence/game-sequence-0.49.log).
+- Choice: during an application the system partition holds the generation in
+  force and the new one; the data partition holds one staging (the frozen
+  declaration and input files, the unpacked root, its image). From 0.53 the
+  downloaded archives are deleted from the staging as soon as they are unpacked.
+  After readiness one generation and no staging remain. Nothing else is kept: no
+  earlier generation can be selected at start.
+- Requirement beyond the text: an application needs free space on the data
+  partition for its staging — about twice the size of the declared system plus
+  the declared input files. An application that lacks it ends with a failure
+  status before the restart and changes nothing: the staging and the unselected
+  generation are removed and the declaration in force stays in force (seen in
+  evidence/game-sequence-0.49.log: `NOT APPLIED`, then `confos status` reports the
+  earlier identity).
+
+## Revision 54: Basic code of the office suite is not executed
+
+- Requirement beyond the text: on ConfOS the office suite (LibreOffice) executes
+  no Basic code — not a saved library, and not a recorded one either: a library
+  that a `file` line records, a macro inside a document, the libraries and
+  wizards that the suite's own packages ship. The text would let recorded code
+  run (S8.2-9, S8.2-17); this release cannot tell a recorded library from a saved
+  one at the place where Basic is executed, and a saved library must not run
+  (S8.3-6). Macros are not part of the ordinary work of the plan; converting,
+  editing and reading documents is unaffected (the probe converts a document and
+  reads it back before every attempt).
+- Mechanism (Section 8.5 leaves mechanisms to the system): the function of the
+  suite's core library that executes one instruction of compiled Basic returns
+  "do not go on" at once. The call succeeds and nothing is executed; the suite
+  prints no refusal. A command that names a macro starts the suite, runs nothing,
+  changes nothing and ends with status 0.
+- Requirement beyond the text: a declaration may name libreoffice-core only in a
+  release for which the guard is recorded — 4:25.2.3-2+deb13u6, deb13u9 and
+  deb13u12, the releases of the three pinned archive states. Another release is
+  refused at assembly; nothing changes.
+- What this means for the checksums: with deb13u9 the core library is the payload
+  of the reader component and follows from it by checksum. With deb13u6 or
+  deb13u12 it is that release's own file with three bytes replaced as the record
+  of the component says; it follows from the package and the record, not from a
+  payload (UNDERIVED.md).
+- Not covered by this guard, and not claimed: script languages of the suite other
+  than Basic. They need packages of their own (a Python or Java script provider)
+  and are subject to the guards of those interpreters where such exist
+  (CODE-READERS.md).
+
+## Revision 55: which file a process executes; queries
+
+- Choice of mechanism (Section 8.5): the session policy allows reading the
+  process information of every label of the machine (`ptrace (read)`), never
+  tracing. With it the superuser's `readlink /proc/PID/exe` answers for every
+  process, a recorded Flatpak application in its sandbox and the system's radio
+  supervisor included. The ordinary account reads its own processes only, as the
+  kernel requires.
+- What the answer is for a sandbox: the path in the application's own mount
+  namespace, as the kernel prints it for every sandbox (`/app/bin/mpv`). The
+  same file is `/proc/PID/root/app/bin/mpv`, and it is the file of the recorded
+  application below `/usr/lib/confos/flatpak/app/ID/ARCH/BRANCH/active/files/`.
+  ConfOS does not make the two paths equal: Flatpak mounts the application at
+  `/app`.
+- Not chosen in this release: ending a Flatpak sandbox with the command that
+  launched it. An application whose front process is killed keeps running, as
+  with the native tool; it is a process of the recorded application, and the
+  superuser reads which file it executes as described above.
+- Queries answer from what is in force and change nothing: `flatpak list` with
+  the options named in INTERFACE.md, revision 55; the empty Podman lists in JSON
+  form for an account without recorded images. Other options of `flatpak list`
+  (for example `--installation=NAME`) and the JSON forms for an account with
+  recorded images are refused as before.
+- Regression logs: evidence/queries-0.55.log, evidence/queries-0.54-control.log,
+  evidence/podman-recording-0.55.log, evidence/flatpak-recording-0.55.log.

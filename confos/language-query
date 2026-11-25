@@ -34,6 +34,24 @@ if tool in ('pip', 'pip3'):
 elif tool == 'npm':
     if args in (['--version'], ['-v']):
         native_args = args
+    elif args and args[0] in ('ls', 'list') and len(args) > 1 and all(
+            a in ('-g', '--global', '--depth=0', '--depth', '0') for a in args[1:]) and (
+            '-g' in args or '--global' in args):
+        # Recorded npm lines are installed one prefix each under /opt/confos/npm; the
+        # global list names them from their own package files (0.50 refused this query).
+        import json
+        base = Path('/opt/confos/npm')
+        entries = []
+        for directory in (sorted(base.iterdir()) if base.is_dir() else []):
+            manifest = directory/'node_modules'/directory.name/'package.json'
+            if manifest.is_file():
+                entries.append(directory.name+'@'+json.loads(manifest.read_text())['version'])
+        print(str(base))
+        for index, entry in enumerate(entries):
+            print(('└── ' if index == len(entries)-1 else '├── ')+entry)
+        if not entries:
+            print('└── (empty)')
+        raise SystemExit(0)
     elif args and args[0] in ('ls', 'list'):
         tail = args[1:]
         prefix = '/usr'

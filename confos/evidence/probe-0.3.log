@@ -1,0 +1,59 @@
+Running as unit: confos-probe-vm.service; invocation ID: b616f29db4ec40d68169e922e0a9e952
+ssh: connect to host 127.0.0.1 port 22403: Connection refused
+Connection timed out during banner exchange
+APPLIED 92d26115f064d0c2b0401bc86a5ebe97efd8bf19c1c04d2adcfa1b8db59144f2
+2026-11-24T03:28:53Z
+
+COMMAND: printf "echo SAVED-SHELL-RAN\n" > /home/user/saved.sh; bash /home/user/saved.sh
+SAVED-SHELL-RAN
+EXIT: 0
+
+COMMAND: printf "print(12345)\n" > /home/user/saved.py; python3 /home/user/saved.py
+12345
+EXIT: 0
+
+COMMAND: printf "touch /home/user/startup-marker\n" > /home/user/.bashrc; bash -ic true; test -f /home/user/startup-marker
+bash: cannot set terminal process group (290): Inappropriate ioctl for device
+bash: no job control in this shell
+EXIT: 0
+
+COMMAND: cp /usr/bin/busybox /home/user/busybox; chmod +x /home/user/busybox; /home/user/busybox true
+bash: line 1: /home/user/busybox: Permission denied
+EXIT: 126
+
+COMMAND: sudo -n mount -o remount,bind,exec /home; /home/user/busybox echo NATIVE-AFTER-MOUNT
+mount: /home: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+bash: line 1: /home/user/busybox: Permission denied
+EXIT: 126
+
+COMMAND: sudo -n mount -o remount,bind,noexec /home
+mount: /home: permission denied.
+       dmesg(1) may have more information after failed mount system call.
+EXIT: 32
+
+COMMAND: hostname; sudo -n hostname unrecorded; hostname
+confos
+hostname: sethostname: Operation not permitted
+confos
+EXIT: 0
+
+COMMAND: sudo -n /usr/sbin/nft list ruleset; sudo -n /usr/sbin/nft flush ruleset; sudo -n /usr/sbin/nft list ruleset
+Operation not permitted (you must be root)
+netlink: Error: cache initialization failed: Operation not permitted
+Error: Could not process rule: Operation not permitted
+flush ruleset
+^^^^^^^^^^^^^^
+Operation not permitted (you must be root)
+netlink: Error: cache initialization failed: Operation not permitted
+EXIT: 1
+
+COMMAND: sudo -n apt-get install hello
+Reading package lists...
+Building dependency tree...
+E: Unable to locate package hello
+EXIT: 100
+
+COMMAND: confos status
+APPLIED 92d26115f064d0c2b0401bc86a5ebe97efd8bf19c1c04d2adcfa1b8db59144f2
+EXIT: 0

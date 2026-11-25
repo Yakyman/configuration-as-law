@@ -1,0 +1,20 @@
+COMMAND ['interpreter-inputs/flatpak-analysis/root/usr/bin/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT !true
+q!
+
+OUTPUT '\x1b[0;0H\x1b[K\x1b[7m[Hit return to continue]\x1b[m' EXIT -11
+COMMAND ['interpreter-inputs/flatpak-analysis/root/usr/bin/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT !true
+
+OUTPUT '\x1b[0;0H\x1b[K\x1b[7m[Hit return to continue]\x1b[m' EXIT -11
+COMMAND ['interpreter-inputs/flatpak-analysis/root/usr/bin/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT set tabstop=3
+
+OUTPUT '\x1b[?1049h\x1b[999;999H\x1b[6n\x1b[H\x1b[J\x1b[2;1H~\x1b[3;1H~\x1b[4;1H~\x1b[5;1H~\x1b[6;1H~\x1b[7;1H~\x1b[8;1H~\x1b[9;1H~\x1b[10;1H~\x1b[11;1H~\x1b[12;1H~\x1b[13;1H~\x1b[14;1H~\x1b[15;1H~\x1b[16;1H~\x1b[17;1H~\x1b[18;1H~\x1b[19;1H~\x1b[20;1H~\x1b[21;1H~\x1b[22;1H~\x1b[23;1H~\x1b[1;1H\x1b[24;1H\x1b[K\x1b[7mnoautoindent noexpandtab noflash noignorecase noshowmatch tabstop=3\x1b[m\x1b[1;1H\x1b[24;1H\x1b[K\x1b[?1049l' EXIT 0
+COMMAND ['interpreter-inputs/busybox-vi/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT !true
+q!
+
+OUTPUT '\x1b[0;0H\x1b[K\x1b[7m[Hit return to continue]\x1b[m' EXIT -11
+COMMAND ['interpreter-inputs/busybox-vi/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT !true
+
+OUTPUT '\x1b[0;0H\x1b[K\x1b[7m[Hit return to continue]\x1b[m' EXIT -11
+COMMAND ['interpreter-inputs/busybox-vi/busybox', 'vi', '-c', 'set', '-c', 'q!', '/tmp/confos-vi-probe-document'] HOME /tmp EXINIT set tabstop=3
+
+OUTPUT '\x1b[?1049h\x1b[999;999H\x1b[6n\x1b[H\x1b[J\x1b[2;1H~\x1b[3;1H~\x1b[4;1H~\x1b[5;1H~\x1b[6;1H~\x1b[7;1H~\x1b[8;1H~\x1b[9;1H~\x1b[10;1H~\x1b[11;1H~\x1b[12;1H~\x1b[13;1H~\x1b[14;1H~\x1b[15;1H~\x1b[16;1H~\x1b[17;1H~\x1b[18;1H~\x1b[19;1H~\x1b[20;1H~\x1b[21;1H~\x1b[22;1H~\x1b[23;1H~\x1b[1;1H\x1b[24;1H\x1b[K\x1b[7mnoautoindent noexpandtab noflash noignorecase noshowmatch tabstop=3\x1b[m\x1b[1;1H\x1b[24;1H\x1b[K\x1b[?1049l' EXIT 0

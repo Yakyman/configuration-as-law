@@ -79,6 +79,9 @@ def main():
             d.guest(absent)
             apply(added)
             d.guest(check)
+            if kind == 'npm':
+                # 0.51: the global list names the recorded packages.
+                d.guest('npm ls -g | grep -q " cowsay@1.6.0$"; npm list --global --depth=0 | grep -q " cowsay@1.6.0$"')
             assert record(repeat) == added
             removed = record(remove)
             assert removed == baseline

@@ -1,4 +1,13 @@
-# Declaration syntax, revision 49 (source 0.49)
+# Declaration syntax, revision 55 (source 0.55)
+
+Revision 55 changes no syntax.
+
+Revision 54 changes no syntax. A `package` line that brings libreoffice-core must resolve to one of its
+three guarded releases (INTERFACE.md, revision 54).
+
+Revision 50 adds one kind of line, `group NAME GID`, and one setting,
+`setting module:NAME loaded`; both are in the table of kinds below. Nothing else
+changes.
 
 Revision 49 changes no syntax. A `flatpak` line may name any export of a pinned ref
 and commit (see INTERFACE.md, revision 49); the SHA256 field is still the checksum
@@ -268,6 +277,8 @@ are generated bindings and are not claimed independently derived under D3.
 | `authorized-key NAME TYPE KEY` | Login public key; no optional comment | S8.2-13 | `authorized-key user ssh-ed25519 AAAA...` |
 | `file PATH MODE [UID:GID] SHA256 SOURCE` | Immutable exact bytes and optional explicit numeric owner, including one's own programs and settings | S8.2-9, S8.2-13, S8.2-16, S8.2-19 | `file /usr/local/bin/mine 0755 1000:1000 HEX mine.sh` |
 | `compile PATH MODE SHA256 SOURCE [FLAG ...]` | Compile exact C source with the staged declared GCC; immutable output | S8.2-9, S8.2-16 | `compile /home/user/bin/demo 0755 HEX demo.c -O2` |
+| `group NAME GID` | From 0.50. A group of its own; GID 1..4294967294, used by no account and no other group; usable in GROUPS of any account line, wherever the line stands | S8.2-13 | `group project 1001` |
+| `setting module:NAME loaded` | From 0.50. A loadable module of the pinned kernel, loaded at every start; `loaded` is the only value | S8.2-11–14 | `setting module:dummy loaded` |
 | `setting NAME VALUE` | hostname, timezone (UTC or Etc/UTC), or `sysctl:KEY` | S8.2-11–14, S8.2-17 | `setting sysctl:kernel.printk '4 4 1 7'` |
 | `service NAME STATE EXECUTABLE [ARG ...]` | enabled/disabled service and exact argv | S8.2-13 | `service demo enabled /usr/bin/sleep 600` |
 | `rule NAME TEXT` | Exact nftables rule text | S8.2-13 | `rule input 'add rule inet confos input tcp dport 22 accept'` |

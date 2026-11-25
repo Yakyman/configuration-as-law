@@ -186,6 +186,13 @@ state, and section 7 of `MANIFEST.md` lists the SHA-256 of each state. Runs made
 built are not observations of the check; their records are published with the outcomes. The programs in the two
 folders are code under the MIT License (`LICENSE-CODE`), whatever their file extension.
 
+From the third complete run on, a third folder, `confos-check-extra/`, holds cases beyond the plan and the
+programs that perform them (`CASES-EXTRA.md`, `run-extra`, `casedefs_extra.py`, `derive-radio`). They exercise the
+sentence of Section 8.3 of the fourth paper on tools that record a change in the declaration, and a saved Wi-Fi
+network and a Bluetooth pairing on simulated radios. They are not cases of Table 9 and not part of a complete run:
+they are committed with its inputs and performed on the same release right after it, and their outcomes are reported
+apart from the outcomes of the check.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper

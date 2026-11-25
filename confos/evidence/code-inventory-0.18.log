@@ -1,0 +1,193 @@
+Hit:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  adduser cron-daemon-common libbrotli1 libcom-err2 libcurl4t64 libgnutls30t64
+  libgssapi-krb5-2 libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 liblastlog2-2 libldap2 libnghttp2-14 libnghttp3-9
+  libp11-kit0 libpam-runtime libpsl5t64 librtmp1 libsasl2-2
+  libsasl2-modules-db libsemanage-common libsemanage2 libsepol2 libssh2-1t64
+  libtasn1-6 libunistring5 login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc libarchive-dev anacron logrotate checksecurity
+  supercat bat debconf-doc debconf-kde-helper debconf-utils libgtk3-perl
+  libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog debsig-verify
+  openssh-client bash-completion glibc-doc libc-l10n locales libnss-nis
+  libnss-nisplus gnutls-bin krb5-doc krb5-user cryptsetup-bin libpam-doc
+  libarchive13t64 libbpf1 libcryptsetup12 libdw1t64 libelf1t64 libfido2-1
+  libgcrypt20 libip4tc2 libpwquality1 libqrencode4 libtss2-rc0t64 uuid-runtime
+  firmware-linux-free linux-doc-6.12 debian-kernel-handbook grub-pc
+  | grub-efi-amd64 | extlinux nfs-common firewalld python3-doc python3-tk
+  python3-venv python3.13-venv python3.13-doc binutils binfmt-support
+  readline-doc systemd-container systemd-homed systemd-userdbd systemd-boot
+  systemd-resolved systemd-repart libtss2-tcti-device0 polkitd bzip2 ncompress
+  xz-utils tar-scripts tar-doc dosfstools kbd util-linux-extra
+  util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages krb5-locales libldap-common libgpm2 publicsuffix libsasl2-modules
+  default-dbus-system-bus | dbus-system-bus linux-sysctl-defaults
+  systemd-timesyncd | time-daemon systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash busybox-static
+  ca-certificates coreutils cpio cron cron-daemon-common curl debconf
+  debian-archive-keyring debianutils dpkg dracut-install dropbear-bin
+  gcc-14-base init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core klibc-utils kmod libacl1 libapparmor1 libapt-pkg7.0
+  libattr1 libaudit-common libaudit1 libblkid1 libbrotli1 libbsd0 libbz2-1.0
+  libc-bin libc6 libcap-ng0 libcap2 libcom-err2 libcrypt1 libcurl4t64
+  libdb5.3t64 libdebconfclient0 libedit2 libexpat1 libffi8 libgcc-s1 libgmp10
+  libgnutls30t64 libgssapi-krb5-2 libhogweed6t64 libidn2-0 libjansson4
+  libk5crypto3 libkeyutils1 libklibc libkmod2 libkrb5-3 libkrb5support0
+  liblastlog2-2 libldap2 liblz4-1 liblzma5 liblzo2-2 libmd0 libmnl0 libmount1
+  libncursesw6 libnettle8t64 libnftables1 libnftnl11 libnghttp2-14
+  libnghttp3-9 libp11-kit0 libpam-modules libpam-modules-bin libpam-runtime
+  libpam0g libpcre2-8-0 libpsl5t64 libpython3-stdlib libpython3.13-minimal
+  libpython3.13-stdlib libreadline8t64 librtmp1 libsasl2-2 libsasl2-modules-db
+  libseccomp2 libselinux1 libsemanage-common libsemanage2 libsepol2
+  libsmartcols1 libsqlite3-0 libssh2-1t64 libssl3t64 libstdc++6
+  libsystemd-shared libsystemd0 libtasn1-6 libtinfo6 libtomcrypt1 libtommath1
+  libudev1 libunistring5 libuuid1 libxtables12 libxxhash0 libzstd1 linux-base
+  linux-image-6.12.117+deb13-amd64 linux-image-amd64 login.defs logsave mawk
+  media-types mount netbase nftables openssl openssl-provider-legacy passwd
+  perl-base python3 python3-minimal python3.13 python3.13-minimal
+  readline-common sensible-utils squashfs-tools sqv sudo systemd tar tzdata
+  udev util-linux zlib1g
+0 upgraded, 140 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1271 kB/164 MB of archives.
+After this operation, 316 MB of additional disk space will be used.
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 liblastlog2-2 amd64 2.41.5-0+deb13u1 [28.8 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 util-linux amd64 2.41.5-0+deb13u1 [1242 kB]
+Fetched 1271 kB in 0s (4129 kB/s)
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on REMOTE_BUILD/images/code-inventory.work/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 181280.07 Kbytes (177.03 Mbytes)
+	60.04% of uncompressed filesystem size (301912.21 Kbytes)
+Inode table size 128892 bytes (125.87 Kbytes)
+	28.57% of uncompressed inode table size (451078 bytes)
+Directory table size 137373 bytes (134.15 Kbytes)
+	43.63% of uncompressed directory table size (314829 bytes)
+Number of duplicate files found 119
+Number of inodes 13643
+Number of files 10986
+Number of fragments 1225
+Number of symbolic links 666
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 1991
+Number of hard-links 5
+Number of ids (unique uids + gids) 2
+Number of uids 1
+	root (0)
+Number of gids 2
+	root (0)
+	shadow (42)
+201122 blocks
+Formatting 'REMOTE_BUILD/images/code-inventory.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=12884901888 lazy_refcounts=off refcount_bits=16
+BUILT code-inventory.qcow2 8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a
+Running as unit: confos-code-http.service; invocation ID: 778d06be71be4776ba6b1256c83d303c
+Running as unit: confos-code-inventory-vm.service; invocation ID: f58ea3ea81954fe8bfb3d5f1864aaf43
+active
+626f2a2637f48cd7dd9fb311220ab4727a07790a6c0fa70cad9ec62cb1822435  ../cases/inventory/inventory
+
+COMMAND ephemeral-pipe: curl -fsS http://10.0.2.2:22426/payload.sh | bash
+systemctl: mutation requires editing the declaration and confos apply
+/var/spool/cron/: mkstemp: Permission denied
+bash: line 6: /home/user/.bashrc: Read-only file system
+EPHEMERAL_SHELL_RAN
+PROBE_EXIT:0
+inventory: force level collected in 2.5s, ssh exit 0, 43425 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 1.0s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 6.6s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-pipe: stored 13688, force 397, executables 2490, errors 1
+{sleep} confos-ephemeral-process 30000
+Running as unit: confos-code-inventory-vm.service; invocation ID: 95d2a8498deb46e7bd930da358a6e7c4
+active
+inactive
+no crontab for user
+inventory: force level collected in 2.5s, ssh exit 0, 43408 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 0.9s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 6.6s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-pipe-restart: stored 13688, force 397, executables 2490, errors 1
+PASS pipe no observed process/service/cron/startup effect after restart
+
+COMMAND ephemeral-substitution: bash <(curl -fsS http://10.0.2.2:22426/payload.sh)
+systemctl: mutation requires editing the declaration and confos apply
+/var/spool/cron/: mkstemp: Permission denied
+/dev/fd/63: line 6: /home/user/.bashrc: Read-only file system
+EPHEMERAL_SHELL_RAN
+PROBE_EXIT:0
+inventory: force level collected in 2.4s, ssh exit 0, 43511 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 1.1s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 7.1s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-substitution: stored 13688, force 397, executables 2490, errors 1
+{sleep} confos-ephemeral-process 30000
+Running as unit: confos-code-inventory-vm.service; invocation ID: f04f1df260d64357ae29d1306e9838ee
+active
+inactive
+no crontab for user
+inventory: force level collected in 4.2s, ssh exit 0, 43387 bytes
+inventory: @part1 (vfat) 5 objects in 0.2s
+inventory: @part2 (ext4) 9 objects in 2.3s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 8.6s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-substitution-restart: stored 13688, force 397, executables 2490, errors 1
+PASS substitution no observed process/service/cron/startup effect after restart
+
+COMMAND ephemeral-python: python3 -c "$(curl -fsS http://10.0.2.2:22426/payload.py)"
+systemctl: mutation requires editing the declaration and confos apply
+/var/spool/cron/: mkstemp: Permission denied
+STARTUP_WRITE_REFUSED [Errno 30] Read-only file system: '/home/user/.bashrc'
+EPHEMERAL_PYTHON_RAN
+PROBE_EXIT:0
+inventory: force level collected in 2.4s, ssh exit 0, 43523 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 0.9s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 7.9s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-python: stored 13688, force 397, executables 2490, errors 1
+{sleep} confos-ephemeral-process 30000
+Running as unit: confos-code-inventory-vm.service; invocation ID: f3898434bead49dbabc6f6dab1ab266d
+active
+inactive
+no crontab for user
+inventory: force level collected in 2.6s, ssh exit 0, 43268 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 1.1s
+inventory: image /system/generations/8e8261aa3bffd8a6e0c51a1e53e77a1e68507cb06b1734dcc761a676c3eb371a/root.sqfs (squashfs, mount-loop) 13648 objects, runtime mount /
+inventory: @part3 (ext4) 24 objects in 0.0s
+inventory: stored level read in 7.1s, 13688 objects
+inventory: runtime paths by owning mount: 13681 objects changed, 0 shadowed
+inventory: wrote inventories/code-0.18-ephemeral-python-restart: stored 13688, force 397, executables 2490, errors 1
+PASS python no observed process/service/cron/startup effect after restart
+CODE PROBES COMPLETE; saved-interpreter execution failures are preserved above
+Retained code-inventory inputs/worktree for archive comparison.

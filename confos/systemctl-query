@@ -56,6 +56,22 @@ for argument in args:
         raise SystemExit('systemctl: mutation requires editing the declaration and confos apply')
 if operation is None or property_next:
     raise SystemExit('systemctl: a read-only operation is required')
+# A `service` line is run by the ConfOS supervisor, not by a native unit file. Its state
+# is answered from the declaration in force and the supervisor's record (as `confos
+# services`); up to 0.49 the native tool answered `not-found` for a service in force.
+if operation in ('is-enabled', 'is-active') and units and '--user' not in options:
+    declared = json.loads(Path('/etc/confos/services.json').read_text())
+    names = [unit[:-8] if unit.endswith('.service') else unit for unit in units]
+    if all(name in declared for name in names):
+        running = json.loads(Path('/run/confos-services.json').read_text())
+        if operation == 'is-enabled':
+            answers = [declared[name]['state'] for name in names]
+            code = 0 if 'enabled' in answers else 1
+        else:
+            answers = ['active' if name in running else 'inactive' for name in names]
+            code = 0 if all(answer == 'active' for answer in answers) else 3
+        print('\n'.join(answers))
+        raise SystemExit(code)
 if os.geteuid() != 0:
     os.execv('/usr/bin/sudo', ['sudo', '-n', '/usr/lib/confos/systemctl-query', *args])
 caller = pwd.getpwuid(int(os.environ.get('SUDO_UID', '0')))

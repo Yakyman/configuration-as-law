@@ -1,0 +1,23 @@
+Get:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease [140 kB]
+Get:2 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie/main amd64 Packages [9,679 kB]
+Fetched 9,820 kB in 1s (6,948 kB/s)
+Reading package lists...
+E: Version '2.12-9+deb13u2' for 'grub-common' was not found
+E: Version '2.12-9+deb13u2' for 'grub-efi-amd64-bin' was not found
+Traceback (most recent call last):
+  File "REMOTE_BUILD/package-boot.py", line 125, in <module>
+    main()
+    ~~~~^^
+  File "REMOTE_BUILD/package-boot.py", line 55, in main
+    pins = resolve(options, ROOTS)
+  File "REMOTE_BUILD/package-boot.py", line 41, in resolve
+    text = subprocess.check_output(['apt-get', *options, '--simulate', 'install', *requested], text=True)
+  File "/usr/lib/python3.13/subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['apt-get', '-o', 'Dir::State::status=REMOTE_BUILD/packages/boot-build-7oou03h_/apt/status', '-o', 'Dir::State::lists=REMOTE_BUILD/packages/boot-build-7oou03h_/apt/lists', '-o', 'Dir::Cache::archives=REMOTE_BUILD/packages/boot-build-7oou03h_/apt/archives', '-o', 'Dir::Etc::sourcelist=REMOTE_BUILD/packages/boot-build-7oou03h_/apt/etc/sources.list', '-o', 'Dir::Etc::sourceparts=-', '-o', 'Dir::Etc::parts=-', '-o', 'Dir::Etc::main=-', '-o', 'APT::Install-Recommends=false', '-o', 'APT::Install-Suggests=false', '-o', 'APT::Sandbox::User=root', '-o', 'Acquire::Check-Valid-Until=false', '-o', 'Acquire::Retries=3', '-o', 'Acquire::Languages=none', '-o', 'Dir::Log=REMOTE_BUILD/packages/boot-build-7oou03h_/apt/log', '-o', 'Dir::Cache::pkgcache=', '-o', 'Dir::Cache::srcpkgcache=', '--simulate', 'install', 'grub-common=2.12-9+deb13u2', 'grub-efi-amd64-bin=2.12-9+deb13u2', 'coreutils=9.7-3', 'bash=5.2.37-2+b10']' returned non-zero exit status 100.

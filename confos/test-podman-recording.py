@@ -53,6 +53,28 @@ def main():
                         'sudo -n podman pull alpine:3.20.3'):
             d.guest('if '+command+'; then exit 73; fi')
             assert digest() == baseline
+        # 0.51: an account without recorded images, root included, has an empty list;
+        # `image exists` answers from the declaration in force; an image that has no
+        # /etc/mtab, /proc and /sys runs (the case party's X-REC-PODMAN on 0.43 ended
+        # with status 126). First, so that a failure shows early.
+        other = 'docker.io/library/busybox:1.36.1'
+        d.guest('podman images; podman ps; sudo -n podman images; sudo -n podman ps')
+        d.guest('if podman image exists '+other+'; then exit 73; fi')
+        second = record('podman pull '+other)
+        assert second != baseline
+        d.guest('if podman image exists '+other+'; then exit 73; fi')
+        # 0.55: between the recorded request and its application root's queries in JSON
+        # form answer with the empty lists in force (up to 0.54 they ended with status 1).
+        assert d.guest('sudo -n podman ps -a --format json') == '[]'
+        assert d.guest('sudo -n podman images --format json') == '[]'
+        apply(second)
+        d.guest('podman image exists '+other+'; podman run --rm '+other+' true; '
+                'test "$(podman run --rm '+other+' readlink /etc/mtab)" = /proc/mounts; '
+                'podman run --rm '+other+' ls /proc/self/status /sys/kernel')
+        assert record('podman rmi '+other) == baseline
+        apply(baseline)
+        d.guest('if podman image exists '+other+'; then exit 73; fi; podman images')
+        print('PASS image without /etc/mtab, /proc and /sys runs; empty lists; image exists', flush=True)
         added = record('podman pull '+name)
         assert added != baseline
         d.guest("grep '^container user "+name+" ' /state/declaration.conf; test ! -e /usr/lib/confos/container-images; test ! -e /run/confos-container-ro")

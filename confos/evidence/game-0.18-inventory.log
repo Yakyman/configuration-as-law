@@ -1,0 +1,457 @@
+Hit:1 http://snapshot.debian.org/archive/debian/20261123T000000Z trixie InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  adduser binutils-common binutils-x86-64-linux-gnu bsdextrautils bsdutils
+  cron-daemon-common distro-info-data libbinutils libbpf1 libbrotli1
+  libcap2-bin libcom-err2 libctf-nobfd0 libctf0 libcurl4t64 libelf1t64
+  libgnutls30t64 libgprofng0 libgssapi-krb5-2 libidn2-0 libjemalloc2
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblastlog2-2 libldap2
+  libmagic-mgc libmagic1t64 libnghttp2-14 libnghttp3-9 libp11-kit0
+  libpam-runtime libproc2-0 libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules-db
+  libsemanage-common libsemanage2 libsepol2 libsframe1 libssh2-1t64 libtasn1-6
+  libtirpc-common libtirpc3t64 libunistring5 login.defs passwd sensible-utils
+Suggested packages:
+[a line of 74 characters is left out of the published copy]
+  apt-doc aptitude | synaptic | wajig dpkg-dev gnupg | gnupg2 | gnupg1
+  powermgmt-base bash-doc binutils-doc gprofng-gui binutils-gold calendar
+  whois vacation mailutils bzip2-doc libarchive-dev anacron logrotate
+  checksecurity supercat bat debconf-doc debconf-kde-helper debconf-utils
+  libgtk3-perl libnet-ldap-perl libterm-readline-gnu-perl whiptail | dialog
+  diffutils-doc wdiff shunit2 debsig-verify openssh-client less
+  bash-completion glibc-doc libc-l10n locales libnss-nis libnss-nisplus
+  gnutls-bin krb5-doc krb5-user cryptsetup-bin libpam-doc libarchive13t64
+  libcryptsetup12 libdw1t64 libfido2-1 libgcrypt20 libip4tc2 libpwquality1
+  libqrencode4 libtss2-rc0t64 firmware-linux-free linux-doc-6.12
+  debian-kernel-handbook grub-pc | grub-efi-amd64 | extlinux nfs-common
+  firewalld python3-doc python3-tk python3-venv python3.13-venv python3.13-doc
+  binfmt-support readline-doc systemd-container systemd-homed systemd-userdbd
+  systemd-boot systemd-resolved systemd-repart libtss2-tcti-device0 polkitd
+  ncompress tar-scripts tar-doc zip dosfstools kbd util-linux-extra
+  util-linux-locales wtmpdb
+Recommended packages:
+  bash-completion default-mta | mail-transport-agent debconf-i18n zstd
+  manpages libpam-cap krb5-locales libldap-common libgpm2 publicsuffix
+  libsasl2-modules psmisc linux-sysctl-defaults default-dbus-system-bus
+  | dbus-system-bus systemd-timesyncd | time-daemon systemd-cryptsetup
+The following NEW packages will be installed:
+  adduser apparmor apt base-files base-passwd bash bc binutils binutils-common
+  binutils-x86-64-linux-gnu bsdextrautils bsdmainutils bsdutils busybox-static
+  bzip2 ca-certificates coreutils cpio cron cron-daemon-common curl debconf
+  debian-archive-keyring debianutils diffutils distro-info distro-info-data
+  dpkg dracut-install dropbear-bin file findutils gcc-14-base grep gzip
+  hostname init-system-helpers initramfs-tools initramfs-tools-bin
+  initramfs-tools-core iproute2 jq klibc-utils kmod lib32gcc-s1 lib32stdc++6
+  libacl1 libapparmor1 libapt-pkg7.0 libattr1 libaudit-common libaudit1
+  libbinutils libblkid1 libbpf1 libbrotli1 libbsd0 libbz2-1.0 libc-bin libc6
+  libc6-i386 libcap-ng0 libcap2 libcap2-bin libcom-err2 libcrypt1
+  libctf-nobfd0 libctf0 libcurl4t64 libdb5.3t64 libdebconfclient0 libedit2
+  libelf1t64 libevent-core-2.1-7t64 libexpat1 libffi8 libgcc-s1 libgmp10
+  libgnutls30t64 libgprofng0 libgssapi-krb5-2 libhogweed6t64 libidn2-0
+  libjansson4 libjemalloc2 libjq1 libk5crypto3 libkeyutils1 libklibc libkmod2
+  libkrb5-3 libkrb5support0 liblastlog2-2 libldap2 liblz4-1 liblzma5 liblzo2-2
+  libmagic-mgc libmagic1t64 libmd0 libmnl0 libmount1 libncursesw6
+  libnettle8t64 libnftables1 libnftnl11 libnghttp2-14 libnghttp3-9 libonig5
+  libp11-kit0 libpam-modules libpam-modules-bin libpam-runtime libpam0g
+  libpcre2-8-0 libproc2-0 libpsl5t64 libpython3-stdlib libpython3.13-minimal
+  libpython3.13-stdlib libreadline8t64 librtmp1 libsasl2-2 libsasl2-modules-db
+  libseccomp2 libselinux1 libsemanage-common libsemanage2 libsepol2 libsframe1
+  libsmartcols1 libsqlite3-0 libssh2-1t64 libssl3t64 libstdc++6
+  libsystemd-shared libsystemd0 libtasn1-6 libtinfo6 libtirpc-common
+  libtirpc3t64 libtomcrypt1 libtommath1 libudev1 libunistring5 libuuid1
+  libxtables12 libxxhash0 libzstd1 linux-base linux-image-6.12.117+deb13-amd64
+  linux-image-amd64 login.defs logsave mawk media-types mount ncal ncurses-bin
+  netbase netcat-openbsd nftables openssl openssl-provider-legacy passwd pigz
+  procps python3 python3-minimal python3.13 python3.13-minimal readline-common
+  sensible-utils squashfs-tools sqv sudo systemd tar tmux tzdata udev unzip
+  util-linux uuid-runtime wget xz-utils zlib1g
+0 upgraded, 187 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/180 MB of archives.
+After this operation, 391 MB of additional disk space will be used.
+Download complete and in download only mode
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+fetching GitHub [ serverlist.csv ] ... OK
+Installed Wolfenstein: Enemy Territory server as wetserver
+
+./wetserver install
+
+fetching GitHub [ core_modules.sh ] ... OK
+fetching GitHub [ core_legacy.sh ] ... OK
+fetching GitHub [ core_messages.sh ] ... OK
+fetching GitHub [ core_dl.sh ] ... OK
+fetching GitHub [ core_trap.sh ] ... OK
+fetching GitHub [ _default.cfg ] ... OK
+copying _default.cfg ... OK
+fetching GitHub [ check_ip.sh ] ... OK
+fetching GitHub [ info_game.sh ] ... OK
+fetching GitHub [ common.cfg ] ... OK
+fetching GitHub [ secrets-common.cfg ] ... OK
+fetching GitHub [ wetserver.cfg ] ... OK
+fetching GitHub [ secrets-wetserver.cfg ] ... OK
+fetching GitHub [ linuxgsm.sh ] ... OK
+fetching GitHub [ core_getopt.sh ] ... OK
+fetching GitHub [ command_install.sh ] ... OK
+fetching GitHub [ check.sh ] ... OK
+fetching GitHub [ check_version.sh ] ... OK
+fetching GitHub [ check_tmuxception.sh ] ... OK
+fetching GitHub [ check_permissions.sh ] ... OK
+fetching GitHub [ check_glibc.sh ] ... OK
+fetching GitHub [ info_distro.sh ] ... OK
+fetching GitHub [ check_system_requirements.sh ] ... OK
+fetching GitHub [ install_header.sh ] ... OK
+terminals database is inaccessible
+
+                                mdMMMMbm
+                              mMMMMMMMMMMm
+                              mMMMMMMMMMMMMm
+                             mMMMMMMMMMMMMMMm
+                             hMMMV^VMMV^VMMMh
+                             MMMMM  MM  MMMMM
+                             hMMs   vv   sMMh
+                            hMMM:        :MMMh
+                          .hMMMh          hMMMh.
+                         -dMMMh     __     hMMMd-
+                        :mMMMs      ||      sMMMm:
+                       :MMMM+       || _     +NMMN:
+                      .mMMM+     ========     +MMMm.
+                      yMMMy   ##############   yMMMy
+                      mMMM:   ##############   :MMMm
+                      mMM   nn   nn    nn   nn   MMm
+                      o   nNNNNNNNn    nNNNNNNNn   o
+                         nNNNNNNNNNn  nNNNNNNNNNn
+                        nNNNNNNNNNNN  NNNNNNNNNNNn
+                         +NNNNNNNNN:  :NNNNNNNNN+
+                           nNNNNNNN /\ NNNNNNNn
+                             nnnnn  db  nnnnn
+
+888      d8b                             .d8888b.   .d8888b.  888b     d888
+888      Y8P                            d88P  Y88b d88P  Y88b 8888b   d8888
+888                                     888    888 Y88b.      88888b.d88888
+888      888 88888b.  888  888 888  888 888          Y888b.   888Y88888P888
+888      888 888  88b 888  888  Y8bd8P  888  88888      Y88b. 888 Y888P 888
+888      888 888  888 888  888   X88K   888    888        888 888  Y8P  888
+888      888 888  888 Y88b 88Y .d8pq8b. Y88b  d88P Y88b  d88P 888   *   888
+LinuxGSM 888 888  888  Y8888Y  888  888   Y2012P88   Y8888P   888       888
+
+=================================
+LinuxGSM_
+by Daniel Gibbs
+Version: v26.5.0
+Game: Wolfenstein: Enemy Territory
+Website: https://linuxgsm.com
+Contributors: https://linuxgsm.com/contrib
+Sponsor: https://linuxgsm.com/sponsor
+=================================
+fetching GitHub [ install_server_dir.sh ] ... OK
+
+Server Directory
+=================================
+creating serverfiles directory [ /home/user/game/serverfiles ] ... OK
+fetching GitHub [ install_logs.sh ] ... OK
+
+Creating Log Directories
+=================================
+creating log directory [ /home/user/game/log ] ... OK
+creating script log directory [ /home/user/game/log/script ] ... OK
+creating script log [ /home/user/game/log/script/wetserver-script.log ] ... OK
+creating console log directory [ /home/user/game/log/console ] ... OK
+creating console log [ /home/user/game/log/console/wetserver-console.log ] ... OK
+creating game log directory [ /home/user/game/serverfiles/Logs ] ... OK
+creating symlink to game log directory [ /home/user/game/log/server -> /home/user/game/serverfiles/Logs ] ... OK
+fetching GitHub [ check_deps.sh ] ... OK
+
+Checking Wolfenstein: Enemy Territory Dependencies
+=================================
+checking GitHub debian-13.csv ... OK
+fetching GitHub [ debian-13.csv ] ... OK
+bc
+binutils
+bsdmainutils
+bzip2
+ca-certificates
+cpio
+curl
+distro-info
+file
+gzip
+hostname
+jq
+lib32gcc-s1
+lib32stdc++6
+pigz
+procps
+python3
+tmux
+unzip
+util-linux
+uuid-runtime
+wget
+xz-utils
+Skip! Required dependencies already installed.
+fetching GitHub [ install_server_files.sh ] ... OK
+
+Installing Wolfenstein: Enemy Territory Server
+=================================
+downloading file [ wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz ] ... OK
+verifying wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz with MD5 ... OK
+extracting wet-2.60b-linux-i386-linuxgsm-20261101.tar.xz... ... OK
+clearing tmp directory [ /home/user/game/lgsm/tmp ] ... OK
+fetching GitHub [ check_gamedig.sh ] ... OK
+fetching GitHub [ install_config.sh ] ... OK
+
+Downloading Wolfenstein: Enemy Territory Configs
+=================================
+Downloading default configs from: https://github.com/GameServerManagers/Game-Server-Configs
+
+fetching GitHub [ server.cfg ] ... OK
+copying config file [ /home/user/game/serverfiles/etmain/wetserver.cfg ] ... OK
+setting hostname ... OK
+generating admin/rcon password ... OK
+
+Config Locations
+=================================
+Wolfenstein: Enemy Territory config file: /home/user/game/serverfiles/etmain/wetserver.cfg
+LinuxGSM config: /home/user/game/lgsm/config-lgsm/wetserver
+Config documentation: https://docs.linuxgsm.com/configuration
+fetching GitHub [ fix.sh ] ... OK
+fetching GitHub [ install_stats.sh ] ... OK
+
+LinuxGSM Stats
+=================================
+Assist LinuxGSM development by sending anonymous stats to developers.
+Collected data is publicly available: https://linuxgsm.com/data/usage
+More info: https://docs.linuxgsm.com/configuration/linuxgsm-stats
+
+The following info will be sent: 
+* game server
+* distro
+* game server resource usage
+* server hardware info
+
+auto-install leaves stats off by default. Stats can be enabled in common.cfg
+fetching GitHub [ install_complete.sh ] ... OK
+
+Install Complete!
+=================================
+
+To start the Wolfenstein: Enemy Territory server type:
+./wetserver start
+
+fetching GitHub [ core_exit.sh ] ... OK
+NATIVE GAME INSTALLED 26.5.0 /home/user/game
+Parallel mksquashfs: Using 2 processors
+Creating 4.0 filesystem on REMOTE_BUILD/images/game-inventory.work/root.sqfs, block size 131072.
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 468881.40 Kbytes (457.89 Mbytes)
+	72.10% of uncompressed filesystem size (650339.36 Kbytes)
+Inode table size 148054 bytes (144.58 Kbytes)
+	28.90% of uncompressed inode table size (512256 bytes)
+Directory table size 151633 bytes (148.08 Kbytes)
+	43.45% of uncompressed directory table size (349005 bytes)
+Number of duplicate files found 192
+Number of inodes 15214
+Number of files 12388
+Number of fragments 1475
+Number of symbolic links 839
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 1987
+Number of hard-links 6
+Number of ids (unique uids + gids) 3
+Number of uids 2
+	root (0)
+	unknown (1000)
+Number of gids 3
+	root (0)
+	unknown (1000)
+	shadow (42)
+201122 blocks
+Formatting 'REMOTE_BUILD/images/game-inventory.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=12884901888 lazy_refcounts=off refcount_bits=16
+BUILT game-inventory.qcow2 251e03d923e511ebb5e1a91d2d5e71eee1b4c8d1e38d92424b7d529214dcb1e1
+Running as unit: confos-game-inventory-vm.service; invocation ID: 9d261a0b5ab24071a6a15f2dc62958cd
+[ INFO ] Starting wetserver: Checking for log files: Creating log files
+creating log directory [ /home/user/game/log ] ... SKIP
+creating script log directory [ /home/user/game/log/script ] ... OK
+creating script log [ /home/user/game/log/script/wetserver-script.log ] ... OK
+creating console log directory [ /home/user/game/log/console ] ... OK
+creating console log [ /home/user/game/log/console/wetserver-console.log ] ... OK
+creating game log directory [ /home/user/game/serverfiles/Logs ] ... SKIP
+creating symlink to game log directory [ /home/user/game/log/server -> /home/user/game/serverfiles/Logs ] ... OK
+
+[  OK  ] Starting wetserver: ConfOS
+1278 ./etded.x86 +set sv_punkbuster 0 +set net_strict 1 +set fs_homepath /home/user/game/serverfiles +exec wetserver.cfg
+/run/confos-games/e0cd1613de1eda69/tmp/publicip.json
+/run/confos-games/e0cd1613de1eda69/tmp/linuxgsm.sh
+/run/confos-games/e0cd1613de1eda69/lock/wetserver-last-started.lock
+/run/confos-games/e0cd1613de1eda69/lock/wetserver-started.lock
+/run/confos-games/e0cd1613de1eda69/lock/wetserver-monitoring.lock
+/run/confos-games/e0cd1613de1eda69/log/console/wetserver-console.log
+/run/confos-games/e0cd1613de1eda69/log/console/wetserver-console-2026-11-24-08:25:50.log
+/run/confos-games/e0cd1613de1eda69/log/script/wetserver-script.log
+/run/confos-games/e0cd1613de1eda69/log/script/wetserver-script-2026-11-24-08:25:50.log
+ROOT_GAME_RECORD_READ_EXIT:0
+626f2a2637f48cd7dd9fb311220ab4727a07790a6c0fa70cad9ec62cb1822435  ../cases/inventory/inventory
+inventory: force level collected in 1.8s, ssh exit 0, 51733 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 1.8s
+inventory: image /system/generations/251e03d923e511ebb5e1a91d2d5e71eee1b4c8d1e38d92424b7d529214dcb1e1/root.sqfs (squashfs, mount-loop) 15220 objects, runtime mount /
+inventory: @part3 (ext4) 19 objects in 0.7s
+inventory: stored level read in 9.5s, 15255 objects
+inventory: runtime paths by owning mount: 15248 objects changed, 0 shadowed
+inventory: wrote inventories/game-0.18: stored 15255, force 411, executables 2567, errors 0
+COMMAND: direct native launcher update to an unrecorded release
+[  OK  ] Updating LinuxGSM wetserver: Selecting repo: GitHub
+checking GitHub script [ linuxgsm.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/tmp/linuxgsm.sh': Device or resource busy
+checking script [ wetserver ] ... SKIP
+checking GitHub config [ _default.cfg ] ... SKIP
+checking GitHub config [ debian-13.csv ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/data/debian-13.csv': Read-only file system
+checking GitHub module [ alert.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/alert.sh': Read-only file system
+checking GitHub module [ alert_discord.sh ] ... SKIP
+checking GitHub module [ alert_email.sh ] ... SKIP
+checking GitHub module [ alert_gotify.sh ] ... SKIP
+checking GitHub module [ alert_ifttt.sh ] ... SKIP
+checking GitHub module [ alert_matrix.sh ] ... SKIP
+checking GitHub module [ alert_ntfy.sh ] ... SKIP
+checking GitHub module [ alert_pushbullet.sh ] ... SKIP
+checking GitHub module [ alert_pushover.sh ] ... SKIP
+checking GitHub module [ alert_rocketchat.sh ] ... SKIP
+checking GitHub module [ alert_slack.sh ] ... SKIP
+checking GitHub module [ alert_telegram.sh ] ... SKIP
+checking GitHub module [ check.sh ] ... SKIP
+checking GitHub module [ check_config.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/check_config.sh': Read-only file system
+checking GitHub module [ check_deps.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/check_deps.sh': Read-only file system
+checking GitHub module [ check_executable.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/check_executable.sh': Read-only file system
+checking GitHub module [ check_gamedig.sh ] ... SKIP
+checking GitHub module [ check_glibc.sh ] ... SKIP
+checking GitHub module [ check_ip.sh ] ... SKIP
+checking GitHub module [ check_last_update.sh ] ... SKIP
+checking GitHub module [ check_logs.sh ] ... SKIP
+checking GitHub module [ check_permissions.sh ] ... SKIP
+checking GitHub module [ check_players_online.sh ] ... SKIP
+checking GitHub module [ check_root.sh ] ... SKIP
+checking GitHub module [ check_status.sh ] ... SKIP
+checking GitHub module [ check_steamcmd.sh ] ... SKIP
+checking GitHub module [ check_system_dir.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/check_system_dir.sh': Read-only file system
+checking GitHub module [ check_system_requirements.sh ] ... SKIP
+checking GitHub module [ check_tmuxception.sh ] ... SKIP
+checking GitHub module [ check_update_lock.sh ] ... SKIP
+checking GitHub module [ check_version.sh ] ... SKIP
+checking GitHub module [ command_backup.sh ] ... SKIP
+checking GitHub module [ command_check_update.sh ] ... SKIP
+checking GitHub module [ command_console.sh ] ... SKIP
+checking GitHub module [ command_debug.sh ] ... SKIP
+checking GitHub module [ command_details.sh ] ... SKIP
+checking GitHub module [ command_dev_clear_modules.sh ] ... SKIP
+checking GitHub module [ command_dev_debug.sh ] ... SKIP
+checking GitHub module [ command_dev_detect_deps.sh ] ... SKIP
+checking GitHub module [ command_dev_detect_glibc.sh ] ... SKIP
+checking GitHub module [ command_dev_detect_ldd.sh ] ... SKIP
+checking GitHub module [ command_dev_parse_distro_details.sh ] ... SKIP
+checking GitHub module [ command_dev_parse_game_details.sh ] ... SKIP
+checking GitHub module [ command_dev_query_raw.sh ] ... SKIP
+checking GitHub module [ command_dev_ui.sh ] ... SKIP
+checking GitHub module [ command_fastdl.sh ] ... SKIP
+checking GitHub module [ command_install.sh ] ... SKIP
+checking GitHub module [ command_install_resources_mta.sh ] ... SKIP
+checking GitHub module [ command_mods_install.sh ] ... SKIP
+checking GitHub module [ command_mods_remove.sh ] ... SKIP
+checking GitHub module [ command_mods_update.sh ] ... SKIP
+checking GitHub module [ command_monitor.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/command_monitor.sh': Read-only file system
+checking GitHub module [ command_postdetails.sh ] ... SKIP
+checking GitHub module [ command_restart.sh ] ... SKIP
+checking GitHub module [ command_send.sh ] ... SKIP
+checking GitHub module [ command_skeleton.sh ] ... SKIP
+checking GitHub module [ command_sponsor.sh ] ... SKIP
+checking GitHub module [ command_start.sh ] ... SKIP
+checking GitHub module [ command_stop.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/command_stop.sh': Read-only file system
+checking GitHub module [ command_test_alert.sh ] ... SKIP
+checking GitHub module [ command_ts3_server_pass.sh ] ... SKIP
+checking GitHub module [ command_update.sh ] ... SKIP
+checking GitHub module [ command_update_linuxgsm.sh ] ... SKIP
+checking GitHub module [ command_validate.sh ] ... SKIP
+checking GitHub module [ command_wipe.sh ] ... SKIP
+checking GitHub module [ command_workshop_update.sh ] ... SKIP
+checking GitHub module [ compress_unreal_maps.sh ] ... SKIP
+checking GitHub module [ core_dl.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/core_dl.sh': Read-only file system
+checking GitHub module [ core_exit.sh ] ... SKIP
+checking GitHub module [ core_getopt.sh ] ... SKIP
+checking GitHub module [ core_github.sh ] ... SKIP
+checking GitHub module [ core_legacy.sh ] ... SKIP
+checking GitHub module [ core_logs.sh ] ... SKIP
+checking GitHub module [ core_messages.sh ] ... SKIP
+checking GitHub module [ core_modules.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/core_modules.sh': Read-only file system
+checking GitHub module [ core_steamcmd.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/core_steamcmd.sh': Read-only file system
+checking GitHub module [ core_trap.sh ] ... SKIP
+checking GitHub module [ fix.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/fix.sh': Read-only file system
+checking GitHub module [ fix_ahl.sh ] ... SKIP
+checking GitHub module [ fix_ark.sh ] ... SKIP
+checking GitHub module [ fix_arma3.sh ] ... SKIP
+checking GitHub module [ fix_armar.sh ] ... SKIP
+checking GitHub module [ fix_av.sh ] ... SKIP
+checking GitHub module [ fix_bf1942.sh ] ... SKIP
+checking GitHub module [ fix_bfv.sh ] ... SKIP
+checking GitHub module [ fix_bo.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/fix_bo.sh': Read-only file system
+checking GitHub module [ fix_bt.sh ] ... SKIP
+checking GitHub module [ fix_cmw.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/fix_cmw.sh': Read-only file system
+checking GitHub module [ fix_cod.sh ] ... SKIP
+checking GitHub module [ fix_cod2.sh ] ... SKIP
+checking GitHub module [ fix_coduo.sh ] ... SKIP
+checking GitHub module [ fix_codwaw.sh ] ... SKIP
+checking GitHub module [ fix_csgo.sh ] ... SKIP
+checking GitHub module [ fix_cswon.sh ] ... SKIP
+checking GitHub module [ fix_ct.sh ] ... SKIP
+checking GitHub module [ fix_dst.sh ] ... SKIP
+checking GitHub module [ fix_hlwon.sh ] ... SKIP
+checking GitHub module [ fix_hw.sh ] ... SKIP
+checking GitHub module [ fix_ins.sh ] ... UPDATE
+rm: cannot remove '/home/user/game/lgsm/modules/fix_ins.sh': Read-only file system
+checking GitHub module [ fix_ios.sh ] ... SKIP
+checking GitHub module [ fix_kf.sh ] ... SKIP
+checking GitHub module [ fix_kf2.sh ] ... SKIP
+checking GitHub module [ fix_mcb.sh ] ... SKIP
+checking GitHub module [ fix_mohaa.sh ] ... SKIP
+checking GitHub module [ fix_mta.sh ] ... SKIP
+checking GitHub module [ fix_nd.sh ] ... SKIP
+checking GitHub module [ fix_nmrih.sh ] ... SKIP
+checking GitHub module [ fix_onset.sh ] ... ERROR
+removing module fix_onset.sh...rm: cannot remove 'fix_onset.sh': Read-only file system
+ ... FAIL
+[  OK  ] Updating LinuxGSM wetserver: Updating modules
+DIRECT_UPDATE_EXIT:0
+NATIVE LAUNCHER AND MODULE CHECKSUMS UNCHANGED
+1278 ./etded.x86 +set sv_punkbuster 0 +set net_strict 1 +set fs_homepath /home/user/game/serverfiles +exec wetserver.cfg
+626f2a2637f48cd7dd9fb311220ab4727a07790a6c0fa70cad9ec62cb1822435  ../cases/inventory/inventory
+inventory: force level collected in 1.4s, ssh exit 0, 51767 bytes
+inventory: @part1 (vfat) 5 objects in 0.1s
+inventory: @part2 (ext4) 9 objects in 1.8s
+inventory: image /system/generations/251e03d923e511ebb5e1a91d2d5e71eee1b4c8d1e38d92424b7d529214dcb1e1/root.sqfs (squashfs, mount-loop) 15220 objects, runtime mount /
+inventory: @part3 (ext4) 19 objects in 0.8s
+inventory: stored level read in 9.6s, 15255 objects
+inventory: runtime paths by owning mount: 15248 objects changed, 0 shadowed
+inventory: wrote inventories/game-0.18-attempt: stored 15255, force 411, executables 2567, errors 0
+[  OK  ] Stopping wetserver: Graceful: sending "quit": 1 ... OK
+GAME INVENTORY AND DIRECT UPDATE PROBE COMPLETE; classification is independent
+Retained images/game-inventory.work and game-inventory-inputs for archive comparison.

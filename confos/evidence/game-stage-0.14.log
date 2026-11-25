@@ -1,0 +1,10 @@
+preparation-check: 1 windows (created Tue Nov 24 07:01:59 2026)
+serverfiles/etded:     POSIX shell script, ASCII text executable
+serverfiles/etded.x86: ELF 32-bit LSB executable, Intel i386, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.0.30, stripped
+
+[  OK  ] Starting wetserver: LinuxGSM
+958 ./etded.x86 +set sv_punkbuster 0 +set net_strict 1 +set fs_homepath /home/user/game-native/serverfiles +exec wetserver.cfg
+fetching GitHub [ command_stop.sh ] ... OK
+fetching GitHub [ check_players_online.sh ][ .... ] Stopping wetserver:  ... OK
+[  OK  ] Stopping wetserver: Graceful: sending "quit": 1 ... OK
+NATIVE GAME STAGING PASS; not a ConfOS ordinary-work or P4 pass

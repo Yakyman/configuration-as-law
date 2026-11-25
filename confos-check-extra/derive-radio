@@ -1,0 +1,1218 @@
+#!/usr/bin/env python3
+"""derive: from a declaration alone, derive every object that it requires.
+
+Usage: derive --declaration DIR_OR_FILE --cache DIR --out derived.jsonl
+              [--components components.txt] [--arch amd64]
+
+Rule (fifth paper, Table 9, Understanding): besides the declaration, the derivation reads only the packages that
+its lines name, in the release that the line names, or, for a component of the base, in the release committed
+for the components; any other package is not read. Nothing produced by the implementation on a machine is read,
+and no program of the implementation is run.
+
+Every file opened, every directory listed, every program started and every URL fetched is written to
+CACHE/derive-reads.log (one JSON object per line) by an audit hook, so that a test can prove what was read.
+
+Exit status: 0 when a derivation was written and no `error` object is in it; 2 otherwise.
+"""
+# All modules are imported before the audit hook is installed, so that imports do not appear as reads.
+import argparse
+import datetime
+import hashlib
+import io
+import json
+import lzma
+import os
+import re
+import shlex
+import stat
+import subprocess
+import sys
+import tarfile
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import encodings.idna  # noqa: F401  (used by urllib for host names)
+import email.message  # noqa: F401
+import http.client  # noqa: F401
+import ssl  # noqa: F401
+
+SNAPSHOT = 'https://snapshot.debian.org'
+# The declaration names an archive state (snapshot) and exact versions, not a suite. The base is Debian 13, so the
+# suites of Debian 13 are searched for the exact NAME=VERSION; the version, not the suite, identifies the release.
+SUITES = [('debian', 'trixie'), ('debian', 'trixie-updates'), ('debian-security', 'trixie-security')]
+EXIT_ERROR = 2
+
+# ----------------------------------------------------------------------------------------------------------------
+# Logging of every read (audit hook)
+
+LOG = None
+
+
+def now():
+    return datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.%fZ')
+
+
+def log(obj):
+    obj = dict(obj)
+    obj['t'] = now()
+    LOG.write(json.dumps(obj, sort_keys=True) + '\n')
+    LOG.flush()
+
+
+def audit(event, args):
+    if LOG is None:
+        return
+    try:
+        if event == 'open':
+            path, mode, flags = args
+            if isinstance(path, int):
+                return
+            if isinstance(path, bytes):
+                path = path.decode('utf-8', 'surrogateescape')
+            writing = (mode and any(c in str(mode) for c in 'wax+')) or (flags and flags & (os.O_WRONLY | os.O_RDWR))
+            log({'op': 'write' if writing else 'open', 'path': os.path.abspath(str(path))})
+        elif event in ('os.listdir', 'os.scandir'):
+            path = args[0]
+            if isinstance(path, bytes):
+                path = path.decode('utf-8', 'surrogateescape')
+            log({'op': 'listdir', 'path': os.path.abspath(str(path if path is not None else '.'))})
+        elif event == 'subprocess.Popen':
+            log({'op': 'exec', 'argv': [str(a) for a in args[1]]})
+        elif event == 'urllib.Request':
+            log({'op': 'request', 'url': args[0], 'method': args[3]})
+        elif event == 'socket.connect':
+            log({'op': 'connect', 'address': str(args[1])})
+    except Exception:  # an audit hook must never break the program
+        pass
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Guard: never open a disk image or a device
+
+DISK_SUFFIXES = ('.qcow2', '.qcow', '.img', '.raw', '.vmdk', '.vdi', '.vhd', '.vhdx', '.iso')
+
+
+class Refused(Exception):
+    pass
+
+
+def guard(path):
+    """Refuse a disk image, a device, or anything under /dev, /proc, /sys."""
+    real = os.path.realpath(path)
+    if real.startswith(('/dev/', '/proc/', '/sys/')):
+        raise Refused(f'refused: {path} is a device or kernel path')
+    if real.lower().endswith(DISK_SUFFIXES):
+        raise Refused(f'refused: {path} has the suffix of a disk image')
+    if os.path.exists(real):
+        st = os.stat(real)
+        if stat.S_ISBLK(st.st_mode) or stat.S_ISCHR(st.st_mode):
+            raise Refused(f'refused: {path} is a device')
+        if stat.S_ISREG(st.st_mode) and st.st_size >= 512:
+            fd = os.open(real, os.O_RDONLY)
+            try:
+                head = os.pread(fd, 1024, 0)
+            finally:
+                os.close(fd)
+            if head[:4] == b'QFI\xfb':
+                raise Refused(f'refused: {path} is a qcow2 disk image')
+            if head[:4] in (b'KDMV', b'conectix'[:4]) or head[64:68] == b'\x7f\x10\xda\xbe':
+                raise Refused(f'refused: {path} is a disk image')
+            if head[510:512] == b'\x55\xaa' or head[512:520] == b'EFI PART':
+                raise Refused(f'refused: {path} carries a partition table (raw disk image)')
+    return real
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Debian version comparison (dpkg algorithm)
+
+def _order(c):
+    if c.isdigit():
+        return 0
+    if c.isalpha():
+        return ord(c)
+    if c == '~':
+        return -1
+    return ord(c) + 256 if c else 0
+
+
+def _cmp_part(a, b):
+    i = j = 0
+    while i < len(a) or j < len(b):
+        diff = 0
+        while (i < len(a) and not a[i].isdigit()) or (j < len(b) and not b[j].isdigit()):
+            ac = _order(a[i]) if i < len(a) else 0
+            bc = _order(b[j]) if j < len(b) else 0
+            if ac != bc:
+                return ac - bc
+            i += 1
+            j += 1
+        while i < len(a) and a[i] == '0':
+            i += 1
+        while j < len(b) and b[j] == '0':
+            j += 1
+        while i < len(a) and a[i].isdigit() and j < len(b) and b[j].isdigit():
+            if not diff:
+                diff = ord(a[i]) - ord(b[j])
+            i += 1
+            j += 1
+        if i < len(a) and a[i].isdigit():
+            return 1
+        if j < len(b) and b[j].isdigit():
+            return -1
+        if diff:
+            return diff
+    return 0
+
+
+def _split_version(v):
+    epoch, _, rest = v.rpartition(':') if ':' in v else ('0', '', v)
+    up, _, rev = rest.rpartition('-') if '-' in rest else (rest, '', '0')
+    return int(epoch or 0), up, rev
+
+
+def vercmp(a, b):
+    ea, ua, ra = _split_version(a)
+    eb, ub, rb = _split_version(b)
+    if ea != eb:
+        return ea - eb
+    return _cmp_part(ua, ub) or _cmp_part(ra, rb)
+
+
+def satisfies(version, op, wanted):
+    c = vercmp(version, wanted)
+    return {'<<': c < 0, '<=': c <= 0, '=': c == 0, '>=': c >= 0, '>>': c > 0, '<': c <= 0, '>': c >= 0}[op]
+
+
+def parse_relations(text):
+    """'a (>= 1) | b, c' -> [[('a','>=','1'), ('b',None,None)], [('c',None,None)]]"""
+    groups = []
+    for group in (text or '').split(','):
+        group = group.strip()
+        if not group:
+            continue
+        alts = []
+        for alt in group.split('|'):
+            alt = re.sub(r'\[[^\]]*\]', '', alt)
+            alt = re.sub(r'<[^>]*>', '', alt).strip()
+            m = re.fullmatch(r'([a-z0-9][a-z0-9+.-]*)(?::[a-z0-9-]+)?\s*(?:\(\s*(<<|<=|=|>=|>>|<|>)\s*([^)\s]+)\s*\))?',
+                             alt)
+            if not m:
+                alts.append((alt, None, None))
+            else:
+                alts.append((m.group(1), m.group(2), m.group(3)))
+        groups.append((group, alts))
+    return groups
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# The archive: snapshot indexes and package files
+
+def fetch(url, retries=4):
+    last = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'derive/1'})
+            with urllib.request.urlopen(req, timeout=120) as r:
+                data = r.read()
+                log({'op': 'fetch', 'url': url, 'final_url': r.geturl(), 'status': r.status, 'bytes': len(data),
+                     'sha256': hashlib.sha256(data).hexdigest()})
+                return data
+        except urllib.error.HTTPError as e:
+            log({'op': 'fetch', 'url': url, 'status': e.code, 'bytes': 0})
+            if e.code == 404:
+                return None
+            last = e
+        except (urllib.error.URLError, OSError) as e:
+            log({'op': 'fetch', 'url': url, 'status': 'error', 'error': str(e)})
+            last = e
+        time.sleep(2 + 4 * attempt)
+    raise RuntimeError(f'fetch failed: {url}: {last}')
+
+
+def read_bytes(path):
+    guard(path)
+    with open(path, 'rb') as f:
+        return f.read()
+
+
+def write_bytes(path, data):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + '.part'
+    with open(tmp, 'wb') as f:
+        f.write(data)
+    os.replace(tmp, path)
+
+
+def parse_stanzas(text):
+    stanzas = []
+    cur = {}
+    key = None
+    for line in text.split('\n'):
+        if not line:
+            if cur:
+                stanzas.append(cur)
+            cur, key = {}, None
+        elif line[0] in ' \t' and key:
+            cur[key] += '\n' + line
+        else:
+            k, _, v = line.partition(':')
+            key = k
+            cur[k] = v.strip()
+    if cur:
+        stanzas.append(cur)
+    return stanzas
+
+
+class Archive:
+    def __init__(self, cache, timestamp, arch):
+        self.cache = cache
+        self.timestamp = timestamp
+        self.arch = arch
+        self.indexes = {}
+
+    def base(self, archive):
+        return f'{SNAPSHOT}/archive/{archive}/{self.timestamp}'
+
+    def index(self, archive, suite):
+        """Packages of ARCHIVE/SUITE main at the snapshot, checked against the SHA256 of its Release file."""
+        key = (archive, suite)
+        if key in self.indexes:
+            return self.indexes[key]
+        cdir = os.path.join(self.cache, 'indexes', self.timestamp, archive, suite)
+        rel_path = os.path.join(cdir, 'InRelease')
+        if os.path.exists(rel_path):
+            release = read_bytes(rel_path)
+        else:
+            release = fetch(f'{self.base(archive)}/dists/{suite}/InRelease')
+            if release is None:
+                self.indexes[key] = None
+                return None
+            write_bytes(rel_path, release)
+        want = f'main/binary-{self.arch}/Packages.xz'
+        expected = None
+        section = None
+        for line in release.decode('utf-8', 'replace').splitlines():
+            if not line.startswith(' '):
+                section = line.rstrip(':')
+                continue
+            parts = line.split()
+            if section == 'SHA256' and len(parts) == 3 and parts[2] == want:
+                expected = (parts[0], int(parts[1]))
+        if not expected:
+            raise RuntimeError(f'{archive}/{suite}: Release lists no SHA256 of {want}')
+        pk_path = os.path.join(cdir, f'Packages-{self.arch}.xz')
+        data = read_bytes(pk_path) if os.path.exists(pk_path) else None
+        if data is None or hashlib.sha256(data).hexdigest() != expected[0]:
+            data = fetch(f'{self.base(archive)}/dists/{suite}/{want}')
+            if data is None or hashlib.sha256(data).hexdigest() != expected[0] or len(data) != expected[1]:
+                raise RuntimeError(f'{archive}/{suite}: Packages.xz does not match its Release SHA256')
+            write_bytes(pk_path, data)
+        table = {}
+        for st in parse_stanzas(lzma.decompress(data).decode('utf-8', 'replace')):
+            table.setdefault(st.get('Package'), []).append(st)
+        self.indexes[key] = table
+        return table
+
+    def locate(self, name, version):
+        """The index stanza of NAME=VERSION at the snapshot, and the URL base of its archive."""
+        for archive, suite in SUITES:
+            table = self.index(archive, suite)
+            if not table:
+                continue
+            for st in table.get(name, []):
+                if st.get('Version') == version and st.get('Architecture') in (self.arch, 'all'):
+                    return st, self.base(archive), f'{archive}/{suite}'
+        return None, None, None
+
+    def deb(self, stanza, base):
+        sha = stanza['SHA256']
+        path = os.path.join(self.cache, 'debs', sha + '.deb')
+        if os.path.exists(path) and hashlib.sha256(read_bytes(path)).hexdigest() == sha:
+            return path, f'{base}/{stanza["Filename"]}'
+        url = f'{base}/{stanza["Filename"]}'
+        data = fetch(url)
+        if data is None or hashlib.sha256(data).hexdigest() != sha:
+            raise RuntimeError(f'{url}: SHA256 differs from the index')
+        write_bytes(path, data)
+        return path, url
+
+    def deb_by_version(self, name, version):
+        """A package version that is not in the snapshot: located through the snapshot's machine-readable
+        interface; the file is checked against the SHA1 that the interface gives for it."""
+        q = urllib.parse.quote
+        data = fetch(f'{SNAPSHOT}/mr/binary/{q(name)}/{q(version)}/binfiles?fileinfo=1')
+        if data is None:
+            return None, None
+        info = json.loads(data)
+        for res in info.get('result', []):
+            if res.get('architecture') in (self.arch, 'all'):
+                sha1 = res['hash']
+                path = os.path.join(self.cache, 'debs', 'sha1-' + sha1 + '.deb')
+                url = f'{SNAPSHOT}/file/{sha1}'
+                if os.path.exists(path) and hashlib.sha1(read_bytes(path)).hexdigest() == sha1:
+                    return path, url
+                blob = fetch(url)
+                if blob is None or hashlib.sha1(blob).hexdigest() != sha1:
+                    raise RuntimeError(f'{url}: SHA1 differs')
+                write_bytes(path, blob)
+                return path, url
+        return None, None
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Reading a package (dpkg-deb only extracts the archives; nothing of the package is run)
+
+def octal(mode):
+    return '%04o' % (mode & 0o7777)
+
+
+def norm(name):
+    path = os.path.normpath('/' + name)  # './usr/bin/' -> '/usr/bin', '.' and './' -> '/'
+    return '/' if path in ('/', '//') else path
+
+
+class tar_stream:
+    """The tar archive that dpkg-deb extracts from a package, read as a stream."""
+
+    def __init__(self, deb, which):
+        guard(deb)
+        self.which, self.deb = which, deb
+        self.proc = subprocess.Popen(['dpkg-deb', which, deb], stdout=subprocess.PIPE)
+        self.tar = tarfile.open(fileobj=self.proc.stdout, mode='r|')
+
+    def __enter__(self):
+        return self.tar
+
+    def __exit__(self, *exc):
+        self.tar.close()
+        self.proc.stdout.read()
+        if self.proc.wait() != 0 and exc[0] is None:
+            raise RuntimeError(f'dpkg-deb {self.which} failed on {self.deb}')
+
+
+def read_package(deb):
+    control, scripts, conffiles, md5sums = {}, {}, [], None
+    with tar_stream(deb, '--ctrl-tarfile') as t:
+        for m in t:
+            if not m.isfile():
+                continue
+            name = norm(m.name).lstrip('/')
+            body = t.extractfile(m).read()
+            if name == 'control':
+                control = parse_stanzas(body.decode('utf-8', 'replace'))[0]
+            elif name == 'conffiles':
+                conffiles = [x.strip() for x in body.decode('utf-8', 'replace').splitlines() if x.strip()]
+            elif name == 'md5sums':
+                md5sums = hashlib.sha256(body).hexdigest()
+            else:
+                scripts[name] = {'sha256': hashlib.sha256(body).hexdigest(), 'mode': octal(m.mode),
+                                 'size': len(body)}
+    entries = []
+    content = {}
+    with tar_stream(deb, '--fsys-tarfile') as t:
+        for m in t:
+            path = norm(m.name)
+            base = {'mode': octal(m.mode), 'uid': m.uid, 'gid': m.gid, 'owner': m.uname or None,
+                    'group': m.gname or None}
+            if m.isfile():
+                body = t.extractfile(m).read()
+                sha = hashlib.sha256(body).hexdigest()
+                content[path] = (sha, len(body))
+                entries.append(('file', path, dict(base, size=len(body), sha256=sha, target=None)))
+            elif m.islnk():
+                sha, size = content.get(norm(m.linkname), (None, None))
+                entries.append(('file', path, dict(base, size=size, sha256=sha, target=None,
+                                                    hardlink=norm(m.linkname))))
+            elif m.isdir():
+                entries.append(('dir', path, dict(base, size=None, sha256=None, target=None)))
+            elif m.issym():
+                entries.append(('symlink', path, dict(base, size=None, sha256=None, target=m.linkname)))
+            else:
+                entries.append(('other', path, dict(base, size=None, sha256=None, target=None)))
+    return control, scripts, conffiles, md5sums, entries
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# The declaration: one function per kind
+
+class Decl:
+    def __init__(self):
+        self.lines = []        # (line_id, file_dir, kind, fields)
+        self.objects = []
+        self.packages = []     # (line_id, name, version, via)
+        self.snapshot = None
+        self.base = None
+        self.accounts = {}
+
+    def emit(self, kind, oid, line, value=None, underived=None, **extra):
+        o = {'kind': kind, 'id': oid, 'line': line, 'value': value}
+        if underived is not None:
+            o['value'] = None
+            o['underived'] = underived
+        o.update(extra)
+        self.objects.append(o)
+
+    def error(self, line, message):
+        self.objects.append({'kind': 'error', 'id': line, 'line': line, 'value': None, 'error': message})
+
+
+def need(d, line, fields, n, syntax):
+    if len(fields) != n:
+        d.error(line, f'wrong field count: expected `{syntax}`')
+        return False
+    return True
+
+
+def kind_base(d, line, fdir, f, opts):
+    if not need(d, line, f, 2, 'base VERSION'):
+        return
+    if d.base:
+        d.error(line, 'second base line')
+        return
+    d.base = (line, f[1])
+
+
+def kind_snapshot(d, line, fdir, f, opts):
+    if not need(d, line, f, 2, 'snapshot TIMESTAMP'):
+        return
+    if d.snapshot:
+        d.error(line, 'second snapshot line')
+        return
+    if not re.fullmatch(r'\d{8}T\d{6}Z', f[1]):
+        d.error(line, 'snapshot TIMESTAMP must be YYYYMMDDTHHMMSSZ')
+        return
+    d.snapshot = (line, f[1])
+    d.emit('release', 'snapshot', line, {'timestamp': f[1], 'archive': f'{SNAPSHOT}/archive/debian/{f[1]}/'})
+
+
+def kind_package(d, line, fdir, f, opts):
+    if not need(d, line, f, 3, 'package NAME VERSION'):
+        return
+    d.packages.append((line, f[1], f[2], None))
+
+
+def kind_account(d, line, fdir, f, opts):
+    if not need(d, line, f, 7, 'account NAME UID GID GROUPS SHELL HOME'):
+        return
+    _, name, uid, gid, groups, shell, home = f
+    if not uid.isdigit() or not gid.isdigit():
+        d.error(line, 'UID and GID must be numbers')
+        return
+    groups = [] if groups == '-' else groups.split(',')
+    d.accounts[name] = line
+    d.emit('account', name, line, {'name': name, 'uid': int(uid), 'gid': int(gid), 'groups': groups,
+                                   'shell': shell, 'home': home},
+           underived_fields={'gecos': 'the account line does not state the comment field',
+                             'password': 'the account line does not state the password field'})
+    d.emit('group', f'gid:{gid}', line, underived='the account line states the primary GID '
+           'but not the name or the members of that group')
+    for g in groups:
+        d.emit('group', g, line, {'members_include': [name]},
+               underived_fields={'gid': 'the account line names the group but not its GID',
+                                 'members': 'other members are not stated by this line'})
+    d.emit('dir', home, line, underived='the account line names the home directory but not whether it '
+           'is created, nor its mode, owner or contents')
+
+
+def kind_authorized_key(d, line, fdir, f, opts):
+    if not need(d, line, f, 4, 'authorized-key NAME TYPE KEY'):
+        return
+    _, name, ktype, key = f
+    d.emit('authorized-key', f'{name}/{ktype}', line, {'account': name, 'type': ktype, 'key': key,
+                                                       'key_sha256': hashlib.sha256(key.encode()).hexdigest()},
+           underived_fields={'file': 'the line does not state in which file the key is stored, '
+                             'nor that file\'s mode and owner'})
+    d.key_lines = getattr(d, 'key_lines', []) + [(line, name)]
+
+
+def check_source(d, line, fdir, source, checksum):
+    path = os.path.join(fdir, source)
+    try:
+        data = read_bytes(path)
+    except Refused as e:
+        d.error(line, str(e))
+        return None
+    except OSError as e:
+        d.error(line, f'source {source} cannot be read: {e.strerror}')
+        return None
+    got = hashlib.sha256(data).hexdigest()
+    if got != checksum.lower():
+        d.error(line, f'source {source} has sha256 {got}, the line states {checksum}')
+        return None
+    return len(data)
+
+
+def kind_file(d, line, fdir, f, opts):
+    owner = None
+    if len(f) == 6 and re.fullmatch(r'\d+:\d+', f[3]):
+        owner = tuple(int(x) for x in f[3].split(':'))
+        f = f[:3] + f[4:]
+    if not need(d, line, f, 5, 'file PATH MODE [UID:GID] SHA256 SOURCE'):
+        return
+    _, path, mode, checksum, source = f
+    if not path.startswith('/') or not re.fullmatch(r'[0-7]{3,4}', mode) or not re.fullmatch(r'[0-9a-fA-F]{64}',
+                                                                                              checksum):
+        d.error(line, 'PATH must be absolute, MODE octal, SHA256 64 hex digits')
+        return
+    size = check_source(d, line, fdir, source, checksum)
+    if size is None:
+        return
+    value = {'mode': '%04o' % int(mode, 8), 'sha256': checksum.lower(), 'size': size, 'target': None, 'source': source}
+    if owner:
+        value.update(uid=owner[0], gid=owner[1])
+        d.emit('file', os.path.normpath(path), line, value)
+    else:
+        d.emit('file', os.path.normpath(path), line, value,
+               underived_fields={'uid': 'the file line does not state an owner',
+                                 'gid': 'the file line does not state a group'})
+
+
+def kind_setting(d, line, fdir, f, opts):
+    if not need(d, line, f, 3, 'setting NAME VALUE'):
+        return
+    d.emit('setting', f[1], line, {'name': f[1], 'value': f[2]},
+           underived_fields={'form': 'the line does not state in which file or object of the system the value '
+                             'is held'})
+
+
+def kind_service(d, line, fdir, f, opts):
+    if len(f) < 4:
+        d.error(line, 'wrong field count: expected `service NAME STATE EXECUTABLE [ARG ...]`')
+        return
+    _, name, state, *argv = f
+    if state not in ('enabled', 'disabled'):
+        d.error(line, 'STATE must be enabled or disabled')
+        return
+    d.emit('unit', f'service:{name}', line, {'name': name, 'enabled': state == 'enabled', 'argv': argv},
+           underived_fields={'unit_id': 'the line does not state the name of the unit or process that the '
+                             'system creates for it', 'fragment': 'the line does not state the file that defines it',
+                             'account': 'the line does not state as which account it runs',
+                             'active': 'the line does not state whether it is running after boot'})
+    if state == 'enabled':
+        d.emit('process', argv[0], line, underived='the service line names the executable; whether and as '
+               'which account it runs is not stated')
+
+
+def kind_rule(d, line, fdir, f, opts):
+    if not need(d, line, f, 3, 'rule NAME TEXT'):
+        return
+    d.emit('firewall', f[2], line, {'name': f[1], 'text': f[2]},
+           underived_fields={'tables': 'tables and chains the rule needs are not stated by the line',
+                             'handle_free_text': 'the form in which the running ruleset lists the rule is not '
+                             'stated by the line'})
+
+
+def kind_network(d, line, fdir, f, opts):
+    if not need(d, line, f, 4, 'network NAME SHA256 SOURCE'):
+        return
+    _, name, checksum, source = f
+    size = check_source(d, line, fdir, source, checksum)
+    if size is None:
+        return
+    d.emit('network', name, line, {'name': name, 'sha256': checksum.lower(), 'size': size, 'source': source},
+           underived_fields={'path': 'the line does not state where the saved configuration is placed'})
+
+
+def kind_radio_fixture(d, line, fdir, f, opts):
+    # [radio, outside the frozen set] DECLARATION.md revision 40: “radio-fixture NAME SHA256 RELATIVE_JSON — two
+    # hwsim radios/AP and a native btvirt controller pair with fixed identities”
+    if not need(d, line, f, 4, 'radio-fixture NAME SHA256 RELATIVE_JSON'):
+        return
+    _, name, checksum, source = f
+    size = check_source(d, line, fdir, source, checksum)
+    if size is None:
+        return
+    d.emit('radio-fixture', name, line, {'name': name, 'sha256': checksum.lower(), 'size': size, 'source': source},
+           underived_fields={'path': 'the line does not state where the fixture configuration is placed',
+                             'devices': 'the line does not state the names of the simulated radios and controllers'})
+
+
+def kind_bluetooth_pair(d, line, fdir, f, opts):
+    # [radio, outside the frozen set] DECLARATION.md revision 40: “bluetooth-pair ADAPTER PEER SHA256 RELATIVE_INFO —
+    # exact native BlueZ bond/key input”
+    if not need(d, line, f, 5, 'bluetooth-pair ADAPTER PEER SHA256 RELATIVE_INFO'):
+        return
+    _, adapter, peer, checksum, source = f
+    size = check_source(d, line, fdir, source, checksum)
+    if size is None:
+        return
+    d.emit('bluetooth-pair', f'{adapter}/{peer}', line,
+           {'adapter': adapter, 'peer': peer, 'sha256': checksum.lower(), 'size': size, 'source': source},
+           underived_fields={'path': 'the line does not state where the bond is stored'})
+
+
+def kind_group(d, line, fdir, f, opts):
+    # [x2, outside the frozen set] DECLARATION.md revision 50: “group NAME GID — From 0.50. A group of its own; GID
+    # 1..4294967294, used by no account and no other group; usable in GROUPS of any account line”. Its members follow
+    # from the account lines that name it (kind_account: members_include).
+    if not need(d, line, f, 3, 'group NAME GID'):
+        return
+    _, name, gid = f
+    if not gid.isdigit() or not 1 <= int(gid) <= 4294967294:
+        d.error(line, 'GID must be a number 1..4294967294')
+        return
+    d.emit('group', name, line, {'name': name, 'gid': int(gid)},
+           underived_fields={'password': 'the group line does not state the password field'})
+
+
+LOCATION = ('the line does not state where the system installs it (the directory is a convention of the '
+            'implementation, QUESTIONS-derive.md D4)')
+
+
+def pep503(name):
+    return re.sub(r'[-_.]+', '-', name).lower()
+
+
+def kind_pip(d, line, fdir, f, opts):
+    if not need(d, line, f, 5, 'pip NAME VERSION SHA256 WHEEL'):
+        return
+    _, name, version, checksum, source = f
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    # matched by name in every interpreter that lists it (compare: an id with `*`)
+    d.emit('language-package', f'pip:*/{pep503(name)}', line, {'version': version, 'source_sha256': checksum.lower()},
+           underived_fields={'location': LOCATION, 'files': 'the files of the wheel as installed, and its console '
+                             'scripts, follow from the installer, not from the line'})
+
+
+def kind_npm(d, line, fdir, f, opts):
+    if not need(d, line, f, 5, 'npm NAME VERSION SHA256 LOCK'):
+        return
+    _, name, version, checksum, source = f
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('language-package', f'npm:*/{name}', line, {'version': version, 'source_sha256': checksum.lower()},
+           underived_fields={'location': LOCATION, 'dependencies': 'the packages of the lock other than NAME are '
+                             'not named by a line (D1)'})
+
+
+def kind_flatpak(d, line, fdir, f, opts):
+    if not need(d, line, f, 5, 'flatpak REF COMMIT SHA256 BUNDLE'):
+        return
+    _, ref, commit, checksum, source = f
+    parts = ref.split('/')
+    if len(parts) != 4 or parts[0] not in ('app', 'runtime') or not re.fullmatch(r'[0-9a-f]{64}', commit):
+        d.error(line, 'REF must be app|runtime/ID/ARCH/BRANCH and COMMIT 64 hex digits')
+        return
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('flatpak', f'*/{parts[1]}/*', line, {'id': parts[1], 'kind': parts[0], 'arch': parts[2],
+                                                'branch': parts[3], 'commit': commit},
+           underived_fields={'location': LOCATION, 'installation': 'the line does not state the installation '
+                             '(system or user) that lists it'})
+
+
+def kind_appimage(d, line, fdir, f, opts):
+    if not need(d, line, f, 5, 'appimage PATH MODE SHA256 SOURCE'):
+        return
+    _, path, mode, checksum, source = f
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('file', os.path.normpath(path), line, {'mode': '%04o' % int(mode, 8), 'target': None},
+           underived_fields={'sha256': 'the launcher at PATH is made by the system; the line pins the image it '
+                             'starts, not these bytes', 'size': 'as sha256', 'uid': 'not stated', 'gid': 'not stated',
+                             'payload': LOCATION})
+
+
+def kind_compile(d, line, fdir, f, opts):
+    if len(f) < 5:
+        d.error(line, 'wrong field count: expected `compile PATH MODE SHA256 SOURCE [FLAG ...]`')
+        return
+    _, path, mode, checksum, source = f[:5]
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('file', os.path.normpath(path), line, {'mode': '%04o' % int(mode, 8), 'target': None},
+           underived_fields={'sha256': 'the program is the output of the compiler; the line pins its source, the '
+                             'output follows from the compiler release, not from the line alone', 'size': 'as sha256',
+                             'uid': 'not stated', 'gid': 'not stated'})
+
+
+def kind_container(d, line, fdir, f, opts):
+    if not need(d, line, f, 6, 'container USER NAME IMAGE_SHA ARCHIVE_SHA SOURCE'):
+        return
+    _, user, name, image, checksum, source = f
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('container', f'{user}/image/{image.lower()}', line, {'names': [name]},
+           underived_fields={'store': LOCATION})
+
+
+def kind_user_unit(d, line, fdir, f, opts):
+    if not need(d, line, f, 6, 'user-unit USER NAME STATE SHA256 SOURCE'):
+        return
+    _, user, name, state, checksum, source = f
+    if state not in ('enabled', 'disabled'):
+        d.error(line, 'STATE must be enabled or disabled')
+        return
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('unit', f'user/*/{name}', line, {'enabled': state},
+           underived_fields={'fragment': LOCATION, 'uid': 'the manager of USER is found by its UID, which this line '
+                             'does not state'})
+
+
+def kind_linuxgsm(d, line, fdir, f, opts):
+    """build/DECLARATION.md (revision 18+): `linuxgsm USER PATH RELEASE SHA256 BUNDLE` — LinuxGSM and its game
+    server installed into PATH, an immediate child of USER's home, from a pinned bundle; "Final code/configuration and
+    the default-config cache are immutable, owned by the declared account". The line states the workspace and the
+    bundle; which files the launcher installs where inside PATH is not stated by it (D4)."""
+    if not need(d, line, f, 6, 'linuxgsm USER PATH RELEASE SHA256 BUNDLE'):
+        return
+    _, user, path, release, checksum, source = f
+    path = os.path.normpath(path)
+    if not re.fullmatch(r'/home/[^/]+/[A-Za-z0-9_-]+', path):
+        d.error(line, 'PATH must be one immediate child of /home/NAME (letters, digits, hyphens, underscores)')
+        return
+    if check_source(d, line, fdir, source, checksum) is None:
+        return
+    d.emit('dir', path, line, {'target': None},
+           underived_fields={'mode': 'not stated', 'uid': f'owned by account {user}, whose UID this line does not '
+                             'state', 'gid': 'as uid'})
+    d.emit('file', path + '/**', line, underived=f'the files that LinuxGSM {release} and its game server install '
+           'inside PATH, their modes and checksums, are not stated by the line (the layout is a convention of the '
+           'launcher; QUESTIONS-derive.md D4)')
+
+
+KINDS = {
+    'linuxgsm': kind_linuxgsm,
+    'pip': kind_pip,
+    'npm': kind_npm,
+    'flatpak': kind_flatpak,
+    'appimage': kind_appimage,
+    'compile': kind_compile,
+    'container': kind_container,
+    'user-unit': kind_user_unit,
+    'base': kind_base,
+    'snapshot': kind_snapshot,
+    'package': kind_package,
+    'account': kind_account,
+    'authorized-key': kind_authorized_key,
+    'file': kind_file,
+    'setting': kind_setting,
+    'service': kind_service,
+    'rule': kind_rule,
+    'network': kind_network,
+    'radio-fixture': kind_radio_fixture,
+    'bluetooth-pair': kind_bluetooth_pair,
+    'group': kind_group,
+}
+
+# Identity of a line for the duplicate check (DECLARATION.md: duplicate identities fail application).
+SINGLETONS = ('base', 'snapshot')
+
+
+# ----------------------------------------------------------------------------------------------------------------
+# Objects that the base recipe of a version generates and that follow from no package and from no line as stated.
+# Known only for the versions listed; for any other version one underived object says so.
+
+BASE_GENERATED = {
+    '0.1': {
+        'dir': ['/proc', '/sys', '/dev', '/run', '/tmp', '/var', '/home', '/state', '/system', '/root', '/etc/ssh',
+                '/etc/confos'],
+        'symlink': ['/bin', '/sbin', '/lib', '/lib64'] + ['/usr/bin/' + n for n in (
+            'sh mount umount mkdir cat sleep sync reboot poweroff ip hostname ps ls chmod chown cp mv rm vi grep sed '
+            'head tail sha256sum find xargs sort wc dd touch readlink stat true false dmesg tar wget').split()],
+        'file': ['/etc/passwd', '/etc/shadow', '/etc/group', '/etc/nsswitch.conf', '/etc/shells', '/etc/sudoers',
+                 '/etc/pam.d/sudo', '/etc/hostname', '/etc/hosts', '/etc/resolv.conf', '/etc/profile', '/etc/fstab',
+                 '/etc/timezone', '/etc/confos/declaration.conf', '/etc/confos/identity', '/etc/confos/keys.json',
+                 '/usr/lib/confos/assemble.py', '/usr/lib/confos/components.txt', '/usr/lib/confos/runtime-init',
+                 '/usr/lib/confos/confos', '/usr/lib/confos/early-init', '/usr/lib/confos/packages.json',
+                 '/usr/sbin/init', '/usr/bin/confos', '/var/lib/dpkg/status'],
+    },
+}
+BASE_REASON = ('generated by the base recipe; neither a package that a line names nor a line states its content, '
+               'mode or owner (the recipe of the implementation is not read or run)')
+
+
+# ----------------------------------------------------------------------------------------------------------------
+
+def read_declaration(path, d, opts):
+    guard(path)
+    if os.path.isdir(path):
+        files = sorted(os.path.join(path, n) for n in os.listdir(path) if n.endswith('.conf'))
+        root = path
+    else:
+        files = [path]
+        root = os.path.dirname(path)
+    seen = {}
+    for fp in files:
+        rel = os.path.relpath(fp, root)
+        text = read_bytes(fp).decode('utf-8')
+        for n, raw in enumerate(text.splitlines(), 1):
+            if not raw.strip() or raw.lstrip().startswith('#'):
+                continue
+            loc = f'{rel}:{n}'
+            try:
+                fields = shlex.split(raw, comments=True)
+            except ValueError as e:
+                d.error(loc, f'unparsable line: {e}')
+                continue
+            if not fields:
+                continue
+            kind = fields[0]
+            name = fields[1] if len(fields) > 1 else ''
+            line = f'{loc} {kind} {name}'.rstrip()
+            identity = (kind,) if kind in SINGLETONS else (kind, name)
+            if kind in ('compile', 'appimage'):
+                identity = ('file', name)          # one path, whichever kind writes it
+            elif kind == 'flatpak' and name.count('/') == 3:
+                identity = ('flatpak', name.split('/')[1])   # one ref per ID
+            elif kind in ('container', 'user-unit') and len(fields) > 2:
+                identity = (kind, name, fields[2])   # per account: the image name, the unit name
+            if identity in seen:
+                d.error(line, f'duplicate identity with {seen[identity]}')
+                continue
+            seen[identity] = line
+            handler = KINDS.get(kind)
+            if handler is None:
+                d.error(line, f'unknown kind {kind!r}')
+                continue
+            handler(d, line, os.path.dirname(fp), fields, opts)
+    return d
+
+
+def derive_base(d, opts):
+    line, version = d.base
+    if not opts.components:
+        d.error(line, 'a base line needs --components (the published list of components of the base)')
+        return
+    # The release publishes one complete component lock per archive state (components/TIMESTAMP.txt,
+    # build/DECLARATION.md revision 5+). The lock of the state named by the snapshot line is the release the line
+    # names; components.txt is only the lock of the newest state.
+    comp_path = opts.components
+    if d.snapshot:
+        per_state = os.path.join(os.path.dirname(opts.components), 'components', d.snapshot[1] + '.txt')
+        if os.path.exists(per_state):
+            comp_path = per_state
+    try:
+        text = read_bytes(comp_path).decode('utf-8')
+    except (OSError, Refused) as e:
+        d.error(line, f'components cannot be read: {e}')
+        return
+    vfile = os.path.join(os.path.dirname(opts.components), 'VERSION')
+    published = read_bytes(vfile).decode().strip() if os.path.exists(vfile) else None
+    comps = []
+    for n, raw in enumerate(text.splitlines(), 1):
+        raw = raw.strip()
+        if not raw or raw.startswith('#'):
+            continue
+        name, sep, ver = raw.partition('=')
+        if not sep:
+            d.error(line, f'{os.path.basename(comp_path)}:{n}: not NAME=VERSION')
+            continue
+        comps.append((name, ver, f'{os.path.basename(comp_path)}:{n}'))
+    d.emit('release', 'base', line, {'version': version, 'published_version': published,
+                                     'components': [f'{a}={b}' for a, b, _ in comps]})
+    if published is not None and published != version:
+        d.emit('release', 'base-components', line, underived=f'the line names base {version}, the published list '
+               f'of components is of version {published}')
+        return
+    for name, ver, via in comps:
+        d.packages.append((line, name, ver, via))
+    gen = BASE_GENERATED.get(version)
+    if gen is None:
+        d.emit('base-generated', version, line, underived=f'objects generated by base recipe {version} are not '
+               'known to this program')
+        return
+    for kind, paths in gen.items():
+        for p in paths:
+            d.emit(kind, p, line, underived=BASE_REASON)
+
+
+# Files whose content a line of another kind determines ([n2-2]; S8.2-17, "A setting is recorded by a
+# line of its own; a default value obtained with a package ... is covered by the line of the package"). Where such a
+# line is present, the default that a package gives at the path is not what the declaration requires: the account and
+# setting lines state values, not the bytes of the file that holds them (QUESTIONS-derive.md D4). The file is then
+# underived with the package default kept as `package_default`; the line itself is compared through its own object
+# (account, group, setting), so P2 compares each line with the state it requires.
+DETERMINED_BY = {
+    'account': ('/etc/passwd', '/etc/shadow', '/etc/group', '/etc/gshadow', '/etc/subuid', '/etc/subgid'),
+    'setting hostname': ('/etc/hostname', '/etc/hosts'),
+    'setting sysctl:kernel.hostname': ('/etc/hostname', '/etc/hosts'),
+    'setting timezone': ('/etc/localtime', '/etc/timezone'),
+}
+
+
+def line_determined(d):
+    by_path = {}
+    for o in d.objects:
+        line = o.get('line') or ''
+        kind_name = ' '.join(line.split()[1:3])          # 'account person', 'setting hostname'
+        for key, paths in DETERMINED_BY.items():
+            if (key == 'account' and kind_name.startswith('account ')) or kind_name == key:
+                for p in paths:
+                    by_path.setdefault(p, []).append(line)
+    if not by_path:
+        return
+    own = {o['id'] for o in d.objects if o.get('kind') == 'file' and ' file ' in f' {o.get("line", "")} '
+           and not o.get('package')}
+    for o in d.objects:
+        if o.get('kind') == 'file' and o.get('id') in by_path and o.get('package') and o['id'] not in own \
+                and o.get('value') is not None:
+            o['package_default'] = o['value']
+            o['value'] = None
+            o['determined_by'] = sorted(set(by_path[o['id']]))
+            o['underived'] = ('the content of this file is determined by ' + ', '.join(o['determined_by']) +
+                              '; those lines state values, not the bytes of the file (D4); the package default is '
+                              'not what the declaration requires')
+
+
+def derive_packages(d, opts):
+    if not d.packages:
+        return
+    if not d.snapshot:
+        for line, name, ver, via in d.packages:
+            d.emit('package', name, line, underived='no snapshot line names the archive state')
+        return
+    archive = Archive(opts.cache, d.snapshot[1], opts.arch)
+    override_src = []   # packages that carry a reader-override manifest (build/INTERFACE.md revision 29)
+    named = {}   # name -> (version, line)
+    provided = {}  # virtual name -> [(provider, version or None)]
+    read = []
+    for line, name, ver, via in d.packages:
+        if name in named:
+            if named[name][0] == ver or ver is None or named[name][0] is None:
+                # the same package at the same version named by a second line (for example a package line that
+                # also belongs to the base): both lines record it (S8.2-16); its objects are derived once
+                continue
+            d.error(line, f'package {name} named twice with different versions ({named[name][1]})')
+            continue
+        named[name] = (ver, line)
+        stanza = base = where = None
+        deb = url = None
+        # a component that the release itself ships (DECLARATION.md rev. 20+: packages/NAME_VERSION_ARCH.deb with its
+        # .sha256 companion, inside the published source of the release that the base line names)
+        local = release_package(opts, name, ver) if via else None
+        if local:
+            deb, url, where = local, 'release:packages/' + os.path.basename(local), 'the published release'
+        else:
+            stanza, base, where = archive.locate(name, ver)
+        if stanza:
+            deb, url = archive.deb(stanza, base)
+        elif via and not deb:  # a component: the release committed for the components, wherever the archive keeps it
+            deb, url = archive.deb_by_version(name, ver)
+            where = 'snapshot.debian.org/mr (not in the archive state of the snapshot line)'
+        if not deb:
+            d.emit('package', name, line, underived=f'version {ver} is not in the archive state '
+                   f'{d.snapshot[1]}' + (f' (component, {via})' if via else ''))
+            continue
+        control, scripts, conffiles, md5sums, entries = read_package(deb)
+        if control.get('Package') != name or control.get('Version') != ver:
+            d.error(line, f'{url}: control says {control.get("Package")} {control.get("Version")}')
+            continue
+        arch = control.get('Architecture')
+        REPLACES[name] = {re.split(r'[\s(:]', r.strip(), maxsplit=1)[0] for r in (control.get('Replaces') or '').split(',')
+                          if r.strip()}
+        extra = {'via': via} if via else {}
+        d.emit('package', f'{name}:{arch}', line, {
+            'version': ver, 'architecture': arch, 'status': 'ii', 'url': url, 'index': where,
+            'deb_sha256': hashlib.sha256(read_bytes(deb)).hexdigest(),
+            'depends': control.get('Depends'), 'pre_depends': control.get('Pre-Depends'),
+            'provides': control.get('Provides'),
+            'maintainer_scripts': scripts, 'maintainer_scripts_run': False,
+            'conffiles': conffiles, 'md5sums_sha256': md5sums}, **extra)
+        for kind, path, value in entries:
+            d.emit(kind, path, line, value, package=f'{name}:{arch}', **extra)
+        if any(p == OVERRIDE_MANIFEST for _, p, _ in entries):
+            override_src.append((deb, line, f'{name}:{arch}', extra))
+        for prov, _op, pver in [a for _, alts in parse_relations(control.get('Provides')) for a in alts]:
+            provided.setdefault(prov, []).append((name, pver))
+        read.append((line, name, control))
+    for deb, line, owner, extra in override_src:
+        derive_overrides(d, deb, line, owner, extra, named)
+    for line, name, control in read:
+        for field in ('Pre-Depends', 'Depends'):
+            for text, alts in parse_relations(control.get(field)):
+                ok = None
+                wrong = []
+                for alt, op, want in alts:
+                    if alt in named:
+                        have = named[alt][0]
+                        if op is None or satisfies(have, op, want):
+                            ok = f'{alt} {have} ({named[alt][1]})'
+                            break
+                        wrong.append(f'{alt} {have} named by {named[alt][1]} does not satisfy {op} {want}')
+                    for prov, pver in provided.get(alt, []):
+                        if op is None or (pver and satisfies(pver, op, want)):
+                            ok = f'{prov} provides {alt}'
+                            break
+                    if ok:
+                        break
+                if ok:
+                    continue
+                reason = 'dependency not named by a line'
+                if wrong:
+                    reason += '; ' + '; '.join(wrong)
+                dep = ' | '.join(a for a, _, _ in alts)  # the package name(s), without version constraints
+                d.emit('package', dep, line, underived=reason, relation=f'{name} {field}: {text}')
+
+
+REPLACES = {}   # package name -> names of the packages whose files it replaces (control field Replaces)
+
+# build/INTERFACE.md revision 29 (builder's entry 49): the original component confos-code-readers carries
+# /usr/lib/confos/reader-overrides/manifest.json, an array of records `package`, `source_version`, `target`,
+# `payload`, `mode` (integer), `sha256` (of the raw bytes); `payload` names a gzip member beside the manifest. "If
+# `package` is selected by the declaration/base closure, its existing native target is replaced by those exact
+# decompressed bytes/mode. Otherwise the member remains compressed data." Read from the component's own archive only.
+OVERRIDE_MANIFEST = '/usr/lib/confos/reader-overrides/manifest.json'
+
+
+def derive_overrides(d, deb, line, owner, extra, named):
+    import gzip
+    want = os.path.dirname(OVERRIDE_MANIFEST)
+    files = {}
+    with tar_stream(deb, '--fsys-tarfile') as t:
+        for m in t:
+            p = norm(m.name)
+            if m.isfile() and os.path.dirname(p) == want:
+                files[os.path.basename(p)] = t.extractfile(m).read()
+    try:
+        recs = json.loads(files[os.path.basename(OVERRIDE_MANIFEST)].decode())
+    except (KeyError, ValueError) as e:
+        d.error(line, f'{owner}: reader-override manifest unreadable: {e}')
+        return
+    for r in recs if isinstance(recs, list) else []:
+        pkg, target = r.get('package'), r.get('target')
+        if pkg not in named or not target:
+            continue   # the package is not selected: the member stays compressed data of the component
+        try:
+            raw = gzip.decompress(files[r['payload']])
+        except (KeyError, OSError, EOFError) as e:
+            d.emit('file', target, line, underived=f'override of {pkg} by {owner}: payload {r.get("payload")} '
+                   f'unreadable ({e})', package=owner, override=True, **extra)
+            continue
+        sha = hashlib.sha256(raw).hexdigest()
+        if sha != r.get('sha256'):
+            d.emit('file', target, line, underived=f'override of {pkg} by {owner}: payload SHA256 {sha} differs '
+                   f'from the manifest {r.get("sha256")}', package=owner, override=True, **extra)
+            continue
+        d.emit('file', target, line, {'mode': octal(int(r['mode'])), 'size': len(raw), 'sha256': sha,
+                                      'target': None}, package=owner, override=True, override_of=pkg,
+               override_source_version=r.get('source_version'), **extra)
+
+
+def release_package(opts, name, ver):
+    if not opts.components:
+        return None
+    pdir = os.path.join(os.path.dirname(os.path.abspath(opts.components)), 'packages')
+    if not os.path.isdir(pdir):
+        return None
+    v = ver.split(':', 1)[-1]
+    for fn in sorted(os.listdir(pdir)):
+        if fn.startswith(f'{name}_{v}_') and fn.endswith('.deb'):
+            path = os.path.join(pdir, fn)
+            comp = path + '.sha256'
+            if not os.path.exists(comp):
+                return None
+            want = read_bytes(comp).decode().split()[0].lower()
+            if hashlib.sha256(read_bytes(path)).hexdigest() != want:
+                raise RuntimeError(f'{fn}: SHA256 differs from its companion file')
+            return path
+    return None
+
+
+def winner(group):
+    """Of the objects of one path from several packages: the one whose package replaces all the others (dpkg
+    Replaces), else None."""
+    pk = [o.get('package', '').split(':')[0] for o in group]
+    for o, n in zip(group, pk):
+        if n and all(m == n or m in REPLACES.get(n, ()) for m in pk):
+            return o
+    return None
+
+
+def merge(objects):
+    """One object per (kind, id). Equal values from several lines: one object, the other lines in `also_lines`.
+    Different values: one underived object listing the conflict."""
+    groups = {}
+    for o in objects:
+        # one group per path for the stored kinds: a package may replace another's file at a path with a symlink
+        # (dpkg Replaces); then the path has one object, of the kind the replacing package gives
+        k = ('stored', o['id']) if o['kind'] in ('file', 'dir', 'symlink', 'other') else (o['kind'], o['id'])
+        groups.setdefault(k, []).append(o)
+    who = ('line', 'package', 'via', 'relation')
+    out = []
+    for key in sorted(groups):
+        group = groups[key]
+        first = dict(group[0])
+        if len(group) > 1:
+            ov = [o for o in group if o.get('override')]
+            if first['kind'] == 'error':
+                first['also'] = group[1:]
+            elif len(ov) == 1 and ov[0]['kind'] == 'file':
+                # the reader-override of a selected package replaces the package's native target (derive_overrides);
+                # owner and group stay those of the replaced file
+                w = dict(ov[0])
+                rest = [o for o in group if o is not ov[0]]
+                if w.get('value') is not None:
+                    base = next((o.get('value') for o in rest if o.get('value')), None) or {}
+                    w['value'] = dict({k: base.get(k) for k in ('uid', 'gid', 'owner', 'group') if k in base},
+                                      **w['value'])
+                    w['value'].setdefault('uid', 0)
+                    w['value'].setdefault('gid', 0)
+                first = dict(w, replaced=[o.get('package') for o in rest])
+            elif all({k: v for k, v in o.items() if k not in who} ==
+                     {k: v for k, v in first.items() if k not in who} for o in group[1:]):
+                first['also_lines'] = [o['line'] + (f' ({o["package"]})' if 'package' in o else '')
+                                       for o in group[1:]]
+                if 'relation' in first:
+                    first['also_relations'] = [o['relation'] for o in group[1:]]
+            elif winner(group) is not None:
+                w = winner(group)
+                first = dict(w, replaced=[o.get('package') for o in group if o is not w])
+            else:
+                first = {'kind': group[0]['kind'], 'id': key[1], 'line': group[0]['line'], 'value': None,
+                         'underived': 'lines give different values for this object', 'conflicting': group}
+        out.append(first)
+    return out
+
+
+def main(argv=None):
+    global LOG
+    ap = argparse.ArgumentParser(description='derive the required objects from a declaration alone')
+    ap.add_argument('--declaration', required=True)
+    ap.add_argument('--cache', required=True)
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--components', help='the published component list of the base (needed for a base line)')
+    ap.add_argument('--arch', default='amd64')
+    opts = ap.parse_args(argv)
+    opts.cache = os.path.abspath(opts.cache)
+    try:
+        for p in (opts.declaration, opts.out, opts.cache) + ((opts.components,) if opts.components else ()):
+            guard(p)
+    except Refused as e:
+        print(f'derive: {e}', file=sys.stderr)
+        return EXIT_ERROR
+    os.makedirs(opts.cache, exist_ok=True)
+    LOG = open(os.path.join(opts.cache, 'derive-reads.log'), 'a', encoding='utf-8')
+    sys.addaudithook(audit)
+    log({'op': 'start', 'argv': sys.argv, 'tls_trust_store': 'read by the TLS library for HTTPS, not an input'})
+    d = Decl()
+    try:
+        read_declaration(os.path.abspath(opts.declaration), d, opts)
+        if d.base:
+            derive_base(d, opts)
+        derive_packages(d, opts)
+        line_determined(d)
+    except Refused as e:
+        d.error('-', str(e))
+    except Exception as e:  # an error is never silent: it is an object of the derivation
+        d.error('-', f'{type(e).__name__}: {e}')
+    objects = merge(d.objects)
+    tmp = opts.out + '.part'
+    with open(tmp, 'w', encoding='utf-8') as f:
+        for o in objects:
+            f.write(json.dumps(o, sort_keys=True) + '\n')
+    os.replace(tmp, opts.out)
+    errors = [o for o in objects if o['kind'] == 'error']
+    under = sum(1 for o in objects if o.get('underived'))
+    print(f'derive: {len(objects)} objects, {under} underived, {len(errors)} errors -> {opts.out}')
+    for e in errors:
+        print(f'derive: ERROR {e["line"]}: {e["error"]}', file=sys.stderr)
+    log({'op': 'end', 'objects': len(objects), 'underived': under, 'errors': len(errors)})
+    return EXIT_ERROR if errors else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

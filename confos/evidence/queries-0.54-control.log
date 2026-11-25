@@ -1,0 +1,48 @@
+2026-11-25 02:40:45 UTC
+base 0.54
+snapshot 20261123T000000Z
+account user 1000 1000 wheel /bin/bash /home/user
+authorized-key user ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPDqfnXtkaOQ/CT3TIakZoFo5eCunjAlhdib5YfJGtKG
+package flatpak 1.16.6-1~deb13u3
+package util-linux 2.41.5-0+deb13u1
+package gpg 2.4.7-21+deb13u1+b5
+package gpg-agent 2.4.7-21+deb13u1+b5
+package podman 5.4.2+ds1-2+b2
+package uidmap 1:4.17.4-2
+package slirp4netns 1.2.1-1.1
+flatpak runtime/org.freedesktop.Platform/x86_64/26.08 df26daaf9d07610b4a72cc4585566194051275ac68396597b06474396f66427c 072d80f7f24a5c5ff75e2c244fdd5aea032216fcb6e6138af175e18ee76054e3 runtime.flatpak
+flatpak app/io.mpv.Mpv/x86_64/stable 13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc 66d65390ff1b7a526b25a448f12d137f72df5859460c1d05e17508ed6a88bed9 mpv.flatpak
+file /usr/local/bin/process-exe-probe.sh 0755 0:0 2141a62c41b9f539063fa0b7b0688ec189da324ac438722ee1d34975141cd9b7 process-exe-probe.sh
+11:  capability sys_ptrace,
+16:  ptrace (read, readby) peer=confos-session,
+17:  ptrace (read, readby) peer=unconfined,
+1622:  capability sys_ptrace,
+1627:  ptrace (read, readby) peer=confos-flatpak,
+1628:  ptrace (read, readby) peer=confos-session,
+1629:  ptrace (read, readby) peer=unconfined,
+1719:  ptrace,
+== processes whose executable root cannot read, before the application starts
+UNREADABLE pid=289 state=S label=confos-radio (enforce) args=[python3 /usr/lib/confos/radio_runtime.py ]
+== the recorded application, started as the case starts it
+mpv pid=[518] label=[confos-flatpak (enforce)]
+sudo -n readlink /proc/518/exe -> [] status 1
+checksum through /proc/518/root: [sha256sum:]
+checksum of the stored file of the recorded application: [sha256sum:]
+== after the front process was killed by its timeout
+F: Not replacing "/usr/lib/confos/flatpak-user" with tmpfs: Path "/usr" is reserved by Flatpak
+[mpv_inhibit_gnome] Could not load cplugin script /app/etc/mpv/scripts/mpv_inhibit_gnome.so
+mpv pid=[518]
+sudo -n readlink /proc/518/exe -> [] status 1
+UNREADABLE pid=289 state=S label=confos-radio (enforce) args=[python3 /usr/lib/confos/radio_runtime.py ]
+UNREADABLE pid=518 state=S label=confos-flatpak (enforce) args=[mpv --idle=yes --vo=null --ao=null ]
+== queries
+flatpak list --app --columns=application -> status 1: [flatpak: installation and configuration require editing the declaration and confos apply]
+sudo -n flatpak list --all --columns=… -> status 1:
+flatpak: installation and configuration require editing the declaration and confos apply
+sudo -n podman ps -a --format json -> status 1: [podman: no container images recorded for this ordinary account]
+sudo -n podman images --format json -> status 1: [podman: no container images recorded for this ordinary account]
+flatpak list -> status 0
+flatpak list --installation=other -> status 1: [flatpak: installation and configuration require editing the declaration and confos apply]
+/usr/local/bin/process-exe-probe.sh: line 36: kill: (518) - Operation not permitted
+CONTROL REPRODUCED: root cannot read the executable of the recorded application
+PROCESS QUERIES PASS (0.54-control, expected: unreadable)

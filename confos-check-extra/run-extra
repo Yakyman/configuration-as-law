@@ -1,0 +1,603 @@
+#!/usr/bin/env python3
+"""run-extra: perform the cases of CASES-EXTRA.md (beyond the plan) into runs/<NAME>-extra/.
+
+  run-extra --source BUILD_DIR --name NAME [--only ID,...] [--max-vms 1] [--vm-mem MIB] [--backend confos|stock]
+  run-extra --list
+
+The frozen runner `run` is loaded unchanged as a module; this program replaces only its list of cases (with
+casedefs_extra.CASES) and adds two families of steps: `xrec` (a tool of installation or configuration records the
+change in the declaration, S8.3-7) and `xradio` (connecting to a Wi-Fi network and pairing a Bluetooth device on
+simulated radios). Machines, slots, inventories, derivations and comparisons are those of `run`. The rows are reported
+apart from the rows of Table 9 and are not part of a complete run.
+"""
+import importlib.machinery
+import json
+from pathlib import Path
+import re
+import shutil
+import sys
+import time
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+R = importlib.machinery.SourceFileLoader('runmod', str(HERE / 'run')).load_module()
+# [radio] CASES_DERIVE_RADIO=1: the derivations of this invocation use `derive-radio` (a copy of the frozen `derive`
+# that also knows the kinds radio-fixture and bluetooth-pair; order 3, item 4: for X-WIFI and X-BT only)
+if __import__('os').environ.get('CASES_DERIVE_RADIO') == '1':
+    R.DERIVE = HERE / 'derive-radio'
+import casedefs_extra as X  # noqa: E402
+import adapter  # noqa: E402
+
+# the list of cases of this program (in this process only; `run` and casedefs.py are not changed)
+R.casedefs.CASES = X.CASES
+R.casedefs.IDS = X.IDS
+R.casedefs.BY_ID = X.BY_ID
+R.casedefs.TEST_CASES = []
+
+# The spec kind `builder-line 'LINE' REL=SOURCE ...` (casedefs_extra.py): a line in the builder's own syntax with its
+# content files, for the kinds adapter.py has no rendering of (the radio rows of DECLARATION.md revision 40) and for a
+# flatpak runtime without its application. In this process only; adapter.py is not changed.
+_render_spec = adapter.Renderer.render_spec
+_SOURCE = {}
+
+
+def _builder_source(src):
+    kind, _, name = src.partition(':')
+    if kind == 'release':
+        if not _SOURCE.get('dir'):
+            raise R.RunnerError('builder-line: no published source of the release to read ' + name)
+        return (Path(_SOURCE['dir']) / name).read_bytes()
+    if kind == 'input':
+        return (adapter.INPUTS_DIR / name).read_bytes()
+    if kind == 'build':
+        # a file of the builder's folder on the server (read only; COMMON.md: each party may read the other's)
+        return (R.home_path(R.ENV['SERVER_BUILD_DIR']) / name).read_bytes()
+    raise R.RunnerError(f'builder-line: unknown source {src}')
+
+
+def render_spec(self, spec, out, snapshot, machine=None):
+    if spec.kind == 'builder-line':
+        for a in spec.args[1:]:
+            rel, _, src = a.partition('=')
+            out.files[rel] = _builder_source(src)
+            out.records.append({'spec': spec.text, 'note': f'content file {rel} from {src}',
+                                'sha256': R.sha256_bytes(out.files[rel])})
+        return [spec.args[0]]
+    return _render_spec(self, spec, out, snapshot, machine)
+
+
+adapter.Renderer.render_spec = render_spec
+
+
+def norm_lines(text):
+    """The lines of a declaration text that record something: comments and blank lines left out, blanks collapsed."""
+    out = []
+    for l in text.decode(errors='replace').splitlines() if isinstance(text, bytes) else text.splitlines():
+        s = ' '.join(l.split())
+        if s and not s.startswith('#'):
+            out.append(s)
+    return out
+
+
+def multiset_diff(a, b):
+    """Lines of b that are not in a, and lines of a that are not in b (counting repeats)."""
+    from collections import Counter
+    ca, cb = Counter(a), Counter(b)
+    return sorted((cb - ca).elements()), sorted((ca - cb).elements())
+
+
+class XCtx(R.Ctx):
+    def __init__(self, run, case):
+        super().__init__(run, case)
+        self.disk_files = {}         # content files read back from the disk: relative path -> local file
+        _SOURCE['dir'] = run.source
+
+    # ------------------------------------------------------------------ helpers
+    def read_text(self, m, tag):
+        """DECL? from outside: the declaration text at /state and the identity in force, read with libguestfs."""
+        d = self.dir / f'decl-{tag}'
+        info = self.run.backend.declaration_files_from_disk(m, d)
+        text = (d / 'state-declaration.conf').read_bytes() if (d / 'state-declaration.conf').exists() else b''
+        c, status = self.run.backend.status(m)
+        info['status'] = status
+        info['content_files_read'] = self.read_content_files(m, text, d / 'files-from-disk')
+        (d / 'info.json').write_text(json.dumps(info, indent=1, sort_keys=True) + '\n')
+        return text, info
+
+    def read_content_files(self, m, text, outdir):
+        """The content files that the lines of TEXT name (a relative path as a field: what a recording tool keeps
+        beside the declaration, e.g. `recorded-inputs/SHA256/NAME`) and that the person's last declaration does not
+        have: read from partition 3 of the disk with libguestfs, read-only, so that a clean installation and the
+        derivation of the text have them. Returns {relative path: sha256} of what was read."""
+        known = set(m.rendered.files) if m.rendered else set()
+        want = set()
+        for l in norm_lines(text):
+            try:
+                fields = R.shlex.split(l)
+            except ValueError:
+                continue
+            for f in fields[1:]:
+                if '/' in f and not f.startswith('/') and '..' not in f.split('/') and f not in known and \
+                        re.fullmatch(r'[A-Za-z0-9._@+:/-]+', f):
+                    want.add(f)
+        if not want:
+            return {}
+        outdir.mkdir(parents=True, exist_ok=True)
+        script = outdir / 'read-files.guestfish'
+        lines = ['run', 'mount-ro /dev/sda3 /']
+        for f in sorted(want):
+            (outdir / f).parent.mkdir(parents=True, exist_ok=True)
+            lines.append(f'-download /{f} {f}')
+        script.write_text('\n'.join(lines + ['umount-all']) + '\n')
+        self.ev.host(['guestfish', '--ro', '--format=qcow2', '-a', str(m.disk), '-f', script.name], timeout=1800,
+                     cwd=str(outdir))
+        got = {}
+        for f in sorted(want):
+            p = outdir / f
+            if p.is_file():
+                got[f] = R.sha256_file(p)
+                self.disk_files[f] = p
+        return got
+
+    def probe_all(self, m, probes, subs=None):
+        res = []
+        for who, cmd, test in probes:
+            cmd = self.subst(cmd, subs)
+            code, out, err = self.cmd(m, who, cmd, timeout=600)
+            res.append({'probe': f'{who}: {cmd}', 'test': test, 'exit': code, 'holds': R.holds(test, code, out, err),
+                        'stdout': out.decode(errors='replace')[-300:]})
+        return res
+
+    @staticmethod
+    def subst(cmd, subs):
+        for k, v in (subs or {}).items():
+            cmd = cmd.replace(k, v)
+        return cmd
+
+    def expected_lines(self, decl, op, spec_text):
+        """The builder lines that the person's line SPEC gives, rendered by adapter.py (None if it has no rendering
+        of that kind: then the case's `match` pattern is used and the evidence says so)."""
+        d = decl.copy()
+        try:
+            if op == 'add':
+                d.add(spec_text)
+            r = self.run.renderer.render(d)
+        except (adapter.NotExpressible, R.RunnerError, ValueError) as e:
+            return None, f'no rendering: {e}'
+        for text, reason in r.not_expressible:
+            if text == adapter.Spec(spec_text).text:
+                return None, f'no rendering: {reason}'
+        return norm_lines(r.text()), 'rendered by adapter.py'
+
+    def keep_effect(self, name):
+        for f in ('attempt-delta.tsv', 'attempt-effect.tsv'):
+            p = self.dir / f
+            if p.exists():
+                p.rename(self.dir / f'{name}-{f}')
+
+    def effect(self, name, pre, post):
+        eff, why = self.attempt_effect(pre, post)
+        self.keep_effect(name)
+        return eff, why
+
+    def apply_text(self, m, text, sha, tag):
+        """The application of a text the person did not write through the runner (a tool wrote it): expected
+        identity = the sha256 of the text read from outside. The text with the content files of the person's last
+        declaration is registered, so that the derivation of the declaration in force has its content files."""
+        d = self.dir / f'decl-written-{tag}'
+        d.mkdir(parents=True, exist_ok=True)
+        (d / 'declaration.conf').write_bytes(text)
+        r = adapter.rendered_from_dir(d)
+        r.files = dict(m.rendered.files) if m.rendered else {}
+        names = {f for l in norm_lines(text) for f in l.split()}
+        r.files.update({rel: p for rel, p in self.disk_files.items() if rel in names})
+        self.run.rendered_by_sha[sha] = r
+        m.rendered = r
+        m.written_sha = sha
+        return self.apply(m, inventory=False)
+
+    @staticmethod
+    def lines_match(lines, patterns):
+        """Every line matches one pattern and every pattern matches exactly one line."""
+        if len(lines) != len(patterns):
+            return False
+        return all(sum(1 for l in lines if re.search(p, l)) == 1 for p in patterns) and \
+            all(any(re.search(p, l) for p in patterns) for l in lines)
+
+    @staticmethod
+    def adapter_lacks(e):
+        """A line the adapter has no rendering for yet (the builder's format is filled in when its entries describe
+        it): the case could not be performed, which is not a statement about the implementation."""
+        return 'unknown spec kind' in str(e)
+
+    # ------------------------------------------------------------------ X-REC
+    def fam_xrec(self):
+        c = self.case
+        cid = self.id
+        st = {'tool': c['tool'], 'builder_names_tool_as_recording': c['builder_names'], 'steps': {}}
+        fails, unobs = [], []
+        self.xrec = {'state': st, 'fails': fails, 'unobs': unobs}
+        m = self.fresh('m')
+        if c['setup']:
+            for op, s in c['setup']:
+                self.change(m, op, s)
+            res = self.apply(m, inventory=False)
+            st['setup'] = {'lines': c['setup'], 'applied': res.get('applied'), 'reason': res.get('reason')}
+            if not res.get('applied'):
+                unobs.append(f'the setup lines could not be applied: {res.get("reason")}')
+                return
+        for src, path in c.get('put', []):
+            data = _builder_source(src)
+            code, _, err = m.ssh(f'cat > {R.shlex.quote(path)}', stdin=data, timeout=1800)
+            st.setdefault('put', []).append({'source': src, 'path': path, 'sha256': R.sha256_bytes(data), 'exit': code})
+            if code:
+                unobs.append(f'the file {path} could not be put on the machine (exit {code})')
+                return
+        subs = {}
+        for k, cmd in X.RESTORE.items():
+            if k in c['remove'] or any(k in r for r in c.get('restore_ok', [])):
+                code, out, _ = self.cmd(m, 'R', cmd)
+                subs[k] = out.decode(errors='replace').strip()
+        st['restore_values'] = subs
+        pre = self.inv(m, f'{cid}-pre', rows=False)
+        if pre.get('status') != 'ok':
+            unobs.append('the inventory before the request could not be compared: ' + '; '.join(pre['reasons']))
+            return
+        text0, info0 = self.read_text(m, '0')
+        lines0 = norm_lines(text0)
+        st['steps']['0'] = {'state_sha256': info0['state_sha256'], 'status': info0['status']}
+        st['probes_before'] = self.probe_all(m, c['probes'])
+
+        # 1. the request
+        code, out, err = self.cmd(m, 'R', c['add'], timeout=3600)
+        st['steps']['1-request'] = {'command': c['add'], 'exit': code, 'stdout': out.decode(errors='replace')[-2000:],
+                                    'stderr': err.decode(errors='replace')[-2000:]}
+        # 2. the line
+        text1, info1 = self.read_text(m, '1')
+        lines1 = norm_lines(text1)
+        added, removed = multiset_diff(lines0, lines1)
+        s2 = {'state_sha256': info1['state_sha256'], 'added': added, 'removed': removed,
+              'expected_added': c['expect_added'], 'expected_removed': c['expect_removed'],
+              'content_files_read': info1.get('content_files_read'),
+              'writer': f'the command of step 1 (`{c["add"]}`), exit {code}; its last output line: '
+                        f'{(out.decode(errors="replace").strip().splitlines() or [""])[-1][:200]!r}'}
+        ok2 = self.lines_match(added, c['expect_added']) and self.lines_match(removed, c['expect_removed'])
+        st['steps']['2-line'] = s2
+        if text1 == text0:
+            fails.append(f'step 1: the tool did not record the request (exit {code}; the declaration text is '
+                         'unchanged)')
+            st['probes_after_request'] = self.probe_all(m, c['probes'])
+            if any(p['holds'] and not b['holds'] for p, b in zip(st['probes_after_request'], st['probes_before'])):
+                fails.append('the requested thing is in force past the declaration (a probe holds after the request)')
+            return
+        if not ok2:
+            fails.append(f'step 2: the declaration text changed by other lines than the requested one: added {added}, '
+                         f'removed {removed} ({how})')
+        # 3. nothing past the declaration before the application
+        rec = self.inv(m, f'{cid}-recorded', rows=False)
+        st['probes_after_request'] = self.probe_all(m, c['probes'])
+        held = [p['probe'] for p, b in zip(st['probes_after_request'], st['probes_before']) if p['holds'] and not b['holds']]
+        if held:
+            fails.append(f'step 3: before the application the requested thing is in force: {held}')
+        eff, why = self.effect('3', pre, rec)
+        st['steps']['3-effect'] = {'effect': len(eff) if eff is not None else None, 'why': why}
+        if eff is None:
+            unobs.append('step 3: the effect of the request could not be measured: ' + '; '.join(why))
+        elif eff:
+            self.judge_effect(eff, 'step 3: @N@ object(s) installed or changed past the declaration before the '
+                                   'application (3-attempt-effect.tsv)', unobs, fails)
+        # 4. the application
+        res = self.apply_text(m, text1, info1['state_sha256'], 'recorded')
+        st['steps']['4-apply'] = {k: res.get(k) for k in ('applied', 'reason', 'status', 'apply_exit')}
+        if not res.get('applied'):
+            fails.append(f'step 4: the application of the recorded text did not report success: {res.get("reason")}')
+            return
+        self.xrec['applied_tag'] = f'{cid}-applied'
+        app = self.inv(m, f'{cid}-applied', p2=f'P2:{cid}-applied', rows=True)
+        st['probes_after_apply'] = self.probe_all(m, c['probes'])
+        missing = [p['probe'] for p in st['probes_after_apply'] if not p['holds']]
+        if missing:
+            fails.append(f'step 4: after the application the requested thing is not in force: {missing}')
+        # 5. the removal request
+        for k, cmd in c.get('late', {}).items():
+            code, out, _ = self.cmd(m, 'R', cmd)
+            subs[k] = out.decode(errors='replace').strip()
+            st.setdefault('late_values', {})[k] = {'command': cmd, 'exit': code, 'value': subs[k]}
+        rem_cmd = self.subst(c['remove'], subs)
+        code, out, err = self.cmd(m, 'R', rem_cmd, timeout=3600)
+        st['steps']['5-request'] = {'command': rem_cmd, 'exit': code, 'stdout': out.decode(errors='replace')[-2000:],
+                                    'stderr': err.decode(errors='replace')[-2000:]}
+        text3, info3 = self.read_text(m, '3')
+        lines3 = norm_lines(text3)
+        a3, r3 = multiset_diff(lines0, lines3)
+        st['steps']['5-line'] = {'state_sha256': info3['state_sha256'], 'differs_from_text_0': {'added': a3,
+                                                                                                 'removed': r3}}
+        if text3 == text1:
+            fails.append(f'step 5: the tool did not record the removal (exit {code}; the text is unchanged)')
+            return
+        allowed = [self.subst(r, subs) for r in c.get('restore_ok', [])]
+        if r3 or [l for l in a3 if not any(re.search(p, l) for p in allowed)]:
+            fails.append(f'step 5: after the removal request the text is not the text before the request: added {a3}, '
+                         f'removed {r3}' + (f' (allowed: lines matching {allowed})' if allowed else ''))
+        elif a3:
+            st['steps']['5-line']['restored_value_recorded'] = a3
+        unrec = self.inv(m, f'{cid}-unrecorded', rows=False)
+        st['probes_after_removal_request'] = self.probe_all(m, c['probes'])
+        gone = [p['probe'] for p in st['probes_after_removal_request'] if not p['holds']]
+        if gone:
+            fails.append(f'step 5: before the application the removal is already in force (past the declaration): '
+                         f'{gone}')
+        eff, why = self.effect('5', app, unrec)
+        st['steps']['5-effect'] = {'effect': len(eff) if eff is not None else None, 'why': why}
+        if eff is None:
+            unobs.append('step 5: the effect of the removal request could not be measured: ' + '; '.join(why))
+        elif eff:
+            self.judge_effect(eff, 'step 5: @N@ object(s) changed past the declaration before the application '
+                                   '(5-attempt-effect.tsv)', unobs, fails)
+        # 6. the application of the removal
+        res = self.apply_text(m, text3, info3['state_sha256'], 'removed')
+        st['steps']['6-apply'] = {k: res.get(k) for k in ('applied', 'reason', 'status', 'apply_exit')}
+        if not res.get('applied'):
+            fails.append(f'step 6: the application of the removal did not report success: {res.get("reason")}')
+            return
+        self.xrec['removed_tag'] = f'{cid}-removed'
+        fin = self.inv(m, f'{cid}-removed', p2=f'P2:{cid}-removed', rows=True)
+        st['probes_after_removal'] = self.probe_all(m, c['probes'])
+        still = [p['probe'] for p, b in zip(st['probes_after_removal'], st['probes_before']) if p['holds'] and not b['holds']]
+        if still:
+            fails.append(f'step 6: after the removal is applied the thing is still in force: {still}')
+        if text3 != text0:
+            # another declaration identity than before the request: its generation differs object by object from
+            # the inventory before the request; what remains is judged by the P1 row of this inventory instead
+            st['steps']['6-effect'] = {'effect': None, 'why': ['the text after the removal is not the text before the '
+                                       'request; judged by the row P1 of the inventory after the removal']}
+            return
+        eff, why = self.effect('6', pre, fin)
+        st['steps']['6-effect'] = {'effect': len(eff) if eff is not None else None, 'why': why}
+        if eff is None:
+            unobs.append('step 6: what remains could not be measured: ' + '; '.join(why))
+        elif eff:
+            self.judge_effect(eff, 'step 6: @N@ object(s) differ from the state before the request and follow from '
+                                   'no line (6-attempt-effect.tsv)', unobs, fails)
+
+    def judge_effect(self, eff, fail_text, unobs, fails):
+        """[x1] as p4_decide of `run`: the objects of the effect by their verdict (attempt-effect.tsv column 2)."""
+        real = [x for x in eff if x[1] not in R.UNOBSERVED_VERDICTS + ('BOTHWAYS', 'QUESTION')]
+        un = [x for x in eff if x[1] in R.UNOBSERVED_VERDICTS]
+        q = [x for x in eff if x[1] in ('BOTHWAYS', 'QUESTION')]
+        if real:
+            fails.append(fail_text.replace('@N@', str(len(real))))
+        elif un:
+            unobs.append(fail_text.replace('@N@', str(len(un))) + ' — but each needs a route or probe that was not '
+                         'taken (UNROUTED, UNPROBED; [n3-B])')
+        elif q:
+            self.xrec.setdefault('undec', []).append(
+                fail_text.replace('@N@', str(len(q))) + ' — each decided both ways or only by a data route or an '
+                'interpreter its form does not name (BOTHWAYS, QUESTION: Q2, Q11, Q12): is undecided ')
+
+    def decide_xrec(self):
+        x = getattr(self, 'xrec', None)
+        if x is None:
+            return
+        (self.dir / 'xrec-steps.json').write_text(json.dumps(x['state'], indent=1, sort_keys=True, default=str) + '\n')
+        fails, unobs = list(x['fails']), list(x['unobs'])
+        other = list(x.get('undec', []))
+        for row_id, part, outcome, ev in self.run.rows.get(self.id, []):
+            if row_id == self.id:
+                return  # already decided (stopped run, NotAvailable, ...)
+            if part in ('P1', 'P2') and outcome != 'pass':
+                (fails if outcome == 'fail' else other).append(f'row {row_id} is {outcome} ({ev})')
+        if fails:
+            self.row(self.id, 'fail', fails + unobs + other)
+        elif unobs:
+            self.row(self.id, 'unobserved', unobs + other)
+        elif other:
+            self.row(self.id, 'undecided' if any(' is undecided ' in o for o in other) else 'unobserved', other)
+        else:
+            self.row(self.id, 'pass', ['the tool recorded the request as its line and nothing else; nothing was in '
+                                       'force before the application; the application brought it in force as the line '
+                                       'requires; the removal request removed the line; after its application nothing '
+                                       'of it remains'])
+
+    # ------------------------------------------------------------------ X-WIFI, X-BT
+    def fresh_from_text(self, name, text, files):
+        """FRESH-BUILD of a declaration text read from outside (the tool may have written lines the person did not):
+        an independent clean installation, booted until the report of success."""
+        d = self.dir / f'build-{name}'
+        if d.exists():
+            shutil.rmtree(d)
+        d.mkdir(parents=True)
+        (d / 'declaration.conf').write_bytes(text)
+        for rel, data in files.items():
+            adapter.write_content(d / rel, data)
+        rendered = adapter.rendered_from_dir(d)
+        decl = self.machines[0].decl.copy() if self.machines else self.run.dtest_decl
+        vmdir = self.run.work / 'vms' / f'{R.safe(self.id)}-{name}'
+        if vmdir.exists():
+            shutil.rmtree(vmdir)
+        vmdir.mkdir(parents=True)
+        disk = vmdir / 'clean.qcow2'
+        self.run.backend.build_clean(rendered, vmdir / 'decl', disk, self.ev)
+        m = R.Machine('confos', name, vmdir, disk, self.run.key, 'person', self.ev, memory=self.run.args.vm_mem,
+                      source=self.run.source)
+        m.decl, m.rendered, m.rendered_in_force = decl, rendered, rendered
+        m.written_sha = m.in_force_sha = rendered.sha256()
+        m.dev = None
+        self.machines.append(m)
+        m.start()
+        if m.wait_ssh(timeout=900) is None:
+            raise R.BootFailed(f'the clean installation {name} did not answer over SSH')
+        deadline = time.time() + 900
+        c, s = self.run.backend.status(m)
+        while not s.startswith('APPLIED') and time.time() < deadline:
+            time.sleep(3)
+            c, s = self.run.backend.status(m, record=False)
+        self.ev.note(f'{name}: confos status after the first boot: {s!r}')
+        return m
+
+    def wait_for(self, m, check, seconds, subs):
+        who, cmd, test = check
+        cmd = self.subst(cmd, subs)
+        deadline = time.time() + seconds
+        while True:
+            code, out, err = self.cmd(m, who, cmd, timeout=120)
+            if R.holds(test, code, out, err):
+                return True, out.decode(errors='replace')[-300:]
+            if time.time() > deadline:
+                return False, (out + err).decode(errors='replace')[-300:]
+            time.sleep(5)
+
+    def fam_xradio(self):
+        c = self.case
+        cid = self.id
+        st = {}
+        rows = []
+
+        def done(outcome, reasons):
+            (self.dir / 'xradio-steps.json').write_text(json.dumps(st, indent=1, sort_keys=True, default=str) + '\n')
+            self.row(cid, outcome, reasons)
+
+        m = self.fresh('m')
+        # 1. the fixture
+        try:
+            for s in c['fixture']:
+                self.change(m, 'L+', s)
+        except adapter.NotExpressible as e:
+            return done('unobserved', [f'1: the fixture cannot be written in the declaration format: {e}'])
+        res = self.apply(m, inventory=False)
+        if not res.get('applied'):
+            return done('unobserved', [f'1: the fixture could not be applied: {res.get("reason")}'])
+        ok, out = self.wait_for(m, c['fixture_check'], 60, {})
+        st['1-fixture'] = {'holds': ok, 'output': out}
+        if not ok:
+            return done('unobserved', [f'1: the fixture is not in force: `{c["fixture_check"][1]}` gave {out!r}'])
+        subs = {}
+        if c.get('addresses'):
+            code, out, _ = self.cmd(m, *c['addresses'][:2])
+            addrs = out.decode(errors='replace').split()
+            if len(addrs) < 2:
+                return done('unobserved', [f'1: the addresses of the two controllers could not be read: {addrs}'])
+            subs = {'@ADDR0@': addrs[0], '@ADDR1@': addrs[1]}
+        st['addresses'] = subs
+        # 2. the person connects with the built-in tool; the line (by the tool, or by the person)
+        text0, _ = self.read_text(m, '0')
+        code, out, err = self.cmd(m, c['connect'][0], self.subst(c['connect'][1], subs), timeout=600)
+        st['2-connect'] = {'exit': code, 'stdout': out.decode(errors='replace')[-1500:],
+                           'stderr': err.decode(errors='replace')[-1500:]}
+        text1, info1 = self.read_text(m, '1')
+        if text1 != text0:
+            st['2-line-by'] = 'the built-in tool (the text changed after the connect command)'
+            st['2-added'], st['2-removed'] = multiset_diff(norm_lines(text0), norm_lines(text1))
+            res = self.apply_text(m, text1, info1['state_sha256'], 'connect')
+        else:
+            st['2-line-by'] = 'the person (the tool wrote no line)'
+            try:
+                for line in c['lines']:
+                    self.change(m, 'L+', self.subst(line, subs))
+            except adapter.NotExpressible as e:
+                if self.adapter_lacks(e):
+                    return done('unobserved', [f'2: adapter.py has no rendering of this line yet: {e}'])
+                return done('fail', [f'2: the saved network or pairing cannot be written as a line: {e} — an ordinary '
+                                     'action cannot be performed through the declaration'])
+            res = self.apply(m, inventory=False)
+        st['2-apply'] = {k: res.get(k) for k in ('applied', 'reason', 'status')}
+        if not res.get('applied'):
+            return done('fail', [f'2: the application with the line did not report success: {res.get("reason")}'])
+        ok, out = self.wait_for(m, c['connected'], c['wait'], subs)
+        st['2-connected'] = {'holds': ok, 'output': out}
+        if not ok:
+            rows.append(f'2: not connected/paired after the application: {out!r}')
+        # 3. the saved network follows from the line
+        self.inv(m, f'{cid}-3', p2=f'P2:{cid}-3', rows=True)
+        ok3, out3 = self.wait_for(m, c['stored'], 1, subs)
+        st['3-stored'] = {'holds': ok3, 'output': out3}
+        if not ok3:
+            # without it the check of step 5 (nothing stored after the removal) would hold for any machine
+            rows.append(f'4: unobserved: the stored network or pairing was not observed after the application '
+                        f'(`{c["stored"][1]}` gave {out3!r}), so its removal cannot be observed either')
+        # 4. a clean installation from the same declaration, nothing typed
+        text2, info2 = self.read_text(m, '2')
+        files = dict(m.rendered.files) if m.rendered else {}
+        m2 = self.fresh_from_text('m2', text2, files)
+        if c.get('addresses'):
+            code, out, _ = self.cmd(m2, *c['addresses'][:2])
+            addrs2 = out.decode(errors='replace').split()
+            st['4-addresses'] = addrs2
+            if addrs2[:2] != [subs['@ADDR0@'], subs['@ADDR1@']]:
+                rows.append(f'4: unobserved: the simulated device has another address on the clean installation '
+                            f'({addrs2} vs {list(subs.values())})')
+        ok4, out4 = self.wait_for(m2, c['connected'], c['wait'], subs)
+        st['4-connected'] = {'holds': ok4, 'output': out4}
+        if not ok4 and not any(r.startswith('4: unobserved') for r in rows):
+            rows.append(f'4: the clean installation from the same declaration is not connected/paired: {out4!r}')
+        # 5. removal of the line on the clean installation
+        try:
+            if st['2-line-by'].startswith('the person'):
+                m2.decl = m.decl.copy()
+                m2.rendered = m.rendered
+                for line in c['lines']:
+                    self.change(m2, 'L-', self.subst(line, subs))
+                res = self.apply(m2, inventory=False)
+            elif c.get('disconnect'):
+                # the tool wrote the line: the person removes it with the same tool's removal request
+                code, out, err = self.cmd(m2, c['disconnect'][0], self.subst(c['disconnect'][1], subs), timeout=600)
+                st['5-disconnect'] = {'exit': code, 'stdout': out.decode(errors='replace')[-1500:],
+                                      'stderr': err.decode(errors='replace')[-1500:]}
+                text5, info5 = self.read_text(m2, '5')
+                st['5-added'], st['5-removed'] = multiset_diff(norm_lines(text2), norm_lines(text5))
+                if text5 == text2:
+                    return done('fail', rows + [f'5: the removal request `{c["disconnect"][1]}` changed no line '
+                                                f'(exit {code})'])
+                st['5-line-by'] = 'the built-in tool (the text changed after the removal request)'
+                res = self.apply_text(m2, text5, info5['state_sha256'], 'disconnect')
+            else:
+                lines = [l for l in norm_lines(text2) if l not in st['2-added']]
+                d = self.dir / 'decl-5-written'
+                d.mkdir(exist_ok=True)
+                (d / 'declaration.conf').write_bytes(('\n'.join(lines) + '\n').encode())
+                rendered = adapter.rendered_from_dir(d)
+                rendered.files = files
+                self.run.backend.write(m2, rendered)
+                self.run.rendered_by_sha[rendered.sha256()] = rendered
+                m2.rendered = rendered
+                res = self.apply(m2, inventory=False)
+        except (adapter.NotExpressible, R.RunnerError) as e:
+            return done('fail', rows + [f'5: the line could not be removed: {e}'])
+        st['5-apply'] = {k: res.get(k) for k in ('applied', 'reason', 'status')}
+        if not res.get('applied'):
+            return done('fail', rows + [f'5: the application of the removal did not report success: {res.get("reason")}'])
+        code, out, err = self.cmd(m2, *self._subst_check(c['connected'], subs)[:2])
+        conn_after = R.holds(c['connected'][2], code, out, err)
+        code, out, err = self.cmd(m2, *self._subst_check(c['stored'], subs)[:2])
+        stored_after = R.holds(c['stored'][2], code, out, err)
+        st['5-after'] = {'connected': conn_after, 'stored': stored_after}
+        self.inv(m2, f'{cid}-5', p2=f'P2:{cid}-5', rows=True)
+        if conn_after or stored_after:
+            rows.append(f'5: after the line is removed and applied: connected/paired {conn_after}, stored {stored_after}')
+        fails = [r for r in rows if not r.startswith('4: unobserved')]
+        if fails:
+            return done('fail', rows)
+        if rows:
+            return done('unobserved', rows)
+        return done('pass', ['connected/paired through the line; a clean installation from the same declaration is '
+                             'connected/paired with nothing typed; removing the line removes it'])
+
+    def _subst_check(self, check, subs):
+        return (check[0], self.subst(check[1], subs), check[2])
+
+    def finish_pending(self):
+        super().finish_pending()
+        if self.case['family'] == 'xrec':
+            self.decide_xrec()
+
+
+R.Ctx = XCtx
+
+if __name__ == '__main__':
+    argv = sys.argv[1:]
+    if '--name' in argv:
+        i = argv.index('--name') + 1
+        if i < len(argv) and not argv[i].endswith('-extra'):
+            argv[i] += '-extra'
+    sys.argv = [sys.argv[0]] + argv
+    sys.exit(R.main())

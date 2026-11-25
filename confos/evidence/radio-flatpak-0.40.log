@@ -1,0 +1,52 @@
+PROFILE confos-session (enforce) EUID 1000
+DENIED Bluetooth socket (<SocketKind.SOCK_RAW: 3>, 1) 13 [Errno 13] Permission denied
+DENIED Bluetooth socket (<SocketKind.SOCK_SEQPACKET: 5>, 0) 13 [Errno 13] Permission denied
+DENIED private Unix /run/confos-radio/bus 13 [Errno 13] Permission denied
+DENIED private Unix /run/confos-radio/wpa/wlan1 13 [Errno 13] Permission denied
+DENIED native control /dev/vhci 13 [Errno 13] Permission denied: '/dev/vhci'
+DENIED native control /run/netns/confos-radio-ap 13 [Errno 13] Permission denied: '/run/netns/confos-radio-ap'
+DENIED private proc alias /proc/293/root/run/confos-radio/bus 13 [Errno 13] Permission denied
+DENIED private proc alias /proc/293/fd/0 13 [Errno 13] Permission denied: '/proc/293/fd/0'
+NATIVE ['/usr/bin/aa-exec', '-p', 'confos-radio', '--', '/usr/bin/true'] RC 1 [398] aa-exec: ERROR: insufficient permissions to change to the profile 'confos-radio'
+
+NATIVE ['/usr/sbin/wpa_cli', '-p', '/run/confos-radio/wpa', '-i', 'wlan1', 'set_network', '0', 'psk', '"undeclared-change"'] RC 255 Failed to connect to non-global ctrl_ifname: wlan1  error: Permission denied
+
+NATIVE ['/usr/bin/dbus-send', '--bus=unix:path=/run/confos-radio/bus', '--print-reply', '--dest=org.bluez', '/org/bluez/hci0', 'org.freedesktop.DBus.Properties.Set', 'string:org.bluez.Adapter1', 'string:Powered', 'variant:boolean:false'] RC 1 Failed to open connection to "unix:path=/run/confos-radio/bus" message bus: Failed to connect to socket /run/confos-radio/bus: Permission denied
+
+NATIVE ['/usr/bin/btmgmt', '--index', '0', 'power', 'off'] RC 1 Unable to open mgmt_socket
+Unable to open mgmt_socket
+
+RADIO ORDINARY CONTROL DENIAL PROBE PASS 8
+F: Not replacing "/usr/lib/confos/flatpak-user" with tmpfs: Path "/usr" is reserved by Flatpak
+confos-flatpak (enforce)
+F: Not replacing "/usr/lib/confos/flatpak-user" with tmpfs: Path "/usr" is reserved by Flatpak
+mpv v0.42.0-dirty Copyright © 2000-2026 mpv/MPlayer/mplayer2 projects
+libplacebo version: v7.387.0 (v7.387.0)
+FFmpeg version: n9.0.2
+FFmpeg library versions:
+   libavcodec      63.1.102
+   libavdevice     63.1.102
+   libavfilter     12.1.102
+   libavformat     63.1.102
+   libavutil       61.1.102
+   libswresample   7.1.102
+   libswscale      10.1.102
+F: Not replacing "/usr/lib/confos/flatpak-user" with tmpfs: Path "/usr" is reserved by Flatpak
+RECORDED-RADIO-FLATPAK-PYTHON-PASS
+F: Not replacing "/usr/lib/confos/flatpak-user" with tmpfs: Path "/usr" is reserved by Flatpak
+RECORDED-RADIO-FLATPAK-BASH-PASS
+FLATPAK RADIO PROFILE confos-flatpak (enforce) EUID 1000
+NATIVE BLUETOOTH SOCKET BLOCKED SECCOMP-FAMILY-FILTER 3 1 97
+NATIVE BLUETOOTH SOCKET BLOCKED SECCOMP-FAMILY-FILTER 5 0 97
+UNEXPOSED UNIX ENDPOINT /run/confos-radio/bus
+UNEXPOSED UNIX ENDPOINT /run/confos-radio/wpa/wlan1
+UNEXPOSED UNIX ENDPOINT /run/host/run/confos-radio/bus
+UNEXPOSED UNIX ENDPOINT /run/host/run/confos-radio/wpa/wlan1
+DEVICE OR NAMESPACE DENIED /dev/vhci 13
+DEVICE OR NAMESPACE DENIED /dev/rfkill 13
+UNEXPOSED DEVICE OR NAMESPACE /run/netns/confos-radio-ap
+UNEXPOSED DEVICE OR NAMESPACE /run/host/dev/vhci
+UNEXPOSED DEVICE OR NAMESPACE /run/host/run/netns/confos-radio-ap
+FLATPAK RADIO CONTROL PROBE PASS blocked-sockets=2 path-denials=2 unexposed-paths=7
+CANONICAL40 FLATPAK RADIO CONTROLS PASS
+qemu-system-x86_64: terminating on signal 15 from pid 4156456 (bash)

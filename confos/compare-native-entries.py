@@ -15,6 +15,7 @@ paths = {'usr/sbin/nft', 'usr/bin/systemctl', 'usr/bin/flatpak', 'usr/bin/podman
          'usr/bin/pip', 'usr/bin/pip3', 'usr/bin/npm', 'usr/bin/npx',
          'usr/bin/hostnamectl', 'usr/bin/timedatectl', 'usr/sbin/sysctl',
          'usr/sbin/useradd', 'usr/sbin/usermod', 'usr/sbin/userdel',
+         'usr/sbin/groupadd', 'usr/sbin/groupdel',
          'usr/bin/apt', 'usr/bin/apt-get', 'usr/sbin/visudo'}
 owners = {'nftables', 'systemd', 'flatpak', 'podman', 'python3-pip', 'npm', 'passwd', 'procps', 'apt', 'sudo'}
 expected = {}

@@ -76,7 +76,35 @@ def declared_hostname(rows):
         raise ValueError('hostname and sysctl:kernel.hostname conflict')
     return values[0] if values else 'confos'
 
+def validate_groups(rows):
+    """`group NAME GID`: a group of its own, usable as a supplementary group by later account lines."""
+    names = {'root', '_apt', 'wheel', 'nogroup'} | {row[1] for row in rows if row[0] == 'account'}
+    gids = {0, 10, 42, 65534} | {int(row[3]) for row in rows if row[0] == 'account' and row[3].isdigit()}
+    for row in rows:
+        if row[0] != 'group':
+            continue
+        _, name, gid = row
+        if not re.fullmatch('[a-z_][a-z0-9_-]*', name) or name in names:
+            raise ValueError('invalid, duplicate or reserved account/group name: '+name)
+        if not re.fullmatch('[0-9]+', gid) or not 1 <= int(gid) <= 4294967294 or int(gid) in gids:
+            raise ValueError('group GID must be an unused integer in 1..4294967294: '+gid)
+        names.add(name)
+        gids.add(int(gid))
+
+def declared_modules(rows):
+    """`setting module:NAME loaded`: a kernel module of the pinned kernel loaded at every start."""
+    modules = []
+    for row in rows:
+        if row[0] == 'setting' and row[1].startswith('module:'):
+            if not re.fullmatch('[a-z0-9][a-z0-9_-]*', row[1][7:]) or row[2] != 'loaded':
+                raise ValueError('module setting needs the form: setting module:NAME loaded')
+            modules.append(row[1][7:].replace('-', '_'))
+    if len(modules) != len(set(modules)):
+        raise ValueError('duplicate module setting')
+    return sorted(modules)
+
 def validate_accounts(rows):
+    validate_groups(rows)
     names = {'root', '_apt', 'wheel', 'nogroup'}
     uids = {0, 42}
     for row in rows:
@@ -103,7 +131,8 @@ def parse(path):
     seen = set()
     arities = {'base': 2, 'snapshot': 2, 'radio-fixture': 4, 'network': 4, 'bluetooth-pair': 5, 'package': 3, 'account': 7,
                'authorized-key': 4, 'file': None, 'pip': 5, 'npm': 5, 'flatpak': 5, 'appimage': 5,
-               'container': 6, 'user-unit': 6, 'linuxgsm': 6, 'setting': 3, 'rule': 3, 'service': None, 'compile': None}
+               'container': 6, 'user-unit': 6, 'linuxgsm': 6, 'setting': 3, 'rule': 3, 'service': None, 'compile': None,
+               'group': 3}
     for n, line in enumerate(path.read_text().splitlines(), 1):
         row = shlex.split(line, comments=True)
         if not row:
@@ -326,6 +355,11 @@ def configure(root, rows, declaration, digest):
     passwd = ['root:x:0:0:root:/root:/bin/bash', '_apt:x:42:65534:apt:/nonexistent:/usr/sbin/nologin']
     groups = {'root': (0, []), 'wheel': (10, []), 'nogroup': (65534, [])}
     accounts = {'root', '_apt'}
+    validate_groups(rows)
+    # A `group` line may stand anywhere in the text, also after an account that names it.
+    for r in rows:
+        if r[0] == 'group':
+            groups[r[1]] = (int(r[2]), [])
     for r in rows:
         if r[0] == 'account':
             _, name, uid, gid, supplementary, shell, home = r
@@ -371,6 +405,8 @@ def configure(root, rows, declaration, digest):
                 put(root, '/etc/timezone', value+'\n')
             elif name.startswith('sysctl:') and re.fullmatch('[A-Za-z0-9_.]+', name[7:]) and '\n' not in value:
                 sysctls[name[7:]] = value
+            elif name.startswith('module:'):
+                pass  # Validated and written as one list below.
             else:
                 raise ValueError('unsupported setting '+name)
         elif r[0] == 'service':
@@ -428,6 +464,14 @@ def configure(root, rows, declaration, digest):
         put(root, '/etc/libreoffice/registry/main.xcd', lo_default.read_text())
     put(root, '/etc/confos/services.json', json.dumps(services, sort_keys=True)+'\n')
     put(root, '/etc/confos/sysctls.json', json.dumps(sysctls, sort_keys=True)+'\n')
+    modules = declared_modules(rows)
+    if modules:
+        # Every declared module is a file of the pinned kernel package; nothing is built.
+        present = {path.name.split('.ko')[0].replace('-', '_') for path in (root/'usr/lib/modules').rglob('*.ko*')}
+        missing = [name for name in modules if name not in present]
+        if missing:
+            raise ValueError('module is not a loadable module of the pinned kernel: '+', '.join(missing))
+        put(root, '/etc/confos/modules.json', json.dumps(modules)+'\n')
     ruletext = 'flush ruleset\nadd table inet confos\nadd chain inet confos input { type filter hook input priority 0; policy accept; }\n'
     ruletext += ''.join(value+'\n' for name, value in sorted(rules.items()))
     put(root, '/etc/confos/rules.nft', ruletext)
@@ -488,6 +532,9 @@ def execution_policy(root):
   signal (receive) peer=unconfined,
   ptrace (read, readby) peer=confos-session,
   ptrace (read, readby) peer=unconfined,
+  # Reading only (which file a process executes, /proc/PID/exe), towards every label:
+  # the kernel still requires the same account or the superuser's capability.
+  ptrace (read),
   / r,
   /** r,
   /usr/** mr,
@@ -515,7 +562,7 @@ def execution_policy(root):
   deny /usr/bin/podman x,
   deny /usr/bin/systemctl x,
   deny /usr/bin/{hostnamectl,timedatectl} x,
-  deny /usr/sbin/{sysctl,useradd,usermod,userdel} x,
+  deny /usr/sbin/{sysctl,useradd,usermod,userdel,groupadd,groupdel} x,
   deny /usr/bin/apt{,-get} x,
   deny /usr/bin/pip{,3} rmx,
   deny /usr/lib/python3/dist-packages/pip/_internal/** rmx,
@@ -561,7 +608,7 @@ def execution_policy(root):
     policy += flatpak_readers.policy(root)
     put(root, '/etc/confos/session.apparmor', policy+'}\n'+flatpak_profile.render(root, executables)+'\n'+(HERE/'radio-trusted-profile.apparmor').read_text())
 
-def root_image(declaration, work):
+def root_image(declaration, work, keep_archives=True):
     rows, snapshot = parse(declaration)
     digest = hashlib.sha256(declaration.read_bytes()).hexdigest()
     root = work/'root'
@@ -570,6 +617,10 @@ def root_image(declaration, work):
     root.mkdir()
     debs = packages(work, rows, snapshot)
     ownership = payload(root, debs)
+    if not keep_archives:
+        # An application on the machine needs the downloaded archives only until they are unpacked.
+        for deb in debs:
+            deb.unlink()
     import optional_readers
     package_names = {line[9:] for line in (root/'var/lib/dpkg/status').read_text().splitlines()
                      if line.startswith('Package: ')}
@@ -673,7 +724,9 @@ def disk(declaration, output):
     for label, tree in [('efi', work/'efi'), ('system', system), ('data', data)]:
         run('tar', '--sort=name', '--mtime=@'+str(EPOCH), '--owner=0', '--group=0',
             '-cf', work/(label+'.tar'), '-C', tree, '.')
-    run('qemu-img', 'create', '-f', 'qcow2', output, '12G')
+    # 6 GiB for the system partition (two generations during an application); the rest is the
+    # data partition, which holds the inputs, the staging of an application and material.
+    run('qemu-img', 'create', '-f', 'qcow2', output, '20G')
     commands = '\n'.join([
         'run', 'part-init /dev/sda gpt', 'part-add /dev/sda p 2048 264191',
         'part-add /dev/sda p 264192 12847103', 'part-add /dev/sda p 12847104 -34',

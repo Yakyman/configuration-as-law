@@ -96,6 +96,13 @@ def prepare():
                 raise RuntimeError('unexpected native container mount path')
             # Native runtime mount targets must exist before making this view read-only.
             # These fixed empty additions are part of the base recipe, never observed settings.
+            # An image may lack the folders the runtime mounts on (busybox:1.36.1 has no
+            # /proc and no /sys: `crun: cannot mkdir proc: Read-only file system`).
+            for relative in ('proc', 'sys', 'dev', 'run', 'etc'):
+                target = Path(source)/relative
+                if not target.exists() and not target.is_symlink():
+                    target.mkdir(mode=0o755)
+                    os.chown(target, person.pw_uid, person.pw_gid)
             for relative in ('etc/hosts', 'etc/hostname', 'etc/resolv.conf', 'run/.containerenv'):
                 target = Path(source)/relative
                 parent = target.parent.resolve()
@@ -110,6 +117,14 @@ def prepare():
                     continue
                 os.fchown(fd, person.pw_uid, person.pw_gid)
                 os.close(fd)
+            # The native runtime links /etc/mtab to /proc/mounts when an image has none
+            # (busybox:1.36.1); on the read-only view that failed with `creating
+            # /etc/mtab symlink: read-only file system` (case X-REC-PODMAN on 0.43).
+            # The same link is made here, before the view becomes read-only.
+            mtab = Path(source)/'etc/mtab'
+            if not mtab.exists() and not mtab.is_symlink():
+                os.symlink('/proc/mounts', mtab)
+                os.lchown(mtab, person.pw_uid, person.pw_gid)
             destination = Path('/run/confos-container-ro')/user/image['id']
             if destination.exists():
                 continue

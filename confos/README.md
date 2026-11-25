@@ -53,3 +53,7 @@ acceptance; smoke.sh is only the builder's short regression check.
 
 Release40 adds declaration-driven simulated Wi-Fi/Bluetooth; see INTERFACE40 for
 exact input forms and fixed native inspection, and STATE.md for observed results.
+Release54 guards the office suite's Basic interpreter: no Basic code is executed,
+saved or recorded (CHOICES.md, Revision 54).
+Release55 lets the superuser read which file every process executes and answers
+more queries (CHOICES.md, Revision 55).

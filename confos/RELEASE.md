@@ -1,13 +1,12 @@
-# ConfOS 0.49
+# ConfOS 0.55
 
-The implementation as it stood before complete run 2 of the check of Section 9 of the fifth
-paper. Committed on 24 November 2026 (UTC), before that run.
+The implementation as it stood before complete run 3 of the check of Section 9 of the fifth
+paper. Committed on 25 November 2026 (UTC), before that run.
 
-- Source archive: `confos-0.49-source.tar.gz`, SHA-256 `0f71e751f85a05fba1a8f8c726c823109a6dec6feaa1d27e210e5c729d9ef4db`,
-  13405 files, 2291936655 bytes unpacked.
-- Built image stated by the builder for this release: SHA-256 `815aaa6f40df4819bc9a0aa37c03f4b2b31df593c9582efa46a976c225c41ff1` (not stored here).
+- Source archive: `confos-0.55-source.tar.gz`, SHA-256 `eb901118dc725dfbadfc46ee56069f4fa631903fdb08eec25bf763f6a12acdd1`,
+  504 files, 411141528 bytes unpacked.
 
-This folder holds every text file of the archive, unchanged (391 files). The other 13014 files
+This folder holds every text file of the archive, unchanged (498 files). The other 6 files
 of the archive are not stored here: the packages that the build programs in this folder produce from the pinned
 inputs; the pinned third-party inputs (`interpreter-inputs/`: source packages of the programs that the
 implementation modifies, their descriptors, unpacked build dependencies); and working files of the build that

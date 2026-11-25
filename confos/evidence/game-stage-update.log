@@ -1,0 +1,69 @@
+d07a60a605cdd3f10f93b9854f105c726145bea8a6c3a70dfeaa999125cf0003  wetserver
+fetching GitHub [ command_update_linuxgsm.sh ] ... OK
+[  OK  ] Updating LinuxGSM wetserver: Selecting repo: GitHub
+checking GitHub script [ linuxgsm.sh ] ... UPDATE
+fetching GitHub [ linuxgsm.sh ] ... OK
+checking script [ wetserver ] ... UPDATE
+backup wetserver ... OK
+backup location [ /home/user/game-native/lgsm/backup/script/wetserver-11_24_2026_04.bak ]
+copying wetserver ... OK
+checking GitHub config [ _default.cfg ] ... SKIP
+checking GitHub config [ debian-13.csv ] ... UPDATE
+fetching GitHub [ debian-13.csv ] ... OK
+checking GitHub module [ check.sh ] ... SKIP
+checking GitHub module [ check_config.sh ] ... UPDATE
+fetching GitHub [ check_config.sh ] ... OK
+checking GitHub module [ check_deps.sh ] ... UPDATE
+fetching GitHub [ check_deps.sh ] ... OK
+checking GitHub module [ check_executable.sh ] ... UPDATE
+fetching GitHub [ check_executable.sh ] ... OK
+checking GitHub module [ check_gamedig.sh ] ... SKIP
+checking GitHub module [ check_glibc.sh ] ... SKIP
+checking GitHub module [ check_ip.sh ] ... SKIP
+checking GitHub module [ check_logs.sh ] ... SKIP
+checking GitHub module [ check_permissions.sh ] ... SKIP
+checking GitHub module [ check_players_online.sh ] ... SKIP
+checking GitHub module [ check_root.sh ] ... SKIP
+checking GitHub module [ check_status.sh ] ... SKIP
+checking GitHub module [ check_system_dir.sh ] ... UPDATE
+fetching GitHub [ check_system_dir.sh ] ... OK
+checking GitHub module [ check_system_requirements.sh ] ... SKIP
+checking GitHub module [ check_tmuxception.sh ] ... SKIP
+checking GitHub module [ check_version.sh ] ... SKIP
+checking GitHub module [ command_install.sh ] ... SKIP
+checking GitHub module [ command_start.sh ] ... SKIP
+checking GitHub module [ command_stop.sh ] ... UPDATE
+fetching GitHub [ command_stop.sh ] ... OK
+checking GitHub module [ command_update_linuxgsm.sh ] ... SKIP
+checking GitHub module [ core_dl.sh ] ... UPDATE
+fetching GitHub [ core_dl.sh ] ... OK
+checking GitHub module [ core_exit.sh ] ... SKIP
+checking GitHub module [ core_getopt.sh ] ... SKIP
+checking GitHub module [ core_legacy.sh ] ... SKIP
+checking GitHub module [ core_logs.sh ] ... SKIP
+checking GitHub module [ core_messages.sh ] ... SKIP
+checking GitHub module [ core_modules.sh ] ... UPDATE
+fetching GitHub [ core_modules.sh ] ... OK
+checking GitHub module [ core_trap.sh ] ... SKIP
+checking GitHub module [ fix.sh ] ... UPDATE
+fetching GitHub [ fix.sh ] ... OK
+checking GitHub module [ info_distro.sh ] ... SKIP
+checking GitHub module [ info_game.sh ] ... UPDATE
+fetching GitHub [ info_game.sh ] ... OK
+checking GitHub module [ install_complete.sh ] ... SKIP
+checking GitHub module [ install_config.sh ] ... UPDATE
+fetching GitHub [ install_config.sh ] ... OK
+checking GitHub module [ install_header.sh ] ... SKIP
+checking GitHub module [ install_logs.sh ] ... SKIP
+checking GitHub module [ install_server_dir.sh ] ... SKIP
+checking GitHub module [ install_server_files.sh ] ... UPDATE
+fetching GitHub [ install_server_files.sh ] ... OK
+checking GitHub module [ install_stats.sh ] ... SKIP
+[  OK  ] Updating LinuxGSM wetserver: Updating modules
+UPDATED_LAUNCHER_SHA256 000d3e97a6f992c02c7c9e9626f8892fe0bd9e46353bcea1d0ace2a6e607a4bb
+LAUNCHER_UPDATE_BYTES_MATCH
+
+[  OK  ] Starting wetserver: LinuxGSM
+1900 ./etded.x86 +set sv_punkbuster 0 +set net_strict 1 +set fs_homepath /home/user/game-native/serverfiles +exec wetserver.cfg
+[  OK  ] Stopping wetserver: Graceful: sending "quit": 1 ... OK
+NATIVE GAME UPDATE STAGING PASS; not a ConfOS ordinary-work or P4 pass

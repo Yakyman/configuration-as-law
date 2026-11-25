@@ -6824,7 +6824,8 @@ The hashes of the 120,786 files under `records-v4/` and `analysis/` are in [`rec
 Committed before the complete runs of the check of the fifth paper, Section 9. Each row is one state of the two
 folders; the files of a state are listed with their SHA-256 in the `SHA256SUMS` file of each folder at that commit.
 
-| Before complete run | Release | Source archive, SHA-256 | `confos/SHA256SUMS`, SHA-256 | `confos-check/SHA256SUMS`, SHA-256 | Staged (UTC) |
-|---|---|---|---|---|---|
-| 1 | 0.32 | `61d290744606b4804b298217d340df5445cf276ea2b3ad69cc024e9457261001` | `7fb37eeb9f3725d06eba03fc3acae0eab3f8bb0fb2313b2e54191eb570c31dc5` | `38a066819614ddbd0fde81581eb3bf960857c1b6bbc01d6d9f98821811297862` | 24 November 2026, 16:26 |
-| 2 | 0.49 | `0f71e751f85a05fba1a8f8c726c823109a6dec6feaa1d27e210e5c729d9ef4db` | `fa82d99eb59928f3c44b1daa974bd0f636932f3abf7cf5f9ebf6c36bea5cd534` | `ac7edf5f76c4e98318244960b5463103c9c89d18f5fbe3d44e5db42fc5a4247a` | 24 November 2026, 23:02 |
+| Before complete run | Release | Source archive, SHA-256 | `confos/SHA256SUMS`, SHA-256 | `confos-check/SHA256SUMS`, SHA-256 | Staged (UTC) | `confos-check-extra/SHA256SUMS`, SHA-256 |
+|---|---|---|---|---|---|---|
+| 1 | 0.32 | `61d290744606b4804b298217d340df5445cf276ea2b3ad69cc024e9457261001` | `7fb37eeb9f3725d06eba03fc3acae0eab3f8bb0fb2313b2e54191eb570c31dc5` | `38a066819614ddbd0fde81581eb3bf960857c1b6bbc01d6d9f98821811297862` | 24 November 2026, 16:26 | — |
+| 2 | 0.49 | `0f71e751f85a05fba1a8f8c726c823109a6dec6feaa1d27e210e5c729d9ef4db` | `fa82d99eb59928f3c44b1daa974bd0f636932f3abf7cf5f9ebf6c36bea5cd534` | `ac7edf5f76c4e98318244960b5463103c9c89d18f5fbe3d44e5db42fc5a4247a` | 24 November 2026, 23:02 | — |
+| 3 | 0.55 | `eb901118dc725dfbadfc46ee56069f4fa631903fdb08eec25bf763f6a12acdd1` | `f71eaf1200c504e9fc1e0609e37d7ba4b041960f38e3f8d02f2c196771e4493d` | `62daa449e03fd43300e58b400f8b724dac7db26d5ee7c3b0331bad0b88d278ca` | 25 November 2026, 04:02 | `65d8e67af68f48993527851722c07b416052c517884fbb3bdbfec15b1c0b20bf` |

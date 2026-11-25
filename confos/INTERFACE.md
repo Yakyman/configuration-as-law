@@ -1,4 +1,84 @@
-# ConfOS interface, revision 49
+# ConfOS interface, revision 55
+
+Revision 55 changes no syntax. With superuser privileges (`sudo -n`)
+`readlink /proc/PID/exe` answers for every process of the machine. For a process
+of a recorded Flatpak application it prints the path inside the sandbox
+(`/app/bin/mpv`); `/proc/PID/root` followed by that path is the stored file of
+the application; this holds also for an application whose front process was
+killed and that keeps running. `flatpak list` accepts
+`--app`, `--runtime`, `--all`, `-a`, `--system`, `--user`, `-d`,
+`--show-details` and `--columns=NAMES` (letters and commas), for the ordinary
+account and for root; another option is refused. For an account without
+recorded container images, root included, `podman images`, `podman image ls`,
+`podman ps`, `podman ps -a` and `podman ps --all` with `--format json` print `[]`
+and end with status 0.
+
+Revision 54 changed no command and no syntax either; its text follows.
+
+Revision 54 changes no command and no syntax. The office suite executes no Basic
+code (CHOICES.md, Revision 54): `libreoffice … macro:///LIBRARY.MODULE.NAME`, a
+script address, an event or a document macro start nothing. The reader-override
+manifest (revision 29 below) has one more record, for the package
+`libreoffice-core` and the target `/usr/lib/libreoffice/program/libmergedlo.so`,
+with three more fields. `original_sha256` is the checksum of the package's file
+that the payload replaces. `other_releases` is an array of records `version`,
+`original_sha256`, `offset`, `original`, `replacement` (hexadecimal bytes) and
+`sha256`: when the installed file of the package has that `original_sha256`, the
+bytes `original` at `offset` are replaced by `replacement` and the result has
+the checksum `sha256`; the payload is then not used. `unlisted_release: refuse`:
+any other file at the target ends the assembly with `no guarded PATH exists for
+this release of PACKAGE`. The assembly log names an in-place replacement
+(`reader guard applied in place to PATH of release R of PACKAGE`). For the
+release named by `source_version` the record behaves as every other record.
+
+Revision 53 changes no command and no syntax. The build command
+(`./build.sh DECLARATION OUTPUT.qcow2`) makes a 20 GiB disk instead of 12 GiB: the
+partitions, their numbers, file systems and labels are as before, partition 3
+(CONFOS-DATA, `/state`) now ends at the end of the larger disk (13.9 GiB instead of
+5.9 GiB). An application deletes the package archives it downloaded from
+`/state/staging` as soon as they are unpacked. An application that runs out of
+space ends with a failure status before the restart, as every failed application
+does; the declaration in force stays in force. `test-game-sequence.sh` replays the
+plan's game case with the free space printed around every application.
+The source archive holds the files that `archive-members.txt` lists; third-party
+inputs are named with their checksums in `pinned-inputs.tsv`, and the records that
+these documents cite are in `evidence/`.
+
+Revision 52 changes no command and no syntax. A declaration whose archive state has
+another release of a package than the one its guarded file was built from is built
+again; the guarded file is installed for whatever release the line names, as
+revision 29 below says, and the assembly log names each such replacement
+(`reader override built from release R replaces PATH of another release of
+PACKAGE`). Releases 0.42–0.51 refused such a declaration.
+
+Revision 51 changes queries only; revisions 50 and 49 below stay in force.
+
+- `podman images` and `podman ps` of an account without recorded images, root
+  included, print the empty list and end with status 0. `podman image exists NAME`
+  answers from the declaration in force: status 0 for an image recorded for the
+  calling account and applied, 1 otherwise.
+- A recorded image that has no `/etc/mtab` runs: the link to `/proc/mounts` that the
+  native runtime adds is added when the image is prepared at start.
+- `npm ls -g` (`npm list --global`, optionally `--depth=0`) prints `/opt/confos/npm`
+  and one `NAME@VERSION` for each recorded and applied `npm` line.
+
+Revision 50 adds two recording tools and repairs three queries; revision 49 below
+stays in force.
+
+- `groupadd [-g GID] NAME` and `groupdel NAME`, as root, record and remove the line
+  `group NAME GID`. `modprobe NAME` and `modprobe -r NAME`, as root, record and
+  remove the line `setting module:NAME loaded`. Reply and wait as for every
+  recording tool: `RECORDED SHA256; run confos apply`, then `sudo confos apply`
+  and `confos status` printing `APPLIED SHA256`. Before the application nothing is
+  in force: the group does not exist and the module is not loaded by the request.
+  After it `getent group NAME` answers and `/proc/modules` lists the module; the
+  list of declared modules is `/etc/confos/modules.json` (present only when a
+  module line exists).
+- `timedatectl show -p Timezone` prints `Timezone=VALUE`, with `--value` the value
+  alone; without a `setting timezone` line the value is `UTC`.
+- `systemctl is-enabled NAME` and `systemctl is-active NAME` of a `service` line
+  print `enabled` or `disabled`, `active` or `inactive`, with the native exit
+  statuses (0; 1 for not enabled; 3 for not active). `confos services` is unchanged.
 
 Revision 49 changes where the recording tools are, not what they do.
 

@@ -215,3 +215,31 @@ Each repair has a test that fails on the fourth freeze and passes on the fifth (
 Under R3–R5 nothing else changed: the rows keep their outcome and question; the decisions of the review are applied when the outcomes are assigned.
 Fifth freeze: `run/src11` (`run` `c5f856085f5549bbd9ed6bef18f22e310b15a596db906d0baee8c4bb498e324e`; the other eleven
 program files are byte-identical to the fourth freeze).
+
+## [f6] New cases from the successes of the search — added 2026-11-25 00:45–01:43 UTC, sixth freeze
+
+Plan, Section 9.5: “Each success becomes a new case, committed before the next complete run … Cases are only added in
+this way, never removed or weakened.” No case was removed or changed.
+
+- **Added: 19 cases of P4, `P4-S-*` (`CASES.md`, section P4-S).** 14 are the direct routes of the search that ran on
+  release 0.32 (`search/routes-0.32.tsv`, group `direct`, result `RAN`), 3 are the attempts 202, 234 and 241 of
+  `search/attempts-0.32.tsv`, 2 are the builder's finding that saved Basic macro libraries run
+  (`build/IMPOSSIBLE.md`). Attempt 256 has no case: its recorded output is the refusal. The cases are written by
+  `tools/make-search-cases.py` into `casedefs_search.py`, which `casedefs.py` reads; the attempt of a route case is
+  the route's own script, its probe is the condition of that script's `RESULT RAN` line. Test: the development runs
+  `dev-16-old` (the route cases on 0.32, where each route ran, and the macro cases on 0.52, where the builder says
+  they run: every case must be `fail`) and `dev-16-new` (all 19 on 0.52): `dev-16-old` on 0.32 (00:53–01:19 UTC): 17
+  of 17 route cases `fail`, each by its probe, which did not hold before the attempt; the two macro cases on 0.52
+  are `fail` by both probes (in `dev-16-new`: their separate run `dev-16-old-lo` on the same release was stopped as
+  a twin and removed); `dev-16-new` on 0.52 (00:53–01:37 UTC): P4-S-089, -090, -107, -108 `pass`; P4-S-054, -056,
+  -111, -160, -161, -162, -166, -202, -234, -241 `undecided` (Q11, Q12, S8.3-7); P4-S-LO-1, -LO-2 `fail` by their
+  probes; P4-S-135, -136, -167 `fail` by the process of the recorded mpv that remains after the refused route and
+  whose executable root cannot read (`[exe-unreadable]`, `REQUESTS.md` entry 15). Also
+  `selftest/run/check-search-cases.sh` (the cases are the program's output; the rows are in `CASES.md`; `run --list`
+  equals `CASES.md`): `RESULT: PASS`.
+- **The cases beyond the plan** (not part of `CASES.md` or of a complete run): `X-REC-GROUP` and `X-REC-MODULE` are
+  performed from release 0.50, where `build/CHOICES.md` names `groupadd` and `modprobe` as recording.
+Sixth freeze: `run/src13` (`casedefs.py` `8e153000e03d9e78ff57fd72e9015ebb2ed1d5eb0289747f05ae0ee687693bf5`, new
+`casedefs_search.py` `59f41c31d2582e9b3d42cdcf42c516e5a57195312ed6e0868edb019b3e084298`; the other eleven program files
+are byte-identical to the fifth freeze). No row of complete run 2 is `fail` or `unobserved` because of a program of
+the case party (`RUN-2.md`), so nothing was repaired.

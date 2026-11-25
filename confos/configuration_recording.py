@@ -12,7 +12,8 @@ import tempfile
 import recording
 
 LOCK = Path('/run/confos-apply.lock')
-TOOLS = {'hostnamectl', 'timedatectl', 'sysctl', 'systemctl', 'useradd', 'usermod', 'userdel'}
+TOOLS = {'hostnamectl', 'timedatectl', 'sysctl', 'systemctl', 'useradd', 'usermod', 'userdel',
+         'groupadd', 'groupdel', 'modprobe'}
 
 
 def authority(euid, uid, environment):
@@ -77,6 +78,22 @@ def request(tool, arguments):
                 raise ValueError('supplementary groups require distinct names; use an empty value for none')
             fields[4] = ','.join(groups) or '-'
         return 'account', (tool, args[0], fields, append_groups)
+    if tool in ('groupadd', 'groupdel'):
+        gid = None
+        if tool == 'groupadd' and len(args) == 3 and args[0] in ('-g', '--gid'):
+            gid = args[1]
+            args = args[2:]
+        if len(args) != 1 or not re.fullmatch('[a-z_][a-z0-9_-]*', args[0]):
+            raise ValueError('supported request: groupadd [-g GID] NAME; groupdel NAME')
+        if gid is not None and (not re.fullmatch('[0-9]+', gid) or not 1 <= int(gid) <= 4294967294):
+            raise ValueError('group recording requires GID 1..4294967294')
+        return 'group', (tool, args[0], gid)
+    if tool == 'modprobe':
+        remove = args[:1] in (['-r'], ['--remove'])
+        names = args[1:] if remove else args
+        if len(names) != 1 or not re.fullmatch('[a-z0-9][a-z0-9_-]*', names[0]):
+            raise ValueError('supported request: modprobe NAME; modprobe -r NAME (no options or module parameters)')
+        return 'module', (remove, names[0].replace('-', '_'))
     if tool in ('hostnamectl', 'timedatectl'):
         operation, key = ('set-hostname', 'hostname') if tool == 'hostnamectl' else ('set-timezone', 'timezone')
         if len(args) != 2 or args[0] != operation:
@@ -148,8 +165,10 @@ def validate(rows):
     import assemble
     assemble.declared_hostname(rows)
     assemble.validate_accounts(rows)
+    assemble.declared_modules(rows)
     accounts = {r[1]: r for r in rows if r[0] == 'account'}
-    groups = {'root', 'wheel', 'nogroup'}
+    # A `group` line may stand anywhere: a tool appends it after the account lines.
+    groups = {'root', 'wheel', 'nogroup'} | {row[1] for row in rows if row[0] == 'group'}
     for row in rows:
         if row[0] == 'account':
             groups.add(row[1])
@@ -157,7 +176,7 @@ def validate(rows):
                 raise ValueError('unknown or forward supplementary group reference')
         elif row[0] == 'setting':
             name, value = row[1:]
-            if name == 'hostname' or (name == 'timezone' and value in ('UTC', 'Etc/UTC')):
+            if name == 'hostname' or (name == 'timezone' and value in ('UTC', 'Etc/UTC')) or name.startswith('module:'):
                 continue
             if not (name.startswith('sysctl:') and re.fullmatch('[A-Za-z0-9_.]+', name[7:]) and '\n' not in value):
                 raise ValueError('unsupported setting '+name)
@@ -264,11 +283,94 @@ def edit_account(original, rows, data):
     return candidate
 
 
+def remove_lines(original, identity):
+    """Drop every line whose first tokens equal identity; keep an inline comment as its own line."""
+    output = []
+    for line in original.decode('utf-8').splitlines(keepends=True):
+        row = shlex.split(line, comments=True)
+        if row[:len(identity)] != list(identity):
+            output.append(line)
+            continue
+        suffix = line[spans(line)[-1][1]:]
+        if '#' in suffix:
+            output.append(suffix.lstrip())
+    return ''.join(output)
+
+
+def append_line(original, row):
+    output = original.decode('utf-8')
+    if output and not output.endswith('\n'):
+        output += '\n'
+    return output+shlex.join(row)+'\n'
+
+
+def edit_group(original, rows, data):
+    """groupadd NAME -> `group NAME GID`; groupdel NAME removes that line."""
+    tool, name, gid = data
+    if name in ('root', '_apt', 'wheel', 'nogroup'):
+        raise ValueError('reserved group name')
+    existing = next((row for row in rows if row[:2] == ['group', name]), None)
+    if tool == 'groupadd':
+        if any(row[:2] == ['account', name] for row in rows):
+            raise ValueError('an account line already provides this group name')
+        if existing is not None:
+            if gid in (None, existing[2]):
+                return original
+            raise ValueError('group already exists with a different GID')
+        if gid is None:
+            # Deterministic default, like the account default: the first unused number from 1000.
+            used = {int(row[index]) for row in rows if row[0] == 'account' for index in (2, 3)}
+            used |= {int(row[2]) for row in rows if row[0] == 'group'}
+            number = 1000
+            while number in used:
+                number += 1
+            gid = str(number)
+        output = append_line(original, ['group', name, gid])
+    else:
+        if existing is None:
+            if any(row[:2] == ['account', name] for row in rows):
+                raise ValueError('this group belongs to an account line; use userdel')
+            return original
+        if any(row[0] == 'account' and name in row[4].split(',') for row in rows):
+            raise ValueError('group is a supplementary group of a declared account; edit that account first')
+        output = remove_lines(original, ('group', name))
+    validate([row for line in output.splitlines() if (row := shlex.split(line, comments=True))])
+    return output.encode('utf-8')
+
+
+def edit_module(original, rows, data):
+    """modprobe NAME -> `setting module:NAME loaded`; modprobe -r NAME removes that line."""
+    remove, name = data
+    key = 'module:'+name
+    existing = [row for row in rows if row[0] == 'setting' and row[1].replace('-', '_') == key]
+    if remove:
+        if not existing:
+            return original
+        output = original.decode('utf-8')
+        for row in existing:
+            output = remove_lines(output.encode('utf-8'), ('setting', row[1]))
+    else:
+        if existing:
+            return original
+        # Refuse here what the application would refuse: a name that is no module file
+        # of the installed kernel (built-in code and unknown names have no line).
+        if not any(path.name.split('.ko')[0].replace('-', '_') == name
+                   for path in Path('/usr/lib/modules').rglob('*.ko*')):
+            raise ValueError('not a loadable module of the installed kernel: '+name)
+        output = append_line(original, ['setting', key, 'loaded'])
+    validate([row for line in output.splitlines() if (row := shlex.split(line, comments=True))])
+    return output.encode('utf-8')
+
+
 def edit(original, rows, tool, arguments, environment):
     validate(rows)
     kind, data = request(tool, arguments)
     if kind == 'account':
         return edit_account(original, rows, data)
+    if kind == 'group':
+        return edit_group(original, rows, data)
+    if kind == 'module':
+        return edit_module(original, rows, data)
     replacements = {}
     additions = {}
     if kind == 'settings':

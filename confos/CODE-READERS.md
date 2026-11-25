@@ -1,11 +1,15 @@
 # Saved code readers — 2026-11-24 UTC
 
-Current published release42: native mpv/libmpv Lua/JavaScript and discovery guards
-passed in41; pdb/gyp/curl guards and native apt/dpkg/cron store denials passed in42.
-Exact originals, native positives, removal and outside-inventory evidence are in
-STATE.md, MPV-041-DOCUMENTATION.md and records/readers-0.42.log. Release43 work
-adds native ed; its canonical gates are pending. OpenSSH saved configuration,
-separately installed embedded libraries and document macros remain unclaimed.
+Current published release44: native mpv/libmpv Lua/JavaScript and discovery
+checks passed in41; pdb/gyp/curl and native apt/dpkg/cron store denials in42;
+native ed in43 and exact OpenSSH saved configuration checks in44. Evidence and
+limits are in STATE.md, MPV-041-DOCUMENTATION.md, evidence/readers-0.42.log,
+evidence/nft-ed-0.43.log and evidence/tools-0.44.log. SSH automatic config creation
+was refused by the mount; that native automatic branch remains unobserved.
+Separately installed embedded libraries and document macros remain unclaimed.
+The embedded-python-private filename-API diagnostic on declared libpython3.13
+and sealed44 confirmed six saved-code bypasses (ordinary/root); IMPOSSIBLE.md
+and evidence/embedded-python-private retain exact commands and identities.
 
 The release-by-release prototype observations below are historical. Their older
 “open”/“pending” labels describe the named release, not the current implementation.
@@ -18,7 +22,7 @@ the exact packaged manifest/provenance; unknown runtime versions are unclaimed.
 Standalone Flatpak-runtime prototypes now pass bounded guest checks: static
 Bash nine direct refusals plus recorded/source/startup/typed/data controls;
 Python3.14 twenty-one direct refusals plus seven positive controls. Evidence:
-records/flatpak-bash-0.34.log and records/flatpak-python-0.34.log. These are declared
+evidence/flatpak-bash-0.34.log and evidence/flatpak-python-0.34.log. These are declared
 standalone programs, not replacements for the original runtime readers. Original
 readers remain open. ABI/optional-module/provenance and OSTree-object exposure
 limits are listed in flatpak-reader-integration-draft.md; no integration claim.
@@ -35,21 +39,21 @@ Their native tests passed; release verification is tracked in STATE.md.
 
 | Reader | Direct input routes | Current evidence/status |
 |---|---|---|
-| Bash | script file, stdin, source/dot, BASH_ENV, rcfile, fd aliases, redirected parser input | Patched prototype closes32 tested routes in home/tmp/shm, including root; declared script runs as file/stdin/source. records/bash-code-routes.log. Native26 remains open. |
-| CPython | script/stdin, -m, source/bytecode imports, zipimport, runpy, .pth, startup | Patched prototype closes38 tested routes, with recorded/typed/data controls; records/python-code-routes.log. First sourceless.pyc bypass preserved and repaired. Native26 open. |
-| Perl | script/stdin, require/do, modules, startup options | Patched prototype closes33 tested routes plus recorded/typed/data/native-module controls; records/perl-code-routes.log. Native26 with Perl installed remains open. |
-| BusyBox ash/sh | script/stdin, source/dot, startup | Candidate28 passes native aliases and restart with39 total BusyBox refusals plus recorded/typed/data controls. records/native-reader-routes-0.28.log. |
-| dash, other package shells | script/stdin, dot, startup | Candidate29 native dash/awk/sed passes69 refusal routes and recorded/typed/data controls before/after restart, plus optional removal. records/native-optional-readers-0.29.log. Other package shells remain open. |
-| BusyBox awk; GNU awk; mawk | -f program, included program files | Native29 file/fd routes passed before/after restart; optional removal and gawk exact arithmetic/native extension controls passed. records/native-optional-readers-0.29.log. |
-| BusyBox sed; GNU sed | -f program (including command execution where supported) | Native29 file/fd routes passed before/after restart with recorded/data controls; optional removal restores the base BusyBox alias. records/native-optional-readers-0.29.log. |
-| GNU make | -f/default makefile, includes, startup environment | Candidate29 native make passes30 refusals and recorded/typed/pipe controls before/after restart, plus removal; records/native-optional-readers-0.29.log. Fixed inherited temp cleanup after first run deleted a fixture. Checked stdin uses sealed anonymous memory. Not mediated in28. |
-| Node.js | script, CommonJS/ES module imports, preload, stdin, package.json resolver settings, snapshot builder/config/blob, dotenv, policy | Repaired native30 passes79 direct-route refusals before/after restart and removal;24 additional snapshot/environment/policy refusals, recorded snapshot loading after restart and other recorded/typed/data controls passed. records/native-node-0.30.log and node-snapshots-0.30.log. Not included in29. |
-| Git | hooks, executable aliases and configurable external commands | Native28 alternate/local/include aliases executed, including sudo and after restart; records/git-readers-0.28.log. Candidate31 native routes, helper aliases, recorded alias/hook/repository controls, restart and removal passed; records/native-git-0.31.log. Release verification remains pending. |
+| Bash | script file, stdin, source/dot, BASH_ENV, rcfile, fd aliases, redirected parser input | Patched prototype closes32 tested routes in home/tmp/shm, including root; declared script runs as file/stdin/source. evidence/bash-code-routes.log. Native26 remains open. |
+| CPython | script/stdin, -m, source/bytecode imports, zipimport, runpy, .pth, startup | Patched prototype closes38 tested routes, with recorded/typed/data controls; evidence/python-code-routes.log. First sourceless.pyc bypass preserved and repaired. Native26 open. |
+| Perl | script/stdin, require/do, modules, startup options | Patched prototype closes33 tested routes plus recorded/typed/data/native-module controls; evidence/perl-code-routes.log. Native26 with Perl installed remains open. |
+| BusyBox ash/sh | script/stdin, source/dot, startup | Candidate28 passes native aliases and restart with39 total BusyBox refusals plus recorded/typed/data controls. evidence/native-reader-routes-0.28.log. |
+| dash, other package shells | script/stdin, dot, startup | Candidate29 native dash/awk/sed passes69 refusal routes and recorded/typed/data controls before/after restart, plus optional removal. evidence/native-optional-readers-0.29.log. Other package shells remain open. |
+| BusyBox awk; GNU awk; mawk | -f program, included program files | Native29 file/fd routes passed before/after restart; optional removal and gawk exact arithmetic/native extension controls passed. evidence/native-optional-readers-0.29.log. |
+| BusyBox sed; GNU sed | -f program (including command execution where supported) | Native29 file/fd routes passed before/after restart with recorded/data controls; optional removal restores the base BusyBox alias. evidence/native-optional-readers-0.29.log. |
+| GNU make | -f/default makefile, includes, startup environment | Candidate29 native make passes30 refusals and recorded/typed/pipe controls before/after restart, plus removal; evidence/native-optional-readers-0.29.log. Fixed inherited temp cleanup after first run deleted a fixture. Checked stdin uses sealed anonymous memory. Not mediated in28. |
+| Node.js | script, CommonJS/ES module imports, preload, stdin, package.json resolver settings, snapshot builder/config/blob, dotenv, policy | Repaired native30 passes79 direct-route refusals before/after restart and removal;24 additional snapshot/environment/policy refusals, recorded snapshot loading after restart and other recorded/typed/data controls passed. evidence/native-node-0.30.log and node-snapshots-0.30.log. Not included in29. |
+| Git | hooks, executable aliases and configurable external commands | Native28 alternate/local/include aliases executed, including sudo and after restart; evidence/git-readers-0.28.log. Candidate31 native routes, helper aliases, recorded alias/hook/repository controls, restart and removal passed; evidence/native-git-0.31.log. Release verification remains pending. |
 | Embedded Python/Perl libraries | Native API script/import readers | Standalone executable patches do not replace separately installed libpython/libperl packages. Embedded routes need independent tests and library integration. |
-| Neovim/Vim/BusyBox vi | startup scripts, source, embedded language/plugin readers | Original recorded Neovim0.10.4 AppImage executes all27 tested direct inputs; records/nvim-readers-0.29.log. Candidate32 passes45 refusals through the launcher/internal binary and after restart, recorded/typed/data/document controls and shared/final-owner removal; records/native-nvim-0.32.log. Vim/BusyBox vi remain untested. |
-| LibreOffice | document macros and executable configuration | Needs direct-route inspection and ordinary-document controls. |
-| Flatpak/OCI payload interpreters | Same readers inside recorded application/runtime/image | Recorded Flatpak on30 executes all9 tested shell/Python/mpv-Lua routes in home/tmp/shm; recorded controls pass. App context is unconfined and shm executable. records/flatpak-reader-routes-0.30.log. OCI still needs direct-route evidence. |
-| LinuxGSM | shell launcher and downloaded shell functions | Recorded immutable launcher install/run/update/removal passed with patched native shell on28; records/game-0.28.log. |
+| Neovim/Vim/BusyBox vi | startup scripts, source, embedded language/plugin readers | Original recorded Neovim0.10.4 AppImage executes all27 tested direct inputs; evidence/nvim-readers-0.29.log. Candidate32 passes45 refusals through the launcher/internal binary and after restart, recorded/typed/data/document controls and shared/final-owner removal; evidence/native-nvim-0.32.log. Vim/BusyBox vi remain untested. |
+| LibreOffice | Basic libraries of a profile, linked libraries, macro and script addresses; document macros and events reach the same interpreter | 0.46–0.53 executed saved libraries (evidence/basic-macros-0.52-control.log: 6 of 6 routes of the ordinary account). From 0.54 the interpreter executes nothing: 12 attempts, none executed, with deb13u9 and deb13u12; document conversion and reading pass (evidence/basic-macros-0.54-u9.log, evidence/basic-macros-0.54-u12.log). Recorded Basic does not run either (CHOICES.md, Revision 54). Other script languages of the suite are not examined. |
+| Flatpak/OCI payload interpreters | Same readers inside recorded application/runtime/image | Recorded Flatpak on30 executes all9 tested shell/Python/mpv-Lua routes in home/tmp/shm; recorded controls pass. App context is unconfined and shm executable. evidence/flatpak-reader-routes-0.30.log. OCI still needs direct-route evidence. |
+| LinuxGSM | shell launcher and downloaded shell functions | Recorded immutable launcher install/run/update/removal passed with patched native shell on28; evidence/game-0.28.log. |
 | ELF loader/native exec | direct path, loader argument, native shared-object load | Existing noexec/AppArmor refuses tested home-native and loader routes; code19 evidence. |
 
 Prototype mechanism: checks the already-open descriptor. A regular code input must
@@ -72,8 +76,8 @@ interpreter. Record its effects separately; do not close typed/piped commands.
 
 Development33 evidence retained in34: native BusyBox vi saved .exrc refusals and
 recorded option-value, typed option-value, ordinary save, root, restart and removal
-controls pass (records/native-vi-0.33.log). Startup shell-command SIGSEGV is also
-present upstream; records/vi-startup-baseline.log records both binaries.
+controls pass (evidence/native-vi-0.33.log). Startup shell-command SIGSEGV is also
+present upstream; evidence/vi-startup-baseline.log records both binaries.
 Flatpak processes now enter confos-flatpak(enforce); recorded Python/Lua and mpv
 controls pass, but all9 original shell/Python/mpv-Lua direct routes remain open
-(records/flatpak-confined-0.33.log). Confinement alone does not mediate code reads.
+(evidence/flatpak-confined-0.33.log). Confinement alone does not mediate code reads.

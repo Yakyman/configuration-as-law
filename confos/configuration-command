@@ -8,7 +8,9 @@ sys.path.insert(0, '/usr/lib/confos')
 import configuration_recording
 tool = Path(sys.argv[0]).name
 args = sys.argv[1:]
-mutation = (tool in ('useradd', 'usermod', 'userdel') or
+mutation = (tool in ('useradd', 'usermod', 'userdel', 'groupadd', 'groupdel') or
+            tool == 'modprobe' and not any(a in ('-n', '--dry-run', '--show-depends', '-D', '-c', '--showconfig',
+                                                 '-V', '--version', '-h', '--help') for a in args) or
             tool == 'hostnamectl' and args[:1] == ['set-hostname'] or
             tool == 'timedatectl' and args[:1] == ['set-timezone'] or
             tool == 'sysctl' and args[:1] == ['-w'])
@@ -19,8 +21,11 @@ if mutation:
         raise SystemExit(tool+': '+str(error))
     raise SystemExit(0)
 # Query forwarding is deliberately finite; no native mutation option is admitted.
+timezone_show = (['show', '-p', 'Timezone'], ['show', '--property=Timezone'],
+                 ['show', '-p', 'Timezone', '--value'], ['show', '--value', '-p', 'Timezone'],
+                 ['show', '--property=Timezone', '--value'], ['show', '--value', '--property=Timezone'])
 allowed = (tool == 'hostnamectl' and args in (['--static'], ['status'], []) or
-           tool == 'timedatectl' and args in (['status'], ['show', '-p', 'Timezone'], []) or
+           tool == 'timedatectl' and (args in (['status'], []) or args in timezone_show) or
            tool == 'sysctl' and bool(args) and
            all(re.fullmatch(r'[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*', a) for a in (args[1:] if args[0] == '-n' else args)))
 if not allowed or (tool == 'sysctl' and args == ['-n']):
@@ -29,8 +34,12 @@ if not allowed or (tool == 'sysctl' and args == ['-n']):
 if tool == 'hostnamectl' and args == ['--static']:
     print(Path('/etc/hostname').read_text().strip())
     raise SystemExit(0)
-if tool == 'timedatectl' and args == ['show', '-p', 'Timezone']:
-    print('Timezone='+Path('/etc/timezone').read_text().strip())
+if tool == 'timedatectl' and args in timezone_show:
+    # Without a `setting timezone` line no zone file is installed and the C library
+    # uses UTC; up to 0.49 this query failed on the absent /etc/timezone.
+    zone = Path('/etc/timezone')
+    value = zone.read_text().strip() if zone.is_file() else 'UTC'
+    print(value if '--value' in args else 'Timezone='+value)
     raise SystemExit(0)
 native = ('/usr/bin/' if tool in ('hostnamectl', 'timedatectl') else '/usr/sbin/')+tool
 os.environ.clear()

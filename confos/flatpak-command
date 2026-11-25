@@ -24,7 +24,13 @@ if operation and operation[0] in ('install', 'uninstall', 'remote-add'):
     except (ValueError, OSError) as error:
         raise SystemExit('flatpak: '+str(error))
     raise SystemExit(0)
-if args == ['--version'] or args == ['list']:
+LIST_OPTIONS = ('--app', '--runtime', '--all', '-a', '--system', '--user', '-d', '--show-details')
+def list_query(arguments):
+    # A query changes nothing: `list` answers from what is in force, with its native options.
+    return bool(arguments) and arguments[0] == 'list' and all(
+        arg in LIST_OPTIONS or (arg.startswith('--columns=') and arg[10:].replace(',', '').isalpha())
+        for arg in arguments[1:])
+if args == ['--version'] or list_query(args):
     native = args
 elif args and args[0] == 'info' and len(args) == 2 and args[1] in refs:
     native = ['info', '--system', args[1]]

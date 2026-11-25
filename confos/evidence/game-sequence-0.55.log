@@ -1,0 +1,69 @@
+2026-11-25 03:37:06 UTC
+virtual size: 20 GiB (21474836480 bytes)
+disk size: 1.76 GiB
+    disk size: 1.76 GiB
+clean installation in force: APPLIED 2067511a3fd4066618bc96d9e575f6d7e469080e3d694e0c44bcae921ce92233
+lines added by the case: 27
+first declaration of the case: 938a85c35e815c32d8ee2a192154a4b680931c370001520827f306277a70b67d
+--- space: before the application of the launcher line 26.5.0
+    Mounted on 1M-blocks  Used Avail
+    /state         13880   532 12623
+    /system         5960  1505  4133
+    530	/state/files
+    1121	/system/generations
+    383	/system/base-packages
+    7	/home
+    1	/var
+    confos apply ended with status 255 (255: the connection closed at the restart)
+    REMOTE_BUILD/game-sequence-0.55/apply.out:REBOOTING; reconnect and run confos status
+    lowest free space seen during the application: /state 7942 MiB, /system 2884 MiB
+    /state at that moment (MiB): 530	/state/files;57	/state/staging/apt;1	/state/staging/declaration.conf;530	/state/staging/files;99	/state/staging/initramfs;10	/state/staging/ownership.pseudo;2707	/state/staging/root;1281	/state/staging/root.sqfs;
+    APPLIED 938a85c35e815c32d8ee2a192154a4b680931c370001520827f306277a70b67d
+--- space: after the application of the launcher line 26.5.0
+    Mounted on 1M-blocks  Used Avail
+    /state         13880   532 12623
+    /system         5960  1775  3863
+    530	/state/files
+    1391	/system/generations
+    383	/system/base-packages
+    277	/home
+    1	/var
+    lrwxrwxrwx    1 person   person           0 Nov 25 03:41 /proc/1386/exe -> /home/person/game/serverfiles/etded.x86
+    the game server of launcher 26.5.0 was started, seen running and stopped
+second declaration of the case: 50a5a3e6a13c86f22696a95f65a10b063aa91631509dc520a581a3cc0da35541
+--- space: before the application of the launcher line 26.6.0
+    Mounted on 1M-blocks  Used Avail
+    /state         13880   785 12369
+    /system         5960  1775  3863
+    783	/state/files
+    1391	/system/generations
+    383	/system/base-packages
+    277	/home
+    1	/var
+    confos apply ended with status 255 (255: the connection closed at the restart)
+    REMOTE_BUILD/game-sequence-0.55/apply.out:REBOOTING; reconnect and run confos status
+    lowest free space seen during the application: /state 7688 MiB, /system 2472 MiB
+    /state at that moment (MiB): 783	/state/files;57	/state/staging/apt;1	/state/staging/declaration.conf;530	/state/staging/files;99	/state/staging/initramfs;10	/state/staging/ownership.pseudo;2707	/state/staging/root;1281	/state/staging/root.sqfs;
+    APPLIED 50a5a3e6a13c86f22696a95f65a10b063aa91631509dc520a581a3cc0da35541
+--- space: after the application of the launcher line 26.6.0
+    Mounted on 1M-blocks  Used Avail
+    /state         13880   785 12369
+    /system         5960  1775  3863
+    783	/state/files
+    1391	/system/generations
+    383	/system/base-packages
+    277	/home
+    1	/var
+    lrwxrwxrwx    1 person   person           0 Nov 25 03:47 /proc/1383/exe -> /home/person/game/serverfiles/etded.x86
+    the game server of launcher 26.6.0 was started, seen running and stopped
+    the person's own launcher (saved, not recorded) ended with status 126
+--- space: at the end of the case
+    Mounted on 1M-blocks  Used Avail
+    /state         13880   785 12369
+    /system         5960  1775  3863
+    783	/state/files
+    1391	/system/generations
+    383	/system/base-packages
+    278	/home
+    1	/var
+GAME SEQUENCE PASS (0.55)

@@ -1,0 +1,63 @@
+=== route 111 by name
+apt-get: permission denied: this account may not change /state/declaration.conf; use an authorized root invocation
+ls: cannot access '/tmp/mark-111': No such file or directory
+--- exit 2
+=== route 111 by full path
+bash: line 1: /usr/bin/apt-get: Permission denied
+ls: cannot access '/tmp/mark-111': No such file or directory
+--- exit 2
+=== route 111 by full path as root
+env: ‘/usr/bin/apt-get’: Permission denied
+ls: cannot access '/tmp/mark-111': No such file or directory
+--- exit 2
+RESULT route 111: refused, no mark
+=== attempt 202
+dpkg: error: you do not have permission to lock the dpkg database directory /var/lib/dpkg
+E: Sub-process dpkg --set-selections returned an error code (2)
+E: Executing dpkg failed. Are you root?
+dpkg: error: you do not have permission to lock the dpkg database directory /var/lib/dpkg
+E: Sub-process dpkg --set-selections returned an error code (2)
+E: Executing dpkg failed. Are you root?
+--- exit 0
+RESULT attempt 202: no hold in force
+=== attempt 234
+/var/spool/cron/: mkstemp: Permission denied
+no crontab for user
+/var/spool/cron/: mkstemp: Permission denied
+no crontab for user
+--- exit 1
+waiting 70 s for a cron run
+RESULT attempt 234: no crontab ran
+=== query timedatectl --value
+timedatectl: unsupported request; see the documented declaration recording forms
+Traceback (most recent call last):
+  File "/usr/local/bin/timedatectl", line 33, in <module>
+    print('Timezone='+Path('/etc/timezone').read_text().strip())
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 548, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 539, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/etc/timezone'
+--- exit 1
+=== query systemctl is-enabled of a declared service
+not-found
+sleeper enabled 299
+--- exit 0
+=== query full-path refusals
+bash: line 1: /usr/bin/apt-get: Permission denied
+bash: line 1: /usr/sbin/sysctl: No such file or directory
+Linux
+bash: line 1: /usr/bin/hostnamectl: Permission denied
+confos-test
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+--- exit 0
+RESULT declaration text and package status unchanged
+ROUTES PROBE END
+qemu-system-x86_64: terminating on signal 15 from pid 1247794 (/bin/bash)

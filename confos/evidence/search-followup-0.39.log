@@ -1,0 +1,84 @@
+images/confos-0.39-clean.qcow2: OK
+releases/confos-0.39-source.tar.gz: OK
+ssh: connect to host 127.0.0.1 port 22451: Connection refused
+Connection timed out during banner exchange
+APPLIED c92423ca22d04a4055acbb439523fba99323958b598fbb5e03c59945fe1e2a64
+COMMAND python3 -m pdb t.py </dev/null
+ConfOS: Permission denied for saved code input
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/pdb.py", line 2480, in main
+    pdb._run(target)
+    ~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/pdb.py", line 2220, in _run
+    self.run(target.code)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.13/pdb.py", line 200, in code
+    with io.open_code(self._target) as fp:
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/home/user/search-followup/t.py'
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/pdb.py", line 2480, in main
+    pdb._run(target)
+    ~~~~~~~~^^^^^^^^
+  File "/usr/lib/python3.13/pdb.py", line 2220, in _run
+    self.run(target.code)
+             ^^^^^^^^^^^
+  File "/usr/lib/python3.13/pdb.py", line 200, in code
+    with io.open_code(self._target) as fp:
+         ~~~~~~~~~~~~^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/home/user/search-followup/t.py'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/lib/python3.13/pdb.py", line 2506, in <module>
+    pdb.main()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/pdb.py", line 2493, in main
+    pdb.interaction(None, e)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/lib/python3.13/pdb.py", line 625, in interaction
+    self._cmdloop()
+    ~~~~~~~~~~~~~^^
+Uncaught exception. Entering post mortem debugging
+Running 'cont' or 'step' will restart the program
+  File "/usr/lib/python3.13/pdb.py", line 511, in _cmdloop
+    self.cmdloop()
+    ~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/cmd.py", line 146, in cmdloop
+    stop = self.onecmd(line)
+  File "/usr/lib/python3.13/pdb.py", line 865, in onecmd
+    return cmd.Cmd.onecmd(self, line)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/cmd.py", line 224, in onecmd
+    return func(arg)
+  File "/usr/lib/python3.13/pdb.py", line 1712, in do_quit
+    self.set_quit()
+    ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/bdb.py", line 416, in set_quit
+    self.stopframe = self.botframe
+                     ^^^^^^^^^^^^^
+AttributeError: 'Pdb' object has no attribute 'botframe'. Did you mean: 'curframe'?
+PDB_EXIT:1
+PDB_SAVED_INPUT_EXECUTED
+COMMAND sudo -n apt-mark hold cron; sudo -n apt-mark showhold
+cron set on hold.
+APT_HOLD_EXIT:0
+cron
+COMMAND sudo -n crontab -u user ct; sudo -n crontab -u user -l
+CRONTAB_WRITE_EXIT:0
+* * * * * /usr/bin/touch /tmp/search-cron-marker
+CRONTAB_READ_EXIT:0
+COMMAND sudo -n nsenter -t 1 -m -p -- sh -c "cat /proc/self/attr/current"
+nsenter: reassociate to namespaces failed: Operation not permitted
+NSENTER_EXIT:1
+COMMAND cat /proc/self/attr/current; sudo -n cat /proc/self/attr/current
+confos-session (enforce)
+confos-session (enforce)
+COMMAND sha256sum /state/declaration.conf; confos status
+c92423ca22d04a4055acbb439523fba99323958b598fbb5e03c59945fe1e2a64  /state/declaration.conf
+APPLIED c92423ca22d04a4055acbb439523fba99323958b598fbb5e03c59945fe1e2a64
+SEARCH FOLLOWUP OBSERVATIONS COMPLETE; NO ACCEPTANCE CLASSIFICATION
+qemu-system-x86_64: terminating on signal 15 from pid 4138858 (/bin/bash)

@@ -289,6 +289,65 @@ are kept in the evidence as `P1:P4-PIPE-n-before.record.txt` and `UND:P4-PIPE-n-
 not rows (review R6: the case is judged after the restart). Up to the fourth freeze they were rows `P1:` and `UND:`,
 `undecided` by Q4 (corrections [f5-c]).
 
+### P4-S — the successes of the search (sixth freeze)
+
+Source: plan, Section 9.5: “Each success becomes a new case, committed before the next complete run … Cases are
+only added in this way, never removed or weakened.” A success is a route of the search that ran on a release: of
+`search/routes-0.32.tsv`, every row whose group is `direct` and whose result begins with `RAN` (14 rows); of
+`search/attempts-0.32.tsv`, rows 202, 234 and 241 (row 256 is counted `RAN` by the catalogue only because its last
+command ended with status 0; its recorded output on 0.32 and on 0.49 is the refusal `nsenter: reassociate to
+namespaces failed: Operation not permitted`; it is not a success and has no case); and the builder's own finding
+that saved Basic macro libraries run (`build/IMPOSSIBLE.md`, section “saved LibreOffice Basic profile libraries,
+release 0.46”: the two `libreoffice … macro:///Standard.Module1.Main` commands, the library in the home folder and in
+`/tmp`; its library files are those of `build/lo-macro-private-inputs.py`). The release 0.52 source archive does
+not contain `IMPOSSIBLE.md` (`tar -tzf`), so both files are taken from the builder's folder; their checksums are in
+the head of `casedefs_search.py`.
+
+The cases are written by a program, not typed: `tools/make-search-cases.py ../search ../build .` writes
+`casedefs_search.py` (read by `casedefs.py`) and the rows below. It stops if a table row and its script name
+different commands, or if a direct route whose evidence file says `RESULT RAN` is not selected. The attempt of a
+route case is the route's own script (`search/routes/NNN-*.sh`, `search/attempts/NNN-*.sh`) sent as the search sent
+it: `PHASE=try` and the script, as the account, or through `sudo -n bash -c` for a route as root, after the account
+has made the route's folder (`search/tools/run-routes.py`). The probe is the condition of the script's own
+`RESULT RAN` line. The macro cases first add the line `package libreoffice-writer` and apply it (the program of
+OW-5); the builder's commands name the home of its account `user`, here the home of `person`; each command runs
+under `timeout -k 2 120` (the builder's probe uses `timeout -k 2 25`).
+
+Every P4-S case is a P4 case of the table above: `INV <ID>-pre`, the probes before the attempt [n2-5], the attempt,
+the probes, `DECL?`, `INV <ID>`, the routes, `CMP <ID>`, `attempt-delta.tsv`, `attempt-effect.tsv`, rows `P1:<ID>`
+and `UND:<ID>`; the decision is that of every saved-code case of P4. A probe that holds after the attempt and not
+before it counts against: `fail`. What the route's typed commands create — its folder `~/r/NNN` and everything in it
+(the search's harness makes it, enters it and writes the command's output there), and every path that the route's
+setup and command name outside it, except the marks of the probe — is listed as made by the person, type `obeyed`
+(material unless something obeys it or a direct route executes it). P4-S-111, P4-S-202 and P4-S-234 use a built-in
+tool (`apt-get`, `apt-mark`, `crontab`): S8.3-7 is evaluated both ways, as for P4-C1 and P4-C8 (Q13).
+
+No case above already performs one of these commands: `apt-mark`, `crontab -u`, `.curlrc`, `pdb`, `gyp`,
+`ProxyCommand`, `Match exec`, `.exrc`, `APT_CONFIG`, a saved script given to `flatpak run` or to `mpv`, and `macro:`
+occur in no other case (the one `ed -s` of OW-6 edits a document with a typed command, it runs no saved script).
+
+| ID | Success | Attempt | Probe |
+|---|---|---|---|
+| P4-S-054 | `search/routes-0.32.tsv` row 054: pdb (.pdbrc), as user | the script `search/routes/054-python-pdbrc.sh` with `PHASE=try` (its command: `printf 'import os; open("/tmp/mark-054","w").close()\nq\n' > .pdbrc && echo 'x=1' > t.py && python3 -m pdb t.py < /dev/null`) | `U: [ -e /tmp/mark-054 ]` |
+| P4-S-056 | `search/routes-0.32.tsv` row 056: gyp, as user | the script `search/routes/056-gyp-command-expansion.sh` with `PHASE=try` (its command: `printf "{'variables': {'v': '<!(touch /tmp/mark-056)'}, 'targets': []}\n" > p.gyp && gyp --depth=. --format=make p.gyp`) | `U: [ -e /tmp/mark-056 ]` |
+| P4-S-089 | `search/routes-0.32.tsv` row 089: ed, as user | the script `search/routes/089-ed-script-stdin.sh` with `PHASE=try` (its command: `printf '!touch /tmp/mark-089\nq\n' > p.ed && ed -s < p.ed`) | `U: [ -e /tmp/mark-089 ]` |
+| P4-S-090 | `search/routes-0.32.tsv` row 090: vi (busybox, .exrc), as user | the script `search/routes/090-busybox-vi-exinit.sh` with `PHASE=try` (its command: `printf ':!touch /tmp/mark-090\n' > ~/.exrc && timeout -s KILL 20 python3 -c "import pty,os; pty.spawn(['vi','-c',':q','/home/person/r/090/x'])" < /dev/null`) | `U: [ -e /tmp/mark-090 ]` |
+| P4-S-107 | `search/routes-0.32.tsv` row 107: ssh (-F file), as user | the script `search/routes/107-ssh-config-proxycommand.sh` with `PHASE=try` (its command: `printf 'Host x\n\tProxyCommand touch /tmp/mark-107\n' > c && ssh -F c x true; true`) | `U: [ -e /tmp/mark-107 ]` |
+| P4-S-108 | `search/routes-0.32.tsv` row 108: ssh (-F file, Match exec), as user | the script `search/routes/108-ssh-config-match-exec.sh` with `PHASE=try` (its command: `printf 'Match exec "touch /tmp/mark-108"\n' > c && ssh -F c -o ConnectTimeout=1 127.0.0.1 true; true`) | `U: [ -e /tmp/mark-108 ]` |
+| P4-S-111 | `search/routes-0.32.tsv` row 111: apt-get (APT_CONFIG), as user | the script `search/routes/111-apt-config-pre-invoke.sh` with `PHASE=try` (its command: `mkdir -p l/partial c/archives/partial && printf 'APT::Update::Pre-Invoke {"touch /tmp/mark-111";};\nDir::State::Lists "/home/person/r/111/l";\nDir::Cache "/home/person/r/111/c";\nDebug::NoLocking "true";\n' > a.conf && APT_CONFIG=/home/person/r/111/a.conf apt-get update; true`) | `U: [ -e /tmp/mark-111 ]` |
+| P4-S-135 | `search/routes-0.32.tsv` row 135: mpv (scripts directory of the recorded Flatpak), as user | the script `search/routes/135-mpv-user-script.sh` with `PHASE=try` (its command: `D=~/.var/app/io.mpv.Mpv/config/mpv/scripts; mkdir -p $D && printf 'io.open(os.getenv("XDG_CONFIG_HOME").."/mark135","w"):close()\nmp.commandv("quit")\n' > $D/p.lua && timeout -s KILL 40 flatpak run io.mpv.Mpv --idle=yes --vo=null --ao=null; ls ~/.var/app/io.mpv.Mpv/config`) | `U: [ -e ~/.var/app/io.mpv.Mpv/config/mark135 ]` |
+| P4-S-136 | `search/routes-0.32.tsv` row 136: mpv (--script, recorded Flatpak), as user | the script `search/routes/136-mpv-script-flag.sh` with `PHASE=try` (its command: `D=~/.var/app/io.mpv.Mpv/config; mkdir -p $D && printf 'io.open(os.getenv("XDG_CONFIG_HOME").."/mark136","w"):close()\nmp.commandv("quit")\n' > $D/p.lua && timeout -s KILL 40 flatpak run io.mpv.Mpv --script=$D/p.lua --idle=yes --vo=null --ao=null`) | `U: [ -e ~/.var/app/io.mpv.Mpv/config/mark136 ]` |
+| P4-S-160 | `search/routes-0.32.tsv` row 160: flatpak run (runtime python3), as user | the script `search/routes/160-flatpak-run-python-file.sh` with `PHASE=try` (its command: `flatpak run --command=python3 io.mpv.Mpv /home/person/.var/app/io.mpv.Mpv/r160/c.py`) | `U: [ -e /home/person/.var/app/io.mpv.Mpv/r160/mark ]` |
+| P4-S-161 | `search/routes-0.32.tsv` row 161: flatpak run (runtime sh, stdin), as user | the script `search/routes/161-flatpak-run-sh-stdin.sh` with `PHASE=try` (its command: `flatpak run --command=sh io.mpv.Mpv < /home/person/.var/app/io.mpv.Mpv/r161/c.sh`) | `U: [ -e /home/person/.var/app/io.mpv.Mpv/r161/mark ]` |
+| P4-S-162 | `search/routes-0.32.tsv` row 162: flatpak run (runtime sh, /tmp), as user | the script `search/routes/162-flatpak-run-sh-tmp.sh` with `PHASE=try` (its command: `cp /home/person/.var/app/io.mpv.Mpv/r162/c.sh /tmp/c162.sh && flatpak run --command=sh io.mpv.Mpv -c 'ls -la /tmp/c162.sh; sh /tmp/c162.sh'`) | `U: [ -e /home/person/.var/app/io.mpv.Mpv/r162/mark ]` |
+| P4-S-166 | `search/routes-0.32.tsv` row 166: flatpak run (runtime sh, source), as user | the script `search/routes/166-flatpak-run-sh-cwd-dot.sh` with `PHASE=try` (its command: `flatpak run --command=sh io.mpv.Mpv -c '. /home/person/.var/app/io.mpv.Mpv/r166/c.sh'`) | `U: [ -e /home/person/.var/app/io.mpv.Mpv/r166/mark ]` |
+| P4-S-167 | `search/routes-0.32.tsv` row 167: mpv (mpv.conf script= of the recorded Flatpak), as user | the script `search/routes/167-mpv-conf-script-option.sh` with `PHASE=try` (its command: `D=~/.var/app/io.mpv.Mpv/config/mpv; mkdir -p $D /home/person/.var/app/io.mpv.Mpv/r167 && printf 'io.open(os.getenv("XDG_CONFIG_HOME").."/mark167","w"):close()\nmp.commandv("quit")\n' > /home/person/.var/app/io.mpv.Mpv/r167/p.lua && printf 'script=/home/person/.var/app/io.mpv.Mpv/r167/p.lua\n' > $D/mpv.conf && timeout -s KILL 40 flatpak run io.mpv.Mpv --idle=yes --vo=null --ao=null`) | `U: [ -e ~/.var/app/io.mpv.Mpv/config/mark167 ]` |
+| P4-S-202 | `search/attempts-0.32.tsv` row 202: apt-mark as root, as root | the script `search/attempts/202-apt-mark-hold-recorded.sh` with `PHASE=try` (its command: `apt-mark hold ed; apt-mark showhold > /home/person/r/202/hold.txt`) | `R: grep -qx ed /home/person/r/202/hold.txt` |
+| P4-S-234 | `search/attempts-0.32.tsv` row 234: crontab -u as root, as root | the script `search/attempts/234-root-crontab-for-account.sh` with `PHASE=try` (its command: `printf '* * * * * /bin/touch /tmp/mark-234\n' > ct && crontab -u person ct; crontab -u person -l > /home/person/r/234/c.txt; cat /home/person/r/234/c.txt; sleep 70`) | `R: [ -e /tmp/mark-234 ] \|\| grep -q mark /home/person/r/234/c.txt` |
+| P4-S-241 | `search/attempts-0.32.tsv` row 241: curl (~/.curlrc), as user | the script `search/attempts/241-curlrc-obeyed.sh` with `PHASE=try` (its command: `printf 'user-agent = "P241"\n' > ~/.curlrc && (python3 -m http.server 18241 --bind 127.0.0.1 >/dev/null 2>&1 & echo $! > pid) && sleep 2 && curl -sv -o /dev/null http://127.0.0.1:18241/ 2> /home/person/r/241/v.txt; kill $(cat pid); cat /home/person/r/241/v.txt`) | `U: grep -q 'User-Agent: P241' /home/person/r/241/v.txt` |
+| P4-S-LO-1 | `build/IMPOSSIBLE.md`, saved LibreOffice Basic profile libraries, command 1 | `L+ package libreoffice-writer`; `APPLY`; `INV P4-S-LO-1-pre`; `U: libreoffice -env:UserInstallation=file:///home/person/lo-profile-user-home --headless --terminate_after_init`; the three library files of `build/lo-macro-private-inputs.py` written by `printf` into `/home/person/lo-profile-user-home/user/basic/`; `U: libreoffice -env:UserInstallation=file:///home/person/lo-profile-user-home --headless --norestore macro:///Standard.Module1.Main` | `U: test -e /tmp/lo-macro-basic-marker`; `U: test -e /tmp/lo-macro-shell-marker` |
+| P4-S-LO-2 | `build/IMPOSSIBLE.md`, saved LibreOffice Basic profile libraries, command 2 | `L+ package libreoffice-writer`; `APPLY`; `INV P4-S-LO-2-pre`; `U: libreoffice -env:UserInstallation=file:///tmp/lo-profile-user-tmp --headless --terminate_after_init`; the three library files of `build/lo-macro-private-inputs.py` written by `printf` into `/tmp/lo-profile-user-tmp/user/basic/`; `U: libreoffice -env:UserInstallation=file:///tmp/lo-profile-user-tmp --headless --norestore macro:///Standard.Module1.Main` | `U: test -e /tmp/lo-macro-basic-marker`; `U: test -e /tmp/lo-macro-shell-marker` |
+
 ## Removal (REM)
 
 Source: Table 9, Removal, “The lines of a program, a service and a rule are removed and the declaration applied; a

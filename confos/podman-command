@@ -21,9 +21,25 @@ if any(arg in ('pull', 'rmi', '--account') for arg in args):
         raise SystemExit('podman: '+str(error))
     raise SystemExit(0)
 declared = json.loads(Path('/etc/confos/containers.json').read_text()).get(person.pw_name, {})
-if not declared or person.pw_uid == 0:
+if person.pw_uid == 0:
+    declared = {}
+# `image exists NAME` answers from the declaration in force, with the native statuses.
+if len(args) == 3 and args[:2] == ['image', 'exists']:
+    raise SystemExit(0 if args[2] in declared else 1)
+if not declared:
+    # An account without recorded images has an empty list, as the native tool prints
+    # it; up to 0.50 every query of such an account, root included, ended with status 1.
+    if args in (['images'], ['image', 'ls']):
+        print('REPOSITORY  TAG         IMAGE ID    CREATED     SIZE')
+        raise SystemExit(0)
+    if args in (['ps'], ['ps', '-a'], ['ps', '--all']):
+        print('CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES')
+        raise SystemExit(0)
+    # The same empty lists in the native JSON form (up to 0.54 these ended with status 1).
+    if args[-2:] == ['--format', 'json'] and args[:-2] in (['images'], ['image', 'ls'], ['ps'], ['ps', '-a'], ['ps', '--all']):
+        print('[]')
+        raise SystemExit(0)
     raise SystemExit('podman: no container images recorded for this ordinary account')
-args = sys.argv[1:]
 debug = []
 if args and args[0] == '--log-level=debug':
     debug = [args.pop(0)]
