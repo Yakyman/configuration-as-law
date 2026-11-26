@@ -1,0 +1,1 @@
+printf 'typed-ok\n'

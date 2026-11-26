@@ -1,0 +1,120 @@
+{
+  "fixture": true,
+  "events": [
+    {
+      "request": {
+        "op": "fresh",
+        "declaration": "D-test"
+      },
+      "reply": {
+        "returncode": 0,
+        "boot_id": "fixture-boot-1"
+      }
+    },
+    {
+      "request": {
+        "op": "command",
+        "role": "user",
+        "command": "@SH@ -c 'printf shell-ok'"
+      },
+      "reply": {
+        "returncode": 0,
+        "stdout": "shell-ok",
+        "stderr": ""
+      }
+    },
+    {
+      "request": {
+        "op": "read-law",
+        "scope": "committed"
+      },
+      "reply": {
+        "declaration": {
+          "schema": 1,
+          "lines": []
+        },
+        "sha256": "fixture-law"
+      }
+    },
+    {
+      "request": {
+        "op": "inventory",
+        "scope": "all-stored-and-live"
+      },
+      "reply": {
+        "objects": [],
+        "errors": [],
+        "coverage": {
+          "stored": {
+            "status": "complete",
+            "evidence": "fixture stored"
+          },
+          "process": {
+            "status": "complete",
+            "evidence": "fixture process"
+          },
+          "port": {
+            "status": "complete",
+            "evidence": "fixture port"
+          },
+          "account": {
+            "status": "complete",
+            "evidence": "fixture account"
+          },
+          "group": {
+            "status": "complete",
+            "evidence": "fixture group"
+          },
+          "access": {
+            "status": "complete",
+            "evidence": "fixture access"
+          },
+          "service": {
+            "status": "complete",
+            "evidence": "fixture service"
+          },
+          "network": {
+            "status": "complete",
+            "evidence": "fixture network"
+          },
+          "saved-network": {
+            "status": "complete",
+            "evidence": "fixture saved-network"
+          },
+          "mount": {
+            "status": "complete",
+            "evidence": "fixture mount"
+          },
+          "module": {
+            "status": "complete",
+            "evidence": "fixture module"
+          },
+          "sysctl": {
+            "status": "complete",
+            "evidence": "fixture sysctl"
+          },
+          "locale": {
+            "status": "complete",
+            "evidence": "fixture locale"
+          },
+          "time": {
+            "status": "complete",
+            "evidence": "fixture time"
+          },
+          "hostname": {
+            "status": "complete",
+            "evidence": "fixture hostname"
+          },
+          "wifi": {
+            "status": "complete",
+            "evidence": "fixture wifi"
+          },
+          "bluetooth": {
+            "status": "complete",
+            "evidence": "fixture bluetooth"
+          }
+        }
+      }
+    }
+  ]
+}

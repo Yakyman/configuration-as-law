@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "lines": [
+    {
+      "id": "base",
+      "kind": "binding",
+      "name": "base-source-lock"
+    },
+    {
+      "id": "login",
+      "kind": "binding",
+      "name": "test-account-and-login"
+    },
+    {
+      "id": "probe",
+      "kind": "binding",
+      "name": "case-probe-package"
+    },
+    {
+      "id": "small",
+      "kind": "binding",
+      "name": "case-small-v1-package"
+    },
+    {
+      "id": "service",
+      "kind": "binding",
+      "name": "test-service"
+    },
+    {
+      "id": "access",
+      "kind": "binding",
+      "name": "test-access-rule"
+    },
+    {
+      "id": "host",
+      "kind": "binding",
+      "name": "test-hostname"
+    },
+    {
+      "id": "timezone",
+      "kind": "binding",
+      "name": "test-timezone"
+    },
+    {
+      "id": "script",
+      "kind": "file",
+      "path": "@HOME@/bin/cases-report.sh",
+      "text": "#!/bin/sh\nprintf 'cases-report ok\\n'\n",
+      "mode": "0755",
+      "uid": 1000,
+      "gid": 1000
+    }
+  ]
+}

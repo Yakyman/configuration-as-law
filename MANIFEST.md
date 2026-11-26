@@ -6857,3 +6857,11 @@ dcaf9e504168b422e36cdfc29e25b73ef157e9218e65977e178ac2479976c194  records-confos
 7cc3283a8d279538492a3b9fd7b3b13d677d351631625fce618c3b98b99af0d5  records-confos/REVIEW.md
 88d74ad2cb39c7089da1e54bbb315c1c15a8e92c8d74496e9632070aa8db18c6  records-confos/TABLE.md
 ```
+
+## 9. The checks for the reference implementation of version 5, fixed before the system was built
+
+`confos-check-v5/` as committed on 26 November 2026 (UTC), before any release of that system was built and before any case was performed. The files of this state are listed with their SHA-256 in `confos-check-v5/SHA256SUMS`.
+
+| State | `confos-check-v5/SHA256SUMS`, SHA-256 | Staged (UTC) |
+|---|---|---|
+| Fixed before the system was built | `6ca363d31edfd3c14b742f6a6f4a668539ecaa2119d3b7ddd2a61730987e8cd9` | 26 November 2026, 19:51 |

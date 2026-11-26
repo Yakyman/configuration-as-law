@@ -210,6 +210,12 @@ In the third complete run (release 0.55, 25 November 2026), 124 cases gave 458 r
 
 The inputs of the three complete runs—the source of each release, the cases and the checking programs—remain in `confos/`, `confos-check/` and `confos-check-extra/`, committed before each run (commits `425609f9`, `9e99accd` and `39533ee3`); the records refer to them by these names. Paths inside the records such as `runs/`, `search/`, `build/` or `cases/STATE.md` name working files of the check that are not published; the counts that the paper takes from them are stated in the records themselves. In the public copies, names of roles and of internal working files were replaced by the parties that the paper names; no measurement, count, case id, outcome or decision was changed.
 
+## The reference implementation of version 5: checks fixed before the system was built
+
+The sixth paper (Section 7) plans a reference implementation of version 5 of the definition with a base of its own: a small system built entirely from source, without the packages of any distribution. The folder `confos-check-v5/` holds the checks for it: the cases (`CASES.md`), the mapping of every case of the earlier check to the new system (`PORT.md`), the programs that the checks need in the system (`PROGRAMS.md`), the test declarations and payloads, the checking programs and their self-tests. `confos-check-v5/README.md` says how to run the self-tests; they test the checking programs, not a system.
+
+This state of the folder was committed on 26 November 2026, before the system existed: no release of it had been built and no case had been performed. The cases are written in terms that do not depend on how the system is built and reached. The commands that bind them to a release, and the pinned sources of the test packages, are to be committed as an addition before the first complete run; the history of the repository shows every change made to this state. Section 9 of `MANIFEST.md` gives its SHA-256. The programs in the folder are code under the MIT License (`LICENSE-CODE`), whatever their file extension.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper
@@ -247,6 +253,7 @@ definitions does not resolve).
 | `fifth-paper/`, `records-v4/`, `analysis/` | The fifth paper and the records of the third cycle; see «Version 4: results of its checks, and the plan of a reference implementation» above. | fifth paper |
 | `confos/`, `confos-check/` | The reference implementation and the inputs of its check, committed before each complete run; see «The reference implementation: inputs committed before its check» above. | fifth paper §9 |
 | `sixth-paper/`, `records-confos/` | The sixth paper and the records of the complete runs of the reference implementation; see «The reference implementation: results of its check, and version 5» above. | sixth paper |
+| `confos-check-v5/` | The checks for the reference implementation of version 5, committed before that system was built; see «The reference implementation of version 5: checks fixed before the system was built» above. | sixth paper §7 |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record

@@ -1,0 +1,27 @@
+{
+  "fixture": true,
+  "events": [
+    {
+      "request": {
+        "op": "fresh",
+        "declaration": "D-test"
+      },
+      "reply": {
+        "returncode": 0,
+        "boot_id": "fixture-boot-1"
+      }
+    },
+    {
+      "request": {
+        "op": "command",
+        "role": "user",
+        "command": "@SH@ -c 'printf shell-ok'"
+      },
+      "reply": {
+        "returncode": 0,
+        "stdout": "wrong",
+        "stderr": ""
+      }
+    }
+  ]
+}
