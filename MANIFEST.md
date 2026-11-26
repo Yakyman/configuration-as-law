@@ -6829,3 +6829,31 @@ folders; the files of a state are listed with their SHA-256 in the `SHA256SUMS` 
 | 1 | 0.32 | `61d290744606b4804b298217d340df5445cf276ea2b3ad69cc024e9457261001` | `7fb37eeb9f3725d06eba03fc3acae0eab3f8bb0fb2313b2e54191eb570c31dc5` | `38a066819614ddbd0fde81581eb3bf960857c1b6bbc01d6d9f98821811297862` | 24 November 2026, 16:26 | — |
 | 2 | 0.49 | `0f71e751f85a05fba1a8f8c726c823109a6dec6feaa1d27e210e5c729d9ef4db` | `fa82d99eb59928f3c44b1daa974bd0f636932f3abf7cf5f9ebf6c36bea5cd534` | `ac7edf5f76c4e98318244960b5463103c9c89d18f5fbe3d44e5db42fc5a4247a` | 24 November 2026, 23:02 | — |
 | 3 | 0.55 | `eb901118dc725dfbadfc46ee56069f4fa631903fdb08eec25bf763f6a12acdd1` | `f71eaf1200c504e9fc1e0609e37d7ba4b041960f38e3f8d02f2c196771e4493d` | `d5624245f7d9f158f9c90822ad9c3cf89bab7c1fae0555cd7c6ef9e322a13c0b` | 25 November 2026, 04:59 | `65d8e67af68f48993527851722c07b416052c517884fbb3bdbfec15b1c0b20bf` |
+
+## 8. The sixth paper and the records of the reference implementation
+
+The following entries reproduce the sentences of the sixth paper’s records section and identify their files. Paths are relative to the repository root. The inputs of the complete runs remain in `confos/`, `confos-check/` and `confos-check-extra/`; section 7 lists the SHA-256 of each of their states. Times in the records are UTC.
+
+| Entry of the records section | Files in this repository |
+|---|---|
+| The source of the implementation, with the list of the choices that the text leaves to a system. | [`confos`](confos) |
+| The cases and the checking programs. | [`confos-check`](confos-check) |
+| The cases beyond the plan. | [`confos-check-extra`](confos-check-extra) |
+| The list of the complete runs. | [`records-confos/RUNS.md`](records-confos/RUNS.md) |
+| The summary of each run and of the cases beyond the plan. | [`records-confos/RUN-1.md`](records-confos/RUN-1.md); [`records-confos/RUN-2.md`](records-confos/RUN-2.md); [`records-confos/RUN-3.md`](records-confos/RUN-3.md); [`records-confos/RUN-3-EXTRA.md`](records-confos/RUN-3-EXTRA.md) |
+| The decisions of the review. | [`records-confos/REVIEW.md`](records-confos/REVIEW.md) |
+| The full table of Section 6.1. | [`records-confos/TABLE.md`](records-confos/TABLE.md) |
+
+### SHA-256 of the sixth paper and of its records
+
+```text
+2938ca02ead45ad793630cf78f8187ca3f4d01d2c80d73eb5abfe67c0473ff8b  sixth-paper/paper6-en.md
+51ef0cb8f4debd2b78c99661d9880704c94f868bd7341d103657b134522c5a87  sixth-paper/configuration-as-law-v6.pdf
+550b77e0c7c2515373c4f6bca15e7e6a44fa6387008f6fac70c5b485070057f8  records-confos/RUNS.md
+9eae0c08dadd86bccb54a48259ae285611c316f9342a22037d94ccf5e94d31ca  records-confos/RUN-1.md
+99c09af9a7b9440e85e9e0a0e5aac8d6e53146724a775439703f52258b8ffd67  records-confos/RUN-2.md
+027727071c6965868152163e68854d25cbaa483f9e98db3573a8594803f6799f  records-confos/RUN-3.md
+dcaf9e504168b422e36cdfc29e25b73ef157e9218e65977e178ac2479976c194  records-confos/RUN-3-EXTRA.md
+7cc3283a8d279538492a3b9fd7b3b13d677d351631625fce618c3b98b99af0d5  records-confos/REVIEW.md
+88d74ad2cb39c7089da1e54bbb315c1c15a8e92c8d74496e9632070aa8db18c6  records-confos/TABLE.md
+```

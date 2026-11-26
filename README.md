@@ -33,7 +33,7 @@ the Checks of Version 3, and Version 4» (22 November 2026). Part I reports the 
 version 3 strictly under the conditions fixed in the third paper; Part II, formulated after the results,
 fixes version 4 of the hypothesis and the failure conditions of its checks before these checks begin.
 `paper4-en.md` is the text; `configuration-as-law-v4.pdf` is the same text as published at
-<https://yakyman.com/configuration-as-law-v4.pdf> (page <https://yakyman.com/research>).
+<https://yakyman.com/configuration-as-law-v4.pdf> (page <https://yakyman.com/research-v4>).
 
 The folder `records-v3/` holds the dated records of the second cycle: the trial of the wording of
 version 3 on objects from the first cycle, the checks conducted under its fixed plan, and the further
@@ -114,7 +114,7 @@ committed to `check-inputs-v4/supplement-1/` before the work on that step begins
 
 ## Version 4: results of its checks, and the plan of a reference implementation
 
-The fifth paper, «The “Configuration as Law” Hypothesis: Results of the Checks of Version 4, and a New Plan for Checking It», is published at <https://yakyman.com/configuration-as-law-v5.pdf> (page <https://yakyman.com/research>). The folder `records-v4/` holds the dated records of the third cycle and Supplement 1. The folder `analysis/` holds the two computations reported in Section 7.3. The records are dated 23 November 2026 (UTC). Earlier classifications, unsuccessful attempts, corrections and reviews remain beside the final results.
+The fifth paper, «The “Configuration as Law” Hypothesis: Results of the Checks of Version 4, and a New Plan for Checking It», is published at <https://yakyman.com/configuration-as-law-v5.pdf> (page <https://yakyman.com/research-v5>). The folder `records-v4/` holds the dated records of the third cycle and Supplement 1. The folder `analysis/` holds the two computations reported in Section 7.3. The records are dated 23 November 2026 (UTC). Earlier classifications, unsuccessful attempts, corrections and reviews remain beside the final results.
 
 Check 1 yielded **0** and check 4 yielded **1**. Checks 2 and 3 were **not conducted**. The outcome vector is **0 / not conducted / not conducted / 1**. An unperformed check is not an observation with outcome ?. Check 4 succeeded in assessing the existing systems; neither system was found to have the three properties.
 
@@ -193,6 +193,23 @@ network and a Bluetooth pairing on simulated radios. They are not cases of Table
 they are committed with its inputs and performed on the same release right after it, and their outcomes are reported
 apart from the outcomes of the check.
 
+## The reference implementation: results of its check, and version 5
+
+The sixth paper, «“Configuration as Law”: A Declarative Operating System Built from Its Definition. Results of the Reference Implementation, and Version 5», is published at <https://yakyman.com/configuration-as-law-v6.pdf> (page <https://yakyman.com/research>). The folder `sixth-paper/` holds its English text and its PDF. The folder `records-confos/` holds the records of the check fixed in Section 9 of the fifth paper and performed on the reference implementation ConfOS: the list of the complete runs, the summary of each run and of the cases beyond the plan, the decisions of the review, and the full table of Section 6.1 of the sixth paper. Times in these records are UTC.
+
+In the third complete run (release 0.55, 25 November 2026), 124 cases gave 458 rows, and no row fails. The search for a way past the declaration, performed on the same release before the run and after it, made 240 attempts; none passed. Nine actions of ordinary work were performed in the same run; connecting to Wi-Fi and pairing a Bluetooth device on real hardware were not. Under the plan of the fifth paper no part receives 0 and none receives 1: every part yields ?, and no reason for it is a failing row (sixth paper, Section 1).
+
+| Folder or file | Contents |
+|---|---|
+| `sixth-paper/paper6-en.md`, `sixth-paper/configuration-as-law-v6.pdf` | The sixth paper: its English text and the PDF published on the site. |
+| `records-confos/RUNS.md` | The complete runs: release, source archive, commit of the inputs, times, departures and result of each. |
+| `records-confos/RUN-1.md`, `RUN-2.md`, `RUN-3.md` | The summary of each complete run, written by the party that performed the runs: departures stated before the results, rows by part and outcome, and every row that is not `pass`. |
+| `records-confos/RUN-3-EXTRA.md` | The cases beyond the plan, performed on release 0.55 right after the third complete run; they are not observations of the check. |
+| `records-confos/REVIEW.md` | The decisions of the review, R1–R10, and what the review does not decide. |
+| `records-confos/TABLE.md` | The full table of Section 6.1: each statement of version 5, the corresponding sentences of version 4, and the cases that exercise it. |
+
+The inputs of the three complete runs—the source of each release, the cases and the checking programs—remain in `confos/`, `confos-check/` and `confos-check-extra/`, committed before each run (commits `425609f9`, `9e99accd` and `39533ee3`); the records refer to them by these names. Paths inside the records such as `runs/`, `search/`, `build/` or `cases/STATE.md` name working files of the check that are not published; the counts that the paper takes from them are stated in the records themselves. In the public copies, names of roles and of internal working files were replaced by the parties that the paper names; no measurement, count, case id, outcome or decision was changed.
+
 ## Outcome of the first cycle
 
 Outcomes are reported strictly under the failure conditions fixed in the first paper
@@ -229,6 +246,7 @@ definitions does not resolve).
 | `check-inputs-v4/` | The order of the checks of version 4 (`PROTOCOL.md`) and the inputs of these checks, committed before the first observation of each check. | fourth paper §9 |
 | `fifth-paper/`, `records-v4/`, `analysis/` | The fifth paper and the records of the third cycle; see «Version 4: results of its checks, and the plan of a reference implementation» above. | fifth paper |
 | `confos/`, `confos-check/` | The reference implementation and the inputs of its check, committed before each complete run; see «The reference implementation: inputs committed before its check» above. | fifth paper §9 |
+| `sixth-paper/`, `records-confos/` | The sixth paper and the records of the complete runs of the reference implementation; see «The reference implementation: results of its check, and version 5» above. | sixth paper |
 | `MANIFEST.md` | Evidence key → files → claim of the paper, and the SHA-256 of every file. | |
 
 Each record keeps its original file name. Raw files keep their original paths relative to the record
