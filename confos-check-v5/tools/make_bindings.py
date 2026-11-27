@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-"""Generate bindings/release-0.67.json: semantic binding slots -> native 0.67 lines.
+"""Generate bindings/release-0.68.json: semantic binding slots -> native 0.68 lines.
 
 Usage: python3 -I tools/make_bindings.py [--interface FILE --base-conf FILE]
 The two optional files are the release's INTERFACE.md and declarations/base.conf;
@@ -12,7 +12,7 @@ import argparse, hashlib, json, shlex
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-OUT = HERE / 'bindings' / 'release-0.67.json'
+OUT = HERE / 'bindings' / 'release-0.68.json'
 
 
 def sha(path):
@@ -127,7 +127,7 @@ def main():
     ap.add_argument('--interface')
     ap.add_argument('--base-conf')
     ap.add_argument('--update', nargs=3, action='append', metavar=('STATE', 'RELEASE', 'TREE'),
-                    help='an update state: T1 0.67.1 DIR (DIR = git archive of the tag)')
+                    help='an update state: T1 0.68.1 DIR (DIR = git archive of the tag)')
     a = ap.parse_args()
     old = json.loads(OUT.read_text()) if OUT.exists() else {}
     if a.base_conf:
@@ -188,14 +188,14 @@ def main():
         'D-shared-native-lines': unsupported('INTERFACE 5 and 8: a package line installs exactly that package; '
             'there is no run-time dependency between package lines, so no package is shared by two owners'),
         'optional-no-exec': unsupported('INTERFACE 5: there is no prohibition line; the default already refuses (EXECUTORS.md)'),
-        'case-child': unsupported('INTERFACE 5 and EXECUTORS.md: no container runtime in 0.67'),
+        'case-child': unsupported('INTERFACE 5 and EXECUTORS.md: no container runtime in 0.68'),
         'slow-package': unsupported('INTERFACE 5 and 8: confos apply builds a package from a recipe and sources that lie '
             'beside the declaration; an installation by a line transfers nothing over the network, so it cannot be '
             'interrupted by losing the network'),
     }
     lines.update(update_slots(a, old, base))
     layout, derivation = release_layout(a, old)
-    data = {'schema': 1, 'release': '0.67', 'sources': sources, 'layout': layout, 'derivation': derivation,
+    data = {'schema': 1, 'release': '0.68', 'sources': sources, 'layout': layout, 'derivation': derivation,
             'account': {'name': 'user', 'uid': 1000, 'gid': 1000, 'home': '/home/user', 'shell': '/bin/bash'},
             'control_folder': '/home/user/control',
             'candidate': '/data/confos/declaration.conf',

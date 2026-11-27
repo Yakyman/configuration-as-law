@@ -6866,3 +6866,4 @@ dcaf9e504168b422e36cdfc29e25b73ef157e9218e65977e178ac2479976c194  records-confos
 |---|---|---|
 | Fixed before the system was built | `6ca363d31edfd3c14b742f6a6f4a668539ecaa2119d3b7ddd2a61730987e8cd9` | 26 November 2026, 19:51 |
 | Frozen before complete run 1 on release 0.67; changes since the row above are listed in `confos-check-v5/CORRECTIONS.md` | `184fca89c19ffd3b5b0c45b42452b09948a44012d44c133618bf1dcd1239a5a7` | 27 November 2026, 07:23 |
+| Frozen before complete run 2 on release 0.68; changes since the row above are listed in `confos-check-v5/CORRECTIONS.md` | `2d3d85f38783faf119624b6b2190901a6fc7e2b0fcf6a661f5060419fd4d4ae7` | 27 November 2026, 18:03 |

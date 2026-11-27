@@ -74,8 +74,7 @@ Why: release 0.66 replaced 0.65 as the release named for run 1; it updates the s
 the declaration (INTERFACE 9), so the update cases get their commands. Release 0.67 then
 replaced 0.66: it keeps on the system partition only what the lines bring (INTERFACE 7). And the final
 comparison treated the whole system partition beyond the generation in force as one undecided
-question, so it gave the same answer on every state (trial 3: 80 of 159 executions undecided
-for this reason alone). What a line brings is now derived and compared; only what no line
+question, so it gave the same answer on every state (found by trial 3). What a line brings is now derived and compared; only what no line
 names stays undecided. The cases (`casedefs.py`, `plans.json`, `CASES.md`, `PORT.md`,
 `port.json`) and the semantic declarations are unchanged.
 
@@ -97,3 +96,24 @@ names stays undecided. The cases (`casedefs.py`, `plans.json`, `CASES.md`, `PORT
 | `tools/make_bindings.py` | `/etc/confos/system.json` is a rendered path (INTERFACE 7 of 0.67: the list of what the lines bring, owned by `declaration.passport`) | release 0.67 named |
 | `core.py` | independent-build evidence: two installations assembled in separate work folders from two separately built package stores (and the same sources, clean, not cloned); the requirement that the two assemble logs differ is dropped — a deterministic build writes the same log twice, which is no sign that the builds share anything (REPRO-1 on 0.67 had equal logs from two independent stores) | trial 7 |
 | `selftest/test_checks.py` | tests of the independent-build evidence | trial 7 |
+
+## Binding to release 0.68 (run 2); 2026-11-27 UTC
+
+Why: the builder named release 0.68 for run 2 (`../log/release.txt`:
+`RELEASE FOR RUN 2: 0.68`), replacing 0.67. 0.68 differs from 0.67 only by the readline
+init-file guard (`bind.c` reads no init file named by `INPUTRC`/`~/.inputrc`/`$include`/bash
+`bind -f` from a noexec place; answers REQUESTS 63) and the version bumps of `base-files`,
+`confos` and `os-release` to 0.68 (`confpkg` and `confos-boot` stay 0.67). The cases
+(`casedefs.py`, `plans.json`, `CASES.md`, `PORT.md`, `port.json`) and the semantic
+declarations are unchanged — the cases are release-independent; only the binding to the
+system changes.
+
+| file | change | found by |
+|---|---|---|
+| `bindings/release-0.68.json`, `bindings/commands-0.68.json` (replace the 0.67 files) | regenerated from the 0.68 interface (`../build/INTERFACE.md` sha ffe13062…, `../build/EXECUTORS.md` readline rows) and the 0.68 tree's `declarations/base.conf` (sha fb6fb66…); update states 0.68.1/0.68.2 bound from the builder's tags (base line `base RELEASE rel-RELEASE TREESUM`, the changed package lines, the whole-tree SHA-256 and file count, the sources the changed recipes add) | release 0.68 named |
+| `adapter_native.py`, `tools/make_bindings.py`, `tools/make_commands.py`, `selftest/test_native.py` | release name 0.68 (every `0.67` string of the instrument becomes `0.68`: the `RELEASE` constant, the binding-file paths, the `release` field, the fixture `base 0.68` lines, the update tags `0.68.1`/`0.68.2`, and the facts that hold of 0.68 — "no container runtime in 0.68", etc.). The readline guard adds no new case: it is an EXECUTORS mechanism the search catalogue covers (N-SHELL-INPUTRC), not a v5 statement | release 0.68 named |
+
+Self-tests after the bump: `./selftest/run.sh` passes (case catalogue 86 cases / 34 labels;
+disk and checks fixtures); `CONFOS_RELEASE_TREE=<0.68 tree> python3 -I selftest/test_native.py`
+passes 29, 1 skipped (update-components, no private tree copies). No operating-system result is
+reported by this binding.

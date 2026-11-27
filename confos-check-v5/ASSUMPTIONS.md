@@ -93,3 +93,11 @@ system partition only what the lines of the declaration in force bring, removed 
 generation has finished starting and before `confos status` prints `APPLIED` (INTERFACE 7);
 its update states are 0.67.1 and 0.67.2. The resolutions above hold with the binding files
 `bindings/release-0.67.json` and `bindings/commands-0.67.json`; A09, A12–A15 are unchanged.
+
+## Release 0.68 (run 2) (2026-11-27 UTC)
+
+Release 0.68, named for run 2, differs from 0.67 only by the readline init-file guard and
+the version bumps of `base-files`, `confos` and `os-release` (`confpkg` and `confos-boot`
+stay 0.67). All resolutions above hold unchanged with the binding files
+`bindings/release-0.68.json` and `bindings/commands-0.68.json`; its update states are the
+builder's tags `0.68.1` and `0.68.2`. No assumption is re-opened by the release.

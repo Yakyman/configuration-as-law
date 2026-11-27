@@ -41,7 +41,7 @@
   "source_sha256": {
    "files/confos-boot/initramfs-init.c": "d83556661be085e0461218f80289ddcab48215c7747351dfb322262b2740d69a",
    "files/confos-boot/rc.boot": "78751d177ba303c76ccf17ff87e8a5b4687848c1c194e2ae86def6e4617923bd",
-   "files/confos/confos": "880cfc2a6762c6c0763ec89c7dd2d3e518a336ef5c0deb322089b75a7bbdd282"
+   "files/confos/confos": "82fd92bb5c207e90af17849e3b7197f8d1a6ae6176990a3f4903ab85b8b139cf"
   },
   "startup_files": [
    ".bashrc",
@@ -434,12 +434,12 @@
   },
   "T1": {
    "native": [
-    "base 0.67.1 rel-0.67.1 7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
-    "package base-files 0.67.1",
-    "package confos 0.67.1",
+    "base 0.68.1 rel-0.68.1 fa734eb0298e3ec3c7d9e2521ef4282f2e03c02d7e5791aed491dca80131ffd0",
+    "package base-files 0.68.1",
+    "package confos 0.68.1",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.67.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "note": "INTERFACE 9: the tree of 0.68.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.68 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -452,23 +452,23 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 130,
-    "folder": "rel-0.67.1",
-    "release": "0.67.1",
+    "files": 134,
+    "folder": "rel-0.68.1",
+    "release": "0.68.1",
     "state": "T1",
-    "treesum": "7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
-    "whole_tree_sha256": "38071ab93463fc6211019ad8618705cbe188341bf4a6625679342980d9f70f42"
+    "treesum": "fa734eb0298e3ec3c7d9e2521ef4282f2e03c02d7e5791aed491dca80131ffd0",
+    "whole_tree_sha256": "0fbf535818961c369c778fb4a91be2fdc7b406c17cf0945626b1aacccc64ba1a"
    }
   },
   "T2": {
    "native": [
-    "base 0.67.2 rel-0.67.2 65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
-    "package base-files 0.67.2",
-    "package confos 0.67.2",
+    "base 0.68.2 rel-0.68.2 54d7b8ec8fffd1fcdf5e0676ccf00b7a73514ad34198b8378bdd5b3da6c5e36c",
+    "package base-files 0.68.2",
+    "package confos 0.68.2",
     "package file 5.48",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.67.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "note": "INTERFACE 9: the tree of 0.68.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.68 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -483,19 +483,19 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 130,
-    "folder": "rel-0.67.2",
-    "release": "0.67.2",
+    "files": 134,
+    "folder": "rel-0.68.2",
+    "release": "0.68.2",
     "state": "T2",
-    "treesum": "65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
-    "whole_tree_sha256": "8761ce04a8b104dfe648ef9541a33873f346c5f377353d12f4729bc9ff9b1d9c"
+    "treesum": "54d7b8ec8fffd1fcdf5e0676ccf00b7a73514ad34198b8378bdd5b3da6c5e36c",
+    "whole_tree_sha256": "fb39e3c6d9e704f720237a3fe74836565176b57301fd6e32c2109221ad4669b3"
    }
   },
   "base-source-lock": {
    "native": [
-    "base 0.67",
+    "base 0.68",
     "package linux-headers 6.16.1",
-    "package base-files 0.67",
+    "package base-files 0.68",
     "package iana-etc 20250807",
     "package glibc 2.42",
     "package tzdata 2025b",
@@ -532,7 +532,7 @@
     "package libffi 3.5.2",
     "package python 3.13.7",
     "package confpkg 0.67",
-    "package confos 0.67",
+    "package confos 0.68",
     "package coreutils 9.7",
     "package diffutils 3.12",
     "package gawk 5.3.2",
@@ -567,7 +567,7 @@
    "replaces_line": "account user 1000 1000 users /bin/bash /home/user"
   },
   "case-child": {
-   "unsupported": "INTERFACE 5 and EXECUTORS.md: no container runtime in 0.67"
+   "unsupported": "INTERFACE 5 and EXECUTORS.md: no container runtime in 0.68"
   },
   "case-extra-a": {
    "inputs": {
@@ -675,18 +675,18 @@
   },
   "system-update-state-T0": {
    "native": [
-    "base 0.67"
+    "base 0.68"
    ],
    "note": "INTERFACE 9: T0 is the release itself"
   },
   "system-update-state-T1": {
    "native": [
-    "base 0.67.1 rel-0.67.1 7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
-    "package base-files 0.67.1",
-    "package confos 0.67.1",
+    "base 0.68.1 rel-0.68.1 fa734eb0298e3ec3c7d9e2521ef4282f2e03c02d7e5791aed491dca80131ffd0",
+    "package base-files 0.68.1",
+    "package confos 0.68.1",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.67.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "note": "INTERFACE 9: the tree of 0.68.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.68 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -699,23 +699,23 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 130,
-    "folder": "rel-0.67.1",
-    "release": "0.67.1",
+    "files": 134,
+    "folder": "rel-0.68.1",
+    "release": "0.68.1",
     "state": "T1",
-    "treesum": "7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
-    "whole_tree_sha256": "38071ab93463fc6211019ad8618705cbe188341bf4a6625679342980d9f70f42"
+    "treesum": "fa734eb0298e3ec3c7d9e2521ef4282f2e03c02d7e5791aed491dca80131ffd0",
+    "whole_tree_sha256": "0fbf535818961c369c778fb4a91be2fdc7b406c17cf0945626b1aacccc64ba1a"
    }
   },
   "system-update-state-T2": {
    "native": [
-    "base 0.67.2 rel-0.67.2 65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
-    "package base-files 0.67.2",
-    "package confos 0.67.2",
+    "base 0.68.2 rel-0.68.2 54d7b8ec8fffd1fcdf5e0676ccf00b7a73514ad34198b8378bdd5b3da6c5e36c",
+    "package base-files 0.68.2",
+    "package confos 0.68.2",
     "package file 5.48",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.67.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "note": "INTERFACE 9: the tree of 0.68.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.68 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -730,12 +730,12 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 130,
-    "folder": "rel-0.67.2",
-    "release": "0.67.2",
+    "files": 134,
+    "folder": "rel-0.68.2",
+    "release": "0.68.2",
     "state": "T2",
-    "treesum": "65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
-    "whole_tree_sha256": "8761ce04a8b104dfe648ef9541a33873f346c5f377353d12f4729bc9ff9b1d9c"
+    "treesum": "54d7b8ec8fffd1fcdf5e0676ccf00b7a73514ad34198b8378bdd5b3da6c5e36c",
+    "whole_tree_sha256": "fb39e3c6d9e704f720237a3fe74836565176b57301fd6e32c2109221ad4669b3"
    }
   },
   "test-access-rule": {
@@ -808,10 +808,10 @@
   "@KEY@",
   "@SERVER@"
  ],
- "release": "0.67",
+ "release": "0.68",
  "schema": 1,
  "sources": {
-  "INTERFACE.md": "4dac7329dd1dfb6ede8876e3d16caf8cdda5571bf51b4279dff7af8b52de2ff1",
-  "declarations/base.conf": "406f6e36afc3620e4837b1b8fbdf5af748d88461b2d4a0233fad4d40643517f8"
+  "INTERFACE.md": "ffe13062751bb70cfbd91d65a65213f413618c772995c7e501ba91d4f78bfcca",
+  "declarations/base.conf": "fb6fb6617ebdc6c5ee2f9af4b24fc2c20501fa88559401f5d4cf825cd0cf8e93"
  }
 }

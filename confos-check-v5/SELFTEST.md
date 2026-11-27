@@ -143,8 +143,8 @@ is unchanged after reading. None of this is an operating-system run.
 ## Freeze for run 1 (release 0.67)
 
 2026-11-27 UTC. After the binding to 0.67 and the repairs of CORRECTIONS 3, and after a
-complete trial on exactly the candidate (159 executions on two clean stores of tag 0.67; no own
-defect), `python3 -B tools/freeze.py` and the standalone command above were run from the root
+complete trial on exactly the candidate (on two clean stores of tag 0.67),
+`python3 -B tools/freeze.py` and the standalone command above were run from the root
 of the set within the inherited confos.slice, with the private copies of the release tree, of
 the two update-state trees and of the source archive named by `CONFOS_RELEASE_TREE`,
 `CONFOS_TREE_T1`, `CONFOS_TREE_T2`, `CONFOS_SOURCES` and `CONFPKG_TOOL` (the release's
@@ -177,3 +177,16 @@ tests of this freeze: the final comparison is `pass` on an ordinary fixture stat
 before, an archive, a tree, a source); it is `fail` when what a line brings differs or is
 missing; the disk reader gives one object per archive, tree and source; the independent-build
 evidence does not depend on the bytes of the build logs. None of this is an operating-system run.
+
+## Freeze for run 2 (release 0.68)
+
+2026-11-27 UTC. After the binding to 0.68 (CORRECTIONS "Binding to release 0.68": release-name
+bump of the instrument and regenerated `bindings/release-0.68.json` and `commands-0.68.json`
+from the builder's 0.68 interface and the 0.68.1/0.68.2 update trees) and a complete trial on
+exactly the candidate (Trial 10, on two clean stores of tag 0.68), `python3 -B tools/freeze.py`
+and the self-test were run from the root of the set within the inherited confos.slice. The
+native self-test used the private copies of the 0.68 release tree and the two update-state trees
+named by `CONFOS_RELEASE_TREE`, `CONFOS_TREE_T1`, `CONFOS_TREE_T2`, `CONFOS_SOURCES` and
+`CONFPKG_TOOL`, so no test skipped. The cases and semantic declarations are unchanged from run 1;
+only the binding to the system changed with the release. A trial is not a run and reports nothing
+about the system.
