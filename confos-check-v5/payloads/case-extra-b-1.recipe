@@ -1,0 +1,6 @@
+name: case-extra-b
+version: 1
+source: case-small.c bd5735def9f2064717e4ac3926ef8bca3846f51b05eb723857d3f1d53e6c90cc
+build:
+mkdir -p $DEST/usr/bin
+gcc -O2 -DCASE_VERSION=1 -o $DEST/usr/bin/case-extra-b $SOURCES/case-small.c

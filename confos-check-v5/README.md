@@ -33,10 +33,13 @@ reads `confos-check/` and `confos-check-extra/` under PATH; its default is the
 parent of this set. It is not part of the self-test. Its generated PORT.md and
 port.json are already included.
 
-Native build, boot, transport, declaration syntax, package parsing and inventory
-bindings remain pending the source-built interface. ASSUMPTIONS.md lists these
-gaps; adapter.py fails closed for unbound operations. Exact source/recipe locks,
-rendered declarations and release bindings must be frozen before a system run.
+The native binding to release 0.67 is BINDING.md (adapter_native.py,
+adapter_disk.py, bindings/). It was generated from the builder's interface of 0.67, the
+release named for run 1, with its update states 0.67.1 and 0.67.2, and tried on that
+release before the freeze (trials are not
+runs and report nothing about the system); CORRECTIONS.md lists every change since the
+first publication. Facilities that 0.67 does not have give unobserved rows with the
+documented reason. ASSUMPTIONS.md records how each assumption was resolved.
 Real Wi-Fi and Bluetooth actions require later hardware observations. Fixture
 success supplies none of these observations.
 

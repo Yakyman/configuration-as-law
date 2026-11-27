@@ -116,7 +116,8 @@ def compare(expected, observed):
             issue('UNVERIFIED',('coverage',kind),'missing complete independent capture')
     for key,w in want.items():
         if key not in got:
-            cover_kind='stored' if key[0] in ('file','dir','symlink','package') else key[0]
+            cover_kind='stored' if key[0] in ('file','dir','symlink','package','system-archive','release-tree',
+                                             'release-source','system-store') else key[0]
             status='MISSING' if coverage.get(cover_kind,{}).get('status')=='complete' else 'UNVERIFIED'
             issue(status,key,'required by '+','.join(w['owners']))
             continue
@@ -165,6 +166,11 @@ def compare(expected, observed):
             continue
         if g.get('classification')=='inactive-generation' and g.get('review_evidence'):
             continue
+        # Stored records the system keeps of itself (retained generation, package store,
+        # source tree) are not decided by the text: QUESTIONS Q-GENERATION, undecided.
+        if g.get('classification') in ('inactive-generation','system-store','kernel-automatic') and g.get('question'):
+            issue('UNDECIDED',key,'question '+g['question']+': '+g['classification'])
+            continue
         issue('UNDERIVED' if expected.get('errors') else 'UNRECORDED',key,'no derived attribution or independently evidenced data classification')
     return issues
 
@@ -174,6 +180,8 @@ def outcome(issues):
         return 'fail'
     if any(i['status'] in ('UNDERIVED','UNVERIFIED') for i in issues):
         return 'unobserved'
+    if any(i['status']=='UNDECIDED' for i in issues):
+        return 'undecided'
     return 'pass'
 
 
@@ -257,7 +265,11 @@ def evaluate_query(subject, reply):
         result['value']=any(k in old and k in new and old[k]!=new[k] for k in required)
     elif subject=='independent-build-evidence':
         a,b=reply['builds']
-        result['value']=(a['work_id']!=b['work_id'] and a['log_sha256']!=b['log_sha256']
+        # Independence is two installations assembled in separate work folders from two
+        # separately built package stores; equal logs are no sign of dependence, since a
+        # deterministic build writes the same log twice (trial 7).
+        result['value']=(a['work_id']!=b['work_id'] and bool(a['store']) and bool(b['store'])
+                         and a['store']!=b['store']
                          and a['source_sha256']==b['source_sha256']
                          and a['clean'] is True and b['clean'] is True
                          and not a['cloned'] and not b['cloned'])

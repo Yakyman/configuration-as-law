@@ -5,9 +5,10 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 PUBLIC_TOP=['PROGRAMS.md','PORT.md','port.json','CASES.md','plans.json','FORMATS.md','ASSUMPTIONS.md',
             'QUESTIONS.md','README.md','STATEMENT-LABELS.json','adapter.py','core.py','engine.py','cli.py','casedefs.py',
-            'run','derive','inventory','compare','local.env.example','READY.md','SELFTEST.md']
+            'run','derive','inventory','compare','local.env.example','READY.md','SELFTEST.md',
+            'BINDING.md','CORRECTIONS.md','adapter_native.py','adapter_disk.py']
 files=[ROOT/p for p in PUBLIC_TOP]
-for folder in ('declarations','payloads','fixtures','selftest','tools'):
+for folder in ('declarations','payloads','fixtures','selftest','tools','bindings'):
     files+=sorted(p for p in (ROOT/folder).rglob('*') if p.is_file()
                   and '__pycache__' not in p.parts and p.name not in ('LAST.txt',))
 files=sorted(set(files))

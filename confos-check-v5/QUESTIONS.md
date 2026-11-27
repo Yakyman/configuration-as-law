@@ -28,7 +28,12 @@ from the owner. These entries preserve limits in results.
    Reading A permits two real transitions of the system source/recipe lock within
    the named release's test inputs. Reading B requires successive released bases.
    Require two actual source/recipe system transitions with boot and conformity
-   evidence; if only payload versions change, OW-2/3 are unobserved. Bindings pending.
+   evidence; if only payload versions change, OW-2/3 are unobserved. Bound from 0.66:
+   T1 and T2 are the builder's update states 0.66.1 and 0.66.2 (INTERFACE 9), each a
+   base release of its own tree (`base 0.66.1 FOLDER SHA256`, `VERSION_ID`, `CONFOS BOOT
+   DONE 0.66.1`) that changes sources and recipes (tzdata 2025b -> 2026f, then file
+   5.46 -> 5.48) and the system's own packages (base-files, confos); both readings ask
+   no more than this, so the rows are judged as observed.
 6. **Q-PLAN — review R8 / paper 5 §9.3 recorders written for the implementation.**
    Version 5 allows refusal or recording. Record text and strict-plan outcomes
    separately if an actual recording tool causes that distinction. Do not revive
@@ -44,3 +49,27 @@ from the owner. These entries preserve limits in results.
    cases preserve default-law checks; they do not empirically demonstrate Q5/Q6
    inside those absent products. Mark dedicated cases unobserved until facilities
    exist. This is a coverage limitation, not an instruction to grow the base.
+9. **Q-GENERATION — §5.2(2)/(4) "not on the computer" vs §5.5 "generations and rollback".**
+   The system partition keeps, besides what the declaration in force brings, the generation
+   before the one in force, archives of packages no line names any more, the trees of releases
+   no `base` line names, and sources of such releases. Reading A: these are the system's own
+   records of itself (§5.5 leaves generations to the design); what is not in force is not
+   installed. Reading B: bytes of a removed program are still on the computer, so a removal
+   (§5.2(4)) is not complete while they remain. What a line brings is not part of this
+   question (§5.3 "written": what the system obtains or builds from a line comes by the
+   declaration): the archive of every named package, the tree and the sources of the release
+   the `base` line names and the generation in force are derived from the lines and compared
+   as `pass` or `fail`. Followed meanwhile: what no line names is neither dropped nor passed;
+   the comparison reports it as undecided (core.compare UNDECIDED), and each kind is a request
+   to the builder (REQUESTS.md), since only the system can make both readings agree.
+10. **Q-AUTOMATIC — §5.3 "what the system itself obtains or builds from a line".**
+   The kernel gives an interface brought up by a `network` line an IPv6 link-local
+   address. Reading A: it is obtained from that line. Reading B: it is a network setting
+   no line names. The case party cannot derive it from the text of the line alone.
+   Followed meanwhile: observed and reported undecided.
+11. **Worth doing (not in the task): the identity of a description and its inputs.**
+   INTERFACE 5 makes the identity from the declaration files only; a `package NAME
+   VERSION RECIPE` line names its recipe file but not its checksum, and `confos apply`
+   only prints the status when the identity is already in force (INTERFACE 6). A
+   changed recipe beside an unchanged line would then not be applied. To be observed in
+   run 1 (an edit of a recipe alone, then apply); not alleged before it is observed.

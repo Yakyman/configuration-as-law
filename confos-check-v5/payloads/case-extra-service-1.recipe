@@ -1,0 +1,6 @@
+name: case-extra-service
+version: 1
+source: case-probe.c 49f7871c7752d554112ff8b7bb2a7010902f1a336851022125e91f243b3fd6f2
+build:
+mkdir -p $DEST/usr/bin
+gcc -O2 '-DCASE_FETCH="curl"' '-DCASE_SHELL="/bin/sh"' '-DCASE_NAME="case-extra-service"' -o $DEST/usr/bin/case-extra-service $SOURCES/case-probe.c

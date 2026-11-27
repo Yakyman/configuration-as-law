@@ -105,3 +105,75 @@ PUBLICATION SELFTEST PASS; temporary copy deleted
 
 Exit status: 0. The 58 files comprise 56 hashed inputs plus SHA256SUMS and
 PUBLICATION.txt. The manifest and checksum list do not hash themselves.
+
+## Binding freeze (release 0.60)
+
+2026-11-26 UTC. After the binding (BINDING.md, CORRECTIONS.md section 1) and
+`python3 -B tools/freeze.py`, the command above was run again from the root of the set,
+within the inherited confos.slice. Observed output (test names omitted):
+
+```text
+PUBLICATION COPY: 82 files; checksums PASS
+Ran 48 tests
+OK
+Ran 5 tests
+OK
+Ran 3 tests
+OK
+Ran 20 tests
+OK (skipped=3)
+Ran 30 tests
+OK (skipped=1)
+VALID: 86 portable case definitions
+CATALOGUE PASS: 86 cases; 153 source IDs; 34 statement labels
+SELFTEST PASS (fixtures only; no operating-system run)
+PUBLICATION SELFTEST PASS; temporary copy deleted
+```
+
+Exit status: 0. 82 files = 80 hashed inputs plus SHA256SUMS and PUBLICATION.txt. The
+four skipped tests need the release tree beside the set (variable
+`CONFOS_RELEASE_TREE`, or the builder's `confpkg` tool, `CONFPKG_TOOL`); with the
+release tree present, all 106 tests ran and passed. They compare the adapter's
+parser and identities with the release's own `Declaration` class, derive a whole
+test declaration with the release's recipes, and build a package with the real tool.
+The disk tests build a sparse synthetic disk with the INTERFACE 7 layout, including a
+change present only in the journal of the data partition, and check that the raw disk
+is unchanged after reading. None of this is an operating-system run.
+
+## Freeze for run 1 (release 0.67)
+
+2026-11-27 UTC. After the binding to 0.67 and the repairs of CORRECTIONS 3, and after a
+complete trial on exactly the candidate (159 executions on two clean stores of tag 0.67; no own
+defect), `python3 -B tools/freeze.py` and the standalone command above were run from the root
+of the set within the inherited confos.slice, with the private copies of the release tree, of
+the two update-state trees and of the source archive named by `CONFOS_RELEASE_TREE`,
+`CONFOS_TREE_T1`, `CONFOS_TREE_T2`, `CONFOS_SOURCES` and `CONFPKG_TOOL` (the release's
+`tools/confpkg`), so that no test skipped. Observed
+output (test names omitted):
+
+```text
+PUBLICATION COPY: 83 files; checksums PASS
+Ran 50 tests
+OK
+Ran 5 tests
+OK
+Ran 3 tests
+OK
+Ran 29 tests
+OK
+Ran 30 tests
+OK
+VALID: 86 portable case definitions
+CATALOGUE PASS: 86 cases; 153 source IDs; 34 statement labels
+SELFTEST PASS (fixtures only; no operating-system run)
+PUBLICATION SELFTEST PASS; temporary copy deleted
+```
+
+Exit status: 0. Without those variables the tests that need the release tree or the update
+trees skip (they compare the adapter's parser and identities with the release's own
+`Declaration` class and edit a declaration to an update state with the real trees). The new
+tests of this freeze: the final comparison is `pass` on an ordinary fixture state and
+`undecided` with exactly one issue for each kind of object no line names (the generation
+before, an archive, a tree, a source); it is `fail` when what a line brings differs or is
+missing; the disk reader gives one object per archive, tree and source; the independent-build
+evidence does not depend on the bytes of the build logs. None of this is an operating-system run.

@@ -1,0 +1,817 @@
+{
+ "account": {
+  "gid": 1000,
+  "home": "/home/user",
+  "name": "user",
+  "shell": "/bin/bash",
+  "uid": 1000
+ },
+ "candidate": "/data/confos/declaration.conf",
+ "control_folder": "/home/user/control",
+ "derivation": {
+  "declaration_copy": "/etc/confos/declaration/{rel}",
+  "home_file_mounts": true,
+  "note": "rendered paths replace package files of the same path (render(): put() unlinks first); their exact bytes are implementation output, so only presence is derived; the values they carry are derived as account/group/setting/key/service/rule objects and observed live",
+  "open_mounts": true,
+  "per_account": [
+   "/etc/dropbear/authorized_keys/{account}"
+  ],
+  "rendered_files": [
+   "/etc/passwd",
+   "/etc/group",
+   "/etc/shadow",
+   "/etc/hostname",
+   "/etc/hosts",
+   "/etc/timezone",
+   "/etc/locale.conf",
+   "/etc/network.conf",
+   "/etc/confos/sysctls.json",
+   "/etc/confos/services.json",
+   "/etc/confos/rules.nft",
+   "/etc/confos/open.json",
+   "/etc/confos/home-files.json",
+   "/etc/confos/session.apparmor",
+   "/etc/confos/identity",
+   "/etc/confos/system.json",
+   "/usr/lib/confpkg/declaration.passport"
+  ],
+  "rendered_links": [
+   "/etc/localtime"
+  ],
+  "source_sha256": {
+   "files/confos-boot/initramfs-init.c": "d83556661be085e0461218f80289ddcab48215c7747351dfb322262b2740d69a",
+   "files/confos-boot/rc.boot": "78751d177ba303c76ccf17ff87e8a5b4687848c1c194e2ae86def6e4617923bd",
+   "files/confos/confos": "880cfc2a6762c6c0763ec89c7dd2d3e518a336ef5c0deb322089b75a7bbdd282"
+  },
+  "startup_files": [
+   ".bashrc",
+   ".profile",
+   ".bash_profile",
+   ".bash_login",
+   ".bash_logout",
+   ".inputrc",
+   ".ssh/rc",
+   ".pdbrc",
+   ".curlrc"
+  ]
+ },
+ "layout": [
+  {
+   "id": "root",
+   "kind": "account",
+   "value": {
+    "gid": 0,
+    "home": "/root",
+    "shell": "/bin/bash",
+    "uid": 0
+   }
+  },
+  {
+   "id": "bin",
+   "kind": "account",
+   "value": {
+    "gid": 1,
+    "home": "/dev/null",
+    "shell": "/usr/bin/false",
+    "uid": 1
+   }
+  },
+  {
+   "id": "daemon",
+   "kind": "account",
+   "value": {
+    "gid": 6,
+    "home": "/dev/null",
+    "shell": "/usr/bin/false",
+    "uid": 6
+   }
+  },
+  {
+   "id": "nobody",
+   "kind": "account",
+   "value": {
+    "gid": 65534,
+    "home": "/dev/null",
+    "shell": "/usr/bin/false",
+    "uid": 65534
+   }
+  },
+  {
+   "id": "root",
+   "kind": "group",
+   "value": {
+    "gid": 0
+   }
+  },
+  {
+   "id": "bin",
+   "kind": "group",
+   "value": {
+    "gid": 1
+   }
+  },
+  {
+   "id": "sys",
+   "kind": "group",
+   "value": {
+    "gid": 2
+   }
+  },
+  {
+   "id": "kmem",
+   "kind": "group",
+   "value": {
+    "gid": 3
+   }
+  },
+  {
+   "id": "tape",
+   "kind": "group",
+   "value": {
+    "gid": 4
+   }
+  },
+  {
+   "id": "tty",
+   "kind": "group",
+   "value": {
+    "gid": 5
+   }
+  },
+  {
+   "id": "daemon",
+   "kind": "group",
+   "value": {
+    "gid": 6
+   }
+  },
+  {
+   "id": "disk",
+   "kind": "group",
+   "value": {
+    "gid": 8
+   }
+  },
+  {
+   "id": "lp",
+   "kind": "group",
+   "value": {
+    "gid": 9
+   }
+  },
+  {
+   "id": "dialout",
+   "kind": "group",
+   "value": {
+    "gid": 10
+   }
+  },
+  {
+   "id": "audio",
+   "kind": "group",
+   "value": {
+    "gid": 11
+   }
+  },
+  {
+   "id": "video",
+   "kind": "group",
+   "value": {
+    "gid": 12
+   }
+  },
+  {
+   "id": "utmp",
+   "kind": "group",
+   "value": {
+    "gid": 13
+   }
+  },
+  {
+   "id": "cdrom",
+   "kind": "group",
+   "value": {
+    "gid": 15
+   }
+  },
+  {
+   "id": "adm",
+   "kind": "group",
+   "value": {
+    "gid": 16
+   }
+  },
+  {
+   "id": "input",
+   "kind": "group",
+   "value": {
+    "gid": 24
+   }
+  },
+  {
+   "id": "mail",
+   "kind": "group",
+   "value": {
+    "gid": 34
+   }
+  },
+  {
+   "id": "kvm",
+   "kind": "group",
+   "value": {
+    "gid": 61
+   }
+  },
+  {
+   "id": "wheel",
+   "kind": "group",
+   "value": {
+    "gid": 97
+   }
+  },
+  {
+   "id": "users",
+   "kind": "group",
+   "value": {
+    "gid": 999
+   }
+  },
+  {
+   "id": "nogroup",
+   "kind": "group",
+   "value": {
+    "gid": 65534
+   }
+  },
+  {
+   "id": "127.0.0.1/8",
+   "kind": "network",
+   "value": {}
+  },
+  {
+   "id": "::1/128",
+   "kind": "network",
+   "value": {}
+  },
+  {
+   "id": "/",
+   "kind": "mount",
+   "value": {
+    "fstype": "squashfs",
+    "noexec": false
+   }
+  },
+  {
+   "id": "/system",
+   "kind": "mount",
+   "value": {
+    "fstype": "ext4",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/dev",
+   "kind": "mount",
+   "value": {
+    "fstype": "devtmpfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/proc",
+   "kind": "mount",
+   "value": {
+    "fstype": "proc",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/sys",
+   "kind": "mount",
+   "value": {
+    "fstype": "sysfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/run",
+   "kind": "mount",
+   "value": {
+    "fstype": "tmpfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/tmp",
+   "kind": "mount",
+   "value": {
+    "fstype": "tmpfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/run/root-view",
+   "kind": "mount",
+   "value": {
+    "fstype": "squashfs",
+    "noexec": false
+   }
+  },
+  {
+   "id": "/var",
+   "kind": "mount",
+   "value": {
+    "fstype": "tmpfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/dev/pts",
+   "kind": "mount",
+   "value": {
+    "fstype": "devpts",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/dev/shm",
+   "kind": "mount",
+   "value": {
+    "fstype": "tmpfs",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/data",
+   "kind": "mount",
+   "value": {
+    "fstype": "ext4",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/home",
+   "kind": "mount",
+   "value": {
+    "fstype": "ext4",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/root",
+   "kind": "mount",
+   "value": {
+    "fstype": "ext4",
+    "noexec": true
+   }
+  },
+  {
+   "id": "/sys/kernel/security",
+   "kind": "mount",
+   "value": {
+    "fstype": "securityfs"
+   }
+  },
+  {
+   "id": "/system",
+   "kind": "partition-root",
+   "value": {}
+  },
+  {
+   "id": "/data",
+   "kind": "partition-root",
+   "value": {}
+  },
+  {
+   "id": "/data/home",
+   "kind": "dir",
+   "value": {}
+  },
+  {
+   "id": "/data/root",
+   "kind": "dir",
+   "value": {}
+  },
+  {
+   "id": "/data/confos",
+   "kind": "dir",
+   "value": {}
+  }
+ ],
+ "lines": {
+  "D-accounts-fixed-native-lines": {
+   "order_items": {
+    "a": [
+     "account case-a 1101 1101 - /bin/bash @HOME_ROOT@/case-a"
+    ],
+    "b": [
+     "account case-b 1102 1102 - /bin/bash @HOME_ROOT@/case-b"
+    ]
+   }
+  },
+  "D-accounts-open-native-lines": {
+   "note": "INTERFACE 5: auto numbers are assigned in line order and not promised",
+   "order_items": {
+    "a": [
+     "account case-a auto auto - /bin/bash @HOME_ROOT@/case-a"
+    ],
+    "b": [
+     "account case-b auto auto - /bin/bash @HOME_ROOT@/case-b"
+    ]
+   }
+  },
+  "D-external-accounts-native-lines": {
+   "unsupported": "INTERFACE 5: no account server (question 9)"
+  },
+  "D-latest-native-lines": {
+   "unsupported": "INTERFACE 5: no \"newest version\" selector; a package line always names a version"
+  },
+  "D-radio-native-lines": {
+   "unsupported": "INTERFACE 5: no saved Wi-Fi networks or Bluetooth pairings; no radio stack in the virtual machine base"
+  },
+  "D-shared-native-lines": {
+   "unsupported": "INTERFACE 5 and 8: a package line installs exactly that package; there is no run-time dependency between package lines, so no package is shared by two owners"
+  },
+  "T1": {
+   "native": [
+    "base 0.67.1 rel-0.67.1 7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
+    "package base-files 0.67.1",
+    "package confos 0.67.1",
+    "package tzdata 2026f"
+   ],
+   "note": "INTERFACE 9: the tree of 0.67.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "replaces": {
+    "base": true,
+    "packages": [
+     "base-files",
+     "confos",
+     "tzdata"
+    ]
+   },
+   "source_inputs": {
+    "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
+   },
+   "tree_input": {
+    "files": 130,
+    "folder": "rel-0.67.1",
+    "release": "0.67.1",
+    "state": "T1",
+    "treesum": "7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
+    "whole_tree_sha256": "38071ab93463fc6211019ad8618705cbe188341bf4a6625679342980d9f70f42"
+   }
+  },
+  "T2": {
+   "native": [
+    "base 0.67.2 rel-0.67.2 65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
+    "package base-files 0.67.2",
+    "package confos 0.67.2",
+    "package file 5.48",
+    "package tzdata 2026f"
+   ],
+   "note": "INTERFACE 9: the tree of 0.67.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "replaces": {
+    "base": true,
+    "packages": [
+     "base-files",
+     "confos",
+     "file",
+     "tzdata"
+    ]
+   },
+   "source_inputs": {
+    "file-5.48.tar.gz": "ed14656883b23a364b4057c05595d93252da9bc473d30106519519d0da141283",
+    "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
+   },
+   "tree_input": {
+    "files": 130,
+    "folder": "rel-0.67.2",
+    "release": "0.67.2",
+    "state": "T2",
+    "treesum": "65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
+    "whole_tree_sha256": "8761ce04a8b104dfe648ef9541a33873f346c5f377353d12f4729bc9ff9b1d9c"
+   }
+  },
+  "base-source-lock": {
+   "native": [
+    "base 0.67",
+    "package linux-headers 6.16.1",
+    "package base-files 0.67",
+    "package iana-etc 20250807",
+    "package glibc 2.42",
+    "package tzdata 2025b",
+    "package zlib 1.3.1",
+    "package bzip2 1.0.8",
+    "package xz 5.8.1",
+    "package zstd 1.5.7",
+    "package file 5.46",
+    "package ncurses 6.6",
+    "package readline 8.3",
+    "package m4 1.4.20",
+    "package bc 7.0.3",
+    "package flex 2.6.4",
+    "package pkgconf 2.5.1",
+    "package binutils 2.45",
+    "package gmp 6.3.0",
+    "package mpfr 4.2.2",
+    "package mpc 1.3.1",
+    "package libxcrypt 4.4.38",
+    "package shadow 4.18.0",
+    "package gcc 15.2.0",
+    "package sed 4.9",
+    "package bison 3.8.2",
+    "package grep 3.12",
+    "package bash 5.3",
+    "package libtool 2.5.4",
+    "package perl 5.42.0",
+    "package autoconf 2.72",
+    "package automake 1.18.1",
+    "package autoconf-archive 2026.11.11",
+    "package openssl 3.5.2",
+    "package curl 8.23.0",
+    "package elfutils 0.193",
+    "package libffi 3.5.2",
+    "package python 3.13.7",
+    "package confpkg 0.67",
+    "package confos 0.67",
+    "package coreutils 9.7",
+    "package diffutils 3.12",
+    "package gawk 5.3.2",
+    "package findutils 4.10.0",
+    "package gzip 1.14",
+    "package make 4.4.1",
+    "package patch 2.8",
+    "package tar 1.35",
+    "package procps-ng 4.0.5",
+    "package util-linux 2.41.1",
+    "package e2fsprogs 1.47.3",
+    "package libmnl 1.0.5",
+    "package iproute2 6.16.0",
+    "package libnftnl 1.3.2",
+    "package nftables 1.1.7",
+    "package dropbear 2026.94",
+    "package sudo 1.9.17p2",
+    "package apparmor 4.1.8",
+    "package squashfs-tools 4.7.5",
+    "package mtools 4.0.50",
+    "package grub 2.12",
+    "package linux 6.16.1",
+    "package confos-boot 0.67",
+    "network auto 10.0.2.15/24 10.0.2.2"
+   ],
+   "note": "base, package and network lines of the release base.conf; its account, sudo file and keys are replaced by the case bindings below"
+  },
+  "case-account-shell": {
+   "native": [
+    "account user 1000 1000 users /bin/sh /home/user"
+   ],
+   "replaces_line": "account user 1000 1000 users /bin/bash /home/user"
+  },
+  "case-child": {
+   "unsupported": "INTERFACE 5 and EXECUTORS.md: no container runtime in 0.67"
+  },
+  "case-extra-a": {
+   "inputs": {
+    "case-extra-a-1.recipe": "payloads/case-extra-a-1.recipe",
+    "case-small.c": "payloads/case-small.c"
+   },
+   "native": [
+    "package case-extra-a 1 case-extra-a-1.recipe"
+   ]
+  },
+  "case-extra-b": {
+   "inputs": {
+    "case-extra-b-1.recipe": "payloads/case-extra-b-1.recipe",
+    "case-small.c": "payloads/case-small.c"
+   },
+   "native": [
+    "package case-extra-b 1 case-extra-b-1.recipe"
+   ]
+  },
+  "case-extra-service": {
+   "inputs": {
+    "case-extra-service-1.recipe": "payloads/case-extra-service-1.recipe",
+    "case-probe.c": "payloads/case-probe.c"
+   },
+   "native": [
+    "package case-extra-service 1 case-extra-service-1.recipe",
+    "service case-extra enabled /usr/bin/case-extra-service listen 7073"
+   ]
+  },
+  "case-firewall-4446": {
+   "native": [
+    "rule case-fw 'add rule inet confos input tcp dport 4446 accept'"
+   ]
+  },
+  "case-firewall-4447": {
+   "native": [
+    "rule case-fw 'add rule inet confos input tcp dport 4447 accept'"
+   ]
+  },
+  "case-hostname-changed": {
+   "native": [
+    "setting hostname case-chg"
+   ],
+   "replaces": "test-hostname"
+  },
+  "case-probe-package": {
+   "inputs": {
+    "case-probe-1.recipe": "payloads/case-probe-1.recipe",
+    "case-probe.c": "payloads/case-probe.c"
+   },
+   "native": [
+    "package case-probe 1 case-probe-1.recipe"
+   ]
+  },
+  "case-sleeper": {
+   "inputs": {
+    "case-probe.c": "payloads/case-probe.c",
+    "case-sleeper-1.recipe": "payloads/case-sleeper-1.recipe"
+   },
+   "native": [
+    "package case-sleeper 1 case-sleeper-1.recipe"
+   ]
+  },
+  "case-small-v1-package": {
+   "inputs": {
+    "case-small-1.recipe": "payloads/case-small-1.recipe",
+    "case-small.c": "payloads/case-small.c"
+   },
+   "native": [
+    "package case-small 1 case-small-1.recipe"
+   ]
+  },
+  "optional-no-exec": {
+   "unsupported": "INTERFACE 5: there is no prohibition line; the default already refuses (EXECUTORS.md)"
+  },
+  "probe": {
+   "inputs": {
+    "case-probe-1.recipe": "payloads/case-probe-1.recipe",
+    "case-probe.c": "payloads/case-probe.c"
+   },
+   "native": [
+    "package case-probe 1 case-probe-1.recipe"
+   ]
+  },
+  "slow-package": {
+   "unsupported": "INTERFACE 5 and 8: confos apply builds a package from a recipe and sources that lie beside the declaration; an installation by a line transfers nothing over the network, so it cannot be interrupted by losing the network"
+  },
+  "small-v1": {
+   "inputs": {
+    "case-small-1.recipe": "payloads/case-small-1.recipe",
+    "case-small.c": "payloads/case-small.c"
+   },
+   "native": [
+    "package case-small 1 case-small-1.recipe"
+   ]
+  },
+  "small-v2": {
+   "inputs": {
+    "case-small-2.recipe": "payloads/case-small-2.recipe",
+    "case-small.c": "payloads/case-small.c"
+   },
+   "native": [
+    "package case-small 2 case-small-2.recipe"
+   ]
+  },
+  "system-update-state-T0": {
+   "native": [
+    "base 0.67"
+   ],
+   "note": "INTERFACE 9: T0 is the release itself"
+  },
+  "system-update-state-T1": {
+   "native": [
+    "base 0.67.1 rel-0.67.1 7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
+    "package base-files 0.67.1",
+    "package confos 0.67.1",
+    "package tzdata 2026f"
+   ],
+   "note": "INTERFACE 9: the tree of 0.67.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "replaces": {
+    "base": true,
+    "packages": [
+     "base-files",
+     "confos",
+     "tzdata"
+    ]
+   },
+   "source_inputs": {
+    "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
+   },
+   "tree_input": {
+    "files": 130,
+    "folder": "rel-0.67.1",
+    "release": "0.67.1",
+    "state": "T1",
+    "treesum": "7f1392fa199ab64d0f3f49230696a632a67a58b9854190a640c263435484bb48",
+    "whole_tree_sha256": "38071ab93463fc6211019ad8618705cbe188341bf4a6625679342980d9f70f42"
+   }
+  },
+  "system-update-state-T2": {
+   "native": [
+    "base 0.67.2 rel-0.67.2 65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
+    "package base-files 0.67.2",
+    "package confos 0.67.2",
+    "package file 5.48",
+    "package tzdata 2026f"
+   ],
+   "note": "INTERFACE 9: the tree of 0.67.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.67 are replaced",
+   "replaces": {
+    "base": true,
+    "packages": [
+     "base-files",
+     "confos",
+     "file",
+     "tzdata"
+    ]
+   },
+   "source_inputs": {
+    "file-5.48.tar.gz": "ed14656883b23a364b4057c05595d93252da9bc473d30106519519d0da141283",
+    "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
+   },
+   "tree_input": {
+    "files": 130,
+    "folder": "rel-0.67.2",
+    "release": "0.67.2",
+    "state": "T2",
+    "treesum": "65205f304d895855eb0dd6e4eab7b7a93d6c6638e9d385621dc55a5a92210ba7",
+    "whole_tree_sha256": "8761ce04a8b104dfe648ef9541a33873f346c5f377353d12f4729bc9ff9b1d9c"
+   }
+  },
+  "test-access-rule": {
+   "inputs": {
+    "case-rule.sudoers": "payloads/case-rule.sudoers"
+   },
+   "native": [
+    "file /etc/sudoers.d/case-rule 0440 0:0 fcf898f3c5aee769bbc97d9ca8597748d390b450fb810a09a097eafc43e4e859 case-rule.sudoers"
+   ]
+  },
+  "test-account-and-login": {
+   "native": [
+    "account user 1000 1000 users /bin/bash /home/user",
+    "authorized-key user @KEY_TYPE@ @KEY@",
+    "authorized-key root @KEY_TYPE@ @KEY@",
+    "open /home/user/control",
+    "open /root/control",
+    "rule case-ssh 'add rule inet confos input tcp dport 22 accept'"
+   ],
+   "note": "role user = account user over SSH; role root = root over SSH (INTERFACE 4); /home/user/control and /root/control are the opened folders of the positive controls (A18); the rule case-ssh records the SSH port, the recorded rule of G-FIREWALL \"remove recorded rule\""
+  },
+  "test-hostname": {
+   "native": [
+    "setting hostname case-test"
+   ]
+  },
+  "test-service": {
+   "native": [
+    "service case-service enabled /usr/bin/case-probe listen 7071"
+   ],
+   "requires": [
+    "case-probe-package"
+   ]
+  },
+  "test-timezone": {
+   "native": [
+    "setting timezone Etc/GMT-3"
+   ]
+  },
+  "test-user-timer": {
+   "unsupported": "INTERFACE 5: no timers and no per-user services; a service line runs a program at boot"
+  }
+ },
+ "payload_sha256": {
+  "build.sh": "26b775b68d3e1d36c55105f4e1075e48703536dfff9b3c34ac35c6ed3447ee42",
+  "case-extra-a-1.recipe": "14ba2b2c29491e6f8b51e747b26092bb884a56f89714b0ec2239997c62c0c3d8",
+  "case-extra-b-1.recipe": "3137ff70874f0dc1f2fb71feb383758e8225cc1056f92e89421b5d27edce1e4d",
+  "case-extra-service-1.recipe": "223613bfc11883655f0b96d251d21f914b421530677333d609cdde1709bf815a",
+  "case-input.pl": "5e6a2f75dbe0cf0e9cd8734c5a668a984ba5021778ecedf25992cca9ee2731ca",
+  "case-input.py": "dbb63a9d2433443f68e2b1335a3676cf982218986495fd0d2dd76541c108a670",
+  "case-marker-so.c": "f0d31df0501c77f9760f28ac21af836176331933e0c03747c39878eabdb2064d",
+  "case-marker.c": "c9acc4aadabce7909966f07578abb89750e0038052bf7b9bd73a08567729b4d0",
+  "case-probe-1.recipe": "ba31a78d18933e62416325005d0e576dadbc12bce63911f3ba9f2e11880f09d7",
+  "case-probe.c": "49f7871c7752d554112ff8b7bb2a7010902f1a336851022125e91f243b3fd6f2",
+  "case-rec.sudoers": "04cedb890c620edc01a87ed724d54754462936373e7fc1b349eccd15e4ce6b3c",
+  "case-rule.sudoers": "fcf898f3c5aee769bbc97d9ca8597748d390b450fb810a09a097eafc43e4e859",
+  "case-sleeper-1.recipe": "2947f0b726c6439dad4596add80395ecba300849d6fce2a3b780cbb354c10287",
+  "case-small-1.recipe": "89caad2f56132d5fed64577d22265efd5f68e662bc9c516b74703cf84a74c502",
+  "case-small-2.recipe": "ff0be27c71f3792f76dedfdf5e404bc5fe59b96a18cea86a07ef2c1bcb4f21e7",
+  "case-small.c": "bd5735def9f2064717e4ac3926ef8bca3846f51b05eb723857d3f1d53e6c90cc",
+  "cases-report.sh": "01c760c2750dcedee22ba4e3d969ccb7148b347ad24a5baa28f35ad0aa1c12cd",
+  "document.txt": "55f5e7400a77fa2507049b565a2aa8b8506ceee7870261eec6428f18b0219015",
+  "persistent.sh": "b8851f39502babaadc5788df152ba976de856a37a17446d5d68d2e94d3e80736",
+  "typed-input.sh": "27971be48aeeb640f372285f4465d8c6fd01b519b846c13cc7304b06445e7171",
+  "unrecorded.sh": "13f7df1b79c40c637423e413b6dffdda9c25683bc5aafc83901281ebdb23f370",
+  "values.txt": "f6b1f0308b4f36a84ba5a8d435586086f1bbd24948029a9b4e7ac8704723a09f"
+ },
+ "private_tokens": [
+  "@KEY_TYPE@",
+  "@KEY@",
+  "@SERVER@"
+ ],
+ "release": "0.67",
+ "schema": 1,
+ "sources": {
+  "INTERFACE.md": "4dac7329dd1dfb6ede8876e3d16caf8cdda5571bf51b4279dff7af8b52de2ff1",
+  "declarations/base.conf": "406f6e36afc3620e4837b1b8fbdf5af748d88461b2d4a0233fad4d40643517f8"
+ }
+}

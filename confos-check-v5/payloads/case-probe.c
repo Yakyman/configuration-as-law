@@ -19,6 +19,12 @@
 #ifndef CASE_FETCH
 #define CASE_FETCH "curl"
 #endif
+#ifndef CASE_NAME
+#define CASE_NAME "case-probe"
+#endif
+/* Each case program built from this file names itself, so that programs of different
+ * packages never have the same bytes and a running process is attributed to one package. */
+__attribute__((used)) static const char case_name[] = "case-program " CASE_NAME;
 static int status(pid_t pid) {
     int s;
     while (waitpid(pid, &s, 0) < 0) { if (errno != EINTR) return 125; }

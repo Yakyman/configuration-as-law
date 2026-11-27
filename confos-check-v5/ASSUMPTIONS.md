@@ -47,3 +47,49 @@ positive control inside the opening. Controls and marker cleanup are raw evidenc
 A19. Q8's listener fixture lasts 30 seconds. Capture its socket owner and executable
 while it is alive; the adapter must retain that coherent observation for the
 checkpoint. If capture misses the lifetime, report unobserved, never infer it.
+
+## Resolution against release 0.60 (2026-11-26 UTC)
+
+The builder's interface of 0.60 now exists. Each assumption is resolved as follows;
+BINDING.md gives the commands. Not resolved = the row stays unobserved in a run.
+
+| ID | 0.60 |
+|---|---|
+| A01 | Resolved: `confos-assemble` in the clean bootstrap root (INTERFACE 1, PROCEDURE 6), from a package store the case party builds from the release source by PROCEDURE 1–5. |
+| A02 | Resolved: QEMU as `scripts/boot.sh` plus a QMP socket; slot lock 1–4; ≤8 GiB/4 vCPU. |
+| A03 | Resolved: SSH as `user` / as root by `authorized-key` lines (INTERFACE 3, 4); no sudo rule for `user`. |
+| A04 | Resolved: candidate `/data/confos/declaration.conf` with inputs beside it; success = `confos status` `APPLIED <identity>` after the restart; committed = generation named by `boot.cfg`, read externally. |
+| A05 | Resolved: GPT of INTERFACE 7; `adapter_disk.read_disk` reads both ext4 partitions (journal replayed on a copy) and every `root.sqfs`; retained generations and the store are classified with QUESTIONS 9. |
+| A06 | Resolved: native lines of INTERFACE 5; `bindings/release-0.60.json`; unknown semantic kinds fail closed. |
+| A07 | Resolved: `open PATH` (INTERFACE 5, rule 1). |
+| A08 | Resolved: FORMAT.md; `adapter_disk.read_confpkg` checks every member against the passport itself. |
+| A09 | Partly: base lock = the release's `base.conf`; update states T0–T2 do not exist in 0.60 (INTERFACE 9): OW-2/OW-3 unobserved. |
+| A10 | Resolved: live capture script (BINDING 3); a failed query is an error, never an empty list. |
+| A11 | Resolved: `bindings/commands-0.60.json` (tokens, preludes, per-variant commands); unknown tokens fail closed. |
+| A12 | Resolved as absent: multi-file is supported (`include`); `auto` IDs supported; latest selector and account server absent (unobserved). |
+| A13 | Resolved as absent: no container runtime or hypervisor in the base. |
+| A14 | Resolved as absent in the virtual machine (no radio stack); the laptop cases remain for later. |
+| A15 | Partly: power cut by SIGKILL after the observed `APPLIED` status; network loss cannot interrupt an installation because `confos apply` transfers nothing (OW-9, P2-NET-1 unobserved). |
+| A16 | Resolved per variant; facilities without a tool are unsupported, never refusals. |
+| A17 | Resolved: derivation from lines, named package stores and sources of the named base packages (BINDING 4); rendered bytes are presence-only. |
+| A18 | Resolved: `/home/user/control` and `/root/control` are opened by the test account binding; same payload and command there, with the role of the attempt. |
+| A19 | Resolved: the listener's owner and executable are read while it lives and retained. |
+
+## Release 0.65 (2026-11-26 UTC)
+
+Release 0.65 was named for run 1. Against 0.60 its interface changes: `confos rules` shows the
+packet filter in force; `reboot` and `poweroff` work from a superuser session and the power
+button powers off; IPv6 is off on every interface without an IPv6 `network` line; a second
+package that installs a file of another is refused. The resolutions above hold for 0.65 with
+the binding files `bindings/release-0.65.json` and `bindings/commands-0.65.json`; A09, A12–A15
+are unchanged (INTERFACE 5 and 9 of 0.65 name the same absent facilities).
+
+## Releases 0.66 and 0.67 (2026-11-27 UTC)
+
+Release 0.66 updates the system through the declaration (INTERFACE 9): a `base RELEASE FOLDER
+SHA256` line names a tree the person brings; its update states 0.66.1 and 0.66.2 bind OW-2 and
+OW-3, which were unobserved before (Q-UPDATE). Release 0.67, named for run 1, keeps on the
+system partition only what the lines of the declaration in force bring, removed when the new
+generation has finished starting and before `confos status` prints `APPLIED` (INTERFACE 7);
+its update states are 0.67.1 and 0.67.2. The resolutions above hold with the binding files
+`bindings/release-0.67.json` and `bindings/commands-0.67.json`; A09, A12–A15 are unchanged.

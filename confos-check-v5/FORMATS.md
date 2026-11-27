@@ -58,10 +58,29 @@ value readers follow review R4/R5; execution by a personally recorded reader
 follows Q4/R10 and is tested separately. Opened material needs resolved_path
 and actual route evidence. No blanket home, tmp, cache or log exemption exists.
 
+## Native binding (release 0.66)
+
+`bindings/release-0.66.json` maps every binding slot of the semantic declarations
+to native lines and input files, or to `unsupported` with the documented reason.
+`bindings/commands-0.66.json` holds tokens, typed preludes, the command of every
+variant, probes (exit 0 present, 1 absent, other unobservable), X-REC requests,
+removal/change targets and the files of the case-controlled server. BINDING.md
+describes each operation; adapter_native.py and adapter_disk.py implement them.
+
 ## Comparison
 
 `compare --derived FILE --inventory FILE` outputs outcome and issues:
-UNRECORDED, MISSING, DIFFERS, UNVERIFIED, UNDERIVED. A concrete violation fails;
+UNRECORDED, MISSING, DIFFERS, UNVERIFIED, UNDERIVED, UNDECIDED. UNDECIDED is given
+only to an object classified `inactive-generation`, `system-store` or
+`kernel-automatic` that names its question (QUESTIONS 9, 10) and that the derivation
+does not expect; it makes the outcome undecided when nothing fails and nothing is
+unobserved. Objects of the system partition: `system-archive` (id
+`/system/packages/FILE`, value name, version, recipe_sha256, sources), `release-tree`
+(id the release, value manifest: SHA-256 of the sorted lines `path NUL kind NUL
+sha256-or-target NUL x-or-dash` of `recipes/`, `files/`, `tools/`), `release-source` (id
+the file name, value sha256), `system-store` (the selected generation, `boot.cfg`,
+`state/applied`, other entries). Those a line brings are derived and compared like any
+object; a missing one is MISSING when the stored capture is complete. A concrete violation fails;
 missing/underived evidence cannot pass. Fixtures exercise both directions of
 process attribution, data routes, folder boundaries, missing probes and shared
 ownership. An inventory after apply creates P1/P2/UND companion rows; other

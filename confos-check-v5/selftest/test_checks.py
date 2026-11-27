@@ -243,4 +243,17 @@ class IndependentPredicates(unittest.TestCase):
         o['objects'].append({'kind':'file','id':'/unknown','value':{}})
         self.assertEqual(outcome(compare(e,o)),'unobserved')
 
+
+class IndependentBuilds(unittest.TestCase):
+    def build(self, **kw):
+        b={'work_id':'w0','log_sha256':'same','source_sha256':'s','clean':True,'cloned':False,'store':'store-a'}
+        b.update(kw); return b
+    def test_separate_stores_and_folders_are_independent_even_with_equal_logs(self):
+        r=evaluate_query('independent-build-evidence',{'builds':[self.build(),self.build(work_id='w1',store='store-b')]})
+        self.assertTrue(r['value'])
+    def test_one_store_or_one_folder_or_a_clone_is_not(self):
+        for other in (self.build(work_id='w1'), self.build(store='store-b'), self.build(work_id='w1',store='store-b',cloned=True),
+                      self.build(work_id='w1',store='store-b',source_sha256='t'), self.build(work_id='w1',store='')):
+            self.assertFalse(evaluate_query('independent-build-evidence',{'builds':[self.build(),other]})['value'])
+
 if __name__=='__main__': unittest.main(verbosity=2)

