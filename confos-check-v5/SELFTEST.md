@@ -190,3 +190,39 @@ named by `CONFOS_RELEASE_TREE`, `CONFOS_TREE_T1`, `CONFOS_TREE_T2`, `CONFOS_SOUR
 `CONFPKG_TOOL`, so no test skipped. The cases and semantic declarations are unchanged from run 1;
 only the binding to the system changed with the release. A trial is not a run and reports nothing
 about the system.
+
+## Freeze for run 3 (release 0.70)
+
+2026-11-27 UTC. The builder named release 0.69 for run 3 and replaced it by 0.70 before this set
+was frozen; 0.69 was never frozen. After the binding to 0.70 (CORRECTIONS "Binding to release
+0.70": release-name bump of the instrument and regenerated `bindings/release-0.70.json` and
+`commands-0.70.json` from the builder's 0.70 interface and the 0.70.1/0.70.2 update trees) and a
+complete trial on exactly the candidate (Trial 11, on two clean stores of tag 0.70), which needed
+no repair of the adapter, `python3 -B tools/freeze.py` and the standalone command above were run
+from the root of the set inside confos.slice. The native self-test used the private copies of the
+0.70 release tree and the two update-state trees named by `CONFOS_RELEASE_TREE`,
+`CONFOS_TREE_T1`, `CONFOS_TREE_T2`, `CONFOS_SOURCES` and `CONFPKG_TOOL`, so no test skipped.
+Observed output (test names, durations and one deprecation warning of the Python import system
+omitted):
+
+```text
+PUBLICATION COPY: 83 files; checksums PASS
+Ran 50 tests
+OK
+Ran 5 tests
+OK
+Ran 3 tests
+OK
+Ran 29 tests
+OK
+Ran 30 tests
+OK
+VALID: 86 portable case definitions
+CATALOGUE PASS: 86 cases; 153 source IDs; 34 statement labels
+SELFTEST PASS (fixtures only; no operating-system run)
+PUBLICATION SELFTEST PASS; temporary copy deleted
+```
+
+Exit status: 0. The cases and semantic declarations are unchanged from runs 1 and 2; only the
+binding to the system changed with the release. A trial is not a run and reports nothing about
+the system.

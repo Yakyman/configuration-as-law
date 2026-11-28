@@ -117,3 +117,28 @@ Self-tests after the bump: `./selftest/run.sh` passes (case catalogue 86 cases /
 disk and checks fixtures); `CONFOS_RELEASE_TREE=<0.68 tree> python3 -I selftest/test_native.py`
 passes 29, 1 skipped (update-components, no private tree copies). No operating-system result is
 reported by this binding.
+
+## Binding to release 0.70 (run 3); 2026-11-27 UTC
+
+Why: the builder named release 0.69 for run 3 and then replaced it by 0.70 before the set was
+frozen (`../log/release.txt`: `RELEASE FOR RUN 3: 0.70`); 0.69 was never frozen, published or
+run. 0.70 differs from 0.68 by `confpkg build`, which opens the recipe once, checks that
+descriptor and reads the build commands from it (case request 113), and copies each source into
+its work folder and checks and uses the copy; by `confos apply`, which copies a release folder
+brought by `base RELEASE FOLDER SHA256` and a recipe beside the declaration to a place no session
+writes and checks and uses those copies, checks the copies it keeps, and removes at boot a link
+left at a path the declaration names (INTERFACE 11, last item); by leaving `__pycache__` folders
+out of every tree checksum and every copy of a checked folder; and by the version bumps of
+`base-files`, `confos`, `confpkg` and `os-release` to 0.70. The cases (`casedefs.py`,
+`plans.json`, `CASES.md`, `PORT.md`, `port.json`) and the semantic declarations are unchanged —
+the cases are release-independent; only the binding to the system changes.
+
+| file | change | found by |
+|---|---|---|
+| `bindings/release-0.70.json`, `bindings/commands-0.70.json` (replace the 0.68 files) | regenerated from the 0.70 interface (`../build/INTERFACE.md` sha 414b3607…, `../build/EXECUTORS.md` sha ef98bd83…) and the 0.70 tree's `declarations/base.conf` (sha 603ca2d0…); update states 0.70.1/0.70.2 bound from the builder's tags (base line `base RELEASE rel-RELEASE TREESUM`, the changed package lines, the whole-tree SHA-256 and file count, the sources the changed recipes add). Against the 0.68 files only release strings, tree checksums and file counts differ | release 0.70 named |
+| `adapter_native.py`, `tools/make_bindings.py`, `tools/make_commands.py`, `selftest/test_native.py` | release name 0.70 (every `0.68` string of the instrument becomes `0.70`: the `RELEASE` constant, the binding-file paths, the `release` field, the fixture `base 0.70` lines, the update tags `0.70.1`/`0.70.2`, and the facts that hold of 0.70 — "no container runtime in 0.70", etc.). The repairs of `confpkg build` and `confos apply` add no new case: they are mechanisms the search catalogue covers (N-PKG-RECIPE-CHANGED and the rows of the opened folder), not v5 statements | release 0.70 named |
+
+Self-tests after the bump: `./selftest/run.sh` passes (case catalogue 86 cases / 34 labels;
+disk and checks fixtures); `CONFOS_RELEASE_TREE=<0.70 tree> CONFOS_TREE_T1=<0.70.1 tree>
+CONFOS_TREE_T2=<0.70.2 tree> CONFOS_SOURCES=<source archive> python3 -I selftest/test_native.py`
+passes 29, no test skipped. No operating-system result is reported by this binding.
