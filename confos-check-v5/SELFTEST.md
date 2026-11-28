@@ -226,3 +226,39 @@ PUBLICATION SELFTEST PASS; temporary copy deleted
 Exit status: 0. The cases and semantic declarations are unchanged from runs 1 and 2; only the
 binding to the system changed with the release. A trial is not a run and reports nothing about
 the system.
+
+## Freeze for run 4 (release 0.80)
+
+2026-11-28 UTC. After the binding to 0.80 (CORRECTIONS "Binding to release 0.80": release-name
+bump of the instrument, regenerated `bindings/release-0.80.json` and `commands-0.80.json` from the
+builder's 0.80 interface and the 0.80.1/0.80.2 update trees, the python folder of three variants
+taken from `base.conf`, and the package count of one fixture test taken from `base.conf`) and a
+complete trial on two clean stores of tag 0.80 (Trial 12; the three variants whose commands named
+the folder of python 3.13 were performed again on the corrected binding), `python3 -B
+tools/freeze.py` and the standalone command above were run from the root of the set inside
+confos.slice. The native self-test used the private copies of the 0.80 release tree and the two
+update-state trees named by `CONFOS_RELEASE_TREE`, `CONFOS_TREE_T1`, `CONFOS_TREE_T2`,
+`CONFOS_SOURCES` and `CONFPKG_TOOL`, so no test skipped. Observed output (test names, durations
+and one deprecation warning of the Python import system omitted):
+
+```text
+PUBLICATION COPY: 83 files; checksums PASS
+Ran 50 tests
+OK
+Ran 5 tests
+OK
+Ran 3 tests
+OK
+Ran 29 tests
+OK
+Ran 30 tests
+OK
+VALID: 86 portable case definitions
+CATALOGUE PASS: 86 cases; 153 source IDs; 34 statement labels
+SELFTEST PASS (fixtures only; no operating-system run)
+PUBLICATION SELFTEST PASS; temporary copy deleted
+```
+
+Exit status: 0. The cases and semantic declarations are unchanged from runs 1, 2 and 3; only the
+binding to the system changed with the release. A trial is not a run and reports nothing about
+the system.

@@ -142,3 +142,28 @@ Self-tests after the bump: `./selftest/run.sh` passes (case catalogue 86 cases /
 disk and checks fixtures); `CONFOS_RELEASE_TREE=<0.70 tree> CONFOS_TREE_T1=<0.70.1 tree>
 CONFOS_TREE_T2=<0.70.2 tree> CONFOS_SOURCES=<source archive> python3 -I selftest/test_native.py`
 passes 29, no test skipped. No operating-system result is reported by this binding.
+
+## Binding to release 0.80 (run 4); 2026-11-28 UTC
+
+Why: the builder named release 0.80 for run 4 (`../log/release.txt`: `RELEASE FOR RUN 4: 0.80`).
+0.80 moves the base to the package versions of Linux From Scratch 13.1 (kernel 7.1.8, glibc 2.44,
+gcc 16.2.0, python 3.14.7, perl 5.44.0, OpenSSL 4.0.1; one more package, `mpdecimal`, so the base
+has 63 packages), closes further ways of executing a saved file or text that the builder found
+by reading the new versions (`EXECUTORS.md`, rows marked "since 0.80"; INTERFACE 11, last item),
+and leaves `scriptlive` out of the base. The update states change other packages than before:
+T1 = tzdata 2026c -> 2026f, T2 = T1 and iana-etc 20260805 -> 20261119 (until 0.70 the second state
+changed `file`). The source archive is a new set (`sources.tsv` of 0.80). The cases (`casedefs.py`,
+`plans.json`, `CASES.md`, `PORT.md`, `port.json`) and the semantic declarations are unchanged — the
+cases are release-independent; only the binding to the system changes.
+
+| file | change | found by |
+|---|---|---|
+| `bindings/release-0.80.json`, `bindings/commands-0.80.json` (replace the 0.70 files) | regenerated from the 0.80 interface (`../build/INTERFACE.md` sha 6c5cc2b4…, `../build/EXECUTORS.md` sha 074184c7…) and the 0.80 tree's `declarations/base.conf` (sha e092fd59…); update states 0.80.1/0.80.2 bound from the builder's tags. Against the 0.70 files only release strings, the base package lines, tree checksums and file counts, the checksum of `files/confos/confos`, and the T2 package (`iana-etc 20261119` with its source in place of `file 5.48`) differ | release 0.80 named |
+| `adapter_native.py`, `tools/make_bindings.py`, `tools/make_commands.py`, `selftest/test_native.py` | release name 0.80 (every `0.70` string of the instrument becomes `0.80`, as for 0.70). The new closures add no new case: they are mechanisms the search catalogue covers, not v5 statements | release 0.80 named |
+| `tools/make_commands.py`, `bindings/commands-0.80.json` | three variants named the folder of python 3.13 literally: G-SCRIPT "debugger rc" ran `python3 -m pdb /usr/lib/python3.13/this.py`, and G-STARTUP "plugin directory" and "plugin setting" wrote into `~/.local/lib/python3.13/site-packages`. On 0.80 (python 3.14) pdb found no program, so the positive control in the opened folder could not run (a `fail` of the binding, not of the system), and the two G-STARTUP attempts wrote into a folder python 3.14 never reads, so their `pass` showed nothing. The generator now takes the folder name `python3.MINOR` from the python version that the release's `base.conf` names (token `@PYLIB@`, resolved when the file is generated; the value is recorded as `python_lib`) | Trial 12 (G-SCRIPT "debugger rc": control:1 actual false, expected true) |
+| `selftest/test_native.py` | the fixture of the update edit uses the versions of 0.80 (tzdata 2026c, iana-etc 20260805); the count of package lines of the test declaration is the number of package lines of the bound `base.conf` plus the two case packages, instead of the fixed 64 of a 62-package base | release 0.80 named (the fixed count failed: 65 != 64) |
+
+Self-tests after the bump: `./selftest/run.sh` passes (case catalogue 86 cases / 34 labels;
+disk and checks fixtures); `CONFOS_RELEASE_TREE=<0.80 tree> CONFOS_TREE_T1=<0.80.1 tree>
+CONFOS_TREE_T2=<0.80.2 tree> CONFOS_SOURCES=<source archive of 0.80> python3 -I selftest/test_native.py`
+passes 29, no test skipped. No operating-system result is reported by this binding.

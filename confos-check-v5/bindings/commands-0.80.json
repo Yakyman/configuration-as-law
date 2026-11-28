@@ -126,7 +126,8 @@
   "startup-effect": "test -s \"$CASE_MARKER\"",
   "unrecorded-installation": "o=$(confpkg list /) || exit 3; d=$(confos show) || exit 3; printf \"%s\\n\" \"$o\" | while read -r n ver; do [ \"$n\" = declaration ] && continue; printf \"%s\\n\" \"$d\" | grep -qx \"package $n $ver\\( .*\\)\\?\" || echo \"$n\"; done | grep -q . && exit 0; c=$(confpkg check / 2>&1) || { printf \"%s\\n\" \"$c\" | grep -q . && exit 0; }; for p in @CHILD_PATHS@; do [ -e \"$p\" ] && \"$p\" </dev/null >/dev/null 2>&1 && exit 0; done; test -s \"$CASE_MARKER\" && exit 0; exit 1"
  },
- "release": "0.70",
+ "python_lib": "python3.14",
+ "release": "0.80",
  "removal": {
   "firewall-rule": {
    "present": "grep -q \"dport 4446\" /etc/confos/rules.nft",
@@ -173,9 +174,9 @@
   "G-TIME": "readlink /etc/localtime | grep -q \"Etc/GMT-3$\""
  },
  "sources": {
-  "EXECUTORS.md": "ef98bd835ce38d72d6022afdde9e3d541b2fc046395792346de79d673ca2689f",
-  "INTERFACE.md": "414b36073d56ae0ee395fab1f4cb42063713be35d677a9dabfd5faf1e6fe0ade",
-  "declarations/base.conf": "603ca2d0efebc38f967d5c9ef66e7e41dd95f880c1ba90ddaf37e6ec671aa11b"
+  "EXECUTORS.md": "074184c7254745361f24207c6fdb6add42f1c4bf1e7857394cf967dd9922b845",
+  "INTERFACE.md": "6c5cc2b49caa4008f6044d863cc4c3c03e22993222b5805d5860ea5d17cd9c3f",
+  "declarations/base.conf": "e092fd598ec78eef6ae5525dc641e3efa6a59495a6b165e7a5a8cfc615762884"
  },
  "startup_sessions": [
   "bash -l -i -c \"ls; exit 0\" </dev/null",
@@ -217,7 +218,7 @@
   "@RIGHTS_TOOL@": "bound per variant of G-RIGHTS only",
   "@RULE_INPUT@": "bound per variant of G-FIREWALL only",
   "@SAVED_NETWORK_TOOL@": "INTERFACE 5: no saved Wi-Fi networks",
-  "@SERVICE_TOOL@": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool",
+  "@SERVICE_TOOL@": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool",
   "@STARTUP_ATTEMPT@": "bound per variant of G-STARTUP only",
   "@TEST_MODULE@": "INTERFACE 5: loadable kernel modules: none",
   "@TIME_INPUT@": "bound per variant of G-TIME only",
@@ -287,7 +288,7 @@
     }
    },
    "container engine": {
-    "unsupported": "PROGRAMS.md and EXECUTORS.md: no container runtime in 0.70; a brought engine is a brought executable, covered by \"plain executable\""
+    "unsupported": "PROGRAMS.md and EXECUTORS.md: no container runtime in 0.80; a brought engine is a brought executable, covered by \"plain executable\""
    },
    "interpreter": {
     "note": "",
@@ -654,7 +655,7 @@
     "note": "",
     "steps": {
      "attempt": {
-      "command": "cd @TARGET@ && printf \"%s\\n\" \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\" > .pdbrc && printf \"c\\n\" | python3 -m pdb /usr/lib/python3.13/this.py >/dev/null",
+      "command": "cd @TARGET@ && printf \"%s\\n\" \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\" > .pdbrc && printf \"c\\n\" | python3 -m pdb /usr/lib/python3.14/this.py >/dev/null",
       "role": "user"
      }
     },
@@ -773,10 +774,10 @@
   },
   "G-SERVICE": {
    "at": {
-    "unsupported": "no at in the 0.70 base (base.conf)"
+    "unsupported": "no at in the 0.80 base (base.conf)"
    },
    "delayed timer": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no timers"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no timers"
    },
    "disable/mask recorded service": {
     "effect": "sleep 5; s=$(confos services) || exit 3; printf \"%s\\n\" \"$s\" | grep \"^case-service\" | grep -q \" - \"",
@@ -789,28 +790,28 @@
     }
    },
    "linger": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no per-user session manager"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no per-user session manager"
    },
    "root crontab": {
-    "unsupported": "no cron in the 0.70 base (base.conf)"
+    "unsupported": "no cron in the 0.80 base (base.conf)"
    },
    "root crontab for another user": {
-    "unsupported": "no cron in the 0.70 base (base.conf)"
+    "unsupported": "no cron in the 0.80 base (base.conf)"
    },
    "root service link": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no service link folder; the service table is a rendered file of the read-only image (writing it is W5-BREAK)"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no service link folder; the service table is a rendered file of the read-only image (writing it is W5-BREAK)"
    },
    "service parameter": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no tool that changes the parameters of a service"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no tool that changes the parameters of a service"
    },
    "user crontab": {
-    "unsupported": "no cron in the 0.70 base (base.conf)"
+    "unsupported": "no cron in the 0.80 base (base.conf)"
    },
    "user persistent": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no per-user services"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no per-user services"
    },
    "user transient": {
-    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no transient service units"
+    "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no transient service units"
    }
   },
   "G-STARTUP": {
@@ -848,7 +849,7 @@
     "unsupported": "no desktop and no autostart facility: COMMON decisions (the system boots into a terminal)"
    },
    "editor rc": {
-    "unsupported": "no editor in the 0.70 base (base.conf names none; EXECUTORS.md)"
+    "unsupported": "no editor in the 0.80 base (base.conf names none; EXECUTORS.md)"
    },
    "executable alias": {
     "note": "",
@@ -860,10 +861,10 @@
     }
    },
    "hook directory": {
-    "unsupported": "no hook directory is read by any program of the 0.70 base (EXECUTORS.md); a package manager with hooks does not exist"
+    "unsupported": "no hook directory is read by any program of the 0.80 base (EXECUTORS.md); a package manager with hooks does not exist"
    },
    "installer pre-invoke": {
-    "unsupported": "no installer with pre-invoke hooks in 0.70 (FORMAT.md: packages run nothing at installation)"
+    "unsupported": "no installer with pre-invoke hooks in 0.80 (FORMAT.md: packages run nothing at installation)"
    },
    "login profile": {
     "note": "",
@@ -887,7 +888,7 @@
     "note": "",
     "steps": {
      "attempt": {
-      "command": "d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && cp @HOME@/case-input.py $d/usercustomize.py; true",
+      "command": "d=@HOME@/.local/lib/python3.14/site-packages && mkdir -p $d && cp @HOME@/case-input.py $d/usercustomize.py; true",
       "role": "user"
      }
     }
@@ -896,7 +897,7 @@
     "note": "",
     "steps": {
      "attempt": {
-      "command": "d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && printf \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\\n\" > $d/case.pth; true",
+      "command": "d=@HOME@/.local/lib/python3.14/site-packages && mkdir -p $d && printf \"import os; open(os.environ['CASE_MARKER'], 'w').write('executed')\\n\" > $d/case.pth; true",
       "role": "user"
      }
     }
@@ -1102,7 +1103,7 @@
    "remove": "hostname case-test"
   },
   "linger": {
-   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no per-user session manager"
+   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no per-user session manager"
   },
   "locale": {
    "add": null,
@@ -1218,7 +1219,7 @@
    "remove": "ln -sf /usr/share/zoneinfo/Etc/GMT-3 /etc/localtime"
   },
   "user-service": {
-   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, no per-user services"
+   "unsupported": "INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, no per-user services"
   }
  }
 }

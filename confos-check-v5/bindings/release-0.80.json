@@ -41,7 +41,7 @@
   "source_sha256": {
    "files/confos-boot/initramfs-init.c": "d83556661be085e0461218f80289ddcab48215c7747351dfb322262b2740d69a",
    "files/confos-boot/rc.boot": "78751d177ba303c76ccf17ff87e8a5b4687848c1c194e2ae86def6e4617923bd",
-   "files/confos/confos": "6181dd8f2caee65532b134e1387c6f9c0819ced8d196b725e123a3846339381a"
+   "files/confos/confos": "8c2874dbd6ccb76b741d6eb287a5152ac5f3f8b5c66e83642d45c3ef68611fda"
   },
   "startup_files": [
    ".bashrc",
@@ -434,12 +434,12 @@
   },
   "T1": {
    "native": [
-    "base 0.70.1 rel-0.70.1 1c8074ac082299af704b3a8d39c1904b33176e67b937ce9050744e82859c4fb9",
-    "package base-files 0.70.1",
-    "package confos 0.70.1",
+    "base 0.80.1 rel-0.80.1 aab7ddab1e61c4c04d3cbf8d37876d6b41bd8a49b4f9e0c1038568714a623afb",
+    "package base-files 0.80.1",
+    "package confos 0.80.1",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.70.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.70 are replaced",
+   "note": "INTERFACE 9: the tree of 0.80.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.80 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -452,100 +452,100 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 139,
-    "folder": "rel-0.70.1",
-    "release": "0.70.1",
+    "files": 146,
+    "folder": "rel-0.80.1",
+    "release": "0.80.1",
     "state": "T1",
-    "treesum": "1c8074ac082299af704b3a8d39c1904b33176e67b937ce9050744e82859c4fb9",
-    "whole_tree_sha256": "776c479673a7347f3435573dc20d447e72ef5ae0923eb7d0cebd6d1afead5ed4"
+    "treesum": "aab7ddab1e61c4c04d3cbf8d37876d6b41bd8a49b4f9e0c1038568714a623afb",
+    "whole_tree_sha256": "806fbb9daa475633765890c6f56dee8d769b8d982c0421912bb95a86cac8e930"
    }
   },
   "T2": {
    "native": [
-    "base 0.70.2 rel-0.70.2 aa8ee0c8f44e5cf4fe0283455947840acc5a29da11d804beb40ae7a416b41ba5",
-    "package base-files 0.70.2",
-    "package confos 0.70.2",
-    "package file 5.48",
+    "base 0.80.2 rel-0.80.2 b66caed0e27903163c29c269b86ca7a113ae916109732319e4115aa4bcdbe07c",
+    "package base-files 0.80.2",
+    "package confos 0.80.2",
+    "package iana-etc 20261119",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.70.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.70 are replaced",
+   "note": "INTERFACE 9: the tree of 0.80.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.80 are replaced",
    "replaces": {
     "base": true,
     "packages": [
      "base-files",
      "confos",
-     "file",
+     "iana-etc",
      "tzdata"
     ]
    },
    "source_inputs": {
-    "file-5.48.tar.gz": "ed14656883b23a364b4057c05595d93252da9bc473d30106519519d0da141283",
+    "iana-etc-20261119.tar.gz": "e674f0fff7df6b18b3387114b246e184e5413679a874bc28e8bde8ac2cdb2529",
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 139,
-    "folder": "rel-0.70.2",
-    "release": "0.70.2",
+    "files": 146,
+    "folder": "rel-0.80.2",
+    "release": "0.80.2",
     "state": "T2",
-    "treesum": "aa8ee0c8f44e5cf4fe0283455947840acc5a29da11d804beb40ae7a416b41ba5",
-    "whole_tree_sha256": "2b7aaca8b0c4494baca170cc7b612d7a7a382a2fd685ec83c7a545e783bd3624"
+    "treesum": "b66caed0e27903163c29c269b86ca7a113ae916109732319e4115aa4bcdbe07c",
+    "whole_tree_sha256": "a77ea7773f7ee4aedb4ae4752ea1e12ff2c2fab687fb0e21b62f9913b9ff1e8c"
    }
   },
   "base-source-lock": {
    "native": [
-    "base 0.70",
-    "package linux-headers 6.16.1",
-    "package base-files 0.70",
-    "package iana-etc 20250807",
-    "package glibc 2.42",
-    "package tzdata 2025b",
-    "package zlib 1.3.1",
+    "base 0.80",
+    "package linux-headers 7.1.8",
+    "package base-files 0.80",
+    "package iana-etc 20260805",
+    "package glibc 2.44",
+    "package tzdata 2026c",
+    "package zlib 1.3.2",
     "package bzip2 1.0.8",
-    "package xz 5.8.1",
+    "package xz 5.8.3",
     "package zstd 1.5.7",
-    "package file 5.46",
+    "package file 5.48",
     "package ncurses 6.6",
     "package readline 8.3",
-    "package m4 1.4.20",
+    "package m4 1.4.21",
     "package bc 7.0.3",
     "package flex 2.6.4",
-    "package pkgconf 2.5.1",
-    "package binutils 2.45",
+    "package pkgconf 3.0.5",
+    "package binutils 2.47",
     "package gmp 6.3.0",
     "package mpfr 4.2.2",
-    "package mpc 1.3.1",
-    "package libxcrypt 4.4.38",
-    "package shadow 4.18.0",
-    "package gcc 15.2.0",
-    "package sed 4.9",
+    "package mpc 1.4.1",
+    "package libxcrypt 4.5.2",
+    "package shadow 4.20.2",
+    "package gcc 16.2.0",
+    "package sed 4.10",
     "package bison 3.8.2",
     "package grep 3.12",
     "package bash 5.3",
-    "package libtool 2.5.4",
-    "package perl 5.42.0",
-    "package autoconf 2.72",
+    "package libtool 2.6.2",
+    "package perl 5.44.0",
+    "package autoconf 2.73",
     "package automake 1.18.1",
     "package autoconf-archive 2026.11.11",
-    "package openssl 3.5.2",
+    "package openssl 4.0.1",
     "package curl 8.23.0",
-    "package elfutils 0.193",
-    "package libffi 3.5.2",
-    "package python 3.13.7",
-    "package confpkg 0.70",
-    "package confos 0.70",
-    "package coreutils 9.7",
+    "package elfutils 0.195",
+    "package libffi 3.8.0",
+    "package mpdecimal 4.0.1",
+    "package python 3.14.7",
+    "package confpkg 0.80",
+    "package coreutils 9.11",
     "package diffutils 3.12",
-    "package gawk 5.3.2",
-    "package findutils 4.10.0",
+    "package gawk 5.4.1",
+    "package findutils 4.11.0",
     "package gzip 1.14",
     "package make 4.4.1",
     "package patch 2.8",
     "package tar 1.35",
-    "package procps-ng 4.0.5",
-    "package util-linux 2.41.1",
-    "package e2fsprogs 1.47.3",
+    "package procps-ng 4.0.7",
+    "package util-linux 2.42.2",
+    "package e2fsprogs 1.47.4",
     "package libmnl 1.0.5",
-    "package iproute2 6.16.0",
+    "package iproute2 7.1.0",
     "package libnftnl 1.3.2",
     "package nftables 1.1.7",
     "package dropbear 2026.94",
@@ -553,9 +553,10 @@
     "package apparmor 4.1.8",
     "package squashfs-tools 4.7.5",
     "package mtools 4.0.50",
-    "package grub 2.12",
-    "package linux 6.16.1",
-    "package confos-boot 0.67",
+    "package grub 2.14",
+    "package linux 7.1.8",
+    "package confos 0.80",
+    "package confos-boot 0.80",
     "network auto 10.0.2.15/24 10.0.2.2"
    ],
    "note": "base, package and network lines of the release base.conf; its account, sudo file and keys are replaced by the case bindings below"
@@ -567,7 +568,7 @@
    "replaces_line": "account user 1000 1000 users /bin/bash /home/user"
   },
   "case-child": {
-   "unsupported": "INTERFACE 5 and EXECUTORS.md: no container runtime in 0.70"
+   "unsupported": "INTERFACE 5 and EXECUTORS.md: no container runtime in 0.80"
   },
   "case-extra-a": {
    "inputs": {
@@ -675,18 +676,18 @@
   },
   "system-update-state-T0": {
    "native": [
-    "base 0.70"
+    "base 0.80"
    ],
    "note": "INTERFACE 9: T0 is the release itself"
   },
   "system-update-state-T1": {
    "native": [
-    "base 0.70.1 rel-0.70.1 1c8074ac082299af704b3a8d39c1904b33176e67b937ce9050744e82859c4fb9",
-    "package base-files 0.70.1",
-    "package confos 0.70.1",
+    "base 0.80.1 rel-0.80.1 aab7ddab1e61c4c04d3cbf8d37876d6b41bd8a49b4f9e0c1038568714a623afb",
+    "package base-files 0.80.1",
+    "package confos 0.80.1",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.70.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.70 are replaced",
+   "note": "INTERFACE 9: the tree of 0.80.1 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.80 are replaced",
    "replaces": {
     "base": true,
     "packages": [
@@ -699,43 +700,43 @@
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 139,
-    "folder": "rel-0.70.1",
-    "release": "0.70.1",
+    "files": 146,
+    "folder": "rel-0.80.1",
+    "release": "0.80.1",
     "state": "T1",
-    "treesum": "1c8074ac082299af704b3a8d39c1904b33176e67b937ce9050744e82859c4fb9",
-    "whole_tree_sha256": "776c479673a7347f3435573dc20d447e72ef5ae0923eb7d0cebd6d1afead5ed4"
+    "treesum": "aab7ddab1e61c4c04d3cbf8d37876d6b41bd8a49b4f9e0c1038568714a623afb",
+    "whole_tree_sha256": "806fbb9daa475633765890c6f56dee8d769b8d982c0421912bb95a86cac8e930"
    }
   },
   "system-update-state-T2": {
    "native": [
-    "base 0.70.2 rel-0.70.2 aa8ee0c8f44e5cf4fe0283455947840acc5a29da11d804beb40ae7a416b41ba5",
-    "package base-files 0.70.2",
-    "package confos 0.70.2",
-    "package file 5.48",
+    "base 0.80.2 rel-0.80.2 b66caed0e27903163c29c269b86ca7a113ae916109732319e4115aa4bcdbe07c",
+    "package base-files 0.80.2",
+    "package confos 0.80.2",
+    "package iana-etc 20261119",
     "package tzdata 2026f"
    ],
-   "note": "INTERFACE 9: the tree of 0.70.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.70 are replaced",
+   "note": "INTERFACE 9: the tree of 0.80.2 (git archive of the tag) and the sources it adds are brought beside the declaration; the base line and the package lines that differ from base 0.80 are replaced",
    "replaces": {
     "base": true,
     "packages": [
      "base-files",
      "confos",
-     "file",
+     "iana-etc",
      "tzdata"
     ]
    },
    "source_inputs": {
-    "file-5.48.tar.gz": "ed14656883b23a364b4057c05595d93252da9bc473d30106519519d0da141283",
+    "iana-etc-20261119.tar.gz": "e674f0fff7df6b18b3387114b246e184e5413679a874bc28e8bde8ac2cdb2529",
     "tzdata2026f.tar.gz": "01b4a91cec5167ed48c11e8ab78f2048cead78ce94b0cafcad0ae8c5a3044d3d"
    },
    "tree_input": {
-    "files": 139,
-    "folder": "rel-0.70.2",
-    "release": "0.70.2",
+    "files": 146,
+    "folder": "rel-0.80.2",
+    "release": "0.80.2",
     "state": "T2",
-    "treesum": "aa8ee0c8f44e5cf4fe0283455947840acc5a29da11d804beb40ae7a416b41ba5",
-    "whole_tree_sha256": "2b7aaca8b0c4494baca170cc7b612d7a7a382a2fd685ec83c7a545e783bd3624"
+    "treesum": "b66caed0e27903163c29c269b86ca7a113ae916109732319e4115aa4bcdbe07c",
+    "whole_tree_sha256": "a77ea7773f7ee4aedb4ae4752ea1e12ff2c2fab687fb0e21b62f9913b9ff1e8c"
    }
   },
   "test-access-rule": {
@@ -808,10 +809,10 @@
   "@KEY@",
   "@SERVER@"
  ],
- "release": "0.70",
+ "release": "0.80",
  "schema": 1,
  "sources": {
-  "INTERFACE.md": "414b36073d56ae0ee395fab1f4cb42063713be35d677a9dabfd5faf1e6fe0ade",
-  "declarations/base.conf": "603ca2d0efebc38f967d5c9ef66e7e41dd95f880c1ba90ddaf37e6ec671aa11b"
+  "INTERFACE.md": "6c5cc2b49caa4008f6044d863cc4c3c03e22993222b5805d5860ea5d17cd9c3f",
+  "declarations/base.conf": "e092fd598ec78eef6ae5525dc641e3efa6a59495a6b165e7a5a8cfc615762884"
  }
 }

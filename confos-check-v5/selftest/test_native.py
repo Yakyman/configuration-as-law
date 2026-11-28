@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-"""Fixture tests of the native 0.70 binding. No virtual machine, no network, no system run."""
+"""Fixture tests of the native 0.80 binding. No virtual machine, no network, no system run."""
 import importlib.machinery, json, os, shlex, sys, tempfile, unittest
 from pathlib import Path
 
@@ -13,7 +13,7 @@ import core
 # The release tree is optional: tests that need it skip without it.
 TREE = Path(os.environ.get('CONFOS_RELEASE_TREE', HERE.parent / 'build'))
 # Only a tree of the bound release counts (the builder's working tree moves on).
-if not (TREE / 'declarations/base.conf').is_file() or 'base 0.70' not in (TREE / 'declarations/base.conf').read_text():
+if not (TREE / 'declarations/base.conf').is_file() or 'base 0.80' not in (TREE / 'declarations/base.conf').read_text():
     TREE = HERE / 'no-release-tree'
 # Private copies of the update-state trees and the source archive (read now: loading the
 # release's own confos program below replaces the environment of this process).
@@ -44,7 +44,7 @@ class Render(unittest.TestCase):
         b = bindings()
         decl = b.render(json.loads((HERE / 'declarations/D-test.json').read_text()))
         lines = decl.lines()
-        self.assertEqual(lines[0], 'base 0.70')
+        self.assertEqual(lines[0], 'base 0.80')
         self.assertIn('open /home/user/control', lines)
         self.assertIn('package case-probe 1 case-probe-1.recipe', lines)
         self.assertIn('setting hostname case-test', lines)
@@ -93,15 +93,15 @@ class Render(unittest.TestCase):
 
 class Identity(unittest.TestCase):
     def test_one_and_several_files(self):
-        one = N.NativeDecl({N.MAIN: b'base 0.70\n'})
-        self.assertEqual(one.identity, N.sha(b'base 0.70\n'))
-        two = N.NativeDecl({N.MAIN: b'base 0.70\ninclude p.conf\n', 'p.conf': b'package bash 5.3\n'})
-        want = N.hashlib.sha256((N.MAIN + '\0' + N.sha(b'base 0.70\ninclude p.conf\n') + '\n' +
+        one = N.NativeDecl({N.MAIN: b'base 0.80\n'})
+        self.assertEqual(one.identity, N.sha(b'base 0.80\n'))
+        two = N.NativeDecl({N.MAIN: b'base 0.80\ninclude p.conf\n', 'p.conf': b'package bash 5.3\n'})
+        want = N.hashlib.sha256((N.MAIN + '\0' + N.sha(b'base 0.80\ninclude p.conf\n') + '\n' +
                                  'p.conf\0' + N.sha(b'package bash 5.3\n') + '\n').encode()).hexdigest()
         self.assertEqual(two.identity, want)
         self.assertEqual(two.order, [N.MAIN, 'p.conf'])
         with self.assertRaises(ValueError):
-            N.NativeDecl({N.MAIN: b'base 0.70 a b c\n'})
+            N.NativeDecl({N.MAIN: b'base 0.80 a b c\n'})
         with self.assertRaises(ValueError):
             N.NativeDecl({N.MAIN: b'include ../x.conf\n'})
 
@@ -113,7 +113,7 @@ class Identity(unittest.TestCase):
         mod = loader.load_module()
         b = bindings()
         decl = b.render(json.loads((HERE / 'declarations/D-test.json').read_text()))
-        split = N.NativeDecl({N.MAIN: b'base 0.70\ninclude programs.conf\n' + b'\n'.join(
+        split = N.NativeDecl({N.MAIN: b'base 0.80\ninclude programs.conf\n' + b'\n'.join(
             l.encode() for l in decl.lines() if not l.startswith(('package', 'base'))) + b'\n',
             'programs.conf': b'\n'.join(l.encode() for l in decl.lines() if l.startswith('package')) + b'\n'}, decl.inputs)
         for d in (decl, split):
@@ -141,7 +141,9 @@ class Semantic(unittest.TestCase):
         self.assertIn(('access', '/etc/sudoers.d/case-rule'), kinds)
         self.assertIn(('account', 'root'), kinds)
         pk = [l for l in sem['lines'] if l['kind'] == 'package']
-        self.assertEqual(len(pk), 64)
+        # every package of the base (base.conf of the bound release) and the two case packages
+        base_pk = [l for l in b.release['lines']['base-source-lock']['native'] if l.startswith('package ')]
+        self.assertEqual(len(pk), len(base_pk) + 2)
         self.assertTrue(all('/etc/passwd' in l['overlay'] for l in pk))
         out = derive(sem, None)
         self.assertTrue(any('package reader unavailable' in e['reason'] for e in out['errors']))
@@ -154,7 +156,7 @@ class Semantic(unittest.TestCase):
         self.assertEqual(got[1]['value'], {'sha256': 'y'})
 
     def test_missing_recipe_is_underived(self):
-        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b'base 0.70\npackage nothing 1\n'}), None, {})
+        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b'base 0.80\npackage nothing 1\n'}), None, {})
         self.assertEqual(derive(sem, None)['errors'][0]['line'], N.MAIN + ':2')
 
 
@@ -340,7 +342,7 @@ class Live(unittest.TestCase):
 class Commands(unittest.TestCase):
     def test_every_variant_bound_or_reasoned(self):
         plans = json.loads((HERE / 'plans.json').read_text())
-        cmd = json.loads((HERE / 'bindings/commands-0.70.json').read_text())
+        cmd = json.loads((HERE / 'bindings/commands-0.80.json').read_text())
         b = bindings()
         for c in plans:
             for v in c.get('variants', []):
@@ -400,7 +402,7 @@ class EngineWiring(unittest.TestCase):
             self.assertEqual(got[('case-result', 'case-summary')], 'fail' if planted else 'pass')
 
     def test_without_recipes_checkpoint_is_unobserved(self):
-        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b'base 0.70\npackage bash 5.3\n'}), None, {})
+        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b'base 0.80\npackage bash 5.3\n'}), None, {})
         from core import derive, compare, outcome, COVERAGE
         inv = {'objects': [], 'errors': [], 'coverage': {k: {'status': 'complete', 'evidence': 'x'} for k in COVERAGE}}
         issues = compare(derive(sem, None), inv)
@@ -419,7 +421,7 @@ class Routes(unittest.TestCase):
         self.assertIsNone(N.route_kind('true', f))
 
     def test_rule_derived_by_statement(self):
-        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b"base 0.70\nrule case-ssh 'add rule inet confos input tcp dport 22 accept'\n"}), None, {})
+        sem = N.semantic_from_native(N.NativeDecl({N.MAIN: b"base 0.80\nrule case-ssh 'add rule inet confos input tcp dport 22 accept'\n"}), None, {})
         objs = [x['object'] for x in (sem if isinstance(sem, list) else sem['lines']) if x.get('kind') == 'object' and x['object']['kind'] == 'firewall-rule']
         self.assertEqual(objs, [{'kind': 'firewall-rule', 'id': 'tcp dport 22 accept', 'value': {}}])
 
@@ -438,21 +440,21 @@ class FinalComparison(unittest.TestCase):
         self.src = b'source archive bytes'
         for rel, data, x in (('recipes/demo.recipe', b'name: demo\nsource: demo-1.tar.gz %s\nsource: tools %s\n'
                               % (N.sha(self.src).encode(), b'0' * 64), False),
-                             ('files/base-files/etc/os-release', b'VERSION_ID="0.70"\n', False),
-                             ('files/confos/confos', b'VERSION = "0.70"\n', True),
+                             ('files/base-files/etc/os-release', b'VERSION_ID="0.80"\n', False),
+                             ('files/confos/confos', b'VERSION = "0.80"\n', True),
                              ('tools/confpkg', b'#!/usr/bin/python3\n', True)):
             f = self.tree / rel; f.parent.mkdir(parents=True, exist_ok=True); f.write_bytes(data)
             f.chmod(0o755 if x else 0o644)
         self.src = b'source archive bytes'
         (self.tree / 'sources.tsv').write_text('demo\t1\thttps://example.org/demo-1.tar.gz\t%s\tMIT\tnote\n' % N.sha(self.src))
         self.recipe = b'name: demo\nversion: 1\nsource: demo-1.tar.gz %s\nbuild:\ntrue\n' % N.sha(self.src).encode()
-        self.decl = N.NativeDecl({N.MAIN: b'base 0.70\npackage demo 1 demo-1.recipe\n'},
+        self.decl = N.NativeDecl({N.MAIN: b'base 0.80\npackage demo 1 demo-1.recipe\n'},
                                  {'demo-1.recipe': self.recipe, 'demo-1.tar.gz': self.src})
         self.gid = self.decl.identity
         self.manifest = self.AD.tree_manifest_local(str(self.tree))['manifest']
 
     def expected(self):
-        sem = N.semantic_from_native(self.decl, None, {}, [], None, trees={'0.70': str(self.tree)})
+        sem = N.semantic_from_native(self.decl, None, {}, [], None, trees={'0.80': str(self.tree)})
         return derive(sem, lambda line: [])
 
     def disk_info(self):
@@ -466,7 +468,7 @@ class FinalComparison(unittest.TestCase):
                 'system_store': {'packages': {'demo-1.confpkg': 'a' * 64},
                                  'archives': {'demo-1.confpkg': {'name': 'demo', 'version': '1',
                                                                  'recipe_sha256': N.sha(self.recipe), 'sources': pairs}},
-                                 'trees': [{'path': '/tree', 'manifest': self.manifest, 'files': 3, 'version_id': '0.70'}],
+                                 'trees': [{'path': '/tree', 'manifest': self.manifest, 'files': 3, 'version_id': '0.80'}],
                                  'sources': {'demo-1.tar.gz': N.sha(self.src)}, 'other_entries': []}}
 
     def compare(self, info):
@@ -484,7 +486,7 @@ class FinalComparison(unittest.TestCase):
 
     def test_derived_store_objects(self):
         keys = {(o['kind'], o['id']) for o in self.expected()['objects']}
-        for k in (('system-archive', '/system/packages/demo-1.confpkg'), ('release-tree', '0.70'),
+        for k in (('system-archive', '/system/packages/demo-1.confpkg'), ('release-tree', '0.80'),
                   ('release-source', 'demo-1.tar.gz'), ('system-store', '/system/generations/' + self.gid),
                   ('system-store', '/system/boot.cfg'), ('system-store', '/system/state/applied')):
             self.assertIn(k, keys)
@@ -532,11 +534,11 @@ class UpdateStates(unittest.TestCase):
         b = bindings()
         for st in ('T1', 'T2'):
             s = b.slot(st)
-            self.assertTrue(s['native'][0].startswith('base 0.70.'))
+            self.assertTrue(s['native'][0].startswith('base 0.80.'))
             self.assertEqual(len(s['native'][0].split()), 4)
             self.assertIn('base-files', s['replaces']['packages'])
             self.assertTrue(s['tree_input']['files'])
-        self.assertEqual(b.slot('system-update-state-T0')['native'], ['base 0.70'])
+        self.assertEqual(b.slot('system-update-state-T0')['native'], ['base 0.80'])
 
     def test_edit_and_components(self):
         trees, src = dict(UPDATE_TREES), UPDATE_SOURCES
@@ -545,7 +547,7 @@ class UpdateStates(unittest.TestCase):
         from casedefs import BY_ID
         b = bindings(); b.local = {'update_trees': trees, 'sources': src}
         g, store = guest_with_candidate({})
-        versions = {'tzdata': '2025b', 'base-files': '0.70', 'confos': '0.70', 'file': '5.46'}
+        versions = {'tzdata': '2026c', 'base-files': '0.80', 'confos': '0.80', 'iana-etc': '20260805'}
         def passport(role, text, stdin):
             name = text.split('/')[-1][:-len('.passport')]
             return {'stdout': 'confpkg 1\nname %s\nversion %s\nsource %s.tar sha256 %s\nrecipe %s.recipe sha256 %s\nbuilt-with bash-5.3\n'
@@ -556,19 +558,19 @@ class UpdateStates(unittest.TestCase):
         n.candidate = b.render(json.loads((HERE / 'declarations/D-test.json').read_text()))
         r = n.op_edit({'op': 'edit', 'action': 'replace', 'line': {'kind': 'base', 'binding': 'T1'}})
         self.assertIn(b.slot('T1')['native'][0], r['after_lines'])
-        self.assertNotIn('base 0.70', r['after_lines'])
+        self.assertNotIn('base 0.80', r['after_lines'])
         self.assertIn('package tzdata 2026f', r['after_lines'])
-        self.assertNotIn('package tzdata 2025b', r['after_lines'])
-        self.assertIn(N.CANDIDATE_DIR + '/rel-0.70.1/tools/confpkg', store)
+        self.assertNotIn('package tzdata 2026c', r['after_lines'])
+        self.assertIn(N.CANDIDATE_DIR + '/rel-0.80.1/tools/confpkg', store)
         self.assertIn(N.CANDIDATE_DIR + '/tzdata2026f.tar.gz', store)
-        versions.update({'tzdata': '2026f', 'base-files': '0.70.1', 'confos': '0.70.1'})
+        versions.update({'tzdata': '2026f', 'base-files': '0.80.1', 'confos': '0.80.1'})
         n.q_system_source_state = lambda req: {'value': 'T1'}
         q = n.q_system_components_changed({'subject': 'system-components-changed'})
         self.assertTrue(evaluate_query('system-components-changed', q)['value'])
         n.before_components['values'] = dict(q['after_components'])
         self.assertFalse(evaluate_query('system-components-changed', n.q_system_components_changed({}))['value'])
         r2 = n.op_edit({'op': 'edit', 'action': 'replace', 'line': {'kind': 'base', 'binding': 'T2'}})
-        self.assertEqual(r2['removed_inputs'] if 'removed_inputs' in r2 else n.stale_inputs, ['rel-0.70.1', 'tzdata2026f.tar.gz'])
+        self.assertEqual(r2['removed_inputs'] if 'removed_inputs' in r2 else n.stale_inputs, ['rel-0.80.1', 'tzdata2026f.tar.gz'])
 
 
 if __name__ == '__main__':

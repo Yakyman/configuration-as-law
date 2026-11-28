@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: MIT
-"""Native binding of the adapter: ConfOS 0.70, as documented by the builder's INTERFACE.md.
+"""Native binding of the adapter: ConfOS 0.80, as documented by the builder's INTERFACE.md.
 
 adapter.py, adapter_native.py and adapter_disk.py are the one adapter: the only code
 that knows how the system is built, booted, reached and read. engine.py/core.py stay
 portable. Nothing here decides a verdict; it returns raw observations with the exact
-commands and outputs. A facility that 0.70 does not have raises Unavailable with the
+commands and outputs. A facility that 0.80 does not have raises Unavailable with the
 documented reason (an unobserved row), never a refusal. BINDING.md lists every choice.
 """
 import base64, fcntl, hashlib, json, os, re, shlex, shutil, socket, subprocess, time, uuid
@@ -13,7 +13,7 @@ from pathlib import Path
 from adapter import Unavailable
 
 HERE = Path(__file__).resolve().parent
-RELEASE = '0.70'
+RELEASE = '0.80'
 # Same arity table as the release's confos program (files/confos/confos, ARITY).
 ARITY = {'base': (2, 4), 'include': (2, 2), 'package': (3, 4), 'account': (7, 7), 'group': (3, 3),
          'authorized-key': (4, 4), 'password': (3, 3), 'file': (5, 6), 'compile': (5, 99),
@@ -127,8 +127,8 @@ class Bindings:
 
     def __init__(self, private=None, root=HERE):
         self.root = Path(root)
-        self.release = json.loads((self.root / 'bindings/release-0.70.json').read_text())
-        self.cmd = json.loads((self.root / 'bindings/commands-0.70.json').read_text())
+        self.release = json.loads((self.root / 'bindings/release-0.80.json').read_text())
+        self.cmd = json.loads((self.root / 'bindings/commands-0.80.json').read_text())
         self.private = dict(private or {})
         self.local = {}                 # private machine paths (local.env native): update trees, sources
         self.exec_inputs = set()        # input files written executable (trees brought by an update)
@@ -145,7 +145,7 @@ class Bindings:
     def slot(self, name):
         s = self.release['lines'].get(name)
         if s is None:
-            raise Unavailable('binding slot not defined for 0.70: ' + name)
+            raise Unavailable('binding slot not defined for 0.80: ' + name)
         if 'unsupported' in s:
             raise Unavailable(s['unsupported'])
         return s
@@ -253,17 +253,17 @@ class Bindings:
             return ['file %s %s %d:%d %s %s' % (path, line['mode'], line['uid'], line['gid'], sha(data), rel)], {rel: data}
         if k == 'open-folder':
             if line.get('scope', 'execute') != 'execute':
-                raise Unavailable('0.70 open lines have one scope (execute)')
+                raise Unavailable('0.80 open lines have one scope (execute)')
             return ['open ' + self.expand(line['path'])[0]], {}
         if k == 'radio':
-            raise Unavailable('INTERFACE 5: no saved Wi-Fi networks or Bluetooth pairings in 0.70')
+            raise Unavailable('INTERFACE 5: no saved Wi-Fi networks or Bluetooth pairings in 0.80')
         if k == 'external-accounts':
             raise Unavailable('INTERFACE 5: no account server (question 9)')
         if k == 'container':
-            raise Unavailable('no container runtime in 0.70 (EXECUTORS.md)')
+            raise Unavailable('no container runtime in 0.80 (EXECUTORS.md)')
         if k == 'prohibition':
-            raise Unavailable('INTERFACE 5: there is no prohibition line in 0.70')
-        raise Unavailable('no native 0.70 line for semantic kind ' + k)
+            raise Unavailable('INTERFACE 5: there is no prohibition line in 0.80')
+        raise Unavailable('no native 0.80 line for semantic kind ' + k)
 
     def render(self, declaration, order=None):
         lines, inputs = [], {}
@@ -297,7 +297,7 @@ def _tree_manifest(path):
 
 
 def release_sources(tree):
-    """{file name: sha256} the `base` line brings into /system/sources (INTERFACE 7 of 0.70):
+    """{file name: sha256} the `base` line brings into /system/sources (INTERFACE 7 of 0.80):
     every source file a recipe of the release names by a plain file name (`source:` lines;
     a folder of the tree such as `tools` or `files/...` is not a source file)."""
     out = {}
@@ -717,7 +717,7 @@ def read_committed(raw):
 # ----------------------------------------------------------------- the backend
 
 class Native:
-    """Performs the operations of FORMATS.md on ConfOS 0.70 for one case execution.
+    """Performs the operations of FORMATS.md on ConfOS 0.80 for one case execution.
 
     config (private, from local.env 'native'): release tree, sources, clean package
     store, bootstrap root, subid, slots, ssh_key, ssh_port, work dir, server URL, keys.
@@ -839,7 +839,7 @@ class Native:
         op = request['op']
         fn = getattr(self, 'op_' + op.replace('-', '_'), None)
         if fn is None:
-            raise Unavailable('operation not bound for 0.70: ' + op)
+            raise Unavailable('operation not bound for 0.80: ' + op)
         return fn(request)
 
     def finish(self):
@@ -1225,7 +1225,7 @@ class Native:
             return self._setting(subject)
         fn = getattr(self, 'q_' + subject.replace('-', '_'), None)
         if fn is None:
-            raise Unavailable('query subject not bound for 0.70: ' + subject)
+            raise Unavailable('query subject not bound for 0.80: ' + subject)
         return fn(request)
 
     def _effect_text(self):
@@ -1334,8 +1334,8 @@ class Native:
         return {'value': any(l.split()[:1] == [request['package']] for l in r['stdout'].splitlines()), 'listing': r}
 
     def q_capability(self, request):
-        raise Unavailable({'container': 'no container runtime in 0.70 (EXECUTORS.md)',
-                           'in-guest-vm': 'no hypervisor program in the 0.70 base (base.conf)'}.get(request['capability'], 'capability not in 0.70'))
+        raise Unavailable({'container': 'no container runtime in 0.80 (EXECUTORS.md)',
+                           'in-guest-vm': 'no hypervisor program in the 0.80 base (base.conf)'}.get(request['capability'], 'capability not in 0.80'))
 
     def q_opening_line(self, request):
         law = self.op_read_law({'scope': 'committed'})
@@ -1388,7 +1388,7 @@ class Native:
         before, _, _ = self.read_candidate()
         cmd = x.get(request['action'] if request['action'] == 'remove' else 'add')
         if cmd is None:
-            r = {'tool': 'absent', 'returncode': None, 'reason': 'no tool for this request in 0.70; only the line can do it'}
+            r = {'tool': 'absent', 'returncode': None, 'reason': 'no tool for this request in 0.80; only the line can do it'}
         else:
             r = self.sh(request.get('role', 'root'), cmd)
         after, _, _ = self.read_candidate()
@@ -1980,8 +1980,8 @@ def make_server_files(bindings, out, store=None):
 
 
 ABSENT_OPS = {
-    'container': 'no container runtime in 0.70 (EXECUTORS.md)',
-    'guest-system': 'no hypervisor program in the 0.70 base (base.conf)',
+    'container': 'no container runtime in 0.80 (EXECUTORS.md)',
+    'guest-system': 'no hypervisor program in the 0.80 base (base.conf)',
     'external-server': 'INTERFACE 5: no account server (question 9)',
     'radio-request': 'INTERFACE 5: no radio stack in the virtual machine base; the laptop cases come later',
     'record-radio-if-needed': 'INTERFACE 5: no saved Wi-Fi networks or Bluetooth pairings',
@@ -1998,7 +1998,7 @@ def _perform(self, request):
         raise Unavailable(ABSENT_OPS[op])
     fn = getattr(self, 'op_' + op.replace('-', '_'), None)
     if fn is None:
-        raise Unavailable('operation not bound for 0.70: ' + op)
+        raise Unavailable('operation not bound for 0.80: ' + op)
     try:
         return fn(request)
     except (Unavailable, KeyError, ValueError, TypeError, OSError):
@@ -2044,10 +2044,10 @@ ABSENT_QUERIES = {
     'radio-stored': 'INTERFACE 5: no saved Wi-Fi networks or Bluetooth pairings',
     'account-lookup': 'INTERFACE 5: no account server (question 9)',
     'external-accounts-active': 'INTERFACE 5: no account server (question 9)',
-    'container-child': 'no container runtime in 0.70 (EXECUTORS.md)',
-    'process-identity': 'no container runtime in 0.70 (EXECUTORS.md)',
-    'guest-output': 'no hypervisor program in the 0.70 base',
-    'unrecorded-host-effect': 'no hypervisor program in the 0.70 base',
+    'container-child': 'no container runtime in 0.80 (EXECUTORS.md)',
+    'process-identity': 'no container runtime in 0.80 (EXECUTORS.md)',
+    'guest-output': 'no hypervisor program in the 0.80 base',
+    'unrecorded-host-effect': 'no hypervisor program in the 0.80 base',
     'download-bytes': 'INTERFACE 5 and 8: confos apply transfers nothing over the network',
     'named-fields-satisfied': 'INTERFACE 5: no "newest version" selector',
     'resolved-versions': 'INTERFACE 5: no "newest version" selector',
@@ -2071,7 +2071,7 @@ def _q_remaining(self, request):
     if not getattr(self, 'removal', None):
         raise Unavailable('removal target not prepared')
     native, inputs = self.b.native_for({'kind': 'binding', 'name': self.removal['slot']})
-    removed = NativeDecl({MAIN: ('base 0.70\n' + '\n'.join(native) + '\n').encode()}, inputs)
+    removed = NativeDecl({MAIN: ('base 0.80\n' + '\n'.join(native) + '\n').encode()}, inputs)
     sem = self._semantic(removed)
     sem['lines'] = [l for l in sem['lines'] if not l['id'].startswith(('release-', 'rendered:'))]
     reader = self.package_reader()

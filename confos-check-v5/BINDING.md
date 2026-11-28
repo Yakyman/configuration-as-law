@@ -1,6 +1,6 @@
-# Binding addendum: release 0.70
+# Binding addendum: release 0.80
 
-2026-11-27 UTC. Binds the portable cases to the builder's interface of release 0.70
+2026-11-28 UTC. Binds the portable cases to the builder's interface of release 0.80
 (`INTERFACE.md`, `EXECUTORS.md`, `FORMAT.md`, `declarations/base.conf`; their SHA-256
 values are recorded in `bindings/*.json`). First written for 0.60 before any release was
 named for a run; regenerated for 0.65 and corrected after trials on it (CORRECTIONS 2);
@@ -8,10 +8,12 @@ regenerated for 0.66, which updates the system through the declaration, and for 
 which keeps on the system partition only what the lines bring (CORRECTIONS 3); regenerated
 for 0.68, the release named for run 2, which adds the readline init-file guard and bumps
 the versions of `base-files`, `confos` and `os-release` (CORRECTIONS "Binding to release
-0.68"); regenerated for 0.70, the release named for run 3 (it replaced 0.70 before any
+0.68"); regenerated for 0.70, the release named for run 3 (it replaced 0.69 before any
 freeze), in which `confpkg build` and `confos apply` use exactly the objects they checked and no
-byte code is part of a checked folder (CORRECTIONS "Binding to release 0.70"). The update states
-below are the builder's tags `0.70.1` and `0.70.2`. No
+byte code is part of a checked folder (CORRECTIONS "Binding to release 0.70"); regenerated for
+0.80, the release named for run 4, whose base has the package versions of Linux From Scratch 13.1
+(63 packages; CORRECTIONS "Binding to release 0.80"). The update states
+below are the builder's tags `0.80.1` and `0.80.2`. No
 operating-system result is reported here.
 
 The adapter is `adapter.py` + `adapter_native.py` + `adapter_disk.py`: the only code
@@ -23,8 +25,8 @@ that knows how the system is built, booted, reached and read. The checking progr
 
 | file | generator | content |
 |---|---|---|
-| `bindings/release-0.70.json` | `tools/make_bindings.py --interface FILE --base-conf FILE` | every binding slot of `declarations/*.json` → native lines and input files, or `unsupported` with the reason; release layout and derivation table (section 4) |
-| `bindings/commands-0.70.json` | `tools/make_commands.py --interface FILE --executors FILE --base-conf FILE` | tokens and preludes, the command of every variant (94 variants of 21 cases), probes, X-REC requests, removal and change targets, server files |
+| `bindings/release-0.80.json` | `tools/make_bindings.py --interface FILE --base-conf FILE` | every binding slot of `declarations/*.json` → native lines and input files, or `unsupported` with the reason; release layout and derivation table (section 4) |
+| `bindings/commands-0.80.json` | `tools/make_commands.py --interface FILE --executors FILE --base-conf FILE` | tokens and preludes, the command of every variant (94 variants of 21 cases), probes, X-REC requests, removal and change targets, server files |
 
 Both record the SHA-256 of the payload files they use; the adapter refuses to start if
 a payload changed after the freeze.
@@ -35,7 +37,7 @@ a payload changed after the freeze.
   file `declaration.conf` with its inputs beside it (recipes, sources, `files/<id>`).
   The split case writes `include programs.conf`.
 - `base-source-lock` = the `base`, `package` and `network` lines of the release's
-  `base.conf` (62 packages). Its account, sudo file and key file are replaced by:
+  `base.conf` (63 packages). Its account, sudo file and key file are replaced by:
 - `test-account-and-login`: `account user 1000 1000 users /bin/bash /home/user`, one
   `authorized-key` line for `user` and one for `root` (the key is private, `local.env`),
   `open /home/user/control`, `open /root/control` — the opened folders of the positive
@@ -49,7 +51,7 @@ a payload changed after the freeze.
   `BUILT ... identity` line, `confos check`, the `CONFOS READY` line and `confos status`.
   A fixture test checks the adapter's parser and identity against the release's own
   `Declaration` class.
-- Unsupported in 0.70, so their cases stay unobserved (reason in the row): latest
+- Unsupported in 0.80, so their cases stay unobserved (reason in the row): latest
   selector (W3d-LATEST), account server (Q9-SOURCE), saved Wi-Fi/Bluetooth (X-WIFI,
   X-BT, OW-10, OW-11, G-SAVED-NETWORK), shared dependency between package lines
   (REM-4), prohibition line (W4c-DEFAULT second half), container (G-CONTAINER),
@@ -57,7 +59,7 @@ a payload changed after the freeze.
   P2-NET-1: `confos apply` reads recipe and sources beside the declaration), loadable
   modules (G-MODULE, X-REC-MODULE), per-user services/timers/linger (several variants).
 - Update states (INTERFACE 9; OW-2, then OW-3 on the same installation): T0 is the release
-  itself (`base 0.70`); T1 and T2 are the builder's tags `0.70.1` and `0.70.2`. The slots
+  itself (`base 0.80`); T1 and T2 are the builder's tags `0.80.1` and `0.80.2`. The slots
   `T1`/`T2` hold the native lines `base RELEASE rel-RELEASE TREESUM` and the package lines
   that differ from T0 (`tools/make_bindings.py --update STATE RELEASE TREE`, TREE = `git
   archive` of the tag; TREESUM by the release's own `confpkg treesum`, as INTERFACE 9 tells a
@@ -69,7 +71,7 @@ a payload changed after the freeze.
 
 ## 3. Lifecycle and transport
 
-| operation | 0.70 binding |
+| operation | 0.80 binding |
 |---|---|
 | fresh | render; copy the clean package store by hard links (originals unchanged); run `python3 /confos/tools/confos-assemble /decl/declaration.conf /packages /confos /sources /out/disk.raw` inside the clean bootstrap root, entered as root of a user namespace (PROCEDURE 3 and 6); the identity of the `BUILT` line must equal the adapter's |
 | boot | QEMU exactly as `scripts/boot.sh` (q35, OVMF, virtio disk, user networking, SSH forwarded on 127.0.0.1) plus one QMP socket; a machine slot (1–4) is taken first; at most 8 GiB and 4 vCPU; wait for `CONFOS READY <identity>`, then SSH |
@@ -118,7 +120,7 @@ link-local addresses are `undecided` (QUESTIONS 10).
 
 ## 5. Variants, probes, controls
 
-Every variant of every case is in `bindings/commands-0.70.json`: a command, or
+Every variant of every case is in `bindings/commands-0.80.json`: a command, or
 `unsupported` with the document and line, or `covered_by` (two cross-reference
 variants whose route is a variant of another case). Probe protocol: exit 0 present,
 1 absent, anything else unobservable. A missing tool makes the case unobserved, never

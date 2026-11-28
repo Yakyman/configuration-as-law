@@ -33,12 +33,12 @@ reads `confos-check/` and `confos-check-extra/` under PATH; its default is the
 parent of this set. It is not part of the self-test. Its generated PORT.md and
 port.json are already included.
 
-The native binding to release 0.70 is BINDING.md (adapter_native.py,
-adapter_disk.py, bindings/). It was generated from the builder's interface of 0.70, the
-release named for run 3, with its update states 0.70.1 and 0.70.2, and tried on that
+The native binding to release 0.80 is BINDING.md (adapter_native.py,
+adapter_disk.py, bindings/). It was generated from the builder's interface of 0.80, the
+release named for run 4, with its update states 0.80.1 and 0.80.2, and tried on that
 release before the freeze (trials are not
 runs and report nothing about the system); CORRECTIONS.md lists every change since the
-first publication. Facilities that 0.70 does not have give unobserved rows with the
+first publication. Facilities that 0.80 does not have give unobserved rows with the
 documented reason. ASSUMPTIONS.md records how each assumption was resolved.
 Real Wi-Fi and Bluetooth actions require later hardware observations. Fixture
 success supplies none of these observations.
